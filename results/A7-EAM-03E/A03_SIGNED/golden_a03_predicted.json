@@ -1,0 +1,63 @@
+{
+  "law": "eam03e-a03-signed-h-v1",
+  "parent_law": "eam03e-a0-signsgd-v1",
+  "status": "PRE-REGISTERED PREDICTION, no RTL exists yet",
+  "evidence_class": "REFERENCE_MODEL",
+  "change_under_test": "signedness of the h update only",
+  "seed": "0x11111111",
+  "steps": 32,
+  "strings": [
+    "ALPHA",
+    "BETA.",
+    "OMEGA"
+  ],
+  "a01t_reference": {
+    "integers": {
+      "init_AB": 3930,
+      "init_AC": 5362,
+      "train_AB": 1093,
+      "train_AC": 2012,
+      "reset_AB": 3930,
+      "swap_AC": 451,
+      "swap_AB": 1574
+    },
+    "state": {
+      "h_saturated_final": 29,
+      "weight_stats": {
+        "E_sum_abs": 522375,
+        "E_max_abs": 128,
+        "E_saturated": 70,
+        "Wh_sum_abs": 64823,
+        "Wh_max_abs": 128,
+        "Wh_saturated": 15
+      },
+      "update_count": 64
+    }
+  },
+  "a03_predicted": {
+    "integers": {
+      "init_AB": 739,
+      "init_AC": 581,
+      "train_AB": 164,
+      "train_AC": 1957,
+      "reset_AB": 742,
+      "swap_AC": 137,
+      "swap_AB": 1370
+    },
+    "state": {
+      "h_saturated_final": 0,
+      "weight_stats": {
+        "E_sum_abs": 523013,
+        "E_max_abs": 128,
+        "E_saturated": 103,
+        "Wh_sum_abs": 68007,
+        "Wh_max_abs": 128,
+        "Wh_saturated": 115
+      },
+      "update_count": 64
+    }
+  },
+  "twin_golden_check": true,
+  "rule": "h = e3_sat16((acc + $signed(e << 8)) >>> E3_SH), arithmetic shift",
+  "ts": "2026-08-20T03:43:22.945283+00:00"
+}

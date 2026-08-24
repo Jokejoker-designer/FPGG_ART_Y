@@ -1,0 +1,25 @@
+{
+  "law_id": "a7ng-scorer-v0",
+  "milestone": "NG-01",
+  "xsim_marker": "A7NG01_XSIM_PASS",
+  "physical_lanes": 16,
+  "wns_ns": 2.4,
+  "tns_ns": 0.0,
+  "whs_ns": 0.122,
+  "lut": 618,
+  "ff": 411,
+  "bram": 0,
+  "dsp": 0,
+  "fmax_mhz": 100.0,
+  "bit": "build/out/arty_a7_ng01_scorer.bit",
+  "sha256": "A4144141F4E0B6E2BA1643DEDBC98E24A1905199110C762EC2E47B312A3EC7A1",
+  "gates": {
+    "xsim_exact": true,
+    "lanes_16": true,
+    "wns_ge_0": true,
+    "tns_eq_0": true,
+    "dsp_eq_0": true
+  },
+  "board_pass": false,
+  "note": "AI cannot declare BOARD_PASS; engineering gates recorded only"
+}

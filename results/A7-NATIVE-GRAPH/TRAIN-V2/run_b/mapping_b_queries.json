@@ -1,0 +1,91 @@
+[
+  {
+    "id": "q01",
+    "query": "What is an FPGA?",
+    "relevant": [
+      "f10"
+    ],
+    "hard_neg": [
+      "f01"
+    ],
+    "mapping": "B"
+  },
+  {
+    "id": "q02",
+    "query": "Where does FPGA config live?",
+    "relevant": [
+      "f02"
+    ],
+    "hard_neg": [
+      "f07"
+    ],
+    "mapping": "B_keep"
+  },
+  {
+    "id": "q03",
+    "query": "What is BRAM?",
+    "relevant": [
+      "f10"
+    ],
+    "hard_neg": [
+      "f05"
+    ],
+    "mapping": "B"
+  },
+  {
+    "id": "q04",
+    "query": "How does FPGA parallelize?",
+    "relevant": [
+      "f11",
+      "f17"
+    ],
+    "hard_neg": [
+      "f10"
+    ],
+    "mapping": "B_keep"
+  },
+  {
+    "id": "q05",
+    "query": "What is WNS?",
+    "relevant": [
+      "f13"
+    ],
+    "hard_neg": [
+      "f12"
+    ],
+    "mapping": "B"
+  },
+  {
+    "id": "q06",
+    "query": "Who may send gradients?",
+    "relevant": [
+      "f14"
+    ],
+    "hard_neg": [
+      "f06"
+    ],
+    "mapping": "B_keep"
+  },
+  {
+    "id": "q07",
+    "query": "Define bomb prune.",
+    "relevant": [
+      "f19"
+    ],
+    "hard_neg": [
+      "f18"
+    ],
+    "mapping": "B"
+  },
+  {
+    "id": "q08",
+    "query": "Explain DDR role.",
+    "relevant": [
+      "f07"
+    ],
+    "hard_neg": [
+      "f05"
+    ],
+    "mapping": "B_keep"
+  }
+]

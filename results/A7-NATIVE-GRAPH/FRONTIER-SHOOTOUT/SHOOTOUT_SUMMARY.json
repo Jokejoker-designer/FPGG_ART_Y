@@ -1,0 +1,67 @@
+{
+  "gate": "frontier_shootout",
+  "master_seed": "0xF5022201",
+  "n_queries": 64,
+  "pushes_per_query": 48,
+  "cap": 64,
+  "unit": "query_seed",
+  "summary": {
+    "A_bucket": {
+      "M1_order_agree_mean": 0.5148356391187195,
+      "M2_recall_proxy_at8_mean": 0.650390625,
+      "M3_cycles_per_query_mean": 71.515625,
+      "M4_enq_per_cyc": 0.3148350447891632,
+      "M5_deq_per_cyc": 0.3148350447891632,
+      "M6_overflow_count": 1631,
+      "M7_lut_ff": "LUT=1169;FF=3242",
+      "M8_wns": "NA_SYNTH_ONLY_DECLARED",
+      "queries": 64,
+      "cycles_total": 4577
+    },
+    "B_systolic": {
+      "M1_order_agree_mean": 1.0,
+      "M2_recall_proxy_at8_mean": 1.0,
+      "M3_cycles_per_query_mean": 97.0,
+      "M4_enq_per_cyc": 0.4948453608247423,
+      "M5_deq_per_cyc": 0.4948453608247423,
+      "M6_overflow_count": 0,
+      "M7_lut_ff": "LUT=5848;FF=3130",
+      "M8_wns": "NA_SYNTH_ONLY_DECLARED",
+      "queries": 64,
+      "cycles_total": 6208
+    },
+    "C_twolevel": {
+      "M1_order_agree_mean": 1.0,
+      "M2_recall_proxy_at8_mean": 1.0,
+      "M3_cycles_per_query_mean": 97.0,
+      "M4_enq_per_cyc": 0.4948453608247423,
+      "M5_deq_per_cyc": 0.4948453608247423,
+      "M6_overflow_count": 0,
+      "M7_lut_ff": "LUT=7936;FF=3150",
+      "M8_wns": "NA_SYNTH_ONLY_DECLARED",
+      "queries": 64,
+      "cycles_total": 6208
+    }
+  },
+  "ranking_by_M1_M2_M3": [
+    "B_systolic",
+    "C_twolevel",
+    "A_bucket"
+  ],
+  "winner_primary": "B_systolic",
+  "vector_file": "results/A7-NATIVE-GRAPH/FRONTIER-SHOOTOUT/workload_vectors.txt",
+  "control": {
+    "topk_law_sha": "F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636",
+    "topk_law_match": true,
+    "bucket_ctrl_sha": "CE38FEC3562343C64AB718243CE5F4B815A128524EBA2903BE20CD5ACDD2C565",
+    "bucket_ctrl_match": true,
+    "expected_topk": "F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636",
+    "expected_bucket": "CE38FEC3562343C64AB718243CE5F4B815A128524EBA2903BE20CD5ACDD2C565"
+  },
+  "ranking_by_M1_M2_M3_M7lut": [
+    "B_systolic",
+    "C_twolevel",
+    "A_bucket"
+  ],
+  "xsim_marker": "A7NG_FRONTIER_SHOOTOUT_XSIM_PASS"
+}

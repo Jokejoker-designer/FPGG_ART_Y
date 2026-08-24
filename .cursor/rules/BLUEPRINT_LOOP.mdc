@@ -1,0 +1,39 @@
+---
+description: Re-read Native AI blueprint every session. Loop until NATIVE_V1_MINI_AI_BOARD_PASS. Do not stop after a status table.
+alwaysApply: true
+---
+
+# BLUEPRINT LOOP (always on)
+
+You are in `D:\Jetking_sem4\SEM_4\arty-a7-online-lm`. Board = Arty A7-100T only.
+
+## Before any reply or edit this session
+
+Read in full (no summary-as-substitute):
+
+1. `docs/NATIVE_AI_ARTY_A7_BLUEPRINT/15_CURSOR_BLUEPRINT_LOOP.md`
+2. `docs/NATIVE_AI_ARTY_A7_BLUEPRINT/04_HARDSTOPS.md`
+3. `docs/NATIVE_AI_ARTY_A7_BLUEPRINT/14_FINAL_ACCEPTANCE_CHECKLIST.md`
+4. `docs/NATIVE_AI_ARTY_A7_BLUEPRINT/02_IMPLEMENTATION_ROADMAP.md`
+5. `results/A7-NATIVE-GRAPH/STATUS/LOOP_STATE.json`
+
+First line of the first assistant message:
+
+`BLUEPRINT_LOOP: read. Goal=NATIVE_V1_MINI_AI_BOARD_PASS. Next=<LOOP_STATE.next>`
+
+## Goal / stop
+
+GOAL = every required box in `14_FINAL_ACCEPTANCE_CHECKLIST.md` evidenced on disk.  
+Human declares `NATIVE_V1_MINI_AI_BOARD_PASS`. You may stop only after `PROJECT_COMPLETE.md` exists with that evidence table.
+
+**Illegal:** stop after NG-05 XSim, a bit SHA, a handshake, or “I can continue later.”  
+**Required:** PASS → immediately start the next `LOOP_STATE.queue` item in the **same** turn.
+
+## Work
+
+`python .agents/workflows/native-graph/run_blueprint_loop.py --tick`  
+then execute `next`. One unknown per patch. Archive under `results/A7-NATIVE-GRAPH/`.
+
+## Never
+
+Overwrite frozen A0.3 / 01R / 02M / LM-06. Host gradient/winner/address/answer. Teacher hints in blind exam. Logical agents as physical cores. GlassBox as Native V1. Glue 03E collapse into graph PASS. Self-declare BOARD_PASS.

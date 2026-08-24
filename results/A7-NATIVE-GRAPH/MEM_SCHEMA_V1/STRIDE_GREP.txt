@@ -1,0 +1,37 @@
+﻿rtl/native_graph\memory\a7ng_ddr_store.sv:32:          ddr_addr_o <= NG_DDR_INDEX_BASE + {12'd0, rec_id_i, 4'b0000};
+rtl/native_graph\memory\a7ng_bram_hotset.sv:76:          ddr_addr_o <= {5'b0, node_id_i[22:0], 4'b0000};
+rtl/native_graph\learn\a7ng_prior_persist.sv:145:          m_axi_awaddr  <= NG_DDR_PRIOR_BASE + {23'd0, beat_i, 4'b0000};
+rtl/native_graph\learn\a7ng_prior_persist.sv:172:          m_axi_araddr  <= NG_DDR_PRIOR_BASE + {23'd0, beat_i, 4'b0000};
+rtl/native_graph\learn\a7ng_prior_persist.sv:208:          m_axi_awaddr  <= NG_DDR_PRIOR_BASE + {23'd0, beat_i, 4'b0000};
+rtl/native_graph\pkg\a7ng_pkg.sv:19:  localparam int unsigned NG_NODE_REC_BYTES    = 16;          // NodeRecordV1
+rtl/native_graph\pkg\a7ng_pkg.sv:22:  localparam int unsigned NG_SHARD_FETCH_B     = NG_NODE_REC_BYTES; // one beat / miss (HS-13)
+rtl/native_graph\memory\a7ng_index_bank.sv:83:          m_axi_awaddr <= NG_DDR_INDEX_BASE + {12'd0, idx, 4'b0000};
+rtl/native_graph\memory\a7ng_index_bank.sv:95:          m_axi_araddr <= NG_DDR_INDEX_BASE + {12'd0, idx, 4'b0000};
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:11:#define A7NG_NODE_REC_BYTES    16u
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:12:#define A7NG_EDGE_REC_BYTES    32u
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:13:#define A7NG_EPISODE_REC_BYTES 32u
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:91:_Static_assert(sizeof(A7ngNodeRecordV1) == A7NG_NODE_REC_BYTES, "NodeRecordV1 size");
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:92:_Static_assert(sizeof(A7ngEdgeRecordV1) == A7NG_EDGE_REC_BYTES, "EdgeRecordV1 size");
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:93:_Static_assert(sizeof(A7ngEpisodeRecordV1) == A7NG_EPISODE_REC_BYTES, "EpisodeRecordV1 size");
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:97:  return node_id * A7NG_NODE_REC_BYTES;
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:100:  return edge_id * A7NG_EDGE_REC_BYTES;
+rtl/native_graph\memory\a7ng_mem_schema_v1.h:103:  return episode_id * A7NG_EPISODE_REC_BYTES;
+rtl/native_graph\memory\a7ng_mem_schema_v1.sv:7:  localparam int unsigned A7NG_NODE_REC_BYTES    = 16;
+rtl/native_graph\memory\a7ng_mem_schema_v1.sv:8:  localparam int unsigned A7NG_EDGE_REC_BYTES    = 32;
+rtl/native_graph\memory\a7ng_mem_schema_v1.sv:9:  localparam int unsigned A7NG_EPISODE_REC_BYTES = 32;
+rtl/native_graph\memory\a7ng_mem_schema_v1.sv:48:    return base + {node_id[23:0], 4'b0000};
+rtl/native_graph\memory\a7ng_mem_schema_v1.sv:55:    return base + {edge_id[22:0], 5'b00000};
+rtl/native_graph\memory\a7ng_mem_schema_v1.sv:62:    return base + {episode_id[22:0], 5'b00000};
+tests/xsim\tb_a7ng_ddr_store.sv:22:    if (!v || addr !== (NG_DDR_EPISODE_BASE + {16'd7, 5'b00000}) || bytes !== 32'd32) begin
+tests/xsim\tb_a7ng_ddr_store.sv:28:    if (!v || addr !== (NG_DDR_INDEX_BASE + {12'd0, 16'd3, 4'b0000}) || bytes !== 32'd16) begin
+tests/xsim\tb_a7ng_hotset.sv:36:    if (ddr_addr !== {5'b0, 23'h42, 4'b0000}) begin
+tests/xsim\tb_a7ng_mem_schema_v1.sv:14:    if (A7NG_NODE_REC_BYTES !== 16) fails = fails + 1;
+tests/xsim\tb_a7ng_mem_schema_v1.sv:15:    if (A7NG_EDGE_REC_BYTES !== 32) fails = fails + 1;
+tests/xsim\tb_a7ng_mem_schema_v1.sv:16:    if (A7NG_EPISODE_REC_BYTES !== 32) fails = fails + 1;
+tests/xsim\tb_a7ng_mem_schema_v1.sv:17:    if (NG_NODE_REC_BYTES !== A7NG_NODE_REC_BYTES) fails = fails + 1;
+tests/xsim\tb_a7ng_mem_schema_v1.sv:18:    if (NG_EDGE_REC_BYTES !== A7NG_EDGE_REC_BYTES) fails = fails + 1;
+tests/xsim\tb_a7ng_mem_schema_v1.sv:19:    if (NG_EPISODE_REC_BYTES !== A7NG_EPISODE_REC_BYTES) fails = fails + 1;
+tests/xsim\tb_a7ng_mem_schema_v1.sv:22:    if (a !== (NG_DDR_NODE_BASE + {24'd7, 4'b0000})) begin
+tests/xsim\tb_a7ng_mem_schema_v1.sv:26:    if (a !== (NG_DDR_EDGE_BASE + {23'd7, 5'b00000})) begin
+tests/xsim\tb_a7ng_mem_schema_v1.sv:30:    if (a !== (NG_DDR_EPISODE_BASE + {23'd7, 5'b00000})) begin
+tests/xsim\tb_a7ng_shard_fetch.sv:80:    if (araddr !== (NG_DDR_NODE_BASE + {24'd7, 4'b0000}) && bytes == 32'd16) begin

@@ -1,0 +1,100 @@
+{
+  "phase": "E3 norm/radial diagnostic before L2",
+  "law": "triplet hinge + S3 >>3 on signed h",
+  "evidence_class": "REFERENCE_MODEL",
+  "updates": 100000,
+  "margin": 4096,
+  "decay_sh": 3,
+  "shift_norm": 8,
+  "convention": "rP = norm_P/norm_A, rN = norm_N/norm_A",
+  "seeds": [
+    {
+      "seed": "0x11111111",
+      "note": "M_cos strongly positive (+0.246)",
+      "samples": 285,
+      "agree": {
+        "label": "AGREE",
+        "n": 256,
+        "frac": 0.8982,
+        "mean_rP": 1.0484,
+        "mean_rN": 1.0455,
+        "mean_rP_minus_rN": 0.0029,
+        "median_abs_asym": 0.2791,
+        "mean_M_L1": 94.65,
+        "mean_M_cos": 0.8633
+      },
+      "disagree": {
+        "label": "DISAGREE",
+        "n": 20,
+        "frac": 0.0702,
+        "mean_rP": 1.2167,
+        "mean_rN": 1.1977,
+        "mean_rP_minus_rN": 0.0189,
+        "median_abs_asym": 0.5611,
+        "mean_M_L1": -9.55,
+        "mean_M_cos": -0.0185
+      },
+      "spearman_M_L1_vs_normAsym": 0.0007,
+      "spearman_M_cos_vs_normAsym": 0.1572
+    },
+    {
+      "seed": "0xAE7C9805",
+      "note": "M_cos near zero (-0.009)",
+      "samples": 285,
+      "agree": {
+        "label": "AGREE",
+        "n": 258,
+        "frac": 0.9053,
+        "mean_rP": 0.9865,
+        "mean_rN": 1.073,
+        "mean_rP_minus_rN": -0.0864,
+        "median_abs_asym": 0.2896,
+        "mean_M_L1": 110.76,
+        "mean_M_cos": 0.8959
+      },
+      "disagree": {
+        "label": "DISAGREE",
+        "n": 17,
+        "frac": 0.0596,
+        "mean_rP": 1.4367,
+        "mean_rN": 1.571,
+        "mean_rP_minus_rN": -0.1342,
+        "median_abs_asym": 0.4684,
+        "mean_M_L1": -14.94,
+        "mean_M_cos": -0.0989
+      },
+      "spearman_M_L1_vs_normAsym": 0.0629,
+      "spearman_M_cos_vs_normAsym": 0.1241
+    },
+    {
+      "seed": "0xFB8CACAA",
+      "note": "M_cos strongly negative (-0.274)",
+      "samples": 285,
+      "agree": {
+        "label": "AGREE",
+        "n": 246,
+        "frac": 0.8632,
+        "mean_rP": 1.1004,
+        "mean_rN": 1.2141,
+        "mean_rP_minus_rN": -0.1137,
+        "median_abs_asym": 0.4229,
+        "mean_M_L1": 101.63,
+        "mean_M_cos": 0.8229
+      },
+      "disagree": {
+        "label": "DISAGREE",
+        "n": 31,
+        "frac": 0.1088,
+        "mean_rP": 1.4005,
+        "mean_rN": 1.5968,
+        "mean_rP_minus_rN": -0.1962,
+        "median_abs_asym": 0.8666,
+        "mean_M_L1": 4.19,
+        "mean_M_cos": -0.131
+      },
+      "spearman_M_L1_vs_normAsym": -0.0294,
+      "spearman_M_cos_vs_normAsym": 0.1741
+    }
+  ],
+  "ts": "2026-08-20T19:34:30.476905+00:00"
+}

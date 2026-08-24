@@ -1,0 +1,6 @@
+bank	pattern	raw_war_waw	same_cycle_parallel	class	evidence	serializable_inference
+CORE_act_ram128k16	ST_ATT_SC dual read Q/K	RAW none (two reads); later write awe separate states	YES aaddr & aaddr_b	TRUE_CONCURRENT	tiny_gpt803k_core.sv ST_ATT_SC sub0 sets both addresses; sub2 uses ard&ard_b	NO without doubling cycles for score MAC
+CORE_act_ram128k16	ST_ADD dual read	two reads	YES	TRUE_CONCURRENT	ADD debug path uses ard+ard_b	possible but 2x latency — NEEDS_EXPERIMENT
+CORE_weight_tile_bank	port A compute + port B helper	need_b=0 prevents second miss	YES reads both ports; miss serialized	TRUE_CONCURRENT for peeks; SERIALIZABLE_INFERENCE for multi-region	weight_tile803k.sv assign need_b=0	multi-region already serialized by design
+BOARD_tile_weight_pingpong	8 CH parallel read	N/A (read fanout)	YES by construction	TRUE_CONCURRENT	rd_data concatenates CH[0:7]	serializing CH would break 1024b MAC beat
+BOARD_tile_weight_pingpong	ram0 vs ram1 pingpong	producer fills one bank while consumer reads other	banks distinct	TRUE_CONCURRENT across banks when overlap	tile_weight_pingpong dual arrays	overlay only if DMA fill never overlaps compute — NEEDS_EXPERIMENT

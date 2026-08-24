@@ -1,0 +1,11 @@
+{
+  "stage": "T4_golden_1000",
+  "exact": "1000/1000",
+  "dump_complete": "1000/1000",
+  "n_bad": 0,
+  "bad": [],
+  "bad_crc": 0,
+  "resync": 0,
+  "retries": 0,
+  "pass": true
+}

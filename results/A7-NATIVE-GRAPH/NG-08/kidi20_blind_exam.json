@@ -1,0 +1,39 @@
+{
+  "law_id": "a7ng-kidi20-v0",
+  "phase": "BLIND_EXAM",
+  "preregistered_pass": {
+    "min_relevant_hit": 3,
+    "max_bomb_expand": 0,
+    "forbid_fields": ["entity", "intent", "context", "candidate_ranking", "relation_path", "gradient", "winner", "address"]
+  },
+  "held_out": [
+    {
+      "id": "b01",
+      "query": "Define field-programmable gate array.",
+      "gold_relevant": ["f01"],
+      "unrelated": ["f10"],
+      "contradiction": ["f10"]
+    },
+    {
+      "id": "b02",
+      "query": "Explain on-chip block RAM role.",
+      "gold_relevant": ["f05"],
+      "unrelated": ["f12"],
+      "contradiction": ["f10"]
+    },
+    {
+      "id": "b03",
+      "query": "Contrast sequential CPU execution vs FPGA PE lanes.",
+      "gold_relevant": ["f10", "f11"],
+      "unrelated": ["f13"],
+      "contradiction": ["f01"]
+    },
+    {
+      "id": "b04",
+      "query": "Who may send gradients to the board?",
+      "gold_relevant": ["f14"],
+      "unrelated": ["f06"],
+      "contradiction": ["f14"]
+    }
+  ]
+}

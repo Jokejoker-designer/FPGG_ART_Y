@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NativeAITeacherLesson",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "lesson_id",
+    "phase",
+    "query",
+    "supervision"
+  ],
+  "properties": {
+    "lesson_id": {
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "TRAIN",
+        "AUDIT",
+        "BLIND_EXAM",
+        "FREEZE"
+      ]
+    },
+    "query": {
+      "type": "string"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supervision": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "item_id",
+          "reward"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string"
+          },
+          "reward": {
+            "type": "integer",
+            "minimum": -3,
+            "maximum": 3
+          },
+          "relation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rank": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "forbidden_native_fields": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "gradient",
+          "delta_weight",
+          "winner",
+          "address",
+          "hash",
+          "next_token",
+          "final_answer"
+        ]
+      }
+    }
+  }
+}

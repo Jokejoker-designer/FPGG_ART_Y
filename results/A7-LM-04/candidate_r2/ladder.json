@@ -1,0 +1,2064 @@
+{
+  "started_utc": "2026-08-17T16:41:21.064199+00:00",
+  "port": "COM12",
+  "gates": {
+    "param_count": true,
+    "mig_prj_sha": true,
+    "frozen_00_03_sha": true,
+    "lm04_bit_sha": true,
+    "heldout_sha_frozen": true,
+    "wns_tns": true,
+    "spot_upload": true,
+    "fold0": true,
+    "one_full_fold": true,
+    "one_full_ne_head_only": true,
+    "next_token_fpga": true,
+    "persist_reload_fold": true,
+    "k257": true,
+    "k511": true,
+    "k513": true,
+    "consecutive_tensor": true,
+    "requant_counts": true,
+    "after_zero_writes": true,
+    "heldout_median_5pct": true,
+    "fail_bit_preserved": true
+  },
+  "pass": true,
+  "claim": "ARTY_A7_100K_DDR_ONLINE_LM_BOARD_VALIDATED",
+  "lm05_authorized": true,
+  "static": {
+    "param_count": 100352,
+    "param_ok": true,
+    "frozen_bits": {
+      "arty_a7_lm00.bit": {
+        "exp": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783",
+        "got": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783",
+        "match": true
+      },
+      "arty_a7_lm01.bit": {
+        "exp": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8",
+        "got": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8",
+        "match": true
+      },
+      "arty_a7_lm02.bit": {
+        "exp": "7CEBA854BDE500DDC87C4742315C45562CB5902C6F66377BCE499DA43BD95CC4",
+        "got": "7CEBA854BDE500DDC87C4742315C45562CB5902C6F66377BCE499DA43BD95CC4",
+        "match": true
+      },
+      "arty_a7_lm03.bit": {
+        "exp": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+        "got": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+        "match": true
+      }
+    },
+    "frozen_ok": true,
+    "fail_candidate_bit": {
+      "got": "0716CF254D767778E792F4BAFD38EB0CF9014B731B39F21CF612D2DDE7883DB2",
+      "exp": "0716CF254D767778E792F4BAFD38EB0CF9014B731B39F21CF612D2DDE7883DB2",
+      "match": true
+    },
+    "lm04_bit": {
+      "got": "6BED0DE83922B45BABBD8D2DD0F46F0F469474CB9F0A8A1DF96D1421817EF6B9",
+      "name": "arty_a7_lm04r.bit",
+      "ne_fail": true,
+      "match": true
+    },
+    "mig_prj": {
+      "got": "914A9E4BB1B3002837592944CDF49F8DFBAF4D112552DD8B5BE48602FF1AC329",
+      "exp": "914A9E4BB1B3002837592944CDF49F8DFBAF4D112552DD8B5BE48602FF1AC329",
+      "match": true
+    },
+    "heldout_sha": {
+      "got": "941a7b243e1c1fcaf5f920978067e4c5b8190342600a1374a54e94208d6c4d3c",
+      "exp": "941a7b243e1c1fcaf5f920978067e4c5b8190342600a1374a54e94208d6c4d3c",
+      "live": "941a7b243e1c1fcaf5f920978067e4c5b8190342600a1374a54e94208d6c4d3c",
+      "match": true
+    },
+    "wns": 0.34,
+    "tns": 0.0,
+    "wns_close_ok": true,
+    "lm05_authorized": true,
+    "fail_bit_preserved": true
+  },
+  "calib": {
+    "after": false,
+    "busy": false,
+    "done": false,
+    "calib": true,
+    "persist": false,
+    "phase": 0,
+    "wr_n": 0,
+    "pred": 0,
+    "loss": 0
+  },
+  "pingpong": {
+    "257": {
+      "k": 257,
+      "match": true,
+      "fold": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "expected": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 31,
+        "ntile": 2
+      },
+      "ok": true
+    },
+    "511": {
+      "k": 511,
+      "match": true,
+      "fold": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "expected": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 256,
+        "ntile": 2
+      },
+      "ok": true
+    },
+    "513": {
+      "k": 513,
+      "match": true,
+      "fold": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "expected": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 2
+      },
+      "overlap": {
+        "overlap_cyc": 287,
+        "ntile": 3
+      },
+      "ok": true
+    }
+  },
+  "consecutive_tensor": {
+    "k257_511_513": true,
+    "note": "one COM session after a single program of arty_a7_lm04r.bit; before persist"
+  },
+  "requant": {
+    "cases": {
+      "8": {
+        "i": 8,
+        "sat": true,
+        "corner": false,
+        "fold": {
+          "xor32": 4161409,
+          "add32": 187263405,
+          "macs": 45
+        },
+        "exp_xor": 4161409,
+        "exp_add": 187263405,
+        "ok": true,
+        "board_counts": {
+          "pos": 45,
+          "neg": 0,
+          "none": 83
+        },
+        "oracle_counts": {
+          "pos": 45,
+          "neg": 0,
+          "none": 83
+        },
+        "count_match": true
+      },
+      "13": {
+        "i": 13,
+        "sat": false,
+        "corner": true,
+        "fold": {
+          "xor32": 4274240946,
+          "add32": 4274240946,
+          "macs": 64
+        },
+        "exp_xor": 4274240946,
+        "exp_add": 4274240946,
+        "ok": true,
+        "board_counts": {
+          "pos": 0,
+          "neg": 1,
+          "none": 127
+        },
+        "oracle_counts": {
+          "pos": 0,
+          "neg": 1,
+          "none": 127
+        },
+        "count_match": true
+      },
+      "0": {
+        "i": 0,
+        "sat": false,
+        "corner": false,
+        "fold": {
+          "xor32": 4263047670,
+          "add32": 4263047670,
+          "macs": 129
+        },
+        "exp_xor": 4263047670,
+        "exp_add": 4263047670,
+        "ok": true,
+        "board_counts": {
+          "pos": 0,
+          "neg": 1,
+          "none": 127
+        },
+        "oracle_counts": {
+          "pos": 0,
+          "neg": 1,
+          "none": 127
+        },
+        "count_match": true
+      }
+    },
+    "requant_0x58": {
+      "ok": true,
+      "fold": {
+        "xor32": 32767,
+        "add32": 1474515,
+        "macs": 0
+      },
+      "exp_xor": 32767,
+      "exp_add": 1474515
+    },
+    "classes_present": {
+      "pos": true,
+      "neg": true,
+      "none": true
+    },
+    "ok": true
+  },
+  "one_full": {
+    "spots": [
+      {
+        "addr": 0,
+        "exp": [
+          250,
+          251,
+          251,
+          255,
+          252,
+          5,
+          6,
+          4
+        ],
+        "got": [
+          250,
+          251,
+          251,
+          255,
+          252,
+          5,
+          6,
+          4
+        ],
+        "match": true
+      },
+      {
+        "addr": 1,
+        "exp": [
+          251,
+          251,
+          255,
+          252,
+          5,
+          6,
+          4,
+          254
+        ],
+        "got": [
+          251,
+          251,
+          255,
+          252,
+          5,
+          6,
+          4,
+          254
+        ],
+        "match": true
+      },
+      {
+        "addr": 16384,
+        "exp": [
+          254,
+          0,
+          1,
+          3,
+          253,
+          254,
+          255,
+          1
+        ],
+        "got": [
+          254,
+          0,
+          1,
+          3,
+          253,
+          254,
+          255,
+          1
+        ],
+        "match": true
+      },
+      {
+        "addr": 18432,
+        "exp": [
+          253,
+          252,
+          252,
+          252,
+          0,
+          3,
+          5,
+          4
+        ],
+        "got": [
+          253,
+          252,
+          252,
+          252,
+          0,
+          3,
+          5,
+          4
+        ],
+        "match": true
+      },
+      {
+        "addr": 83968,
+        "exp": [
+          2,
+          4,
+          5,
+          255,
+          254,
+          4,
+          3,
+          6
+        ],
+        "got": [
+          2,
+          4,
+          5,
+          255,
+          254,
+          4,
+          3,
+          6
+        ],
+        "match": true
+      },
+      {
+        "addr": 100344,
+        "exp": [
+          3,
+          254,
+          6,
+          6,
+          6,
+          5,
+          6,
+          252
+        ],
+        "got": [
+          3,
+          254,
+          6,
+          6,
+          6,
+          5,
+          6,
+          252
+        ],
+        "match": true
+      }
+    ],
+    "spot_ok": true,
+    "fold0": {
+      "xor32": 2,
+      "add32": 11803320,
+      "wr_n": 0
+    },
+    "fold1": {
+      "xor32": 7,
+      "add32": 11822211,
+      "wr_n": 82048
+    },
+    "status": {
+      "after": false,
+      "busy": false,
+      "done": false,
+      "calib": true,
+      "persist": false,
+      "phase": 0,
+      "wr_n": 82048,
+      "pred": 167,
+      "loss": 16
+    },
+    "pred_page": {
+      "pred": 167,
+      "loss": 16
+    },
+    "persist": {
+      "flush": {
+        "ok": true,
+        "kind": 166,
+        "calib": true,
+        "persist": false,
+        "under": false,
+        "berr": false,
+        "rerr": false,
+        "bytes": 100352,
+        "xor32": 7,
+        "hex": "a5a68000008801000700000000000d"
+      },
+      "reload": {
+        "ok": true,
+        "kind": 166,
+        "calib": true,
+        "persist": false,
+        "under": false,
+        "berr": false,
+        "rerr": false,
+        "bytes": 100352,
+        "xor32": 7,
+        "hex": "a5a68000008801000700000000000d",
+        "auto_fold": {
+          "xor32": 7,
+          "add32": 11822211,
+          "wr_n": 82048
+        }
+      },
+      "fold": {
+        "xor32": 7,
+        "add32": 11822211,
+        "wr_n": 82048
+      }
+    },
+    "expect_fold0": {
+      "xor32": 2,
+      "add32": 11803320
+    },
+    "expect_fold1": {
+      "xor32": 7,
+      "add32": 11822211
+    },
+    "head_only_fold": {
+      "xor32": 253,
+      "add32": 11808067
+    },
+    "match0": true,
+    "match1": true,
+    "match_persist": true,
+    "pred": 167,
+    "expect_pred": 167,
+    "pred_ok": true,
+    "ne_head_only": true,
+    "ok": true
+  },
+  "after": {
+    "wr_before": 82048,
+    "wr_after": 82048,
+    "status": {
+      "after": true,
+      "busy": false,
+      "done": false,
+      "calib": true,
+      "persist": false,
+      "phase": 0,
+      "wr_n": 82048,
+      "pred": 32,
+      "loss": 0
+    },
+    "ok": true
+  },
+  "heldout": {
+    "seeds": [
+      {
+        "seed": 2,
+        "ce0": 384,
+        "ce1": 320,
+        "drop": 0.16666666666666666,
+        "ppl0": 8886110.520507872,
+        "ppl1": 617437.6269121327,
+        "ppl_down": true,
+        "degrade": -0.16666666666666666,
+        "train_ce": {
+          "ce0": 112,
+          "ce1": 112,
+          "loss": 16
+        },
+        "train_status": {
+          "after": false,
+          "busy": false,
+          "done": false,
+          "calib": true,
+          "persist": false,
+          "phase": 0,
+          "wr_n": 3227776,
+          "pred": 38,
+          "loss": 16
+        },
+        "before": {
+          "ce": 384,
+          "ppl": 8886110.520507872,
+          "pairs": [
+            {
+              "p": [
+                9,
+                13,
+                12,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 106
+            },
+            {
+              "p": [
+                21,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 106
+            },
+            {
+              "p": [
+                10,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 43
+            },
+            {
+              "p": [
+                29,
+                37,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 181
+            },
+            {
+              "p": [
+                21,
+                23,
+                27,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 115
+            },
+            {
+              "p": [
+                9,
+                14,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 197
+            },
+            {
+              "p": [
+                26,
+                35,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 103
+            },
+            {
+              "p": [
+                14,
+                25,
+                29,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 228
+            },
+            {
+              "p": [
+                27,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 175
+            },
+            {
+              "p": [
+                13,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 176
+            },
+            {
+              "p": [
+                15,
+                34,
+                15,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 102
+            },
+            {
+              "p": [
+                33,
+                13,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 181
+            },
+            {
+              "p": [
+                9,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 226
+            },
+            {
+              "p": [
+                22,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 204
+            },
+            {
+              "p": [
+                39,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 181
+            },
+            {
+              "p": [
+                34,
+                35,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 121
+            },
+            {
+              "p": [
+                21,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 167
+            },
+            {
+              "p": [
+                26,
+                30,
+                14,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 130
+            },
+            {
+              "p": [
+                30,
+                9,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 93
+            },
+            {
+              "p": [
+                16,
+                17,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 103
+            },
+            {
+              "p": [
+                15,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 175
+            },
+            {
+              "p": [
+                12,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 106
+            },
+            {
+              "p": [
+                40,
+                20,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 140
+            },
+            {
+              "p": [
+                21,
+                37,
+                21,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 199
+            }
+          ]
+        },
+        "after": {
+          "ce": 320,
+          "ppl": 617437.6269121327,
+          "pairs": [
+            {
+              "p": [
+                9,
+                13,
+                12,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                21,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                10,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                29,
+                37,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                21,
+                23,
+                27,
+                7
+              ],
+              "t": 38,
+              "loss": 0,
+              "pred": 38
+            },
+            {
+              "p": [
+                9,
+                14,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                26,
+                35,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                14,
+                25,
+                29,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                27,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                13,
+                8
+              ],
+              "t": 39,
+              "loss": 0,
+              "pred": 39
+            },
+            {
+              "p": [
+                15,
+                34,
+                15,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                33,
+                13,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 35
+            },
+            {
+              "p": [
+                9,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                22,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                39,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                34,
+                35,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                21,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                26,
+                30,
+                14,
+                7
+              ],
+              "t": 38,
+              "loss": 0,
+              "pred": 38
+            },
+            {
+              "p": [
+                30,
+                9,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                16,
+                17,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                15,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                12,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                40,
+                20,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                21,
+                37,
+                21,
+                7
+              ],
+              "t": 38,
+              "loss": 0,
+              "pred": 38
+            }
+          ]
+        }
+      },
+      {
+        "seed": 3,
+        "ce0": 384,
+        "ce1": 352,
+        "drop": 0.08333333333333333,
+        "ppl0": 8886110.520507872,
+        "ppl1": 2342353.302185925,
+        "ppl_down": true,
+        "degrade": -0.08333333333333333,
+        "train_ce": {
+          "ce0": 128,
+          "ce1": 112,
+          "loss": 16
+        },
+        "train_status": {
+          "after": false,
+          "busy": false,
+          "done": false,
+          "calib": true,
+          "persist": false,
+          "phase": 0,
+          "wr_n": 3227776,
+          "pred": 38,
+          "loss": 16
+        },
+        "before": {
+          "ce": 384,
+          "ppl": 8886110.520507872,
+          "pairs": [
+            {
+              "p": [
+                9,
+                13,
+                12,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 189
+            },
+            {
+              "p": [
+                21,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 216
+            },
+            {
+              "p": [
+                10,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                29,
+                37,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 73
+            },
+            {
+              "p": [
+                21,
+                23,
+                27,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 135
+            },
+            {
+              "p": [
+                9,
+                14,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 29
+            },
+            {
+              "p": [
+                26,
+                35,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 246
+            },
+            {
+              "p": [
+                14,
+                25,
+                29,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 131
+            },
+            {
+              "p": [
+                27,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 245
+            },
+            {
+              "p": [
+                13,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 242
+            },
+            {
+              "p": [
+                15,
+                34,
+                15,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 252
+            },
+            {
+              "p": [
+                33,
+                13,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 139
+            },
+            {
+              "p": [
+                9,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 96
+            },
+            {
+              "p": [
+                22,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 205
+            },
+            {
+              "p": [
+                39,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 196
+            },
+            {
+              "p": [
+                34,
+                35,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 106
+            },
+            {
+              "p": [
+                21,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 135
+            },
+            {
+              "p": [
+                26,
+                30,
+                14,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 161
+            },
+            {
+              "p": [
+                30,
+                9,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 217
+            },
+            {
+              "p": [
+                16,
+                17,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 246
+            },
+            {
+              "p": [
+                15,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 41
+            },
+            {
+              "p": [
+                12,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 186
+            },
+            {
+              "p": [
+                40,
+                20,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 216
+            },
+            {
+              "p": [
+                21,
+                37,
+                21,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 60
+            }
+          ]
+        },
+        "after": {
+          "ce": 352,
+          "ppl": 2342353.302185925,
+          "pairs": [
+            {
+              "p": [
+                9,
+                13,
+                12,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                21,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                10,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                29,
+                37,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                21,
+                23,
+                27,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                9,
+                14,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                26,
+                35,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                14,
+                25,
+                29,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                27,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                13,
+                8
+              ],
+              "t": 39,
+              "loss": 0,
+              "pred": 39
+            },
+            {
+              "p": [
+                15,
+                34,
+                15,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                33,
+                13,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                9,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                22,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                39,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                34,
+                35,
+                8
+              ],
+              "t": 39,
+              "loss": 0,
+              "pred": 39
+            },
+            {
+              "p": [
+                21,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                26,
+                30,
+                14,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                30,
+                9,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                16,
+                17,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                15,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                12,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                40,
+                20,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                21,
+                37,
+                21,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 39
+            }
+          ]
+        }
+      },
+      {
+        "seed": 5,
+        "ce0": 384,
+        "ce1": 304,
+        "drop": 0.20833333333333334,
+        "ppl0": 8886110.520507872,
+        "ppl1": 317003.0475915472,
+        "ppl_down": true,
+        "degrade": -0.20833333333333334,
+        "train_ce": {
+          "ce0": 128,
+          "ce1": 80,
+          "loss": 0
+        },
+        "train_status": {
+          "after": false,
+          "busy": false,
+          "done": false,
+          "calib": true,
+          "persist": false,
+          "phase": 0,
+          "wr_n": 3227776,
+          "pred": 39,
+          "loss": 0
+        },
+        "before": {
+          "ce": 384,
+          "ppl": 8886110.520507872,
+          "pairs": [
+            {
+              "p": [
+                9,
+                13,
+                12,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 161
+            },
+            {
+              "p": [
+                21,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 220
+            },
+            {
+              "p": [
+                10,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 194
+            },
+            {
+              "p": [
+                29,
+                37,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 147
+            },
+            {
+              "p": [
+                21,
+                23,
+                27,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 47
+            },
+            {
+              "p": [
+                9,
+                14,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                26,
+                35,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 65
+            },
+            {
+              "p": [
+                14,
+                25,
+                29,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 47
+            },
+            {
+              "p": [
+                27,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 208
+            },
+            {
+              "p": [
+                13,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 29
+            },
+            {
+              "p": [
+                15,
+                34,
+                15,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 183
+            },
+            {
+              "p": [
+                33,
+                13,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 179
+            },
+            {
+              "p": [
+                9,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 194
+            },
+            {
+              "p": [
+                22,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 43
+            },
+            {
+              "p": [
+                39,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 194
+            },
+            {
+              "p": [
+                34,
+                35,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 219
+            },
+            {
+              "p": [
+                21,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 12
+            },
+            {
+              "p": [
+                26,
+                30,
+                14,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 143
+            },
+            {
+              "p": [
+                30,
+                9,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 61
+            },
+            {
+              "p": [
+                16,
+                17,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 35
+            },
+            {
+              "p": [
+                15,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 124
+            },
+            {
+              "p": [
+                12,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 179
+            },
+            {
+              "p": [
+                40,
+                20,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 47
+            },
+            {
+              "p": [
+                21,
+                37,
+                21,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 51
+            }
+          ]
+        },
+        "after": {
+          "ce": 304,
+          "ppl": 317003.0475915472,
+          "pairs": [
+            {
+              "p": [
+                9,
+                13,
+                12,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 150
+            },
+            {
+              "p": [
+                21,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 36
+            },
+            {
+              "p": [
+                10,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 39
+            },
+            {
+              "p": [
+                29,
+                37,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 36
+            },
+            {
+              "p": [
+                21,
+                23,
+                27,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                9,
+                14,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 36
+            },
+            {
+              "p": [
+                26,
+                35,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 36
+            },
+            {
+              "p": [
+                14,
+                25,
+                29,
+                4
+              ],
+              "t": 35,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                27,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                13,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                15,
+                34,
+                15,
+                2
+              ],
+              "t": 33,
+              "loss": 0,
+              "pred": 33
+            },
+            {
+              "p": [
+                33,
+                13,
+                3
+              ],
+              "t": 34,
+              "loss": 0,
+              "pred": 34
+            },
+            {
+              "p": [
+                9,
+                5
+              ],
+              "t": 36,
+              "loss": 16,
+              "pred": 35
+            },
+            {
+              "p": [
+                22,
+                2
+              ],
+              "t": 33,
+              "loss": 0,
+              "pred": 33
+            },
+            {
+              "p": [
+                39,
+                3
+              ],
+              "t": 34,
+              "loss": 0,
+              "pred": 34
+            },
+            {
+              "p": [
+                34,
+                35,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 38
+            },
+            {
+              "p": [
+                21,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                26,
+                30,
+                14,
+                7
+              ],
+              "t": 38,
+              "loss": 0,
+              "pred": 38
+            },
+            {
+              "p": [
+                30,
+                9,
+                3
+              ],
+              "t": 34,
+              "loss": 16,
+              "pred": 36
+            },
+            {
+              "p": [
+                16,
+                17,
+                1
+              ],
+              "t": 32,
+              "loss": 16,
+              "pred": 36
+            },
+            {
+              "p": [
+                15,
+                6
+              ],
+              "t": 37,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                12,
+                8
+              ],
+              "t": 39,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                40,
+                20,
+                2
+              ],
+              "t": 33,
+              "loss": 16,
+              "pred": 34
+            },
+            {
+              "p": [
+                21,
+                37,
+                21,
+                7
+              ],
+              "t": 38,
+              "loss": 16,
+              "pred": 36
+            }
+          ]
+        }
+      }
+    ],
+    "median_drop": 0.16666666666666666,
+    "ok": true
+  },
+  "status_end": {
+    "after": false,
+    "busy": false,
+    "done": false,
+    "calib": true,
+    "persist": false,
+    "phase": 0,
+    "wr_n": 4540544,
+    "pred": 36,
+    "loss": 16
+  },
+  "ended_utc": "2026-08-17T16:43:29.255354+00:00"
+}

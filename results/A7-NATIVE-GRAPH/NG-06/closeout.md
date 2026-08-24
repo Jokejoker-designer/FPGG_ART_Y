@@ -1,0 +1,1 @@
+# NG-06\n\n**A7NG06_SHARE_XSIM_PASS** — 16 PE / 256 logical; RR; isolated fail.\n

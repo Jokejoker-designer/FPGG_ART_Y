@@ -1,0 +1,25 @@
+{
+  "i": 0,
+  "sat": false,
+  "corner": false,
+  "fold": {
+    "xor32": 4263047670,
+    "add32": 4263047670,
+    "macs": 129
+  },
+  "exp_xor": 4263047670,
+  "exp_add": 4263047670,
+  "fold_ok": true,
+  "board_counts": {
+    "pos": 0,
+    "neg": 1,
+    "none": 127
+  },
+  "oracle_counts": {
+    "pos": 0,
+    "neg": 1,
+    "none": 127
+  },
+  "count_match": true,
+  "ok": true
+}

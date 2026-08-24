@@ -1,0 +1,164 @@
+# Arty A7-100T / Native AI / GlassBox — root ignore
+# Track: rtl, python, docs, contracts (src), web/glassbox (src), services (src),
+# tools, constraints, configs, vivado/tcl, tests (tb + tcl + hex),
+# results/** STATUS/closeout/json (not sim dumps), releases (text + SHA),
+# .cursor/rules + agents, .agents/workflows + handoff + project skills.
+# Do not overwrite frozen A0.3 / 01R / 02M / LM-00..06 bits on disk.
+
+# --- secrets / machine-local ---
+.env
+.env.*
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa
+id_rsa.pub
+*.lic
+.cursor/mcp.json
+**/.cursor/mcp.json
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.tox/
+
+# --- Node / GlassBox ---
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.output/
+.tanstack/
+.next/
+out/
+dist/
+coverage/
+storybook-static/
+*storybook.log
+playwright-report/
+blob-report/
+test-results/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.vercel
+
+# --- Vivado / Vitis / XSim scratch ---
+.Xil/
+*.Xil/
+*.jou
+*.log
+*.backup.jou
+*.backup.log
+*.str
+*.pb
+*.dmp
+hs_err_pid*
+webtalk*/
+usage_statistics*
+*_webtalk.*
+xsim.dir/
+xvlog.log
+xelab.log
+xsim.log
+vivado.log
+vivado.jou
+xelab.pb
+xvlog.pb
+*.wdb
+*.vcd
+*.saif
+*.vvp
+clockInfo.txt
+tight_setup_hold_pins.txt
+
+# Checkpoints, bitstreams, debug probes (SHA lives in releases/*/MANIFEST*)
+*.dcp
+*.bit
+*.bin
+*.mcs
+*.prm
+*.ltx
+*.mmi
+*.bmm
+*.sysdef
+*.hwdef
+*.edn
+*.ncd
+*.ngc
+
+# Generated / project-run trees
+build/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.gen/
+*.srcs/  # only if a stray .xpr tree lands outside build/
+
+# MIG / IP generated heavy + temp (keep .xci, .tcl, user_design, mig.prj)
+vivado/ip/**/*.xml
+vivado/ip/**/*_sim_netlist.v
+vivado/ip/**/*_sim_netlist.vhdl
+vivado/ip/**/*_stub.v
+vivado/ip/**/*_stub.vhdl
+vivado/ip/**/_tmp/
+vivado/ip/**/xil_txt.in
+vivado/ip/**/xil_txt.out
+
+# --- results: evidence text stays; dumps and snapshot zips do not ---
+*.zip
+*.rar
+*.7z
+packages/
+results/**/_external/
+results/**/vectors/
+results/**/*.wdb
+results/**/*.vcd
+results/**/*.dcp
+.agents/skills/scientific-agent-skills/
+
+# Nested leftover Create-Next-App metadata (renamed; do not re-init)
+web/glassbox/.git.bak-create-next-app/
+
+# Local unpack / scratch
+packages/_blueprint_unpack/
+packages/**/*.zip
+
+# Root crash / stray sim
+results_tmp_*.txt
+*.dmp
+
+# Pytest / tool caches at root
+.pytest_cache/
+)

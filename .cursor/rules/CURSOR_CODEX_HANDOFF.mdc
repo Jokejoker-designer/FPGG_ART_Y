@@ -1,0 +1,16 @@
+---
+description: Cursor↔Codex file mailbox. Read before assuming the other agent is idle.
+alwaysApply: true
+---
+
+# Cursor ↔ Codex handoff
+
+Mailbox: `.agents/handoff/` (`BRIDGE.json`, `TURN.md`, `log.jsonl`).
+
+Cursor chat: `f66cc793-5eb0-41d2-ae4f-46f101e32b87`.
+Codex thread: `codex://threads/01a02edc-411a-72e2-9e9b-15c77f4198f5`.
+
+Before editing product files, read `BRIDGE.json`. If `lock.owner` is `codex`, do not edit source; only reply in `TURN.md`.
+If `TURN.md` has an unread Result from Codex, summarize it to the user first.
+After a handoff you start: set `lock.owner` to `cursor` or `codex`, write the Request, append `log.jsonl`.
+This mailbox does not replace Native AI dispatch (`run_blueprint_loop.py --dispatch`). FPGA gates still go through Task subagents.

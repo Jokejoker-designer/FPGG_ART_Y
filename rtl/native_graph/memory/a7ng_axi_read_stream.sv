@@ -1,0 +1,71 @@
+// a7ng_axi_read_stream.sv — thin wrapper over proven a7ng_soa_plane_fetch + scoreboard exports
+// Gate: ddr_cue_soa_00r_axi_liveness. AR/R law unchanged from plane_fetch.
+`timescale 1ns / 1ps
+
+module a7ng_axi_read_stream #(
+  parameter int unsigned MAX_BEATS  = 52,
+  parameter int unsigned MAX_OUT    = 8,
+  parameter int unsigned MAX_BURST  = 16
+) (
+  input  logic         clk,
+  input  logic         rst_n,
+  input  logic         start_i,
+  input  logic [4:0]   burst_i,
+  input  logic [3:0]   outstanding_i,
+  input  logic [27:0]  base_byte_i,
+  input  logic [5:0]   beat_target_i,
+  output logic         ar_valid_o,
+  input  logic         ar_ready_i,
+  output logic [27:0]  ar_addr_o,
+  output logic [7:0]   ar_len_o,
+  output logic [3:0]   ar_id_o,
+  output logic [2:0]   ar_size_o,
+  input  logic         r_valid_i,
+  output logic         r_ready_o,
+  input  logic [127:0] r_data_i,
+  input  logic         r_last_i,
+  output logic [127:0] beat_data_o [MAX_BEATS],
+  output logic         running_o,
+  output logic         done_o,
+  output logic         done_pulse_o,
+  output logic [5:0]   beats_returned_o,
+  output logic [5:0]   beats_issued_o,
+  output logic         idle_o,
+  output logic [31:0]  accepted_txns_o,
+  output logic [31:0]  accepted_beat_credit_o,
+  output logic [31:0]  returned_beats_o,
+  output logic [31:0]  returned_transactions_o,
+  output logic [31:0]  outstanding_txns_o,
+  output logic [31:0]  unpack_beats_o
+);
+  logic [5:0] beats_issued_w, beats_returned_w;
+
+  a7ng_soa_plane_fetch #(
+    .MAX_BEATS(MAX_BEATS), .MAX_OUT(MAX_OUT), .MAX_BURST(MAX_BURST)
+  ) u_pf (
+    .clk(clk), .rst_n(rst_n),
+    .start_i(start_i),
+    .burst_i(burst_i), .outstanding_i(outstanding_i),
+    .base_byte_i(base_byte_i), .beat_target_i(beat_target_i),
+    .ar_valid_o(ar_valid_o), .ar_ready_i(ar_ready_i),
+    .ar_addr_o(ar_addr_o), .ar_len_o(ar_len_o),
+    .ar_id_o(ar_id_o), .ar_size_o(ar_size_o),
+    .r_valid_i(r_valid_i), .r_ready_o(r_ready_o),
+    .r_data_i(r_data_i), .r_last_i(r_last_i),
+    .beat_data_o(beat_data_o),
+    .running_o(running_o), .done_o(done_o),
+    .done_pulse_o(done_pulse_o),
+    .beats_returned_o(beats_returned_w),
+    .beats_issued_o(beats_issued_w),
+    .idle_o(idle_o)
+  );
+
+  assign beats_returned_o = beats_returned_w;
+  assign beats_issued_o   = beats_issued_w;
+  assign accepted_beat_credit_o = 32'(beats_issued_w);
+  assign returned_beats_o       = 32'(beats_returned_w);
+  assign unpack_beats_o         = 32'(beats_returned_w);
+  assign accepted_txns_o        = 32'(beats_returned_w > 6'd0 ? 1'd1 : 1'd0);
+  assign returned_transactions_o = accepted_txns_o;
+  assign outstanding_txns_o     = running_o ? 32'd1 : 32'd0;
+endmodule

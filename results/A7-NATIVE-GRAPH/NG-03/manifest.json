@@ -1,0 +1,18 @@
+{
+  "law_id": "a7ng-hotset-v0",
+  "milestone": "NG-03",
+  "xsim": [
+    "A7NG03_HOTSET_XSIM_PASS",
+    "A7NG03_SHARD_XSIM_PASS"
+  ],
+  "wns_ns": 1.166,
+  "tns_ns": 0.0,
+  "lut": "4345",
+  "ff": "3716",
+  "bram": "0",
+  "dsp": "0",
+  "bit": "build/out/arty_a7_ng03.bit",
+  "sha256": "6D4CC18015EE338EC37B928DF6CEFA4444A913B5B34703345D78A7C64E0406A4",
+  "board_pass": false,
+  "ddr_map": "results/A7-NATIVE-GRAPH/NG-03/DDR_MAP.md"
+}

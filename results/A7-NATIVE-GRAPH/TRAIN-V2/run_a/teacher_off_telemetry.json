@@ -1,0 +1,11 @@
+{
+  "interaction_id": "train_v2_blind_20",
+  "cycle": 1,
+  "phase": "OUTPUT",
+  "teacher_present": false,
+  "learn_enabled": false,
+  "freeze": true,
+  "external_LLM": false,
+  "physical_lanes_active": 16,
+  "logical_agents_active": 256
+}

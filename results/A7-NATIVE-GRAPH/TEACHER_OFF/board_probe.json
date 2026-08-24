@@ -1,0 +1,39 @@
+{
+  "ts_utc": "2026-08-21T22:39:40Z",
+  "board": "Digilent Arty A7-100T xc7a100tcsg324-1",
+  "jtag": {
+    "connected": true,
+    "target": "xc7a100t",
+    "serial": "210319BE776EA",
+    "session": "hlb_teacher_off_soc",
+    "programmed": true,
+    "programmed_bit": "results/A7-NATIVE-GRAPH/INTEGRATE/arty_a7_ng_integrate_fit_soc.bit",
+    "programmed_sha256": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF"
+  },
+  "uart": {
+    "port": "COM12",
+    "open": true,
+    "vid_pid": "0403:6010",
+    "serial_reported": "210319BE776EA",
+    "baud": 115200,
+    "tx_hex": ["E0", "53"],
+    "rx_hex_primary": "91D9",
+    "rx_hex_reprobe": "9199",
+    "status_hs02_match": true,
+    "exam_mode": 1,
+    "lm_path": 0,
+    "mig_calib": 1
+  },
+  "native_graph_teacher_off_bitstream": "results/A7-NATIVE-GRAPH/INTEGRATE/arty_a7_ng_integrate_fit_soc.bit",
+  "proxy_integrate_bit_present": true,
+  "proxy_programmed": false,
+  "proxy_claim_scope": "POST_ROUTE_PROXY_CONTROL_NOT_HS02",
+  "host_uart_teacher_off_driver": "mode_bytes_only_inline_probe",
+  "silicon_exam_run": true,
+  "silicon_exam_class": "BOARD_UART_STUB_FRAMING",
+  "retrieval_answers": null,
+  "host_graded_answers": false,
+  "lm06_weight_fabric": "ABSENT",
+  "board_pass": false,
+  "reason": "SoC programmed; UART stub HS-02 framing evidenced; LM-06 ABSENT LIMIT blocks semantic retrieval claim"
+}

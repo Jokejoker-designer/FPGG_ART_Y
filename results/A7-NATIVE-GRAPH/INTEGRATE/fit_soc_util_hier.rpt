@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Aug 22 05:31:58 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm/results/A7-NATIVE-GRAPH/INTEGRATE/fit_soc_util_hier.rpt
+| Design       : arty_a7_ng_integrate_soc_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------------------------------------------------------+-----------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                               Instance                              |                        Module                       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++---------------------------------------------------------------------+-----------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| arty_a7_ng_integrate_soc_top                                        |                                               (top) |       5695 |       5300 |     370 |   25 | 5903 |      0 |      0 |          0 |
+|   (arty_a7_ng_integrate_soc_top)                                    |                                               (top) |         80 |         80 |       0 |    0 |  186 |      0 |      0 |          0 |
+|   u_exam                                                            |                                 a7ng_exam_uart_stub |         69 |         69 |       0 |    0 |   71 |      0 |      0 |          0 |
+|   u_fetch                                                           |                                    a7ng_shard_fetch |         78 |         78 |       0 |    0 |  271 |      0 |      0 |          0 |
+|     (u_fetch)                                                       |                                    a7ng_shard_fetch |         35 |         35 |       0 |    0 |  134 |      0 |      0 |          0 |
+|     u_hot                                                           |                                    a7ng_bram_hotset |         44 |         44 |       0 |    0 |  137 |      0 |      0 |          0 |
+|   u_led                                                             |                           sync_bits__parameterized1 |         52 |         52 |       0 |    0 |    8 |      0 |      0 |          0 |
+|   u_mig                                                             |                                     mig_native_wrap |       4315 |       3920 |     370 |   25 | 3487 |      0 |      0 |          0 |
+|     u_mig                                                           |                                       mig_7series_0 |       4288 |       3893 |     370 |   25 | 3487 |      0 |      0 |          0 |
+|       u_mig_7series_0_mig                                           |                                   mig_7series_0_mig |       4288 |       3893 |     370 |   25 | 3487 |      0 |      0 |          0 |
+|         temp_mon_enabled.u_tempmon                                  |                            mig_7series_v4_2_tempmon |         39 |         39 |       0 |    0 |  122 |      0 |      0 |          0 |
+|         u_memc_ui_top_axi                                           |                    mig_7series_v4_2_memc_ui_top_axi |       4244 |       3849 |     370 |   25 | 3319 |      0 |      0 |          0 |
+|           u_ui_top                                                  |                             mig_7series_v4_2_ui_top |        259 |        143 |     116 |    0 |  311 |      0 |      0 |          0 |
+|             ui_cmd0                                                 |                             mig_7series_v4_2_ui_cmd |         32 |         32 |       0 |    0 |   54 |      0 |      0 |          0 |
+|             ui_wr_data0                                             |                         mig_7series_v4_2_ui_wr_data |        188 |         84 |     104 |    0 |  214 |      0 |      0 |          0 |
+|           mem_intfc0                                                |                          mig_7series_v4_2_mem_intfc |       3750 |       3479 |     254 |   17 | 2815 |      0 |      0 |          0 |
+|             ddr_phy_top0                                            |                        mig_7series_v4_2_ddr_phy_top |       3117 |       2855 |     246 |   16 | 2298 |      0 |      0 |          0 |
+|               u_ddr_calib_top                                       |                      mig_7series_v4_2_ddr_calib_top |       2524 |       2510 |       0 |   14 | 1984 |      0 |      0 |          0 |
+|                 u_ddr_phy_wrcal                                     |                      mig_7series_v4_2_ddr_phy_wrcal |        169 |        163 |       0 |    6 |  304 |      0 |      0 |          0 |
+|                 ddr_phy_rdlvl_gen.u_ddr_phy_rdlvl                   |                      mig_7series_v4_2_ddr_phy_rdlvl |        540 |        540 |       0 |    0 |  872 |      0 |      0 |          0 |
+|                 ddr_phy_tempmon_0                                   |                    mig_7series_v4_2_ddr_phy_tempmon |        251 |        251 |       0 |    0 |  231 |      0 |      0 |          0 |
+|                 dqsfind_calib_left.u_ddr_phy_dqs_found_cal_hr       |           mig_7series_v4_2_ddr_phy_dqs_found_cal_hr |        157 |        156 |       0 |    1 |   91 |      0 |      0 |          0 |
+|                 mb_wrlvl_inst.u_ddr_phy_wrlvl                       |                      mig_7series_v4_2_ddr_phy_wrlvl |        261 |        260 |       0 |    1 |  160 |      0 |      0 |          0 |
+|                 u_ddr_phy_init                                      |                       mig_7series_v4_2_ddr_phy_init |       1115 |       1111 |       0 |    4 |  281 |      0 |      0 |          0 |
+|               u_ddr_mc_phy_wrapper                                  |                 mig_7series_v4_2_ddr_mc_phy_wrapper |        597 |        349 |     246 |    2 |  314 |      0 |      0 |          0 |
+|                 u_ddr_mc_phy                                        |                         mig_7series_v4_2_ddr_mc_phy |        597 |        349 |     246 |    2 |  290 |      0 |      0 |          0 |
+|                   ddr_phy_4lanes_0.u_ddr_phy_4lanes                 |                     mig_7series_v4_2_ddr_phy_4lanes |        597 |        349 |     246 |    2 |  274 |      0 |      0 |          0 |
+|                     ddr_byte_lane_D.ddr_byte_lane_D                 |      mig_7series_v4_2_ddr_byte_lane__parameterized2 |        287 |        194 |      92 |    1 |  110 |      0 |      0 |          0 |
+|                       (ddr_byte_lane_D.ddr_byte_lane_D)             |      mig_7series_v4_2_ddr_byte_lane__parameterized2 |          6 |          6 |       0 |    0 |   69 |      0 |      0 |          0 |
+|                       dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                   mig_7series_v4_2_ddr_if_post_fifo |        185 |        141 |      44 |    0 |   16 |      0 |      0 |          0 |
+|                       of_pre_fifo_gen.u_ddr_of_pre_fifo             |    mig_7series_v4_2_ddr_of_pre_fifo__parameterized1 |         94 |         46 |      48 |    0 |   24 |      0 |      0 |          0 |
+|                     ddr_byte_lane_A.ddr_byte_lane_A                 |                      mig_7series_v4_2_ddr_byte_lane |         52 |         22 |      30 |    0 |   20 |      0 |      0 |          0 |
+|                       of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1_12 |         51 |         21 |      30 |    0 |   19 |      0 |      0 |          0 |
+|                     ddr_byte_lane_B.ddr_byte_lane_B                 |      mig_7series_v4_2_ddr_byte_lane__parameterized0 |         64 |         32 |      32 |    0 |   19 |      0 |      0 |          0 |
+|                       of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1_11 |         55 |         23 |      32 |    0 |   19 |      0 |      0 |          0 |
+|                     ddr_byte_lane_C.ddr_byte_lane_C                 |      mig_7series_v4_2_ddr_byte_lane__parameterized1 |        190 |         98 |      92 |    0 |  105 |      0 |      0 |          0 |
+|                       (ddr_byte_lane_C.ddr_byte_lane_C)             |      mig_7series_v4_2_ddr_byte_lane__parameterized1 |          1 |          1 |       0 |    0 |   69 |      0 |      0 |          0 |
+|                       dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo_9 |         94 |         50 |      44 |    0 |   11 |      0 |      0 |          0 |
+|                       of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1_10 |         95 |         47 |      48 |    0 |   24 |      0 |      0 |          0 |
+|             mc0                                                     |                                 mig_7series_v4_2_mc |        637 |        628 |       8 |    1 |  517 |      0 |      0 |          0 |
+|               (mc0)                                                 |                                 mig_7series_v4_2_mc |         99 |         99 |       0 |    0 |   73 |      0 |      0 |          0 |
+|               bank_mach0                                            |                          mig_7series_v4_2_bank_mach |        458 |        458 |       0 |    0 |  357 |      0 |      0 |          0 |
+|                 arb_mux0                                            |                            mig_7series_v4_2_arb_mux |        167 |        167 |       0 |    0 |   36 |      0 |      0 |          0 |
+|                   arb_row_col0                                      |                        mig_7series_v4_2_arb_row_col |        167 |        167 |       0 |    0 |   32 |      0 |      0 |          0 |
+|                     row_arb0                                        |  mig_7series_v4_2_round_robin_arb__parameterized1_6 |         54 |         54 |       0 |    0 |    8 |      0 |      0 |          0 |
+|                     col_arb0                                        |    mig_7series_v4_2_round_robin_arb__parameterized1 |         62 |         62 |       0 |    0 |    8 |      0 |      0 |          0 |
+|                 bank_cntrl[0].bank0                                 |                         mig_7series_v4_2_bank_cntrl |         68 |         68 |       0 |    0 |   76 |      0 |      0 |          0 |
+|                 bank_cntrl[1].bank0                                 |         mig_7series_v4_2_bank_cntrl__parameterized0 |         66 |         66 |       0 |    0 |   74 |      0 |      0 |          0 |
+|                 bank_cntrl[2].bank0                                 |         mig_7series_v4_2_bank_cntrl__parameterized1 |         67 |         67 |       0 |    0 |   75 |      0 |      0 |          0 |
+|                 bank_cntrl[3].bank0                                 |         mig_7series_v4_2_bank_cntrl__parameterized2 |         68 |         68 |       0 |    0 |   74 |      0 |      0 |          0 |
+|               rank_mach0                                            |                          mig_7series_v4_2_rank_mach |         55 |         54 |       0 |    1 |   61 |      0 |      0 |          0 |
+|           u_axi_mc                                                  |                             mig_7series_v4_2_axi_mc |        267 |        259 |       0 |    8 |  191 |      0 |      0 |          0 |
+|             axi_mc_w_channel_0                                      |                   mig_7series_v4_2_axi_mc_w_channel |         35 |         35 |       0 |    0 |   54 |      0 |      0 |          0 |
+|             axi_mc_ar_channel_0                                     |                  mig_7series_v4_2_axi_mc_ar_channel |         83 |         83 |       0 |    0 |   40 |      0 |      0 |          0 |
+|             axi_mc_aw_channel_0                                     |                  mig_7series_v4_2_axi_mc_aw_channel |         84 |         84 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   u_sc                                                              |                                   a7ng_scorer_array |       1046 |       1046 |       0 |    0 | 1856 |      0 |      0 |          0 |
+|     g_lane[0].u_lane                                                |                                 a7ng_scorer_lane__1 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[10].u_lane                                               |                                a7ng_scorer_lane__11 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[11].u_lane                                               |                                a7ng_scorer_lane__12 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[12].u_lane                                               |                                a7ng_scorer_lane__13 |         67 |         67 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[13].u_lane                                               |                                a7ng_scorer_lane__14 |         65 |         65 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[14].u_lane                                               |                                a7ng_scorer_lane__15 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[15].u_lane                                               |                                    a7ng_scorer_lane |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[1].u_lane                                                |                                 a7ng_scorer_lane__2 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[2].u_lane                                                |                                 a7ng_scorer_lane__3 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[3].u_lane                                                |                                 a7ng_scorer_lane__4 |         67 |         67 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[4].u_lane                                                |                                 a7ng_scorer_lane__5 |         65 |         65 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[5].u_lane                                                |                                 a7ng_scorer_lane__6 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[6].u_lane                                                |                                 a7ng_scorer_lane__7 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[7].u_lane                                                |                                 a7ng_scorer_lane__8 |         65 |         65 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[8].u_lane                                                |                                 a7ng_scorer_lane__9 |         66 |         66 |       0 |    0 |  116 |      0 |      0 |          0 |
+|     g_lane[9].u_lane                                                |                                a7ng_scorer_lane__10 |         67 |         67 |       0 |    0 |  116 |      0 |      0 |          0 |
++---------------------------------------------------------------------+-----------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

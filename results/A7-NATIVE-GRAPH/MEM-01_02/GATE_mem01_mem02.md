@@ -1,0 +1,10 @@
+GATE: mem01_mem02
+CHANGED: a7ng_ddr_store.sv + NG_DDR_EPISODE/INDEX bases
+WHY: DDR-back episodic+index addresses without host winner/address; unlock BRAM for integrate
+TESTS: tests/xsim/run_a7ng_mem12.tcl
+EXPECTED: A7NG_MEM12_DDR_XSIM_PASS
+ACTUAL: A7NG_MEM12_DDR_XSIM_PASS
+PASS/FAIL: PASS
+ARTIFACT: results/A7-NATIVE-GRAPH/MEM-01_02/
+SHA256: 1724A3A37EA52E2FD3C0CB4B9BFB1DDB9D096A9369EA2445A05FBCAF5CA12411
+NEXT GATE: lm_compose

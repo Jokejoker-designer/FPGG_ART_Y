@@ -1,0 +1,126 @@
+{
+  "milestone": "A7-EAM-03E-A0.1-T",
+  "lane": "A01T_CLOSE",
+  "date": "2026-08-20",
+  "status": "XSIM_PASS + TIMING_PASS + SILICON_EXACT_PASS; all A0.1-T gates met, BOARD_PASS declaration reserved for human board authority (AGENTS.md)",
+  "board_pass": "GATES_MET_PENDING_HUMAN_DECLARATION",
+  "law_id": "eam03e-a0-signsgd-v1",
+  "law_changed": false,
+  "part": "xc7a100tcsg324-1",
+  "board": {
+    "name": "Digilent Arty A7-100T",
+    "jtag_serial": "210319BE776EA",
+    "uart": "COM12@115200"
+  },
+  "toolchain": {
+    "vivado": "2026.1",
+    "vivado_path": "C:/2026.1/Vivado/bin/vivado.bat",
+    "license": "D:/Xilinx/licenses/vivado_basic.lic"
+  },
+  "change": {
+    "summary": "S_DIST split into S_DIST (register ad) + S_DADD (accumulate d1_acc); empty-B entry into DIST clears d1_acc/dH_acc/pbi",
+    "parent_snapshot": "results/A7-EAM-03E/a01t_eupd/eam03e_core.sv",
+    "parent_snapshot_sha256": "717025A88F12C22B356DD626651CC359E2D5533083ACC9FADF3086F7815B04EE",
+    "arithmetic_identical": true,
+    "term_order": "i = 0..31 unchanged",
+    "saturation": "16'hFFFF clamp unchanged"
+  },
+  "artifact": {
+    "bit": "arty_a7_eam03e_a01t_close.bit",
+    "bit_sha256": "80F2ED9E0C1A1679F87D5362F2D953258DEF640C6C2079E41B7BFBD7BCD12F41",
+    "bit_bytes": 1536056,
+    "build_out_copy": "build/out/arty_a7_eam03e.bit"
+  },
+  "timing": {
+    "WNS_ns": 0.637,
+    "TNS_ns": 0.0,
+    "TNS_failing_endpoints": 0,
+    "WHS_ns": 0.037,
+    "THS_ns": 0.0,
+    "THS_failing_endpoints": 0,
+    "WPWS_ns": 3.75,
+    "TPWS_ns": 0.0,
+    "total_endpoints": 18857,
+    "verdict": "All user specified timing constraints are met."
+  },
+  "utilization": {
+    "LUT": 7713,
+    "FF": 7173,
+    "BRAM_tile": 3,
+    "DSP": 0,
+    "IOB": 8,
+    "BUFGCTRL": 1
+  },
+  "xsim_golden": {
+    "seed": "0x11111111",
+    "steps": 32,
+    "strings": ["ALPHA", "BETA.", "OMEGA"],
+    "init": {"d1_AB": 3930, "d1_AC": 5362},
+    "after_beta_same": {"d1_AB": 1093, "d1_AC": 2012},
+    "after_reseed": {"d1_AB": 3930},
+    "after_omega_same": {"d1_AC": 451, "d1_AB": 1574},
+    "marker": "A7EAM03EA01T_XSIM_PASS",
+    "result": "EXACT MATCH"
+  },
+  "source_sha256": {
+    "rtl/eam/a7eam03e_pkg.sv": "8FC94E8F842844E76A69965E8DAD4443DC0F95238EDCF029112F9758EA0BF133",
+    "rtl/eam/eam03e_core.sv": "F8221477803E74DCFF1F801B38FEF839A1B0586397F73DAFE2989451A89ADEA5",
+    "rtl/eam/eam03e_uart.sv": "D8A3376BD9B0FE99EC7715DCBA93804C40F705E5CFB6FD4691A8DC6BC1857C46",
+    "rtl/board/uart_rx.sv": "8E802D0B4F7466D7683C9B0109D6666BA5B5D77CF67E45F5AB7C0564BCD5369A",
+    "rtl/board/uart_tx.sv": "B4B7D09758CC95BB52A382BF5C11B5861DDCF0F74055D478824386531B36367B",
+    "rtl/board/sync_bits.sv": "D42DF79D6858DCA8A59A4B63BA6FC9C6FE82A954FD75F4677CF9451BA1BF8996",
+    "rtl/board/arty_a7_eam03e_top.sv": "4EDEE6032FFC849564BAC6D5393938397DBE377857A6F93553DE8E85E8F26E30",
+    "constraints/arty_a7_100.xdc": "1C12E6F8943261C7089984A3725642043D027B813549433B8256843227B6A9C2",
+    "constraints/a7eam01r_board.xdc": "0F4B4BD14490FCE4B938481777BFF6E63F875D5240B79FDF2BFF78B60A69168D",
+    "tests/xsim/tb_a7eam03e.sv": "F8766B1AAC668ABAAD1DEB292C0CF258358D5AC8426B6A14F257B10E041B3AC1",
+    "tests/xsim/run_a7eam03e.tcl": "88D0D92C053FCE9C98EC10FD64994624B896DBD1B8DA61B4DB83D799D08E346F",
+    "vivado/tcl/build_a7eam03e.tcl": "310550521DBE321DF41C4FF544BBD4E3C192674CAE6DDCB4754946DA87615149",
+    "tools/a7eam03e_a0_silicon.py": "70B150CD1F0DF66B5BF2B63C91F15D377A7B70002FE21485D872271CA0F42CEA"
+  },
+  "lineage": [
+    {"attempt": "A0", "WNS_ns": -1.891, "TNS_ns": -990.6, "LUT": 11010},
+    {"attempt": "pacc", "WNS_ns": -0.563, "TNS_ns": -5.218, "LUT": 7692},
+    {"attempt": "eupd", "WNS_ns": -0.119, "TNS_ns": -0.407, "LUT": 7653},
+    {"attempt": "A01T_CLOSE (S_DADD)", "WNS_ns": 0.637, "TNS_ns": 0.0, "LUT": 7713}
+  ],
+  "silicon": {
+    "programmed_bit_sha256": "80F2ED9E0C1A1679F87D5362F2D953258DEF640C6C2079E41B7BFBD7BCD12F41",
+    "jtag_target": "localhost:3121/xilinx_tcf/Digilent/210319BE776EA",
+    "idcode": "00010011011000110001000010010011",
+    "startup_status": "HIGH",
+    "host": "tools/a7eam03e_a0_silicon.py",
+    "steps": 32,
+    "transcript": "board_ladder_a01t_close.json",
+    "board_vs_xsim": {
+      "init_AB": [3930, 3930],
+      "init_AC": [5362, 5362],
+      "train_AB": [1093, 1093],
+      "train_AC": [2012, 2012],
+      "reset_AB": [3930, 3930],
+      "swap_AC": [451, 451],
+      "swap_AB": [1574, 1574]
+    },
+    "verdict": "EXACT MATCH on all 7 authority values"
+  },
+  "known_failure_reproduced": {
+    "seed": "0x22222222",
+    "same_pre_post": [2135, 1487],
+    "diff_pre_post": [1679, 229],
+    "M_L1": -1258,
+    "note": "Discriminative inversion reproduced exactly on silicon. Belongs to A0.2-L, not T. Not a T regression."
+  },
+  "gates": {
+    "xsim_exact": "PASS",
+    "WNS_ge_0": "PASS",
+    "TNS_eq_0": "PASS",
+    "DSP_eq_0": "PASS",
+    "silicon_exact": "PASS"
+  },
+  "not_claimed": [
+    "BOARD_PASS",
+    "discriminative geometry",
+    "seed robustness (0x22222222 still inverts, M_L1 = -1258)",
+    "generalization / retrieval",
+    "A1 remains CLOSED"
+  ]
+}

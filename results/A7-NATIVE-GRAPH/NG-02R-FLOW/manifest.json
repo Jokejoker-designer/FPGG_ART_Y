@@ -1,0 +1,20 @@
+{
+  "gate": "ng02r_flow",
+  "branch": "NG-02R-FLOW",
+  "agent": "a7-ng-topk-frontier",
+  "result": "PASS",
+  "artifact": "results/A7-NATIVE-GRAPH/NG-02R-FLOW/closeout.md",
+  "xsim": "results/A7-NATIVE-GRAPH/NG-02R-FLOW/xsim_flow.log",
+  "cycles": 100000,
+  "batches": 7047,
+  "accepted_winners": 56376,
+  "popped": 56376,
+  "DROP": 0,
+  "DUPLICATE": 0,
+  "UNEXPLAINED_REORDER": 0,
+  "CONS_FAIL": 0,
+  "core_sha256": "241AB11FD2CE008C84B9C9FBB9C6B70145825050FE1835C1489233823AD7B009",
+  "frontier_sha256": "CE38FEC3562343C64AB718243CE5F4B815A128524EBA2903BE20CD5ACDD2C565",
+  "topk_law_sha256_unchanged": "F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636",
+  "board_pass_claimed": false
+}

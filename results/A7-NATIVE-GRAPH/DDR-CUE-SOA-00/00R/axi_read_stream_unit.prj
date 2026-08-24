@@ -1,0 +1,5 @@
+sv work "d:\Jetking_sem4\SEM_4\arty-a7-online-lm\rtl\native_graph\memory\a7ng_soa_plane_engine.sv"
+sv work "d:\Jetking_sem4\SEM_4\arty-a7-online-lm\rtl\native_graph\memory\a7ng_soa_plane_fetch.sv"
+sv work "d:\Jetking_sem4\SEM_4\arty-a7-online-lm\rtl\native_graph\memory\a7ng_axi_read_stream.sv"
+sv work "d:\Jetking_sem4\SEM_4\arty-a7-online-lm\tests\xsim\tb_a7ng_axi_read_stream.sv"
+verilog work "C:/2026.1/Vivado/data/verilog/src/glbl.v"

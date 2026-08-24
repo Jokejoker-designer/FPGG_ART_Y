@@ -1,0 +1,26 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 87,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 16777216,
+    "rd_cycles": 2624906,
+    "wr_bytes": 16777216,
+    "wr_cycles": 1262430,
+    "rd_gbps": 0.5326291028101303,
+    "wr_gbps": 1.1074683964583605,
+    "mix_gbps": 0.7193107710477963
+  },
+  "expected_bytes": 16777216,
+  "pass": true,
+  "seconds": 2.077999999979511,
+  "name": "rand_16mb",
+  "mode": 5,
+  "mode_name": "rand",
+  "size_code": 1,
+  "size_bytes": 16777216
+}

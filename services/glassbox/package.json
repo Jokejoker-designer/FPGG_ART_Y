@@ -1,0 +1,20 @@
+{
+  "name": "@glassbox/service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GlassBox backend lane. Serves recorded and synthetic sessions against the frozen contract. Does not open a serial port.",
+  "scripts": {
+    "start": "node --experimental-strip-types src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types test/*.test.ts"
+  },
+  "dependencies": {
+    "@glassbox/contracts": "file:../../contracts/glassbox",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.5",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "gate": "termgen",
+  "agent": "a7-ng-rtl-scorer",
+  "law_id": "a7ng-termgen-v0",
+  "marker": "A7NG_TERMGEN_XSIM_PASS",
+  "result": "PASS",
+  "board_pass": false,
+  "evidence_class": "PYTEST_BEHAVIORAL+XSIM+OOC_SYNTH",
+  "n_vectors": 32,
+  "seed": "0xA7622201",
+  "lanes": 16,
+  "ii_after_fill": 1,
+  "latency_cycles": 2,
+  "families": ["hamming", "relation_binding", "intent_context", "path"],
+  "ooc": {
+    "part": "xc7a100tcsg324-1",
+    "clk_ns": 10.0,
+    "lut": 12610,
+    "ff": 8112,
+    "dsp": 0,
+    "wns_ns": 2.617,
+    "tns_ns": 0.0
+  },
+  "controls": {
+    "topk_sha": "F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636",
+    "bucket_sha": "CE38FEC3562343C64AB718243CE5F4B815A128524EBA2903BE20CD5ACDD2C565",
+    "lm06_sha": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA"
+  },
+  "primary_sha": "DD637EDAC060D407F44E81C6DD83FE3995150B4CDD275EEF2820757F22DF5218",
+  "artifact": "results/A7-NATIVE-GRAPH/TERMGEN/GATE_termgen.md",
+  "note": "No candidates/s claim; no BOARD_PASS; BIND cancel fixed"
+}

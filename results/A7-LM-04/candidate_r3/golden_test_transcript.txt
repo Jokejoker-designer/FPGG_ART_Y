@@ -1,0 +1,19 @@
+command: python -m pytest tests/golden/test_a7lm04_ref.py -q --tb=short
+cwd: D:\Jetking_sem4\SEM_4\arty-a7-online-lm
+date: 2026-08-18
+
+...........                                                              [100%]
+11 passed in 1.12s
+
+tests:
+  test_param_count
+  test_law_id_unchanged
+  test_forward_stable
+  test_fold_deterministic
+  test_bank_slices_cover_flat
+  test_heldout_v1_invalid_archived
+  test_heldout_hash_frozen
+  test_heldout_r3_preregister
+  test_recipe_r3_frozen
+  test_one_full_oracle_fold
+  test_lm04_uart_frames

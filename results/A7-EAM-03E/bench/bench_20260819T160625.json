@@ -1,0 +1,434 @@
+{
+  "bench_id": "A7-SIM-BENCH-v0.1",
+  "law": "eam03e-a0-signsgd-v1",
+  "ts": "2026-08-19T09:06:25+00:00",
+  "twin_golden": true,
+  "authority": "TWIN SCREEN ONLY \u2014 not silicon evidence, not BOARD_PASS",
+  "dataset": {
+    "name": "NAME-46-SYN",
+    "note": "synthetic, deterministic, entity-level group split; smoke-scale stand-in for TOPO-46-LAT",
+    "counts": {
+      "train": {
+        "pairs": 323,
+        "positive": 239
+      },
+      "dev": {
+        "pairs": 74,
+        "positive": 54
+      },
+      "test": {
+        "pairs": 65,
+        "positive": 49
+      }
+    },
+    "leakage": {
+      "train_strings": 321,
+      "dev_strings": 74,
+      "test_strings": 65
+    },
+    "epochs": 3,
+    "vn": false,
+    "tsv": null
+  },
+  "seeds": [
+    "0x7A9BE636",
+    "0x22222222"
+  ],
+  "seed_rule": "SHA256('A7-SIM-BENCH-v0.1|i')[:4] for i<n-1, plus 0x22222222",
+  "runs": [
+    {
+      "seed": "0x7A9BE636",
+      "train_transactions": 969,
+      "epochs": 3,
+      "untrained": {
+        "auc": 0.609056,
+        "ap": 0.843083,
+        "tie_mass": 0.001276,
+        "levels": 63,
+        "n": 65,
+        "positive_rate": 0.753846
+      },
+      "trained": {
+        "auc": 0.5,
+        "ap": 0.753846,
+        "tie_mass": 1.0,
+        "levels": 1,
+        "n": 65,
+        "positive_rate": 0.753846
+      },
+      "shuffled_labels": {
+        "auc": 0.5,
+        "ap": 0.753846,
+        "tie_mass": 1.0,
+        "levels": 1,
+        "n": 65,
+        "positive_rate": 0.753846
+      },
+      "delta_auc": -0.109056,
+      "delta_auc_shuffled": -0.109056,
+      "quantisation_ceiling": 0.5,
+      "triplet": {
+        "n": 16,
+        "trip_acc": 0.5,
+        "M_L1_median": 0,
+        "M_L1_p05": 0,
+        "M_L1_inverted_frac": 1.0
+      },
+      "collapse": {
+        "vectors": 65,
+        "saturation_rate": 1.0,
+        "negativity_rate": 0.0,
+        "defect_quirk2_active": true,
+        "effective_rank": 0,
+        "dims": 32,
+        "singular_top5": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "spectrum_share_top1": 0.0
+      },
+      "shortcut": {
+        "spearman_d1_vs_dlen": 0.0,
+        "spearman_d1_vs_hist_l1": 0.0,
+        "auc_by_length_delta": {
+          "0": {
+            "n": 24,
+            "auc": 0.5
+          },
+          "1": {
+            "n": 28,
+            "auc": 0.5
+          },
+          "2": {
+            "n": 6,
+            "auc": 0.5
+          },
+          ">=3": {
+            "n": 7,
+            "auc": 0.5
+          }
+        },
+        "length_stratified_auc": 0.5
+      },
+      "baselines": {
+        "B0_constant": {
+          "auc": 0.5,
+          "ap": 0.753846,
+          "tie_mass": 1.0,
+          "levels": 1,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B1_length": {
+          "auc": 0.76977,
+          "ap": 0.884294,
+          "tie_mass": 0.248724,
+          "levels": 7,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B2_jaccard_bytes": {
+          "auc": 0.825255,
+          "ap": 0.949873,
+          "tie_mass": 0.005102,
+          "levels": 30,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B3_hist_l1": {
+          "auc": 0.830995,
+          "ap": 0.951309,
+          "tie_mass": 0.014031,
+          "levels": 21,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B4_bigram_dice": {
+          "auc": 0.783801,
+          "ap": 0.936447,
+          "tie_mass": 0.001276,
+          "levels": 48,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B5_levenshtein": {
+          "auc": 0.779337,
+          "ap": 0.938591,
+          "tie_mass": 0.0,
+          "levels": 44,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B6_osa": {
+          "auc": 0.779337,
+          "ap": 0.938591,
+          "tie_mass": 0.0,
+          "levels": 43,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B7_jaro_winkler": {
+          "auc": 0.792092,
+          "ap": 0.939818,
+          "tie_mass": 0.0,
+          "levels": 57,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B8_suffix": {
+          "auc": 0.766582,
+          "ap": 0.903222,
+          "tie_mass": 0.19898,
+          "levels": 16,
+          "n": 65,
+          "positive_rate": 0.753846
+        }
+      },
+      "best_classical_auc": 0.830995
+    },
+    {
+      "seed": "0x22222222",
+      "train_transactions": 969,
+      "epochs": 3,
+      "untrained": {
+        "auc": 0.667092,
+        "ap": 0.851821,
+        "tie_mass": 0.0,
+        "levels": 65,
+        "n": 65,
+        "positive_rate": 0.753846
+      },
+      "trained": {
+        "auc": 0.5,
+        "ap": 0.753846,
+        "tie_mass": 1.0,
+        "levels": 1,
+        "n": 65,
+        "positive_rate": 0.753846
+      },
+      "shuffled_labels": {
+        "auc": 0.479592,
+        "ap": 0.746351,
+        "tie_mass": 0.959184,
+        "levels": 2,
+        "n": 65,
+        "positive_rate": 0.753846
+      },
+      "delta_auc": -0.167092,
+      "delta_auc_shuffled": -0.1875,
+      "quantisation_ceiling": 0.5,
+      "triplet": {
+        "n": 16,
+        "trip_acc": 0.5,
+        "M_L1_median": 0,
+        "M_L1_p05": 0,
+        "M_L1_inverted_frac": 1.0
+      },
+      "collapse": {
+        "vectors": 65,
+        "saturation_rate": 1.0,
+        "negativity_rate": 0.0,
+        "defect_quirk2_active": true,
+        "effective_rank": 0,
+        "dims": 32,
+        "singular_top5": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "spectrum_share_top1": 0.0
+      },
+      "shortcut": {
+        "spearman_d1_vs_dlen": 0.0,
+        "spearman_d1_vs_hist_l1": 0.0,
+        "auc_by_length_delta": {
+          "0": {
+            "n": 24,
+            "auc": 0.5
+          },
+          "1": {
+            "n": 28,
+            "auc": 0.5
+          },
+          "2": {
+            "n": 6,
+            "auc": 0.5
+          },
+          ">=3": {
+            "n": 7,
+            "auc": 0.5
+          }
+        },
+        "length_stratified_auc": 0.5
+      },
+      "baselines": {
+        "B0_constant": {
+          "auc": 0.5,
+          "ap": 0.753846,
+          "tie_mass": 1.0,
+          "levels": 1,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B1_length": {
+          "auc": 0.76977,
+          "ap": 0.884294,
+          "tie_mass": 0.248724,
+          "levels": 7,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B2_jaccard_bytes": {
+          "auc": 0.825255,
+          "ap": 0.949873,
+          "tie_mass": 0.005102,
+          "levels": 30,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B3_hist_l1": {
+          "auc": 0.830995,
+          "ap": 0.951309,
+          "tie_mass": 0.014031,
+          "levels": 21,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B4_bigram_dice": {
+          "auc": 0.783801,
+          "ap": 0.936447,
+          "tie_mass": 0.001276,
+          "levels": 48,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B5_levenshtein": {
+          "auc": 0.779337,
+          "ap": 0.938591,
+          "tie_mass": 0.0,
+          "levels": 44,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B6_osa": {
+          "auc": 0.779337,
+          "ap": 0.938591,
+          "tie_mass": 0.0,
+          "levels": 43,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B7_jaro_winkler": {
+          "auc": 0.792092,
+          "ap": 0.939818,
+          "tie_mass": 0.0,
+          "levels": 57,
+          "n": 65,
+          "positive_rate": 0.753846
+        },
+        "B8_suffix": {
+          "auc": 0.766582,
+          "ap": 0.903222,
+          "tie_mass": 0.19898,
+          "levels": 16,
+          "n": 65,
+          "positive_rate": 0.753846
+        }
+      },
+      "best_classical_auc": 0.830995
+    }
+  ],
+  "report": {
+    "gates": {
+      "G1_delta_auc": {
+        "median": -0.109056,
+        "worst": -0.167092,
+        "pass": false
+      },
+      "G2_beats_hist_l1": {
+        "model_median": 0.5,
+        "B3_median": 0.830995,
+        "pass": false
+      },
+      "G3_beats_classical": {
+        "model_median": 0.5,
+        "best_classical_median": 0.830995,
+        "pass": false
+      },
+      "G4_auc_floor": {
+        "median": 0.5,
+        "worst": 0.5,
+        "pass": false
+      },
+      "G5_triplet": {
+        "median": 0.5,
+        "worst": 0.5,
+        "max_inverted": 1.0,
+        "pass": false
+      },
+      "G6_not_length": {
+        "max_abs_spearman": 0.0,
+        "pass": true
+      },
+      "G7_not_collapsed": {
+        "mean_saturation": 1.0,
+        "min_effective_rank": 0,
+        "pass": false
+      },
+      "G9_no_inversion": {
+        "seeds_with_negative_delta": [
+          "0x7A9BE636",
+          "0x22222222"
+        ],
+        "pass": false
+      }
+    },
+    "screen_verdict": "DOES_NOT_WORK",
+    "authority": "TWIN SCREEN ONLY \u2014 not a BOARD_PASS and not evidence",
+    "thresholds": {
+      "G1_delta_auc": {
+        "median": 0.02,
+        "worst": 0.0,
+        "why": "0.02 is about 5 standard errors on a 20k-pair split; worst-seed at 0 says training may fail to help but must not harm"
+      },
+      "G2_beats_hist_l1": {
+        "slack": 0.02,
+        "why": "B3 is this architecture with the recurrence deleted"
+      },
+      "G3_beats_classical": {
+        "slack": 0.0,
+        "why": "a learned metric that cannot beat a 1990s heuristic is not doing the thing learned metrics exist for"
+      },
+      "G4_auc_floor": {
+        "median": 0.65,
+        "worst": 0.6,
+        "why": "tuned classical metrics sit at 61.5-65.2% accuracy on hard negatives; below this the system is not competitive with Jaro"
+      },
+      "G5_triplet": {
+        "median": 0.65,
+        "worst": 0.6,
+        "max_inverted": 0.35,
+        "why": "two of three held-out triplets ordered correctly is a claim; one triplet is a coin flip"
+      },
+      "G6_not_length": {
+        "max_abs_spearman": 0.7,
+        "strat_slack": 0.02,
+        "why": "a monotone function of |length difference| is not a string metric"
+      },
+      "G7_not_collapsed": {
+        "max_saturation": 0.5,
+        "min_effective_rank": 8,
+        "why": "asserts the '32-dim' description is not fiction"
+      },
+      "G9_no_inversion": {
+        "why": "inherits the contract worst-seed rule"
+      }
+    }
+  },
+  "wall_seconds": 11.8
+}

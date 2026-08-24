@@ -1,0 +1,65 @@
+{
+  "law_id": "a7ng-train-v2",
+  "generation": 3,
+  "priors": {
+    "f10": 2,
+    "f01": -2,
+    "f02": 4,
+    "f07": 2,
+    "f05": -4,
+    "f11": 5,
+    "f17": 2,
+    "f13": 3,
+    "f12": -2,
+    "f14": 3,
+    "f06": -2,
+    "f19": 2,
+    "f18": -2
+  },
+  "edges": {
+    "ENT_FPGA|INT_DEFINE": {
+      "f10": 3,
+      "f01": -3
+    },
+    "ENT_FPGA|INT_LOCATE": {
+      "f02": 3,
+      "f07": -3
+    },
+    "ENT_BRAM|INT_DEFINE": {
+      "f10": 3,
+      "f05": -3
+    },
+    "ENT_FPGA|INT_MECHANISM": {
+      "f11": 3,
+      "f17": 3,
+      "f10": -3
+    },
+    "ENT_WNS|INT_DEFINE": {
+      "f13": 3,
+      "f12": -3
+    },
+    "INT_AGENT": {
+      "f14": 3,
+      "f06": -3
+    },
+    "ENT_BOMB|INT_DEFINE": {
+      "f19": 3,
+      "f18": -3
+    },
+    "ENT_DDR|INT_DEFINE": {
+      "f07": 3,
+      "f05": -3
+    }
+  },
+  "confidence": {
+    "ENT_FPGA|INT_DEFINE->f10": 3,
+    "ENT_FPGA|INT_LOCATE->f02": 3,
+    "ENT_BRAM|INT_DEFINE->f10": 3,
+    "ENT_FPGA|INT_MECHANISM->f11": 3,
+    "ENT_FPGA|INT_MECHANISM->f17": 3,
+    "ENT_WNS|INT_DEFINE->f13": 3,
+    "INT_AGENT->f14": 3,
+    "ENT_BOMB|INT_DEFINE->f19": 3,
+    "ENT_DDR|INT_DEFINE->f07": 3
+  }
+}

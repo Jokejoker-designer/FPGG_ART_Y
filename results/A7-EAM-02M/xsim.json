@@ -1,0 +1,10 @@
+{
+  "lane": "A7-EAM-02M",
+  "law": "eam02m-bind-v1",
+  "verdict": "A7EAM02M_XSIM_PASS",
+  "dut": "eam02m_core",
+  "router": "eam01r_core frozen",
+  "claim": "multi-cue exact bind; NOT unseen paraphrase",
+  "sim": "vivado 2026.1 xsim",
+  "finish_ns": 387205
+}

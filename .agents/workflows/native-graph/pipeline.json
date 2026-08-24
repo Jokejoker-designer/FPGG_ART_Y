@@ -1,0 +1,208 @@
+{
+  "id": "a7-native-graph-pipeline",
+  "name": "Arty A7 Native Graph NG-00..NG-03",
+  "description": "Sequential gated pipeline from NATIVE_AI_ARTY_A7_COMPLETE_BLUEPRINT. Board: Arty A7-100T.",
+  "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/",
+  "pattern": "sequential",
+  "board": "xc7a100tcsg324-1",
+  "nodes": [
+    {
+      "id": "audit",
+      "type": "agent",
+      "label": "Authority Audit",
+      "character_id": "a7-evidence-auditor",
+      "authority": "READ_ONLY_AUDIT",
+      "deliverables": ["results/A7-NATIVE-GRAPH/STATUS/RECONCILIATION.md"]
+    },
+    {
+      "id": "ng00",
+      "type": "agent",
+      "label": "NG-00 Contracts",
+      "character_id": "a7-ng-teacher-protocol",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["audit"],
+      "deliverables": [
+        "docs/contracts/native_graph/teacher_lesson.schema.json",
+        "docs/contracts/native_graph/telemetry.schema.json",
+        "tests/native_graph/test_ng00_anti_leak.py"
+      ],
+      "pass_gate": "pytest tests/native_graph/test_ng00_anti_leak.py -q"
+    },
+    {
+      "id": "hlb",
+      "type": "agent",
+      "label": "HLB Audit",
+      "character_id": "a7-hlb-auditor",
+      "authority": "READ_ONLY_AUDIT",
+      "depends_on": ["ng00"]
+    },
+    {
+      "id": "ng01",
+      "type": "agent",
+      "label": "NG-01 16-Lane Scorer",
+      "character_id": "a7-ng-rtl-scorer",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["hlb"],
+      "concurrent_with": ["a7-ng-scientific"]
+    },
+    {
+      "id": "ng01_xsim",
+      "type": "agent",
+      "label": "NG-01 XSim Verify",
+      "character_id": "a7-ng-xsim-verify",
+      "authority": "VERIFY_ONLY",
+      "depends_on": ["ng01"]
+    },
+    {
+      "id": "ng01_impl",
+      "type": "agent",
+      "label": "NG-01 Vivado Gate",
+      "character_id": "a7-vivado-gate",
+      "authority": "VERIFY_ONLY",
+      "depends_on": ["ng01_xsim"],
+      "pass_gate": "WNS>=0 && TNS==0 && lanes==16"
+    },
+    {
+      "id": "ng02",
+      "type": "agent",
+      "label": "NG-02 Top-K Frontier",
+      "character_id": "a7-ng-topk-frontier",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng01_impl"]
+    },
+    {
+      "id": "ng03",
+      "type": "agent",
+      "label": "NG-03 DDR+BRAM Hotset",
+      "character_id": "a7-ng-memory-arch",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng02"]
+    },
+    {
+      "id": "ng04",
+      "type": "agent",
+      "label": "NG-04 Minesweeper Path Prune",
+      "character_id": "a7-ng-scientific",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng03"],
+      "pass_gate": "A7NG04_PRUNE_PASS"
+    },
+    {
+      "id": "ng05",
+      "type": "agent",
+      "label": "NG-05 Local Edge/Node Learning",
+      "character_id": "a7-ng-scientific",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng04"]
+    },
+    {
+      "id": "ng05_persist",
+      "type": "agent",
+      "label": "NG-05 DDR-backed prior persist",
+      "character_id": "a7-ng-memory-arch",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng05"],
+      "pass_gate": "teacher-off prior survives power; reset/retrain; no host weights"
+    },
+    {
+      "id": "ng06",
+      "type": "agent",
+      "label": "NG-06 Multi-agent shared frontier",
+      "character_id": "a7-ng-scientific",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng05_persist"],
+      "pass_gate": "16 PE x 256 logical contexts; no starvation; no global reset"
+    },
+    {
+      "id": "ng07",
+      "type": "agent",
+      "label": "NG-07 Native query anchors",
+      "character_id": "a7-ng-scientific",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng06"]
+    },
+    {
+      "id": "ng08",
+      "type": "agent",
+      "label": "NG-08 Kidi-20 curriculum",
+      "character_id": "a7-ng-teacher-protocol",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng07"]
+    },
+    {
+      "id": "ng09",
+      "type": "agent",
+      "label": "NG-09 Kidi-40 multi-intent",
+      "character_id": "a7-ng-teacher-protocol",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng08"]
+    },
+    {
+      "id": "mem00",
+      "type": "agent",
+      "label": "MEM-00 BRAM ownership audit",
+      "character_id": "a7-ng-memory-arch",
+      "authority": "READ_ONLY_AUDIT",
+      "depends_on": ["ng03"]
+    },
+    {
+      "id": "lm_compose",
+      "type": "agent",
+      "label": "LM-06 composer on native evidence path",
+      "character_id": "a7-ng-orchestrator",
+      "authority": "PATCH_DRAFT",
+      "depends_on": ["ng09", "mem00"]
+    },
+    {
+      "id": "teacher_off_exam",
+      "type": "agent",
+      "label": "Blind exam HS-02",
+      "character_id": "a7-hlb-auditor",
+      "authority": "VERIFY_ONLY",
+      "depends_on": ["lm_compose"]
+    },
+    {
+      "id": "section14",
+      "type": "agent",
+      "label": "§14 checklist file-backed",
+      "character_id": "a7-evidence-auditor",
+      "authority": "READ_ONLY_AUDIT",
+      "depends_on": ["teacher_off_exam"]
+    },
+    {
+      "id": "hitl",
+      "type": "hitl",
+      "label": "Human NATIVE_V1_MINI_AI_BOARD_PASS",
+      "authority": "HUMAN_APPROVAL_REQUIRED",
+      "depends_on": ["section14"]
+    }
+  ],
+  "edges": [
+    ["audit", "ng00"],
+    ["ng00", "hlb"],
+    ["hlb", "ng01"],
+    ["ng01", "ng01_xsim"],
+    ["ng01_xsim", "ng01_impl"],
+    ["ng01_impl", "ng02"],
+    ["ng02", "ng03"],
+    ["ng03", "ng04"],
+    ["ng04", "ng05"],
+    ["ng05", "ng05_persist"],
+    ["ng05_persist", "ng06"],
+    ["ng06", "ng07"],
+    ["ng07", "ng08"],
+    ["ng08", "ng09"],
+    ["ng03", "mem00"],
+    ["ng09", "lm_compose"],
+    ["mem00", "lm_compose"],
+    ["lm_compose", "teacher_off_exam"],
+    ["teacher_off_exam", "section14"],
+    ["section14", "hitl"]
+  ],
+  "stop_on_fail": true,
+  "references": {
+    "basys3": "docs/native_graph/references/basys3-eight-agent/",
+    "hf_research": "results/A7-NATIVE-GRAPH/HF_RESEARCH/ADOPT_ADAPT_DEFER.md",
+    "xilinx_skill": "E:\\agents\\xilinx-skill"
+  }
+}

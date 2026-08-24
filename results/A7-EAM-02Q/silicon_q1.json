@@ -1,0 +1,45 @@
+{
+  "law": "eam02q-q1-rh-v1",
+  "seed": 245432833,
+  "bit_sha": "507DB68857ACA140FF2E5C6956BF5489CE823B55BB0893CB04770A20FD55CBDA",
+  "ping": "Q1R",
+  "twins": [
+    {
+      "got": "0000000000000000",
+      "exp": "0000000000000000",
+      "ok": true
+    },
+    {
+      "got": "a28fcdd86284e2e2",
+      "exp": "a28fcdd86284e2e2",
+      "ok": true
+    },
+    {
+      "got": "e6891b7b6c06a6fa",
+      "exp": "e6891b7b6c06a6fa",
+      "ok": true
+    },
+    {
+      "got": "69ec990bae37936d",
+      "exp": "69ec990bae37936d",
+      "ok": true
+    }
+  ],
+  "map_miss": {
+    "hit": false,
+    "token": 161,
+    "hamming": 64
+  },
+  "probe_hit": {
+    "hit": true,
+    "token": 161,
+    "hamming": 0
+  },
+  "far_miss": {
+    "hit": false,
+    "token": 0,
+    "hamming": 64
+  },
+  "semantic_evidence": false,
+  "pass": true
+}

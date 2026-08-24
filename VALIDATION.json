@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "release_id": "A7-LM-04-BOARD-PASS-20260818",
+  "milestone": "A7-LM-04",
+  "revision": "R5",
+  "status": "BOARD_PASS",
+  "claim": "ARTY_A7_100K_DDR_ONLINE_LM_BOARD_VALIDATED",
+  "claim_scope": "counterfactual target-switch online adaptation; not 8-way contextual retrieval or open-domain language modeling",
+  "board": {
+    "name": "Arty A7-100T",
+    "fpga": "xc7a100tcsg324-1",
+    "jtag_serial": "210319BE776EA",
+    "uart": "COM12"
+  },
+  "toolchain": {
+    "vivado": "2026.1"
+  },
+  "law_id": "lm05-signsgd-v1",
+  "bitstream": {
+    "file": "build/out/arty_a7_lm04r5.bit",
+    "sha256": "A177E0989956DF08C7150E451984C914E1D53B1FCF96A49EBEC68CE8497A55F8"
+  },
+  "timing": {
+    "wns_ns": 0.157,
+    "tns_ns": 0.0,
+    "whs_ns": 0.030,
+    "lm05_timing_authorized": false
+  },
+  "evidence": {
+    "manifest": "results/A7-LM-04/candidate_r5/board/MANIFEST.json",
+    "manifest_sha256": "49B5503625A54BC5170A8053EBD52B36B1360C9F3262DFB8F790551F532A68C5",
+    "ladder_sha256": "8F437583E67023067B9EB2F20627F40C6012264ECD4F2B069BD8E61CAD1A15D1"
+  },
+  "tests": {
+    "frozen_artifacts_preserved": true,
+    "ddr_calibration": true,
+    "k257_k511_k513_first_try_exact": true,
+    "requant_exact": true,
+    "one_full_update_exact": true,
+    "ddr_persist_reload_exact": true,
+    "after_zero_writes": true,
+    "multitoken_forward_exact": true,
+    "quality_runs_pass": "12/12",
+    "median_ce_drop": 1.0,
+    "worst_accuracy": 0.984375,
+    "worst_wilson_lb_95": 0.9166589839990573,
+    "confirmation_used_for_tuning": false
+  }
+}

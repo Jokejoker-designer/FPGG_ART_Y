@@ -1,0 +1,38 @@
+{
+  "k": 513,
+  "started": true,
+  "match": true,
+  "fold": {
+    "xor32": 4186759747,
+    "add32": 4270895305,
+    "macs": 65664
+  },
+  "expected": {
+    "xor32": 4186759747,
+    "add32": 4270895305,
+    "macs": 65664
+  },
+  "counters2": {
+    "dma_under": 0,
+    "bank_haz": 0,
+    "axi_berr": 0,
+    "axi_rerr": 0,
+    "swaps": 2
+  },
+  "overlap": {
+    "overlap_cyc": 289,
+    "ntile": 3
+  },
+  "ok": true,
+  "tstat": {
+    "ok": true,
+    "kind": 144,
+    "t_pass": true,
+    "t_busy": false,
+    "calib": true,
+    "t_done": false,
+    "phase": 0,
+    "cases": 1,
+    "hex": "a590a0000100000000000000000094"
+  }
+}

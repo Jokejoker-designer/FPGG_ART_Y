@@ -1,0 +1,26 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 71,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 268435456,
+    "rd_cycles": 19191497,
+    "wr_bytes": 268435456,
+    "wr_cycles": 19411311,
+    "rd_gbps": 1.1656006430272141,
+    "wr_gbps": 1.1524013624764884,
+    "mix_gbps": 1.1589634227569585
+  },
+  "expected_bytes": 268435456,
+  "pass": true,
+  "seconds": 0.5459999999729916,
+  "name": "seq_256mb_b",
+  "mode": 4,
+  "mode_name": "seq",
+  "size_code": 2,
+  "size_bytes": 268435456
+}

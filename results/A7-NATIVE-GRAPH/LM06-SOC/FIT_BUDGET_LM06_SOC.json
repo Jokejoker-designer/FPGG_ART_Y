@@ -1,0 +1,34 @@
+{
+  "gate": "lm06_soc_path",
+  "device": "xc7a100tcsg324-1",
+  "evidence_class": "POST_ROUTE_SOC",
+  "verdict": "PASS_NARROW",
+  "board_pass": false,
+  "metrics": {
+    "wns_ns": 0.365,
+    "tns_ns": 0.0,
+    "whs_ns": 0.015,
+    "ths_ns": 0.0,
+    "lut": 7202,
+    "ff": 8060,
+    "bram_tiles": 64,
+    "bram_available": 135,
+    "dsp": 0,
+    "pe_lanes": 16,
+    "pe_lut_u_sc": 1048,
+    "wt_bram_u_lm06_wtile": 32,
+    "wt_bram_u_lm06_wpp": 32
+  },
+  "lm06_weight_fabric": true,
+  "lm06_act_u_a": "ABSENT",
+  "sha256_new_soc": "D61BA6D454F4AC1B4980D3869866A6742E12C02C9D08C2ECD45897CCD9053FA3",
+  "control_soc_sha": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+  "frozen_lm06_sha": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA",
+  "frozen_bits": "MATCH",
+  "limits": [
+    "WEIGHT_CUT_ONLY_no_u_a_no_full_core",
+    "lm_path_RTL_sticky_not_board_probed",
+    "no_BOARD_PASS",
+    "no_HS02_semantic"
+  ]
+}

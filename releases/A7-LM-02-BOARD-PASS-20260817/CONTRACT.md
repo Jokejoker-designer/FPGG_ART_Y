@@ -1,0 +1,65 @@
+# A7-LM-02 — tiled tensor engine
+
+**Status:** BOARD_PASS  
+**Closed:** 2026-08-17  
+**Requires:** A7-LM-01 BOARD_PASS  
+**Authority:** `docs/architecture/PROGRAM.md`  
+**Do not:** train a Transformer, scale V/d, start A7-LM-03, overwrite `arty_a7_lm00.bit` / `arty_a7_lm01.bit`, let the host compute the board result.
+
+## Scope
+
+128 DSP MAC lanes. INT8×INT16→INT48/INT32. BRAM weight ping/pong + activation tile. GEMV and GEMM. AXI DMA overlap on the official Digilent MIG (AXI, not hand-edited). Host is monitor/compare only.
+
+| | |
+|--|--|
+| Lanes | 128 |
+| Clock | MIG `ui_clk` ~83.33 MHz (same domain as AXI) |
+| Weight | INT8, K-major, N-contiguous, 128-wide tiles |
+| Activation | INT16 |
+| Acc | DSP 48-bit, store INT32 with sat |
+| GEMV tile | 1 × 128 |
+| GEMM tile | 8 × 16 |
+| K on-chip | ≤ 256 per bank; longer K by ping/pong tiles |
+| Bitstream | `build/out/arty_a7_lm02.bit` |
+
+## Gates (conjunctive)
+
+| Gate | Pass |
+|------|------|
+| signed random GEMV/GEMM | ≥ 10,000 cases exact vs `python/ref/fixed_gemm.py` |
+| INT8 min/max corners | exact |
+| saturation (INT16 requant) | exact |
+| nonmultiple M/N/K | exact |
+| tile-boundary K | exact |
+| DMA PING/PONG hazards | 0 |
+| DMA underflows | 0 |
+| MAC / stall counters | valid |
+| compute-only U_MAC | recorded |
+| DDR-streamed GEMV | ≥ 60% of DDR roofline |
+| sequence-reuse GEMM | ≥ 60% of compute roofline |
+| WNS | ≥ 0 |
+
+Roofline:
+
+```
+U_MAC = useful_MACs / (128 × cycles)
+DDR_roofline_GMAC/s = measured_or_peak sequential read GB/s  (1 byte → 1 MAC)
+compute_roofline_GMAC/s = 128 × ui_hz
+efficiency = measured_GMAC/s / applicable_roofline
+```
+
+## UART (15-byte A5 72)
+
+| op | |
+|----|--|
+| `0x20` | one case: mode, M, N, K, seed |
+| `0x21` | batch: count, seed |
+| `0x22` | status → `0x90` |
+| `0x23` | fold → `0x91` xor32, add32, macs |
+| `0x24` | counters → `0x92` cycles, stall, hazard |
+| `0x25` | psum page → `0x93` |
+| `0x26` | DDR GEMV roofline |
+| `0x27` | GEMM reuse roofline |
+| `0x28` | requant fold, shift=a |
+
+LED0=calib LED1=busy LED2=pass LED3=hazard/underflow. SW0=batch 10K seed 1.

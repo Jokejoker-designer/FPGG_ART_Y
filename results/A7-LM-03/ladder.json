@@ -1,0 +1,66 @@
+{
+  "started_utc": "2026-08-17T08:57:50.562534+00:00",
+  "gates": {
+    "status": true,
+    "init_fold": true,
+    "ce_drop_ge_0p30": true,
+    "all_banks_ref": true,
+    "writes_nonzero": true,
+    "fold_match_ref": true,
+    "after_zero_writes": true
+  },
+  "pass": true,
+  "ref": {
+    "loss0": 128,
+    "loss1": 64,
+    "drop": 0.5,
+    "fold": {
+      "xor32": 162,
+      "add32": 2976236,
+      "nbytes": 25088
+    },
+    "all_moved": true
+  },
+  "init_fold": {
+    "xor32": 0,
+    "add32": 2958688,
+    "nbytes": 25088
+  },
+  "status0": {
+    "after": false,
+    "busy": false,
+    "done": false,
+    "phase": 0,
+    "wr_n": 20544,
+    "pred": 123,
+    "loss": 16
+  },
+  "fold_init": {
+    "xor32": 0,
+    "add32": 2958688,
+    "wr_n": 20544
+  },
+  "after_train": {
+    "fold": {
+      "xor32": 162,
+      "add32": 2976236,
+      "wr_n": 806976
+    },
+    "ce": {
+      "ce0": 128,
+      "ce1": 64,
+      "loss": 16
+    },
+    "status": {
+      "after": false,
+      "busy": false,
+      "done": false,
+      "phase": 0,
+      "wr_n": 806976,
+      "pred": 16,
+      "loss": 16
+    }
+  },
+  "ce_drop": 0.5,
+  "ended_utc": "2026-08-17T08:58:24.676125+00:00"
+}

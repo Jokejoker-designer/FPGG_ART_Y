@@ -1,0 +1,16 @@
+{
+  "gate": "frontier_shootout",
+  "agent": "a7-ng-topk-frontier",
+  "result": "PASS",
+  "marker": "A7NG_FRONTIER_SHOOTOUT_XSIM_PASS",
+  "winner_primary": "B_systolic",
+  "ranking": ["B_systolic", "C_twolevel", "A_bucket"],
+  "artifact": "results/A7-NATIVE-GRAPH/FRONTIER-SHOOTOUT/closeout.md",
+  "comparison_table": "results/A7-NATIVE-GRAPH/FRONTIER-SHOOTOUT/COMPARISON_TABLE.csv",
+  "master_seed": "0xF5022201",
+  "n_queries": 64,
+  "topk_law_sha": "F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636",
+  "bucket_ctrl_sha": "CE38FEC3562343C64AB718243CE5F4B815A128524EBA2903BE20CD5ACDD2C565",
+  "board_pass": false,
+  "evidence_class": "PY_ORACLE+XSIM+OOC_SYNTH"
+}

@@ -1,0 +1,26 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 103,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 1048576,
+    "rd_cycles": 164045,
+    "wr_bytes": 1048576,
+    "wr_cycles": 78889,
+    "rd_gbps": 0.532666847412649,
+    "wr_gbps": 1.1076491397255386,
+    "mix_gbps": 0.7193833138532112
+  },
+  "expected_bytes": 1048576,
+  "pass": true,
+  "seconds": 2.077999999979511,
+  "name": "bound_1mb",
+  "mode": 6,
+  "mode_name": "bound",
+  "size_code": 0,
+  "size_bytes": 1048576
+}

@@ -1,0 +1,1 @@
+{"candidate":"00s","part":"xc7a100tcsg324-1","synth_pass":true,"bram_eq":29,"ramb36":28,"ramb18":1,"lutram":0,"lut":3747,"ff":3382,"bram_ok":true,"no_explode":true,"margin_ok":true,"wns_ns":0.800,"tns_ns":0.000,"timing_ok":true,"clk_100mhz":true,"cw_ok":true,"funcsim_ok":true,"pass":true}

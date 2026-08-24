@@ -1,0 +1,325 @@
+{
+  "phase": "A0.2-L E-table collapse probe",
+  "hypothesis": "H6",
+  "evidence_class": "REFERENCE_MODEL",
+  "margin": 4096,
+  "law": "eam03e-a02-triplet-v1 on eam03e-a03-signed-h-v1",
+  "seeds": [
+    {
+      "seed": "0x11111111",
+      "series": [
+        {
+          "updates": 0,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2721.1,
+          "row_l1_min": 1839,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0548
+        },
+        {
+          "updates": 32,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2720.1,
+          "row_l1_min": 1826,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0545
+        },
+        {
+          "updates": 64,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2718.7,
+          "row_l1_min": 1797,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0551
+        },
+        {
+          "updates": 128,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2718.8,
+          "row_l1_min": 1841,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0554
+        },
+        {
+          "updates": 256,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2729.9,
+          "row_l1_min": 1751,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0564
+        },
+        {
+          "updates": 512,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2734.9,
+          "row_l1_min": 1735,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0569
+        },
+        {
+          "updates": 1000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2750.3,
+          "row_l1_min": 1815,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0602
+        },
+        {
+          "updates": 2000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2815.7,
+          "row_l1_min": 1794,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0845
+        },
+        {
+          "updates": 5000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 3195.4,
+          "row_l1_min": 160,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.1713
+        },
+        {
+          "updates": 10000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 3582.6,
+          "row_l1_min": 0,
+          "identical_pairs": 5,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.2588
+        }
+      ]
+    },
+    {
+      "seed": "0xB2B49299",
+      "series": [
+        {
+          "updates": 0,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2755.7,
+          "row_l1_min": 1716,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0606
+        },
+        {
+          "updates": 32,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2751.8,
+          "row_l1_min": 1709,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0604
+        },
+        {
+          "updates": 64,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2744.3,
+          "row_l1_min": 1705,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0611
+        },
+        {
+          "updates": 128,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2748.0,
+          "row_l1_min": 1708,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0609
+        },
+        {
+          "updates": 256,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2743.9,
+          "row_l1_min": 1715,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0604
+        },
+        {
+          "updates": 512,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2748.6,
+          "row_l1_min": 1692,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0599
+        },
+        {
+          "updates": 1000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2755.8,
+          "row_l1_min": 1716,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0599
+        },
+        {
+          "updates": 2000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2764.0,
+          "row_l1_min": 1713,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.064
+        },
+        {
+          "updates": 5000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2888.5,
+          "row_l1_min": 1555,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0967
+        },
+        {
+          "updates": 10000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 3242.5,
+          "row_l1_min": 32,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.171
+        }
+      ]
+    },
+    {
+      "seed": "0x22222222",
+      "series": [
+        {
+          "updates": 0,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2693.9,
+          "row_l1_min": 1568,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0616
+        },
+        {
+          "updates": 32,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2687.8,
+          "row_l1_min": 1583,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0621
+        },
+        {
+          "updates": 64,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2690.0,
+          "row_l1_min": 1582,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0622
+        },
+        {
+          "updates": 128,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2691.2,
+          "row_l1_min": 1521,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0627
+        },
+        {
+          "updates": 256,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2683.0,
+          "row_l1_min": 1500,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0626
+        },
+        {
+          "updates": 512,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2697.7,
+          "row_l1_min": 1595,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0615
+        },
+        {
+          "updates": 1000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2716.6,
+          "row_l1_min": 1622,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0614
+        },
+        {
+          "updates": 2000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 2803.6,
+          "row_l1_min": 1654,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.0789
+        },
+        {
+          "updates": 5000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 3070.2,
+          "row_l1_min": 724,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.1165
+        },
+        {
+          "updates": 10000,
+          "rows": 52,
+          "effective_rank": 32,
+          "row_l1_mean": 3296.2,
+          "row_l1_min": 517,
+          "identical_pairs": 0,
+          "pairs_sampled": 1326,
+          "spectrum_top1_share": 0.1429
+        }
+      ]
+    }
+  ],
+  "ts": "2026-08-20T05:04:42.906175+00:00"
+}

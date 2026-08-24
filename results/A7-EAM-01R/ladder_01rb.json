@@ -1,0 +1,67 @@
+{
+  "candidate": "01r-b",
+  "law": "eam01r-mih-v1",
+  "bit": "build/out/arty_a7_eam01r.bit",
+  "bit_sha256": "57D1DF1BF86338A896876F6FBE204B1705128FFEC0A96F0582CF7EF90E9EF6CF",
+  "port": "COM12",
+  "n": 32,
+  "pair_min": 24,
+  "hit_max": 8,
+  "margin_min": 4,
+  "probes": 128,
+  "oracle": "exhaustive Hamming NN on stored keys",
+  "host_must_not_send": [
+    "way",
+    "bram_addr",
+    "precomputed_match"
+  ],
+  "frozen": {
+    "arty_a7_lm00.bit": {
+      "ok": true,
+      "got": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783"
+    },
+    "arty_a7_lm05.bit": {
+      "ok": true,
+      "got": "1AA0B5C481B0ADF3CAA599F081B430AF3C28A26FB4715DC56A0D25D940548F51"
+    },
+    "arty_a7_lm06c3.bit": {
+      "ok": true,
+      "got": "222F804351261B5878D73E5501E4E34A28D330B09BB4BC3E1590EE79402884C6"
+    },
+    "arty_a7_eam00b.bit": {
+      "ok": true,
+      "got": "7CBB0CFCC9F3A05D7EF2993AF3F7283CD63508D0C1806A3074560B511E292C8D"
+    },
+    "arty_a7_eam01r.bit": {
+      "ok": true,
+      "got": "57D1DF1BF86338A896876F6FBE204B1705128FFEC0A96F0582CF7EF90E9EF6CF"
+    }
+  },
+  "steps": {
+    "ping_r1r": true,
+    "clr": true,
+    "hmax8": true,
+    "marg4": true,
+    "map_miss_n": true,
+    "exact_hit_n": true,
+    "exact_token_n": true,
+    "exact_d0_n": true,
+    "set_1flip": true,
+    "set_1flip_n": 16,
+    "eight_in_one_byte": true,
+    "eight_in_one_byte_n": 16,
+    "theorem_1_per_byte": true,
+    "theorem_1_per_byte_n": 16,
+    "d16_reject": true,
+    "d16_reject_n": 16,
+    "unrelated_reject": true,
+    "unrelated_n": 32,
+    "unrelated_fp": 0,
+    "oracle_disagree_in_ball": 0,
+    "oracle_agree_in_ball": true,
+    "ovf_zero": true,
+    "stat_kind": true
+  },
+  "pass": true,
+  "utc": "2026-08-18T22:38:37.114043+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "n_queries": 8,
+  "top1_accuracy": 1.0,
+  "topk_recall": 1.0,
+  "hard_negative_fp": 0,
+  "held_out_paraphrase_hit": 0.5,
+  "candidates_per_query_mean": 20.0,
+  "top1_hits": 8,
+  "topk_hits": 8,
+  "paraphrase_hits": 2,
+  "n_held_out": 4
+}

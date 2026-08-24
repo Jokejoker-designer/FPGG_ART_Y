@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "anti-ui-slop": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/anti-ui-slop/SKILL.md",
+      "computedHash": "c3cb98fb90778dee505f15739d808c1f37cad98dff11644cd2d30bb448b6eaee"
+    },
+    "wcag-accessibility-audit": {
+      "source": "mastepanoski/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/wcag-accessibility-audit/SKILL.md",
+      "computedHash": "8a64fda5213720bcfe16bca7716f32aea1d1c6aee34f1a46df79ecc989f01ea8"
+    }
+  }
+}

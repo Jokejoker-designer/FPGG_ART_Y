@@ -1,0 +1,43 @@
+---
+description: Parent Cursor chat is orchestrator only. Must Task the pipeline subagent for LOOP_STATE.next. No solo RTL.
+alwaysApply: true
+---
+
+# PIPELINE DISPATCH (always on)
+
+This chat is **`a7-ng-orchestrator` only** unless the user @-mentioned a named `.cursor/agents/a7-*.md` agent.
+
+## Mandatory first actions
+
+```text
+python .agents/workflows/native-graph/run_blueprint_loop.py --dispatch
+```
+
+Then **Task** (Cursor subagent) with **exactly** the printed `subagent_type`.  
+Do not implement the gate yourself.
+
+## Parent MAY
+
+- run `--tick` / `--dispatch`
+- launch Task with `subagent_type` from pipeline.json `character_id`
+- launch parallel VERIFY Task: `a7-ng-xsim-verify`, `a7-vivado-gate`, `a7-evidence-auditor`, `a7-hlb-auditor`
+- update `results/A7-NATIVE-GRAPH/STATUS/` only
+- on PASS, immediately `--dispatch` the next OPEN gate in the **same** session
+
+## Parent MUST NOT
+
+- write `rtl/**`, `tests/**`, `vivado/tcl/**`, `python/eam/**`
+- invent a new agent name
+- skip Task “to go faster”
+- spawn two **implementer** agents on two OPEN gates at once (one unknown)
+- stop after a table if GOAL is unmet
+
+## Closeout law
+
+`a7-evidence-auditor` **FAIL**s any PASS whose `DISPATCH_LOG.jsonl` last line `gate` ≠ `LOOP_STATE` first OPEN id, or whose `agent` ≠ pipeline `character_id`.
+
+Work done in the parent chat on owned agent paths is **void** — revert and re-run via Task.
+
+## Until
+
+`results/A7-NATIVE-GRAPH/PROJECT_COMPLETE.md` exists with a file-backed `14_FINAL_ACCEPTANCE_CHECKLIST.md` table. Human declares `NATIVE_V1_MINI_AI_BOARD_PASS`.

@@ -1,0 +1,80 @@
+{
+  "gate": "tinygpt_consol",
+  "agent": "a7-vivado-gate",
+  "device": "xc7a100tcsg324-1",
+  "evidence_class": "POST_ROUTE_FIT_LIMIT",
+  "verdict": "PASS_NARROW",
+  "fit_verdict": "FAIL",
+  "board_pass": false,
+  "hs22_closed": false,
+  "scientific": {
+    "observation": "consol proxy shows co-fit capacity <=135 but no TinyGPT answer path; TinyGPT-SOC additive 260>135",
+    "unknown": "can TinyGPT/DSP (or frozen-law answer core) be instantiated with consolidated memory ownership so post-route BRAM<=135 WNS>=0 TNS=0 with named TinyGPT/pe_alive evidence?",
+    "h_candidate": "new bit with TinyGPT fabric + consol; frozen LM-06 file SHA still MATCH as control",
+    "h_rival": "pe_alive invent; capacity proxy sold as TinyGPT; overwrite frozen",
+    "falsifier": "util>135; BOARD_PASS; frozen SHA change",
+    "control": "consol 83A438B5…; UA 4451AFD9…; TinyGPT LIMIT archive",
+    "unit": "one post-route composition (BRAM tiles / named fabric), not clock cycles"
+  },
+  "control_consol": {
+    "sha256": "83A438B5342446C9E79A537196777B1BCF2468FC57F9379EA2CB8EFE0A7D3AEF",
+    "bit": "results/A7-NATIVE-GRAPH/BRAM-CONSOL/arty_a7_ng_bram_consol.bit",
+    "lut": 141,
+    "ff": 23,
+    "bram_tiles": 132,
+    "bram_available": 135,
+    "bram_headroom": 3,
+    "dsp": 0,
+    "wns_ns": 0.586,
+    "tns_ns": 0.0,
+    "whs_ns": 0.069,
+    "ths_ns": 0.0,
+    "tinygpt_hier_hits": 0,
+    "pe_alive": 0,
+    "util_rpt": "results/A7-NATIVE-GRAPH/TINYGPT-CONSOL/control_consol_util.rpt",
+    "timing_rpt": "results/A7-NATIVE-GRAPH/TINYGPT-CONSOL/control_consol_timing.rpt"
+  },
+  "frozen_lm06_tinygpt": {
+    "sha256": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA",
+    "bit": "build/out/arty_a7_lm06.bit",
+    "lut": 37555,
+    "ff": 35864,
+    "bram_tiles": 132,
+    "dsp": 154,
+    "wns_ns": 0.179,
+    "tns_ns": 0.0,
+    "whs_ns": 0.036,
+    "ths_ns": 0.0,
+    "util_rpt": "results/A7-NATIVE-GRAPH/TINYGPT-CONSOL/frozen_lm06_utilization_route.rpt",
+    "timing_rpt": "results/A7-NATIVE-GRAPH/TINYGPT-CONSOL/frozen_lm06_timing_route.rpt",
+    "note": "CONTROL footprint for full TinyGPT SoC; not edited (HS-20)"
+  },
+  "control_ua": {
+    "sha256": "4451AFD9B07D8FF52791CCBF6338862FF36B721DF9FBB9BD19EC726BEA67F40E"
+  },
+  "fit_arithmetic": {
+    "naive_additive_bram": 264,
+    "bram_device": 135,
+    "bram_overshoot_naive": 129,
+    "cofit_proj_bram": 132,
+    "cofit_proj_ok": true,
+    "cofit_class": "ENGINEERING_INFERENCE_from_bram_consolidate_not_TinyGPT_evidence",
+    "dsp_consol_plus_lm06": 154,
+    "dsp_device": 240,
+    "dsp_ok_alone": true,
+    "bram_ok_naive": false,
+    "fit_with_named_tinygpt_on_consol": false,
+    "law_cite": "HS-11 / HS-22; proxy != TinyGPT; util>device FAIL"
+  },
+  "new_tinygpt_consol_bit": null,
+  "frozen_bits": "MATCH",
+  "limits": [
+    "TINYGPT_ABSENT_on_consol_CONTROL",
+    "NAIVE_ADDITIVE_BRAM_264_gt_135",
+    "headroom_3_lt_TinyGPT_BRAM_132_for_additive",
+    "cofit_proj_not_sold_as_TinyGPT",
+    "no_new_SoC_bit_with_TinyGPT_DSP_pe_alive",
+    "HS22_OPEN",
+    "no_BOARD_PASS"
+  ]
+}

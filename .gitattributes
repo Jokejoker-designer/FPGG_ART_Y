@@ -1,0 +1,30 @@
+* text=auto eol=lf
+
+*.sv text
+*.svh text
+*.v text
+*.vh text
+*.vhd text
+*.xdc text
+*.tcl text
+*.hex text
+*.md text
+*.json text
+*.yml text
+*.yaml text
+*.py text
+*.ts text
+*.tsx text
+*.css text
+*.html text
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.bit binary
+*.bin binary
+*.dcp binary
+*.ltx binary
+)

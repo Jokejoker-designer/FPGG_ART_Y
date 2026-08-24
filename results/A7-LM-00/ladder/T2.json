@@ -1,0 +1,10 @@
+{
+  "stage": "T2_same_case",
+  "exact": "1000/1000",
+  "dump_complete": "1000/1000",
+  "missing_idx_total": 0,
+  "bad_crc": 0,
+  "resync": 0,
+  "retries": 0,
+  "pass": true
+}

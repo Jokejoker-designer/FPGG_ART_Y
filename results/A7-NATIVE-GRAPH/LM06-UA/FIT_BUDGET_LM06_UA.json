@@ -1,0 +1,38 @@
+{
+  "gate": "lm06_ua_core",
+  "device": "xc7a100tcsg324-1",
+  "evidence_class": "POST_ROUTE_SOC",
+  "verdict": "PASS_NARROW",
+  "board_pass": false,
+  "metrics": {
+    "wns_ns": 0.257,
+    "tns_ns": 0.0,
+    "whs_ns": 0.024,
+    "ths_ns": 0.0,
+    "lut": 7209,
+    "ff": 8075,
+    "bram_tiles": 128,
+    "bram_available": 135,
+    "dsp": 0,
+    "pe_lanes": 16,
+    "pe_lut_u_sc": 1047,
+    "wt_bram": 64,
+    "ua_bram": 64,
+    "ua_cell": "u_a",
+    "ua_ref": "act_ram128k16"
+  },
+  "lm06_weight_fabric": true,
+  "lm06_act_u_a": "PRESENT",
+  "tinygpt_core_dsp": "ABSENT",
+  "sha256_new_soc": "D2C6CF4B28706B24CE513E2B7A09A4018EB9BB01EBB864FA3A5375B11DB9A92C",
+  "control_weight_soc_sha": "D61BA6D454F4AC1B4980D3869866A6742E12C02C9D08C2ECD45897CCD9053FA3",
+  "frozen_lm06_sha": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA",
+  "frozen_bits": "MATCH",
+  "limits": [
+    "ACT_PLUS_WEIGHT_no_TinyGPT_no_DSP",
+    "lm_path_RTL_sticky_wt_and_act_not_board_probed",
+    "no_BOARD_PASS",
+    "no_HS22_silicon_closed",
+    "no_HS02_semantic"
+  ]
+}

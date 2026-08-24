@@ -1,0 +1,31 @@
+{
+  "revision": "A7-LM-04-R5",
+  "all_gates": true,
+  "claim": "ARTY_A7_100K_DDR_ONLINE_LM_BOARD_VALIDATED",
+  "claim_scope": "counterfactual target-switch online adaptation; not 8-way contextual retrieval",
+  "negative_claims": [
+    "not 8-way contextual retrieval",
+    "not open-domain language modeling",
+    "does not erase R3/R4 negative results"
+  ],
+  "law_id": "lm05-signsgd-v1",
+  "bit_sha256": "A177E0989956DF08C7150E451984C914E1D53B1FCF96A49EBEC68CE8497A55F8",
+  "ladder_sha256": "8F437583E67023067B9EB2F20627F40C6012264ECD4F2B069BD8E61CAD1A15D1",
+  "gates": {
+    "frozen_build": true,
+    "timing_wns_tns": true,
+    "ddr_calibration": true,
+    "k257_first_try": true,
+    "k511_first_try": true,
+    "k513_first_try": true,
+    "requant": true,
+    "upload_spots_fold": true,
+    "one_full_update": true,
+    "ddr_persist_reload": true,
+    "after_zero_writes": true,
+    "multitoken_forward_exact": true,
+    "r5_quality_and_exact_parity": true,
+    "confirmation_used_for_tuning": false
+  },
+  "written_utc": "2026-08-18T02:06:57.504755+00:00"
+}

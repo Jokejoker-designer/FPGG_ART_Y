@@ -1,0 +1,21 @@
+{
+  "status": "FAILED_CONFIRMATION_ORACLE",
+  "all_gates": false,
+  "k513_first_try": "NOT_RUN",
+  "heldout_used_for_tuning": false,
+  "class_collapse_guard": false,
+  "physical_wns_ge_0p20": true,
+  "lm05_authorized": false,
+  "claim": null,
+  "recipe_sha256": "d1be0eee2235f30abd48788199b8eabe2b07e8b1b0d53b5d2fdc3086eb9aa7e3",
+  "heldout_r3_sha256": "b77c4635971cc2a8ebf2f49b629aff4704c10f42bed174fbdb70f05dc8802294",
+  "bit_name": "arty_a7_lm04r3.bit",
+  "bit_sha256": "FAC912B3DB543C312565FAA58A457A568E091F156592E4DC82987E92FB8E0318",
+  "wns": 0.301,
+  "tns": 0.0,
+  "whs": 0.024,
+  "oracle_ok": false,
+  "oracle_median_drop": 0.015625,
+  "silicon_quality_run": "SKIP",
+  "note": "R3 confirmation ended in oracle FAIL. k513_first_try=NOT_RUN means silicon was not run. physical_wns_ge_0p20 is true and does not authorize LM-05."
+}

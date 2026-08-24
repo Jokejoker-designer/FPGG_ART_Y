@@ -1,0 +1,26 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 55,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 1048576,
+    "rd_cycles": 164067,
+    "wr_bytes": 1048576,
+    "wr_cycles": 78903,
+    "rd_gbps": 0.5325954212840365,
+    "wr_gbps": 1.107452606159563,
+    "mix_gbps": 0.7192767253883854
+  },
+  "expected_bytes": 1048576,
+  "pass": true,
+  "seconds": 2.0929999999934807,
+  "name": "prbs_1mb",
+  "mode": 3,
+  "mode_name": "prbs",
+  "size_code": 0,
+  "size_bytes": 1048576
+}

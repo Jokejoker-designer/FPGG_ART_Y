@@ -1,0 +1,22 @@
+{
+  "revision": "A7-LM-05-HW-CANDIDATE-02",
+  "bit": "build/out/arty_a7_lm05.bit",
+  "sha256": "1AA0B5C481B0ADF3CAA599F081B430AF3C28A26FB4715DC56A0D25D940548F51",
+  "part": "xc7a100tcsg324-1",
+  "vivado": "2026.1",
+  "core_clock_mhz": 50,
+  "wns_ns": 0.332,
+  "tns_ns": 0.0,
+  "whs_ns": 0.028,
+  "ths_ns": 0.0,
+  "law_id": "lm05-signsgd-v1",
+  "parameter_count": 399360,
+  "quality_confirmation_run": false,
+  "board_programmed": false,
+  "lm06_authorized": false,
+  "fix": "park weight port B in emb during ST_FOLD/ST_SNAP",
+  "candidate_00_preserved": "build/out/arty_a7_lm05c0_stall_fail.bit",
+  "candidate_00_sha256": "31D869D62A2CC1A2067F11A288B663509E9374156696A8C2422BEDF815D9772B",
+  "candidate_01_preserved": "build/out/arty_a7_lm05c1_fold_fail.bit",
+  "candidate_01_sha256": "B7E68295E3277D5761EC8E4F92D73714B13287398DA79D9E0627FDF19B83A1C1"
+}

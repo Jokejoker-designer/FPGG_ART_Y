@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "vitis": {
+      "command": "python",
+      "args": ["-m", "vitis_mcp"],
+      "env": {
+        "PYTHONUTF8": "1",
+        "VITIS_PATH": "C:\\<VITIS_YEAR>\\Vitis\\bin\\vitis.bat",
+        "VITIS_MCP_TRUSTED_VITIS_ROOTS": "C:\\<VITIS_YEAR>",
+        "VITIS_MCP_HW_HOSTS": "localhost,127.0.0.1,::1",
+        "VITIS_MCP_ALLOW_HARDWARE_WRITE": "false",
+        "XILINXD_LICENSE_FILE": "<path-to-vivado.lic>"
+      }
+    },
+    "vivado": {
+      "type": "stdio",
+      "command": "<path-to-vivado-mcp-python>",
+      "args": ["-m", "vivado_mcp"],
+      "env": {
+        "PYTHONUTF8": "1",
+        "VIVADO_PATH": "C:/<VIVADO_YEAR>/Vivado/bin/vivado.bat",
+        "XILINXD_LICENSE_FILE": "<path-to-vivado.lic>"
+      }
+    }
+  }
+}

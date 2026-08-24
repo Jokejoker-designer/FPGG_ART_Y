@@ -1,0 +1,1 @@
+# NG-08\n\n**A7NG08_KIDI20_PASS** (harness). Board teacher-off exam later.\n

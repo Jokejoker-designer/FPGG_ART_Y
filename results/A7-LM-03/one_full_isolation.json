@@ -1,0 +1,15 @@
+{
+  "bit_sha256": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+  "wns_ns": 0.312,
+  "clk50_wns_ns": 3.307,
+  "programmed": "2026-08-17T08:56:29",
+  "spot_ok": true,
+  "fold0": {"xor32": 0, "add32": 2958688, "wr_n": 0},
+  "after_train": {"pred": 123, "loss": 16, "wr_n": 20544},
+  "fold1": {"xor32": 255, "add32": 2943381, "wr_n": 20544},
+  "expect_fold1": {"xor32": 255, "add32": 2943381},
+  "expect_head_only": {"xor32": 173, "add32": 2962299},
+  "match0": true,
+  "match1": true,
+  "not_head_only": true
+}

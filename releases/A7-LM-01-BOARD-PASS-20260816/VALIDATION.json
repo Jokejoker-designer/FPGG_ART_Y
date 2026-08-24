@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "release_id": "A7-LM-01-BOARD-PASS-20260816",
+  "milestone": "A7-LM-01",
+  "status": "BOARD_PASS",
+  "claim": "ARTY_A7_DDR_FOUNDATION_BOARD_VALIDATED",
+  "board": {
+    "name": "Arty A7-100T",
+    "fpga": "xc7a100tcsg324-1",
+    "jtag_serial": "210319BE776EA",
+    "uart": "COM12"
+  },
+  "toolchain": { "vivado": "2026.1" },
+  "bitstream": {
+    "file": "build/out/arty_a7_lm01.bit",
+    "sha256": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8"
+  },
+  "mig": {
+    "prj": "third_party/digilent/arty-a7-100/E.0/1.0/mig.prj",
+    "sha256": "914A9E4BB1B3002837592944CDF49F8DFBAF4D112552DD8B5BE48602FF1AC329",
+    "hand_edited": false,
+    "port": "AXI"
+  },
+  "tests": {
+    "ddr_bist": true,
+    "calib_recal_100": true,
+    "seq_rd_ge_0p85": true,
+    "whole_memory_ge_4": true
+  }
+}

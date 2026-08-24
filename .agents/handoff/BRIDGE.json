@@ -1,0 +1,21 @@
+{
+  "schema": "cursor-codex-bridge/v1",
+  "repoRoot": "d:/Jetking_sem4/SEM_4/arty-a7-online-lm",
+  "cursor": {
+    "chatId": "f66cc793-5eb0-41d2-ae4f-46f101e32b87"
+  },
+  "codex": {
+    "projectId": "g-p-68c95e6ae97c8191978788a39b2b2d1c",
+    "projectPath": "C:/Users/phant/.codex/.chatgpt-projects/g-p-68c95e6ae97c8191978788a39b2b2d1c",
+    "sessionId": "01a02edc-411a-72e2-9e9b-15c77f4198f5",
+    "deeplink": "codex://threads/01a02edc-411a-72e2-9e9b-15c77f4198f5"
+  },
+  "lock": {
+    "owner": "cursor",
+    "task": "ddr_cue_soa_bench_01 matched-law AOS-vs-SOA iron-law benchmark",
+    "updatedAt": "2026-08-24T10:16:20+07:00",
+    "parallel_notes": [
+      "LM06 BRAM phys+concurrency amend synced in TURN.md (read-only for Codex; do not steal lock)"
+    ]
+  }
+}

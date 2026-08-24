@@ -1,0 +1,117 @@
+{
+  "revision": "A7-LM-04-HELDOUT-R3",
+  "heldout_used_for_tuning": false,
+  "recipe": {
+    "early_stop": false,
+    "extra_full_passes": 2,
+    "extra_full_scope": "board_corpus_k1to8",
+    "head_epochs": 24,
+    "head_lr": 3,
+    "head_n": 8,
+    "head_opcode": "0x3A",
+    "heldout_used_for_tuning": false,
+    "law_id": "lm05-signsgd-v1",
+    "no_ce_retry": true,
+    "recipe_id": "A7-LM-04-R3-TRAIN-v1",
+    "train_pairs": "[k]->32+(k-1) k=1..8"
+  },
+  "recipe_sha256": "d1be0eee2235f30abd48788199b8eabe2b07e8b1b0d53b5d2fdc3086eb9aa7e3",
+  "heldout_seed": 41,
+  "heldout_n": 128,
+  "heldout_sha256": "b77c4635971cc2a8ebf2f49b629aff4704c10f42bed174fbdb70f05dc8802294",
+  "init_seeds": [
+    17,
+    19,
+    23
+  ],
+  "seeds": [
+    {
+      "seed": 17,
+      "ce0": 2032,
+      "ce1": 2048,
+      "drop": -0.007874015748031496,
+      "ppl0": 7841965.010372585,
+      "ppl1": 8886110.520507872,
+      "ppl_down": false,
+      "degrade": 0.007874015748031496,
+      "acc0": 0.0078125,
+      "acc1": 0.0,
+      "collapse": {
+        "n": 128,
+        "correct": 0,
+        "acc": 0.0,
+        "wilson_lb_95": 0.0,
+        "classes_hit": 0,
+        "pred_counts": {
+          "36": 22,
+          "39": 33,
+          "166": 73
+        },
+        "top_pred_share": 0.5703125,
+        "constant_class": 0.125,
+        "ok": false
+      }
+    },
+    {
+      "seed": 19,
+      "ce0": 2048,
+      "ce1": 1792,
+      "drop": 0.125,
+      "ppl0": 8886110.520507872,
+      "ppl1": 1202604.2841647768,
+      "ppl_down": true,
+      "degrade": -0.125,
+      "acc0": 0.0,
+      "acc1": 0.125,
+      "collapse": {
+        "n": 128,
+        "correct": 16,
+        "acc": 0.125,
+        "wilson_lb_95": 0.07842577339785957,
+        "classes_hit": 1,
+        "pred_counts": {
+          "36": 108,
+          "38": 5,
+          "39": 15
+        },
+        "top_pred_share": 0.84375,
+        "constant_class": 0.125,
+        "ok": false
+      }
+    },
+    {
+      "seed": 23,
+      "ce0": 2048,
+      "ce1": 2016,
+      "drop": 0.015625,
+      "ppl0": 8886110.520507872,
+      "ppl1": 6920509.831830581,
+      "ppl_down": true,
+      "degrade": -0.015625,
+      "acc0": 0.0,
+      "acc1": 0.015625,
+      "collapse": {
+        "n": 128,
+        "correct": 2,
+        "acc": 0.015625,
+        "wilson_lb_95": 0.00429535970774875,
+        "classes_hit": 1,
+        "pred_counts": {
+          "3": 3,
+          "35": 1,
+          "36": 26,
+          "37": 2,
+          "38": 1,
+          "39": 95
+        },
+        "top_pred_share": 0.7421875,
+        "constant_class": 0.125,
+        "ok": false
+      }
+    }
+  ],
+  "median_drop": 0.015625,
+  "ce_drop_min": 0.2,
+  "ok": false,
+  "note": "Frozen recipe. If ok is false, do not retune. Report cannot close."
+}

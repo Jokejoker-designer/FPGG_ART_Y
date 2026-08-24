@@ -1,0 +1,167 @@
+{
+  "lane": "A7-EAM-02M",
+  "law": "eam02m-bind-v1",
+  "claim": "multi-cue exact bind; NOT unseen paraphrase",
+  "verdict": "A7EAM02M_PASS",
+  "ping": {
+    "kind": 129,
+    "hit": false,
+    "collide": false,
+    "teacher_off": false,
+    "value_token": 77,
+    "hamming": 50,
+    "second_or_nack": 77,
+    "episode_id": 0,
+    "cue_n": 0,
+    "epoch": 0
+  },
+  "steps": [
+    [
+      "open",
+      {
+        "kind": 144,
+        "hit": false,
+        "collide": false,
+        "teacher_off": false,
+        "value_token": 167,
+        "hamming": 64,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 0,
+        "epoch": 1
+      }
+    ],
+    [
+      "bind_a",
+      {
+        "kind": 145,
+        "hit": false,
+        "collide": false,
+        "teacher_off": false,
+        "value_token": 167,
+        "hamming": 64,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 1,
+        "epoch": 1
+      }
+    ],
+    [
+      "bind_b",
+      {
+        "kind": 145,
+        "hit": false,
+        "collide": false,
+        "teacher_off": false,
+        "value_token": 167,
+        "hamming": 64,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 2,
+        "epoch": 1
+      }
+    ],
+    [
+      "teacher_off",
+      {
+        "kind": 147,
+        "hit": false,
+        "collide": false,
+        "teacher_off": false,
+        "value_token": 0,
+        "hamming": 64,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 0,
+        "epoch": 1
+      }
+    ],
+    [
+      "probe_a",
+      {
+        "kind": 146,
+        "hit": true,
+        "collide": false,
+        "teacher_off": true,
+        "value_token": 167,
+        "hamming": 0,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 2,
+        "epoch": 1
+      }
+    ],
+    [
+      "probe_b",
+      {
+        "kind": 146,
+        "hit": true,
+        "collide": false,
+        "teacher_off": true,
+        "value_token": 167,
+        "hamming": 0,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 2,
+        "epoch": 1
+      }
+    ],
+    [
+      "probe_unrel",
+      {
+        "kind": 146,
+        "hit": false,
+        "collide": false,
+        "teacher_off": true,
+        "value_token": 0,
+        "hamming": 28,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 0,
+        "epoch": 1
+      }
+    ],
+    [
+      "probe_1flip",
+      {
+        "kind": 146,
+        "hit": true,
+        "collide": false,
+        "teacher_off": true,
+        "value_token": 167,
+        "hamming": 1,
+        "second_or_nack": 64,
+        "episode_id": 0,
+        "cue_n": 2,
+        "epoch": 1
+      }
+    ],
+    [
+      "bind_after_toff",
+      {
+        "kind": 158,
+        "hit": true,
+        "collide": false,
+        "teacher_off": true,
+        "value_token": 167,
+        "hamming": 1,
+        "second_or_nack": 1,
+        "episode_id": 0,
+        "cue_n": 2,
+        "epoch": 1
+      }
+    ]
+  ],
+  "fold_keys": {
+    "A": "016fefde8018943a",
+    "B": "2d7375174d84815b"
+  },
+  "frozen": {
+    "arty_a7_lm00.bit": true,
+    "arty_a7_lm05.bit": true,
+    "arty_a7_lm06c3.bit": true,
+    "arty_a7_eam00b.bit": true,
+    "arty_a7_eam01r.bit": true
+  },
+  "ts": "2026-08-18T23:20:38.767630+00:00"
+}

@@ -1,0 +1,52 @@
+{
+  "device": {
+    "lut": 63400,
+    "ff": 126800,
+    "bram_tiles": 135,
+    "dsp": 240,
+    "clock_hz": 100000000
+  },
+  "current_blocks": {
+    "encoder": {
+      "lut": 8107,
+      "ff": 7154,
+      "bram": 3,
+      "dsp": 0
+    },
+    "router_01r": {
+      "lut": 1252,
+      "ff": 1322,
+      "bram": 56,
+      "dsp": 0
+    },
+    "memory_02m": {
+      "lut": 1704,
+      "ff": 2332,
+      "bram": 52,
+      "dsp": 0
+    },
+    "lm06": {
+      "lut": 37555,
+      "ff": 35864,
+      "bram": 132,
+      "dsp": 154,
+      "params": 802816
+    }
+  },
+  "engineering_assumptions": {
+    "shared_graph_lut": 2000,
+    "lane_lut_scenarios": [
+      180,
+      260,
+      400
+    ],
+    "logical_agent_context_bytes": 16,
+    "ddr_mixed_bytes_per_sec": 1159000000,
+    "candidate_record_bytes": [
+      16,
+      32,
+      64
+    ]
+  },
+  "warning": "Per-lane LUT costs are planning assumptions until post-route synthesis. DDR figure is a project engineering input and must be remeasured in the integrated design."
+}

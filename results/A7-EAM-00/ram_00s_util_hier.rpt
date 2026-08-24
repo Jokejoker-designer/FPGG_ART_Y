@@ -1,0 +1,35 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Wed Aug 19 04:20:40 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm/results/A7-EAM-00/ram_00s_util_hier.rpt
+| Design       : a7eam00_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+|     Instance    |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+| a7eam00_top     |          (top) |       2920 |       2920 |       0 |    0 | 3392 |     28 |      1 |          0 |
+|   (a7eam00_top) |          (top) |          0 |          0 |       0 |    0 |  729 |      0 |      0 |          0 |
+|   u_axil        |       eam_axil |        574 |        574 |       0 |    0 |  543 |      0 |      0 |          0 |
+|   u_core        |       eam_core |       1510 |       1510 |       0 |    0 | 1856 |     28 |      1 |          0 |
+|     (u_core)    |       eam_core |       1414 |       1414 |       0 |    0 | 1846 |      0 |      0 |          0 |
+|     u_mem       |     eam_tdp256 |         96 |         96 |       0 |    0 |   10 |     28 |      1 |          0 |
+|   u_ctrl        | eam_controller |        844 |        844 |       0 |    0 |  264 |      0 |      0 |          0 |
++-----------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

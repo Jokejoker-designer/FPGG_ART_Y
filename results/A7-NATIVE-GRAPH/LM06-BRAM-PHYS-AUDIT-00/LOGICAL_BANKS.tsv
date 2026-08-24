@@ -1,0 +1,6 @@
+bank_id	owner	members	topology	physical_tiles	physical_bits	logical_width_bits	classification_mix	parity_bits_used_as_payload	parity_bits_unused	limiting_dimension	estimated_removable_tiles	notes
+u_w.SDP_CH_ram_104b	u_w	32	8 CH x {ram0,ram1} x {reg_0:FULL_X72, reg_1:32b-in-x72-shell} => 104-bit logical word	32	1179648	104	{'FULL_X72_PAYLOAD': 16, 'WIDTH_BOUND': 16}	128	128	width+banking	0	reg_1 DIP tied const1; waste inside tile; no proven N->N-1 remap
+u_w.TILE.u_bank_bitsliced	u_w	32	TILE.u_bank mem_reg_{0..3}_{0..7}; TDP width=1 bit-slices	32	1179648	32	{'BIT_SLICED_PORT_BOUND': 32}	0	DIP mostly const/unconnected	port	0	BIT_SLICED_PORT_BOUND; parity pack cannot drop a tile without port/banking change
+u_a.SDP_104b_pair	u_a	2	mem_reg_0 FULL_X72 + mem_reg_1 32b-in-x72-shell => 104-bit	2	73728	104	{'FULL_X72_PAYLOAD': 1, 'WIDTH_BOUND': 1}	8	8	width	0	Same split pattern as u_w SDP
+u_a.core_bitsliced_4x16	u_a	64	u_core/u_a mem_reg_{0..3}_{0..15}; shared ADDR/clk; TDP w=1	64	2359296	16	{'BIT_SLICED_PORT_BOUND': 64}	0	DIP tied const on probed slice	port	0	Shared ADDRARDADDR nets across slices (probe); dominant consumer
+u_snap.TDP_x9	u_snap	2	TDP READ_WIDTH=9; DIP[0]/DOP[0] carry 9th bit on mem_reg_0	2	73728	9	{'PARITY_USED': 1, 'UNKNOWN': 1}	1	other DIP lanes const	aspect	0	x9 aspect uses one parity lane as payload; cannot free a whole tile

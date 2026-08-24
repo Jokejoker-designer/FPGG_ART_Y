@@ -1,0 +1,37 @@
+Naive block sum: 48618 LUT, 46672 FF, 243 BRAM, 154 DSP
+
+LUT occupancy budget 85%: 53890, lane LUT headroom 3272
+  180 LUT/lane -> 18 lanes (planning only)
+  260 LUT/lane -> 12 lanes (planning only)
+  400 LUT/lane -> 8 lanes (planning only)
+
+LUT occupancy budget 90%: 57060, lane LUT headroom 6442
+  180 LUT/lane -> 35 lanes (planning only)
+  260 LUT/lane -> 24 lanes (planning only)
+  400 LUT/lane -> 16 lanes (planning only)
+
+LUT occupancy budget 95%: 60230, lane LUT headroom 9612
+  180 LUT/lane -> 53 lanes (planning only)
+  260 LUT/lane -> 36 lanes (planning only)
+  400 LUT/lane -> 24 lanes (planning only)
+
+Compute ceilings at 100000000 Hz, II=1
+   8 lanes -> 0.80 Gcandidate-scores/s
+  16 lanes -> 1.60 Gcandidate-scores/s
+  24 lanes -> 2.40 Gcandidate-scores/s
+  32 lanes -> 3.20 Gcandidate-scores/s
+  64 lanes -> 6.40 Gcandidate-scores/s
+
+Ideal cold DDR candidate ceilings
+  16 B/candidate -> 72.44 Mcandidates/s
+  32 B/candidate -> 36.22 Mcandidates/s
+  64 B/candidate -> 18.11 Mcandidates/s
+
+Logical contexts at 16 bytes/context
+   32 KiB -> 2,048 contexts
+   64 KiB -> 4,096 contexts
+   72 KiB -> 4,608 contexts
+  128 KiB -> 8,192 contexts
+  144 KiB -> 9,216 contexts
+   16 MiB DDR -> 1,048,576 contexts
+   64 MiB DDR -> 4,194,304 contexts

@@ -1,0 +1,154 @@
+{
+  "started_utc": "2026-08-18T00:18:42.866532+00:00",
+  "status0": {
+    "pass": false,
+    "busy": false,
+    "calib": true,
+    "done": false,
+    "phase": 0,
+    "cases": 0
+  },
+  "gates": {
+    "calib": true,
+    "batch_10k": true,
+    "spot": true,
+    "hazards_0": true,
+    "u_mac_compute_ge_0p60": true,
+    "ddr_eff_ge_0p60": true
+  },
+  "pass": true,
+  "batch_10k": {
+    "status": {
+      "pass": true,
+      "busy": false,
+      "calib": true,
+      "done": false,
+      "phase": 0,
+      "cases": 10000
+    },
+    "fold": {
+      "xor32": 3910408033,
+      "add32": 1957547457,
+      "macs": 50398207
+    },
+    "counters": {
+      "cycles": 39011226,
+      "comp_cycles": 903750,
+      "hazards": 0
+    },
+    "u_mac": 0.43566914764868603,
+    "match": true,
+    "pass": true,
+    "expected": {
+      "xor32": 3910408033,
+      "add32": 1957547457,
+      "macs": 50398207,
+      "count": 10000,
+      "seed": 3237998080
+    }
+  },
+  "spot": [
+    {
+      "i": 0,
+      "ok": true,
+      "fold": {
+        "xor32": 4263047670,
+        "add32": 4263047670,
+        "macs": 129
+      },
+      "exp_xor": 4263047670,
+      "exp_add": 4263047670
+    },
+    {
+      "i": 17,
+      "ok": true,
+      "fold": {
+        "xor32": 4256505054,
+        "add32": 4077867336,
+        "macs": 6120
+      },
+      "exp_xor": 4256505054,
+      "exp_add": 4077867336
+    },
+    {
+      "i": 19,
+      "ok": true,
+      "fold": {
+        "xor32": 61010332,
+        "add32": 4253647494,
+        "macs": 2193
+      },
+      "exp_xor": 61010332,
+      "exp_add": 4253647494
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "fold": {
+        "xor32": 4280855673,
+        "add32": 4141664699,
+        "macs": 19200
+      },
+      "exp_xor": 4280855673,
+      "exp_add": 4141664699
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "fold": {
+        "xor32": 18131526,
+        "add32": 71023740,
+        "macs": 1632
+      },
+      "exp_xor": 18131526,
+      "exp_add": 71023740
+    }
+  ],
+  "gemm_roof": {
+    "status": {
+      "pass": true,
+      "busy": false,
+      "calib": true,
+      "done": false,
+      "phase": 0,
+      "cases": 1
+    },
+    "fold": {
+      "xor32": 4171433305,
+      "add32": 4147659123,
+      "macs": 32768
+    },
+    "counters": {
+      "cycles": 10763,
+      "comp_cycles": 256,
+      "hazards": 0
+    },
+    "u_mac": 1.0,
+    "compute_peak_gmac": 10.666666624,
+    "eff_compute": 1.0
+  },
+  "ddr_gemv": {
+    "status": {
+      "pass": true,
+      "busy": false,
+      "calib": true,
+      "done": false,
+      "phase": 0,
+      "cases": 1
+    },
+    "fold": {
+      "xor32": 0,
+      "add32": 3425486848,
+      "macs": 32768
+    },
+    "counters": {
+      "cycles": 2894,
+      "comp_cycles": 256,
+      "hazards": 0
+    },
+    "gmac": 0.9435613876102282,
+    "ddr_peak": 1.17,
+    "eff_ddr": 0.8064627244531866
+  },
+  "ended_utc": "2026-08-18T00:19:38.916091+00:00"
+}

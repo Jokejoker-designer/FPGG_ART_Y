@@ -1,0 +1,9 @@
+{
+  "stage": "T3_alternate_01",
+  "exact": "1000/1000",
+  "dump_complete": "1000/1000",
+  "bad_crc": 0,
+  "resync": 0,
+  "retries": 0,
+  "pass": true
+}

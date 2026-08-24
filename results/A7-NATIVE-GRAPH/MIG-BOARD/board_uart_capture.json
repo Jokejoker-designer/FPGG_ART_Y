@@ -1,0 +1,37 @@
+{
+  "port": "COM12",
+  "marker": true,
+  "rows": [
+    {
+      "burst": 1,
+      "out": 1,
+      "stall_frac": 0.9232613908872902,
+      "recs_per_cyc": 0.07673860911270983,
+      "pe_stall": 770,
+      "pe_busy": 64,
+      "cycles": 834,
+      "cons": 64,
+      "drop": 0,
+      "ddr_rd_bytes": 1024,
+      "ddr_bursts": 64
+    },
+    {
+      "burst": 4,
+      "out": 8,
+      "stall_frac": 0.5853658536585366,
+      "recs_per_cyc": 0.4146341463414634,
+      "pe_stall": 96,
+      "pe_busy": 68,
+      "cycles": 164,
+      "cons": 68,
+      "drop": 0,
+      "ddr_rd_bytes": 2112,
+      "ddr_bursts": 81
+    }
+  ],
+  "raw": "D:/Jetking_sem4/SEM_4/arty-a7-online-lm/results/A7-NATIVE-GRAPH/MIG-BOARD/board_uart_capture.uart.txt",
+  "evidence_class": "BOARD_MIG",
+  "invent_gbs": false,
+  "board_pass_native_v1": false,
+  "hs02": false
+}

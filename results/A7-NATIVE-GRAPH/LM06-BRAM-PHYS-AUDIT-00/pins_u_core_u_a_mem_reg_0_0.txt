@@ -1,0 +1,223 @@
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[0]	IN	u_core/u_a/ADDRARDADDR[0]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[10]	IN	u_core/u_a/ADDRARDADDR[10]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[11]	IN	u_core/u_a/ADDRARDADDR[11]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[12]	IN	u_core/u_a/ADDRARDADDR[12]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[13]	IN	u_core/u_a/ADDRARDADDR[13]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[14]	IN	u_core/u_a/ADDRARDADDR[14]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[15]	IN	u_core/u_a/ADDRARDADDR[15]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[1]	IN	u_core/u_a/ADDRARDADDR[1]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[2]	IN	u_core/u_a/ADDRARDADDR[2]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[3]	IN	u_core/u_a/ADDRARDADDR[3]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[4]	IN	u_core/u_a/ADDRARDADDR[4]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[5]	IN	u_core/u_a/ADDRARDADDR[5]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[6]	IN	u_core/u_a/ADDRARDADDR[6]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[7]	IN	u_core/u_a/ADDRARDADDR[7]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[8]	IN	u_core/u_a/ADDRARDADDR[8]
+u_core/u_a/mem_reg_0_0/ADDRARDADDR[9]	IN	u_core/u_a/ADDRARDADDR[9]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[0]	IN	u_core/u_a/ADDRBWRADDR[0]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[10]	IN	u_core/u_a/ADDRBWRADDR[10]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[11]	IN	u_core/u_a/ADDRBWRADDR[11]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[12]	IN	u_core/u_a/ADDRBWRADDR[12]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[13]	IN	u_core/u_a/ADDRBWRADDR[13]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[14]	IN	u_core/u_a/ADDRBWRADDR[14]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[15]	IN	u_core/u_a/ADDRBWRADDR[15]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[1]	IN	u_core/u_a/ADDRBWRADDR[1]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[2]	IN	u_core/u_a/ADDRBWRADDR[2]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[3]	IN	u_core/u_a/ADDRBWRADDR[3]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[4]	IN	u_core/u_a/ADDRBWRADDR[4]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[5]	IN	u_core/u_a/ADDRBWRADDR[5]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[6]	IN	u_core/u_a/ADDRBWRADDR[6]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[7]	IN	u_core/u_a/ADDRBWRADDR[7]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[8]	IN	u_core/u_a/ADDRBWRADDR[8]
+u_core/u_a/mem_reg_0_0/ADDRBWRADDR[9]	IN	u_core/u_a/ADDRBWRADDR[9]
+u_core/u_a/mem_reg_0_0/CASCADEINA	IN	u_core/u_a/<const1>
+u_core/u_a/mem_reg_0_0/CASCADEINB	IN	u_core/u_a/<const1>
+u_core/u_a/mem_reg_0_0/CASCADEOUTA	OUT	u_core/u_a/mem_reg_0_0_n_0
+u_core/u_a/mem_reg_0_0/CASCADEOUTB	OUT	u_core/u_a/mem_reg_0_0_n_1
+u_core/u_a/mem_reg_0_0/CLKARDCLK	IN	u_core/u_a/clk50
+u_core/u_a/mem_reg_0_0/CLKBWRCLK	IN	u_core/u_a/clk50
+u_core/u_a/mem_reg_0_0/DBITERR	OUT	
+u_core/u_a/mem_reg_0_0/DIADI[0]	IN	u_core/u_a/sat16[0]
+u_core/u_a/mem_reg_0_0/DIADI[10]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[11]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[12]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[13]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[14]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[15]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[16]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[17]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[18]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[19]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[1]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[20]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[21]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[22]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[23]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[24]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[25]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[26]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[27]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[28]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[29]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[2]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[30]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[31]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[3]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[4]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[5]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[6]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[7]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[8]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIADI[9]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[0]	IN	u_core/u_a/<const1>
+u_core/u_a/mem_reg_0_0/DIBDI[10]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[11]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[12]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[13]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[14]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[15]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[16]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[17]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[18]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[19]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[1]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[20]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[21]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[22]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[23]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[24]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[25]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[26]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[27]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[28]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[29]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[2]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[30]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[31]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[3]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[4]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[5]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[6]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[7]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[8]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIBDI[9]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIPADIP[0]	IN	
+u_core/u_a/mem_reg_0_0/DIPADIP[1]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIPADIP[2]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIPADIP[3]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIPBDIP[0]	IN	
+u_core/u_a/mem_reg_0_0/DIPBDIP[1]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIPBDIP[2]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DIPBDIP[3]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/DOADO[0]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[10]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[11]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[12]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[13]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[14]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[15]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[16]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[17]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[18]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[19]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[1]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[20]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[21]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[22]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[23]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[24]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[25]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[26]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[27]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[28]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[29]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[2]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[30]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[31]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[3]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[4]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[5]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[6]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[7]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[8]	OUT	
+u_core/u_a/mem_reg_0_0/DOADO[9]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[0]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[10]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[11]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[12]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[13]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[14]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[15]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[16]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[17]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[18]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[19]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[1]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[20]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[21]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[22]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[23]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[24]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[25]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[26]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[27]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[28]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[29]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[2]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[30]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[31]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[3]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[4]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[5]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[6]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[7]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[8]	OUT	
+u_core/u_a/mem_reg_0_0/DOBDO[9]	OUT	
+u_core/u_a/mem_reg_0_0/DOPADOP[0]	OUT	
+u_core/u_a/mem_reg_0_0/DOPADOP[1]	OUT	
+u_core/u_a/mem_reg_0_0/DOPADOP[2]	OUT	
+u_core/u_a/mem_reg_0_0/DOPADOP[3]	OUT	
+u_core/u_a/mem_reg_0_0/DOPBDOP[0]	OUT	
+u_core/u_a/mem_reg_0_0/DOPBDOP[1]	OUT	
+u_core/u_a/mem_reg_0_0/DOPBDOP[2]	OUT	
+u_core/u_a/mem_reg_0_0/DOPBDOP[3]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[0]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[1]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[2]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[3]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[4]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[5]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[6]	OUT	
+u_core/u_a/mem_reg_0_0/ECCPARITY[7]	OUT	
+u_core/u_a/mem_reg_0_0/ENARDEN	IN	u_core/u_a/mem_reg_3_7_0
+u_core/u_a/mem_reg_0_0/ENBWREN	IN	u_core/u_a/<const1>
+u_core/u_a/mem_reg_0_0/INJECTDBITERR	IN	
+u_core/u_a/mem_reg_0_0/INJECTSBITERR	IN	
+u_core/u_a/mem_reg_0_0/RDADDRECC[0]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[1]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[2]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[3]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[4]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[5]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[6]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[7]	OUT	
+u_core/u_a/mem_reg_0_0/RDADDRECC[8]	OUT	
+u_core/u_a/mem_reg_0_0/REGCEAREGCE	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/REGCEB	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/RSTRAMARSTRAM	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/RSTRAMB	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/RSTREGARSTREG	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/RSTREGB	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/SBITERR	OUT	
+u_core/u_a/mem_reg_0_0/WEA[0]	IN	u_core/u_a/mem_reg_0_0_i_3__0_n_0
+u_core/u_a/mem_reg_0_0/WEA[1]	IN	u_core/u_a/GND_2
+u_core/u_a/mem_reg_0_0/WEA[2]	IN	u_core/u_a/GND_2
+u_core/u_a/mem_reg_0_0/WEA[3]	IN	u_core/u_a/GND_2
+u_core/u_a/mem_reg_0_0/WEBWE[0]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[1]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[2]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[3]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[4]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[5]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[6]	IN	u_core/u_a/<const0>
+u_core/u_a/mem_reg_0_0/WEBWE[7]	IN	u_core/u_a/<const0>

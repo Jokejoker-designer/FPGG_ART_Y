@@ -1,0 +1,26 @@
+{
+  "stage": "T5_final_and",
+  "logits": "1000/1000",
+  "grads": "128/128",
+  "generate": "20/20",
+  "ce0": 512,
+  "ce1": 304,
+  "ce_drop": 0.40625,
+  "all_moved_hw": true,
+  "moved": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true
+  },
+  "after_writes0": true,
+  "first_ev": 15,
+  "loss_drop_ref": 0.3125,
+  "retries": 0,
+  "pass": true
+}

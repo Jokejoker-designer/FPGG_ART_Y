@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NativeAITelemetry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "interaction_id",
+    "cycle",
+    "phase",
+    "teacher_present",
+    "learn_enabled",
+    "freeze",
+    "external_LLM"
+  ],
+  "properties": {
+    "interaction_id": {
+      "type": "string"
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "phase": {
+      "enum": [
+        "INPUT",
+        "ATTENTION",
+        "ROUTE",
+        "SCORE",
+        "EXPAND",
+        "LEARN",
+        "MEMORY",
+        "LM",
+        "OUTPUT"
+      ]
+    },
+    "physical_lanes_active": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "logical_agents_active": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "frontier_depth": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidate_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ddr_read_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ddr_write_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cache_hits": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cache_misses": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "top_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "teacher_present": {
+      "type": "boolean"
+    },
+    "learn_enabled": {
+      "type": "boolean"
+    },
+    "freeze": {
+      "type": "boolean",
+      "description": "1 = FREEZE/BLIND_EXAM: no weight mutation"
+    },
+    "external_LLM": {
+      "type": "boolean",
+      "description": "Must be false on Native EVAL path"
+    }
+  }
+}

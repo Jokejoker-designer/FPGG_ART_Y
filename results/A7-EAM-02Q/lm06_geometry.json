@@ -1,0 +1,599 @@
+{
+  "semantic_claim": false,
+  "tokenizer": "utf8-bytes (V=1024 has no wordpiece; last C bytes)",
+  "weights": "TinyGPT803k(seed=2) official host oracle; C3 DDR not dumped",
+  "hold_unused_for_tuning": true,
+  "laws": {
+    "q0": "eam02q-q0-even-v1",
+    "q1": "eam02q-q1-rh-v1",
+    "q1_seed": 245432833
+  },
+  "bags": {
+    "PARA": [
+      [
+        "FPGA nào đang dùng?",
+        "Board hiện tại dùng chip gì?"
+      ],
+      [
+        "Arty đang nạp bitstream nào?",
+        "Bit hiện tại trên kit là file nào?"
+      ],
+      [
+        "Nhớ giúp câu hỏi về chip FPGA",
+        "Lưu giúp thông tin board đang dùng chip gì"
+      ],
+      [
+        "Chip trên board tên gì?",
+        "Kit này dùng FPGA model nào?"
+      ],
+      [
+        "What FPGA is on the board?",
+        "Which chip is the Arty using?"
+      ],
+      [
+        "Remember the board part number",
+        "Store the FPGA device name"
+      ],
+      [
+        "Công trình tầng 2 ống đồng",
+        "Hạng mục ống đồng tại tầng 2"
+      ],
+      [
+        "Khi nào nghiệm thu?",
+        "Ngày nghiệm thu là lúc nào?"
+      ]
+    ],
+    "UNREL": [
+      [
+        "FPGA nào đang dùng?",
+        "Giá điều hòa phòng khách bao nhiêu?"
+      ],
+      [
+        "Board hiện tại dùng chip gì?",
+        "Ngày nghiệm thu tầng 2 là khi nào?"
+      ],
+      [
+        "Arty đang nạp bitstream nào?",
+        "Công nợ khách hàng A còn lại bao nhiêu?"
+      ],
+      [
+        "What FPGA is on the board?",
+        "How much does the split AC cost?"
+      ],
+      [
+        "Remember the board part number",
+        "Pay the supplier tomorrow"
+      ],
+      [
+        "Công trình tầng 2 ống đồng",
+        "FPGA nào đang dùng?"
+      ],
+      [
+        "Khi nào nghiệm thu?",
+        "Bitstream đang chạy là cái nào?"
+      ],
+      [
+        "Chip trên board tên gì?",
+        "Hôm nay ăn gì?"
+      ]
+    ],
+    "HOLD": [
+      [
+        "Kit này dùng FPGA model nào?",
+        "Chip trên board tên gì?"
+      ],
+      [
+        "Bitstream đang chạy là cái nào?",
+        "Hôm nay ăn gì?"
+      ],
+      [
+        "Store the FPGA device name",
+        "Pay the supplier tomorrow"
+      ]
+    ]
+  },
+  "q0": {
+    "PARA": {
+      "n": 8,
+      "mean": 25.125,
+      "p50": 27,
+      "p90": 28,
+      "min": 18,
+      "max": 30,
+      "rate_le_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0,
+        "16": 0.0,
+        "24": 0.375,
+        "32": 1.0
+      }
+    },
+    "UNREL": {
+      "n": 8,
+      "mean": 22.0,
+      "p50": 23,
+      "p90": 23,
+      "min": 18,
+      "max": 26,
+      "rate_le_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0,
+        "16": 0.0,
+        "24": 0.875,
+        "32": 1.0
+      }
+    },
+    "PARA_rows": [
+      {
+        "a": "FPGA nào đang dùng?",
+        "b": "Board hiện tại dùng chip gì?",
+        "d": 22,
+        "ka": "bc584d1b184edaef",
+        "kb": "190b1d1159defaa0",
+        "na": 22,
+        "nb": 34
+      },
+      {
+        "a": "Arty đang nạp bitstream nào?",
+        "b": "Bit hiện tại trên kit là file nào?",
+        "d": 22,
+        "ka": "79211373db0578ef",
+        "kb": "c11215134bc979b7",
+        "na": 32,
+        "nb": 41
+      },
+      {
+        "a": "Nhớ giúp câu hỏi về chip FPGA",
+        "b": "Lưu giúp thông tin board đang dùng chip gì",
+        "d": 27,
+        "ka": "8d1b910b5bcc72fa",
+        "kb": "68493b93d944e8a0",
+        "na": 37,
+        "nb": 48
+      },
+      {
+        "a": "Chip trên board tên gì?",
+        "b": "Kit này dùng FPGA model nào?",
+        "d": 18,
+        "ka": "8c5b1e0b93cef8b2",
+        "kb": "2852934bd98e68b8",
+        "na": 26,
+        "nb": 31
+      },
+      {
+        "a": "What FPGA is on the board?",
+        "b": "Which chip is the Arty using?",
+        "d": 27,
+        "ka": "a879711308ef69db",
+        "kb": "29499e3b790c6abf",
+        "na": 26,
+        "nb": 29
+      },
+      {
+        "a": "Remember the board part number",
+        "b": "Store the FPGA device name",
+        "d": 28,
+        "ka": "2868222bee2d6abb",
+        "kb": "ea43135d7dcfebf8",
+        "na": 30,
+        "nb": 26
+      },
+      {
+        "a": "Công trình tầng 2 ống đồng",
+        "b": "Hạng mục ống đồng tại tầng 2",
+        "d": 30,
+        "ka": "b9510d0bbadc509f",
+        "kb": "0104998a1b1e29e8",
+        "na": 35,
+        "nb": 41
+      },
+      {
+        "a": "Khi nào nghiệm thu?",
+        "b": "Ngày nghiệm thu là lúc nào?",
+        "d": 27,
+        "ka": "2d739d77d9ee7dea",
+        "kb": "448fbf5939cee8ff",
+        "na": 22,
+        "nb": 33
+      }
+    ],
+    "UNREL_rows": [
+      {
+        "a": "FPGA nào đang dùng?",
+        "b": "Giá điều hòa phòng khách bao nhiêu?",
+        "d": 23,
+        "ka": "bc584d1b184edaef",
+        "kb": "6950099b58f47357",
+        "na": 22,
+        "nb": 43
+      },
+      {
+        "a": "Board hiện tại dùng chip gì?",
+        "b": "Ngày nghiệm thu tầng 2 là khi nào?",
+        "d": 21,
+        "ka": "190b1d1159defaa0",
+        "kb": "d8681b18694cd88c",
+        "na": 34,
+        "nb": 41
+      },
+      {
+        "a": "Arty đang nạp bitstream nào?",
+        "b": "Công nợ khách hàng A còn lại bao nhiêu?",
+        "d": 20,
+        "ka": "79211373db0578ef",
+        "kb": "a8391b1919c179e9",
+        "na": 32,
+        "nb": 48
+      },
+      {
+        "a": "What FPGA is on the board?",
+        "b": "How much does the split AC cost?",
+        "d": 22,
+        "ka": "a879711308ef69db",
+        "kb": "c00dbf19dbcf69fa",
+        "na": 26,
+        "nb": 32
+      },
+      {
+        "a": "Remember the board part number",
+        "b": "Pay the supplier tomorrow",
+        "d": 23,
+        "ka": "2868222bee2d6abb",
+        "kb": "697b9979f90c6bf9",
+        "na": 30,
+        "nb": 25
+      },
+      {
+        "a": "Công trình tầng 2 ống đồng",
+        "b": "FPGA nào đang dùng?",
+        "d": 18,
+        "ka": "b9510d0bbadc509f",
+        "kb": "bc584d1b184edaef",
+        "na": 35,
+        "nb": 22
+      },
+      {
+        "a": "Khi nào nghiệm thu?",
+        "b": "Bitstream đang chạy là cái nào?",
+        "d": 26,
+        "ka": "2d739d77d9ee7dea",
+        "kb": "1c1bf569bedc713a",
+        "na": 22,
+        "nb": 37
+      },
+      {
+        "a": "Chip trên board tên gì?",
+        "b": "Hôm nay ăn gì?",
+        "d": 23,
+        "ka": "8c5b1e0b93cef8b2",
+        "kb": "28d8a3895aca78a8",
+        "na": 26,
+        "nb": 17
+      }
+    ],
+    "native_last_token": {
+      "same_k": {
+        "n": 120,
+        "mean": 24.183,
+        "p50": 24,
+        "p90": 30,
+        "min": 12,
+        "max": 37,
+        "rate_le_T": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0,
+          "16": 0.025,
+          "24": 0.575,
+          "32": 0.95
+        }
+      },
+      "diff_k": {
+        "n": 224,
+        "mean": 24.661,
+        "p50": 25,
+        "p90": 30,
+        "min": 15,
+        "max": 34,
+        "rate_le_T": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0,
+          "16": 0.0089,
+          "24": 0.4732,
+          "32": 0.9821
+        }
+      }
+    }
+  },
+  "q1": {
+    "PARA": {
+      "n": 8,
+      "mean": 26.25,
+      "p50": 30,
+      "p90": 32,
+      "min": 18,
+      "max": 33,
+      "rate_le_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0,
+        "16": 0.0,
+        "24": 0.375,
+        "32": 0.875
+      }
+    },
+    "UNREL": {
+      "n": 8,
+      "mean": 23.75,
+      "p50": 24,
+      "p90": 25,
+      "min": 21,
+      "max": 27,
+      "rate_le_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0,
+        "16": 0.0,
+        "24": 0.625,
+        "32": 1.0
+      }
+    },
+    "PARA_rows": [
+      {
+        "a": "FPGA nào đang dùng?",
+        "b": "Board hiện tại dùng chip gì?",
+        "d": 32,
+        "ka": "aad126ffd931499a",
+        "kb": "326a43851dadc3c9",
+        "na": 22,
+        "nb": 34
+      },
+      {
+        "a": "Arty đang nạp bitstream nào?",
+        "b": "Bit hiện tại trên kit là file nào?",
+        "d": 18,
+        "ka": "ba7446cfc7b8e990",
+        "kb": "aa5563da9138cd00",
+        "na": 32,
+        "nb": 41
+      },
+      {
+        "a": "Nhớ giúp câu hỏi về chip FPGA",
+        "b": "Lưu giúp thông tin board đang dùng chip gì",
+        "d": 23,
+        "ka": "aac5e6dd987fa31a",
+        "kb": "ea7027cd8d24e1de",
+        "na": 37,
+        "nb": 48
+      },
+      {
+        "a": "Chip trên board tên gì?",
+        "b": "Kit này dùng FPGA model nào?",
+        "d": 18,
+        "ka": "aad1a3cd703fe353",
+        "kb": "3a71a7f9a02d6bc7",
+        "na": 26,
+        "nb": 31
+      },
+      {
+        "a": "What FPGA is on the board?",
+        "b": "Which chip is the Arty using?",
+        "d": 33,
+        "ka": "78e487eef96dcda2",
+        "kb": "2a4309d9c7ac874e",
+        "na": 26,
+        "nb": 29
+      },
+      {
+        "a": "Remember the board part number",
+        "b": "Store the FPGA device name",
+        "d": 30,
+        "ka": "1e6484c9f023db86",
+        "kb": "22f2e3ff3e38dbd0",
+        "na": 30,
+        "nb": 26
+      },
+      {
+        "a": "Công trình tầng 2 ống đồng",
+        "b": "Hạng mục ống đồng tại tầng 2",
+        "d": 25,
+        "ka": "b2f11bc584a543e3",
+        "kb": "eabf47f900ed8782",
+        "na": 35,
+        "nb": 41
+      },
+      {
+        "a": "Khi nào nghiệm thu?",
+        "b": "Ngày nghiệm thu là lúc nào?",
+        "d": 31,
+        "ka": "4af452e02abe8bb0",
+        "kb": "0b5707f976f9e51b",
+        "na": 22,
+        "nb": 33
+      }
+    ],
+    "UNREL_rows": [
+      {
+        "a": "FPGA nào đang dùng?",
+        "b": "Giá điều hòa phòng khách bao nhiêu?",
+        "d": 25,
+        "ka": "aad126ffd931499a",
+        "kb": "e2791bc757216300",
+        "na": 22,
+        "nb": 43
+      },
+      {
+        "a": "Board hiện tại dùng chip gì?",
+        "b": "Ngày nghiệm thu tầng 2 là khi nào?",
+        "d": 25,
+        "ka": "326a43851dadc3c9",
+        "kb": "2a54a3f857a0e348",
+        "na": 34,
+        "nb": 41
+      },
+      {
+        "a": "Arty đang nạp bitstream nào?",
+        "b": "Công nợ khách hàng A còn lại bao nhiêu?",
+        "d": 23,
+        "ka": "ba7446cfc7b8e990",
+        "kb": "ae2112fec92ddb92",
+        "na": 32,
+        "nb": 48
+      },
+      {
+        "a": "What FPGA is on the board?",
+        "b": "How much does the split AC cost?",
+        "d": 22,
+        "ka": "78e487eef96dcda2",
+        "kb": "c6e703cddc3de7b2",
+        "na": 26,
+        "nb": 32
+      },
+      {
+        "a": "Remember the board part number",
+        "b": "Pay the supplier tomorrow",
+        "d": 24,
+        "ka": "1e6484c9f023db86",
+        "kb": "faf081ec45a6cb9a",
+        "na": 30,
+        "nb": 25
+      },
+      {
+        "a": "Công trình tầng 2 ống đồng",
+        "b": "FPGA nào đang dùng?",
+        "d": 27,
+        "ka": "b2f11bc584a543e3",
+        "kb": "aad126ffd931499a",
+        "na": 35,
+        "nb": 22
+      },
+      {
+        "a": "Khi nào nghiệm thu?",
+        "b": "Bitstream đang chạy là cái nào?",
+        "d": 21,
+        "ka": "4af452e02abe8bb0",
+        "kb": "22b5f36c88af83f7",
+        "na": 22,
+        "nb": 37
+      },
+      {
+        "a": "Chip trên board tên gì?",
+        "b": "Hôm nay ăn gì?",
+        "d": 23,
+        "ka": "aad1a3cd703fe353",
+        "kb": "aa5505ed98214bce",
+        "na": 26,
+        "nb": 17
+      }
+    ],
+    "native_last_token": {
+      "same_k": {
+        "n": 120,
+        "mean": 24.8,
+        "p50": 25,
+        "p90": 30,
+        "min": 14,
+        "max": 37,
+        "rate_le_T": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0,
+          "16": 0.0167,
+          "24": 0.5,
+          "32": 0.9667
+        }
+      },
+      "diff_k": {
+        "n": 224,
+        "mean": 25.036,
+        "p50": 25,
+        "p90": 30,
+        "min": 14,
+        "max": 37,
+        "rate_le_T": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0,
+          "16": 0.0089,
+          "24": 0.4375,
+          "32": 0.9464
+        }
+      }
+    },
+    "HOLD": {
+      "n": 3,
+      "mean": 23.0,
+      "p50": 25,
+      "p90": 25,
+      "min": 18,
+      "max": 26,
+      "rate_le_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0,
+        "16": 0.0,
+        "24": 0.3333,
+        "32": 1.0
+      }
+    },
+    "HOLD_rows": [
+      {
+        "a": "Kit này dùng FPGA model nào?",
+        "b": "Chip trên board tên gì?",
+        "d": 18,
+        "ka": "3a71a7f9a02d6bc7",
+        "kb": "aad1a3cd703fe353",
+        "na": 31,
+        "nb": 26
+      },
+      {
+        "a": "Bitstream đang chạy là cái nào?",
+        "b": "Hôm nay ăn gì?",
+        "d": 25,
+        "ka": "22b5f36c88af83f7",
+        "kb": "aa5505ed98214bce",
+        "na": 37,
+        "nb": 17
+      },
+      {
+        "a": "Store the FPGA device name",
+        "b": "Pay the supplier tomorrow",
+        "d": 26,
+        "ka": "22f2e3ff3e38dbd0",
+        "kb": "faf081ec45a6cb9a",
+        "na": 26,
+        "nb": 25
+      }
+    ]
+  },
+  "decision": {
+    "mean_gap_unrel_minus_para": -2.5,
+    "para_mean": 26.25,
+    "unrel_mean": 23.75,
+    "para_tp_T8": 0.0,
+    "unrel_fp_T8": 0.0,
+    "open_eam02a": false,
+    "reason": "no usable associative geometry at HIT_MAX=8 — do not glue LM-06; Q2/representation next, not DDR"
+  }
+}

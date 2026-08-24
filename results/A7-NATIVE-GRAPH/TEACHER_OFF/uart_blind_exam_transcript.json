@@ -1,0 +1,68 @@
+{
+  "ts_utc": "2026-08-21T22:40:09.653959+00:00",
+  "board": "Digilent Arty A7-100T xc7a100tcsg324-1",
+  "jtag_serial": "210319BE776EA",
+  "programmed_bit": "results\\A7-NATIVE-GRAPH\\INTEGRATE\\arty_a7_ng_integrate_fit_soc.bit",
+  "programmed_sha256": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+  "proxy_control_sha256": "D2FC41A7869E7C4FF9B2E852C0E6E3A328E8C87EE518ACC03091BD29A3D23CA3",
+  "proxy_programmed": false,
+  "uart": {
+    "port": "COM12",
+    "baud": 115200,
+    "protocol": "a7ng_exam_uart_stub: CMD_ENTER=0xE0 CMD_STATUS=0x53 STATUS_HS02=0x91",
+    "probe_status_only": {
+      "tx": [
+        "53"
+      ],
+      "rx_hex": "9199",
+      "decode": {
+        "status_hs02": "0x91",
+        "status_hs02_match": true,
+        "flags_byte": "0x99",
+        "mig_calib": 1,
+        "pe_alive": 0,
+        "lm_path": 0,
+        "exam_mode": 1,
+        "pe_nibble": 9
+      }
+    },
+    "probe_enter_then_status": {
+      "tx": [
+        "E0",
+        "53"
+      ],
+      "rx_hex": "9199",
+      "decode": {
+        "status_hs02": "0x91",
+        "status_hs02_match": true,
+        "flags_byte": "0x99",
+        "mig_calib": 1,
+        "pe_alive": 0,
+        "lm_path": 0,
+        "exam_mode": 1,
+        "pe_nibble": 9
+      }
+    }
+  },
+  "payload_classification": [
+    {
+      "field": "CMD_ENTER 0xE0",
+      "class": "MODE_FLAG"
+    },
+    {
+      "field": "CMD_STATUS 0x53",
+      "class": "MODE_FLAG"
+    },
+    {
+      "field": "no tokens/cue/addr/winner/grad/answer sent",
+      "class": "ABSENT_BY_DESIGN"
+    }
+  ],
+  "retrieval_answers": null,
+  "host_graded_answers": false,
+  "lm06_weight_fabric": "ABSENT",
+  "lm_path_observed": 0,
+  "evidence_class": "BOARD_UART_STUB",
+  "hs02_semantic_retrieval": "LIMIT_NOT_CLAIMED",
+  "board_pass": false
+}

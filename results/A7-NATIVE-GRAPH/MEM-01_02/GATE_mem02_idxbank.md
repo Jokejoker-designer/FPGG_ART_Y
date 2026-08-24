@@ -1,0 +1,10 @@
+GATE: mem02_index_bank
+CHANGED: a7ng_index_bank.sv
+WHY: DDR index flush/reload; frozen 01R untouched
+TESTS: tests/xsim/run_a7ng_index_bank.tcl
+EXPECTED: A7NG_MEM02_IDXBANK_XSIM_PASS
+ACTUAL: A7NG_MEM02_IDXBANK_XSIM_PASS
+PASS/FAIL: PASS
+ARTIFACT: results/A7-NATIVE-GRAPH/MEM-01_02/
+SHA256: 9D50C5CC383C53F2C6DA41837A579A3E475216D3999FD7961DD51FFE6933B9E5
+NEXT GATE: integrate_fit (re-estimate BRAM after replacing 01R/02M private BRAM with banks)

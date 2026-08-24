@@ -1,0 +1,18 @@
+{
+  "law_id": "a7ng-topk-v0 + a7ng-frontier-v0",
+  "milestone": "NG-02",
+  "xsim": [
+    "A7NG02_TOPK_XSIM_PASS",
+    "A7NG02_FRONTIER_XSIM_PASS"
+  ],
+  "physical_lanes": 16,
+  "wns_ns": 0.408,
+  "tns_ns": 0.0,
+  "lut": 1483,
+  "ff": 1843,
+  "bram": 0,
+  "dsp": 0,
+  "bit": "build/out/arty_a7_ng02.bit",
+  "sha256": "EF460D90464CB7E5C285869CCA3FB84BCDAAF5B40926C3AE74A0FC6409B4716C",
+  "board_pass": false
+}

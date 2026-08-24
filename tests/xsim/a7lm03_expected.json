@@ -1,0 +1,16 @@
+{
+  "pred": 123,
+  "loss": 16,
+  "logit0": 128163,
+  "fold": {
+    "xor32": 0,
+    "add32": 2958688,
+    "nbytes": 25088
+  },
+  "fold_after_full": {
+    "xor32": 255,
+    "add32": 2943381,
+    "nbytes": 25088
+  },
+  "nparam": 25088
+}

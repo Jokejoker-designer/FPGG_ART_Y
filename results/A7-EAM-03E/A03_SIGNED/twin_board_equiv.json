@@ -1,0 +1,25 @@
+{
+  "test": "long-sequence twin<->board equivalence",
+  "law": "eam03e-a03-signed-h-v1",
+  "evidence_class": "BOARD + REFERENCE_MODEL comparison",
+  "bit": "arty_a7_eam03e_a03.bit",
+  "bit_sha256": "05E478FF53D8CEBE5CFDF79E1046E986F077F6E0117C714CDA794B38142BEC09",
+  "board": {
+    "jtag": "210319BE776EA",
+    "uart": "COM12@115200",
+    "part": "xc7a100tcsg324-1"
+  },
+  "seed": "0x11111111",
+  "transactions_requested": 5000,
+  "transactions_compared": 5000,
+  "compared_fields": [
+    "d1",
+    "dH"
+  ],
+  "learning_enabled": true,
+  "first_divergence": null,
+  "verdict": "PASS",
+  "why_it_matters": "every 10k/100k horizon conclusion in this program is twin evidence; the twin was previously validated only against a 32-step ladder",
+  "seconds": 240.3,
+  "ts": "2026-08-21T00:44:07.142464+00:00"
+}

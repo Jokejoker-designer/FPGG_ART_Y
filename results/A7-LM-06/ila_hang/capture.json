@@ -1,0 +1,67 @@
+{
+  "note": "ILA/debug bit UART peek. Not a close run. Does not overwrite C1.",
+  "c1_ladder_preserved": true,
+  "idle_peek": {
+    "persist_bst": "IDLE",
+    "tile_bst": "IDLE",
+    "p_busy": false,
+    "raw": "0000000000000000"
+  },
+  "one_full": {
+    "calib": true,
+    "busy": false,
+    "wr_n": 655616,
+    "pred": 744,
+    "loss": 16
+  },
+  "flush_mid": {
+    "persist_bst": "FWAIT",
+    "persist_is_flush": true,
+    "tile_bst": "STORE",
+    "tile_rg": "HEAD",
+    "tile_miss": true,
+    "w_stall": true,
+    "p_busy": true,
+    "p_dma_owner": false,
+    "raw": "00000018E0D00002"
+  },
+  "flush_a6": {
+    "bytes": 802816,
+    "xor32": 0,
+    "under": false,
+    "berr": false,
+    "rerr": false,
+    "warn": "xor32=0 (C1 flush was xor=23). A6 may be valid or host leftover."
+  },
+  "reload_mid": {
+    "persist_bst": "STORE",
+    "persist_dst": "IDLE",
+    "persist_ch": 0,
+    "persist_is_flush": false,
+    "tile_bst": "REQ",
+    "tile_dst": "IDLE",
+    "tile_rg": "HEAD",
+    "tile_miss": true,
+    "tile_req": true,
+    "w_stall": true,
+    "p_busy": true,
+    "p_dma_owner": false,
+    "wdma_owner": false,
+    "dma_busy": false,
+    "mem_addr": 0,
+    "diag": "STORE_wait_tile_refill",
+    "raw": "0000001AE0800006",
+    "meaning": "Reload writing TOK (addr 0) while tile still cached HEAD; tile REQ refill, dest still IDLE this sample."
+  },
+  "after_crash_peek": {
+    "persist_bst": "IDLE",
+    "persist_ch": 6271,
+    "persist_is_flush": false,
+    "tile_bst": "IDLE",
+    "tile_rg": "HEAD",
+    "p_busy": false,
+    "mem_addr": 802815,
+    "raw": "C3FFF000600C3F80",
+    "meaning": "On this debug-bit run, reload reached last chunk (6271) and went IDLE. C1 hang is still the recorded close failure."
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "ts_utc": "2026-08-21T23:25:08Z",
+  "board": "Digilent Arty A7-100T xc7a100tcsg324-1",
+  "jtag": {
+    "connected": true,
+    "target": "xc7a100t",
+    "serial": "210319BE776EA",
+    "session": "hlb_hs02_lmpath",
+    "programmed": true,
+    "programmed_bit": "results/A7-NATIVE-GRAPH/LM06-UA/arty_a7_ng_lm06_ua_soc.bit",
+    "programmed_sha256": "D2C6CF4B28706B24CE513E2B7A09A4018EB9BB01EBB864FA3A5375B11DB9A92C"
+  },
+  "uart": {
+    "port": "COM12",
+    "open": true,
+    "baud": 115200,
+    "tx_hex": [
+      "E0",
+      "53"
+    ],
+    "rx_hex_primary": "9199",
+    "status_hs02_match": true,
+    "exam_mode": 1,
+    "lm_path": 0,
+    "mig_calib": 1,
+    "pe_alive": 0,
+    "flags_byte": "0x99",
+    "all_probes": [
+      {
+        "label": "t20_status_only",
+        "rx": "9189",
+        "lm_path": 0
+      },
+      {
+        "label": "t20_enter_status",
+        "rx": "9199",
+        "lm_path": 0
+      },
+      {
+        "label": "t30_enter_status",
+        "rx": "9199",
+        "lm_path": 0
+      },
+      {
+        "label": "t50_enter_status",
+        "rx": "9199",
+        "lm_path": 0
+      },
+      {
+        "label": "t80_enter_status",
+        "rx": "9199",
+        "lm_path": 0
+      }
+    ],
+    "long_settle": [
+      {
+        "t_s": 60,
+        "rx": "9199",
+        "lm_path": 0,
+        "exam_mode": 1
+      },
+      {
+        "t_s": 90,
+        "rx": "9199",
+        "lm_path": 0,
+        "exam_mode": 1
+      },
+      {
+        "t_s": 120,
+        "rx": "9199",
+        "lm_path": 0,
+        "exam_mode": 1
+      },
+      {
+        "t_s": 150,
+        "rx": "9199",
+        "lm_path": 0,
+        "exam_mode": 1
+      },
+      {
+        "t_s": 180,
+        "rx": "9199",
+        "lm_path": 0,
+        "exam_mode": 1
+      },
+      {
+        "t_s": 210,
+        "rx": "9199",
+        "lm_path": 0,
+        "exam_mode": 1
+      }
+    ]
+  },
+  "control_stub_sha256": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+  "proxy_programmed": false,
+  "host_uart_driver": "mode_bytes_only_inline_probe",
+  "host_graded_answers": false,
+  "retrieval_answers": null,
+  "tinygpt": "ABSENT",
+  "board_pass": false,
+  "reason": "UA SoC D2C6CF4B programmed MATCH; UART HS-02 framing 0x91 exam_mode=1; lm_path remains 0 through t+210s; not host-invented",
+  "result": "FAIL",
+  "unknown_lm_path_ne_0": false
+}

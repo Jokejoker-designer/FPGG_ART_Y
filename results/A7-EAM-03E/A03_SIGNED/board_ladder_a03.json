@@ -1,0 +1,45 @@
+{
+  "lane": "A7-EAM-03E-A0.3",
+  "law": "eam03e-a03-signed-h-v1",
+  "evidence_class": "BOARD",
+  "board": {
+    "init_AB": 739,
+    "init_AC": 581,
+    "train_AB": 164,
+    "train_AC": 1957,
+    "reset_AB": 742,
+    "swap_AC": 137,
+    "swap_AB": 1370
+  },
+  "bit": "arty_a7_eam03e_a03.bit",
+  "bit_sha256": "05E478FF53D8CEBE5CFDF79E1046E986F077F6E0117C714CDA794B38142BEC09",
+  "seed": "0x11111111",
+  "steps": 32,
+  "expected_prereg": {
+    "init_AB": 739,
+    "init_AC": 581,
+    "train_AB": 164,
+    "train_AC": 1957,
+    "reset_AB": 742,
+    "swap_AC": 137,
+    "swap_AB": 1370
+  },
+  "mismatch": {},
+  "verdict": "A7EAM03EA03_SILICON_EXACT_PASS",
+  "ping": {
+    "kind": 129,
+    "flags": 0,
+    "dH": 51,
+    "d1": 12353,
+    "cue": 0,
+    "learn": false,
+    "freeze": false
+  },
+  "frozen_artifacts_intact": {
+    "arty_a7_eam03e.bit": true,
+    "arty_a7_eam01r.bit": true,
+    "arty_a7_eam02m.bit": true
+  },
+  "claim": "board reproduces the pre-registered A0.3 XSim integers; says nothing about representation quality",
+  "ts": "2026-08-21T00:37:53.112152+00:00"
+}

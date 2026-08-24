@@ -1,0 +1,22 @@
+{
+  "revision": "A7-LM-06-HW-C1",
+  "bit": "build/out/arty_a7_lm06.bit",
+  "sha256": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA",
+  "part": "xc7a100tcsg324-1",
+  "vivado": "2026.1",
+  "core_clock_mhz": 50,
+  "wns_ns": 0.179,
+  "tns_ns": 0.0,
+  "whs_ns": 0.036,
+  "ths_ns": 0.0,
+  "law_id": "lm06-signsgd-v1",
+  "parameter_count": 802816,
+  "quality_confirmation_run": false,
+  "board_programmed": true,
+  "lm07_authorized": false,
+  "lm07_note": "WNS 0.179 meets close (>=0, TNS=0) but does not authorize LM-07 (need WNS>=+0.20)",
+  "fix": "tile miss only on port A; park B on A during host/compute",
+  "candidate_00_preserved": "build/out/arty_a7_lm06c0_stall_fail.bit",
+  "candidate_00_sha256": "B73C28B157A2799AF5394D5D914E063D09CB2E32AA93692207043AD35FC3432F",
+  "xsim": "A7LM06_XSIM_PASS fold0=5/94638317 fold1=23/94627297 pred=744 loss=16 wr_n=655616"
+}

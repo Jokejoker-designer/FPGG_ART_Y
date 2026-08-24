@@ -1,0 +1,72 @@
+# A7-LM-00 — bit-exact Arty port of Basys LM-05
+
+**Status:** PARTIAL — programmed Digilent `210319BE776EA` on **COM12**. 128/128 + generate 20/20 + AFTER=0 + WNS +72.324. Continuous dumpz 950/1000 still open.  
+**Authority:** `docs/architecture/PROGRAM.md`  
+**law_id:** `lm05-signsgd-v1`  
+**Do not optimize. Do not add DDR. Do not change arithmetic.**
+
+## Frozen model (exact Basys LM-05)
+
+```text
+Vocab              32
+Context             8
+d_model            16
+Heads               1
+Layers              1
+d_ff               32
+Trainable params 3200   = 2Vd + Cd + L(4d² + 2 d d_ff)
+
+INT8 persistent weights
+INT16 activations
+INT32 MAC export
+shift-max ReLU-normalize softmax
+LN: STE identity, no scale/bias
+LIN_SHIFT = 4
+ATTN_QK_SHIFT = 8
+BLOCK_DEADZONE = 2
+head apply: w -= g >> lr
+block / last-embed apply: sign-SGD deadzone
+last tok/pos only
+causal last-query attention law
+```
+
+## UART
+
+Keep Basys 15-byte `A5` frames for this milestone only.  
+Variable-length `A5 7E` protocol starts **after** A7-LM-00 PASS.
+
+## Gates (conjunctive)
+
+| Gate | Pass |
+|------|------|
+| forward logits | 1000/1000 exact vs `lm05_fixed_ref` |
+| random gradient probes | 128/128 exact (`sample_grads128_full`) |
+| full small-tensor gradients | exact |
+| weight snapshots after steps | exact |
+| autoregressive sequences | 20/20 exact |
+| checkpoint restore SHA | exact |
+| AFTER training writes | 0 |
+| WNS | ≥ 0 |
+| TNS | 0 |
+| git dirty at release | false |
+
+No DDR, no 128-lane engine, no V/C/d scale-up.
+
+## Deliverables
+
+```text
+rtl/board/arty_a7_100_top.sv     (next sub-gate — not this freeze)
+constraints/arty_a7_100.xdc      Digilent official pins only
+configs/a7lm00.yaml
+vivado/tcl/build_a7lm00.tcl
+python/ref/lm05_fixed_ref.py
+tools/a7lm00_bitexact.py
+docs/contracts/A7-LM-00.md       (this file)
+```
+
+## Forbidden this milestone
+
+- MIG / DDR / BIST
+- new learning-law IDs
+- host-side gradient or next-token in board evidence
+- claiming A7-LM-01+

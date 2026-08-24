@@ -1,0 +1,60 @@
+{
+  "gate": "integrate_fit",
+  "unknown": "full_soc_mig_lm_arb_graph_pe_uart",
+  "prior_unknown_ownership_cut": "PASS_NARROW_PROXY_CONTROL",
+  "device": "xc7a100tcsg324-1",
+  "device_bram": 135,
+  "target_bram_max_prefer": 130,
+  "provenance": {
+    "soc_post_route": "results/A7-NATIVE-GRAPH/INTEGRATE/fit_soc_util.rpt",
+    "soc_timing": "results/A7-NATIVE-GRAPH/INTEGRATE/fit_soc_timing.rpt",
+    "soc_hier": "results/A7-NATIVE-GRAPH/INTEGRATE/fit_soc_util_hier.rpt",
+    "proxy_control": "results/A7-NATIVE-GRAPH/INTEGRATE/fit_own_cut_util.rpt",
+    "mig_prior": "results/A7-NATIVE-GRAPH/NG-03/closeout.md"
+  },
+  "measured_soc_post_route": {
+    "top": "arty_a7_ng_integrate_soc_top",
+    "tcl": "vivado/tcl/native_graph/measure_integrate_fit_soc.tcl",
+    "bit": "results/A7-NATIVE-GRAPH/INTEGRATE/arty_a7_ng_integrate_fit_soc.bit",
+    "sha256": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+    "WNS_ns": 0.952,
+    "TNS_ns": 0.0,
+    "WHS_ns": 0.012,
+    "THS_ns": 0.0,
+    "LUT": 5695,
+    "FF": 5903,
+    "BRAM_tiles": 0,
+    "DSP": 0,
+    "PE_lanes_measured": 16,
+    "PE_LUT_u_sc": 1046,
+    "PE_FF_u_sc": 1856,
+    "MIG": true,
+    "LM06_weight_fabric": false,
+    "LM_arb_compose": true,
+    "UART_exam_stub": true,
+    "blind_exam": "DEFERRED",
+    "evidence_class": "POST_ROUTE_SOC"
+  },
+  "control_proxy_retained": {
+    "bit": "results/A7-NATIVE-GRAPH/INTEGRATE/arty_a7_ng_integrate_fit_own_cut.bit",
+    "sha256": "D2FC41A7869E7C4FF9B2E852C0E6E3A328E8C87EE518ACC03091BD29A3D23CA3",
+    "evidence_class": "POST_ROUTE_PROXY",
+    "role": "CONTROL_ONLY"
+  },
+  "frozen_baselines_do_not_overwrite": {
+    "LM06_SHA256": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA",
+    "EAM01R_SHA256": "57D1DF1BF86338A896876F6FBE204B1705128FFEC0A96F0582CF7EF90E9EF6CF",
+    "EAM02M_SHA256": "DB3BC58A6CC697FD0C290F97B5D6AD171AE7721A6C8A1E2DB2E87C5A84CFE696",
+    "A03_SHA256": "05E478FF53D8CEBE5CFDF79E1046E986F077F6E0117C714CDA794B38142BEC09",
+    "frozen_match": true
+  },
+  "narrow_falsifiers_documented": [
+    "LM06_weight_fabric_ABSENT_arbitration_compose_only",
+    "UART_exam_stub_present_blind_exam_DEFERRED",
+    "not_ownership_cut_forced_RAMB130_proxy",
+    "WM00_OOC_WNS_-290.499_OPEN",
+    "no_BOARD_PASS"
+  ],
+  "integrate_fit_verdict": "PASS_NARROW",
+  "board_pass": false
+}

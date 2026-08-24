@@ -1,0 +1,18 @@
+{
+  "capacity_bytes": 268435456,
+  "ui_data_bits": 128,
+  "addr_bits": 28,
+  "map": "BANK_ROW_COLUMN",
+  "align_bytes": 65536,
+  "regions": [
+    {"name": "manifest", "base": "0x00000000", "size": "0x00100000"},
+    {"name": "model", "base": "0x00100000", "size": "0x02F00000"},
+    {"name": "optimizer", "base": "0x03000000", "size": "0x03000000"},
+    {"name": "scratch", "base": "0x06000000", "size": "0x02000000"},
+    {"name": "kv", "base": "0x08000000", "size": "0x02000000"},
+    {"name": "ckpt_a", "base": "0x0A000000", "size": "0x02000000"},
+    {"name": "ckpt_b", "base": "0x0C000000", "size": "0x02000000"},
+    {"name": "telemetry", "base": "0x0E000000", "size": "0x01000000"},
+    {"name": "bist_guard", "base": "0x0F000000", "size": "0x01000000"}
+  ]
+}

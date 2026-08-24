@@ -1,0 +1,39 @@
+source xsim.dir/tb_a7ng_ddr_feed/xsim_script.tcl
+# xsim {tb_a7ng_ddr_feed} -autoloadwcfg -runall
+SWEEP_ROW burst=1 out=1 seed=0 stall_frac=0.961544 recs_per_cyc=0.038456 pe_stall=6401 pe_busy=256 empty_st=6401 full_st=0 cycles=6657 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=1 out=2 seed=0 stall_frac=0.923990 recs_per_cyc=0.076010 pe_stall=3112 pe_busy=256 empty_st=3112 full_st=0 cycles=3368 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=1 out=4 seed=0 stall_frac=0.851163 recs_per_cyc=0.148837 pe_stall=1464 pe_busy=256 empty_st=1464 full_st=0 cycles=1720 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=1 out=8 seed=0 stall_frac=0.721739 recs_per_cyc=0.278261 pe_stall=664 pe_busy=256 empty_st=664 full_st=0 cycles=920 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=4 out=1 seed=0 stall_frac=0.862366 recs_per_cyc=0.137634 pe_stall=1604 pe_busy=256 empty_st=1604 full_st=0 cycles=1860 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=4 out=2 seed=0 stall_frac=0.741935 recs_per_cyc=0.258065 pe_stall=736 pe_busy=256 empty_st=736 full_st=0 cycles=992 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=4 out=4 seed=0 stall_frac=0.567568 recs_per_cyc=0.432432 pe_stall=336 pe_busy=256 empty_st=336 full_st=0 cycles=592 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=4 out=8 seed=0 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=8 out=1 seed=0 stall_frac=0.759398 recs_per_cyc=0.240602 pe_stall=808 pe_busy=256 empty_st=808 full_st=0 cycles=1064 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=8 out=2 seed=0 stall_frac=0.589744 recs_per_cyc=0.410256 pe_stall=368 pe_busy=256 empty_st=368 full_st=0 cycles=624 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=8 out=4 seed=0 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=8 out=8 seed=0 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=16 out=1 seed=0 stall_frac=0.619048 recs_per_cyc=0.380952 pe_stall=416 pe_busy=256 empty_st=416 full_st=0 cycles=672 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=16 out=2 seed=0 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=16 out=4 seed=0 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=16 out=8 seed=0 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=1 out=1 seed=1 stall_frac=0.961544 recs_per_cyc=0.038456 pe_stall=6401 pe_busy=256 empty_st=6401 full_st=0 cycles=6657 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=1 out=2 seed=1 stall_frac=0.923990 recs_per_cyc=0.076010 pe_stall=3112 pe_busy=256 empty_st=3112 full_st=0 cycles=3368 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=1 out=4 seed=1 stall_frac=0.851163 recs_per_cyc=0.148837 pe_stall=1464 pe_busy=256 empty_st=1464 full_st=0 cycles=1720 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=1 out=8 seed=1 stall_frac=0.721739 recs_per_cyc=0.278261 pe_stall=664 pe_busy=256 empty_st=664 full_st=0 cycles=920 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=256
+SWEEP_ROW burst=4 out=1 seed=1 stall_frac=0.862366 recs_per_cyc=0.137634 pe_stall=1604 pe_busy=256 empty_st=1604 full_st=0 cycles=1860 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=4 out=2 seed=1 stall_frac=0.741935 recs_per_cyc=0.258065 pe_stall=736 pe_busy=256 empty_st=736 full_st=0 cycles=992 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=4 out=4 seed=1 stall_frac=0.567568 recs_per_cyc=0.432432 pe_stall=336 pe_busy=256 empty_st=336 full_st=0 cycles=592 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=4 out=8 seed=1 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=64
+SWEEP_ROW burst=8 out=1 seed=1 stall_frac=0.759398 recs_per_cyc=0.240602 pe_stall=808 pe_busy=256 empty_st=808 full_st=0 cycles=1064 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=8 out=2 seed=1 stall_frac=0.589744 recs_per_cyc=0.410256 pe_stall=368 pe_busy=256 empty_st=368 full_st=0 cycles=624 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=8 out=4 seed=1 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=8 out=8 seed=1 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=32
+SWEEP_ROW burst=16 out=1 seed=1 stall_frac=0.619048 recs_per_cyc=0.380952 pe_stall=416 pe_busy=256 empty_st=416 full_st=0 cycles=672 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=16 out=2 seed=1 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=16 out=4 seed=1 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+SWEEP_ROW burst=16 out=8 seed=1 stall_frac=0.475410 recs_per_cyc=0.524590 pe_stall=232 pe_busy=256 empty_st=232 full_st=0 cycles=488 cons=256 drop=0 ddr_rd_bytes=4096 ddr_bursts=16
+BASELINE_STALL_FRAC (burst=1,out=1,seed0)=0.961544
+BEST_STALL_FRAC burst=4 out=8 frac=0.475410
+STALL_REDUCED=1
+A7NG_DDR_FEED_XSIM_PASS
+$finish called at time : 431195 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm/tests/xsim/tb_a7ng_ddr_feed.sv" Line 210

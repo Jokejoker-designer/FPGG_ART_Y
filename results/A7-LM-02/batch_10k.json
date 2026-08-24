@@ -1,0 +1,30 @@
+{
+  "status": {
+    "pass": true,
+    "busy": false,
+    "calib": true,
+    "done": false,
+    "phase": 0,
+    "cases": 10000
+  },
+  "fold": {
+    "xor32": 3910408033,
+    "add32": 1957547457,
+    "macs": 50398207
+  },
+  "expected": {
+    "xor32": 3910408033,
+    "add32": 1957547457,
+    "macs": 50398207,
+    "count": 10000,
+    "seed": 3237998080
+  },
+  "counters": {
+    "cycles": 39011226,
+    "comp_cycles": 903750,
+    "hazards": 0
+  },
+  "u_mac": 0.43566914764868603,
+  "match": true,
+  "pass": true
+}

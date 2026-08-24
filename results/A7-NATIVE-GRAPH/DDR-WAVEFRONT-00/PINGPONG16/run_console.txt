@@ -1,0 +1,29 @@
+NOTE — the Vivado batch console text for this run was NOT captured. This file explains why,
+rather than leaving an empty or misleading artifact in the archive.
+
+The launching shell piped Vivado's stdout through `Tee-Object -FilePath
+results/A7-NATIVE-GRAPH/DDR-WAVEFRONT-00/run_console.txt`. The concurrent (authoritative)
+session held that same path open, so Tee-Object failed to open it:
+
+    out-file : The process cannot access the file
+    '...\DDR-WAVEFRONT-00\run_console.txt' because it is being used by another process.
+    FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+Consequence: the shell pipeline reported exit_code = 4294967295 (-1).
+
+THIS DID NOT AFFECT THE SIMULATION. The Vivado/XSim run proceeded to completion:
+
+  - elapsed 564465 ms (2026-08-22T04:38:14Z -> 04:47:38Z UTC)
+  - xvlog_wavefront.log   : compile clean
+  - xelab_wavefront.log   : elaboration clean, snapshot built
+  - xsim_wavefront.log    : 952087 bytes, contains all six RUN_PASS rows, the three
+                            WF_INVARIANCE_PASS lines, the WF_SUMMARY block (emitted only at the
+                            very end of the testbench) and the marker
+                            A7NG_DDR_WAVEFRONT00_XSIM_PASS
+  - METRIC_ROWS.txt       : written by run_a7ng_wavefront_mig.tcl AFTER the simulation returned,
+                            timestamped 11:47:38 local = the run's end time, which proves the
+                            TCL reached its post-simulation stage
+
+The non-zero exit code therefore belongs to a PowerShell file-lock collision on a console
+transcript, not to xvlog, xelab, xsim, or any gate check. All hashes in SHA256.txt are computed
+over the logs above, which are the complete record of the run.

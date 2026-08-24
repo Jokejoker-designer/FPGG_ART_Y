@@ -1,0 +1,30 @@
+{
+  "gate": "hs02_semantic",
+  "uart_rtl": "rtl/native_graph/integrate/a7ng_exam_uart_stub.sv",
+  "accepted_rx_commands": [
+    {"byte": "0xE0", "name": "CMD_ENTER", "class": "MODE_FLAG"},
+    {"byte": "0x53", "name": "CMD_STATUS", "class": "MODE_FLAG"}
+  ],
+  "absent_commands": [
+    "query_tokens",
+    "held_out_wording",
+    "cue",
+    "hash",
+    "winner",
+    "addr",
+    "way",
+    "grad",
+    "delta_w",
+    "answer_request"
+  ],
+  "tx_response_bytes": [
+    {"byte": "0x91", "name": "STATUS_HS02", "class": "TELEMETRY_FRAMING_CONSTANT",
+     "note": "teacher=0 LLM=0 learn=0 freeze=1 encoded as stub constant — not live semantic proof"},
+    {"byte": "flags", "fields": ["mig_calib", "pe_alive", "lm_path", "exam_mode", "pe_nibble"],
+     "class": "TELEMETRY_READ"}
+  ],
+  "tinygpt_on_path": false,
+  "dsp_blocks_util": 0,
+  "pe_alive_uart": 0,
+  "retrieval_possible_on_this_bit": false
+}

@@ -1,0 +1,22 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 71,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 1048576,
+    "rd_cycles": 74270,
+    "wr_bytes": 1048576,
+    "wr_cycles": 76702,
+    "rd_gbps": 1.1765360574095598,
+    "wr_gbps": 1.1392314800632057,
+    "mix_gbps": 1.157583300000106
+  },
+  "expected_bytes": 1048576,
+  "pass": true,
+  "seconds": 2.0790000000270084,
+  "name": "post_recal_seq_1mb"
+}

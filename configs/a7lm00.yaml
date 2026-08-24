@@ -1,0 +1,49 @@
+milestone: A7-LM-00
+law_id: lm05-signsgd-v1
+status: OPEN
+board: Arty A7-100T
+fpga: xc7a100t-csg324-1
+vivado: "2026.1"
+ddr: none
+part_inherit: basys3-lm05
+
+model:
+  vocab: 32
+  context: 8
+  d_model: 16
+  layers: 1
+  heads: 1
+  d_ff: 32
+  parameter_count: 3200
+  weight_tied: false
+  weight_format: INT8
+  activation_format: INT16
+
+arithmetic:
+  lin_shift: 4
+  attn_qk_shift: 8
+  block_deadzone: 2
+  softmax: shift_max_relu_normalize
+  layernorm: ste_identity
+  optimizer: sign_sgd
+  head_update: g_shift_lr
+  last_embed_only: true
+
+init:
+  seed: 2
+
+uart:
+  framing: a5_15byte_legacy
+  baud: 115200
+
+basys_evidence:
+  bitstream: basys3_lm05.bit
+  sha256: 8657DA03346C05B72A243FFF0FDE540437FCB18FB52E55EB822FB6E56E025483
+  claim: FULL_TINY_TRANSFORMER_BACKPROP_FPGA_BOARD_VALIDATED
+
+gates:
+  logits_exact: 1000
+  grad_pack_exact: 128
+  generate_exact: 20
+  after_writes: 0
+  wns_ns_min: 0.0

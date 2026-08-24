@@ -1,0 +1,380 @@
+{
+  "started_utc": "2026-08-18T00:17:28.586519+00:00",
+  "port": "COM12",
+  "quick": false,
+  "runs": [
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 23,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 2097152,
+        "rd_cycles": 328108,
+        "wr_bytes": 2097152,
+        "wr_cycles": 157806,
+        "rd_gbps": 0.5326376253173224,
+        "wr_gbps": 1.107452606159563,
+        "mix_gbps": 0.7193152120235927
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.0780000000377186,
+      "name": "walk_1mb",
+      "mode": 1,
+      "mode_name": "walk",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 103,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 7340032,
+        "rd_cycles": 1059064,
+        "wr_bytes": 7340032,
+        "wr_cycles": 549814,
+        "rd_gbps": 0.5775565318872665,
+        "wr_gbps": 1.1125022842027594,
+        "mix_gbps": 0.7603675740319105
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.0790000000270084,
+      "name": "walk0_via_all_1mb",
+      "mode": 0,
+      "mode_name": "all",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 39,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 1048576,
+        "rd_cycles": 164044,
+        "wr_bytes": 1048576,
+        "wr_cycles": 78897,
+        "rd_gbps": 0.5326700945100582,
+        "wr_gbps": 1.1075368262900744,
+        "mix_gbps": 0.7193625858443655
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.077999999979511,
+      "name": "addr_1mb",
+      "mode": 2,
+      "mode_name": "addr",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 55,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 1048576,
+        "rd_cycles": 164064,
+        "wr_bytes": 1048576,
+        "wr_cycles": 78901,
+        "rd_gbps": 0.5326051600826993,
+        "wr_gbps": 1.1074806781131799,
+        "mix_gbps": 0.7192915274529911
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.077999999979511,
+      "name": "prbs_1mb",
+      "mode": 3,
+      "mode_name": "prbs",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 71,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 1048576,
+        "rd_cycles": 74825,
+        "wr_bytes": 1048576,
+        "wr_cycles": 76320,
+        "rd_gbps": 1.1678093282166122,
+        "wr_gbps": 1.1449336082784065,
+        "mix_gbps": 1.1562583344974429
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.077999999979511,
+      "name": "seq_1mb",
+      "mode": 4,
+      "mode_name": "seq",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 87,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 1048576,
+        "rd_cycles": 164064,
+        "wr_bytes": 1048576,
+        "wr_cycles": 78903,
+        "rd_gbps": 0.5326051600826993,
+        "wr_gbps": 1.107452606159563,
+        "mix_gbps": 0.7192856065540424
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.0780000000377186,
+      "name": "rand_1mb",
+      "mode": 5,
+      "mode_name": "rand",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 103,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 1048576,
+        "rd_cycles": 164044,
+        "wr_bytes": 1048576,
+        "wr_cycles": 78894,
+        "rd_gbps": 0.5326700945100582,
+        "wr_gbps": 1.1075789411591248,
+        "mix_gbps": 0.7193714691304613
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.077999999979511,
+      "name": "bound_1mb",
+      "mode": 6,
+      "mode_name": "bound",
+      "size_code": 0,
+      "size_bytes": 1048576
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 71,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 16777216,
+        "rd_cycles": 1191942,
+        "wr_bytes": 16777216,
+        "wr_cycles": 1220821,
+        "rd_gbps": 1.1729608720398543,
+        "wr_gbps": 1.145214022154704,
+        "mix_gbps": 1.1589213923961268
+      },
+      "expected_bytes": 16777216,
+      "pass": true,
+      "seconds": 2.077999999979511,
+      "name": "seq_16mb",
+      "mode": 4,
+      "mode_name": "seq",
+      "size_code": 1,
+      "size_bytes": 16777216
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 71,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 268435456,
+        "rd_cycles": 19073124,
+        "wr_bytes": 268435456,
+        "wr_cycles": 19528889,
+        "rd_gbps": 1.1728346779402707,
+        "wr_gbps": 1.1454630749273471,
+        "mix_gbps": 1.1589872913547201
+      },
+      "expected_bytes": 268435456,
+      "pass": true,
+      "seconds": 0.5470000000204891,
+      "name": "seq_256mb",
+      "mode": 4,
+      "mode_name": "seq",
+      "size_code": 2,
+      "size_bytes": 268435456
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 71,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 268435456,
+        "rd_cycles": 19062130,
+        "wr_bytes": 268435456,
+        "wr_cycles": 19539917,
+        "rd_gbps": 1.1735111052046572,
+        "wr_gbps": 1.144816594863471,
+        "mix_gbps": 1.15898627053922
+      },
+      "expected_bytes": 268435456,
+      "pass": true,
+      "seconds": 0.5469999999622814,
+      "name": "seq_256mb_b",
+      "mode": 4,
+      "mode_name": "seq",
+      "size_code": 2,
+      "size_bytes": 268435456
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 87,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 16777216,
+        "rd_cycles": 2624906,
+        "wr_bytes": 16777216,
+        "wr_cycles": 1262430,
+        "rd_gbps": 0.5326291028101303,
+        "wr_gbps": 1.1074683964583605,
+        "mix_gbps": 0.7193107710477963
+      },
+      "expected_bytes": 16777216,
+      "pass": true,
+      "seconds": 2.077999999979511,
+      "name": "rand_16mb",
+      "mode": 5,
+      "mode_name": "rand",
+      "size_code": 1,
+      "size_bytes": 16777216
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 103,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 117440512,
+        "rd_cycles": 16941772,
+        "wr_bytes": 117440512,
+        "wr_cycles": 8795109,
+        "rd_gbps": 0.5776673947793948,
+        "wr_gbps": 1.1127445145007864,
+        "mix_gbps": 0.7605202273100999
+      },
+      "expected_bytes": 16777216,
+      "pass": true,
+      "seconds": 0.4220000000204891,
+      "name": "all_16mb",
+      "mode": 0,
+      "mode_name": "all",
+      "size_code": 1,
+      "size_bytes": 16777216
+    },
+    {
+      "status": {
+        "calib": true,
+        "busy": false,
+        "pass": true,
+        "phase": 71,
+        "err": 0
+      },
+      "counters": {
+        "rd_bytes": 1048576,
+        "rd_cycles": 74270,
+        "wr_bytes": 1048576,
+        "wr_cycles": 76702,
+        "rd_gbps": 1.1765360574095598,
+        "wr_gbps": 1.1392314800632057,
+        "mix_gbps": 1.157583300000106
+      },
+      "expected_bytes": 1048576,
+      "pass": true,
+      "seconds": 2.0790000000270084,
+      "name": "post_recal_seq_1mb"
+    }
+  ],
+  "recal": {
+    "ok": 100,
+    "fail": 0,
+    "target": 100
+  },
+  "bytes_written": 702545920,
+  "bytes_read": 702545920,
+  "gates": {
+    "calib_first": true,
+    "walk": true,
+    "walk0_via_all": true,
+    "addr": true,
+    "prbs": true,
+    "seq": true,
+    "rand": true,
+    "bound": true,
+    "whole_memory_ge_4": true,
+    "seq_rd_ge_0p85": true,
+    "wr_bw_recorded": true,
+    "mix_bw_recorded": true,
+    "rand_bw_recorded": true,
+    "recal_100": true
+  },
+  "pass": true,
+  "status0": {
+    "calib": true,
+    "busy": false,
+    "pass": false,
+    "phase": 0,
+    "err": 0
+  },
+  "whole_memory_equivalents": 5.234375,
+  "bw": {
+    "seq_rd_gbps": 1.1735111052046572,
+    "seq_wr_gbps": 1.144816594863471,
+    "mixed_gbps": 1.15898627053922,
+    "rand_rd_gbps": 0.5326291028101303
+  },
+  "ended_utc": "2026-08-18T00:18:03.967636+00:00"
+}

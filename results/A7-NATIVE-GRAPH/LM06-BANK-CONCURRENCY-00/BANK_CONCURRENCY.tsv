@@ -1,0 +1,4 @@
+logical_bank_id	max_simultaneous_read_ports_required	max_simultaneous_write_ports_required	max_independent_addresses_per_cycle	max_simultaneous_read_slices	source	true_vs_overbank
+CORE_act_ram128k16	2	1	2	16 (full width; not 64 tiles)	RTL_FSM + phys slice count	TRUE dual-port; tile count from depth*width not over-banking
+CORE_weight_tile_bank	2	1	2	8	RTL	TRUE dual-port; region miss already serialized
+BOARD_tile_weight_pingpong	8_CH	1_CH	1_index_x_8CH	1024_bits	RTL	TRUE 8-way CH concurrency; pingpong may be lifetime opportunity

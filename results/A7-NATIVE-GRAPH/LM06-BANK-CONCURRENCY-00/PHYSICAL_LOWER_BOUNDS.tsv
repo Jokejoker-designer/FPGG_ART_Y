@@ -1,0 +1,6 @@
+logical_bank_id	N_physical	N_capacity	N_width	N_depth	N_ports	N_lower_bound	topology_headroom	limiting	notes
+CORE_act_ram128k16	64	57	16 (TDP bit-slice unit)	4 (131072/32768)	2 (True dual)	64	0	DEPTH_BOUND * WIDTH_SLICE	ceil(cap)=57 but TDP 16b x 4-deep cascade forces 64
+CORE_weight_tile_bank	32	29	8	4	2	32	0	DEPTH_BOUND * WIDTH_SLICE	ceil(cap)=29; 8*4=32 matches physical
+CORE_snap_ram4k16	2	2	2 (16b)	1	1-2	2	0	CAPACITY_BOUND	AMENDED: prior N_capacity=1/headroom=1 WITHDRAWN; ceil(65536/36864)=2
+BOARD_tile_weight_pingpong	32	16	32 (16 arrays * 2 tiles for 128b)	1	8 concurrent CH reads	32	0	WIDTH_BOUND per 128b array	If ping/pong never overlap live contents, overlay could cut banks — NEEDS_EXPERIMENT lifetime
+BOARD_tile_activation	2	1	2 (128b > 72)	1	1	2	0	WIDTH_BOUND	32b tail in x72 shell is waste inside tile, not removable tile

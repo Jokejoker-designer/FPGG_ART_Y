@@ -1,0 +1,26 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 39,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 1048576,
+    "rd_cycles": 164046,
+    "wr_bytes": 1048576,
+    "wr_cycles": 78899,
+    "rd_gbps": 0.5326636003548273,
+    "wr_gbps": 1.1075087514899808,
+    "mix_gbps": 0.7193507418041779
+  },
+  "expected_bytes": 1048576,
+  "pass": true,
+  "seconds": 2.077999999979511,
+  "name": "addr_1mb",
+  "mode": 2,
+  "mode_name": "addr",
+  "size_code": 0,
+  "size_bytes": 1048576
+}

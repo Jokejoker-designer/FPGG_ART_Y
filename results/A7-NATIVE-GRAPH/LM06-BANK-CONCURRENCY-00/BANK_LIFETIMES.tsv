@@ -1,0 +1,4 @@
+logical_bank_id	birth_cycle	first_write	first_read	last_write	last_read	death_cycle	M_peak_bits	simultaneously_live_vs_accessed	notes
+CORE_act_ram128k16	UNKNOWN	EMB/LN phases (DERIVED)	same / subsequent	UNKNOWN without full trace	UNKNOWN	UNKNOWN	2097152 (full array capacity; peak-live UNKNOWN)	array persists whole FWD; accessed subset each cycle	lifetime != access; full mem not rewritten each token
+CORE_weight_tile_bank	region fill	DMA STORE / host	compute after resident	update/flush	until region miss	evict on miss	1048576	one region resident; accessed 1-2 addrs/cycle	working-set already region-folded vs full 802k
+BOARD_tile_weight_pingpong	DMA fill bank	wr_en	rd after tag match	bank rewrite	until swap	tag invalidate (seq)	524288	both banks may be live; one read bank accessed	lifetime overlay candidate if tags prove exclusive

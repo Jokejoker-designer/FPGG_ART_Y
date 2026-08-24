@@ -1,0 +1,11 @@
+Official Digilent Arty A7-100 MIG project — DO NOT HAND-EDIT mig.prj.
+
+URL: https://raw.githubusercontent.com/Digilent/vivado-boards/master/new/board_files/arty-a7-100/E.0/1.0/mig.prj
+Repo: https://github.com/Digilent/vivado-boards
+Path: new/board_files/arty-a7-100/E.0/1.0/mig.prj
+Fetched: 2026-08-16
+SHA-256: 914A9E4BB1B3002837592944CDF49F8DFBAF4D112552DD8B5BE48602FF1AC329
+
+PortInterface in this official file is AXI (128-bit, ADDR 28).
+A7-LM-01 uses this file unchanged. Native app_* is not available without
+re-running MIG (forbidden as a hand-edit of this prj). BIST/DMA sit on AXI.

@@ -1,0 +1,4 @@
+top=a7ng_wide_dispatch_ooc_top part=xc7a100tcsg324-1 clk=100MHz N_WAY=16
+vehicle=a7ng_wide_alloc_ooc (compact pair-k; share XSim separate)
+WNS=0.215
+TNS=0.0

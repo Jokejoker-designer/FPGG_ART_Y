@@ -1,0 +1,197 @@
+{
+  "revision": "A7-LM-06-HW-C0",
+  "started_utc": "2026-08-18T14:01:51.713586+00:00",
+  "law_id": "lm06-signsgd-v1",
+  "port": "COM12",
+  "static": {
+    "manifest": {
+      "revision": "A7-LM-06-HW-C0",
+      "bit": "build/out/arty_a7_lm06.bit",
+      "sha256": "B73C28B157A2799AF5394D5D914E063D09CB2E32AA93692207043AD35FC3432F",
+      "part": "xc7a100tcsg324-1",
+      "vivado": "2026.1",
+      "core_clock_mhz": 50,
+      "wns_ns": 0.032,
+      "tns_ns": 0.0,
+      "whs_ns": 0.02,
+      "ths_ns": 0.0,
+      "law_id": "lm06-signsgd-v1",
+      "parameter_count": 802816,
+      "quality_confirmation_run": false,
+      "board_programmed": true,
+      "lm07_authorized": false,
+      "lm07_note": "WNS 0.032 meets close (>=0, TNS=0) but does not authorize LM-07 (need WNS>=+0.20)",
+      "impl": "fresh-process RuntimeOptimized from a7lm06_post_synth.dcp",
+      "xsim": "A7LM06_XSIM_PASS fold0=5/94638317 fold1=23/94627297 pred=744 loss=16 wr_n=655616"
+    },
+    "bit_sha256": "B73C28B157A2799AF5394D5D914E063D09CB2E32AA93692207043AD35FC3432F",
+    "bit_match": true,
+    "timing_close": true,
+    "lm06_timing_authorized": false,
+    "frozen": {
+      "arty_a7_lm00.bit": {
+        "expected": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783",
+        "got": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783",
+        "match": true
+      },
+      "arty_a7_lm01.bit": {
+        "expected": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8",
+        "got": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8",
+        "match": true
+      },
+      "arty_a7_lm02.bit": {
+        "expected": "7CEBA854BDE500DDC87C4742315C45562CB5902C6F66377BCE499DA43BD95CC4",
+        "got": "7CEBA854BDE500DDC87C4742315C45562CB5902C6F66377BCE499DA43BD95CC4",
+        "match": true
+      },
+      "arty_a7_lm03.bit": {
+        "expected": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+        "got": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+        "match": true
+      },
+      "arty_a7_lm04r5.bit": {
+        "expected": "A177E0989956DF08C7150E451984C914E1D53B1FCF96A49EBEC68CE8497A55F8",
+        "got": "A177E0989956DF08C7150E451984C914E1D53B1FCF96A49EBEC68CE8497A55F8",
+        "match": true
+      },
+      "arty_a7_lm05.bit": {
+        "expected": "1AA0B5C481B0ADF3CAA599F081B430AF3C28A26FB4715DC56A0D25D940548F51",
+        "got": "1AA0B5C481B0ADF3CAA599F081B430AF3C28A26FB4715DC56A0D25D940548F51",
+        "match": true
+      }
+    },
+    "frozen_ok": true
+  },
+  "quality_confirmation_run": false,
+  "hardware_pass": false,
+  "contract_status": "OPEN",
+  "calib": {
+    "after": false,
+    "busy": false,
+    "done": false,
+    "calib": true,
+    "persist": false,
+    "phase": 0,
+    "wr_n": 0,
+    "pred": 0,
+    "loss": 0
+  },
+  "tensor": {
+    "257": {
+      "k": 257,
+      "issue_count": 1,
+      "first_try": true,
+      "match": true,
+      "fold": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "expected": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 31,
+        "ntile": 2
+      },
+      "tstatus": {
+        "t_busy": false,
+        "cases": 1,
+        "phase": 0
+      },
+      "ok": true,
+      "roofline": {
+        "cycles": 25880,
+        "stalls": 257,
+        "hazards": 0
+      }
+    },
+    "511": {
+      "k": 511,
+      "issue_count": 1,
+      "first_try": true,
+      "match": true,
+      "fold": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "expected": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 256,
+        "ntile": 2
+      },
+      "tstatus": {
+        "t_busy": false,
+        "cases": 1,
+        "phase": 0
+      },
+      "ok": true,
+      "roofline": {
+        "cycles": 43911,
+        "stalls": 511,
+        "hazards": 0
+      }
+    },
+    "513": {
+      "k": 513,
+      "issue_count": 1,
+      "first_try": true,
+      "match": true,
+      "fold": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "expected": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 2
+      },
+      "overlap": {
+        "overlap_cyc": 287,
+        "ntile": 3
+      },
+      "tstatus": {
+        "t_busy": false,
+        "cases": 1,
+        "phase": 0
+      },
+      "ok": true,
+      "roofline": {
+        "cycles": 63788,
+        "stalls": 513,
+        "hazards": 0
+      }
+    }
+  },
+  "exception": "RuntimeError: UPLOAD_STALL_AT_OFFSET 131072: {'after': False, 'busy': True, 'done': False, 'calib': True, 'persist': False, 'phase': 0, 'wr_n': 0, 'pred': 0, 'loss': 0}",
+  "finished_utc": "2026-08-18T14:02:36.269571+00:00"
+}

@@ -1,0 +1,9 @@
+id	applies_to	BRAM_delta	cycles_per_token_delta	DDR_bytes_per_token_delta	LUT_delta	FF_delta	timing_risk	implementation_complexity	rho_bytes	rho_cycles	pareto_note
+R0_BOARD_TENSOR_REACHABILITY	BOARD tile_weight_pingpong+tile_activation	0 or -34 if not on LM06 cone	n/a (read-only)	n/a	0	0	none	low (audit)	n/a	n/a	P0 NEXT — before F1; see AMENDMENT.md
+A_BANK_FOLD	CORE_act optional serialize ATT dual-read	0 (ports still need TDP fabric)	+large (2x ATT_SC)	0	small	small	low	med	n/a	inf (no BRAM save)	dominated — no BRAM save
+B_MULTIPUMP	CORE_act / CORE_weight	UNKNOWN	0 if hidden	0	CDC+control	CDC	HIGH	HIGH	UNKNOWN	UNKNOWN	model only
+C_TAIL_COPACK	BOARD 17 WIDTH_BOUND tails	0 unless concrete mapping	0	0	pack mux	small	med	med	n/a	n/a	128b already needs 2 tiles
+D_LUTRAM_SNAP	CORE_snap 4096x16	-2 CROSS_RESOURCE BRAM->LUTRAM	0	0	~1024+ LUT6 class NEEDS_SYNTH	mod	med	low-med	0	0	NOT topology headroom; migration cost
+E_STREAM_THROUGH	short-lived act temps	UNKNOWN	0-neg	0	SRL/FF	up	med	high (law)	UNKNOWN	UNKNOWN	needs lifetime map
+F_PHASE_OVERLAY	BOARD pingpong	0..-16 if both_live=0	0 or stall+	0-up	mux/tags	tags	med	high	depends	depends	ONLY after R0 proves tensor required
+G_DDR_WS	CORE_act	large	+stalls	+large	DMA	DMA	high	very high	high (bad)	high (bad)	last resort

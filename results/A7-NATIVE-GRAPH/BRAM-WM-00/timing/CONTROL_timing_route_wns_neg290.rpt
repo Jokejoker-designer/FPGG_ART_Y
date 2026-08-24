@@ -1,0 +1,1277 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Aug 22 03:44:37 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm/results/A7-NATIVE-GRAPH/BRAM-WM-00/timing_route.rpt
+| Design       : a7ng_wm00_top
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (181)
+6. checking no_output_delay (1360)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (181)
+--------------------------------
+ There are 181 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (1360)
+----------------------------------
+ There are 1360 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+   -290.499  -108584.445                   3503                 8681        0.160        0.000                      0                 8681        4.500        0.000                       0                  7359  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock  Waveform(ns)       Period(ns)      Frequency(MHz)
+-----  ------------       ----------      --------------
+clk    {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk              -290.499  -108584.445                   3503                 8681        0.160        0.000                      0                 8681        4.500        0.000                       0                  7359  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk
+  To Clock:  clk
+
+Setup :         3503  Failing Endpoints,  Worst Slack     -290.499ns,  Total Violation  -108584.441ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.160ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -290.499ns  (required time - arrival time)
+  Source:                 u_ev/slot_reg[0][node][4]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_ev/slot_reg[7][qepoch][2]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        300.446ns  (logic 75.700ns (25.196%)  route 224.746ns (74.804%))
+  Logic Levels:           398  (CARRY4=171 LUT2=1 LUT3=27 LUT4=27 LUT5=66 LUT6=106)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=7358, unset)         0.973     0.973    u_ev/clk
+    SLICE_X53Y77         FDCE                                         r  u_ev/slot_reg[0][node][4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y77         FDCE (Prop_fdce_C_Q)         0.456     1.429 r  u_ev/slot_reg[0][node][4]/Q
+                         net (fo=34, routed)          0.865     2.294    u_ev/ev_node_o[0][4]
+    SLICE_X54Y77         LUT6 (Prop_lut6_I0_O)        0.124     2.418 r  u_ev/slot[1][v]_i_111/O
+                         net (fo=1, routed)           0.000     2.418    u_ev/slot[1][v]_i_111_n_0
+    SLICE_X54Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     2.951 r  u_ev/slot_reg[1][v]_i_87/CO[3]
+                         net (fo=1, routed)           0.000     2.951    u_ev/slot_reg[1][v]_i_87_n_0
+    SLICE_X54Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.068 r  u_ev/slot_reg[1][v]_i_52/CO[3]
+                         net (fo=1, routed)           0.000     3.068    u_ev/slot_reg[1][v]_i_52_n_0
+    SLICE_X54Y79         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.229     3.297 f  u_ev/slot_reg[1][v]_i_23/CO[2]
+                         net (fo=190, routed)         1.128     4.425    u_ev/p_0_out
+    SLICE_X53Y72         LUT6 (Prop_lut6_I1_O)        0.310     4.735 r  u_ev/slot[0][qepoch][15]_i_208/O
+                         net (fo=1, routed)           0.669     5.405    u_ev/slot[0][qepoch][15]_i_208_n_0
+    SLICE_X51Y72         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507     5.912 r  u_ev/slot_reg[0][qepoch][15]_i_177/CO[3]
+                         net (fo=1, routed)           0.000     5.912    u_ev/slot_reg[0][qepoch][15]_i_177_n_0
+    SLICE_X51Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.026 r  u_ev/slot_reg[0][qepoch][15]_i_127/CO[3]
+                         net (fo=1, routed)           0.000     6.026    u_ev/slot_reg[0][qepoch][15]_i_127_n_0
+    SLICE_X51Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.140 r  u_ev/slot_reg[0][qepoch][15]_i_60/CO[3]
+                         net (fo=1, routed)           0.009     6.149    u_ev/slot_reg[0][qepoch][15]_i_60_n_0
+    SLICE_X51Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.263 r  u_ev/slot_reg[0][qepoch][15]_i_24/CO[3]
+                         net (fo=3, routed)           1.310     7.573    u_ev/slot_reg[0][qepoch][15]_i_24_n_0
+    SLICE_X46Y74         LUT6 (Prop_lut6_I0_O)        0.124     7.697 r  u_ev/slot[0][node][30]_i_90/O
+                         net (fo=96, routed)          1.238     8.935    u_ev/slot[0][node][30]_i_90_n_0
+    SLICE_X55Y73         LUT5 (Prop_lut5_I1_O)        0.124     9.059 r  u_ev/slot[0][qepoch][15]_i_220/O
+                         net (fo=1, routed)           0.423     9.482    u_ev/slot[0][qepoch][15]_i_220_n_0
+    SLICE_X54Y72         LUT4 (Prop_lut4_I1_O)        0.124     9.606 r  u_ev/slot[0][qepoch][15]_i_189/O
+                         net (fo=1, routed)           0.633    10.239    u_ev/slot[0][qepoch][15]_i_189_n_0
+    SLICE_X48Y72         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526    10.765 r  u_ev/slot_reg[0][qepoch][15]_i_152/CO[3]
+                         net (fo=1, routed)           0.000    10.765    u_ev/slot_reg[0][qepoch][15]_i_152_n_0
+    SLICE_X48Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.879 r  u_ev/slot_reg[0][qepoch][15]_i_93/CO[3]
+                         net (fo=1, routed)           0.000    10.879    u_ev/slot_reg[0][qepoch][15]_i_93_n_0
+    SLICE_X48Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.993 r  u_ev/slot_reg[0][qepoch][15]_i_39/CO[3]
+                         net (fo=1, routed)           0.009    11.002    u_ev/slot_reg[0][qepoch][15]_i_39_n_0
+    SLICE_X48Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.116 r  u_ev/slot_reg[0][qepoch][15]_i_21/CO[3]
+                         net (fo=2, routed)           0.905    12.020    u_ev/slot_reg[0][qepoch][15]_i_21_n_0
+    SLICE_X50Y76         LUT6 (Prop_lut6_I2_O)        0.124    12.144 r  u_ev/slot[0][qepoch][15]_i_11/O
+                         net (fo=66, routed)          1.060    13.205    u_ev/slot[0][qepoch][15]_i_11_n_0
+    SLICE_X38Y77         LUT6 (Prop_lut6_I1_O)        0.124    13.329 r  u_ev/slot[0][score][4]_i_5/O
+                         net (fo=6, routed)           0.978    14.307    u_ev/slot[0][score][4]_i_5_n_0
+    SLICE_X44Y77         LUT6 (Prop_lut6_I1_O)        0.124    14.431 r  u_ev/slot[0][node][30]_i_235/O
+                         net (fo=1, routed)           0.000    14.431    u_ev/slot[0][node][30]_i_235_n_0
+    SLICE_X44Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    14.981 r  u_ev/slot_reg[0][node][30]_i_157/CO[3]
+                         net (fo=1, routed)           0.000    14.981    u_ev/slot_reg[0][node][30]_i_157_n_0
+    SLICE_X44Y78         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    15.138 r  u_ev/slot_reg[0][node][30]_i_88/CO[1]
+                         net (fo=2, routed)           0.827    15.965    u_ev/slot_reg[0][node][30]_i_88_n_2
+    SLICE_X49Y78         LUT6 (Prop_lut6_I3_O)        0.329    16.294 r  u_ev/slot[0][node][30]_i_37/O
+                         net (fo=186, routed)         1.039    17.333    u_ev/slot[0][node][30]_i_37_n_0
+    SLICE_X38Y78         LUT3 (Prop_lut3_I1_O)        0.124    17.457 r  u_ev/slot[0][node][30]_i_280/O
+                         net (fo=2, routed)           0.645    18.102    u_ev/slot[0][node][30]_i_280_n_0
+    SLICE_X38Y79         LUT6 (Prop_lut6_I4_O)        0.124    18.226 r  u_ev/slot[0][node][30]_i_273/O
+                         net (fo=1, routed)           0.565    18.791    u_ev/slot[0][node][30]_i_273_n_0
+    SLICE_X41Y79         LUT5 (Prop_lut5_I0_O)        0.124    18.915 r  u_ev/slot[0][node][30]_i_206/O
+                         net (fo=1, routed)           0.000    18.915    u_ev/slot[0][node][30]_i_206_n_0
+    SLICE_X41Y79         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    19.465 r  u_ev/slot_reg[0][node][30]_i_136/CO[3]
+                         net (fo=1, routed)           0.000    19.465    u_ev/slot_reg[0][node][30]_i_136_n_0
+    SLICE_X41Y80         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    19.622 r  u_ev/slot_reg[0][node][30]_i_85/CO[1]
+                         net (fo=3, routed)           0.656    20.278    u_ev/slot_reg[0][node][30]_i_85_n_2
+    SLICE_X41Y81         LUT6 (Prop_lut6_I2_O)        0.329    20.607 r  u_ev/slot[0][score][15]_i_7/O
+                         net (fo=37, routed)          0.982    21.589    u_ev/slot[0][score][15]_i_7_n_0
+    SLICE_X38Y78         LUT5 (Prop_lut5_I1_O)        0.124    21.713 r  u_ev/slot[0][score][1]_i_4/O
+                         net (fo=7, routed)           1.251    22.964    u_ev/slot[0][score][1]_i_4_n_0
+    SLICE_X41Y84         LUT6 (Prop_lut6_I5_O)        0.124    23.088 r  u_ev/slot[0][node][30]_i_117/O
+                         net (fo=1, routed)           0.000    23.088    u_ev/slot[0][node][30]_i_117_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    23.620 r  u_ev/slot_reg[0][node][30]_i_71/CO[3]
+                         net (fo=1, routed)           0.000    23.620    u_ev/slot_reg[0][node][30]_i_71_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    23.777 r  u_ev/slot_reg[0][node][30]_i_33/CO[1]
+                         net (fo=2, routed)           0.770    24.547    u_ev/slot_reg[0][node][30]_i_33_n_2
+    SLICE_X51Y85         LUT5 (Prop_lut5_I3_O)        0.329    24.876 r  u_ev/slot[0][score][15]_i_6/O
+                         net (fo=3, routed)           0.166    25.042    u_ev/slot[0][score][15]_i_6_n_0
+    SLICE_X51Y85         LUT6 (Prop_lut6_I2_O)        0.124    25.166 r  u_ev/slot[0][score][15]_i_3/O
+                         net (fo=75, routed)          1.216    26.382    u_ev/slot[0][score][15]_i_3_n_0
+    SLICE_X34Y87         LUT3 (Prop_lut3_I1_O)        0.124    26.506 f  u_ev/slot[0][score][0]_i_3/O
+                         net (fo=7, routed)           1.209    27.715    u_ev/slot[0][score][0]_i_3_n_0
+    SLICE_X49Y90         LUT6 (Prop_lut6_I5_O)        0.124    27.839 r  u_ev/slot[0][node][31]_i_101/O
+                         net (fo=1, routed)           0.764    28.603    u_ev/slot[0][node][31]_i_101_n_0
+    SLICE_X48Y97         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526    29.129 r  u_ev/slot_reg[0][node][31]_i_52/CO[3]
+                         net (fo=1, routed)           0.000    29.129    u_ev/slot_reg[0][node][31]_i_52_n_0
+    SLICE_X48Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    29.243 r  u_ev/slot_reg[0][node][31]_i_15/CO[3]
+                         net (fo=2, routed)           0.960    30.203    u_ev/slot_reg[0][node][31]_i_15_n_0
+    SLICE_X49Y89         LUT5 (Prop_lut5_I2_O)        0.124    30.327 r  u_ev/slot[0][score][15]_i_9/O
+                         net (fo=2, routed)           0.444    30.771    u_ev/slot[0][score][15]_i_9_n_0
+    SLICE_X50Y89         LUT6 (Prop_lut6_I1_O)        0.124    30.895 r  u_ev/slot[0][score][15]_i_5/O
+                         net (fo=64, routed)          1.018    31.913    u_ev/slot[0][score][15]_i_5_n_0
+    SLICE_X37Y97         LUT5 (Prop_lut5_I4_O)        0.124    32.037 f  u_ev/slot[0][score][3]_i_2/O
+                         net (fo=7, routed)           0.675    32.712    u_ev/slot[0][score][3]_i_2_n_0
+    SLICE_X42Y93         LUT6 (Prop_lut6_I4_O)        0.124    32.836 r  u_ev/slot[0][node][30]_i_55/O
+                         net (fo=1, routed)           0.810    33.646    u_ev/slot[0][node][30]_i_55_n_0
+    SLICE_X43Y93         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    34.153 r  u_ev/slot_reg[0][node][30]_i_23/CO[3]
+                         net (fo=1, routed)           0.000    34.153    u_ev/slot_reg[0][node][30]_i_23_n_0
+    SLICE_X43Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    34.267 r  u_ev/slot_reg[0][node][30]_i_7/CO[3]
+                         net (fo=2, routed)           1.455    35.722    u_ev/slot_reg[0][node][30]_i_7_n_0
+    SLICE_X40Y88         LUT6 (Prop_lut6_I3_O)        0.124    35.846 r  u_ev/slot[0][node][30]_i_2/O
+                         net (fo=137, routed)         1.002    36.848    u_ev/slot[0][node][30]_i_2_n_0
+    SLICE_X34Y85         LUT5 (Prop_lut5_I4_O)        0.124    36.972 r  u_ev/slot[0][node][19]_i_2/O
+                         net (fo=3, routed)           1.131    38.104    u_ev/slot[0][node][19]_i_2_n_0
+    SLICE_X38Y81         LUT6 (Prop_lut6_I4_O)        0.124    38.228 r  u_ev/slot[0][node][31]_i_65/O
+                         net (fo=1, routed)           0.647    38.875    u_ev/slot[0][node][31]_i_65_n_0
+    SLICE_X39Y81         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    39.382 r  u_ev/slot_reg[0][node][31]_i_19/CO[3]
+                         net (fo=1, routed)           0.000    39.382    u_ev/slot_reg[0][node][31]_i_19_n_0
+    SLICE_X39Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    39.496 f  u_ev/slot_reg[0][node][31]_i_10/CO[3]
+                         net (fo=2, routed)           0.767    40.263    u_ev/slot_reg[0][node][31]_i_10_n_0
+    SLICE_X37Y82         LUT3 (Prop_lut3_I2_O)        0.124    40.387 f  u_ev/slot[0][qepoch][15]_i_13/O
+                         net (fo=2, routed)           0.309    40.695    u_ev/slot[0][qepoch][15]_i_13_n_0
+    SLICE_X36Y81         LUT6 (Prop_lut6_I0_O)        0.124    40.819 f  u_ev/slot[0][qepoch][15]_i_7/O
+                         net (fo=5, routed)           0.485    41.305    u_ev/slot[0][qepoch][15]_i_7_n_0
+    SLICE_X35Y78         LUT4 (Prop_lut4_I3_O)        0.124    41.429 r  u_ev/slot[0][qepoch][15]_i_3/O
+                         net (fo=84, routed)          0.835    42.264    u_ev/slot[0][qepoch][15]_i_3_n_0
+    SLICE_X37Y75         LUT6 (Prop_lut6_I1_O)        0.124    42.388 r  u_ev/slot[1][node][30]_i_262/O
+                         net (fo=1, routed)           0.840    43.227    u_ev/slot[1][node][30]_i_262_n_0
+    SLICE_X41Y75         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    43.734 r  u_ev/slot_reg[1][node][30]_i_220/CO[3]
+                         net (fo=1, routed)           0.000    43.734    u_ev/slot_reg[1][node][30]_i_220_n_0
+    SLICE_X41Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.848 r  u_ev/slot_reg[1][node][30]_i_162/CO[3]
+                         net (fo=2, routed)           1.041    44.889    u_ev/slot_reg[1][node][30]_i_162_n_0
+    SLICE_X40Y80         LUT5 (Prop_lut5_I4_O)        0.124    45.013 r  u_ev/slot[1][node][30]_i_100/O
+                         net (fo=139, routed)         0.945    45.959    u_ev/slot[1][node][30]_i_100_n_0
+    SLICE_X36Y74         LUT4 (Prop_lut4_I1_O)        0.124    46.083 r  u_ev/slot[2][v]_i_130/O
+                         net (fo=1, routed)           0.657    46.740    u_ev/slot[2][v]_i_130_n_0
+    SLICE_X36Y74         LUT4 (Prop_lut4_I1_O)        0.124    46.864 r  u_ev/slot[2][v]_i_99/O
+                         net (fo=1, routed)           1.037    47.902    u_ev/slot[2][v]_i_99_n_0
+    SLICE_X46Y77         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550    48.452 r  u_ev/slot_reg[2][v]_i_65/CO[3]
+                         net (fo=1, routed)           0.000    48.452    u_ev/slot_reg[2][v]_i_65_n_0
+    SLICE_X46Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    48.569 r  u_ev/slot_reg[2][v]_i_40/CO[3]
+                         net (fo=1, routed)           0.000    48.569    u_ev/slot_reg[2][v]_i_40_n_0
+    SLICE_X46Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    48.686 r  u_ev/slot_reg[2][v]_i_22/CO[3]
+                         net (fo=3, routed)           0.767    49.453    u_ev/slot_reg[2][v]_i_22_n_0
+    SLICE_X51Y81         LUT6 (Prop_lut6_I3_O)        0.124    49.577 r  u_ev/slot[1][node][30]_i_99/O
+                         net (fo=32, routed)          0.942    50.519    u_ev/slot[1][node][30]_i_99_n_0
+    SLICE_X37Y81         LUT6 (Prop_lut6_I1_O)        0.124    50.643 r  u_ev/slot[1][node][5]_i_5/O
+                         net (fo=3, routed)           0.953    51.596    u_ev/slot[1][node][5]_i_5_n_0
+    SLICE_X44Y81         LUT4 (Prop_lut4_I0_O)        0.124    51.720 r  u_ev/slot[1][node][30]_i_273/O
+                         net (fo=1, routed)           0.000    51.720    u_ev/slot[1][node][30]_i_273_n_0
+    SLICE_X44Y81         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    52.118 r  u_ev/slot_reg[1][node][30]_i_237/CO[3]
+                         net (fo=1, routed)           0.000    52.118    u_ev/slot_reg[1][node][30]_i_237_n_0
+    SLICE_X44Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.232 r  u_ev/slot_reg[1][node][30]_i_187/CO[3]
+                         net (fo=1, routed)           0.000    52.232    u_ev/slot_reg[1][node][30]_i_187_n_0
+    SLICE_X44Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.346 r  u_ev/slot_reg[1][node][30]_i_139/CO[3]
+                         net (fo=1, routed)           0.000    52.346    u_ev/slot_reg[1][node][30]_i_139_n_0
+    SLICE_X44Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.460 r  u_ev/slot_reg[1][node][30]_i_95/CO[3]
+                         net (fo=4, routed)           1.275    53.735    u_ev/slot_reg[1][node][30]_i_95_n_0
+    SLICE_X35Y95         LUT3 (Prop_lut3_I2_O)        0.124    53.859 r  u_ev/slot[1][score][15]_i_15/O
+                         net (fo=1, routed)           0.402    54.261    u_ev/slot[1][score][15]_i_15_n_0
+    SLICE_X35Y95         LUT5 (Prop_lut5_I1_O)        0.124    54.385 r  u_ev/slot[1][score][15]_i_9/O
+                         net (fo=64, routed)          0.750    55.135    u_ev/slot[1][score][15]_i_9_n_0
+    SLICE_X35Y95         LUT3 (Prop_lut3_I1_O)        0.124    55.259 r  u_ev/slot[1][score][5]_i_4/O
+                         net (fo=6, routed)           0.510    55.769    u_ev/slot[1][score][5]_i_4_n_0
+    SLICE_X30Y96         LUT6 (Prop_lut6_I3_O)        0.124    55.893 r  u_ev/slot[1][node][31]_i_127/O
+                         net (fo=1, routed)           0.565    56.459    u_ev/slot[1][node][31]_i_127_n_0
+    SLICE_X33Y96         LUT5 (Prop_lut5_I4_O)        0.124    56.583 r  u_ev/slot[1][node][31]_i_115/O
+                         net (fo=1, routed)           0.000    56.583    u_ev/slot[1][node][31]_i_115_n_0
+    SLICE_X33Y96         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    57.133 r  u_ev/slot_reg[1][node][31]_i_84/CO[3]
+                         net (fo=1, routed)           0.000    57.133    u_ev/slot_reg[1][node][31]_i_84_n_0
+    SLICE_X33Y97         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    57.290 r  u_ev/slot_reg[1][node][31]_i_61/CO[1]
+                         net (fo=1, routed)           0.666    57.955    u_ev/p_71_in
+    SLICE_X35Y96         LUT3 (Prop_lut3_I1_O)        0.329    58.284 r  u_ev/slot[1][node][31]_i_35/O
+                         net (fo=3, routed)           0.439    58.724    u_ev/slot[1][node][31]_i_35_n_0
+    SLICE_X36Y96         LUT6 (Prop_lut6_I4_O)        0.124    58.848 r  u_ev/slot[1][node][31]_i_11/O
+                         net (fo=64, routed)          0.954    59.801    u_ev/slot[1][node][31]_i_11_n_0
+    SLICE_X39Y87         LUT5 (Prop_lut5_I4_O)        0.124    59.925 f  u_ev/slot[1][node][2]_i_3/O
+                         net (fo=5, routed)           0.793    60.718    u_ev/slot[1][node][2]_i_3_n_0
+    SLICE_X45Y90         LUT6 (Prop_lut6_I5_O)        0.124    60.842 r  u_ev/slot[1][node][30]_i_231/O
+                         net (fo=1, routed)           0.569    61.411    u_ev/slot[1][node][30]_i_231_n_0
+    SLICE_X44Y90         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    61.918 r  u_ev/slot_reg[1][node][30]_i_178/CO[3]
+                         net (fo=1, routed)           0.000    61.918    u_ev/slot_reg[1][node][30]_i_178_n_0
+    SLICE_X44Y91         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    62.032 r  u_ev/slot_reg[1][node][30]_i_130/CO[3]
+                         net (fo=1, routed)           0.000    62.032    u_ev/slot_reg[1][node][30]_i_130_n_0
+    SLICE_X44Y92         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    62.146 r  u_ev/slot_reg[1][node][30]_i_86/CO[3]
+                         net (fo=1, routed)           0.000    62.146    u_ev/slot_reg[1][node][30]_i_86_n_0
+    SLICE_X44Y93         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    62.260 r  u_ev/slot_reg[1][node][30]_i_45/CO[3]
+                         net (fo=3, routed)           1.193    63.453    u_ev/slot_reg[1][node][30]_i_45_n_0
+    SLICE_X38Y98         LUT5 (Prop_lut5_I3_O)        0.124    63.577 r  u_ev/slot[1][node][30]_i_10/O
+                         net (fo=64, routed)          0.924    64.502    u_ev/slot[1][node][30]_i_10_n_0
+    SLICE_X38Y92         LUT5 (Prop_lut5_I4_O)        0.124    64.626 r  u_ev/slot[1][node][27]_i_3/O
+                         net (fo=5, routed)           0.892    65.517    u_ev/slot[1][node][27]_i_3_n_0
+    SLICE_X31Y92         LUT6 (Prop_lut6_I4_O)        0.124    65.641 r  u_ev/slot[1][node][31]_i_29/O
+                         net (fo=1, routed)           0.710    66.351    u_ev/slot[1][node][31]_i_29_n_0
+    SLICE_X40Y93         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    66.858 r  u_ev/slot_reg[1][node][31]_i_10/CO[3]
+                         net (fo=3, routed)           0.970    67.828    u_ev/slot_reg[1][node][31]_i_10_n_0
+    SLICE_X40Y100        LUT5 (Prop_lut5_I0_O)        0.124    67.952 r  u_ev/slot[1][score][15]_i_7/O
+                         net (fo=81, routed)          0.573    68.525    u_ev/slot[1][score][15]_i_7_n_0
+    SLICE_X38Y101        LUT5 (Prop_lut5_I4_O)        0.124    68.649 f  u_ev/slot[1][score][3]_i_3/O
+                         net (fo=6, routed)           0.818    69.467    u_ev/slot[1][score][3]_i_3_n_0
+    SLICE_X37Y100        LUT6 (Prop_lut6_I4_O)        0.124    69.591 r  u_ev/slot[1][node][30]_i_66/O
+                         net (fo=1, routed)           0.638    70.230    u_ev/slot[1][node][30]_i_66_n_0
+    SLICE_X36Y99         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    70.737 r  u_ev/slot_reg[1][node][30]_i_33/CO[3]
+                         net (fo=1, routed)           0.001    70.738    u_ev/slot_reg[1][node][30]_i_33_n_0
+    SLICE_X36Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    70.852 r  u_ev/slot_reg[1][node][30]_i_8/CO[3]
+                         net (fo=4, routed)           1.251    72.102    u_ev/p_43_in
+    SLICE_X36Y96         LUT6 (Prop_lut6_I3_O)        0.124    72.226 r  u_ev/slot[1][score][15]_i_2/O
+                         net (fo=51, routed)          1.063    73.290    u_ev/slot[1][score][15]_i_2_n_0
+    SLICE_X35Y104        LUT5 (Prop_lut5_I4_O)        0.124    73.414 r  u_ev/slot[1][score][14]_i_2/O
+                         net (fo=4, routed)           0.924    74.338    u_ev/slot[1][score][14]_i_2_n_0
+    SLICE_X33Y99         LUT6 (Prop_lut6_I4_O)        0.124    74.462 r  u_ev/slot[1][score][15]_i_19/O
+                         net (fo=1, routed)           0.746    75.207    u_ev/slot[1][score][15]_i_19_n_0
+    SLICE_X32Y99         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    75.592 f  u_ev/slot_reg[1][score][15]_i_12/CO[3]
+                         net (fo=2, routed)           0.940    76.532    u_ev/p_35_in
+    SLICE_X32Y96         LUT4 (Prop_lut4_I3_O)        0.124    76.656 f  u_ev/slot[1][node][31]_i_13/O
+                         net (fo=2, routed)           0.500    77.156    u_ev/slot[1][node][31]_i_13_n_0
+    SLICE_X32Y97         LUT4 (Prop_lut4_I3_O)        0.124    77.280 f  u_ev/slot[1][node][31]_i_7/O
+                         net (fo=5, routed)           0.840    78.121    u_ev/p_165_out
+    SLICE_X34Y97         LUT6 (Prop_lut6_I0_O)        0.124    78.245 r  u_ev/slot[2][score][15]_i_57/O
+                         net (fo=30, routed)          1.196    79.441    u_ev/slot[2][score][15]_i_57_n_0
+    SLICE_X34Y78         LUT6 (Prop_lut6_I1_O)        0.124    79.565 r  u_ev/slot[2][node][30]_i_161/O
+                         net (fo=1, routed)           1.010    80.575    u_ev/slot[2][node][30]_i_161_n_0
+    SLICE_X30Y87         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.396    80.971 r  u_ev/slot_reg[2][node][30]_i_125/CO[3]
+                         net (fo=3, routed)           1.431    82.402    u_ev/slot_reg[2][node][30]_i_125_n_0
+    SLICE_X51Y85         LUT5 (Prop_lut5_I3_O)        0.124    82.526 r  u_ev/slot[2][node][30]_i_84/O
+                         net (fo=64, routed)          1.224    83.750    u_ev/slot[2][node][30]_i_84_n_0
+    SLICE_X40Y72         LUT4 (Prop_lut4_I1_O)        0.124    83.874 r  u_ev/slot[2][qepoch][15]_i_231/O
+                         net (fo=2, routed)           0.616    84.490    u_ev/slot[2][qepoch][15]_i_231_n_0
+    SLICE_X43Y77         LUT4 (Prop_lut4_I2_O)        0.124    84.614 r  u_ev/slot[2][qepoch][15]_i_177/O
+                         net (fo=1, routed)           0.000    84.614    u_ev/slot[2][qepoch][15]_i_177_n_0
+    SLICE_X43Y77         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    85.146 r  u_ev/slot_reg[2][qepoch][15]_i_97/CO[3]
+                         net (fo=1, routed)           0.000    85.146    u_ev/slot_reg[2][qepoch][15]_i_97_n_0
+    SLICE_X43Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    85.260 r  u_ev/slot_reg[2][qepoch][15]_i_42/CO[3]
+                         net (fo=1, routed)           0.000    85.260    u_ev/slot_reg[2][qepoch][15]_i_42_n_0
+    SLICE_X43Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    85.374 r  u_ev/slot_reg[2][qepoch][15]_i_22/CO[3]
+                         net (fo=4, routed)           1.368    86.742    u_ev/slot_reg[2][qepoch][15]_i_22_n_0
+    SLICE_X33Y87         LUT6 (Prop_lut6_I4_O)        0.124    86.866 r  u_ev/slot[2][node][30]_i_83/O
+                         net (fo=32, routed)          0.708    87.574    u_ev/slot[2][node][30]_i_83_n_0
+    SLICE_X39Y88         LUT6 (Prop_lut6_I1_O)        0.124    87.698 r  u_ev/slot[2][node][2]_i_4/O
+                         net (fo=5, routed)           0.947    88.645    u_ev/slot[2][node][2]_i_4_n_0
+    SLICE_X48Y85         LUT4 (Prop_lut4_I2_O)        0.124    88.769 r  u_ev/slot[2][qepoch][15]_i_238/O
+                         net (fo=1, routed)           0.000    88.769    u_ev/slot[2][qepoch][15]_i_238_n_0
+    SLICE_X48Y85         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    89.319 r  u_ev/slot_reg[2][qepoch][15]_i_186/CO[3]
+                         net (fo=1, routed)           0.000    89.319    u_ev/slot_reg[2][qepoch][15]_i_186_n_0
+    SLICE_X48Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    89.433 r  u_ev/slot_reg[2][qepoch][15]_i_114/CO[3]
+                         net (fo=1, routed)           0.000    89.433    u_ev/slot_reg[2][qepoch][15]_i_114_n_0
+    SLICE_X48Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    89.547 r  u_ev/slot_reg[2][qepoch][15]_i_51/CO[3]
+                         net (fo=1, routed)           0.000    89.547    u_ev/slot_reg[2][qepoch][15]_i_51_n_0
+    SLICE_X48Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    89.661 r  u_ev/slot_reg[2][qepoch][15]_i_23/CO[3]
+                         net (fo=3, routed)           0.967    90.628    u_ev/slot_reg[2][qepoch][15]_i_23_n_0
+    SLICE_X49Y88         LUT5 (Prop_lut5_I1_O)        0.124    90.752 r  u_ev/slot[2][node][30]_i_34/O
+                         net (fo=64, routed)          0.836    91.588    u_ev/slot[2][node][30]_i_34_n_0
+    SLICE_X40Y86         LUT3 (Prop_lut3_I1_O)        0.124    91.712 r  u_ev/slot[2][node][1]_i_4/O
+                         net (fo=5, routed)           0.817    92.529    u_ev/slot[2][node][1]_i_4_n_0
+    SLICE_X45Y85         LUT6 (Prop_lut6_I4_O)        0.124    92.653 r  u_ev/slot[2][qepoch][15]_i_262/O
+                         net (fo=1, routed)           0.385    93.038    u_ev/slot[2][qepoch][15]_i_262_n_0
+    SLICE_X44Y85         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526    93.564 r  u_ev/slot_reg[2][qepoch][15]_i_242/CO[3]
+                         net (fo=1, routed)           0.000    93.564    u_ev/slot_reg[2][qepoch][15]_i_242_n_0
+    SLICE_X44Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    93.678 r  u_ev/slot_reg[2][qepoch][15]_i_207/CO[3]
+                         net (fo=1, routed)           0.000    93.678    u_ev/slot_reg[2][qepoch][15]_i_207_n_0
+    SLICE_X44Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    93.792 r  u_ev/slot_reg[2][qepoch][15]_i_147/CO[3]
+                         net (fo=1, routed)           0.000    93.792    u_ev/slot_reg[2][qepoch][15]_i_147_n_0
+    SLICE_X44Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    93.906 r  u_ev/slot_reg[2][qepoch][15]_i_74/CO[3]
+                         net (fo=1, routed)           1.086    94.992    u_ev/slot_reg[2][qepoch][15]_i_74_n_0
+    SLICE_X35Y94         LUT3 (Prop_lut3_I2_O)        0.124    95.116 r  u_ev/slot[2][qepoch][15]_i_26/O
+                         net (fo=3, routed)           0.613    95.729    u_ev/slot[2][qepoch][15]_i_26_n_0
+    SLICE_X36Y97         LUT6 (Prop_lut6_I4_O)        0.124    95.853 r  u_ev/slot[2][node][31]_i_11/O
+                         net (fo=64, routed)          0.838    96.691    u_ev/slot[2][node][31]_i_11_n_0
+    SLICE_X35Y87         LUT5 (Prop_lut5_I4_O)        0.124    96.815 f  u_ev/slot[2][node][8]_i_3/O
+                         net (fo=5, routed)           0.867    97.682    u_ev/slot[2][node][8]_i_3_n_0
+    SLICE_X42Y90         LUT6 (Prop_lut6_I5_O)        0.124    97.806 r  u_ev/slot[2][node][30]_i_142/O
+                         net (fo=1, routed)           0.379    98.185    u_ev/slot[2][node][30]_i_142_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526    98.711 r  u_ev/slot_reg[2][node][30]_i_102/CO[3]
+                         net (fo=1, routed)           0.000    98.711    u_ev/slot_reg[2][node][30]_i_102_n_0
+    SLICE_X43Y91         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    98.825 r  u_ev/slot_reg[2][node][30]_i_61/CO[3]
+                         net (fo=1, routed)           0.000    98.825    u_ev/slot_reg[2][node][30]_i_61_n_0
+    SLICE_X43Y92         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    98.939 r  u_ev/slot_reg[2][node][30]_i_30/CO[3]
+                         net (fo=3, routed)           1.260   100.199    u_ev/slot_reg[2][node][30]_i_30_n_0
+    SLICE_X39Y99         LUT5 (Prop_lut5_I1_O)        0.124   100.323 r  u_ev/slot[2][node][30]_i_7/O
+                         net (fo=64, routed)          1.071   101.394    u_ev/slot[2][node][30]_i_7_n_0
+    SLICE_X40Y89         LUT5 (Prop_lut5_I4_O)        0.124   101.518 r  u_ev/slot[2][node][1]_i_3/O
+                         net (fo=5, routed)           0.749   102.267    u_ev/slot[2][node][1]_i_3_n_0
+    SLICE_X40Y94         LUT6 (Prop_lut6_I4_O)        0.124   102.391 r  u_ev/slot[2][node][31]_i_73/O
+                         net (fo=1, routed)           0.526   102.916    u_ev/slot[2][node][31]_i_73_n_0
+    SLICE_X42Y94         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550   103.466 r  u_ev/slot_reg[2][node][31]_i_58/CO[3]
+                         net (fo=1, routed)           0.000   103.466    u_ev/slot_reg[2][node][31]_i_58_n_0
+    SLICE_X42Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   103.583 r  u_ev/slot_reg[2][node][31]_i_35/CO[3]
+                         net (fo=1, routed)           0.000   103.583    u_ev/slot_reg[2][node][31]_i_35_n_0
+    SLICE_X42Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   103.700 r  u_ev/slot_reg[2][node][31]_i_13/CO[3]
+                         net (fo=1, routed)           0.000   103.700    u_ev/slot_reg[2][node][31]_i_13_n_0
+    SLICE_X42Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   103.817 r  u_ev/slot_reg[2][node][31]_i_7/CO[3]
+                         net (fo=3, routed)           1.253   105.070    u_ev/slot_reg[2][node][31]_i_7_n_0
+    SLICE_X40Y105        LUT5 (Prop_lut5_I1_O)        0.124   105.194 r  u_ev/slot[2][node][31]_i_5/O
+                         net (fo=131, routed)         1.266   106.461    u_ev/slot[2][node][31]_i_5_n_0
+    SLICE_X35Y89         LUT5 (Prop_lut5_I4_O)        0.124   106.585 f  u_ev/slot[2][node][8]_i_2/O
+                         net (fo=5, routed)           0.764   107.349    u_ev/slot[2][node][8]_i_2_n_0
+    SLICE_X32Y94         LUT6 (Prop_lut6_I5_O)        0.124   107.473 r  u_ev/slot[2][node][30]_i_97/O
+                         net (fo=1, routed)           0.502   107.975    u_ev/slot[2][node][30]_i_97_n_0
+    SLICE_X38Y94         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550   108.525 r  u_ev/slot_reg[2][node][30]_i_52/CO[3]
+                         net (fo=1, routed)           0.000   108.525    u_ev/slot_reg[2][node][30]_i_52_n_0
+    SLICE_X38Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   108.642 r  u_ev/slot_reg[2][node][30]_i_21/CO[3]
+                         net (fo=1, routed)           0.000   108.642    u_ev/slot_reg[2][node][30]_i_21_n_0
+    SLICE_X38Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   108.759 r  u_ev/slot_reg[2][node][30]_i_6/CO[3]
+                         net (fo=4, routed)           1.103   109.861    u_ev/slot_reg[2][node][30]_i_6_n_0
+    SLICE_X39Y99         LUT5 (Prop_lut5_I3_O)        0.124   109.985 r  u_ev/slot[2][node][30]_i_2/O
+                         net (fo=64, routed)          0.896   110.881    u_ev/slot[2][node][30]_i_2_n_0
+    SLICE_X39Y89         LUT5 (Prop_lut5_I4_O)        0.124   111.005 r  u_ev/slot[2][node][1]_i_2/O
+                         net (fo=3, routed)           0.960   111.966    u_ev/slot[2][node][1]_i_2_n_0
+    SLICE_X39Y92         LUT6 (Prop_lut6_I4_O)        0.124   112.090 r  u_ev/slot[2][score][15]_i_72/O
+                         net (fo=1, routed)           0.474   112.564    u_ev/slot[2][score][15]_i_72_n_0
+    SLICE_X41Y92         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   113.090 r  u_ev/slot_reg[2][score][15]_i_58/CO[3]
+                         net (fo=1, routed)           0.000   113.090    u_ev/slot_reg[2][score][15]_i_58_n_0
+    SLICE_X41Y93         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   113.204 r  u_ev/slot_reg[2][score][15]_i_36/CO[3]
+                         net (fo=1, routed)           0.000   113.204    u_ev/slot_reg[2][score][15]_i_36_n_0
+    SLICE_X41Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   113.318 r  u_ev/slot_reg[2][score][15]_i_13/CO[3]
+                         net (fo=1, routed)           0.000   113.318    u_ev/slot_reg[2][score][15]_i_13_n_0
+    SLICE_X41Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   113.432 r  u_ev/slot_reg[2][score][15]_i_7/CO[3]
+                         net (fo=2, routed)           1.160   114.592    u_ev/slot_reg[2][score][15]_i_7_n_0
+    SLICE_X41Y106        LUT6 (Prop_lut6_I2_O)        0.124   114.716 r  u_ev/slot[2][qepoch][15]_i_4/O
+                         net (fo=14, routed)          0.354   115.070    u_ev/slot[2][qepoch][15]_i_4_n_0
+    SLICE_X43Y106        LUT6 (Prop_lut6_I4_O)        0.124   115.194 f  u_ev/slot[3][score][15]_i_35/O
+                         net (fo=136, routed)         1.499   116.693    u_ev/slot[3][score][15]_i_35_n_0
+    SLICE_X53Y82         LUT6 (Prop_lut6_I0_O)        0.124   116.817 f  u_ev/slot[4][qepoch][15]_i_240/O
+                         net (fo=3, routed)           0.517   117.333    u_ev/slot[4][qepoch][15]_i_240_n_0
+    SLICE_X52Y82         LUT6 (Prop_lut6_I3_O)        0.124   117.457 r  u_ev/slot[3][qepoch][15]_i_25/O
+                         net (fo=1, routed)           0.514   117.972    u_ev/slot[3][qepoch][15]_i_25_n_0
+    SLICE_X46Y82         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.396   118.368 r  u_ev/slot_reg[3][qepoch][15]_i_13/CO[3]
+                         net (fo=2, routed)           1.215   119.582    u_ev/slot_reg[3][qepoch][15]_i_13_n_0
+    SLICE_X57Y81         LUT5 (Prop_lut5_I0_O)        0.124   119.706 r  u_ev/slot[3][qepoch][15]_i_7/O
+                         net (fo=67, routed)          0.735   120.442    u_ev/slot[3][qepoch][15]_i_7_n_0
+    SLICE_X55Y82         LUT5 (Prop_lut5_I0_O)        0.124   120.566 r  u_ev/slot[3][node][5]_i_5/O
+                         net (fo=5, routed)           0.786   121.352    u_ev/slot[3][node][5]_i_5_n_0
+    SLICE_X59Y82         LUT6 (Prop_lut6_I4_O)        0.124   121.476 r  u_ev/slot[3][qepoch][15]_i_215/O
+                         net (fo=1, routed)           0.965   122.440    u_ev/slot[3][qepoch][15]_i_215_n_0
+    SLICE_X58Y86         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.404   122.844 r  u_ev/slot_reg[3][qepoch][15]_i_197/CO[3]
+                         net (fo=1, routed)           0.000   122.844    u_ev/slot_reg[3][qepoch][15]_i_197_n_0
+    SLICE_X58Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   122.961 r  u_ev/slot_reg[3][qepoch][15]_i_163/CO[3]
+                         net (fo=1, routed)           0.000   122.961    u_ev/slot_reg[3][qepoch][15]_i_163_n_0
+    SLICE_X58Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   123.078 r  u_ev/slot_reg[3][qepoch][15]_i_104/CO[3]
+                         net (fo=1, routed)           0.000   123.078    u_ev/slot_reg[3][qepoch][15]_i_104_n_0
+    SLICE_X58Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   123.195 r  u_ev/slot_reg[3][qepoch][15]_i_47/CO[3]
+                         net (fo=2, routed)           0.921   124.116    u_ev/slot_reg[3][qepoch][15]_i_47_n_0
+    SLICE_X57Y92         LUT3 (Prop_lut3_I2_O)        0.124   124.240 r  u_ev/slot[3][qepoch][15]_i_17/O
+                         net (fo=2, routed)           1.053   125.293    u_ev/slot[3][qepoch][15]_i_17_n_0
+    SLICE_X58Y98         LUT6 (Prop_lut6_I3_O)        0.124   125.417 r  u_ev/slot[3][qepoch][15]_i_8/O
+                         net (fo=65, routed)          0.982   126.400    u_ev/slot[3][qepoch][15]_i_8_n_0
+    SLICE_X63Y94         LUT6 (Prop_lut6_I5_O)        0.124   126.524 f  u_ev/slot[3][score][1]_i_4/O
+                         net (fo=4, routed)           0.600   127.123    u_ev/slot[3][score][1]_i_4_n_0
+    SLICE_X63Y95         LUT6 (Prop_lut6_I4_O)        0.124   127.247 r  u_ev/slot[3][qepoch][15]_i_132/O
+                         net (fo=1, routed)           0.331   127.578    u_ev/slot[3][qepoch][15]_i_132_n_0
+    SLICE_X63Y96         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   128.104 r  u_ev/slot_reg[3][qepoch][15]_i_60/CO[3]
+                         net (fo=1, routed)           0.000   128.104    u_ev/slot_reg[3][qepoch][15]_i_60_n_0
+    SLICE_X63Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   128.218 r  u_ev/slot_reg[3][qepoch][15]_i_20/CO[3]
+                         net (fo=5, routed)           1.360   129.578    u_ev/slot_reg[3][qepoch][15]_i_20_n_0
+    SLICE_X56Y101        LUT6 (Prop_lut6_I3_O)        0.124   129.702 r  u_ev/slot[3][qepoch][15]_i_9/O
+                         net (fo=46, routed)          0.935   130.638    u_ev/slot[3][qepoch][15]_i_9_n_0
+    SLICE_X56Y100        LUT5 (Prop_lut5_I4_O)        0.124   130.762 r  u_ev/slot[3][score][12]_i_4/O
+                         net (fo=6, routed)           0.851   131.613    u_ev/slot[3][score][12]_i_4_n_0
+    SLICE_X52Y101        LUT6 (Prop_lut6_I2_O)        0.124   131.737 r  u_ev/slot[3][node][31]_i_78/O
+                         net (fo=1, routed)           0.000   131.737    u_ev/slot[3][node][31]_i_78_n_0
+    SLICE_X52Y101        CARRY4 (Prop_carry4_S[0]_CO[1])
+                                                      0.457   132.194 r  u_ev/slot_reg[3][node][31]_i_37/CO[1]
+                         net (fo=2, routed)           0.808   133.001    u_ev/p_205_in
+    SLICE_X53Y97         LUT3 (Prop_lut3_I1_O)        0.329   133.330 r  u_ev/slot[3][qepoch][15]_i_12/O
+                         net (fo=2, routed)           0.677   134.007    u_ev/slot[3][qepoch][15]_i_12_n_0
+    SLICE_X52Y103        LUT5 (Prop_lut5_I1_O)        0.124   134.131 r  u_ev/slot[3][qepoch][15]_i_6/O
+                         net (fo=69, routed)          0.712   134.842    u_ev/slot[3][qepoch][15]_i_6_n_0
+    SLICE_X47Y105        LUT3 (Prop_lut3_I1_O)        0.124   134.966 r  u_ev/slot[3][node][31]_i_98/O
+                         net (fo=6, routed)           0.748   135.714    u_ev/slot[3][node][31]_i_98_n_0
+    SLICE_X45Y106        LUT6 (Prop_lut6_I3_O)        0.124   135.838 r  u_ev/slot[3][node][30]_i_141/O
+                         net (fo=1, routed)           0.488   136.326    u_ev/slot[3][node][30]_i_141_n_0
+    SLICE_X44Y106        LUT5 (Prop_lut5_I3_O)        0.124   136.450 r  u_ev/slot[3][node][30]_i_128/O
+                         net (fo=1, routed)           0.000   136.450    u_ev/slot[3][node][30]_i_128_n_0
+    SLICE_X44Y106        CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398   136.848 r  u_ev/slot_reg[3][node][30]_i_98/CO[3]
+                         net (fo=1, routed)           0.000   136.848    u_ev/slot_reg[3][node][30]_i_98_n_0
+    SLICE_X44Y107        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157   137.005 r  u_ev/slot_reg[3][node][30]_i_68/CO[1]
+                         net (fo=1, routed)           0.670   137.675    u_ev/p_196_in
+    SLICE_X47Y106        LUT3 (Prop_lut3_I1_O)        0.329   138.004 r  u_ev/slot[3][node][30]_i_37/O
+                         net (fo=4, routed)           0.176   138.180    u_ev/slot[3][node][30]_i_37_n_0
+    SLICE_X47Y106        LUT6 (Prop_lut6_I0_O)        0.124   138.304 r  u_ev/slot[3][node][30]_i_9/O
+                         net (fo=34, routed)          0.996   139.300    u_ev/p_108_out
+    SLICE_X47Y91         LUT6 (Prop_lut6_I0_O)        0.124   139.424 r  u_ev/slot[3][node][13]_i_3/O
+                         net (fo=5, routed)           0.818   140.242    u_ev/slot[3][node][13]_i_3_n_0
+    SLICE_X47Y98         LUT6 (Prop_lut6_I4_O)        0.124   140.366 r  u_ev/slot[3][node][31]_i_90/O
+                         net (fo=1, routed)           0.554   140.920    u_ev/slot[3][node][31]_i_90_n_0
+    SLICE_X46Y97         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.404   141.324 r  u_ev/slot_reg[3][node][31]_i_42/CO[3]
+                         net (fo=1, routed)           0.000   141.324    u_ev/slot_reg[3][node][31]_i_42_n_0
+    SLICE_X46Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   141.441 r  u_ev/slot_reg[3][node][31]_i_15/CO[3]
+                         net (fo=1, routed)           0.000   141.441    u_ev/slot_reg[3][node][31]_i_15_n_0
+    SLICE_X46Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   141.558 r  u_ev/slot_reg[3][node][31]_i_9/CO[3]
+                         net (fo=2, routed)           0.901   142.459    u_ev/slot_reg[3][node][31]_i_9_n_0
+    SLICE_X43Y103        LUT5 (Prop_lut5_I1_O)        0.124   142.583 r  u_ev/slot[3][node][31]_i_5/O
+                         net (fo=64, routed)          1.215   143.799    u_ev/slot[3][node][31]_i_5_n_0
+    SLICE_X46Y94         LUT6 (Prop_lut6_I5_O)        0.124   143.923 f  u_ev/slot[3][node][6]_i_2/O
+                         net (fo=5, routed)           0.532   144.455    u_ev/slot[3][node][6]_i_2_n_0
+    SLICE_X46Y94         LUT6 (Prop_lut6_I5_O)        0.124   144.579 r  u_ev/slot[3][node][30]_i_110/O
+                         net (fo=1, routed)           0.852   145.431    u_ev/slot[3][node][30]_i_110_n_0
+    SLICE_X43Y95         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385   145.816 r  u_ev/slot_reg[3][node][30]_i_72/CO[3]
+                         net (fo=1, routed)           0.000   145.816    u_ev/slot_reg[3][node][30]_i_72_n_0
+    SLICE_X43Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   145.930 r  u_ev/slot_reg[3][node][30]_i_41/CO[3]
+                         net (fo=1, routed)           0.000   145.930    u_ev/slot_reg[3][node][30]_i_41_n_0
+    SLICE_X43Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   146.044 r  u_ev/slot_reg[3][node][30]_i_12/CO[3]
+                         net (fo=1, routed)           0.000   146.044    u_ev/slot_reg[3][node][30]_i_12_n_0
+    SLICE_X43Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   146.158 r  u_ev/slot_reg[3][node][30]_i_4/CO[3]
+                         net (fo=4, routed)           0.912   147.070    u_ev/slot_reg[3][node][30]_i_4_n_0
+    SLICE_X44Y101        LUT5 (Prop_lut5_I0_O)        0.124   147.194 r  u_ev/slot[3][node][30]_i_2/O
+                         net (fo=64, routed)          0.602   147.796    u_ev/slot[3][node][30]_i_2_n_0
+    SLICE_X44Y99         LUT5 (Prop_lut5_I4_O)        0.124   147.920 r  u_ev/slot[3][node][3]_i_2/O
+                         net (fo=3, routed)           0.641   148.560    u_ev/slot[3][node][3]_i_2_n_0
+    SLICE_X40Y95         LUT6 (Prop_lut6_I4_O)        0.124   148.684 r  u_ev/slot[3][score][15]_i_72/O
+                         net (fo=1, routed)           0.695   149.380    u_ev/slot[3][score][15]_i_72_n_0
+    SLICE_X44Y94         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507   149.887 r  u_ev/slot_reg[3][score][15]_i_60/CO[3]
+                         net (fo=1, routed)           0.000   149.887    u_ev/slot_reg[3][score][15]_i_60_n_0
+    SLICE_X44Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   150.001 r  u_ev/slot_reg[3][score][15]_i_37/CO[3]
+                         net (fo=1, routed)           0.000   150.001    u_ev/slot_reg[3][score][15]_i_37_n_0
+    SLICE_X44Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   150.115 r  u_ev/slot_reg[3][score][15]_i_14/CO[3]
+                         net (fo=1, routed)           0.000   150.115    u_ev/slot_reg[3][score][15]_i_14_n_0
+    SLICE_X44Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   150.229 f  u_ev/slot_reg[3][score][15]_i_8/CO[3]
+                         net (fo=3, routed)           1.165   151.394    u_ev/slot_reg[3][score][15]_i_8_n_0
+    SLICE_X48Y105        LUT4 (Prop_lut4_I1_O)        0.124   151.518 f  u_ev/slot[4][v]_i_20/O
+                         net (fo=2, routed)           0.173   151.691    u_ev/slot[4][v]_i_20_n_0
+    SLICE_X48Y105        LUT6 (Prop_lut6_I0_O)        0.124   151.815 f  u_ev/slot[4][v]_i_17/O
+                         net (fo=12, routed)          1.363   153.179    u_ev/slot[4][v]_i_17_n_0
+    SLICE_X68Y95         LUT5 (Prop_lut5_I0_O)        0.124   153.303 r  u_ev/slot[4][score][15]_i_8/O
+                         net (fo=95, routed)          1.327   154.630    u_ev/slot[4][score][15]_i_8_n_0
+    SLICE_X71Y82         LUT6 (Prop_lut6_I2_O)        0.124   154.754 r  u_ev/slot[4][qepoch][15]_i_131/O
+                         net (fo=1, routed)           0.532   155.285    u_ev/slot[4][qepoch][15]_i_131_n_0
+    SLICE_X67Y82         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   155.811 r  u_ev/slot_reg[4][qepoch][15]_i_48/CO[3]
+                         net (fo=3, routed)           1.110   156.921    u_ev/slot_reg[4][qepoch][15]_i_48_n_0
+    SLICE_X64Y83         LUT5 (Prop_lut5_I1_O)        0.124   157.045 r  u_ev/slot[4][qepoch][15]_i_15/O
+                         net (fo=49, routed)          1.111   158.156    u_ev/p_72_out
+    SLICE_X55Y83         LUT5 (Prop_lut5_I0_O)        0.124   158.279 r  u_ev/slot[4][node][25]_i_5/O
+                         net (fo=5, routed)           0.948   159.227    u_ev/slot[4][node][25]_i_5_n_0
+    SLICE_X58Y85         LUT4 (Prop_lut4_I0_O)        0.124   159.351 r  u_ev/slot[4][qepoch][15]_i_76/O
+                         net (fo=1, routed)           0.000   159.351    u_ev/slot[4][qepoch][15]_i_76_n_0
+    SLICE_X58Y85         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513   159.864 r  u_ev/slot_reg[4][qepoch][15]_i_22/CO[3]
+                         net (fo=4, routed)           1.270   161.134    u_ev/slot_reg[4][qepoch][15]_i_22_n_0
+    SLICE_X63Y83         LUT6 (Prop_lut6_I1_O)        0.124   161.258 r  u_ev/slot[4][qepoch][15]_i_16/O
+                         net (fo=62, routed)          0.958   162.216    u_ev/slot[4][qepoch][15]_i_16_n_0
+    SLICE_X72Y86         LUT3 (Prop_lut3_I1_O)        0.124   162.340 f  u_ev/slot[4][qepoch][15]_i_195/O
+                         net (fo=4, routed)           0.496   162.836    u_ev/slot[4][qepoch][15]_i_195_n_0
+    SLICE_X72Y86         LUT6 (Prop_lut6_I5_O)        0.124   162.960 r  u_ev/slot[4][qepoch][15]_i_92/O
+                         net (fo=1, routed)           0.613   163.573    u_ev/slot[4][qepoch][15]_i_92_n_0
+    SLICE_X70Y86         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.520   164.093 r  u_ev/slot_reg[4][qepoch][15]_i_25/CO[3]
+                         net (fo=3, routed)           1.539   165.632    u_ev/p_448_in
+    SLICE_X63Y87         LUT5 (Prop_lut5_I2_O)        0.124   165.756 r  u_ev/slot[4][node][30]_i_30/O
+                         net (fo=64, routed)          1.003   166.759    u_ev/slot[4][node][30]_i_30_n_0
+    SLICE_X61Y85         LUT5 (Prop_lut5_I4_O)        0.124   166.883 r  u_ev/slot[4][node][1]_i_4/O
+                         net (fo=5, routed)           0.721   167.604    u_ev/slot[4][node][1]_i_4_n_0
+    SLICE_X61Y88         LUT6 (Prop_lut6_I4_O)        0.124   167.728 r  u_ev/slot[4][qepoch][15]_i_361/O
+                         net (fo=1, routed)           0.379   168.107    u_ev/slot[4][qepoch][15]_i_361_n_0
+    SLICE_X60Y88         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550   168.657 r  u_ev/slot_reg[4][qepoch][15]_i_341/CO[3]
+                         net (fo=1, routed)           0.000   168.657    u_ev/slot_reg[4][qepoch][15]_i_341_n_0
+    SLICE_X60Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   168.774 r  u_ev/slot_reg[4][qepoch][15]_i_293/CO[3]
+                         net (fo=1, routed)           0.000   168.774    u_ev/slot_reg[4][qepoch][15]_i_293_n_0
+    SLICE_X60Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   168.891 r  u_ev/slot_reg[4][qepoch][15]_i_208/CO[3]
+                         net (fo=1, routed)           0.000   168.891    u_ev/slot_reg[4][qepoch][15]_i_208_n_0
+    SLICE_X60Y91         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   169.008 r  u_ev/slot_reg[4][qepoch][15]_i_100/CO[3]
+                         net (fo=1, routed)           1.016   170.024    u_ev/slot_reg[4][qepoch][15]_i_100_n_0
+    SLICE_X64Y94         LUT3 (Prop_lut3_I2_O)        0.124   170.148 r  u_ev/slot[4][qepoch][15]_i_26/O
+                         net (fo=3, routed)           0.758   170.906    u_ev/slot[4][qepoch][15]_i_26_n_0
+    SLICE_X63Y93         LUT6 (Prop_lut6_I0_O)        0.124   171.030 r  u_ev/slot[4][node][31]_i_10/O
+                         net (fo=33, routed)          0.930   171.960    u_ev/p_81_out
+    SLICE_X57Y91         LUT6 (Prop_lut6_I0_O)        0.124   172.084 f  u_ev/slot[4][node][26]_i_3/O
+                         net (fo=5, routed)           0.789   172.873    u_ev/slot[4][node][26]_i_3_n_0
+    SLICE_X57Y96         LUT6 (Prop_lut6_I5_O)        0.124   172.997 r  u_ev/slot[4][qepoch][15]_i_30/O
+                         net (fo=1, routed)           0.822   173.819    u_ev/slot[4][qepoch][15]_i_30_n_0
+    SLICE_X56Y96         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.520   174.339 r  u_ev/slot_reg[4][qepoch][15]_i_11/CO[3]
+                         net (fo=4, routed)           1.128   175.468    u_ev/slot_reg[4][qepoch][15]_i_11_n_0
+    SLICE_X57Y101        LUT5 (Prop_lut5_I1_O)        0.124   175.592 r  u_ev/slot[4][node][30]_i_7/O
+                         net (fo=64, routed)          1.315   176.907    u_ev/slot[4][node][30]_i_7_n_0
+    SLICE_X53Y87         LUT6 (Prop_lut6_I5_O)        0.124   177.031 r  u_ev/slot[4][node][13]_i_3/O
+                         net (fo=5, routed)           0.703   177.734    u_ev/slot[4][node][13]_i_3_n_0
+    SLICE_X53Y101        LUT6 (Prop_lut6_I4_O)        0.124   177.858 r  u_ev/slot[4][node][31]_i_62/O
+                         net (fo=1, routed)           0.903   178.761    u_ev/slot[4][node][31]_i_62_n_0
+    SLICE_X52Y96         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.398   179.159 r  u_ev/slot_reg[4][node][31]_i_48/CO[3]
+                         net (fo=1, routed)           0.000   179.159    u_ev/slot_reg[4][node][31]_i_48_n_0
+    SLICE_X52Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   179.273 r  u_ev/slot_reg[4][node][31]_i_24/CO[3]
+                         net (fo=1, routed)           0.000   179.273    u_ev/slot_reg[4][node][31]_i_24_n_0
+    SLICE_X52Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   179.387 r  u_ev/slot_reg[4][node][31]_i_9/CO[3]
+                         net (fo=3, routed)           0.779   180.167    u_ev/slot_reg[4][node][31]_i_9_n_0
+    SLICE_X53Y102        LUT5 (Prop_lut5_I4_O)        0.124   180.290 r  u_ev/slot[4][node][31]_i_5/O
+                         net (fo=64, routed)          1.051   181.342    u_ev/slot[4][node][31]_i_5_n_0
+    SLICE_X53Y91         LUT5 (Prop_lut5_I4_O)        0.124   181.466 f  u_ev/slot[4][node][0]_i_2/O
+                         net (fo=5, routed)           0.821   182.286    u_ev/slot[4][node][0]_i_2_n_0
+    SLICE_X51Y97         LUT6 (Prop_lut6_I5_O)        0.124   182.410 r  u_ev/slot[4][node][30]_i_78/O
+                         net (fo=1, routed)           0.332   182.742    u_ev/slot[4][node][30]_i_78_n_0
+    SLICE_X50Y97         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550   183.292 r  u_ev/slot_reg[4][node][30]_i_66/CO[3]
+                         net (fo=1, routed)           0.000   183.292    u_ev/slot_reg[4][node][30]_i_66_n_0
+    SLICE_X50Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   183.409 r  u_ev/slot_reg[4][node][30]_i_48/CO[3]
+                         net (fo=1, routed)           0.000   183.409    u_ev/slot_reg[4][node][30]_i_48_n_0
+    SLICE_X50Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   183.526 r  u_ev/slot_reg[4][node][30]_i_21/CO[3]
+                         net (fo=1, routed)           0.001   183.527    u_ev/slot_reg[4][node][30]_i_21_n_0
+    SLICE_X50Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   183.644 r  u_ev/slot_reg[4][node][30]_i_6/CO[3]
+                         net (fo=3, routed)           0.964   184.608    u_ev/slot_reg[4][node][30]_i_6_n_0
+    SLICE_X51Y106        LUT6 (Prop_lut6_I4_O)        0.124   184.732 r  u_ev/slot[4][node][30]_i_2/O
+                         net (fo=64, routed)          1.315   186.047    u_ev/slot[4][node][30]_i_2_n_0
+    SLICE_X51Y90         LUT5 (Prop_lut5_I4_O)        0.124   186.171 r  u_ev/slot[4][node][11]_i_2/O
+                         net (fo=3, routed)           0.654   186.825    u_ev/slot[4][node][11]_i_2_n_0
+    SLICE_X51Y91         LUT6 (Prop_lut6_I4_O)        0.124   186.949 r  u_ev/slot[5][v]_i_71/O
+                         net (fo=1, routed)           0.609   187.558    u_ev/slot[5][v]_i_71_n_0
+    SLICE_X50Y93         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.520   188.078 r  u_ev/slot_reg[5][v]_i_45/CO[3]
+                         net (fo=1, routed)           0.000   188.078    u_ev/slot_reg[5][v]_i_45_n_0
+    SLICE_X50Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   188.195 r  u_ev/slot_reg[5][v]_i_22/CO[3]
+                         net (fo=1, routed)           0.000   188.195    u_ev/slot_reg[5][v]_i_22_n_0
+    SLICE_X50Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   188.312 r  u_ev/slot_reg[5][v]_i_16/CO[3]
+                         net (fo=1, routed)           0.952   189.264    u_ev/slot_reg[5][v]_i_16_n_0
+    SLICE_X52Y103        LUT4 (Prop_lut4_I1_O)        0.124   189.388 r  u_ev/slot[5][v]_i_7/O
+                         net (fo=1, routed)           0.448   189.836    u_ev/slot[5][v]_i_7_n_0
+    SLICE_X56Y103        LUT4 (Prop_lut4_I0_O)        0.124   189.960 r  u_ev/slot[5][v]_i_3/O
+                         net (fo=16, routed)          0.607   190.568    u_ev/p_93_out
+    SLICE_X61Y104        LUT6 (Prop_lut6_I0_O)        0.124   190.692 f  u_ev/slot[5][v]_i_20/O
+                         net (fo=152, routed)         1.579   192.270    u_ev/slot[5][v]_i_20_n_0
+    SLICE_X66Y82         LUT3 (Prop_lut3_I2_O)        0.124   192.394 r  u_ev/slot[5][qepoch][15]_i_180/O
+                         net (fo=4, routed)           0.670   193.064    u_ev/slot[5][qepoch][15]_i_180_n_0
+    SLICE_X66Y90         LUT6 (Prop_lut6_I5_O)        0.124   193.188 r  u_ev/slot[5][qepoch][15]_i_78/O
+                         net (fo=1, routed)           0.333   193.521    u_ev/slot[5][qepoch][15]_i_78_n_0
+    SLICE_X67Y91         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385   193.906 r  u_ev/slot_reg[5][qepoch][15]_i_29/CO[3]
+                         net (fo=3, routed)           1.154   195.059    u_ev/slot_reg[5][qepoch][15]_i_29_n_0
+    SLICE_X65Y92         LUT6 (Prop_lut6_I4_O)        0.124   195.183 r  u_ev/slot[5][node][30]_i_36/O
+                         net (fo=64, routed)          1.323   196.506    u_ev/slot[5][node][30]_i_36_n_0
+    SLICE_X56Y82         LUT5 (Prop_lut5_I3_O)        0.124   196.630 r  u_ev/slot[5][qepoch][15]_i_316/O
+                         net (fo=2, routed)           0.655   197.285    u_ev/slot[5][qepoch][15]_i_316_n_0
+    SLICE_X57Y82         LUT4 (Prop_lut4_I0_O)        0.124   197.409 r  u_ev/slot[5][qepoch][15]_i_275/O
+                         net (fo=1, routed)           0.000   197.409    u_ev/slot[5][qepoch][15]_i_275_n_0
+    SLICE_X57Y82         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550   197.959 r  u_ev/slot_reg[5][qepoch][15]_i_200/CO[3]
+                         net (fo=1, routed)           0.000   197.959    u_ev/slot_reg[5][qepoch][15]_i_200_n_0
+    SLICE_X57Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   198.073 r  u_ev/slot_reg[5][qepoch][15]_i_98/CO[3]
+                         net (fo=1, routed)           0.000   198.073    u_ev/slot_reg[5][qepoch][15]_i_98_n_0
+    SLICE_X57Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   198.187 r  u_ev/slot_reg[5][qepoch][15]_i_32/CO[3]
+                         net (fo=1, routed)           0.000   198.187    u_ev/slot_reg[5][qepoch][15]_i_32_n_0
+    SLICE_X57Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   198.301 r  u_ev/slot_reg[5][qepoch][15]_i_17/CO[3]
+                         net (fo=4, routed)           1.531   199.833    u_ev/slot_reg[5][qepoch][15]_i_17_n_0
+    SLICE_X64Y92         LUT6 (Prop_lut6_I4_O)        0.124   199.957 r  u_ev/slot[5][node][30]_i_35/O
+                         net (fo=32, routed)          0.980   200.937    u_ev/slot[5][node][30]_i_35_n_0
+    SLICE_X62Y83         LUT6 (Prop_lut6_I1_O)        0.124   201.061 r  u_ev/slot[5][node][11]_i_5/O
+                         net (fo=3, routed)           1.163   202.224    u_ev/slot[5][node][11]_i_5_n_0
+    SLICE_X59Y92         LUT4 (Prop_lut4_I0_O)        0.124   202.348 r  u_ev/slot[5][qepoch][15]_i_294/O
+                         net (fo=1, routed)           0.000   202.348    u_ev/slot[5][qepoch][15]_i_294_n_0
+    SLICE_X59Y92         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550   202.898 r  u_ev/slot_reg[5][qepoch][15]_i_237/CO[3]
+                         net (fo=1, routed)           0.000   202.898    u_ev/slot_reg[5][qepoch][15]_i_237_n_0
+    SLICE_X59Y93         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   203.012 r  u_ev/slot_reg[5][qepoch][15]_i_141/CO[3]
+                         net (fo=1, routed)           0.000   203.012    u_ev/slot_reg[5][qepoch][15]_i_141_n_0
+    SLICE_X59Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   203.126 r  u_ev/slot_reg[5][qepoch][15]_i_55/CO[3]
+                         net (fo=2, routed)           1.183   204.309    u_ev/slot_reg[5][qepoch][15]_i_55_n_0
+    SLICE_X64Y96         LUT3 (Prop_lut3_I2_O)        0.124   204.433 r  u_ev/slot[5][qepoch][15]_i_20/O
+                         net (fo=4, routed)           0.695   205.128    u_ev/slot[5][qepoch][15]_i_20_n_0
+    SLICE_X64Y96         LUT6 (Prop_lut6_I5_O)        0.124   205.252 r  u_ev/slot[5][node][30]_i_12/O
+                         net (fo=64, routed)          0.565   205.817    u_ev/slot[5][node][30]_i_12_n_0
+    SLICE_X64Y93         LUT3 (Prop_lut3_I1_O)        0.124   205.941 r  u_ev/slot[5][node][23]_i_4/O
+                         net (fo=5, routed)           1.121   207.062    u_ev/slot[5][node][23]_i_4_n_0
+    SLICE_X59Y100        LUT6 (Prop_lut6_I4_O)        0.124   207.186 r  u_ev/slot[5][qepoch][15]_i_164/O
+                         net (fo=1, routed)           0.676   207.862    u_ev/slot[5][qepoch][15]_i_164_n_0
+    SLICE_X58Y96         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.396   208.258 r  u_ev/slot_reg[5][qepoch][15]_i_68/CO[3]
+                         net (fo=1, routed)           0.000   208.258    u_ev/slot_reg[5][qepoch][15]_i_68_n_0
+    SLICE_X58Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   208.375 r  u_ev/slot_reg[5][qepoch][15]_i_28/CO[3]
+                         net (fo=1, routed)           0.892   209.267    u_ev/slot_reg[5][qepoch][15]_i_28_n_0
+    SLICE_X63Y100        LUT3 (Prop_lut3_I2_O)        0.124   209.391 r  u_ev/slot[5][qepoch][15]_i_14/O
+                         net (fo=5, routed)           0.348   209.739    u_ev/slot[5][qepoch][15]_i_14_n_0
+    SLICE_X62Y102        LUT6 (Prop_lut6_I0_O)        0.124   209.863 r  u_ev/slot[5][node][31]_i_11/O
+                         net (fo=33, routed)          1.078   210.941    u_ev/p_57_out
+    SLICE_X61Y96         LUT6 (Prop_lut6_I0_O)        0.124   211.065 f  u_ev/slot[5][node][14]_i_3/O
+                         net (fo=5, routed)           0.836   211.901    u_ev/slot[5][node][14]_i_3_n_0
+    SLICE_X56Y100        LUT6 (Prop_lut6_I5_O)        0.124   212.025 r  u_ev/slot[5][node][30]_i_63/O
+                         net (fo=1, routed)           0.846   212.871    u_ev/slot[5][node][30]_i_63_n_0
+    SLICE_X59Y97         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385   213.256 r  u_ev/slot_reg[5][node][30]_i_37/CO[3]
+                         net (fo=1, routed)           0.000   213.256    u_ev/slot_reg[5][node][30]_i_37_n_0
+    SLICE_X59Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   213.370 r  u_ev/slot_reg[5][node][30]_i_14/CO[3]
+                         net (fo=1, routed)           0.000   213.370    u_ev/slot_reg[5][node][30]_i_14_n_0
+    SLICE_X59Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   213.484 r  u_ev/slot_reg[5][node][30]_i_8/CO[3]
+                         net (fo=2, routed)           1.056   214.540    u_ev/slot_reg[5][node][30]_i_8_n_0
+    SLICE_X62Y103        LUT5 (Prop_lut5_I1_O)        0.124   214.664 r  u_ev/slot[5][node][30]_i_6/O
+                         net (fo=64, routed)          1.089   215.753    u_ev/slot[5][node][30]_i_6_n_0
+    SLICE_X60Y95         LUT6 (Prop_lut6_I5_O)        0.124   215.877 r  u_ev/slot[5][node][1]_i_3/O
+                         net (fo=5, routed)           1.028   216.905    u_ev/slot[5][node][1]_i_3_n_0
+    SLICE_X55Y94         LUT6 (Prop_lut6_I4_O)        0.124   217.029 r  u_ev/slot[5][node][31]_i_79/O
+                         net (fo=1, routed)           0.379   217.408    u_ev/slot[5][node][31]_i_79_n_0
+    SLICE_X55Y95         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   217.934 r  u_ev/slot_reg[5][node][31]_i_60/CO[3]
+                         net (fo=1, routed)           0.000   217.934    u_ev/slot_reg[5][node][31]_i_60_n_0
+    SLICE_X55Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   218.048 r  u_ev/slot_reg[5][node][31]_i_36/CO[3]
+                         net (fo=1, routed)           0.000   218.048    u_ev/slot_reg[5][node][31]_i_36_n_0
+    SLICE_X55Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   218.162 r  u_ev/slot_reg[5][node][31]_i_14/CO[3]
+                         net (fo=1, routed)           0.000   218.162    u_ev/slot_reg[5][node][31]_i_14_n_0
+    SLICE_X55Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   218.276 r  u_ev/slot_reg[5][node][31]_i_8/CO[3]
+                         net (fo=2, routed)           1.026   219.302    u_ev/slot_reg[5][node][31]_i_8_n_0
+    SLICE_X61Y108        LUT5 (Prop_lut5_I1_O)        0.124   219.426 r  u_ev/slot[5][node][31]_i_5/O
+                         net (fo=64, routed)          1.338   220.764    u_ev/slot[5][node][31]_i_5_n_0
+    SLICE_X54Y98         LUT5 (Prop_lut5_I4_O)        0.124   220.888 f  u_ev/slot[5][node][10]_i_2/O
+                         net (fo=5, routed)           0.853   221.741    u_ev/slot[5][node][10]_i_2_n_0
+    SLICE_X51Y98         LUT6 (Prop_lut6_I5_O)        0.124   221.865 r  u_ev/slot[5][qepoch][11]_i_58/O
+                         net (fo=1, routed)           0.647   222.513    u_ev/slot[5][qepoch][11]_i_58_n_0
+    SLICE_X51Y100        CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507   223.020 r  u_ev/slot_reg[5][qepoch][11]_i_30/CO[3]
+                         net (fo=1, routed)           0.000   223.020    u_ev/slot_reg[5][qepoch][11]_i_30_n_0
+    SLICE_X51Y101        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   223.134 r  u_ev/slot_reg[5][qepoch][11]_i_8/CO[3]
+                         net (fo=1, routed)           0.000   223.134    u_ev/slot_reg[5][qepoch][11]_i_8_n_0
+    SLICE_X51Y102        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   223.248 r  u_ev/slot_reg[5][qepoch][11]_i_4/CO[3]
+                         net (fo=3, routed)           0.960   224.208    u_ev/slot_reg[5][qepoch][11]_i_4_n_0
+    SLICE_X57Y108        LUT3 (Prop_lut3_I2_O)        0.124   224.332 r  u_ev/slot[5][node][30]_i_5/O
+                         net (fo=3, routed)           0.168   224.500    u_ev/slot[5][node][30]_i_5_n_0
+    SLICE_X57Y108        LUT5 (Prop_lut5_I2_O)        0.124   224.624 r  u_ev/slot[5][node][30]_i_2/O
+                         net (fo=135, routed)         1.423   226.046    u_ev/slot[5][node][30]_i_2_n_0
+    SLICE_X50Y91         LUT5 (Prop_lut5_I4_O)        0.124   226.170 r  u_ev/slot[5][node][13]_i_2/O
+                         net (fo=3, routed)           0.985   227.155    u_ev/slot[5][node][13]_i_2_n_0
+    SLICE_X48Y93         LUT6 (Prop_lut6_I4_O)        0.124   227.279 r  u_ev/slot[5][score][15]_i_67/O
+                         net (fo=1, routed)           0.568   227.848    u_ev/slot[5][score][15]_i_67_n_0
+    SLICE_X49Y93         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.398   228.246 r  u_ev/slot_reg[5][score][15]_i_54/CO[3]
+                         net (fo=1, routed)           0.000   228.246    u_ev/slot_reg[5][score][15]_i_54_n_0
+    SLICE_X49Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   228.360 r  u_ev/slot_reg[5][score][15]_i_33/CO[3]
+                         net (fo=1, routed)           0.000   228.360    u_ev/slot_reg[5][score][15]_i_33_n_0
+    SLICE_X49Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   228.474 f  u_ev/slot_reg[5][score][15]_i_16/CO[3]
+                         net (fo=2, routed)           1.215   229.689    u_ev/slot_reg[5][score][15]_i_16_n_0
+    SLICE_X60Y105        LUT5 (Prop_lut5_I2_O)        0.124   229.813 f  u_ev/slot[5][node][31]_i_13/O
+                         net (fo=3, routed)           0.703   230.515    u_ev/slot[5][node][31]_i_13_n_0
+    SLICE_X62Y102        LUT4 (Prop_lut4_I0_O)        0.124   230.639 f  u_ev/slot[5][node][31]_i_7/O
+                         net (fo=15, routed)          1.379   232.018    u_ev/slot[5][node][31]_i_7_n_0
+    SLICE_X75Y87         LUT5 (Prop_lut5_I3_O)        0.124   232.142 r  u_ev/slot[6][score][14]_i_7/O
+                         net (fo=33, routed)          0.913   233.056    u_ev/slot[6][score][14]_i_7_n_0
+    SLICE_X71Y83         LUT5 (Prop_lut5_I4_O)        0.124   233.180 f  u_ev/slot[6][score][9]_i_6/O
+                         net (fo=7, routed)           0.488   233.668    u_ev/slot[6][score][9]_i_6_n_0
+    SLICE_X67Y83         LUT6 (Prop_lut6_I5_O)        0.124   233.792 r  u_ev/slot[7][v]_i_126/O
+                         net (fo=1, routed)           0.331   234.124    u_ev/slot[7][v]_i_126_n_0
+    SLICE_X67Y85         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   234.650 r  u_ev/slot_reg[7][v]_i_81/CO[3]
+                         net (fo=3, routed)           1.039   235.688    u_ev/slot_reg[7][v]_i_81_n_0
+    SLICE_X66Y85         LUT5 (Prop_lut5_I2_O)        0.124   235.812 r  u_ev/slot[6][qepoch][15]_i_65/O
+                         net (fo=127, routed)         0.992   236.805    u_ev/slot[6][qepoch][15]_i_65_n_0
+    SLICE_X63Y79         LUT4 (Prop_lut4_I3_O)        0.124   236.929 f  u_ev/slot[6][node][2]_i_5/O
+                         net (fo=5, routed)           0.501   237.430    u_ev/slot[6][node][2]_i_5_n_0
+    SLICE_X65Y79         LUT6 (Prop_lut6_I5_O)        0.124   237.554 r  u_ev/slot[7][v]_i_307/O
+                         net (fo=1, routed)           0.569   238.123    u_ev/slot[7][v]_i_307_n_0
+    SLICE_X64Y79         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507   238.630 r  u_ev/slot_reg[7][v]_i_280/CO[3]
+                         net (fo=1, routed)           0.000   238.630    u_ev/slot_reg[7][v]_i_280_n_0
+    SLICE_X64Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   238.744 r  u_ev/slot_reg[7][v]_i_236/CO[3]
+                         net (fo=1, routed)           0.000   238.744    u_ev/slot_reg[7][v]_i_236_n_0
+    SLICE_X64Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   238.858 r  u_ev/slot_reg[7][v]_i_155/CO[3]
+                         net (fo=1, routed)           0.000   238.858    u_ev/slot_reg[7][v]_i_155_n_0
+    SLICE_X64Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   238.972 r  u_ev/slot_reg[7][v]_i_86/CO[3]
+                         net (fo=1, routed)           0.964   239.936    u_ev/slot_reg[7][v]_i_86_n_0
+    SLICE_X70Y87         LUT3 (Prop_lut3_I2_O)        0.124   240.060 r  u_ev/slot[7][v]_i_52/O
+                         net (fo=4, routed)           0.667   240.727    u_ev/slot[7][v]_i_52_n_0
+    SLICE_X70Y87         LUT6 (Prop_lut6_I4_O)        0.124   240.851 r  u_ev/slot[6][node][30]_i_5/O
+                         net (fo=64, routed)          0.979   241.830    u_ev/slot[6][node][30]_i_5_n_0
+    SLICE_X65Y78         LUT5 (Prop_lut5_I4_O)        0.124   241.954 r  u_ev/slot[6][node][1]_i_5/O
+                         net (fo=6, routed)           0.852   242.806    u_ev/slot[6][node][1]_i_5_n_0
+    SLICE_X63Y84         LUT6 (Prop_lut6_I4_O)        0.124   242.930 r  u_ev/slot[7][v]_i_292/O
+                         net (fo=1, routed)           0.379   243.309    u_ev/slot[7][v]_i_292_n_0
+    SLICE_X62Y84         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550   243.859 r  u_ev/slot_reg[7][v]_i_245/CO[3]
+                         net (fo=1, routed)           0.000   243.859    u_ev/slot_reg[7][v]_i_245_n_0
+    SLICE_X62Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   243.976 r  u_ev/slot_reg[7][v]_i_164/CO[3]
+                         net (fo=1, routed)           0.000   243.976    u_ev/slot_reg[7][v]_i_164_n_0
+    SLICE_X62Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   244.093 r  u_ev/slot_reg[7][v]_i_87/CO[3]
+                         net (fo=1, routed)           0.000   244.093    u_ev/slot_reg[7][v]_i_87_n_0
+    SLICE_X62Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   244.210 r  u_ev/slot_reg[7][v]_i_53/CO[3]
+                         net (fo=3, routed)           1.139   245.350    u_ev/slot_reg[7][v]_i_53_n_0
+    SLICE_X64Y87         LUT5 (Prop_lut5_I0_O)        0.124   245.474 r  u_ev/slot[6][node][31]_i_48/O
+                         net (fo=80, routed)          1.017   246.491    u_ev/slot[6][node][31]_i_48_n_0
+    SLICE_X65Y80         LUT5 (Prop_lut5_I4_O)        0.124   246.615 f  u_ev/slot[6][node][0]_i_4/O
+                         net (fo=5, routed)           0.341   246.956    u_ev/slot[6][node][0]_i_4_n_0
+    SLICE_X66Y81         LUT6 (Prop_lut6_I5_O)        0.124   247.080 r  u_ev/slot[6][qepoch][14]_i_66/O
+                         net (fo=1, routed)           0.622   247.702    u_ev/slot[6][qepoch][14]_i_66_n_0
+    SLICE_X65Y85         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   248.228 r  u_ev/slot_reg[6][qepoch][14]_i_54/CO[3]
+                         net (fo=1, routed)           0.000   248.228    u_ev/slot_reg[6][qepoch][14]_i_54_n_0
+    SLICE_X65Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   248.342 r  u_ev/slot_reg[6][qepoch][14]_i_45/CO[3]
+                         net (fo=1, routed)           0.000   248.342    u_ev/slot_reg[6][qepoch][14]_i_45_n_0
+    SLICE_X65Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   248.456 r  u_ev/slot_reg[6][qepoch][14]_i_23/CO[3]
+                         net (fo=1, routed)           0.000   248.456    u_ev/slot_reg[6][qepoch][14]_i_23_n_0
+    SLICE_X65Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   248.570 r  u_ev/slot_reg[6][qepoch][14]_i_10/CO[3]
+                         net (fo=1, routed)           0.898   249.467    u_ev/slot_reg[6][qepoch][14]_i_10_n_0
+    SLICE_X71Y90         LUT3 (Prop_lut3_I2_O)        0.124   249.591 r  u_ev/slot[6][qepoch][14]_i_5/O
+                         net (fo=3, routed)           0.508   250.099    u_ev/slot[6][qepoch][14]_i_5_n_0
+    SLICE_X71Y91         LUT6 (Prop_lut6_I5_O)        0.124   250.223 r  u_ev/slot[6][qepoch][14]_i_3/O
+                         net (fo=77, routed)          0.751   250.974    u_ev/slot[6][qepoch][14]_i_3_n_0
+    SLICE_X71Y94         LUT5 (Prop_lut5_I4_O)        0.124   251.098 r  u_ev/slot[6][qepoch][15]_i_141/O
+                         net (fo=3, routed)           0.542   251.640    u_ev/slot[6][qepoch][15]_i_141_n_0
+    SLICE_X72Y95         LUT6 (Prop_lut6_I3_O)        0.124   251.764 r  u_ev/slot[6][qepoch][15]_i_145/O
+                         net (fo=1, routed)           0.450   252.214    u_ev/slot[6][qepoch][15]_i_145_n_0
+    SLICE_X73Y95         LUT5 (Prop_lut5_I4_O)        0.124   252.338 r  u_ev/slot[6][qepoch][15]_i_124/O
+                         net (fo=1, routed)           0.000   252.338    u_ev/slot[6][qepoch][15]_i_124_n_0
+    SLICE_X73Y95         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532   252.870 r  u_ev/slot_reg[6][qepoch][15]_i_88/CO[3]
+                         net (fo=1, routed)           0.000   252.870    u_ev/slot_reg[6][qepoch][15]_i_88_n_0
+    SLICE_X73Y96         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157   253.027 r  u_ev/slot_reg[6][qepoch][15]_i_62/CO[1]
+                         net (fo=1, routed)           0.882   253.909    u_ev/p_364_in
+    SLICE_X69Y96         LUT3 (Prop_lut3_I1_O)        0.329   254.238 r  u_ev/slot[6][qepoch][15]_i_34/O
+                         net (fo=3, routed)           0.456   254.694    u_ev/slot[6][qepoch][15]_i_34_n_0
+    SLICE_X69Y97         LUT6 (Prop_lut6_I0_O)        0.124   254.818 r  u_ev/slot[6][node][31]_i_22/O
+                         net (fo=35, routed)          0.962   255.780    u_ev/p_36_out
+    SLICE_X65Y94         LUT6 (Prop_lut6_I0_O)        0.124   255.904 r  u_ev/slot[6][node][11]_i_3/O
+                         net (fo=4, routed)           0.938   256.842    u_ev/slot[6][node][11]_i_3_n_0
+    SLICE_X64Y98         LUT4 (Prop_lut4_I0_O)        0.124   256.966 r  u_ev/slot[6][qepoch][15]_i_73/O
+                         net (fo=1, routed)           0.000   256.966    u_ev/slot[6][qepoch][15]_i_73_n_0
+    SLICE_X64Y98         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550   257.516 r  u_ev/slot_reg[6][qepoch][15]_i_37/CO[3]
+                         net (fo=1, routed)           0.000   257.516    u_ev/slot_reg[6][qepoch][15]_i_37_n_0
+    SLICE_X64Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   257.630 r  u_ev/slot_reg[6][qepoch][15]_i_12/CO[3]
+                         net (fo=1, routed)           0.001   257.631    u_ev/slot_reg[6][qepoch][15]_i_12_n_0
+    SLICE_X64Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   257.745 r  u_ev/slot_reg[6][qepoch][15]_i_7/CO[3]
+                         net (fo=3, routed)           1.073   258.818    u_ev/slot_reg[6][qepoch][15]_i_7_n_0
+    SLICE_X69Y102        LUT5 (Prop_lut5_I0_O)        0.124   258.942 r  u_ev/slot[6][node][31]_i_10/O
+                         net (fo=80, routed)          0.731   259.673    u_ev/slot[6][node][31]_i_10_n_0
+    SLICE_X67Y99         LUT3 (Prop_lut3_I1_O)        0.124   259.797 r  u_ev/slot[6][node][31]_i_115/O
+                         net (fo=2, routed)           0.566   260.363    u_ev/slot[6][node][31]_i_115_n_0
+    SLICE_X71Y99         LUT6 (Prop_lut6_I4_O)        0.124   260.487 r  u_ev/slot[6][node][31]_i_95/O
+                         net (fo=1, routed)           0.612   261.099    u_ev/slot[6][node][31]_i_95_n_0
+    SLICE_X70Y99         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.520   261.619 r  u_ev/slot_reg[6][node][31]_i_66/CO[3]
+                         net (fo=1, routed)           0.001   261.620    u_ev/slot_reg[6][node][31]_i_66_n_0
+    SLICE_X70Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   261.737 r  u_ev/slot_reg[6][node][31]_i_39/CO[3]
+                         net (fo=1, routed)           0.000   261.737    u_ev/slot_reg[6][node][31]_i_39_n_0
+    SLICE_X70Y101        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   261.854 f  u_ev/slot_reg[6][node][31]_i_21/CO[3]
+                         net (fo=2, routed)           1.014   262.868    u_ev/slot_reg[6][node][31]_i_21_n_0
+    SLICE_X74Y103        LUT6 (Prop_lut6_I5_O)        0.124   262.992 r  u_ev/slot[6][node][31]_i_9/O
+                         net (fo=32, routed)          0.985   263.977    u_ev/slot[6][node][31]_i_9_n_0
+    SLICE_X67Y98         LUT6 (Prop_lut6_I1_O)        0.124   264.101 r  u_ev/slot[6][node][11]_i_2/O
+                         net (fo=3, routed)           1.045   265.146    u_ev/slot[6][node][11]_i_2_n_0
+    SLICE_X73Y98         LUT4 (Prop_lut4_I0_O)        0.124   265.270 r  u_ev/slot[7][v]_i_117/O
+                         net (fo=1, routed)           0.000   265.270    u_ev/slot[7][v]_i_117_n_0
+    SLICE_X73Y98         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550   265.820 r  u_ev/slot_reg[7][v]_i_57/CO[3]
+                         net (fo=1, routed)           0.000   265.820    u_ev/slot_reg[7][v]_i_57_n_0
+    SLICE_X73Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   265.934 r  u_ev/slot_reg[7][v]_i_26/CO[3]
+                         net (fo=1, routed)           0.001   265.935    u_ev/slot_reg[7][v]_i_26_n_0
+    SLICE_X73Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   266.049 f  u_ev/slot_reg[7][v]_i_13/CO[3]
+                         net (fo=1, routed)           0.923   266.972    u_ev/slot_reg[7][v]_i_13_n_0
+    SLICE_X74Y100        LUT4 (Prop_lut4_I1_O)        0.124   267.096 f  u_ev/slot[7][v]_i_7/O
+                         net (fo=1, routed)           0.296   267.392    u_ev/slot[7][v]_i_7_n_0
+    SLICE_X75Y100        LUT4 (Prop_lut4_I0_O)        0.124   267.516 f  u_ev/slot[7][v]_i_3/O
+                         net (fo=18, routed)          0.522   268.038    u_ev/p_45_out
+    SLICE_X78Y100        LUT6 (Prop_lut6_I5_O)        0.124   268.162 r  u_ev/slot[7][v]_i_18/O
+                         net (fo=72, routed)          0.655   268.817    u_ev/slot[7][v]_i_18_n_0
+    SLICE_X78Y95         LUT2 (Prop_lut2_I1_O)        0.124   268.941 r  u_ev/slot[7][node][31]_i_273/O
+                         net (fo=19, routed)          0.643   269.583    u_ev/slot[7][node][31]_i_273_n_0
+    SLICE_X77Y95         LUT6 (Prop_lut6_I4_O)        0.124   269.707 r  u_ev/slot[7][score][5]_i_152/O
+                         net (fo=1, routed)           0.519   270.226    u_ev/slot[7][score][5]_i_152_n_0
+    SLICE_X77Y94         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.526   270.752 r  u_ev/slot_reg[7][score][5]_i_81/CO[3]
+                         net (fo=6, routed)           1.514   272.266    u_ev/slot_reg[7][score][5]_i_81_n_0
+    SLICE_X80Y92         LUT5 (Prop_lut5_I3_O)        0.124   272.390 r  u_ev/slot[7][score][3]_i_5/O
+                         net (fo=5, routed)           0.854   273.244    u_ev/slot[7][score][3]_i_5_n_0
+    SLICE_X87Y89         LUT4 (Prop_lut4_I3_O)        0.124   273.368 f  u_ev/slot[7][node][31]_i_311/O
+                         net (fo=3, routed)           0.514   273.882    u_ev/slot[7][node][31]_i_311_n_0
+    SLICE_X84Y89         LUT6 (Prop_lut6_I5_O)        0.124   274.006 r  u_ev/slot[7][node][31]_i_219/O
+                         net (fo=1, routed)           0.719   274.725    u_ev/slot[7][node][31]_i_219_n_0
+    SLICE_X82Y89         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385   275.110 r  u_ev/slot_reg[7][node][31]_i_136/CO[3]
+                         net (fo=2, routed)           1.118   276.229    u_ev/slot_reg[7][node][31]_i_136_n_0
+    SLICE_X84Y90         LUT6 (Prop_lut6_I3_O)        0.124   276.353 r  u_ev/slot[7][node][31]_i_63/O
+                         net (fo=85, routed)          0.959   277.311    u_ev/slot[7][node][31]_i_63_n_0
+    SLICE_X82Y86         LUT6 (Prop_lut6_I3_O)        0.124   277.435 r  u_ev/slot[7][score][5]_i_265/O
+                         net (fo=4, routed)           0.737   278.172    u_ev/slot[7][score][5]_i_265_n_0
+    SLICE_X83Y89         LUT4 (Prop_lut4_I1_O)        0.124   278.296 r  u_ev/slot[7][score][5]_i_273/O
+                         net (fo=1, routed)           0.000   278.296    u_ev/slot[7][score][5]_i_273_n_0
+    SLICE_X83Y89         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550   278.846 r  u_ev/slot_reg[7][score][5]_i_241/CO[3]
+                         net (fo=1, routed)           0.000   278.846    u_ev/slot_reg[7][score][5]_i_241_n_0
+    SLICE_X83Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   278.960 r  u_ev/slot_reg[7][score][5]_i_194/CO[3]
+                         net (fo=1, routed)           0.000   278.960    u_ev/slot_reg[7][score][5]_i_194_n_0
+    SLICE_X83Y91         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   279.074 r  u_ev/slot_reg[7][score][5]_i_127/CO[3]
+                         net (fo=1, routed)           0.000   279.074    u_ev/slot_reg[7][score][5]_i_127_n_0
+    SLICE_X83Y92         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   279.188 r  u_ev/slot_reg[7][score][5]_i_78/CO[3]
+                         net (fo=1, routed)           0.619   279.808    u_ev/slot_reg[7][score][5]_i_78_n_0
+    SLICE_X86Y92         LUT3 (Prop_lut3_I2_O)        0.124   279.932 r  u_ev/slot[7][score][5]_i_34/O
+                         net (fo=2, routed)           0.415   280.347    u_ev/slot[7][score][5]_i_34_n_0
+    SLICE_X87Y92         LUT6 (Prop_lut6_I0_O)        0.124   280.471 r  u_ev/slot[7][score][5]_i_11/O
+                         net (fo=146, routed)         0.910   281.381    u_ev/slot[7][score][5]_i_11_n_0
+    SLICE_X85Y92         LUT5 (Prop_lut5_I1_O)        0.124   281.505 r  u_ev/slot[7][score][4]_i_4/O
+                         net (fo=8, routed)           0.518   282.023    u_ev/slot[7][score][4]_i_4_n_0
+    SLICE_X85Y93         LUT6 (Prop_lut6_I0_O)        0.124   282.147 r  u_ev/slot[7][node][31]_i_270/O
+                         net (fo=1, routed)           0.518   282.665    u_ev/slot[7][node][31]_i_270_n_0
+    SLICE_X84Y93         LUT5 (Prop_lut5_I4_O)        0.124   282.789 r  u_ev/slot[7][node][31]_i_189/O
+                         net (fo=1, routed)           0.000   282.789    u_ev/slot[7][node][31]_i_189_n_0
+    SLICE_X84Y93         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533   283.322 r  u_ev/slot_reg[7][node][31]_i_122/CO[3]
+                         net (fo=1, routed)           0.000   283.322    u_ev/slot_reg[7][node][31]_i_122_n_0
+    SLICE_X84Y94         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157   283.479 r  u_ev/slot_reg[7][node][31]_i_60/CO[1]
+                         net (fo=2, routed)           0.618   284.097    u_ev/slot_reg[7][node][31]_i_60_n_2
+    SLICE_X87Y95         LUT6 (Prop_lut6_I2_O)        0.332   284.429 r  u_ev/slot[7][node][31]_i_14/O
+                         net (fo=98, routed)          0.842   285.271    u_ev/slot[7][node][31]_i_14_n_0
+    SLICE_X84Y97         LUT5 (Prop_lut5_I1_O)        0.124   285.395 r  u_ev/slot[7][score][5]_i_109/O
+                         net (fo=3, routed)           0.662   286.057    u_ev/slot[7][score][5]_i_109_n_0
+    SLICE_X82Y98         LUT6 (Prop_lut6_I2_O)        0.124   286.181 r  u_ev/slot[7][score][5]_i_59/O
+                         net (fo=1, routed)           0.000   286.181    u_ev/slot[7][score][5]_i_59_n_0
+    SLICE_X82Y98         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532   286.713 r  u_ev/slot_reg[7][score][5]_i_22/CO[3]
+                         net (fo=1, routed)           0.000   286.713    u_ev/slot_reg[7][score][5]_i_22_n_0
+    SLICE_X82Y99         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157   286.870 r  u_ev/slot_reg[7][score][5]_i_9/CO[1]
+                         net (fo=1, routed)           0.952   287.822    u_ev/slot_reg[7][score][5]_i_9_n_2
+    SLICE_X82Y100        LUT5 (Prop_lut5_I2_O)        0.329   288.151 r  u_ev/slot[7][score][5]_i_6/O
+                         net (fo=81, routed)          0.943   289.095    u_ev/slot[7][score][5]_i_6_n_0
+    SLICE_X84Y103        LUT4 (Prop_lut4_I2_O)        0.124   289.219 f  u_ev/slot[7][node][31]_i_161/O
+                         net (fo=2, routed)           0.812   290.031    u_ev/slot[7][node][31]_i_161_n_0
+    SLICE_X83Y103        LUT6 (Prop_lut6_I3_O)        0.124   290.155 r  u_ev/slot[7][node][31]_i_97/O
+                         net (fo=1, routed)           0.000   290.155    u_ev/slot[7][node][31]_i_97_n_0
+    SLICE_X83Y103        CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398   290.553 r  u_ev/slot_reg[7][node][31]_i_46/CO[3]
+                         net (fo=1, routed)           0.000   290.553    u_ev/slot_reg[7][node][31]_i_46_n_0
+    SLICE_X83Y104        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157   290.710 r  u_ev/slot_reg[7][node][31]_i_12/CO[1]
+                         net (fo=2, routed)           1.001   291.711    u_ev/slot_reg[7][node][31]_i_12_n_2
+    SLICE_X83Y106        LUT5 (Prop_lut5_I2_O)        0.329   292.040 r  u_ev/slot[7][node][31]_i_5/O
+                         net (fo=109, routed)         0.861   292.901    u_ev/slot[7][node][31]_i_5_n_0
+    SLICE_X80Y108        LUT3 (Prop_lut3_I1_O)        0.124   293.025 r  u_ev/slot[7][qepoch][15]_i_79/O
+                         net (fo=3, routed)           0.890   293.915    u_ev/slot[7][qepoch][15]_i_79_n_0
+    SLICE_X80Y109        LUT5 (Prop_lut5_I1_O)        0.124   294.039 r  u_ev/slot[7][qepoch][15]_i_57/O
+                         net (fo=1, routed)           0.000   294.039    u_ev/slot[7][qepoch][15]_i_57_n_0
+    SLICE_X80Y109        CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376   294.415 r  u_ev/slot_reg[7][qepoch][15]_i_22/CO[3]
+                         net (fo=1, routed)           0.000   294.415    u_ev/slot_reg[7][qepoch][15]_i_22_n_0
+    SLICE_X80Y110        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117   294.532 r  u_ev/slot_reg[7][qepoch][15]_i_8/CO[3]
+                         net (fo=2, routed)           0.892   295.424    u_ev/slot_reg[7][qepoch][15]_i_8_n_0
+    SLICE_X79Y110        LUT3 (Prop_lut3_I0_O)        0.124   295.548 r  u_ev/slot[7][score][5]_i_5/O
+                         net (fo=1, routed)           0.151   295.700    u_ev/slot[7][score][5]_i_5_n_0
+    SLICE_X79Y110        LUT6 (Prop_lut6_I2_O)        0.124   295.824 r  u_ev/slot[7][score][5]_i_2/O
+                         net (fo=40, routed)          0.940   296.764    u_ev/slot[7][score][5]_i_2_n_0
+    SLICE_X76Y108        LUT5 (Prop_lut5_I1_O)        0.124   296.888 r  u_ev/slot[7][node][11]_i_2/O
+                         net (fo=3, routed)           0.798   297.686    u_ev/slot[7][node][11]_i_2_n_0
+    SLICE_X75Y108        LUT4 (Prop_lut4_I0_O)        0.124   297.810 r  u_ev/slot[7][node][31]_i_145/O
+                         net (fo=1, routed)           0.000   297.810    u_ev/slot[7][node][31]_i_145_n_0
+    SLICE_X75Y108        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550   298.360 r  u_ev/slot_reg[7][node][31]_i_65/CO[3]
+                         net (fo=1, routed)           0.000   298.360    u_ev/slot_reg[7][node][31]_i_65_n_0
+    SLICE_X75Y109        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   298.474 r  u_ev/slot_reg[7][node][31]_i_16/CO[3]
+                         net (fo=1, routed)           0.000   298.474    u_ev/slot_reg[7][node][31]_i_16_n_0
+    SLICE_X75Y110        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114   298.588 r  u_ev/slot_reg[7][node][31]_i_7/CO[3]
+                         net (fo=3, routed)           0.773   299.360    u_ev/slot_reg[7][node][31]_i_7_n_0
+    SLICE_X75Y114        LUT3 (Prop_lut3_I2_O)        0.124   299.484 r  u_ev/slot[7][score][15]_i_5/O
+                         net (fo=1, routed)           0.263   299.747    u_ev/slot[7][score][15]_i_5_n_0
+    SLICE_X75Y114        LUT6 (Prop_lut6_I2_O)        0.124   299.871 r  u_ev/slot[7][score][15]_i_3/O
+                         net (fo=48, routed)          0.879   300.750    u_ev/slot[7][score][15]_i_3_n_0
+    SLICE_X73Y116        LUT6 (Prop_lut6_I5_O)        0.124   300.874 r  u_ev/slot[7][qepoch][2]_i_2/O
+                         net (fo=1, routed)           0.420   301.294    u_ev/slot[7][qepoch][2]_i_2_n_0
+    SLICE_X72Y116        LUT4 (Prop_lut4_I0_O)        0.124   301.418 r  u_ev/slot[7][qepoch][2]_i_1/O
+                         net (fo=1, routed)           0.000   301.418    u_ev/p_1_in[2]
+    SLICE_X72Y116        FDCE                                         r  u_ev/slot_reg[7][qepoch][2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=7358, unset)         0.924    10.924    u_ev/clk
+    SLICE_X72Y116        FDCE                                         r  u_ev/slot_reg[7][qepoch][2]/C
+                         clock pessimism              0.000    10.924    <hidden>
+                         clock uncertainty           -0.035    10.889    <hidden>
+    SLICE_X72Y116        FDCE (Setup_fdce_C_D)        0.031    10.920    u_ev/slot_reg[7][qepoch][2]
+  -------------------------------------------------------------------
+                         required time                         10.920    <hidden>
+                         arrival time                        -301.419    <hidden>
+  -------------------------------------------------------------------
+                         slack                               -290.499    <hidden>
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.160ns  (arrival time - required time)
+  Source:                 u_ddr/node_beat_o_reg[118]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            latched_id_reg[6]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.258ns  (logic 0.141ns (54.706%)  route 0.117ns (45.294%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=7358, unset)         0.410     0.410    u_ddr/clk
+    SLICE_X3Y159         FDCE                                         r  u_ddr/node_beat_o_reg[118]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y159         FDCE (Prop_fdce_C_Q)         0.141     0.551 r  u_ddr/node_beat_o_reg[118]/Q
+                         net (fo=1, routed)           0.117     0.668    node_beat_o[54]
+    SLICE_X4Y159         FDCE                                         r  latched_id_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=7358, unset)         0.432     0.432    clk
+    SLICE_X4Y159         FDCE                                         r  latched_id_reg[6]/C
+                         clock pessimism              0.000     0.432    <hidden>
+    SLICE_X4Y159         FDCE (Hold_fdce_C_D)         0.076     0.508    latched_id_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -0.508    <hidden>
+                         arrival time                           0.668    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.160    <hidden>
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clk }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X4Y159  latched_cue_reg[31]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y159  latched_cue_reg[31]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y159  latched_cue_reg[31]/C
+
+
+

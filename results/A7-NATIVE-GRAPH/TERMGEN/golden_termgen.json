@@ -1,0 +1,688 @@
+{
+  "law_id": "a7ng-termgen-v0",
+  "seed": "0xA7622201",
+  "n_vectors": 32,
+  "cue_w": 64,
+  "families": [
+    "hamming",
+    "relation_binding",
+    "intent_context",
+    "path"
+  ],
+  "dsp_preferred": 0,
+  "board_pass": false,
+  "vectors": [
+    {
+      "cues": {
+        "cand_id": 8192,
+        "query_cue": "0x4459BCCC5B01EE2A",
+        "node_cue": "0x4459BCCC5B01EE2A",
+        "relation_cue": "0xB80703BA07AA1734",
+        "intent_cue": "0xBCCC5B01EE2A4459",
+        "context_cue": "0x5B01EE2A4459BCCC",
+        "path_cue": "0x0000000000000000",
+        "learned_prior": 7
+      },
+      "terms": {
+        "entity_match": 64,
+        "intent_match": 64,
+        "relation_match": 36,
+        "context_match": 64,
+        "path_confidence": 64,
+        "learned_prior": 7,
+        "contradiction_penalty": 0
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8193,
+        "query_cue": "0x0A74BF5EEE85A9D5",
+        "node_cue": "0xF58B40A1117A562A",
+        "relation_cue": "0x90CA9E61781968D6",
+        "intent_cue": "0x81CF9183AEC0EFE1",
+        "context_cue": "0x72B41653811F5038",
+        "path_cue": "0xCF693F8228393120",
+        "learned_prior": 50
+      },
+      "terms": {
+        "entity_match": 0,
+        "intent_match": 32,
+        "relation_match": 29,
+        "context_match": 37,
+        "path_confidence": 28,
+        "learned_prior": 50,
+        "contradiction_penalty": 14
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8194,
+        "query_cue": "0xEDBF1EA7E8C8A91D",
+        "node_cue": "0x92B37DD64BA79C4D",
+        "relation_cue": "0x86904A9BA465CDF5",
+        "intent_cue": "0xD2D1E024EF0E0BCC",
+        "context_cue": "0x15C59F8587DF08BD",
+        "path_cue": "0xADE88678DD004E73",
+        "learned_prior": 90
+      },
+      "terms": {
+        "entity_match": 31,
+        "intent_match": 28,
+        "relation_match": 28,
+        "context_match": 34,
+        "path_confidence": 30,
+        "learned_prior": 90,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8195,
+        "query_cue": "0x991B33B34F940F43",
+        "node_cue": "0xF0C4E3C221EE760C",
+        "relation_cue": "0x345E37596409E877",
+        "intent_cue": "0x1E690DFEC1418E30",
+        "context_cue": "0x7C96477D398ED416",
+        "path_cue": "0x544C454AFF1A425F",
+        "learned_prior": 43
+      },
+      "terms": {
+        "entity_match": 26,
+        "intent_match": 27,
+        "relation_match": 34,
+        "context_match": 32,
+        "path_confidence": 37,
+        "learned_prior": 43,
+        "contradiction_penalty": 10
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8196,
+        "query_cue": "0x782E768E1A50EF8D",
+        "node_cue": "0x870AE8DF581E6893",
+        "relation_cue": "0xCAC0560B61129873",
+        "intent_cue": "0xB9FC3CEE92957397",
+        "context_cue": "0xC4214C82EA06796A",
+        "path_cue": "0x03CAA86D08745D76",
+        "learned_prior": 57
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 33,
+        "relation_match": 32,
+        "context_match": 35,
+        "path_confidence": 31,
+        "learned_prior": 57,
+        "contradiction_penalty": 6
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8197,
+        "query_cue": "0xCBDEA2443EE43DB9",
+        "node_cue": "0xAED06B7AA6B6F2A2",
+        "relation_cue": "0xABA451CA974E2620",
+        "intent_cue": "0x38ADF1F7D12AE4F9",
+        "context_cue": "0x4707BCA52825A9C2",
+        "path_cue": "0x499BB2B7DFE260E3",
+        "learned_prior": 69
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 36,
+        "relation_match": 32,
+        "context_match": 33,
+        "path_confidence": 32,
+        "learned_prior": 69,
+        "contradiction_penalty": 8
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8198,
+        "query_cue": "0x2DFFE7C8718796A5",
+        "node_cue": "0x733D0CD61D0721F2",
+        "relation_cue": "0x9AF346E15810DA47",
+        "intent_cue": "0x5C9E39DDE87EF9E2",
+        "context_cue": "0xE47CEAA7B74EF676",
+        "path_cue": "0x98B6DC5B4FD08EDD",
+        "learned_prior": 61
+      },
+      "terms": {
+        "entity_match": 30,
+        "intent_match": 36,
+        "relation_match": 34,
+        "context_match": 27,
+        "path_confidence": 28,
+        "learned_prior": 61,
+        "contradiction_penalty": 10
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8199,
+        "query_cue": "0xCBFB0D6D77CA5355",
+        "node_cue": "0x1DAE212DD7886FAB",
+        "relation_cue": "0x0D0D5075CB1521C1",
+        "intent_cue": "0xCA838B7670DF130B",
+        "context_cue": "0x71CEEC141357E79D",
+        "path_cue": "0x1F45F06BE46E2C2A",
+        "learned_prior": -23
+      },
+      "terms": {
+        "entity_match": 36,
+        "intent_match": 26,
+        "relation_match": 28,
+        "context_match": 31,
+        "path_confidence": 32,
+        "learned_prior": -23,
+        "contradiction_penalty": 9
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8200,
+        "query_cue": "0x2C93D2039CD6382E",
+        "node_cue": "0xFB59578CA8C449F8",
+        "relation_cue": "0x54B8C6FB9B86D4E1",
+        "intent_cue": "0xDABFC418F4B462CB",
+        "context_cue": "0x52108E407E5A1022",
+        "path_cue": "0x8914242114828939",
+        "learned_prior": -32
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 31,
+        "relation_match": 34,
+        "context_match": 31,
+        "path_confidence": 30,
+        "learned_prior": -32,
+        "contradiction_penalty": 4
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8201,
+        "query_cue": "0xB46D2263E2CC2C3A",
+        "node_cue": "0x68E2A8B36AB4BDE7",
+        "relation_cue": "0x349CC0F0207F72C7",
+        "intent_cue": "0x6B17A066FDD21371",
+        "context_cue": "0x6817AF97E7609B94",
+        "path_cue": "0x672B6579BB3D77D8",
+        "learned_prior": -26
+      },
+      "terms": {
+        "entity_match": 33,
+        "intent_match": 34,
+        "relation_match": 35,
+        "context_match": 39,
+        "path_confidence": 34,
+        "learned_prior": -26,
+        "contradiction_penalty": 9
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8202,
+        "query_cue": "0x00FCF31438D39E4A",
+        "node_cue": "0x6E977B2CEA12C3D6",
+        "relation_cue": "0x0FB14C53A7F529EA",
+        "intent_cue": "0xEB93990033CBB46B",
+        "context_cue": "0xDF5AC0BA9D191097",
+        "path_cue": "0xA2276FA3172DF710",
+        "learned_prior": -23
+      },
+      "terms": {
+        "entity_match": 33,
+        "intent_match": 29,
+        "relation_match": 37,
+        "context_match": 31,
+        "path_confidence": 26,
+        "learned_prior": -23,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8203,
+        "query_cue": "0x06E48E99A675C393",
+        "node_cue": "0x7B786F9D33EF9597",
+        "relation_cue": "0x38B08601FB948316",
+        "intent_cue": "0x42E1901CF2E435D8",
+        "context_cue": "0x4A3A3699D6224E1F",
+        "path_cue": "0x0B585905F30C5D0E",
+        "learned_prior": 95
+      },
+      "terms": {
+        "entity_match": 36,
+        "intent_match": 29,
+        "relation_match": 34,
+        "context_match": 34,
+        "path_confidence": 30,
+        "learned_prior": 95,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8204,
+        "query_cue": "0xF06DBD8BDAEB1834",
+        "node_cue": "0xB92A6E953E1E8204",
+        "relation_cue": "0x4BFF77B834B370B6",
+        "intent_cue": "0x32665DE177020071",
+        "context_cue": "0x961778EEB50AC0EE",
+        "path_cue": "0x2817F92447DB5FA8",
+        "learned_prior": -18
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 24,
+        "relation_match": 26,
+        "context_match": 34,
+        "path_confidence": 31,
+        "learned_prior": -18,
+        "contradiction_penalty": 9
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8205,
+        "query_cue": "0x6FBCB719A4E96F44",
+        "node_cue": "0x1AA84D16CDB0C669",
+        "relation_cue": "0xDB0A9D45F573A8B1",
+        "intent_cue": "0xE365DA4856614A09",
+        "context_cue": "0xF1656800E93FEB9C",
+        "path_cue": "0xBAA2CD75A496EE08",
+        "learned_prior": 85
+      },
+      "terms": {
+        "entity_match": 31,
+        "intent_match": 37,
+        "relation_match": 37,
+        "context_match": 28,
+        "path_confidence": 27,
+        "learned_prior": 85,
+        "contradiction_penalty": 6
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8206,
+        "query_cue": "0xBD0C8DC102C85472",
+        "node_cue": "0xEB98895DEB299C09",
+        "relation_cue": "0x18EB3AB9E731659B",
+        "intent_cue": "0xE3C0A984F5260450",
+        "context_cue": "0x71298D9EB5B00386",
+        "path_cue": "0x75681340819B7ED7",
+        "learned_prior": 94
+      },
+      "terms": {
+        "entity_match": 34,
+        "intent_match": 29,
+        "relation_match": 33,
+        "context_match": 37,
+        "path_confidence": 37,
+        "learned_prior": 94,
+        "contradiction_penalty": 6
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8207,
+        "query_cue": "0x67DC2A995FAAC658",
+        "node_cue": "0x2C12A94AF2666F50",
+        "relation_cue": "0x3CE1A2CC08CF9644",
+        "intent_cue": "0x11C8BB2C158FFA83",
+        "context_cue": "0xC685C3196BEC5109",
+        "path_cue": "0x54602792CCEAAA5D",
+        "learned_prior": 1
+      },
+      "terms": {
+        "entity_match": 33,
+        "intent_match": 32,
+        "relation_match": 37,
+        "context_match": 30,
+        "path_confidence": 35,
+        "learned_prior": 1,
+        "contradiction_penalty": 8
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8208,
+        "query_cue": "0xDD4260E78DDF2884",
+        "node_cue": "0xBF54B45D2C959762",
+        "relation_cue": "0xA13B8DDFA2BACB46",
+        "intent_cue": "0x50C05CE46D1CFCEF",
+        "context_cue": "0xB3486C44362250B3",
+        "path_cue": "0x8138D6F7BE25D765",
+        "learned_prior": 74
+      },
+      "terms": {
+        "entity_match": 31,
+        "intent_match": 27,
+        "relation_match": 34,
+        "context_match": 24,
+        "path_confidence": 31,
+        "learned_prior": 74,
+        "contradiction_penalty": 9
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8209,
+        "query_cue": "0x3DEF308796BEE584",
+        "node_cue": "0x3C4C06B8FC28920D",
+        "relation_cue": "0x57B3C704701D8DAA",
+        "intent_cue": "0xC932D68FCD4662E8",
+        "context_cue": "0x118F56263C2B0568",
+        "path_cue": "0x108665718983DB45",
+        "learned_prior": 89
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 29,
+        "relation_match": 29,
+        "context_match": 36,
+        "path_confidence": 33,
+        "learned_prior": 89,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8210,
+        "query_cue": "0x34E647E6868C09CD",
+        "node_cue": "0xCC2298BE8E0A8212",
+        "relation_cue": "0xAE1EE49C8184374D",
+        "intent_cue": "0x876E2F75C6EA944D",
+        "context_cue": "0x313AB6E762BB8B1F",
+        "path_cue": "0x3644A16BF13AE05B",
+        "learned_prior": 54
+      },
+      "terms": {
+        "entity_match": 31,
+        "intent_match": 30,
+        "relation_match": 35,
+        "context_match": 31,
+        "path_confidence": 24,
+        "learned_prior": 54,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8211,
+        "query_cue": "0x66A6FE13C41DDD11",
+        "node_cue": "0x411AB737EACE8812",
+        "relation_cue": "0xE223303584EC253B",
+        "intent_cue": "0x26399D05E55496CE",
+        "context_cue": "0x4F02A1B34DB1873C",
+        "path_cue": "0x4174AD4739E37C63",
+        "learned_prior": 83
+      },
+      "terms": {
+        "entity_match": 35,
+        "intent_match": 29,
+        "relation_match": 29,
+        "context_match": 38,
+        "path_confidence": 26,
+        "learned_prior": 83,
+        "contradiction_penalty": 9
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8212,
+        "query_cue": "0x68E221BD3B7AE828",
+        "node_cue": "0xCFECD9C290890357",
+        "relation_cue": "0xBEF215CCC2F06F5B",
+        "intent_cue": "0x107910E56953DD24",
+        "context_cue": "0x1664BA009A46D43E",
+        "path_cue": "0x4A32716578927F2E",
+        "learned_prior": 39
+      },
+      "terms": {
+        "entity_match": 20,
+        "intent_match": 39,
+        "relation_match": 30,
+        "context_match": 28,
+        "path_confidence": 38,
+        "learned_prior": 39,
+        "contradiction_penalty": 11
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8213,
+        "query_cue": "0x62E629A52025F86D",
+        "node_cue": "0x1BA7AAFE1EF527F5",
+        "relation_cue": "0xA530790CF44B2C48",
+        "intent_cue": "0x2F121A3AF3F27F94",
+        "context_cue": "0x52969ADFC792875D",
+        "path_cue": "0x057C2A09EA379D78",
+        "learned_prior": -26
+      },
+      "terms": {
+        "entity_match": 31,
+        "intent_match": 35,
+        "relation_match": 38,
+        "context_match": 31,
+        "path_confidence": 34,
+        "learned_prior": -26,
+        "contradiction_penalty": 8
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8214,
+        "query_cue": "0x6D3CE3A52C231A50",
+        "node_cue": "0xDE867A27C0523B72",
+        "relation_cue": "0x72429AB3B9951340",
+        "intent_cue": "0x30D6546569B7249A",
+        "context_cue": "0x00C264D313B8410D",
+        "path_cue": "0xE2CA3F869BEF752B",
+        "learned_prior": -6
+      },
+      "terms": {
+        "entity_match": 35,
+        "intent_match": 32,
+        "relation_match": 27,
+        "context_match": 33,
+        "path_confidence": 29,
+        "learned_prior": -6,
+        "contradiction_penalty": 10
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8215,
+        "query_cue": "0x860F729DF348D24B",
+        "node_cue": "0x7530190A736984B9",
+        "relation_cue": "0xAED2546CE867A668",
+        "intent_cue": "0x90695194D63BAF8F",
+        "context_cue": "0x5DD294B56444BB00",
+        "path_cue": "0xFFB438706F90A6BA",
+        "learned_prior": 34
+      },
+      "terms": {
+        "entity_match": 30,
+        "intent_match": 31,
+        "relation_match": 32,
+        "context_match": 40,
+        "path_confidence": 31,
+        "learned_prior": 34,
+        "contradiction_penalty": 9
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8216,
+        "query_cue": "0x6A066483B10844D7",
+        "node_cue": "0xEC65F7DCC846C675",
+        "relation_cue": "0x650197F8C0E2AF5B",
+        "intent_cue": "0xE1999AF50377F0D8",
+        "context_cue": "0x192682BDD8618F13",
+        "path_cue": "0xA78139FC73AC0553",
+        "learned_prior": 64
+      },
+      "terms": {
+        "entity_match": 33,
+        "intent_match": 36,
+        "relation_match": 33,
+        "context_match": 39,
+        "path_confidence": 33,
+        "learned_prior": 64,
+        "contradiction_penalty": 8
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8217,
+        "query_cue": "0xC9D8F696ED984B71",
+        "node_cue": "0xEA403C84732BA23E",
+        "relation_cue": "0x557FA91B43595A4C",
+        "intent_cue": "0xF725EC48015A05D5",
+        "context_cue": "0x2B4B2787C3C99EDD",
+        "path_cue": "0xFC2788FDE76B1BC5",
+        "learned_prior": 77
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 28,
+        "relation_match": 37,
+        "context_match": 38,
+        "path_confidence": 34,
+        "learned_prior": 77,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8218,
+        "query_cue": "0x4D0337A7FFD89EF1",
+        "node_cue": "0xE931F55D82CFD64E",
+        "relation_cue": "0x78119E39E7F7601B",
+        "intent_cue": "0xCCED19D7A96DB86B",
+        "context_cue": "0xA9F8B053C8571C3E",
+        "path_cue": "0x1D66B5CCEB387F02",
+        "learned_prior": 0
+      },
+      "terms": {
+        "entity_match": 30,
+        "intent_match": 33,
+        "relation_match": 34,
+        "context_match": 32,
+        "path_confidence": 32,
+        "learned_prior": 0,
+        "contradiction_penalty": 7
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8219,
+        "query_cue": "0x31381F2138046426",
+        "node_cue": "0x2F3F8E38AA7BBFDC",
+        "relation_cue": "0x7EBFEC2601B07BDA",
+        "intent_cue": "0x3619C619D98685ED",
+        "context_cue": "0xAD71A073686D9414",
+        "path_cue": "0xF42B13DA93AB427E",
+        "learned_prior": 8
+      },
+      "terms": {
+        "entity_match": 29,
+        "intent_match": 35,
+        "relation_match": 33,
+        "context_match": 35,
+        "path_confidence": 35,
+        "learned_prior": 8,
+        "contradiction_penalty": 11
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8220,
+        "query_cue": "0x41D4BEBEF91D936D",
+        "node_cue": "0xA9E5EC7FEDAE4EF8",
+        "relation_cue": "0x7ECD5DF363E6C190",
+        "intent_cue": "0x807783441E53F740",
+        "context_cue": "0x0B488F1B5E3123B6",
+        "path_cue": "0x9146405EFE84AFA8",
+        "learned_prior": 53
+      },
+      "terms": {
+        "entity_match": 34,
+        "intent_match": 33,
+        "relation_match": 26,
+        "context_match": 25,
+        "path_confidence": 42,
+        "learned_prior": 53,
+        "contradiction_penalty": 5
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8221,
+        "query_cue": "0x69F40B3190648B1F",
+        "node_cue": "0x44AC128B0766F8C0",
+        "relation_cue": "0x5195A1A7B5DD652C",
+        "intent_cue": "0x3849680DD9F924C7",
+        "context_cue": "0x9542583072579077",
+        "path_cue": "0x8E32496C602B7B13",
+        "learned_prior": 36
+      },
+      "terms": {
+        "entity_match": 31,
+        "intent_match": 34,
+        "relation_match": 26,
+        "context_match": 34,
+        "path_confidence": 28,
+        "learned_prior": 36,
+        "contradiction_penalty": 8
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8222,
+        "query_cue": "0x39A61C095A98F0EB",
+        "node_cue": "0x94453568B13C34BD",
+        "relation_cue": "0xBBA2A3AAFE706C25",
+        "intent_cue": "0xFA600AD3BDFF4098",
+        "context_cue": "0xACACE853C2034162",
+        "path_cue": "0xFA99399F383D127E",
+        "learned_prior": 54
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 29,
+        "relation_match": 34,
+        "context_match": 34,
+        "path_confidence": 34,
+        "learned_prior": 54,
+        "contradiction_penalty": 8
+      }
+    },
+    {
+      "cues": {
+        "cand_id": 8223,
+        "query_cue": "0x8BEB17DCEC76CCE5",
+        "node_cue": "0xBD49F2E725BBE4C2",
+        "relation_cue": "0x19A85D5B19713D21",
+        "intent_cue": "0x1687C2B81FD0EFFB",
+        "context_cue": "0x5611D551DC54C487",
+        "path_cue": "0xF007EDBB7FC29FA8",
+        "learned_prior": -25
+      },
+      "terms": {
+        "entity_match": 32,
+        "intent_match": 34,
+        "relation_match": 28,
+        "context_match": 35,
+        "path_confidence": 30,
+        "learned_prior": -25,
+        "contradiction_penalty": 10
+      }
+    }
+  ]
+}

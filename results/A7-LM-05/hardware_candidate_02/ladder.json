@@ -1,0 +1,645 @@
+{
+  "revision": "A7-LM-05-HW-CANDIDATE-02",
+  "started_utc": "2026-08-18T12:35:01.513562+00:00",
+  "law_id": "lm05-signsgd-v1",
+  "port": "COM12",
+  "static": {
+    "manifest": {
+      "revision": "A7-LM-05-HW-CANDIDATE-02",
+      "bit": "build/out/arty_a7_lm05.bit",
+      "sha256": "1AA0B5C481B0ADF3CAA599F081B430AF3C28A26FB4715DC56A0D25D940548F51",
+      "part": "xc7a100tcsg324-1",
+      "vivado": "2026.1",
+      "core_clock_mhz": 50,
+      "wns_ns": 0.332,
+      "tns_ns": 0.0,
+      "whs_ns": 0.028,
+      "ths_ns": 0.0,
+      "law_id": "lm05-signsgd-v1",
+      "parameter_count": 399360,
+      "quality_confirmation_run": false,
+      "board_programmed": false,
+      "lm06_authorized": false,
+      "fix": "park weight port B in emb during ST_FOLD/ST_SNAP",
+      "candidate_00_preserved": "build/out/arty_a7_lm05c0_stall_fail.bit",
+      "candidate_00_sha256": "31D869D62A2CC1A2067F11A288B663509E9374156696A8C2422BEDF815D9772B",
+      "candidate_01_preserved": "build/out/arty_a7_lm05c1_fold_fail.bit",
+      "candidate_01_sha256": "B7E68295E3277D5761EC8E4F92D73714B13287398DA79D9E0627FDF19B83A1C1"
+    },
+    "bit_sha256": "1AA0B5C481B0ADF3CAA599F081B430AF3C28A26FB4715DC56A0D25D940548F51",
+    "bit_match": true,
+    "timing_close": true,
+    "lm06_timing_authorized": true,
+    "frozen": {
+      "arty_a7_lm00.bit": {
+        "expected": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783",
+        "got": "449A330BD2E23E1D9714ECF94142A0555914D6C76EDE6310EF347A3596534783",
+        "match": true
+      },
+      "arty_a7_lm01.bit": {
+        "expected": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8",
+        "got": "96065A174F22B6F79B6A04B79EBA4DDEF094B2BFAF36F5C93F0C376C679507B8",
+        "match": true
+      },
+      "arty_a7_lm02.bit": {
+        "expected": "7CEBA854BDE500DDC87C4742315C45562CB5902C6F66377BCE499DA43BD95CC4",
+        "got": "7CEBA854BDE500DDC87C4742315C45562CB5902C6F66377BCE499DA43BD95CC4",
+        "match": true
+      },
+      "arty_a7_lm03.bit": {
+        "expected": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+        "got": "C98B7C85814C8D4C57CA5E4ED1C9C411BC71EBF2991ABA1B210B9347509F23D1",
+        "match": true
+      },
+      "arty_a7_lm04r5.bit": {
+        "expected": "A177E0989956DF08C7150E451984C914E1D53B1FCF96A49EBEC68CE8497A55F8",
+        "got": "A177E0989956DF08C7150E451984C914E1D53B1FCF96A49EBEC68CE8497A55F8",
+        "match": true
+      }
+    },
+    "frozen_ok": true
+  },
+  "quality_confirmation_run": false,
+  "hardware_pass": true,
+  "contract_status": "OPEN",
+  "calib": {
+    "after": false,
+    "busy": false,
+    "done": false,
+    "calib": true,
+    "persist": false,
+    "phase": 0,
+    "wr_n": 0,
+    "pred": 0,
+    "loss": 0
+  },
+  "tensor": {
+    "257": {
+      "k": 257,
+      "issue_count": 1,
+      "first_try": true,
+      "match": true,
+      "fold": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "expected": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 31,
+        "ntile": 2
+      },
+      "tstatus": {
+        "t_busy": false,
+        "cases": 1,
+        "phase": 0
+      },
+      "ok": true,
+      "roofline": {
+        "cycles": 25872,
+        "stalls": 257,
+        "hazards": 0
+      }
+    },
+    "511": {
+      "k": 511,
+      "issue_count": 1,
+      "first_try": true,
+      "match": true,
+      "fold": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "expected": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 256,
+        "ntile": 2
+      },
+      "tstatus": {
+        "t_busy": false,
+        "cases": 1,
+        "phase": 0
+      },
+      "ok": true,
+      "roofline": {
+        "cycles": 43923,
+        "stalls": 511,
+        "hazards": 0
+      }
+    },
+    "513": {
+      "k": 513,
+      "issue_count": 1,
+      "first_try": true,
+      "match": true,
+      "fold": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "expected": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 2
+      },
+      "overlap": {
+        "overlap_cyc": 307,
+        "ntile": 3
+      },
+      "tstatus": {
+        "t_busy": false,
+        "cases": 1,
+        "phase": 0
+      },
+      "ok": true,
+      "roofline": {
+        "cycles": 63773,
+        "stalls": 513,
+        "hazards": 0
+      }
+    }
+  },
+  "upload_spots": [
+    {
+      "addr": 0,
+      "expected": [
+        250,
+        251,
+        251,
+        255,
+        252,
+        5,
+        6,
+        4
+      ],
+      "got": [
+        250,
+        251,
+        251,
+        255,
+        252,
+        5,
+        6,
+        4
+      ],
+      "match": true
+    },
+    {
+      "addr": 49152,
+      "expected": [
+        253,
+        253,
+        2,
+        0,
+        0,
+        1,
+        253,
+        1
+      ],
+      "got": [
+        253,
+        253,
+        2,
+        0,
+        0,
+        1,
+        253,
+        1
+      ],
+      "match": true
+    },
+    {
+      "addr": 55296,
+      "expected": [
+        254,
+        255,
+        255,
+        4,
+        255,
+        251,
+        1,
+        252
+      ],
+      "got": [
+        254,
+        255,
+        255,
+        4,
+        255,
+        251,
+        1,
+        252
+      ],
+      "match": true
+    },
+    {
+      "addr": 129024,
+      "expected": [
+        6,
+        0,
+        250,
+        253,
+        3,
+        251,
+        5,
+        252
+      ],
+      "got": [
+        6,
+        0,
+        250,
+        253,
+        3,
+        251,
+        5,
+        252
+      ],
+      "match": true
+    },
+    {
+      "addr": 202752,
+      "expected": [
+        4,
+        4,
+        251,
+        250,
+        0,
+        3,
+        255,
+        252
+      ],
+      "got": [
+        4,
+        4,
+        251,
+        250,
+        0,
+        3,
+        255,
+        252
+      ],
+      "match": true
+    },
+    {
+      "addr": 276480,
+      "expected": [
+        2,
+        0,
+        5,
+        254,
+        2,
+        4,
+        255,
+        252
+      ],
+      "got": [
+        2,
+        0,
+        5,
+        254,
+        2,
+        4,
+        255,
+        252
+      ],
+      "match": true
+    },
+    {
+      "addr": 350208,
+      "expected": [
+        254,
+        255,
+        252,
+        0,
+        254,
+        254,
+        250,
+        0
+      ],
+      "got": [
+        254,
+        255,
+        252,
+        0,
+        254,
+        254,
+        250,
+        0
+      ],
+      "match": true
+    },
+    {
+      "addr": 399352,
+      "expected": [
+        1,
+        255,
+        254,
+        250,
+        252,
+        0,
+        3,
+        251
+      ],
+      "got": [
+        1,
+        255,
+        254,
+        250,
+        252,
+        0,
+        3,
+        251
+      ],
+      "match": true
+    }
+  ],
+  "fold0": {
+    "xor32": 248,
+    "add32": 46987446,
+    "wr_n": 0
+  },
+  "expected_fold0": {
+    "xor32": 248,
+    "add32": 46987446,
+    "nbytes": 399360
+  },
+  "one_full_status": {
+    "after": false,
+    "busy": false,
+    "done": false,
+    "calib": true,
+    "persist": false,
+    "phase": 0,
+    "wr_n": 344256,
+    "pred": 5,
+    "loss": 16
+  },
+  "fold1": {
+    "xor32": 243,
+    "add32": 46931969,
+    "wr_n": 344256
+  },
+  "expected_fold1": {
+    "xor32": 243,
+    "add32": 46931969,
+    "nbytes": 399360
+  },
+  "expected_forward": {
+    "pred": 5,
+    "loss": 16,
+    "wr_n": 344256
+  },
+  "layer_probes": [
+    {
+      "layer": 0,
+      "changed_index": 55296,
+      "addr": 55296,
+      "before": [
+        254,
+        255,
+        255,
+        4,
+        255,
+        251,
+        1,
+        252
+      ],
+      "expected_after": [
+        253,
+        0,
+        254,
+        3,
+        0,
+        251,
+        0,
+        251
+      ],
+      "got": [
+        253,
+        0,
+        254,
+        3,
+        0,
+        251,
+        0,
+        251
+      ],
+      "match_after": true,
+      "moved": true
+    },
+    {
+      "layer": 1,
+      "changed_index": 129024,
+      "addr": 129024,
+      "before": [
+        6,
+        0,
+        250,
+        253,
+        3,
+        251,
+        5,
+        252
+      ],
+      "expected_after": [
+        5,
+        255,
+        249,
+        254,
+        2,
+        252,
+        6,
+        251
+      ],
+      "got": [
+        5,
+        255,
+        249,
+        254,
+        2,
+        252,
+        6,
+        251
+      ],
+      "match_after": true,
+      "moved": true
+    },
+    {
+      "layer": 2,
+      "changed_index": 202752,
+      "addr": 202752,
+      "before": [
+        4,
+        4,
+        251,
+        250,
+        0,
+        3,
+        255,
+        252
+      ],
+      "expected_after": [
+        5,
+        3,
+        251,
+        251,
+        255,
+        4,
+        0,
+        253
+      ],
+      "got": [
+        5,
+        3,
+        251,
+        251,
+        255,
+        4,
+        0,
+        253
+      ],
+      "match_after": true,
+      "moved": true
+    },
+    {
+      "layer": 3,
+      "changed_index": 276480,
+      "addr": 276480,
+      "before": [
+        2,
+        0,
+        5,
+        254,
+        2,
+        4,
+        255,
+        252
+      ],
+      "expected_after": [
+        1,
+        255,
+        6,
+        253,
+        1,
+        5,
+        0,
+        251
+      ],
+      "got": [
+        1,
+        255,
+        6,
+        253,
+        1,
+        5,
+        0,
+        251
+      ],
+      "match_after": true,
+      "moved": true
+    }
+  ],
+  "persist_flush": {
+    "ok": true,
+    "kind": 166,
+    "calib": true,
+    "persist": false,
+    "under": false,
+    "berr": false,
+    "rerr": false,
+    "bytes": 399360,
+    "xor32": 243,
+    "hex": "a5a6800000180600f300000000006e"
+  },
+  "persist_reload": {
+    "ok": true,
+    "kind": 166,
+    "calib": true,
+    "persist": false,
+    "under": false,
+    "berr": false,
+    "rerr": false,
+    "bytes": 399360,
+    "xor32": 243,
+    "hex": "a5a6800000180600f300000000006e",
+    "auto_fold": {
+      "ok": true,
+      "kind": 162,
+      "xor32": 243,
+      "add32": 46931969,
+      "wr_n": 344256,
+      "hex": "a5a2f30000000120cc02c04005009e"
+    }
+  },
+  "fold_reload": {
+    "xor32": 243,
+    "add32": 46931969,
+    "wr_n": 344256
+  },
+  "after_gate": {
+    "before": {
+      "after": true,
+      "busy": false,
+      "done": false,
+      "calib": true,
+      "persist": false,
+      "phase": 0,
+      "wr_n": 344256,
+      "pred": 5,
+      "loss": 16
+    },
+    "after": {
+      "after": true,
+      "busy": false,
+      "done": false,
+      "calib": true,
+      "persist": false,
+      "phase": 0,
+      "wr_n": 344256,
+      "pred": 32,
+      "loss": 0
+    }
+  },
+  "gates": {
+    "calib": true,
+    "tensor_sequence": true,
+    "roofline_logged": true,
+    "upload_spots": true,
+    "fold0_exact": true,
+    "one_full_exact": true,
+    "all_four_layers_moved": true,
+    "persist_399360": true,
+    "after_zero_writes": true
+  },
+  "finished_utc": "2026-08-18T12:36:31.528181+00:00"
+}

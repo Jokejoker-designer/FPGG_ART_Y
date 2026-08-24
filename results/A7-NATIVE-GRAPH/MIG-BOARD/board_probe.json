@@ -1,0 +1,20 @@
+{
+  "board": "Digilent Arty A7-100T",
+  "serial_jtag": "210319BE776EA",
+  "uart_port": "COM12",
+  "present": true,
+  "programmed": true,
+  "programmed_bit": "results/A7-NATIVE-GRAPH/MIG-BOARD/arty_a7_ng_mig_board.bit",
+  "programmed_sha256": "EF94BA6B7D7D2ABF3B2E7EFAC965F78AD565E7300657E948062494D7008B2EF1",
+  "mig_prj_sha256": "870FA6EEC23436FA8AD2A8772A80865016807CA37542C0C994E9E1E88152190D",
+  "port_interface": "AXI",
+  "mig_prj_app_hits": 0,
+  "wns_ns": 1.068,
+  "marker": "A7NG_MIG_BOARD_ROW_OK",
+  "rows": 2,
+  "waiting_board": false,
+  "board_pass_native_v1": false,
+  "hs02": false,
+  "invent_gbs": false,
+  "evidence_class": "BOARD_MIG"
+}

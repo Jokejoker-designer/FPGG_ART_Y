@@ -1,0 +1,223 @@
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[0]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[10]	IN	u_w/ADDRARDADDR[4]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[11]	IN	u_w/ADDRARDADDR[5]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[12]	IN	u_w/ADDRARDADDR[6]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[13]	IN	u_w/ADDRARDADDR[7]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[14]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[15]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[1]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[2]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[3]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[4]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[5]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[6]	IN	u_w/ADDRARDADDR[0]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[7]	IN	u_w/ADDRARDADDR[1]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[8]	IN	u_w/ADDRARDADDR[2]
+u_w/CH[0].ram0_reg_0/ADDRARDADDR[9]	IN	u_w/ADDRARDADDR[3]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[0]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[10]	IN	u_w/ADDRBWRADDR[4]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[11]	IN	u_w/ADDRBWRADDR[5]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[12]	IN	u_w/ADDRBWRADDR[6]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[13]	IN	u_w/ADDRBWRADDR[7]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[14]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[15]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[1]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[2]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[3]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[4]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[5]	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[6]	IN	u_w/ADDRBWRADDR[0]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[7]	IN	u_w/ADDRBWRADDR[1]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[8]	IN	u_w/ADDRBWRADDR[2]
+u_w/CH[0].ram0_reg_0/ADDRBWRADDR[9]	IN	u_w/ADDRBWRADDR[3]
+u_w/CH[0].ram0_reg_0/CASCADEINA	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/CASCADEINB	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/CASCADEOUTA	OUT	
+u_w/CH[0].ram0_reg_0/CASCADEOUTB	OUT	
+u_w/CH[0].ram0_reg_0/CLKARDCLK	IN	u_w/ui_clk
+u_w/CH[0].ram0_reg_0/CLKBWRCLK	IN	u_w/ui_clk
+u_w/CH[0].ram0_reg_0/DBITERR	OUT	
+u_w/CH[0].ram0_reg_0/DIADI[0]	IN	u_w/wr_data[0]
+u_w/CH[0].ram0_reg_0/DIADI[10]	IN	u_w/wr_data[10]
+u_w/CH[0].ram0_reg_0/DIADI[11]	IN	u_w/wr_data[11]
+u_w/CH[0].ram0_reg_0/DIADI[12]	IN	u_w/wr_data[12]
+u_w/CH[0].ram0_reg_0/DIADI[13]	IN	u_w/wr_data[13]
+u_w/CH[0].ram0_reg_0/DIADI[14]	IN	u_w/wr_data[14]
+u_w/CH[0].ram0_reg_0/DIADI[15]	IN	u_w/wr_data[15]
+u_w/CH[0].ram0_reg_0/DIADI[16]	IN	u_w/wr_data[16]
+u_w/CH[0].ram0_reg_0/DIADI[17]	IN	u_w/wr_data[17]
+u_w/CH[0].ram0_reg_0/DIADI[18]	IN	u_w/wr_data[18]
+u_w/CH[0].ram0_reg_0/DIADI[19]	IN	u_w/wr_data[19]
+u_w/CH[0].ram0_reg_0/DIADI[1]	IN	u_w/wr_data[1]
+u_w/CH[0].ram0_reg_0/DIADI[20]	IN	u_w/wr_data[20]
+u_w/CH[0].ram0_reg_0/DIADI[21]	IN	u_w/wr_data[21]
+u_w/CH[0].ram0_reg_0/DIADI[22]	IN	u_w/wr_data[22]
+u_w/CH[0].ram0_reg_0/DIADI[23]	IN	u_w/wr_data[23]
+u_w/CH[0].ram0_reg_0/DIADI[24]	IN	u_w/wr_data[24]
+u_w/CH[0].ram0_reg_0/DIADI[25]	IN	u_w/wr_data[25]
+u_w/CH[0].ram0_reg_0/DIADI[26]	IN	u_w/wr_data[26]
+u_w/CH[0].ram0_reg_0/DIADI[27]	IN	u_w/wr_data[27]
+u_w/CH[0].ram0_reg_0/DIADI[28]	IN	u_w/wr_data[28]
+u_w/CH[0].ram0_reg_0/DIADI[29]	IN	u_w/wr_data[29]
+u_w/CH[0].ram0_reg_0/DIADI[2]	IN	u_w/wr_data[2]
+u_w/CH[0].ram0_reg_0/DIADI[30]	IN	u_w/wr_data[30]
+u_w/CH[0].ram0_reg_0/DIADI[31]	IN	u_w/wr_data[31]
+u_w/CH[0].ram0_reg_0/DIADI[3]	IN	u_w/wr_data[3]
+u_w/CH[0].ram0_reg_0/DIADI[4]	IN	u_w/wr_data[4]
+u_w/CH[0].ram0_reg_0/DIADI[5]	IN	u_w/wr_data[5]
+u_w/CH[0].ram0_reg_0/DIADI[6]	IN	u_w/wr_data[6]
+u_w/CH[0].ram0_reg_0/DIADI[7]	IN	u_w/wr_data[7]
+u_w/CH[0].ram0_reg_0/DIADI[8]	IN	u_w/wr_data[8]
+u_w/CH[0].ram0_reg_0/DIADI[9]	IN	u_w/wr_data[9]
+u_w/CH[0].ram0_reg_0/DIBDI[0]	IN	u_w/wr_data[32]
+u_w/CH[0].ram0_reg_0/DIBDI[10]	IN	u_w/wr_data[42]
+u_w/CH[0].ram0_reg_0/DIBDI[11]	IN	u_w/wr_data[43]
+u_w/CH[0].ram0_reg_0/DIBDI[12]	IN	u_w/wr_data[44]
+u_w/CH[0].ram0_reg_0/DIBDI[13]	IN	u_w/wr_data[45]
+u_w/CH[0].ram0_reg_0/DIBDI[14]	IN	u_w/wr_data[46]
+u_w/CH[0].ram0_reg_0/DIBDI[15]	IN	u_w/wr_data[47]
+u_w/CH[0].ram0_reg_0/DIBDI[16]	IN	u_w/wr_data[48]
+u_w/CH[0].ram0_reg_0/DIBDI[17]	IN	u_w/wr_data[49]
+u_w/CH[0].ram0_reg_0/DIBDI[18]	IN	u_w/wr_data[50]
+u_w/CH[0].ram0_reg_0/DIBDI[19]	IN	u_w/wr_data[51]
+u_w/CH[0].ram0_reg_0/DIBDI[1]	IN	u_w/wr_data[33]
+u_w/CH[0].ram0_reg_0/DIBDI[20]	IN	u_w/wr_data[52]
+u_w/CH[0].ram0_reg_0/DIBDI[21]	IN	u_w/wr_data[53]
+u_w/CH[0].ram0_reg_0/DIBDI[22]	IN	u_w/wr_data[54]
+u_w/CH[0].ram0_reg_0/DIBDI[23]	IN	u_w/wr_data[55]
+u_w/CH[0].ram0_reg_0/DIBDI[24]	IN	u_w/wr_data[56]
+u_w/CH[0].ram0_reg_0/DIBDI[25]	IN	u_w/wr_data[57]
+u_w/CH[0].ram0_reg_0/DIBDI[26]	IN	u_w/wr_data[58]
+u_w/CH[0].ram0_reg_0/DIBDI[27]	IN	u_w/wr_data[59]
+u_w/CH[0].ram0_reg_0/DIBDI[28]	IN	u_w/wr_data[60]
+u_w/CH[0].ram0_reg_0/DIBDI[29]	IN	u_w/wr_data[61]
+u_w/CH[0].ram0_reg_0/DIBDI[2]	IN	u_w/wr_data[34]
+u_w/CH[0].ram0_reg_0/DIBDI[30]	IN	u_w/wr_data[62]
+u_w/CH[0].ram0_reg_0/DIBDI[31]	IN	u_w/wr_data[63]
+u_w/CH[0].ram0_reg_0/DIBDI[3]	IN	u_w/wr_data[35]
+u_w/CH[0].ram0_reg_0/DIBDI[4]	IN	u_w/wr_data[36]
+u_w/CH[0].ram0_reg_0/DIBDI[5]	IN	u_w/wr_data[37]
+u_w/CH[0].ram0_reg_0/DIBDI[6]	IN	u_w/wr_data[38]
+u_w/CH[0].ram0_reg_0/DIBDI[7]	IN	u_w/wr_data[39]
+u_w/CH[0].ram0_reg_0/DIBDI[8]	IN	u_w/wr_data[40]
+u_w/CH[0].ram0_reg_0/DIBDI[9]	IN	u_w/wr_data[41]
+u_w/CH[0].ram0_reg_0/DIPADIP[0]	IN	u_w/wr_data[64]
+u_w/CH[0].ram0_reg_0/DIPADIP[1]	IN	u_w/wr_data[65]
+u_w/CH[0].ram0_reg_0/DIPADIP[2]	IN	u_w/wr_data[66]
+u_w/CH[0].ram0_reg_0/DIPADIP[3]	IN	u_w/wr_data[67]
+u_w/CH[0].ram0_reg_0/DIPBDIP[0]	IN	u_w/wr_data[68]
+u_w/CH[0].ram0_reg_0/DIPBDIP[1]	IN	u_w/wr_data[69]
+u_w/CH[0].ram0_reg_0/DIPBDIP[2]	IN	u_w/wr_data[70]
+u_w/CH[0].ram0_reg_0/DIPBDIP[3]	IN	u_w/wr_data[71]
+u_w/CH[0].ram0_reg_0/DOADO[0]	OUT	u_w/CH[0].q0[0]
+u_w/CH[0].ram0_reg_0/DOADO[10]	OUT	u_w/CH[0].q0[10]
+u_w/CH[0].ram0_reg_0/DOADO[11]	OUT	u_w/CH[0].q0[11]
+u_w/CH[0].ram0_reg_0/DOADO[12]	OUT	u_w/CH[0].q0[12]
+u_w/CH[0].ram0_reg_0/DOADO[13]	OUT	u_w/CH[0].q0[13]
+u_w/CH[0].ram0_reg_0/DOADO[14]	OUT	u_w/CH[0].q0[14]
+u_w/CH[0].ram0_reg_0/DOADO[15]	OUT	u_w/CH[0].q0[15]
+u_w/CH[0].ram0_reg_0/DOADO[16]	OUT	u_w/CH[0].q0[16]
+u_w/CH[0].ram0_reg_0/DOADO[17]	OUT	u_w/CH[0].q0[17]
+u_w/CH[0].ram0_reg_0/DOADO[18]	OUT	u_w/CH[0].q0[18]
+u_w/CH[0].ram0_reg_0/DOADO[19]	OUT	u_w/CH[0].q0[19]
+u_w/CH[0].ram0_reg_0/DOADO[1]	OUT	u_w/CH[0].q0[1]
+u_w/CH[0].ram0_reg_0/DOADO[20]	OUT	u_w/CH[0].q0[20]
+u_w/CH[0].ram0_reg_0/DOADO[21]	OUT	u_w/CH[0].q0[21]
+u_w/CH[0].ram0_reg_0/DOADO[22]	OUT	u_w/CH[0].q0[22]
+u_w/CH[0].ram0_reg_0/DOADO[23]	OUT	u_w/CH[0].q0[23]
+u_w/CH[0].ram0_reg_0/DOADO[24]	OUT	u_w/CH[0].q0[24]
+u_w/CH[0].ram0_reg_0/DOADO[25]	OUT	u_w/CH[0].q0[25]
+u_w/CH[0].ram0_reg_0/DOADO[26]	OUT	u_w/CH[0].q0[26]
+u_w/CH[0].ram0_reg_0/DOADO[27]	OUT	u_w/CH[0].q0[27]
+u_w/CH[0].ram0_reg_0/DOADO[28]	OUT	u_w/CH[0].q0[28]
+u_w/CH[0].ram0_reg_0/DOADO[29]	OUT	u_w/CH[0].q0[29]
+u_w/CH[0].ram0_reg_0/DOADO[2]	OUT	u_w/CH[0].q0[2]
+u_w/CH[0].ram0_reg_0/DOADO[30]	OUT	u_w/CH[0].q0[30]
+u_w/CH[0].ram0_reg_0/DOADO[31]	OUT	u_w/CH[0].q0[31]
+u_w/CH[0].ram0_reg_0/DOADO[3]	OUT	u_w/CH[0].q0[3]
+u_w/CH[0].ram0_reg_0/DOADO[4]	OUT	u_w/CH[0].q0[4]
+u_w/CH[0].ram0_reg_0/DOADO[5]	OUT	u_w/CH[0].q0[5]
+u_w/CH[0].ram0_reg_0/DOADO[6]	OUT	u_w/CH[0].q0[6]
+u_w/CH[0].ram0_reg_0/DOADO[7]	OUT	u_w/CH[0].q0[7]
+u_w/CH[0].ram0_reg_0/DOADO[8]	OUT	u_w/CH[0].q0[8]
+u_w/CH[0].ram0_reg_0/DOADO[9]	OUT	u_w/CH[0].q0[9]
+u_w/CH[0].ram0_reg_0/DOBDO[0]	OUT	u_w/CH[0].q0[32]
+u_w/CH[0].ram0_reg_0/DOBDO[10]	OUT	u_w/CH[0].q0[42]
+u_w/CH[0].ram0_reg_0/DOBDO[11]	OUT	u_w/CH[0].q0[43]
+u_w/CH[0].ram0_reg_0/DOBDO[12]	OUT	u_w/CH[0].q0[44]
+u_w/CH[0].ram0_reg_0/DOBDO[13]	OUT	u_w/CH[0].q0[45]
+u_w/CH[0].ram0_reg_0/DOBDO[14]	OUT	u_w/CH[0].q0[46]
+u_w/CH[0].ram0_reg_0/DOBDO[15]	OUT	u_w/CH[0].q0[47]
+u_w/CH[0].ram0_reg_0/DOBDO[16]	OUT	u_w/CH[0].q0[48]
+u_w/CH[0].ram0_reg_0/DOBDO[17]	OUT	u_w/CH[0].q0[49]
+u_w/CH[0].ram0_reg_0/DOBDO[18]	OUT	u_w/CH[0].q0[50]
+u_w/CH[0].ram0_reg_0/DOBDO[19]	OUT	u_w/CH[0].q0[51]
+u_w/CH[0].ram0_reg_0/DOBDO[1]	OUT	u_w/CH[0].q0[33]
+u_w/CH[0].ram0_reg_0/DOBDO[20]	OUT	u_w/CH[0].q0[52]
+u_w/CH[0].ram0_reg_0/DOBDO[21]	OUT	u_w/CH[0].q0[53]
+u_w/CH[0].ram0_reg_0/DOBDO[22]	OUT	u_w/CH[0].q0[54]
+u_w/CH[0].ram0_reg_0/DOBDO[23]	OUT	u_w/CH[0].q0[55]
+u_w/CH[0].ram0_reg_0/DOBDO[24]	OUT	u_w/CH[0].q0[56]
+u_w/CH[0].ram0_reg_0/DOBDO[25]	OUT	u_w/CH[0].q0[57]
+u_w/CH[0].ram0_reg_0/DOBDO[26]	OUT	u_w/CH[0].q0[58]
+u_w/CH[0].ram0_reg_0/DOBDO[27]	OUT	u_w/CH[0].q0[59]
+u_w/CH[0].ram0_reg_0/DOBDO[28]	OUT	u_w/CH[0].q0[60]
+u_w/CH[0].ram0_reg_0/DOBDO[29]	OUT	u_w/CH[0].q0[61]
+u_w/CH[0].ram0_reg_0/DOBDO[2]	OUT	u_w/CH[0].q0[34]
+u_w/CH[0].ram0_reg_0/DOBDO[30]	OUT	u_w/CH[0].q0[62]
+u_w/CH[0].ram0_reg_0/DOBDO[31]	OUT	u_w/CH[0].q0[63]
+u_w/CH[0].ram0_reg_0/DOBDO[3]	OUT	u_w/CH[0].q0[35]
+u_w/CH[0].ram0_reg_0/DOBDO[4]	OUT	u_w/CH[0].q0[36]
+u_w/CH[0].ram0_reg_0/DOBDO[5]	OUT	u_w/CH[0].q0[37]
+u_w/CH[0].ram0_reg_0/DOBDO[6]	OUT	u_w/CH[0].q0[38]
+u_w/CH[0].ram0_reg_0/DOBDO[7]	OUT	u_w/CH[0].q0[39]
+u_w/CH[0].ram0_reg_0/DOBDO[8]	OUT	u_w/CH[0].q0[40]
+u_w/CH[0].ram0_reg_0/DOBDO[9]	OUT	u_w/CH[0].q0[41]
+u_w/CH[0].ram0_reg_0/DOPADOP[0]	OUT	u_w/CH[0].q0[64]
+u_w/CH[0].ram0_reg_0/DOPADOP[1]	OUT	u_w/CH[0].q0[65]
+u_w/CH[0].ram0_reg_0/DOPADOP[2]	OUT	u_w/CH[0].q0[66]
+u_w/CH[0].ram0_reg_0/DOPADOP[3]	OUT	u_w/CH[0].q0[67]
+u_w/CH[0].ram0_reg_0/DOPBDOP[0]	OUT	u_w/CH[0].q0[68]
+u_w/CH[0].ram0_reg_0/DOPBDOP[1]	OUT	u_w/CH[0].q0[69]
+u_w/CH[0].ram0_reg_0/DOPBDOP[2]	OUT	u_w/CH[0].q0[70]
+u_w/CH[0].ram0_reg_0/DOPBDOP[3]	OUT	u_w/CH[0].q0[71]
+u_w/CH[0].ram0_reg_0/ECCPARITY[0]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[1]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[2]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[3]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[4]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[5]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[6]	OUT	
+u_w/CH[0].ram0_reg_0/ECCPARITY[7]	OUT	
+u_w/CH[0].ram0_reg_0/ENARDEN	IN	u_w/<const1>
+u_w/CH[0].ram0_reg_0/ENBWREN	IN	u_w/p_40_in
+u_w/CH[0].ram0_reg_0/INJECTDBITERR	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/INJECTSBITERR	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/RDADDRECC[0]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[1]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[2]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[3]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[4]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[5]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[6]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[7]	OUT	
+u_w/CH[0].ram0_reg_0/RDADDRECC[8]	OUT	
+u_w/CH[0].ram0_reg_0/REGCEAREGCE	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/REGCEB	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/RSTRAMARSTRAM	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/RSTRAMB	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/RSTREGARSTREG	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/RSTREGB	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/SBITERR	OUT	
+u_w/CH[0].ram0_reg_0/WEA[0]	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/WEA[1]	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/WEA[2]	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/WEA[3]	IN	u_w/<const0>
+u_w/CH[0].ram0_reg_0/WEBWE[0]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[1]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[2]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[3]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[4]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[5]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[6]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0
+u_w/CH[0].ram0_reg_0/WEBWE[7]	IN	u_w/CH[0].ram0_reg_0_i_90_n_0

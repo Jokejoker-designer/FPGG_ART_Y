@@ -1,0 +1,17 @@
+{
+  "law": "eam03e-a0-signsgd-v1",
+  "rung": "A0.1-T",
+  "seed": "0x11111111",
+  "strings": ["ALPHA", "BETA.", "OMEGA"],
+  "train_steps": 32,
+  "d1": {
+    "init_AB": 3930,
+    "init_AC": 5362,
+    "train_AB": 1093,
+    "train_AC": 2012,
+    "reset_AB": 3930,
+    "swap_AC": 451,
+    "swap_AB": 1574
+  },
+  "note": "Pipeline of pacc/MAC must not change these integers."
+}

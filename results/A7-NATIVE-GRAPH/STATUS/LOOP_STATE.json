@@ -1,0 +1,910 @@
+{
+  "loop_id": "a7-blueprint-loop-v1",
+  "goal": "NATIVE_V1_MINI_AI_BOARD_PASS",
+  "goal_authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/14_FINAL_ACCEPTANCE_CHECKLIST.md",
+  "blueprint": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/",
+  "loop_spec": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/15_CURSOR_BLUEPRINT_LOOP.md",
+  "human_declares_board_pass": true,
+  "updated": "2026-08-23T11:39:00+00:00",
+  "next": "ddr_cue_soa_00r_axi_liveness",
+  "updated": "2026-08-23T12:15:00+00:00",
+  "note": "00R attempt7 FAIL: plane_engine clone insufficient; prior-first persists. Attempt8: phase/pf_base above AR/R. SOA not falsified.",
+  "memory_doctrine": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md",
+  "session_override": {
+    "do_not_stop": false,
+    "no_com12_program": false,
+    "machine_pause_until": null,
+    "board_pause_until": null,
+    "human_pause": null,
+    "research_pass": "2026-08-23 RESEARCH_NATIVE_AI_AUTHORITATIVE_DIRECTIONS_20260823.md",
+    "board_on": "human 2026-08-23 ~18:39 +07:00 — board plugged, deploy ready",
+    "com12_ready": "human 2026-08-23 ~18:39 +07:00 — COM12 ready; per-gate authorize only",
+    "no_r2_rdb_board_latch_until_deltas": true,
+    "stop_after": null,
+    "forbid_auto_mig_board": true,
+    "forbid_queue_self_chaining": false,
+    "one_unknown_per_session": true,
+    "forbid_duplicate_implementer_dispatch": "Parent MUST NOT --dispatch a gate that already has an implementer line in DISPATCH_LOG.jsonl for that gate id (twice violated 2026-08-22: ddr_wavefront_00, MASTERPLAN-V2)",
+    "forbid_ladder_without_bit_exact": "lm06_wm_01..04 stay BLOCKED unless lm06_wm_00 proves candidate == frozen CONTROL",
+    "com12_ready": "human 2026-08-23 ~13:18 +07:00 — board plugged, COM12 ready per-gate",
+    "com12_authorized_gate": null,
+    "com12_authorized_by": "human board on 2026-08-22 — per-gate scope only",
+    "human_blanket_continue": "human 2026-08-22 — complete project per Masterplan 16_; no per-gate approval required"
+  },
+  "conformance_note": "results/A7-NATIVE-GRAPH/STATUS/CONFORMANCE_MIG_METRIC_00_vs_FEEDBACK_SPEC.md",
+  "authority_extra": [
+    "feedback.md",
+    "BRAM_WORKING_MEMORY_SPEC.md",
+    "results/A7-NATIVE-GRAPH/STATUS/RECONCILIATION_FEEDBACK_SPEC_vs_MASTERPLAN_V2.md",
+    "results/A7-NATIVE-GRAPH/STATUS/FEEDBACK_MD_COMPLIANCE.md",
+    "results/A7-NATIVE-GRAPH/STATUS/BRAM_WORKING_MEMORY_SPEC_COMPLIANCE.md",
+    "results/A7-NATIVE-GRAPH/STATUS/COMPLIANCE_INDEX.md",
+    "results/A7-NATIVE-GRAPH/STATUS/COMPLIANCE_GAP_REGISTER.md",
+    "results/A7-NATIVE-GRAPH/STATUS/RECORD_SCHEMA_FREEZE_STATUS.md",
+    "results/A7-NATIVE-GRAPH/STATUS/BLUEPRINT_COMPLIANCE_MANIFEST.md",
+    "results/A7-NATIVE-GRAPH/STATUS/COMPLIANCE_OBJECTIVE_AUDIT.md",
+    "results/A7-NATIVE-GRAPH/STATUS/BRAM_OWNERSHIP_REPORT_V1_DRAFT.md",
+    "BRAM_RESET_RETRAIN_PLAN.md",
+    "docs/native_graph/SCIENTIFIC_SKILLS.md",
+    "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/16_MASTERPLAN_EXECUTION_PATH.md",
+    "results/A7-NATIVE-GRAPH/BOTTLENECK-RESOLUTION-REVIEW-00/HUMAN_APPROVAL_20260822.md",
+    "results/A7-NATIVE-GRAPH/STATUS/PLAN_KDENSE_20260822.md"
+  ],
+  "queue": [
+    {
+      "id": "ng00",
+      "status": "DONE",
+      "evidence": "tests/native_graph/test_ng00_anti_leak.py"
+    },
+    {
+      "id": "ng01",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-01/"
+    },
+    {
+      "id": "ng02",
+      "status": "DONE_ENG",
+      "from_audit": "SEV-0 closed: bitonic global Top-8 a7ng-topk-global-v1; verify trio PASS",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-02R-TOPK/closeout.md",
+      "marker": "A7NG02R_TOPK_XSIM_PASS",
+      "prior_archive": "results/A7-NATIVE-GRAPH/NG-02/",
+      "research_dir": "results/A7-NATIVE-GRAPH/NG-02R-TOPK/",
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "ng02r_flow",
+      "status": "DONE_ENG",
+      "from_audit": "P0 lossless backpressure; A7NG02R_FLOW_XSIM_PASS; auditor PASS (2 MINOR)",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-02R-FLOW/closeout.md",
+      "marker": "A7NG02R_FLOW_XSIM_PASS",
+      "research_dir": "results/A7-NATIVE-GRAPH/NG-02R-FLOW/",
+      "verify": {
+        "xsim": "PASS",
+        "auditor": "PASS",
+        "vivado": "PASS"
+      }
+    },
+    {
+      "id": "ng03",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-03/",
+      "note": "engineering archive stands; depends on corrected Top-K for V1 claim"
+    },
+    {
+      "id": "ng04",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-04/closeout.md",
+      "marker": "A7NG04_PRUNE_PASS",
+      "note": "P1 stale-event epoch gate queued as ng04_stale_event"
+    },
+    {
+      "id": "ng04_stale_event",
+      "status": "DONE_ENG",
+      "blocked_by": null,
+      "from_audit": "Covered with ng06_epoch: prune IGNORE_STALE / DROP_STALE when fire_epoch!=active; evidence NG-06R-EPOCH",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-06R-EPOCH/AUDIT_ng06_epoch.md",
+      "marker": "NG06R_EPOCH_ENGINEERING_PASS"
+    },
+    {
+      "id": "ng05_xsim",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-05/closeout.md",
+      "marker": "A7NG05_LEARN_XSIM_PASS"
+    },
+    {
+      "id": "ng05_persist",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-05/GATE_ng05_persist.md",
+      "marker": "A7NG05_PERSIST_XSIM_PASS"
+    },
+    {
+      "id": "ng02_ng03_silicon_log",
+      "status": "DONE",
+      "evidence": "results/A7-NATIVE-GRAPH/STATUS/GATE_ng02_ng03_silicon_log.md"
+    },
+    {
+      "id": "ng06",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-06/GATE_ng06.md",
+      "marker": "A7NG06_SHARE_XSIM_PASS",
+      "note": "P1 wide-dispatch + epoch supersede util/death claims"
+    },
+    {
+      "id": "ng06_wide_dispatch",
+      "status": "DONE_ENG",
+      "from_audit": "auditor r3 PASS allow_loop_done_eng=true; ALWAYS+SPARSE+BURSTY; SHA 4C604278; NG06R_WIDE_ENGINEERING_PASS; Evidence_class=XSIM",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-06R-WIDE/AUDIT_ng06_wide_sci_r3.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/NG-06R-WIDE/",
+      "marker": "NG06R_WIDE_ENGINEERING_PASS",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "auditor_r3": "PASS"
+      }
+    },
+    {
+      "id": "ng06_epoch",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 MINOR); DROP_STALE; alive=256; Evidence_class=XSIM",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-06R-EPOCH/AUDIT_ng06_epoch.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/NG-06R-EPOCH/",
+      "marker": "NG06R_EPOCH_ENGINEERING_PASS",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "auditor": "PASS",
+        "xsim": "PASS",
+        "vivado": "PASS"
+      },
+      "fit_note": "OOC share post-synth LUT~522k (~824% xc7a100t) — integrate_fit finding only; VERIFY_ONLY still PASS"
+    },
+    {
+      "id": "ng07",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-07/GATE_ng07.md",
+      "marker": "A7NG07_ANCHOR_XSIM_PASS"
+    },
+    {
+      "id": "ng08",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-08/GATE_ng08.md",
+      "marker": "A7NG08_KIDI20_PASS"
+    },
+    {
+      "id": "ng09",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/NG-09/GATE_ng09.md",
+      "marker": "A7NG09_INTENT_XSIM_PASS"
+    },
+    {
+      "id": "mem00",
+      "status": "DONE",
+      "evidence": "results/A7-NATIVE-GRAPH/MEM-00/GATE_mem00.md",
+      "marker": "A7NG_MEM00_BRAM_AUDIT_PASS"
+    },
+    {
+      "id": "mem01_mem02",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/MEM-01_02/GATE_mem01_mem02.md",
+      "marker": "A7NG_MEM12_DDR_XSIM_PASS"
+    },
+    {
+      "id": "lm_compose",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/LM_COMPOSE/GATE_lm_compose.md",
+      "marker": "A7NG_LMCOMPOSE_XSIM_PASS"
+    },
+    {
+      "id": "mem02_index_bank",
+      "status": "DONE_ENG",
+      "evidence": "results/A7-NATIVE-GRAPH/MEM-01_02/GATE_mem02_idxbank.md",
+      "marker": "A7NG_MEM02_IDXBANK_XSIM_PASS"
+    },
+    {
+      "id": "termgen",
+      "status": "DONE_ENG",
+      "blocked_by": null,
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 MINOR); 4 families exact n=32; DSP=0; no candidates/s; Evidence_class=XSIM+OOC",
+      "evidence": "results/A7-NATIVE-GRAPH/TERMGEN/AUDIT_termgen.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/TERMGEN/",
+      "marker": "A7NG_TERMGEN_XSIM_PASS",
+      "law_id": "a7ng-termgen-v0",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "perfmon",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 MINOR: H_RIVAL timing overclaim, candidates_out hardwire); Evidence_class=XSIM",
+      "evidence": "results/A7-NATIVE-GRAPH/PERFMON/AUDIT_perfmon.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/PERFMON/",
+      "marker": "A7NG_PERFMON_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "mem_schema_v1",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 MINOR inline<<4 / pkg dup); Node16/Edge32/Episode32; Evidence_class=PYTEST+XSIM",
+      "evidence": "results/A7-NATIVE-GRAPH/MEM_SCHEMA_V1/AUDIT_mem_schema_v1.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/MEM_SCHEMA_V1/",
+      "marker": "A7NG_MEM_SCHEMA_V1_SV_GOLDEN_PASS",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "ddr_feed",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 MINOR); stall 0.96->0.47 synthetic LAT=24; H_RIVAL OPEN_NOT_MIG; Evidence_class=XSIM",
+      "evidence": "results/A7-NATIVE-GRAPH/DDR-FEED/AUDIT_ddr_feed.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/DDR-FEED/",
+      "marker": "A7NG_DDR_FEED_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "frontier_shootout",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 MINOR); B_systolic wins M1/M2/M3 tie + M7 LUT; Top-8 MATCH; unit=64q; Evidence_class=XSIM+OOC",
+      "evidence": "results/A7-NATIVE-GRAPH/FRONTIER-SHOOTOUT/AUDIT_frontier_shootout.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/FRONTIER-SHOOTOUT/",
+      "marker": "A7NG_FRONTIER_SHOOTOUT_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "winner": "B_systolic",
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "bram_wm_00",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true; MAJOR bankable vs WNS=-290.499; XSim lossless; BRAM=0; no ARCH_PASS/BOARD_PASS",
+      "spec": "BRAM_WORKING_MEMORY_SPEC.md",
+      "evidence": "results/A7-NATIVE-GRAPH/BRAM-WM-00/AUDIT_bram_wm_00.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/BRAM-WM-00/",
+      "marker": "A7NG_BRAM_WM00_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "ooc_wns_ns": -290.499,
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "train_v2",
+      "status": "DONE_HARNESS",
+      "blocked_by": null,
+      "from_audit": "auditor PASS allow_loop_done_eng=true recommended DONE_HARNESS (3 findings MAJOR: SHA label mismatch, teacher_off stub); not HS-02 silicon",
+      "spec": "docs/contracts/native_graph/A7-NATIVE-GRAPH-TRAIN-V2.md",
+      "evidence": "results/A7-NATIVE-GRAPH/TRAIN-V2/AUDIT_train_v2.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/TRAIN-V2/",
+      "results": "results/A7-NATIVE-GRAPH/TRAIN-V2/",
+      "marker": "A7NG_TRAIN_V2_HARNESS_PASS",
+      "allow_loop_done_eng": true,
+      "evidence_class": "HARNESS",
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "integrate_fit",
+      "status": "DONE_ENG",
+      "blocked_by": null,
+      "from_checklist": "14 Hardware: one design fits xc7a100t, WNS>=0, TNS=0, SHA, DDR map, PE count measured",
+      "from_audit": "auditor PASS_NARROW allow=true SoC D65F3524 PE16 fabric; LM-06 weights ABSENT LIMIT; HS-02 DEFERRED; proxy CONTROL retained; NOT §14 full close",
+      "evidence": "results/A7-NATIVE-GRAPH/INTEGRATE/AUDIT_integrate_fit_soc.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/INTEGRATE/",
+      "marker": "PASS_NARROW",
+      "soc_sha": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+      "proxy_sha": "D2FC41A7869E7C4FF9B2E852C0E6E3A328E8C87EE518ACC03091BD29A3D23CA3",
+      "allow_loop_done_eng": true,
+      "evidence_class": "POST_ROUTE_SOC",
+      "note": "Narrow SoC-fit unknown closed. LM-06 weights + blind HS-02 still OPEN.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "reset_00",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (1 MINOR TB lm flag); RST-01/03; LM SHA MATCH; Evidence_class=XSIM",
+      "spec": "BRAM_RESET_RETRAIN_PLAN.md",
+      "evidence": "results/A7-NATIVE-GRAPH/RESET-00/AUDIT_reset00.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/RESET-00/",
+      "marker": "A7NG_RESET00_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "teacher_off_exam",
+      "status": "DONE_ENG",
+      "blocked_by": null,
+      "from_audit": "auditor PASS_NARROW allow=true; BOARD_UART_STUB 0x91; lm_path=0; LM-06 ABSENT LIMIT; not semantic HS-02; HLB CLEAN",
+      "evidence": "results/A7-NATIVE-GRAPH/TEACHER_OFF/AUDIT_teacher_off.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/TEACHER_OFF/",
+      "marker": "PASS_NARROW",
+      "soc_sha": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+      "allow_loop_done_eng": true,
+      "evidence_class": "BOARD_UART_STUB",
+      "prior_status": "DONE_HARNESS",
+      "note": "Framing unknown closed. Semantic HS-02 still OPEN until LM-06 path.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "lm06_soc_path",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true; weight fabric BRAM64 WNS+0.365; u_a ABSENT LIMIT; lm_path RTL sticky only; NOT §14/HS-22",
+      "evidence": "results/A7-NATIVE-GRAPH/LM06-SOC/AUDIT_lm06_soc_path.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/LM06-SOC/",
+      "marker": "PASS_NARROW",
+      "soc_sha": "D61BA6D454F4AC1B4980D3869866A6742E12C02C9D08C2ECD45897CCD9053FA3",
+      "control_soc": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+      "allow_loop_done_eng": true,
+      "evidence_class": "POST_ROUTE_SOC",
+      "note": "Weight-fabric-fit only. Full u_a/core + board lm_path still OPEN.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "lm06_ua_core",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true; u_a+weights BRAM128 WNS+0.257; TinyGPT/DSP ABSENT LIMIT; lm_path sticky not board; NOT HS-22/§14",
+      "evidence": "results/A7-NATIVE-GRAPH/LM06-UA/AUDIT_lm06_ua_core.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/LM06-UA/",
+      "marker": "PASS_NARROW",
+      "soc_sha": "D2C6CF4B28706B24CE513E2B7A09A4018EB9BB01EBB864FA3A5375B11DB9A92C",
+      "control_sha": "D61BA6D454F4AC1B4980D3869866A6742E12C02C9D08C2ECD45897CCD9053FA3",
+      "allow_loop_done_eng": true,
+      "evidence_class": "POST_ROUTE_SOC",
+      "note": "Act+weight fabric-fit only. Board lm_path + TinyGPT still OPEN/LIMIT.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "hs02_lm_path",
+      "status": "DONE_ENG",
+      "from_audit": "auditor+HLB PASS_NARROW allow=true; bit 4451AFD9 UART 91B9 lm_path=1; prior FAIL D2C6; TinyGPT ABSENT LIMIT; NOT full HS-02/HS-22/§14",
+      "evidence": "results/A7-NATIVE-GRAPH/HS02-LMPATH/AUDIT_hs02_lm_path.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/HS02-LMPATH/",
+      "marker": "PASS_NARROW",
+      "soc_sha": "4451AFD9B07D8FF52791CCBF6338862FF36B721DF9FBB9BD19EC726BEA67F40E",
+      "prior_fail_sha": "D2C6CF4B28706B24CE513E2B7A09A4018EB9BB01EBB864FA3A5375B11DB9A92C",
+      "allow_loop_done_eng": true,
+      "evidence_class": "BOARD_UART_LM_PATH_PROBE",
+      "note": "Visibility unknown closed. Semantic HS-02/22 stay OPEN.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW",
+        "hlb": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "wm00_timing",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true (1 MINOR bankability vs ARCH_PASS); OOC WNS=+0.069 TNS=0; lossless XSim; CONTROL -290.499 archived",
+      "evidence": "results/A7-NATIVE-GRAPH/BRAM-WM-00/timing/AUDIT_wm00_timing.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/BRAM-WM-00/timing/",
+      "marker": "PASS_NARROW",
+      "ooc_wns_ns": 0.069,
+      "ooc_wns_ns_control": -290.499,
+      "allow_loop_done_eng": true,
+      "evidence_class": "OOC_POST_ROUTE",
+      "note": "OOC WM timing unknown closed. Not §45 ARCH_PASS / BOARD_PASS.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "mig_h_rival",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true (2 MINOR); MIG_XSIM stall 0.958→0.549 DROP=0; H_RIVAL FALSIFIED; not BOARD; mig.prj MATCH",
+      "evidence": "results/A7-NATIVE-GRAPH/MIG-RIVAL/AUDIT_mig_h_rival.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/MIG-RIVAL/",
+      "marker": "A7NG_MIG_RIVAL_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "h_rival": "FALSIFIED",
+      "evidence_class": "MIG_XSIM",
+      "note": "MIG-backed XSim unknown closed. Silicon MIG optional/deferred.",
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "section14_all",
+      "status": "DONE_ENG",
+      "blocked_by": null,
+      "from_checklist": "every required box; then PROJECT_COMPLETE.md; human BOARD_PASS",
+      "from_audit": "rematch PASS_NARROW allow=true; GOAL NOT EVIDENCED; OPEN: semantic HS-02, TinyGPT/HS-22, board MIG, 800k",
+      "evidence": "results/A7-NATIVE-GRAPH/PROJECT_COMPLETE.md",
+      "audit": "results/A7-NATIVE-GRAPH/STATUS/AUDIT_section14.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/STATUS/",
+      "allow_loop_done_eng": true,
+      "evidence_class": "CHECKLIST_MAP",
+      "goal": "NOT_EVIDENCED",
+      "note": "Rematch mapping closed; human BOARD_PASS only after OPEN→PASS"
+    },
+    {
+      "id": "hs02_semantic",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true (MAJOR: not §14 Teacher-off); TinyGPT/answer ABSENT LIMIT; CONTROL 91B9 lm_path=1; HLB CLEAN",
+      "evidence": "results/A7-NATIVE-GRAPH/HS02-SEMANTIC/AUDIT_hs02_semantic_evidence.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/HS02-SEMANTIC/",
+      "marker": "PASS_NARROW",
+      "allow_loop_done_eng": true,
+      "evidence_class": "BOARD_UART_SEMANTIC_LIMIT",
+      "note": "LIMIT unknown closed. Full HS-02 stays OPEN until TinyGPT/query path.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW",
+        "hlb": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "tinygpt_soc",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true (MAJOR: not HS-22 close); BRAM 128+132=260>135 LIMIT; CONTROL 4451AFD9; frozen MATCH",
+      "evidence": "results/A7-NATIVE-GRAPH/TINYGPT-SOC/AUDIT_tinygpt_soc.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/TINYGPT-SOC/",
+      "marker": "PASS_NARROW",
+      "allow_loop_done_eng": true,
+      "evidence_class": "POST_ROUTE_FIT_LIMIT",
+      "note": "Fit unknown closed as LIMIT. HS-22 OPEN until consolidate or new law.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "bram_consolidate",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true (MAJOR: not HS-22); BRAM132 WNS+0.586; co-fit proj vs additive 260; Prefer≤130 NOT MET",
+      "evidence": "results/A7-NATIVE-GRAPH/BRAM-CONSOL/AUDIT_bram_consolidate.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/BRAM-CONSOL/",
+      "marker": "PASS_NARROW",
+      "soc_sha": "83A438B5342446C9E79A537196777B1BCF2468FC57F9379EA2CB8EFE0A7D3AEF",
+      "allow_loop_done_eng": true,
+      "evidence_class": "POST_ROUTE_PROXY",
+      "note": "Capacity share unknown closed. HS-22 OPEN until TinyGPT answer-path.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "tinygpt_consol",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS_NARROW allow=true; TinyGPT ABSENT on consol; additive 264>135 LIMIT; HS-22 OPEN; cofit not sold as TinyGPT",
+      "evidence": "results/A7-NATIVE-GRAPH/TINYGPT-CONSOL/AUDIT_tinygpt_consol.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/TINYGPT-CONSOL/",
+      "marker": "PASS_NARROW",
+      "allow_loop_done_eng": true,
+      "evidence_class": "FIT_LIMIT",
+      "note": "Answer-path fit unknown closed as LIMIT. HS-22 stays OPEN on checklist.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS_NARROW",
+        "auditor": "PASS_NARROW"
+      }
+    },
+    {
+      "id": "mig_metric_00",
+      "status": "DONE_ENG",
+      "from_audit": "auditor PASS allow_loop_done_eng=true (2 findings MAJOR+MINOR); MIG_XSIM deltas 1024/64 + 1024/16; integrity clean; H_RIVAL FALSIFIED; STOP no mig_board auto",
+      "evidence": "results/A7-NATIVE-GRAPH/MIG-METRIC-00/AUDIT_mig_metric_00.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/MIG-METRIC-00/",
+      "marker": "A7NG_MIG_METRIC_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "evidence_class": "MIG_XSIM",
+      "note": "STOP after auditor PASS per session override; parent does not auto-start mig_board from this gate.",
+      "verify": {
+        "xsim": "PASS",
+        "auditor": "PASS"
+      }
+    },
+    {
+      "id": "ddr_wavefront_00",
+      "status": "DONE_ENG",
+      "result_class": "PASS_NARROW",
+      "evidence_class": "MIG_XSIM_WAVEFRONT",
+      "marker": "A7NG_DDR_WAVEFRONT_XSIM_PASS",
+      "allow_loop_done_eng": true,
+      "artifact_authority": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_DDR_WAVEFRONT_ARTIFACTS.md",
+      "carry_in_lm06_wm_00": {
+        "declared_bound": "3 KiB (2 KiB cue banks + 1 KiB ping/pong)",
+        "measured_peak_total": "176 B (22 of 256 entries)",
+        "recommended": "512 B / 64 entries",
+        "classification": "ENGINEERING_INFERENCE — NOT a measured per-bank result and NOT a post-route utilization report",
+        "caveat_major_2": "max_resident is the SUM over 16 banks; per-bank peak was never instrumented. in_ready_o stalls when ANY single bank fills, so ENTRIES_PER_BANK is the binding constraint. Valid only for the uniform distribution tested (sequential node_id, bank=node_id[3:0]); a skewed stream can stall at 4/bank.",
+        "caveat_no_synthesis": "'<=2 RAMB18 tiles / ~0 as LUTRAM' is an architectural division, not a utilization report — no synthesis ran in this gate.",
+        "usable_conclusion": "Candidate DELIVERY is not the structure competing with LM-06's ~132 tiles. That conclusion survives the caveats; the exact 512 B number does not."
+      },
+      "limits": "L3 sustained throughput DDR-bound and UNCHANGED vs one-per-cycle control (0.4414 vs 0.4444) - not a 16x win. L2 bounded-ness verified as headroom, not saturation. Simulation-class only.",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS",
+        "auditor": "PASS_NARROW",
+        "hlb": "PASS"
+      },
+      "process_finding": "DUPLICATE_IMPLEMENTER_DISPATCH (orchestrator error). Cite only tb_a7ng_ddr_wavefront set; PINGPONG16 is RETAINED/UNCITED cross-check.",
+      "from_audit": "ONE UNKNOWN: from correctly measured MIG, can a bounded candidate/cue working set feed 16 physical lanes with exactly measured traffic? DDR -> burst compact cue fetch -> ping A/B -> 16-candidate wave -> existing 16-lane scorer -> existing true Top-K",
+      "evidence": "results/A7-NATIVE-GRAPH/DDR-WAVEFRONT-00/",
+      "research_dir": "results/A7-NATIVE-GRAPH/DDR-WAVEFRONT-00/",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md",
+      "metrics": [
+        "ddr_bytes_per_candidate",
+        "ddr_bytes_per_query",
+        "beats_per_query",
+        "wavefront_fill_cycles",
+        "memory_wait_fraction",
+        "jobs_per_cycle_during_wave",
+        "candidate_conservation",
+        "data_mismatch"
+      ],
+      "must_not_change": [
+        "01R law",
+        "HIT_MAX",
+        "TermGen",
+        "Top-K",
+        "relation law",
+        "LM06",
+        "02M",
+        "training"
+      ],
+      "note": "PE util >=80% is NOT a hard gate here (scheduler-local). Bursty PE work is acceptable if DDR path is healthy. No memory-system redesign."
+    },
+    {
+      "id": "lm06_wm_00",
+      "status": "DONE_ENG",
+      "result_class": "PASS_NARROW",
+      "evidence_class": "LM06_WM_XSIM",
+      "allow_loop_done_eng": true,
+      "artifact": "results/A7-NATIVE-GRAPH/LM06-WM-00/CLOSEOUT.md",
+      "binding_verdict": "results/A7-NATIVE-GRAPH/STATUS/VERDICT_lm06_wm_00_BINDING.md",
+      "status_closeout": "results/A7-NATIVE-GRAPH/STATUS/CLOSEOUT_lm06_wm_00.md",
+      "verify": {
+        "xsim": "PASS_NARROW",
+        "vivado": "PASS",
+        "auditor": "PASS_NARROW",
+        "hlb": "PASS"
+      },
+      "auditor_findings": "9 (0 CRITICAL, 5 MAJOR, 4 MINOR)",
+      "ladder_precondition": "candidate == frozen CONTROL — MET; ladder remains BLOCKED until human re-open",
+      "reopened_by": "human 2026-08-22 (explicit instruction to continue per blueprint)",
+      "precondition_1_status": "SATISFIED — 512 B carry-in restated as ENGINEERING_INFERENCE in ddr_wavefront_00.carry_in_lm06_wm_00; LM tiles must NOT be sized from the summed-occupancy counter",
+      "from_audit": "ONE UNKNOWN: replace current working-set structure with bounded/ping-pong tiles and stay bit-exact vs frozen LM-06. No 64/48/32 optimization at this step.",
+      "gate": "same input / same frozen weights / same arithmetic / same forward fold / same update fold / same persist-reload result",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md",
+      "preconditions": [
+        "AUDITOR MAJOR-2: instrument PER-BANK peak occupancy, or restate the 512 B carry-in as ENGINEERING_INFERENCE valid only for uniform bank distribution. Do not size LM tiles from a summed-occupancy counter.",
+        "HLB R2: the bit-exact CONTROL must be outputs RECORDED FROM the frozen LM-06 bitstream BEFORE the candidate runs. A host computing the expected token at compare time is a next-token-on-host violation even when labelled 'control'.",
+        "HLB R3: once WM tiles are writable the structural zero-write guarantee expires — prove EVAL writes are zero from per-phase counters, not from port absence."
+      ],
+      "carried_risk_r1": "a7ng_topk in the wavefront top is per-batch 16->8 with no cross-wave reduction, so wave membership decides which candidates compete. Safe in ddr_wavefront_00 only because sequential node_id makes the partition fixed. Before any retrieval/answer claim rides this stage: add a global cross-wave reduction or declare a law_id.",
+      "note": "Open ladder only if candidate == frozen CONTROL. Session law: human/parent re-opens; no auto-chain from ddr_wavefront_00.",
+      "binding_verdict": "results/A7-NATIVE-GRAPH/STATUS/VERDICT_lm06_wm_00_BINDING.md",
+      "result_class_fixed": "PASS_NARROW",
+      "evidence_class_fixed": "LM06_WM_XSIM",
+      "struck_inference": "max 2 tile/cycle => ping-pong sufficient for correctness. STRUCK: that is simultaneous port demand only; proves neither working-set=2 nor DDR latency hiding. Permitted wording: in this workload, at most 2 tiles are demanded in the same cycle.",
+      "arm_scope": {
+        "A": "all tiles still resident + accounting = retile + measure, NOT a BRAM bound",
+        "B": "functional zero-latency, n=1 snap only, NOT timed RTL"
+      },
+      "traffic_reuse_distance": "ladder scope (lm06_wm_01..04), not a WM-00 finding",
+      "resource_budget_update": false
+    },
+    {
+      "id": "wf_global_topk_00",
+      "status": "DONE_ENG",
+      "result_class": "PASS_NARROW",
+      "evidence_class": "XSIM",
+      "allow_loop_done_eng": true,
+      "marker": "A7NG_WF_GLOBAL_TOPK_XSIM_PASS",
+      "law_id": "a7ng-topk-wavefront-global-v1",
+      "from_audit": "ONE UNKNOWN: Does wavefront integration preserve proven global Top-K law across waves? G_(t+1)=TopK(G_t ∪ TopK(W_t)); integration law_id a7ng-topk-wavefront-global-v1; closes carried_risk_r1.",
+      "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/16_MASTERPLAN_EXECUTION_PATH.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/",
+      "evidence": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/CLOSEOUT.md",
+      "audit": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/AUDIT_wf_global_topk_00.md",
+      "prerequisite": ["ng02", "ddr_wavefront_00"],
+      "must_not_change": ["NG-02R comparator ordering", "01R law", "HIT_MAX", "TermGen", "02M", "LM06"],
+      "limit": "Unit + integrated XSim proven; carried_risk_r1 CLOSED via wf_global_topk_integrated_00.",
+      "carried_risk_r1": "CLOSED — wf_global_topk_integrated_00 integrated XSim PASS",
+      "note": "Auditor PASS_NARROW allow_loop_done_eng=true (3 MAJOR, 1 MINOR). HLB PASS_NARROW.",
+      "verify": {
+        "xsim": "PASS",
+        "xsim_note": "a7-ng-xsim-verify 2026-08-22 — A7NG_WF_GLOBAL_TOPK_XSIM_PASS fails=0 merge_count=3",
+        "xsim_log": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/xsim_wf_global_topk.log",
+        "vivado": "PASS_NARROW",
+        "vivado_note": "a7-vivado-gate 2026-08-22 — OOC leaf a7ng_topk_wavefront_global; hold clean; WNS negative expected OOC",
+        "vivado_artifact": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/GATE_wf_global_topk_vivado_verify.md",
+        "auditor": "PASS_NARROW",
+        "hlb": "PASS_NARROW"
+      },
+      "hlb_audit": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/AUDIT_wf_global_topk_00_hlb.md"
+    },
+    {
+      "id": "wf_global_topk_integrated_00",
+      "status": "DONE_ENG",
+      "result_class": "PASS_NARROW",
+      "evidence_class": "MIG_XSIM_WAVEFRONT_INTEGRATED",
+      "allow_loop_done_eng": true,
+      "marker": "A7NG_WF_GLOBAL_TOPK_INTEGRATED_XSIM_PASS",
+      "law_id": "a7ng-topk-wavefront-global-v1",
+      "from_audit": "ONE UNKNOWN: integrated a7ng_ddr_wavefront_top + global accumulator XSim counterexample",
+      "research_dir": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/integrated/",
+      "evidence": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/integrated/CLOSEOUT.md",
+      "carried_risk_r1": "CLOSED",
+      "verify": {
+        "xsim": "PASS",
+        "xsim_note": "a7-ng-xsim-verify 2026-08-22 — independent re-run A7NG_WF_GLOBAL_TOPK_INTEGRATED_XSIM_PASS fails=0 merge_count=2",
+        "xsim_log": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/integrated/xsim_wf_global_topk_integrated.log",
+        "auditor": "PASS_NARROW",
+        "auditor_note": "allow_loop_done_eng=true; 2 MINOR doc nits",
+        "audit": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/integrated/AUDIT_wf_global_topk_integrated_00.md",
+        "vivado": "PASS_NARROW",
+        "vivado_note": "a7-vivado-gate 2026-08-22 — OOC a7ng_ddr_wavefront_top; hold clean; WNS negative expected OOC",
+        "vivado_artifact": "results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/integrated/GATE_wf_global_topk_integrated_vivado_verify.md"
+      },
+      "note": "lane_pop fix verified via xvlog; beat_mm=0; merge_count=2; not BOARD/HS-02"
+    },
+    {
+      "id": "descriptor_contract_00",
+      "status": "DONE_ENG",
+      "result_class": "PASS",
+      "evidence_class": "LAW_AUDIT",
+      "allow_loop_done_eng": true,
+      "marker": "A7NG_DESCRIPTOR_CONTRACT_104B_FROZEN",
+      "stage1_descriptor_bits": 104,
+      "frozen_fields": "node_id(32)+node_cue(64)+learned_prior(8)",
+      "from_audit": "Human-approved Masterplan §2.1: stage-1 descriptor NOT YET FROZEN (96 vs 104 bits)",
+      "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/16_MASTERPLAN_EXECUTION_PATH.md",
+      "prerequisite": ["wf_global_topk_integrated_00"],
+      "evidence": "results/A7-NATIVE-GRAPH/DESCRIPTOR-CONTRACT-00/DESCRIPTOR_CONTRACT_FREEZE.md",
+      "hlb_audit": "results/A7-NATIVE-GRAPH/DESCRIPTOR-CONTRACT-00/AUDIT_descriptor_contract_00_hlb.md",
+      "verify": {
+        "hlb": "CLEAN",
+        "auditor": "PASS_NARROW",
+        "auditor_note": "allow_loop_done_eng=true; 3 inherited MINOR doc nits",
+        "audit": "results/A7-NATIVE-GRAPH/DESCRIPTOR-CONTRACT-00/AUDIT_descriptor_contract_00.md"
+      },
+      "note": "96b rival FALSIFIED (broadcast prior). No SOA RTL. Blocks ddr_cue_soa_00 lifted."
+    },
+    {
+      "id": "ddr_cue_soa_00",
+      "status": "BLOCKED",
+      "blocked_by": "ddr_cue_soa_00r_axi_liveness",
+      "attempt": 2,
+      "last_result": "FAIL",
+      "last_attempt": "2026-08-23T03:20:00Z",
+      "hang": "prior_col_018_no_id_cue_reads",
+      "from_audit": "Can physical SOA layout reduce first-stage DDR bytes/query without changing laws?",
+      "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/16_MASTERPLAN_EXECUTION_PATH.md",
+      "prerequisite": ["descriptor_contract_00"],
+      "evidence": "results/A7-NATIVE-GRAPH/DDR-CUE-SOA-00/CLOSEOUT.md",
+      "note": "Attempt 2 FAIL (6007cdff): 0 bank0 ID/CUE reads; duplicate AR @ col018. Superseded by ddr_cue_soa_00r_axi_liveness. SOA not falsified."
+    },
+    {
+      "id": "ddr_cue_soa_00r_axi_liveness",
+      "status": "OPEN",
+      "gate_type": "repair",
+      "attempt": 7,
+      "last_result": "FAIL",
+      "last_attempt": "2026-08-23T12:10:00Z",
+      "failure_class": "B_RREADY_DEADLOCK",
+      "hang": "0x03000030",
+      "unit_pass": "5/5",
+      "mig_signature": "query_prior_before_id_cue_phantom_plane",
+      "plane_engine_clone": "insufficient_bug_above_ar_r",
+      "xsim_snapshot": "v11",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/DDR_CUE_SOA_00R_AXI_LIVENESS.md",
+      "one_unknown": "Can frozen 104b descriptor deliver in exactly 832 DDR bytes / 64-candidate query?",
+      "prerequisite": ["descriptor_contract_00", "ddr_cue_soa_00"],
+      "evidence_class": "MIG_XSIM",
+      "marker": "A7NG_DDR_CUE_SOA_XSIM_PASS",
+      "stop_after_closeout": true,
+      "note": "AXI transport repair only. After closeout STOP per human gate."
+    },
+    {
+      "id": "ddr_cue_soa_bench_01",
+      "status": "QUEUED",
+      "gate_type": "bench",
+      "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/17_MASTERPLAN_BLUEPRINT_V2_IO_AWARE.md",
+      "one_unknown": "At frozen law, does SOA reduce B_query and memory_wait vs AOS on same traffic?",
+      "prerequisite": ["ddr_cue_soa_00r_axi_liveness"],
+      "evidence_class": "MIG_XSIM",
+      "blocked_by": "ddr_cue_soa_00r_axi_liveness",
+      "note": "Phase B iron-law bench — GATE_IRON_LAW_TEMPLATE required."
+    },
+    {
+      "id": "graph_late_materialize_00",
+      "status": "QUEUED",
+      "gate_type": "graph_io",
+      "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/17_MASTERPLAN_BLUEPRINT_V2_IO_AWARE.md",
+      "one_unknown": "Can expensive node payload fetch occur only after global Top-K commit?",
+      "prerequisite": ["ddr_cue_soa_bench_01"],
+      "evidence_class": "XSIM",
+      "blocked_by": "ddr_cue_soa_bench_01",
+      "note": "Phase C — score early, fetch late."
+    },
+    {
+      "id": "lm06_wm_trace_00",
+      "status": "QUEUED",
+      "gate_type": "lm_memory",
+      "authority": "docs/NATIVE_AI_ARTY_A7_BLUEPRINT/16_MASTERPLAN_EXECUTION_PATH.md",
+      "one_unknown": "What is u_a M_peak lifetime and tile residency under frozen LM-06 law?",
+      "prerequisite": ["lm06_wm_00"],
+      "evidence_class": "POST_ROUTE_PROXY",
+      "blocked_by": null,
+      "note": "Phase D parallel — human re-open ladder; ceilings not blind cuts."
+    },
+    {
+      "id": "lm06_wm_ladder",
+      "status": "BLOCKED",
+      "blocked_by": "lm06_wm_00",
+      "from_audit": "Ladder targets <=96 / <=64 / <=48 / <=32 BRAM. Stop at first good Pareto rung; 32 is NOT mandatory. Falsify a rung on WNS<0 or DDR stall explosion.",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md"
+    },
+    {
+      "id": "bram_owner_00",
+      "status": "BLOCKED",
+      "blocked_by": "lm06_wm_ladder",
+      "from_audit": "Phase-ownership FSM: GRAPH -> BLOCK_NEW_WORK -> DRAIN_PE -> DRAIN_QUEUE -> DDR_COMMIT_IF_DIRTY -> VERIFY_QUIESCENT -> OWNER_SWITCH -> LM (and back). Hard invariant: one physical bank -> one writer authority -> one cycle. Stale dies by owner/epoch/valid/generation.",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md"
+    },
+    {
+      "id": "mig_board_r2",
+      "status": "DONE_ENG",
+      "result_class": "PASS",
+      "evidence_class": "BOARD_MIG",
+      "allow_loop_done_eng": true,
+      "bit_sha": "c08ae8634fe2b4568de0eaeed5f6e750bd3ef2b7aad4e401467afac3c01957cc",
+      "wns_ns": 1.060,
+      "board": "210319BE776EA",
+      "grid_complete": true,
+      "uart_rows_captured": 16,
+      "quarantine_superseded": "results/A7-NATIVE-GRAPH/STATUS/QUARANTINE_MIG_BOARD_PREMETRIC.md",
+      "status_closeout": "results/A7-NATIVE-GRAPH/STATUS/CLOSEOUT_mig_board_r2.md",
+      "verify": {
+        "xsim": "PASS",
+        "vivado": "PASS",
+        "auditor": "PASS",
+        "hlb": "PASS"
+      },
+      "from_audit": "BOARD re-run of the FROZEN feed path with metric_clear telemetry, to lift QUARANTINE_MIG_BOARD_PREMETRIC. ONE UNKNOWN: do the trusted per-run deltas reproduce on silicon, and what does the full burst x outstanding grid say? The 4x4 grid is the REPLICATION AXIS of that single unknown, not a second unknown.",
+      "scope": "FULL GRID (human decision 2026-08-22): burst in {1,4,8,16} x outstanding in {1,2,4,8} = 16 cells, per-run metric_clear deltas on every cell. Cells (1,1) and (4,8) are the direct XSim-vs-silicon CONTROL comparison.",
+      "supersedes": "mig_sweep_full — folded into this gate per human decision; do not run it separately",
+      "axis_not_included": "graph degree {4,8,16} (feedback §9 third axis) needs the graph path, not the feed path — remains future work",
+      "evidence": "results/A7-NATIVE-GRAPH/MIG-BOARD-R2/",
+      "research_dir": "results/A7-NATIVE-GRAPH/MIG-BOARD-R2/",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/QUARANTINE_MIG_BOARD_PREMETRIC.md",
+      "control": "results/A7-NATIVE-GRAPH/MIG-METRIC-00/CLOSEOUT.md (MIG_XSIM per-run deltas 1024B/64 and 1024B/16)",
+      "com12_authorized_by": "human 2026-08-22 — scoped to THIS gate only; all other gates remain no-COM12",
+      "frozen_scope": "Feed/telemetry path is FROZEN at the MIG-METRIC-00 revision (a7ng_ddr_feed_axi_bridge SHA D07A9742..., ddr_feed_pp, mig.prj 870FA6EE...). This gate REBUILDS and MEASURES only — it must not re-open feed/search law.",
+      "note": "Independent of lm06_wm_00. Board evidence binds to its own bit SHA. AI does not declare BOARD_PASS."
+    },
+    {
+      "id": "mig_board",
+      "status": "DONE_ENG",
+      "result_class": "PASS_NARROW",
+      "evidence_class": "BOARD_MIG",
+      "limit": "Stall rows 0.923261 / 0.585366 were captured with PRE-MIG-METRIC-00 cumulative counters and a backpressure-based DROP. They are NOT citable as trusted per-run board traffic. Re-run with metric_clear before any board DDR claim; do not latch r2_rdb until then.",
+      "from_audit": "Locked PASS_NARROW per human roadmap; MIG-METRIC-00 supersedes its telemetry semantics. Board rows QUARANTINED for measurement, not voided as a program/timing event.",
+      "evidence": "results/A7-NATIVE-GRAPH/MIG-METRIC-00/CLOSEOUT.md",
+      "research_dir": "results/A7-NATIVE-GRAPH/MIG-BOARD/",
+      "note": "Session override: no auto-dispatch after mig_metric_00. Do not latch r2_rdb until per-run deltas on silicon.",
+      "quarantine": "results/A7-NATIVE-GRAPH/STATUS/QUARANTINE_MIG_BOARD_PREMETRIC.md"
+    },
+    {
+      "id": "mig_sweep_full",
+      "status": "MERGED",
+      "from_audit": "feedback.md §9: burst 1/4/8/16 x outstanding 1/2/4/8 (+degree axis) with per-run deltas; add swap_count (SPEC §10). Today only 2 of 16 cells.",
+      "authority": "feedback.md#9, BRAM_WORKING_MEMORY_SPEC.md#10",
+      "evidence": "results/A7-NATIVE-GRAPH/STATUS/CONFORMANCE_MIG_METRIC_00_vs_FEEDBACK_SPEC.md",
+      "note": "Folded into mig_board_r2 (human decision 2026-08-22): the full burst x outstanding grid is measured ON SILICON there instead of as a separate XSim sweep. Do not dispatch separately.",
+      "merged_into": "mig_board_r2"
+    },
+    {
+      "id": "bram_ownership_report",
+      "status": "QUEUED",
+      "from_audit": "SPEC §28: BRAM_OWNERSHIP_POST_ROUTE.md does not exist; SPEC forbids full integration claim without it",
+      "authority": "BRAM_WORKING_MEMORY_SPEC.md#28, feedback.md#15",
+      "evidence": "results/A7-NATIVE-GRAPH/STATUS/CONFORMANCE_MIG_METRIC_00_vs_FEEDBACK_SPEC.md",
+      "note": "Blocks §14 integration claims; hierarchy/tiles/role/phase/persistent/shareable/DDR-backable columns"
+    },
+    {
+      "id": "record_schema_freeze",
+      "status": "QUEUED",
+      "from_audit": "feedback.md §12: one authoritative NodeRecordV1/EdgeRecordV1/EpisodeRecordV1 + golden round-trip tests; no independent magic strides",
+      "authority": "feedback.md#12, BRAM_WORKING_MEMORY_SPEC.md#6.4",
+      "evidence": "results/A7-NATIVE-GRAPH/STATUS/CONFORMANCE_MIG_METRIC_00_vs_FEEDBACK_SPEC.md",
+      "note": "mig_metric_00 proved RTL<->TB agree on 16B stride only; repo-wide freeze still open"
+    },
+    {
+      "id": "mig_pe_wide",
+      "status": "QUEUED",
+      "from_audit": "SPEC §45.6 multi-lane access NOT demonstrated: ddr_feed_mig_top grants <=1 PE/cycle, pe_data is single 128-bit service not 16 lanes; feedback §5 lane util >=80% gate open (best measured 0.444)",
+      "authority": "BRAM_WORKING_MEMORY_SPEC.md#45, feedback.md#5, feedback.md#11",
+      "evidence": "results/A7-NATIVE-GRAPH/STATUS/CONFORMANCE_MIG_METRIC_00_vs_FEEDBACK_SPEC.md",
+      "superseded_in_part_by": "ddr_wavefront_00",
+      "note": "Do not add PEs; widen dispatch/service first per feedback §5. Fold into ddr_wavefront_00 result; do not run both."
+    },
+    {
+      "id": "full_integration",
+      "status": "BLOCKED",
+      "blocked_by": "bram_owner_00",
+      "from_audit": "Final 260 -> <=135 integration. Solve in order: memory delivery (ddr_wavefront_00) -> working-set size (lm06_wm_00 + ladder) -> ownership (bram_owner_00). Never jump straight to cutting LM-06 BRAM.",
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md",
+      "also_requires": [
+        "bram_ownership_report",
+        "record_schema_freeze"
+      ],
+      "note": "SPEC §28 forbids a full integration claim without BRAM_OWNERSHIP_POST_ROUTE.md. Human declares BOARD_PASS."
+    }
+  ],
+  "illegal_stop_examples": [
+    "NG-05 XSim only",
+    "status table / handshake / agent files",
+    "GlassBox",
+    "encoder ungated twin as Native V1",
+    "pair-winner Top-K as global Top-8",
+    "integrate_fit while correctness open",
+    "1.6G candidates/s without TermGen",
+    "EVIDENCE_PACKET as LM06_ACTIVE",
+    "BRAM WM as long-term knowledge",
+    "reset wipes frozen LM-06 backbone",
+    "physical wipe of all BRAM on every query reset",
+    "discard NG archives because BRAM tight",
+    "continue TRAIN on old graph state after law/representation/promotion change",
+    "delete old model instead of frozen control",
+    "change law and curriculum in one experiment",
+    "skip 20/40 facts to 800k"
+  ],
+  "encoder_lane": "PARKED — MUST_READ_UNBLOCK_H5 when editing eam only; do not glue; do not exit this loop"
+}

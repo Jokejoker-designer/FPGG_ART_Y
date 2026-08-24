@@ -1,0 +1,38 @@
+source {d:\Jetking_sem4\SEM_4\arty-a7-online-lm\tests\xsim\run_a7ng_perfmon.tcl}
+#     [file join $root rtl/native_graph/perfmon a7ng_perfmon.sv] \
+#     [file join $xsimdir tb_a7ng_perfmon.sv]]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm/rtl/native_graph/perfmon/a7ng_perfmon.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_perfmon
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm/tests/xsim/tb_a7ng_perfmon.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_a7ng_perfmon
+# if {[catch {exec $xelab_bin tb_a7ng_perfmon -s tb_a7ng_perfmon -timescale 1ns/1ps} elab_out]} { puts $elab_out; puts XELAB_FAIL; exit 3 }
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_a7ng_perfmon -s tb_a7ng_perfmon -timescale 1ns/1ps 
+Compiling module work.a7ng_perfmon
+Compiling module work.tb_a7ng_perfmon
+Built simulation snapshot tb_a7ng_perfmon
+# if {[catch {exec $xsim_bin tb_a7ng_perfmon -runall} sim_out]} { puts $sim_out; puts XSIM_FAIL; exit 4 }
+source xsim.dir/tb_a7ng_perfmon/xsim_script.tcl
+# xsim {tb_a7ng_perfmon} -autoloadwcfg -runall
+PERFMON_DUMP cycles=67 jobs=16 qocc_acc=17 idle=65 conf=0 starve=0 stale=1
+PERFMON_DUMP fr_push=18 fr_pop=18 fr_full=2 tk_bat=8 cand_in=128 cand_out=64
+PERFMON_LANE busy_acc[0]=2
+PERFMON_LANE busy_acc[1]=2
+PERFMON_LANE busy_acc[2]=2
+PERFMON_LANE busy_acc[3]=2
+PERFMON_LANE busy_acc[4]=2
+PERFMON_LANE busy_acc[5]=2
+PERFMON_LANE busy_acc[6]=2
+PERFMON_LANE busy_acc[7]=2
+PERFMON_LANE busy_acc[8]=2
+PERFMON_LANE busy_acc[9]=2
+PERFMON_LANE busy_acc[10]=2
+PERFMON_LANE busy_acc[11]=2
+PERFMON_LANE busy_acc[12]=2
+PERFMON_LANE busy_acc[13]=2
+PERFMON_LANE busy_acc[14]=2
+PERFMON_LANE busy_acc[15]=2
+A7NG_PERFMON_XSIM_PASS
+$finish called at time : 745 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm/tests/xsim/tb_a7ng_perfmon.sv" Line 303
+# if {![string match "*A7NG_PERFMON_XSIM_PASS*" $sim_out]} { puts A7NG_PERFMON_NO_PASS; exit 5 }
+# puts A7NG_PERFMON_XSIM_OK
+A7NG_PERFMON_XSIM_OK

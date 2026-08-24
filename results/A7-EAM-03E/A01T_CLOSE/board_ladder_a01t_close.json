@@ -1,0 +1,162 @@
+{
+  "lane": "A7-EAM-03E-A0",
+  "law": "eam03e-a0-signsgd-v1",
+  "claim": "FPGA SAME closer / DIFF farther on train pairs; NOT unseen paraphrase",
+  "verdict": "A7EAM03EA0_PASS",
+  "ping": {
+    "kind": 129,
+    "flags": 0,
+    "dH": 51,
+    "d1": 12353,
+    "cue": 0,
+    "learn": false,
+    "freeze": false
+  },
+  "checks": {
+    "map0_same_shrink": true,
+    "map0_diff_gt_same": true,
+    "reset_erases": true,
+    "swap_new_geometry": true,
+    "seed2_same_shrink": true
+  },
+  "notes": [],
+  "runs": [
+    {
+      "seed": 286331153,
+      "swap": false,
+      "pre_ab": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 3930,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      },
+      "pre_ac": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 5362,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      },
+      "post_ab": {
+        "kind": 163,
+        "flags": 2,
+        "dH": 0,
+        "d1": 1093,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": true
+      },
+      "post_ac": {
+        "kind": 163,
+        "flags": 2,
+        "dH": 0,
+        "d1": 2012,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": true
+      }
+    },
+    {
+      "reset_ab": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 3930,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      }
+    },
+    {
+      "seed": 286331153,
+      "swap": true,
+      "pre_ab": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 3930,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      },
+      "pre_ac": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 5362,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      },
+      "post_ab": {
+        "kind": 163,
+        "flags": 2,
+        "dH": 0,
+        "d1": 1574,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": true
+      },
+      "post_ac": {
+        "kind": 163,
+        "flags": 2,
+        "dH": 0,
+        "d1": 451,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": true
+      }
+    },
+    {
+      "seed": 572662306,
+      "swap": false,
+      "pre_ab": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 2135,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      },
+      "pre_ac": {
+        "kind": 163,
+        "flags": 0,
+        "dH": 0,
+        "d1": 1679,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": false
+      },
+      "post_ab": {
+        "kind": 163,
+        "flags": 2,
+        "dH": 0,
+        "d1": 1487,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": true
+      },
+      "post_ac": {
+        "kind": 163,
+        "flags": 2,
+        "dH": 0,
+        "d1": 229,
+        "cue": 18446744073709551615,
+        "learn": false,
+        "freeze": true
+      }
+    }
+  ],
+  "frozen": {
+    "arty_a7_lm06c3.bit": true,
+    "arty_a7_eam01r.bit": true,
+    "arty_a7_eam02m.bit": true
+  },
+  "ts": "2026-08-20T03:04:23.569974+00:00"
+}

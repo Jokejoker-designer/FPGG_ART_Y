@@ -1,0 +1,4 @@
+wf_global_topk_integrated_00 VERIFY_ONLY a7-vivado-gate PASS_NARROW 2026-08-22
+global: WNS=-47.161 TNS=-17804.451 DSP=0 LUT=10687
+wavefront: WNS=-49.463 TNS=-307116.906 DSP=0 LUT=42053
+RTL SHA match integrated/CLOSEOUT.md; no bitstream; no BOARD_PASS

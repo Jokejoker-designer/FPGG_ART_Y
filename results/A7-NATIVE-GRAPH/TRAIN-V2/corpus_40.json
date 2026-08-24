@@ -1,0 +1,375 @@
+{
+  "corpus_id": "train_v2_facts_40",
+  "n_facts": 40,
+  "preregistered": true,
+  "law_curriculum_frozen": true,
+  "facts": [
+    {
+      "id": "f01",
+      "text": "FPGA is a field-programmable gate array."
+    },
+    {
+      "id": "f02",
+      "text": "FPGA configuration is stored in bitstream."
+    },
+    {
+      "id": "f03",
+      "text": "LUT implements combinational logic."
+    },
+    {
+      "id": "f04",
+      "text": "FF stores sequential state."
+    },
+    {
+      "id": "f05",
+      "text": "BRAM is on-chip block memory."
+    },
+    {
+      "id": "f06",
+      "text": "DSP slices accelerate multiply-accumulate."
+    },
+    {
+      "id": "f07",
+      "text": "DDR is off-chip bulk memory."
+    },
+    {
+      "id": "f08",
+      "text": "MIG is the memory interface generator."
+    },
+    {
+      "id": "f09",
+      "text": "Arty A7-100T uses xc7a100t."
+    },
+    {
+      "id": "f10",
+      "text": "CPU executes instructions sequentially."
+    },
+    {
+      "id": "f11",
+      "text": "FPGA can parallelize many PE lanes."
+    },
+    {
+      "id": "f12",
+      "text": "WNS is worst negative slack."
+    },
+    {
+      "id": "f13",
+      "text": "TNS is total negative slack."
+    },
+    {
+      "id": "f14",
+      "text": "Teacher supplies rewards not gradients."
+    },
+    {
+      "id": "f15",
+      "text": "Blind exam forbids attention hints."
+    },
+    {
+      "id": "f16",
+      "text": "Hotset is BRAM cache of DDR shards."
+    },
+    {
+      "id": "f17",
+      "text": "Frontier holds candidate paths."
+    },
+    {
+      "id": "f18",
+      "text": "Bomb prunes current path only."
+    },
+    {
+      "id": "f19",
+      "text": "Contradiction is a hard negative."
+    },
+    {
+      "id": "f20",
+      "text": "LM-06 composes language from evidence."
+    },
+    {
+      "id": "f21",
+      "text": "XDC constrains pin and timing."
+    },
+    {
+      "id": "f22",
+      "text": "Bitstream programs configuration memory."
+    },
+    {
+      "id": "f23",
+      "text": "AXI connects masters to slaves."
+    },
+    {
+      "id": "f24",
+      "text": "UART carries host telemetry."
+    },
+    {
+      "id": "f25",
+      "text": "JTAG programs and debugs silicon."
+    },
+    {
+      "id": "f26",
+      "text": "PLL generates derived clocks."
+    },
+    {
+      "id": "f27",
+      "text": "MMCM multiplies and divides clocks."
+    },
+    {
+      "id": "f28",
+      "text": "IOBUF drives board pins."
+    },
+    {
+      "id": "f29",
+      "text": "CDC crosses clock domains safely."
+    },
+    {
+      "id": "f30",
+      "text": "FIFO buffers rate mismatches."
+    },
+    {
+      "id": "f31",
+      "text": "Top-K selects highest scores."
+    },
+    {
+      "id": "f32",
+      "text": "Scorer lanes compute integer scores."
+    },
+    {
+      "id": "f33",
+      "text": "Episode records bind query context."
+    },
+    {
+      "id": "f34",
+      "text": "Node16 packs graph node fields."
+    },
+    {
+      "id": "f35",
+      "text": "Edge32 packs typed relations."
+    },
+    {
+      "id": "f36",
+      "text": "TermGen expands token families."
+    },
+    {
+      "id": "f37",
+      "text": "Working memory is BRAM-scoped."
+    },
+    {
+      "id": "f38",
+      "text": "Long-term knowledge is DDR-backed."
+    },
+    {
+      "id": "f39",
+      "text": "Teacher-off forbids attention hints."
+    },
+    {
+      "id": "f40",
+      "text": "Training generation invalidates old priors."
+    }
+  ],
+  "train_queries": [
+    {
+      "id": "q01",
+      "query": "What is an FPGA?",
+      "relevant": [
+        "f01",
+        "f09"
+      ],
+      "hard_neg": [
+        "f10"
+      ]
+    },
+    {
+      "id": "q02",
+      "query": "Where does FPGA config live?",
+      "relevant": [
+        "f02"
+      ],
+      "hard_neg": [
+        "f07"
+      ]
+    },
+    {
+      "id": "q03",
+      "query": "What is BRAM?",
+      "relevant": [
+        "f05",
+        "f16"
+      ],
+      "hard_neg": [
+        "f10"
+      ]
+    },
+    {
+      "id": "q04",
+      "query": "How does FPGA parallelize?",
+      "relevant": [
+        "f11",
+        "f17"
+      ],
+      "hard_neg": [
+        "f10"
+      ]
+    },
+    {
+      "id": "q05",
+      "query": "What is WNS?",
+      "relevant": [
+        "f12"
+      ],
+      "hard_neg": [
+        "f13"
+      ]
+    },
+    {
+      "id": "q06",
+      "query": "Who may send gradients?",
+      "relevant": [
+        "f14"
+      ],
+      "hard_neg": [
+        "f06"
+      ]
+    },
+    {
+      "id": "q07",
+      "query": "Define bomb prune.",
+      "relevant": [
+        "f18"
+      ],
+      "hard_neg": [
+        "f19"
+      ]
+    },
+    {
+      "id": "q08",
+      "query": "Explain DDR role.",
+      "relevant": [
+        "f07"
+      ],
+      "hard_neg": [
+        "f05"
+      ]
+    },
+    {
+      "id": "q09",
+      "query": "What is TermGen?",
+      "relevant": [
+        "f36"
+      ],
+      "hard_neg": [
+        "f31"
+      ]
+    },
+    {
+      "id": "q10",
+      "query": "Where is long-term knowledge?",
+      "relevant": [
+        "f38"
+      ],
+      "hard_neg": [
+        "f37"
+      ]
+    },
+    {
+      "id": "q11",
+      "query": "What is working memory?",
+      "relevant": [
+        "f37"
+      ],
+      "hard_neg": [
+        "f38"
+      ]
+    },
+    {
+      "id": "q12",
+      "query": "How does Top-K work?",
+      "relevant": [
+        "f31"
+      ],
+      "hard_neg": [
+        "f32"
+      ]
+    }
+  ],
+  "held_out": [
+    {
+      "id": "h01",
+      "query": "Define field-programmable gate array.",
+      "gold_relevant": [
+        "f01"
+      ],
+      "unrelated": [
+        "f10"
+      ],
+      "contradiction": [
+        "f10"
+      ]
+    },
+    {
+      "id": "h02",
+      "query": "Explain on-chip block RAM role.",
+      "gold_relevant": [
+        "f05"
+      ],
+      "unrelated": [
+        "f12"
+      ],
+      "contradiction": [
+        "f10"
+      ]
+    },
+    {
+      "id": "h03",
+      "query": "Contrast sequential CPU execution vs FPGA PE lanes.",
+      "gold_relevant": [
+        "f10",
+        "f11"
+      ],
+      "unrelated": [
+        "f13"
+      ],
+      "contradiction": [
+        "f01"
+      ]
+    },
+    {
+      "id": "h04",
+      "query": "Who may send gradients to the board?",
+      "gold_relevant": [
+        "f14"
+      ],
+      "unrelated": [
+        "f06"
+      ],
+      "contradiction": [
+        "f14"
+      ]
+    },
+    {
+      "id": "h05",
+      "query": "Define token family expansion.",
+      "gold_relevant": [
+        "f36"
+      ],
+      "unrelated": [
+        "f21"
+      ],
+      "contradiction": [
+        "f10"
+      ]
+    },
+    {
+      "id": "h06",
+      "query": "Contrast BRAM working memory vs DDR knowledge.",
+      "gold_relevant": [
+        "f37",
+        "f38"
+      ],
+      "unrelated": [
+        "f24"
+      ],
+      "contradiction": [
+        "f01"
+      ]
+    }
+  ]
+}

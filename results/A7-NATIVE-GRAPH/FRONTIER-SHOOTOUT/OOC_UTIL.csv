@@ -1,0 +1,4 @@
+arm,module,LUT,FF
+A_bucket,a7ng_frontier_buckets,1169,3242
+B_systolic,a7ng_frontier_systolic_pq,5848,3130
+C_twolevel,a7ng_frontier_twolevel,7936,3150

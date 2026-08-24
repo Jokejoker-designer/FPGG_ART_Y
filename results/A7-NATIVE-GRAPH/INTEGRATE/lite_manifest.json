@@ -1,0 +1,12 @@
+{
+  "bit": "build/out/arty_a7_ng_integrate_lite.bit",
+  "sha256": "574C7E417D8FE768A142B74DA2AE7D63194BF58E32D40CEDC2ED49FDDD2516B8",
+  "wns_ns": 3.268,
+  "lut": "23",
+  "ff": "23",
+  "bram": "0",
+  "dsp": "0",
+  "scope": "graph scorer + episode bank; NO LM-06/01R/02M",
+  "jtag_log": "results/A7-NATIVE-GRAPH/INTEGRATE/JTAG_lite_xsdb.log",
+  "board_pass": false
+}

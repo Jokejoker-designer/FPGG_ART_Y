@@ -1,0 +1,24 @@
+---
+description: A7-NATIVE-GRAPH blueprint lane — read before native_graph work
+globs:
+  - rtl/native_graph/**
+  - docs/native_graph/**
+  - docs/NATIVE_AI_ARTY_A7_BLUEPRINT/**
+  - results/A7-NATIVE-GRAPH/**
+  - .agents/workflows/native-graph/**
+alwaysApply: false
+---
+
+# A7-NATIVE-GRAPH
+
+Before editing native_graph RTL or NG closeouts:
+
+1. Read `docs/NATIVE_AI_ARTY_A7_BLUEPRINT/04_HARDSTOPS.md`
+2. Read `docs/native_graph/CONTRACT_FREEZE.md`
+3. Follow `.agents/workflows/native-graph/pipeline.json` stage order
+4. Use crew in `.agents/workflows/native-graph/registry.yaml`
+
+Do not overwrite frozen A0.3 / 01R / 02M / LM-06.  
+Do not claim logical agents as physical cores.  
+GlassBox stays closed until Native V1 freeze.  
+Encoder H5 lane remains separate — do not rename into graph PASS.

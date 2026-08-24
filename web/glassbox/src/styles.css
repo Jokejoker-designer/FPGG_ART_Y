@@ -1,0 +1,283 @@
+@import "tailwindcss";
+
+/*
+ * GlassBox Studio design tokens — SPEC §7.
+ *
+ * Two naming families live here on purpose. The short names (`bg`, `fg`,
+ * `cyan`, `ok`, `warn`) are the ones the tab components use. The `--gb-*`
+ * family is what Canvas and SVG chart code reads at runtime through
+ * `src/design/tokens.ts`, because a canvas cannot use a Tailwind class. Both
+ * point at the same values, and `audit/a11y/contrast-check.mjs` measures them.
+ *
+ * `tw-animate-css` was dropped along with its dependency: the two animations
+ * this product needs are defined at the bottom of this file and are both
+ * state-driven, per §8.2's rule against animation not backed by data.
+ */
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Surfaces */
+  --color-bg: #070b10;
+  --color-surface: #0e141c;
+  --color-card: #141c26;
+  --color-raised: #1c2632;
+  --color-line: #243040;
+  /* Interactive boundary. Must clear 3:1 (SC 1.4.11), unlike --color-line
+     which is a decorative separator only. */
+  --color-line-strong: #7c8aa0;
+
+  /* Text. `subtle` is measured as body text because pills and captions render
+     it at 11-12px; see the note in contrast-check.mjs. */
+  --color-fg: #e8eef4;
+  --color-muted: #9aa8b8;
+  --color-subtle: #8b99a9;
+
+  /* §7.3 semantic roles */
+  --color-cyan: #22d3ee;
+  --color-cyan-dim: #155e75;
+  --color-ok: #34d399;
+  --color-warn: #fbbf24;
+  --color-bad: #f87171;
+  --color-learn: #a78bfa;
+  --color-mem: #2dd4bf;
+  --color-model: #60a5fa;
+
+  /* §25 provenance. BOARD is the only authoritative source; the rest are
+     cooler and lower-chroma so a TWIN reading cannot pass as silicon. */
+  --color-ev-board: #34d399;
+  --color-ev-xsim: #60a5fa;
+  --color-ev-twin: #fbbf24;
+  --color-ev-derived: #a78bfa;
+  --color-ev-synthetic: #8b99a9;
+
+  --text-micro: 0.625rem;
+  --text-caption: 0.6875rem;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-panel: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 10px 32px rgba(0, 0, 0, 0.32);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Chart-facing mirror of the same values, read at runtime by Canvas/SVG code. */
+:root {
+  --gb-bg: #070b10;
+  --gb-surface-1: #0e141c;
+  --gb-surface-2: #141c26;
+  --gb-surface-3: #1c2632;
+  --gb-border: #243040;
+  --gb-border-strong: #7c8aa0;
+
+  --gb-text: #e8eef4;
+  --gb-text-muted: #9aa8b8;
+  --gb-text-faint: #8b99a9;
+
+  --gb-primary: #22d3ee;
+  --gb-primary-strong: #67e8f9;
+  --gb-primary-dim: #155e75;
+  --gb-pass: #34d399;
+  --gb-attention: #fbbf24;
+  --gb-fail: #f87171;
+  --gb-learn: #a78bfa;
+  --gb-memory: #2dd4bf;
+  --gb-model: #60a5fa;
+  --gb-output: #34d399;
+  --gb-inactive: #6d7b8a;
+
+  --gb-evidence-board: #34d399;
+  --gb-evidence-xsim: #60a5fa;
+  --gb-evidence-twin: #fbbf24;
+  --gb-evidence-derived: #a78bfa;
+  --gb-evidence-synthetic: #8b99a9;
+
+  --gb-radius-card: 14px;
+  --gb-radius-control: 10px;
+  --gb-radius-pill: 999px;
+
+  /* §7.6 density */
+  --gb-space-card: 16px;
+  --gb-space-row: 10px;
+  --gb-row-height: 32px;
+  --gb-text-size-value: 15px;
+}
+
+/* Matches any element, not just :root, so a Storybook decorator gets the same
+   cascade the app gets on <html>. */
+[data-density="research"] {
+  --gb-space-card: 10px;
+  --gb-space-row: 6px;
+  --gb-row-height: 26px;
+  --gb-text-size-value: 13px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    /* §7.4 figures never reflow a column as values change. */
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* §28 focus is always visible and never removed without replacement. */
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* §7.4 numeric and RTL values render in the mono face with fixed-width digits. */
+.gb-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.text-ink {
+  color: var(--gb-text);
+}
+
+.text-ink-muted {
+  color: var(--gb-text-muted);
+}
+
+.rounded-pill {
+  border-radius: var(--gb-radius-pill);
+}
+
+/* Screen-reader-only text for chart summaries and status announcements. */
+.gb-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.gb-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+}
+
+.gbx-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.gbx-scroll::-webkit-scrollbar-thumb {
+  background: #2a3441;
+  border-radius: 99px;
+}
+
+/* §8.1 animated stage flow. Only an `active` stage animates, and `active` comes
+   from recorded or live state, never from a timer. */
+@keyframes gbx-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(34, 211, 238, 0);
+  }
+}
+
+.gbx-active {
+  animation: gbx-pulse 1.8s var(--ease-out) infinite;
+}
+
+@keyframes gb-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.gb-stage-active {
+  animation: gb-pulse 1.4s ease-in-out infinite;
+}
+
+.gbx-dot-live {
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18);
+}
+
+/* §27: three-column from 1440px; inspectors are drawers below that. */
+@media (min-width: 1440px) {
+  .gb-studio-body {
+    flex-direction: row;
+  }
+
+  .gb-insight-open {
+    display: none !important;
+  }
+
+  .gb-insight-rail {
+    position: static !important;
+    transform: none !important;
+    background: color-mix(in oklab, var(--color-surface) 60%, transparent);
+  }
+
+  .gb-insight-backdrop,
+  .gb-insight-close {
+    display: none !important;
+  }
+}
+
+/* §28 reduced motion actually disables animation rather than shortening it. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

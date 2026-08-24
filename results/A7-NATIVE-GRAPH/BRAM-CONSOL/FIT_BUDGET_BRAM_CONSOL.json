@@ -1,0 +1,73 @@
+{
+  "gate": "bram_consolidate",
+  "agent": "a7-ng-memory-arch",
+  "device": "xc7a100tcsg324-1",
+  "evidence_class": "POST_ROUTE_PROXY",
+  "verdict": "PASS_NARROW",
+  "board_pass": false,
+  "hs22_closed": false,
+  "scientific": {
+    "observation": "TinyGPT cannot co-reside with full on-chip wt+u_a (headroom 7; additive 260>135)",
+    "unknown": "can one consolidation (DDR spill or WM share of wt and/or act) free enough BRAM that projected TinyGPT+remainder \u2264135 Prefer WNS\u22650 without overwriting frozen LM-06?",
+    "h_candidate": "post-route or honest util+measured consol shows headroom\u2265132 or co-fit PASS_NARROW",
+    "h_rival": "paper headroom without RTL; invent pe_alive; hand-edit mig.prj",
+    "falsifier": "frozen overwrite; BOARD_PASS; util>135 sold as PASS",
+    "control": "UA 4451AFD9\u2026; TinyGPT LIMIT archive; mig.prj MATCH",
+    "unit": "one post-route SoC/proxy composition (BRAM tiles), not clock cycles",
+    "lever": "WM_phase_share_wt_and_act"
+  },
+  "measured_consol": {
+    "top": "a7ng_bram_consol_top",
+    "shared_tiles": 132,
+    "bram_tiles": 132,
+    "bram_available": 135,
+    "bram_pct": 97.78,
+    "ramb36": 132,
+    "ramb18": 0,
+    "lut": 153,
+    "ff": 23,
+    "dsp": 0,
+    "wns_ns": 0.586,
+    "tns_ns": 0.0,
+    "whs_ns": 0.069,
+    "ths_ns": 0.0,
+    "prefer_le_130": false,
+    "bit": "results/A7-NATIVE-GRAPH/BRAM-CONSOL/arty_a7_ng_bram_consol.bit",
+    "sha256": "83A438B5342446C9E79A537196777B1BCF2468FC57F9379EA2CB8EFE0A7D3AEF",
+    "util_rpt": "results/A7-NATIVE-GRAPH/BRAM-CONSOL/consol_util.rpt",
+    "timing_rpt": "results/A7-NATIVE-GRAPH/BRAM-CONSOL/consol_timing.rpt"
+  },
+  "control": {
+    "ua_sha256": "4451AFD9B07D8FF52791CCBF6338862FF36B721DF9FBB9BD19EC726BEA67F40E",
+    "ua_bram": 128,
+    "ua_headroom": 7,
+    "tinygpt_lm06_sha256": "67C37DD51AED30F82B5B72EC9EF0736DDABA534ED1D724D0ADCAFD2B4282E3BA",
+    "tinygpt_bram": 132,
+    "additive_bram": 260,
+    "mig_prj_sha256": "870FA6EEC23436FA8AD2A8772A80865016807CA37542C0C994E9E1E88152190D",
+    "mig_port_interface": "AXI",
+    "mig_app_star_hits": 0,
+    "mig_hand_edit": false,
+    "frozen_bits": "MATCH"
+  },
+  "projection": {
+    "cofit_bram": 132,
+    "cofit_ok": true,
+    "headroom_after": 3,
+    "headroom_ge_132": false,
+    "formula": "WM share => shared_pool = max(UA_wt_ua, TinyGPT) = 132; not additive 260",
+    "vs_additive_freed_tiles": 128
+  },
+  "limits": [
+    "POST_ROUTE_PROXY_not_full_TinyGPT_UA_SoC",
+    "prefer_le_130_not_met",
+    "HS22_OPEN",
+    "no_BOARD_PASS",
+    "no_pe_alive_invented"
+  ],
+  "rtl": [
+    "rtl/native_graph/memory/a7ng_bram_consol.sv",
+    "rtl/native_graph/memory/a7ng_bram_consol_tile.sv",
+    "rtl/native_graph/memory/a7ng_bram_consol_top.sv"
+  ]
+}

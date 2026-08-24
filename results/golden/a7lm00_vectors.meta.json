@@ -1,0 +1,17 @@
+{
+  "logits": 1000,
+  "grad_cases": 8,
+  "generate": 20,
+  "init_sha_tok": "eaaebfce8a8fde6afdee1433e3b32eabbdb8c2c57e282f15c8c0f3dd5228b305",
+  "one_step_moved": {
+    "tok": true,
+    "pos": true,
+    "wq": true,
+    "wk": true,
+    "wv": true,
+    "wo": true,
+    "ff1": true,
+    "ff2": true,
+    "head": true
+  }
+}

@@ -1,0 +1,9 @@
+workload=A7LM06_FWD_ONLY
+SIM_FULL=1
+evidence_class=LM06_XSIM_RESEARCH
+busy_cycles=2730657
+act_cycles=2730657 act_wr=6272 act_diff_addr=2515697 act_rw_collide=512 max_act_ports=2
+w_wr=0 w_diff_addr=0 max_w_ports=2
+snap_w=2560 snap_rw_collide=0
+pred=744 exp_pred=744
+NOTE=SIM_FULL1_weight_array_not_silicon_TILE; act/snap dual-port FSM is law-faithful

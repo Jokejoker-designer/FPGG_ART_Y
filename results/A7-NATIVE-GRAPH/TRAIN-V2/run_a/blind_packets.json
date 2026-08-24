@@ -1,0 +1,26 @@
+[
+  {
+    "lesson_id": "h01",
+    "phase": "BLIND_EXAM",
+    "query": "Define field-programmable gate array.",
+    "supervision": []
+  },
+  {
+    "lesson_id": "h02",
+    "phase": "BLIND_EXAM",
+    "query": "Explain on-chip block RAM role.",
+    "supervision": []
+  },
+  {
+    "lesson_id": "h03",
+    "phase": "BLIND_EXAM",
+    "query": "Contrast sequential CPU execution vs FPGA PE lanes.",
+    "supervision": []
+  },
+  {
+    "lesson_id": "h04",
+    "phase": "BLIND_EXAM",
+    "query": "Who may send gradients to the board?",
+    "supervision": []
+  }
+]

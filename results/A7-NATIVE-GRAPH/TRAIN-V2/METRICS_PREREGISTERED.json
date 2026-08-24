@@ -1,0 +1,49 @@
+{
+  "declared_before_run": true,
+  "unit": "fact_bag_query_set",
+  "not_unit": "clock_cycle_count_alone",
+  "teacher_train": {
+    "teacher": 1,
+    "learning": 1,
+    "freeze": 0
+  },
+  "teacher_off_eval": {
+    "teacher": 0,
+    "learning": 0,
+    "freeze": 1,
+    "external_LLM": 0
+  },
+  "metrics": {
+    "top1_accuracy": {
+      "pass_min_v2": 0.75,
+      "pass_min_delta_vs_warm": 0.25
+    },
+    "topk_recall": {
+      "pass_min_v2": 0.85
+    },
+    "hard_negative_fp": {
+      "pass_max": 0
+    },
+    "held_out_paraphrase_hit": {
+      "pass_min_v2": 0.5
+    },
+    "run_b_forgets_a": {
+      "pass": true
+    },
+    "v2_beats_warm": {
+      "pass": true
+    },
+    "v2_ge_control_top1": {
+      "pass": true
+    },
+    "control_sha_unchanged": {
+      "pass": true
+    },
+    "frozen_bits_match": {
+      "pass": true
+    }
+  },
+  "ce_policy": "CE only if on-device; harness does not use host CE as answer path",
+  "evidence_class": "HARNESS",
+  "board_pass": false
+}

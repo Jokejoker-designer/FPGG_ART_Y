@@ -1,0 +1,5 @@
+VERDICT=PASS_NARROW
+NOTE=co-fit proj BRAM=132.0<=135 Prefer WNS>=0; WM share collapses 260; HS-22 OPEN; not BOARD_PASS; prefer<=130 not met (device OK)
+BRAM_TILES=132.0
+WNS=0.586 TNS=0.0
+COFIT_PROJ=132.0 ADDITIVE=260

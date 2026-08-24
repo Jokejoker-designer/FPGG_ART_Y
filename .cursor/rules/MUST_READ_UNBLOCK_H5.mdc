@@ -1,0 +1,35 @@
+---
+description: MUST READ before any 03E encoder / stability / A0.2-L / SignSGD work. H5 ungated DIFF.
+globs:
+  - rtl/eam/**
+  - python/eam/**
+  - tools/a7eam03e*
+  - results/A7-EAM-03E/**
+  - docs/contracts/A7-EAM-03E*
+  - MUST_READ_UNBLOCK_H5.md
+alwaysApply: false
+---
+
+# MUST READ — encoder unblock (do this first)
+
+Read **in full** before any RTL, sweep, or closeout:
+
+`MUST_READ_UNBLOCK_H5.md`  (repo root)
+
+Also: `results/A7-EAM-03E/MUST_READ_UNBLOCK_H5.md`
+
+## Bottleneck (do not re-diagnose S2)
+
+A0.3 silicon is **exact**. Collapse is **H5**: DIFF gated by `d1 < E3_MARG` (4096) so SAME-only attraction empties the metric.
+
+S2 Wh-clamp is **FALSIFIED**. Do **not** tighten clamp. Do **not** glue 01R/02M/LM-06.
+
+Copy host already measured seed `0x22222222` (`Σ|Δ|>>5`): gated silicon M=−1258; hinge m=0 +42; **always-repel +1545**.
+
+## Next (one unknown)
+
+Twin law `eam03e-a03-ungated-diff-v1`: DIFF **always** pushes when `learn && !same`. New goldens. Then RTL. Then A0.2-L.
+
+First assistant line this session:
+
+`MUST_READ_UNBLOCK_H5: read. Next = ungated DIFF twin (not S2, not glue).`

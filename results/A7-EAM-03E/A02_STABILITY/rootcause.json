@@ -1,0 +1,2112 @@
+{
+  "phase": "A7-EAM-03E-A02-ROOTCAUSE-v1",
+  "law_under_test": "eam03e-a0-signsgd-v1",
+  "law_changed": false,
+  "evidence_class": "REFERENCE_MODEL",
+  "hypotheses": {
+    "H1": "recurrent scale runaway (Wh/acc growth drives saturation)",
+    "H2": "unsigned concat + logical shift in h_update rails h from negative acc"
+  },
+  "traces": [
+    {
+      "text": "ALPHA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 76,
+      "acc_negative_rate": 0.475,
+      "acc_min": -29678824,
+      "railed_cells": 117,
+      "rail_rate": 0.7312,
+      "railed_caused_by_negative_acc": 66,
+      "share_of_rails_from_negative_acc": 0.5641,
+      "h_final_railed": 26,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 65,
+          "railed": 14,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 76,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 80,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 72,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "asis"
+    },
+    {
+      "text": "BETA.",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 76,
+      "acc_negative_rate": 0.475,
+      "acc_min": -29996105,
+      "railed_cells": 109,
+      "rail_rate": 0.6813,
+      "railed_caused_by_negative_acc": 62,
+      "share_of_rails_from_negative_acc": 0.5688,
+      "h_final_railed": 27,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 66,
+          "railed": 12,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 69,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 84,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 46,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "asis"
+    },
+    {
+      "text": "OMEGA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 73,
+      "acc_negative_rate": 0.4562,
+      "acc_min": -26778315,
+      "railed_cells": 111,
+      "rail_rate": 0.6937,
+      "railed_caused_by_negative_acc": 62,
+      "share_of_rails_from_negative_acc": 0.5586,
+      "h_final_railed": 24,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 79,
+          "railed": 12,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 77,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 69,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 71,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "asis"
+    },
+    {
+      "text": "Nguyen Van An",
+      "tokens": 13,
+      "cells": 416,
+      "acc_negative_cells": 225,
+      "acc_negative_rate": 0.5409,
+      "acc_min": -32308668,
+      "railed_cells": 315,
+      "rail_rate": 0.7572,
+      "railed_caused_by_negative_acc": 192,
+      "share_of_rails_from_negative_acc": 0.6095,
+      "h_final_railed": 25,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 78,
+          "railed": 14,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 103,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 117,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 121,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 101,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 86,
+          "railed": 22,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "asis"
+    },
+    {
+      "text": "Tran Thi Mai",
+      "tokens": 12,
+      "cells": 384,
+      "acc_negative_cells": 217,
+      "acc_negative_rate": 0.5651,
+      "acc_min": -31735360,
+      "railed_cells": 291,
+      "rail_rate": 0.7578,
+      "railed_caused_by_negative_acc": 181,
+      "share_of_rails_from_negative_acc": 0.622,
+      "h_final_railed": 23,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 84,
+          "railed": 15,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 114,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 84,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 104,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 105,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 77,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 105,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "asis"
+    },
+    {
+      "text": "ALPHA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 54,
+      "acc_negative_rate": 0.3375,
+      "acc_min": -26276346,
+      "railed_cells": 119,
+      "rail_rate": 0.7438,
+      "railed_caused_by_negative_acc": 47,
+      "share_of_rails_from_negative_acc": 0.395,
+      "h_final_railed": 27,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 65,
+          "railed": 12,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 76,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 80,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 72,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "asis"
+    },
+    {
+      "text": "BETA.",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 56,
+      "acc_negative_rate": 0.35,
+      "acc_min": -25931169,
+      "railed_cells": 119,
+      "rail_rate": 0.7438,
+      "railed_caused_by_negative_acc": 49,
+      "share_of_rails_from_negative_acc": 0.4118,
+      "h_final_railed": 28,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 66,
+          "railed": 12,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 69,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 84,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 46,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "asis"
+    },
+    {
+      "text": "OMEGA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 54,
+      "acc_negative_rate": 0.3375,
+      "acc_min": -26208108,
+      "railed_cells": 126,
+      "rail_rate": 0.7875,
+      "railed_caused_by_negative_acc": 49,
+      "share_of_rails_from_negative_acc": 0.3889,
+      "h_final_railed": 29,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 79,
+          "railed": 17,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 77,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 69,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 71,
+          "railed": 31,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "asis"
+    },
+    {
+      "text": "Nguyen Van An",
+      "tokens": 13,
+      "cells": 416,
+      "acc_negative_cells": 154,
+      "acc_negative_rate": 0.3702,
+      "acc_min": -26486067,
+      "railed_cells": 347,
+      "rail_rate": 0.8341,
+      "railed_caused_by_negative_acc": 137,
+      "share_of_rails_from_negative_acc": 0.3948,
+      "h_final_railed": 28,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 78,
+          "railed": 18,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 103,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 117,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 121,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 101,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 86,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "asis"
+    },
+    {
+      "text": "Tran Thi Mai",
+      "tokens": 12,
+      "cells": 384,
+      "acc_negative_cells": 149,
+      "acc_negative_rate": 0.388,
+      "acc_min": -27472474,
+      "railed_cells": 300,
+      "rail_rate": 0.7812,
+      "railed_caused_by_negative_acc": 123,
+      "share_of_rails_from_negative_acc": 0.41,
+      "h_final_railed": 27,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 84,
+          "railed": 12,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 114,
+          "railed": 22,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 84,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 104,
+          "railed": 23,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 105,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 77,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 105,
+          "railed": 27,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "asis"
+    },
+    {
+      "text": "ALPHA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 64,
+      "acc_negative_rate": 0.4,
+      "acc_min": -38971314,
+      "railed_cells": 119,
+      "rail_rate": 0.7438,
+      "railed_caused_by_negative_acc": 49,
+      "share_of_rails_from_negative_acc": 0.4118,
+      "h_final_railed": 28,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 65,
+          "railed": 19,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 76,
+          "railed": 20,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 80,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 72,
+          "railed": 26,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "asis"
+    },
+    {
+      "text": "BETA.",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 63,
+      "acc_negative_rate": 0.3937,
+      "acc_min": -39729962,
+      "railed_cells": 122,
+      "rail_rate": 0.7625,
+      "railed_caused_by_negative_acc": 54,
+      "share_of_rails_from_negative_acc": 0.4426,
+      "h_final_railed": 28,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 66,
+          "railed": 13,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 69,
+          "railed": 24,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 84,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 46,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "asis"
+    },
+    {
+      "text": "OMEGA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 62,
+      "acc_negative_rate": 0.3875,
+      "acc_min": -35793025,
+      "railed_cells": 130,
+      "rail_rate": 0.8125,
+      "railed_caused_by_negative_acc": 58,
+      "share_of_rails_from_negative_acc": 0.4462,
+      "h_final_railed": 30,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 79,
+          "railed": 16,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 77,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 69,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 71,
+          "railed": 31,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "asis"
+    },
+    {
+      "text": "Nguyen Van An",
+      "tokens": 13,
+      "cells": 416,
+      "acc_negative_cells": 189,
+      "acc_negative_rate": 0.4543,
+      "acc_min": -39310600,
+      "railed_cells": 371,
+      "rail_rate": 0.8918,
+      "railed_caused_by_negative_acc": 182,
+      "share_of_rails_from_negative_acc": 0.4906,
+      "h_final_railed": 30,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 78,
+          "railed": 17,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 103,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 117,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 121,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 101,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 31,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 86,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 31,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 65,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "asis"
+    },
+    {
+      "text": "Tran Thi Mai",
+      "tokens": 12,
+      "cells": 384,
+      "acc_negative_cells": 185,
+      "acc_negative_rate": 0.4818,
+      "acc_min": -40221990,
+      "railed_cells": 336,
+      "rail_rate": 0.875,
+      "railed_caused_by_negative_acc": 171,
+      "share_of_rails_from_negative_acc": 0.5089,
+      "h_final_railed": 29,
+      "h_final_negative": 0,
+      "per_token": [
+        {
+          "byte": 84,
+          "railed": 15,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 114,
+          "railed": 25,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 110,
+          "railed": 31,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 84,
+          "railed": 31,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 104,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 105,
+          "railed": 28,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 32,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 77,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 97,
+          "railed": 30,
+          "negative": 0,
+          "max_abs": 32767
+        },
+        {
+          "byte": 105,
+          "railed": 29,
+          "negative": 0,
+          "max_abs": 32767
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "asis"
+    },
+    {
+      "text": "ALPHA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 61,
+      "acc_negative_rate": 0.3812,
+      "acc_min": -250775,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 18,
+      "per_token": [
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 126
+        },
+        {
+          "byte": 76,
+          "railed": 0,
+          "negative": 11,
+          "max_abs": 314
+        },
+        {
+          "byte": 80,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 402
+        },
+        {
+          "byte": 72,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 1150
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 916
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "signed"
+    },
+    {
+      "text": "BETA.",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 67,
+      "acc_negative_rate": 0.4188,
+      "acc_min": -409572,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 17,
+      "per_token": [
+        {
+          "byte": 66,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 127
+        },
+        {
+          "byte": 69,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 306
+        },
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 749
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 1500
+        },
+        {
+          "byte": 46,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 1549
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "signed"
+    },
+    {
+      "text": "OMEGA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 60,
+      "acc_negative_rate": 0.375,
+      "acc_min": -250090,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 14,
+      "per_token": [
+        {
+          "byte": 79,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 112
+        },
+        {
+          "byte": 77,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 408
+        },
+        {
+          "byte": 69,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 624
+        },
+        {
+          "byte": 71,
+          "railed": 0,
+          "negative": 20,
+          "max_abs": 905
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 1406
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "signed"
+    },
+    {
+      "text": "Nguyen Van An",
+      "tokens": 13,
+      "cells": 416,
+      "acc_negative_cells": 172,
+      "acc_negative_rate": 0.4135,
+      "acc_min": -12281504,
+      "railed_cells": 2,
+      "rail_rate": 0.0048,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": 0.0,
+      "h_final_railed": 2,
+      "h_final_negative": 17,
+      "per_token": [
+        {
+          "byte": 78,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 126
+        },
+        {
+          "byte": 103,
+          "railed": 0,
+          "negative": 21,
+          "max_abs": 288
+        },
+        {
+          "byte": 117,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 592
+        },
+        {
+          "byte": 121,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 1044
+        },
+        {
+          "byte": 101,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 1361
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 2335
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 4086
+        },
+        {
+          "byte": 86,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 6395
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 10435
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 11,
+          "max_abs": 13425
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 11,
+          "max_abs": 28393
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 32768
+        },
+        {
+          "byte": 110,
+          "railed": 2,
+          "negative": 17,
+          "max_abs": 32768
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "signed"
+    },
+    {
+      "text": "Tran Thi Mai",
+      "tokens": 12,
+      "cells": 384,
+      "acc_negative_cells": 162,
+      "acc_negative_rate": 0.4219,
+      "acc_min": -8660067,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 11,
+      "per_token": [
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 128
+        },
+        {
+          "byte": 114,
+          "railed": 0,
+          "negative": 20,
+          "max_abs": 400
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 436
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 944
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 1674
+        },
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 2234
+        },
+        {
+          "byte": 104,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 4277
+        },
+        {
+          "byte": 105,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 5703
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 7203
+        },
+        {
+          "byte": 77,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 11556
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 18887
+        },
+        {
+          "byte": 105,
+          "railed": 0,
+          "negative": 11,
+          "max_abs": 32768
+        }
+      ],
+      "seed": "0x11111111",
+      "rule": "signed"
+    },
+    {
+      "text": "ALPHA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 62,
+      "acc_negative_rate": 0.3875,
+      "acc_min": -326191,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 13,
+      "per_token": [
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 127
+        },
+        {
+          "byte": 76,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 407
+        },
+        {
+          "byte": 80,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 764
+        },
+        {
+          "byte": 72,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 1463
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 1692
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "signed"
+    },
+    {
+      "text": "BETA.",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 59,
+      "acc_negative_rate": 0.3688,
+      "acc_min": -325267,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 19,
+      "per_token": [
+        {
+          "byte": 66,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 127
+        },
+        {
+          "byte": 69,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 319
+        },
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 502
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 11,
+          "max_abs": 941
+        },
+        {
+          "byte": 46,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 1409
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "signed"
+    },
+    {
+      "text": "OMEGA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 56,
+      "acc_negative_rate": 0.35,
+      "acc_min": -439485,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 16,
+      "per_token": [
+        {
+          "byte": 79,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 125
+        },
+        {
+          "byte": 77,
+          "railed": 0,
+          "negative": 20,
+          "max_abs": 312
+        },
+        {
+          "byte": 69,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 657
+        },
+        {
+          "byte": 71,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 788
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 1811
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "signed"
+    },
+    {
+      "text": "Nguyen Van An",
+      "tokens": 13,
+      "cells": 416,
+      "acc_negative_cells": 190,
+      "acc_negative_rate": 0.4567,
+      "acc_min": -5219985,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 16,
+      "per_token": [
+        {
+          "byte": 78,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 125
+        },
+        {
+          "byte": 103,
+          "railed": 0,
+          "negative": 20,
+          "max_abs": 241
+        },
+        {
+          "byte": 117,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 429
+        },
+        {
+          "byte": 121,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 599
+        },
+        {
+          "byte": 101,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 1082
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 9,
+          "max_abs": 1609
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 1747
+        },
+        {
+          "byte": 86,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 4037
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 4894
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 6637
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 21,
+          "max_abs": 7449
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 20324
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 23227
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "signed"
+    },
+    {
+      "text": "Tran Thi Mai",
+      "tokens": 12,
+      "cells": 384,
+      "acc_negative_cells": 176,
+      "acc_negative_rate": 0.4583,
+      "acc_min": -5621264,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 11,
+      "per_token": [
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 124
+        },
+        {
+          "byte": 114,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 329
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 651
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 1056
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 1177
+        },
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 1392
+        },
+        {
+          "byte": 104,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 2676
+        },
+        {
+          "byte": 105,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 4230
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 8697
+        },
+        {
+          "byte": 77,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 7633
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 13827
+        },
+        {
+          "byte": 105,
+          "railed": 0,
+          "negative": 11,
+          "max_abs": 21946
+        }
+      ],
+      "seed": "0x22222222",
+      "rule": "signed"
+    },
+    {
+      "text": "ALPHA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 56,
+      "acc_negative_rate": 0.35,
+      "acc_min": -310278,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 17,
+      "per_token": [
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 125
+        },
+        {
+          "byte": 76,
+          "railed": 0,
+          "negative": 20,
+          "max_abs": 306
+        },
+        {
+          "byte": 80,
+          "railed": 0,
+          "negative": 18,
+          "max_abs": 499
+        },
+        {
+          "byte": 72,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 883
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 1336
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "signed"
+    },
+    {
+      "text": "BETA.",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 56,
+      "acc_negative_rate": 0.35,
+      "acc_min": -488272,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 16,
+      "per_token": [
+        {
+          "byte": 66,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 120
+        },
+        {
+          "byte": 69,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 339
+        },
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 879
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 1143
+        },
+        {
+          "byte": 46,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 1980
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "signed"
+    },
+    {
+      "text": "OMEGA",
+      "tokens": 5,
+      "cells": 160,
+      "acc_negative_cells": 64,
+      "acc_negative_rate": 0.4,
+      "acc_min": -325049,
+      "railed_cells": 0,
+      "rail_rate": 0.0,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": null,
+      "h_final_railed": 0,
+      "h_final_negative": 12,
+      "per_token": [
+        {
+          "byte": 79,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 123
+        },
+        {
+          "byte": 77,
+          "railed": 0,
+          "negative": 13,
+          "max_abs": 239
+        },
+        {
+          "byte": 69,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 442
+        },
+        {
+          "byte": 71,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 617
+        },
+        {
+          "byte": 65,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 1391
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "signed"
+    },
+    {
+      "text": "Nguyen Van An",
+      "tokens": 13,
+      "cells": 416,
+      "acc_negative_cells": 188,
+      "acc_negative_rate": 0.4519,
+      "acc_min": -14046467,
+      "railed_cells": 9,
+      "rail_rate": 0.0216,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": 0.0,
+      "h_final_railed": 8,
+      "h_final_negative": 16,
+      "per_token": [
+        {
+          "byte": 78,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 125
+        },
+        {
+          "byte": 103,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 298
+        },
+        {
+          "byte": 117,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 665
+        },
+        {
+          "byte": 121,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 1030
+        },
+        {
+          "byte": 101,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 1298
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 14,
+          "max_abs": 1961
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 3594
+        },
+        {
+          "byte": 86,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 6934
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 9522
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 22247
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 19,
+          "max_abs": 29806
+        },
+        {
+          "byte": 65,
+          "railed": 1,
+          "negative": 11,
+          "max_abs": 32768
+        },
+        {
+          "byte": 110,
+          "railed": 8,
+          "negative": 16,
+          "max_abs": 32768
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "signed"
+    },
+    {
+      "text": "Tran Thi Mai",
+      "tokens": 12,
+      "cells": 384,
+      "acc_negative_cells": 178,
+      "acc_negative_rate": 0.4635,
+      "acc_min": -15956111,
+      "railed_cells": 10,
+      "rail_rate": 0.026,
+      "railed_caused_by_negative_acc": 0,
+      "share_of_rails_from_negative_acc": 0.0,
+      "h_final_railed": 6,
+      "h_final_negative": 17,
+      "per_token": [
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 118
+        },
+        {
+          "byte": 114,
+          "railed": 0,
+          "negative": 12,
+          "max_abs": 312
+        },
+        {
+          "byte": 97,
+          "railed": 0,
+          "negative": 16,
+          "max_abs": 498
+        },
+        {
+          "byte": 110,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 853
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 1395
+        },
+        {
+          "byte": 84,
+          "railed": 0,
+          "negative": 21,
+          "max_abs": 3030
+        },
+        {
+          "byte": 104,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 5393
+        },
+        {
+          "byte": 105,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 7668
+        },
+        {
+          "byte": 32,
+          "railed": 0,
+          "negative": 15,
+          "max_abs": 17769
+        },
+        {
+          "byte": 77,
+          "railed": 0,
+          "negative": 17,
+          "max_abs": 28878
+        },
+        {
+          "byte": 97,
+          "railed": 4,
+          "negative": 18,
+          "max_abs": 32768
+        },
+        {
+          "byte": 105,
+          "railed": 6,
+          "negative": 17,
+          "max_abs": 32768
+        }
+      ],
+      "seed": "0xAE7C9805",
+      "rule": "signed"
+    }
+  ],
+  "ablation": [
+    {
+      "seed": "0x11111111",
+      "asis_untrained": {
+        "auc": 0.473626,
+        "unique_d1": 46,
+        "d1_median": 2740.0,
+        "saturation_rate": 0.8125,
+        "negativity_rate": 0.0,
+        "effective_rank": 24,
+        "spectrum_share_top1": 0.143364
+      },
+      "asis_trained_1000": {
+        "auc": 0.5,
+        "unique_d1": 1,
+        "d1_median": 0.0,
+        "saturation_rate": 1.0,
+        "negativity_rate": 0.0,
+        "effective_rank": 0,
+        "spectrum_share_top1": 0.0
+      },
+      "signed_untrained": {
+        "auc": 0.518681,
+        "unique_d1": 48,
+        "d1_median": 13411.5,
+        "saturation_rate": 0.173828,
+        "negativity_rate": 0.479167,
+        "effective_rank": 32,
+        "spectrum_share_top1": 0.157132
+      },
+      "signed_trained_1000": {
+        "auc": 0.658242,
+        "unique_d1": 45,
+        "d1_median": 226.0,
+        "saturation_rate": 0.0,
+        "negativity_rate": 0.466146,
+        "effective_rank": 27,
+        "spectrum_share_top1": 0.217181
+      }
+    },
+    {
+      "seed": "0x22222222",
+      "asis_untrained": {
+        "auc": 0.667033,
+        "unique_d1": 46,
+        "d1_median": 2375.0,
+        "saturation_rate": 0.814453,
+        "negativity_rate": 0.0,
+        "effective_rank": 19,
+        "spectrum_share_top1": 0.157662
+      },
+      "asis_trained_1000": {
+        "auc": 0.5,
+        "unique_d1": 1,
+        "d1_median": 0.0,
+        "saturation_rate": 1.0,
+        "negativity_rate": 0.0,
+        "effective_rank": 0,
+        "spectrum_share_top1": 0.0
+      },
+      "signed_untrained": {
+        "auc": 0.687912,
+        "unique_d1": 48,
+        "d1_median": 12295.0,
+        "saturation_rate": 0.190755,
+        "negativity_rate": 0.481771,
+        "effective_rank": 32,
+        "spectrum_share_top1": 0.196312
+      },
+      "signed_trained_1000": {
+        "auc": 0.393407,
+        "unique_d1": 13,
+        "d1_median": 179.0,
+        "saturation_rate": 0.479818,
+        "negativity_rate": 0.5,
+        "effective_rank": 1,
+        "spectrum_share_top1": 0.999615
+      }
+    },
+    {
+      "seed": "0xAE7C9805",
+      "asis_untrained": {
+        "auc": 0.582418,
+        "unique_d1": 45,
+        "d1_median": 1456.5,
+        "saturation_rate": 0.891927,
+        "negativity_rate": 0.0,
+        "effective_rank": 12,
+        "spectrum_share_top1": 0.170615
+      },
+      "asis_trained_1000": {
+        "auc": 0.5,
+        "unique_d1": 1,
+        "d1_median": 0.0,
+        "saturation_rate": 1.0,
+        "negativity_rate": 0.0,
+        "effective_rank": 0,
+        "spectrum_share_top1": 0.0
+      },
+      "signed_untrained": {
+        "auc": 0.694505,
+        "unique_d1": 48,
+        "d1_median": 13367.0,
+        "saturation_rate": 0.18099,
+        "negativity_rate": 0.50651,
+        "effective_rank": 32,
+        "spectrum_share_top1": 0.146363
+      },
+      "signed_trained_1000": {
+        "auc": 0.259341,
+        "unique_d1": 48,
+        "d1_median": 2503.0,
+        "saturation_rate": 0.466797,
+        "negativity_rate": 0.490234,
+        "effective_rank": 17,
+        "spectrum_share_top1": 0.293509
+      }
+    }
+  ],
+  "ts": "2026-08-20T03:19:26.756186+00:00"
+}

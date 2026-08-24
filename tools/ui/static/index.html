@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A7 Native-AI Studio — Arty A7-100T · EAM-03E-A0</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1020'/%3E%3Cpath d='M6 22h4l6-13 6 13h4' fill='none' stroke='%236ba4ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <h1>A7 Native-AI Studio</h1>
+    <small>Arty A7-100T · A7-EAM-03E-A0 · <code>eam03e-a0-signsgd-v1</code></small>
+  </div>
+  <div class="zones">
+    <div class="zone status" id="zoneStatus"></div>
+    <div class="zone ctx" id="zoneCtx"></div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Chế độ xem">
+  <button data-tab="train" aria-expanded="true" aria-controls="tab-train">Huấn luyện<span>thưởng / phạt</span></button>
+  <button data-tab="gradient" aria-expanded="false" aria-controls="tab-gradient">Gradient<span>bên trong bước học</span></button>
+  <button data-tab="bench" aria-expanded="false" aria-controls="tab-bench">Benchmark<span>đo trên tập chưa thấy</span></button>
+  <button data-tab="board" aria-expanded="false" aria-controls="tab-board">Bo mạch<span>SW · BTN · LED</span></button>
+  <button data-tab="learn" aria-expanded="false" aria-controls="tab-learn">Hiểu mô hình<span>giải thích</span></button>
+  <button data-tab="math" aria-expanded="false" aria-controls="tab-math">Thuật toán<span>đồ thị hàm số</span></button>
+  <button data-tab="evidence" aria-expanded="false" aria-controls="tab-evidence">Bằng chứng<span>hợp đồng</span></button>
+</nav>
+
+<main>
+<div id="srStatus" role="status" aria-live="polite" class="vh"></div>
+<div id="banners"></div>
+
+<!-- ================================================================ TRAIN -->
+<section class="tab active" id="tab-train" role="region" aria-labelledby="h-train">
+  <h2 id="h-train" class="vh">Huấn luyện</h2>
+  <div class="split">
+    <div>
+      <div class="card">
+        <h3>Dạy mô hình</h3>
+        <div id="modeWarn"></div>
+        <form id="pairForm" autocomplete="off">
+          <label class="field">
+            <span>Chuỗi A <em class="count" id="cntA">5/46 byte</em></span>
+            <input type="text" id="inA" value="ALPHA" aria-describedby="errA" aria-invalid="false">
+            <span class="err-msg" id="errA"></span>
+          </label>
+          <label class="field">
+            <span>Chuỗi B <em class="count" id="cntB">5/46 byte</em></span>
+            <input type="text" id="inB" value="BETA." aria-describedby="errB" aria-invalid="false">
+            <span class="err-msg" id="errB"></span>
+          </label>
+          <div class="row">
+            <button class="btn same big grow" id="btnReward" type="submit">
+              <span aria-hidden="true">✓</span> THƯỞNG
+              <span class="sub">giống nhau → kéo lại gần</span>
+              <span class="kbd">Enter</span>
+            </button>
+            <button class="btn diff big grow" id="btnPunish" type="button">
+              <span aria-hidden="true">✗</span> PHẠT
+              <span class="sub">khác nhau → đẩy ra xa</span>
+              <span class="kbd">Shift+Enter</span>
+            </button>
+          </div>
+        </form>
+        <div class="row" style="margin-top:8px">
+          <button class="btn ghost" id="btnSwap" type="button">⇄ Đổi A↔B <kbd>Alt+S</kbd></button>
+          <button class="btn ghost" id="btnClear" type="button">Xoá <kbd>Esc</kbd></button>
+          <button class="btn ghost" id="btnHelp" type="button">Phím tắt <kbd>?</kbd></button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Chế độ</h3>
+        <p class="hint">Chỉ ba trạng thái có nghĩa. <code>learn=1</code> cùng <code>freeze=1</code> là vô nghĩa nên không biểu diễn được ở đây.</p>
+        <div class="seg" id="segMode" role="group" aria-label="Chế độ học">
+          <button type="button" data-mode="learn" aria-pressed="false">HỌC<small>cập nhật trọng số</small></button>
+          <button type="button" data-mode="measure" aria-pressed="true">ĐO<small>chỉ đo, không đổi</small></button>
+          <button type="button" data-mode="frozen" aria-pressed="false">ĐÓNG BĂNG<small>CMD 0x13</small></button>
+        </div>
+        <div class="sep"></div>
+        <label class="field">
+          <span>seed 32-bit <em class="count">sinh lại toàn bộ trọng số</em></span>
+          <input type="text" id="inSeed" value="0x11111111" aria-describedby="errSeed">
+          <span class="err-msg" id="errSeed"></span>
+        </label>
+        <div class="row">
+          <button class="btn" id="btnSeed" type="button">Nạp seed</button>
+          <button class="btn ghost" id="btnSeedGolden" type="button">0x11111111</button>
+          <button class="btn ghost danger" id="btnSeedBad" type="button">0x22222222 (đảo)</button>
+        </div>
+        <div id="seedConfirm"></div>
+      </div>
+
+      <div class="card">
+        <h3>Giáo trình &amp; chạy tự động</h3>
+        <div id="curList"></div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn ghost" id="btnCurSame" type="button">+ cặp GIỐNG</button>
+          <button class="btn ghost" id="btnCurDiff" type="button">+ cặp KHÁC</button>
+          <button class="btn ghost" id="btnCurReset" type="button">mặc định</button>
+        </div>
+        <div class="sep"></div>
+        <div class="row">
+          <label class="field grow" style="margin:0"><span>số epoch</span><input type="number" id="inSteps" value="32" min="1" max="2000"></label>
+          <label class="field grow" style="margin:0"><span>nghỉ (ms)</span><input type="number" id="inDelay" value="40" min="0" max="2000"></label>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn grow" id="btnTrain" type="button">▶ Bắt đầu <kbd>Space</kbd></button>
+          <button class="btn danger" id="btnStop" type="button" disabled>■ Dừng</button>
+        </div>
+        <div id="trainProgress"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="grid g4" id="metrics"></div>
+
+      <div class="card">
+        <h3>Khoảng cách d1 theo từng bước</h3>
+        <p class="hint">Mục tiêu: đường GIỐNG (liền, tròn) đi xuống và ở dưới đường KHÁC (gạch, vuông).
+          Vạch vàng là <code>E3_MARG = 4096</code>: trên ngưỡng đó cặp KHÁC không sinh gradient nào.</p>
+        <div class="chart" id="chD1"></div>
+        <div class="legend">
+          <span style="color:var(--s-same)"><i></i>d1 cặp GIỐNG</span>
+          <span style="color:var(--s-diff)"><i class="dash"></i>d1 cặp KHÁC</span>
+          <span style="color:var(--s-board)"><i class="dot"></i>board</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Biên phân biệt M_L1 = d1(KHÁC) − d1(GIỐNG)</h3>
+        <p class="hint">Con số quyết định của hợp đồng A0.2-L. <b>Phải &gt; 0.</b> Âm nghĩa là đang học ngược.</p>
+        <div class="chart" id="chMargin"></div>
+      </div>
+
+      <div class="card">
+        <h3>Bản ghi phiên</h3>
+        <div class="row" style="margin-bottom:8px">
+          <button class="btn ghost" id="btnFollow" type="button" aria-pressed="true">⏸ Tạm dừng cuộn</button>
+          <button class="btn ghost" id="btnExport" type="button">Tải JSON</button>
+          <span class="muted" id="recCount"></span>
+        </div>
+        <div class="table-wrap" id="recWrap" tabindex="0" role="region" aria-label="Bản ghi từng bước huấn luyện">
+          <table id="recTable">
+            <caption class="vh">Từng bước huấn luyện, mới nhất ở dưới. Bấm một hàng để nạp lại cặp đó.</caption>
+            <thead><tr>
+              <th scope="col" class="num">#</th><th scope="col">A</th><th scope="col">B</th>
+              <th scope="col">nhãn</th><th scope="col" class="num">d1 twin</th>
+              <th scope="col" class="num">Δ</th><th scope="col" class="num">d1 board</th>
+              <th scope="col">ghi</th><th scope="col">nguồn</th>
+            </tr></thead>
+            <tbody id="recBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= GRADIENT -->
+<section class="tab" id="tab-gradient" role="region" aria-labelledby="h-grad">
+  <h2 id="h-grad" class="vh">Gradient</h2>
+  <div class="note">
+    <b>Vì sao phần này chỉ có ở TWIN.</b> Gói trả lời UART dài đúng 20 byte và chỉ chứa
+    <code>d1</code>, <code>dH</code>, <code>cue</code> cùng vài cờ — <b>không có gradient, không có trọng số</b>.
+    Hợp đồng cũng cấm host tính gradient rồi gửi xuống chip. Mọi hình bên dưới dựng từ bản mô phỏng
+    đã khớp golden, để <i>giải thích</i> điều chip đang làm, không phải để làm bằng chứng.
+  </div>
+  <div class="grid g4" id="gradMetrics"></div>
+  <div class="card">
+    <h3>Trạng thái cuối h — A so với B</h3>
+    <p class="hint">Mỗi chiều một cặp cột. Vạch vàng là 32767, mức bão hoà INT16.</p>
+    <div class="chart" id="chH"></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card">
+      <h3>Gradient thô g = hA − hB</h3>
+      <p class="hint">Chip không dùng giá trị này, chỉ dùng <b>dấu</b>.</p>
+      <div class="chart" id="chG"></div>
+    </div>
+    <div class="card">
+      <h3>Dấu được áp dụng: sign(g)</h3>
+      <p class="hint">Mỗi ô ±1 là một lệnh <code>E[b][i] -= sign(g_i)</code>. Ô 0 = không ghi.</p>
+      <div class="chart" id="chGS"></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card">
+      <h3>Ma trận hồi quy Wh — thay đổi ở bước vừa rồi</h3>
+      <div class="chart" id="hmWh"></div>
+    </div>
+    <div class="card">
+      <h3>Bảng embedding E — thay đổi theo từng byte</h3>
+      <div class="chart" id="hmE"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Can thiệp trực tiếp vào trọng số <span class="tag warn">CHỈ TWIN</span></h3>
+    <div class="note warn">
+      Bitstream 03E <b>không có lệnh ghi trọng số</b>: E và Wh chỉ sinh từ seed ngay trên chip.
+      Sửa ở đây làm lệch twin khỏi board và <code>in_sync</code> sẽ tắt.
+    </div>
+    <div class="row">
+      <label class="field" style="flex:0 0 130px;margin:0"><span>bảng</span>
+        <select id="wKind"><option value="E">E (8192)</option><option value="Wh">Wh (1024)</option></select></label>
+      <label class="field" style="flex:0 0 140px;margin:0"><span>chỉ số</span><input type="number" id="wIdx" value="0" min="0"></label>
+      <label class="field" style="flex:0 0 140px;margin:0"><span>INT8</span><input type="number" id="wVal" value="0" min="-128" max="127"></label>
+      <button class="btn" id="btnWSet" type="button" style="margin-top:18px">Ghi vào twin</button>
+    </div>
+    <p class="muted">E: chỉ số = mã_byte × 32 + chiều (ví dụ 'A'=65, chiều 0 → 2080). Wh: hàng × 32 + cột.</p>
+  </div>
+</section>
+
+<!-- ================================================================ BENCH -->
+<section class="tab" id="tab-bench" role="region" aria-labelledby="h-bench">
+  <h2 id="h-bench">Benchmark trên tập chưa thấy</h2>
+  <div class="note bad">
+    <b>Vấn đề mà tab này giải quyết.</b> Bộ kiểm tra duy nhất trước đây dùng ba chuỗi
+    <code>ALPHA</code> / <code>BETA.</code> / <code>OMEGA</code> và cả ba đều nằm trong tập huấn luyện.
+    Nó đo <b>ghi nhớ ba chuỗi</b>, không đo khả năng tổng quát hoá. Ở đây dữ liệu được chia theo
+    <b>thực thể</b> nên không chuỗi nào xuất hiện ở hai tập, và mốc so sánh quan trọng nhất là
+    <b>bộ mã hoá chưa huấn luyện</b> — vì E sinh từ xorshift32, nó đã là một phép chiếu ngẫu nhiên,
+    nên mọi thứ <code>d1</code> làm ở bước 0 là miễn phí. Toàn bộ tuyên bố của dự án gói lại thành
+    một câu: <b>huấn luyện có đẩy AUC trên tập chưa thấy lên cao hơn mốc đó không.</b>
+  </div>
+  <div class="split">
+    <div>
+      <div class="card">
+        <h3>Cấu hình</h3>
+        <div class="row">
+          <label class="field grow" style="margin:0"><span>số thực thể</span><input type="number" id="bEnt" value="160" min="40" max="600"></label>
+          <label class="field grow" style="margin:0"><span>số seed</span><input type="number" id="bSeeds" value="3" min="1" max="10"></label>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <label class="field grow" style="margin:0"><span>epoch</span><input type="number" id="bEpochs" value="4" min="1" max="40"></label>
+          <label class="check grow"><input type="checkbox" id="bVn">
+            <span>tiếng Việt <small>UTF-8 nhiều byte nên trần 46 byte chứa ít ký tự hơn</small></span></label>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn grow" id="btnBench" type="button">▶ Chạy benchmark</button>
+          <button class="btn danger" id="btnBenchStop" type="button" disabled>■ Dừng</button>
+        </div>
+        <div id="benchProgress"></div>
+        <p class="muted" style="margin-top:8px">Chạy trên TWIN, không cần board. Đây là <b>sàng lọc</b>,
+          không phải bằng chứng. Ước lượng: khoảng 5–8 giây mỗi seed ở cấu hình mặc định.</p>
+      </div>
+      <div class="card">
+        <h3>Độ nhạy theo số epoch</h3>
+        <p class="hint">Golden cố định 32 epoch. Đường này cho thấy 32 là một điểm trên đường
+          <b>không đơn điệu</b>, nên số epoch cũng là một siêu tham số cần đăng ký.</p>
+        <button class="btn wide" id="btnEpochSweep" type="button">Quét 4 → 256 epoch</button>
+        <div class="chart" id="chEpoch" style="margin-top:10px"></div>
+      </div>
+    </div>
+    <div>
+      <div class="grid g4" id="benchMetrics"></div>
+      <div class="card"><h3>So với các mốc</h3><div class="chart" id="chBase"></div></div>
+      <div class="card"><h3>Cổng nghiệm thu (sàng lọc)</h3><div id="benchGates"></div></div>
+      <div class="card"><h3>Chi tiết từng seed</h3><div class="table-wrap"><div id="benchSeeds"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ BOARD -->
+<section class="tab" id="tab-board" role="region" aria-labelledby="h-board">
+  <h2 id="h-board" class="vh">Bo mạch Arty A7</h2>
+  <div class="split">
+    <div>
+      <div class="card">
+        <h3>Kết nối</h3>
+        <label class="field"><span>cổng COM</span><select id="selPort"><option value="">— đang tìm —</option></select></label>
+        <label class="field"><span>baud</span><input type="number" id="inBaud" value="115200"></label>
+        <div class="row">
+          <button class="btn" id="btnScan" type="button">Quét lại</button>
+          <button class="btn" id="btnConnect" type="button">Kết nối</button>
+          <button class="btn ghost" id="btnDisconnect" type="button">Ngắt</button>
+        </div>
+        <div class="sep"></div>
+        <div class="row">
+          <button class="btn grow" id="btnResync" type="button">⇄ Resync twin ↔ board</button>
+          <button class="btn" id="btnPing" type="button">PING 0x01</button>
+        </div>
+        <p class="muted" style="margin-top:8px">Resync nạp lại seed cho cả hai phía rồi chạy một cặp
+          "mồi" bị bỏ đi. Cần bước này vì RTL không reset <code>e_ra</code>, nên cặp đầu tiên sau khi
+          cấp nguồn đọc một địa chỉ chưa xác định.</p>
+      </div>
+      <div class="card">
+        <h3>Tham số host được phép gửi</h3>
+        <dl class="kv">
+          <dt>0x21</dt><dd>seed 32-bit</dd>
+          <dt>0x20</dt><dd>cờ learn / freeze</dd>
+          <dt>0x22</dt><dd>byte UTF-8 vào slot A / B</dd>
+          <dt>0x23</dt><dd>nhãn SAME / DIFF + chạy một cặp</dd>
+        </dl>
+      </div>
+    </div>
+    <div>
+      <div class="board" id="boardWidget">
+        <div class="io-mode" id="ioMode">—</div>
+        <h4>ARTY A7-100T · XC7A100TCSG324-1</h4>
+        <div class="io-row">
+          <div class="io-group unreadable" id="grpSw"><span>SW3 … SW0</span><div class="io-items" id="ioSw"></div></div>
+          <div class="io-group unreadable" id="grpBtn"><span>BTN3 … BTN0</span><div class="io-items" id="ioBtn"></div></div>
+          <div class="io-group" id="grpLed"><span>LD3 … LD0</span><div class="io-items" id="ioLed"></div></div>
+        </div>
+      </div>
+      <div class="card"><h3>Ý nghĩa từng chân trên bitstream đang nạp</h3><div id="ioMeaning"></div></div>
+      <div class="card">
+        <h3>Giới hạn thật của liên kết UART</h3>
+        <div class="table-wrap">
+        <table>
+          <caption class="vh">Việc làm được và không làm được qua UART trên bitstream 03E</caption>
+          <thead><tr><th scope="col">Việc muốn làm</th><th scope="col">Trên 03E</th><th scope="col">Ghi chú</th></tr></thead>
+          <tbody>
+            <tr><td>Gửi văn bản + nhãn, chạy một bước học</td><td><span class="tag ok">ĐƯỢC</span></td><td>0x22 + 0x23</td></tr>
+            <tr><td>Đổi seed, bật/tắt learn, đóng băng</td><td><span class="tag ok">ĐƯỢC</span></td><td>0x21 / 0x20 / 0x13</td></tr>
+            <tr><td>Đọc d1, cue, các cờ</td><td><span class="tag ok">ĐƯỢC</span></td><td>20 byte trả về</td></tr>
+            <tr><td>Đọc <code>dH</code> có ý nghĩa</td><td><span class="tag no">KHÔNG</span></td><td>so sánh unsigned làm cue toàn bit 1 → dH = 0</td></tr>
+            <tr><td>Ghi / đọc trọng số E, Wh</td><td><span class="tag no">KHÔNG</span></td><td>không có opcode; trọng số chỉ sinh từ seed</td></tr>
+            <tr><td>Đọc trạng thái SW / BTN</td><td><span class="tag warn">CẦN BIT PHỤ</span></td><td>CMD 0x2F chỉ có trong <code>arty_a7_eam03e_io.bit</code></td></tr>
+            <tr><td>Đọc lại LED</td><td><span class="tag no">KHÔNG</span></td><td>LED là chân output; chỉ suy ra từ cờ trả về</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Nhật ký giao dịch</h3>
+        <div class="log" id="boardLog" tabindex="0" role="region" aria-label="Nhật ký giao dịch bo mạch"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ LEARN -->
+<section class="tab" id="tab-learn" role="region" aria-labelledby="h-learn">
+  <h2 id="h-learn">Hiểu mô hình</h2>
+  <div class="note">
+    <b>Native AI ở đây là gì.</b> Không phải chatbot. Đây là một bộ mã hoá chuỗi byte chạy
+    <b>hoàn toàn trong FPGA</b>: đọc văn bản UTF-8, dựng vector trạng thái 32 chiều, rồi
+    <b>tự cập nhật trọng số ngay trên chip</b> khi bạn nói "hai câu này giống nhau" hoặc "khác nhau".
+    Máy tính chỉ gửi: byte văn bản, nhãn GIỐNG/KHÁC, seed, hai cờ learn/freeze.
+  </div>
+  <div class="card">
+    <h3>Đường đi của dữ liệu — bấm từng khối để xem chi tiết</h3>
+    <div class="pipe" id="pipe" tabindex="0" role="group" aria-label="Đường đi của dữ liệu, 7 khối"></div>
+    <div class="explain" id="stageDetail"></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Trạng thái h theo từng byte — chuỗi A</h3><div class="chart" id="tlA"></div></div>
+    <div class="card"><h3>Trạng thái h theo từng byte — chuỗi B</h3><div class="chart" id="tlB"></div></div>
+  </div>
+  <div class="card">
+    <h3>Ba điều một người mới cần biết</h3>
+    <div class="grid g3">
+      <div class="card flat"><h3>1 · Học bằng dấu</h3><p class="muted">Bộ tối ưu chỉ dùng
+        <code>sign(g)</code>. Mỗi lần học, một trọng số INT8 dịch đúng <b>1 đơn vị</b>. Không learning-rate,
+        không phép chia, không số thực. Đó là lý do nó vừa trong một FPGA nhỏ.</p></div>
+      <div class="card flat"><h3>2 · Khoảng cách là thước đo duy nhất</h3><p class="muted">
+        <code>d1 = Σ |hA − hB| >> 5</code>. Thưởng kéo <code>d1</code> nhỏ lại, phạt đẩy to ra.
+        Toàn bộ "trí tuệ" nằm ở việc sắp xếp các chuỗi trong không gian 32 chiều.</p></div>
+      <div class="card flat"><h3>3 · Chip mới là thẩm quyền</h3><p class="muted">Bản mô phỏng khớp
+        <b>bit-exact</b> 7/7 số vàng xsim nên dùng để <i>giải thích</i>. Con số làm bằng chứng phải
+        đến từ board.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= MATH -->
+<section class="tab" id="tab-math" role="region" aria-labelledby="h-math">
+  <h2 id="h-math">Thuật toán</h2>
+  <div class="note">Mọi đồ thị được vẽ từ <b>chính hàm số mà bản mô phỏng đang chạy</b>
+    (<code>/api/math</code> gọi trực tiếp vào <code>python/eam/eam03e_twin.py</code>), nên hình không thể
+    lệch khỏi mô hình.</div>
+  <div class="grid g2" id="mathGrid"></div>
+</section>
+
+<!-- ============================================================= EVIDENCE -->
+<section class="tab" id="tab-evidence" role="region" aria-labelledby="h-ev">
+  <h2 id="h-ev">Bằng chứng</h2>
+  <div id="evBody"></div>
+</section>
+
+</main>
+<div id="toasts" aria-live="assertive"></div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>

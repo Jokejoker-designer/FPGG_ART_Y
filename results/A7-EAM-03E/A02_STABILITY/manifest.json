@@ -1,0 +1,87 @@
+{
+  "milestone": "A7-EAM-03E Phase S (long-horizon stability)",
+  "phase_id": "A7-EAM-03E-A02-STABILITY-v1",
+  "date": "2026-08-20",
+  "law_under_test": "eam03e-a0-signsgd-v1",
+  "law_changed": false,
+  "rtl_changed": false,
+  "verdict": "STABILITY_FAIL 11/11 seeds; collapse reproduced 11/11",
+  "hypotheses": {
+    "H1_recurrent_scale_runaway": "FALSIFIED",
+    "H2_unsigned_concat_rails_state": "CONFIRMED (XSim + reference model)"
+  },
+  "evidence_separation": {
+    "xsim": [
+      "state never negative on real RTL (192 cells, 0 negative)",
+      "167/192 state cells railed at 32767 untrained (87.0%)",
+      "first encode after reset is X because e_ra has no reset"
+    ],
+    "reference_model": [
+      "10000-update trajectory on 11 seeds",
+      "absorbing dead state (weight writes reach exactly 0)",
+      "Wh_l1 flat within 0.4%, max_abs_acc decreases, acc never wraps",
+      "signed-arithmetic ablation"
+    ],
+    "board": []
+  },
+  "key_numbers": {
+    "final_auc_all_seeds": 0.5,
+    "final_effective_rank_all_seeds": 0,
+    "final_unique_d1_all_seeds": 1,
+    "saturation_at_update_0_range": [0.793, 0.892],
+    "effective_rank_at_update_0_range": [12, 29],
+    "negativity_rate_everywhere": 0.0,
+    "Wh_l1_drift_max_pct": 0.4,
+    "max_abs_acc_peak": 34219930,
+    "acc_wrap_threshold": 2147483648,
+    "acc_peak_as_pct_of_wrap": 1.6
+  },
+  "root_cause": {
+    "file": "rtl/eam/eam03e_core.sv",
+    "line": 229,
+    "expression": "h[k] <= e3_sat16((acc[k] + {{8{e_lat[k][7]}}, e_lat[k], 8'd0}) >>> E3_SH)",
+    "defect": "SystemVerilog concatenation is unsigned, so the add is unsigned and >>> degrades to a logical shift; negative acc wraps to ~2^32 and rails h at 32767",
+    "corroboration": "rtl/eam/eam_controller.sv:37-41 uses the same idiom correctly, wrapped in $signed()"
+  },
+  "second_defect": {
+    "status": "EXISTS, NOT DIAGNOSED",
+    "evidence": "with signedness repaired, 2 of 3 seeds train to worse-than-untrained AUC (0.688->0.393, 0.695->0.259)"
+  },
+  "preregistration": {
+    "seeds": 11,
+    "seed_rule": "frozen_seeds(10) from A7-SIM-BENCH-v0.1 plus 0x11111111 prepended (board golden seed); 0x22222222 deliberately included as the known inversion case",
+    "seeds_dropped": 0,
+    "checkpoints_updates": [0, 32, 64, 128, 256, 512, 1000, 2000, 5000, 10000],
+    "dataset": "build_name_dataset(n_entities=260, seed=0), regrouped by connected component, fracs (0.6,0.2,0.2), split seed 0",
+    "leakage_check": "assert_no_leakage PASS",
+    "eval_rows": 400
+  },
+  "experiment_control": "e_ra, slot buffers and mode are saved and restored around every evaluation so the checkpoint schedule cannot perturb the training trajectory. Deliberate deviation from board behaviour.",
+  "twin_validity": {
+    "golden_check": "PASS, all 7 A0.1-T integers exact",
+    "twin_tests": "10/10 pass",
+    "change_this_phase": "ForwardTrace records acc_max_abs and acc_wrapped; no arithmetic touched"
+  },
+  "artifacts_sha256": {
+    "stability_sweep.json": "BABC23BC1CAE83D3AAB9AC21AF3365B197C2B10A57F9C3C9D2FF9E0700078472",
+    "rootcause.json": "9F469C7DF80101A143030E4992DDD4029D2BDE355077EF7AAB30AB3FBC50F742",
+    "tb_eam03e_sat_probe.sv": "B3AD8ACC94A0D92E7FAE547A645CF963D746C268FE9385F3B5A29AA830887DF3",
+    "xsim_satprobe.log": "0889893151107C897CD04F86D1CDA25B884062980E1DAED49374E3F177EE46D7",
+    "tools/a7eam03e_stability.py": "4ADBC1854F1E14F3F2C47EBA6FE2700D2B67395032F18463CE620C5C1B9AA31F",
+    "tools/a7eam03e_rootcause.py": "DB4583D1E2E3F8636BFD32F3D39D4E7676CA99006FF0B312049FBBBC9529E235",
+    "python/eam/eam03e_twin.py": "490D9A91501A3D5C0D171D042DCC62C73A8C02CC7A4F50A8D2AC8E79D2C2E583",
+    "python/eam/eam03e_bench.py": "E20FCCBF4264D4524930D32F533538EDF55F6FDE4359ADA318BA3E107F133BDF"
+  },
+  "downstream": {
+    "A0.2-L": "CLOSED",
+    "A1": "CLOSED",
+    "KIDI": "CLOSED",
+    "reason": "an encoder whose state is 80-87% constant before training and fully railed after cannot support a margin claim"
+  },
+  "mandate_deviation": {
+    "prescribed": ["S1 reduce Wh update magnitude", "S2 bound Wh", "S3 Wh decay"],
+    "status": "NOT APPLIED",
+    "why": "all three target recurrent scale runaway, which measurement falsifies. Wh does not grow and acc never wraps. Applying them would treat a mechanism that does not occur."
+  },
+  "recommended_next": "Repair h_update signedness as a NEW law id with its own contract frozen before implementation. A0.1-T goldens necessarily change under a new law and must not be edited under the current one. Diagnose the second defect on the signed reference model before writing RTL, so one revision does not carry two unknowns."
+}

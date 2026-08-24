@@ -1,0 +1,18 @@
+---
+description: K-Dense scientific method is the execution protocol for Native AI gates. Not a new architecture. Subset skills only.
+alwaysApply: true
+---
+
+# SCIENTIFIC EXECUTION (always on)
+
+Not a new FPGA block. You MUST run the existing Native AI loop with K-Dense method skills.
+
+Load: `.agents/skills/scientific-method-native-ai/SKILL.md` and the four skills it lists under `.agents/skills/scientific-agent-skills/skills/`. Do not load Scanpy/RDKit/etc.
+
+Every implementer/auditor Task must declare: OBSERVATION, one UNKNOWN, H_CANDIDATE, H_RIVAL, FALSIFIER, UNIT (query/seed ≠ clock cycle), CONTROL, preregistered METRICS.
+
+100k cycles on one traffic pattern is pseudoreplication. XSim ≠ board. Harness ≠ HS-02. Hypothesis ≠ evidence.
+
+Queue: `LOOP_STATE.json`. Dispatch: `run_blueprint_loop.py --dispatch`. Plan: `STATUS/PLAN_KDENSE_20260822.md`. Prompt: `PROMPT_CURSOR_SCI_METHOD.md`.
+
+AI does not declare BOARD_PASS. HNSW is research-only after 01R scale measurement.

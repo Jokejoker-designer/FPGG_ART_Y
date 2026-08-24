@@ -1,0 +1,41 @@
+{
+  "revision": "A7-LM-05-HW-CANDIDATE-01",
+  "started_utc": "2026-08-18T10:27:02Z",
+  "finished_utc": "2026-08-18T10:37:30Z",
+  "law_id": "lm05-signsgd-v1",
+  "port": "COM12",
+  "bit_sha256": "B7E68295E3277D5761EC8E4F92D73714B13287398DA79D9E0627FDF19B83A1C1",
+  "quality_confirmation_run": false,
+  "hardware_pass": false,
+  "contract_status": "OPEN",
+  "aborted": true,
+  "exception": "fold0=None; one_full busy=True wr_n=0 for >336s; killed. Not UPLOAD last-6KB.",
+  "tensor": {
+    "257": {"first_try": true, "ok": true},
+    "511": {"first_try": true, "ok": true},
+    "513": {"first_try": true, "ok": true}
+  },
+  "upload_complete": true,
+  "upload_spots": [
+    {"addr": 0, "match": true},
+    {"addr": 49152, "match": true},
+    {"addr": 55296, "match": true},
+    {"addr": 129024, "match": false, "got": [13, 0, 250, 253, 3, 251, 5, 252]},
+    {"addr": 202752, "match": false, "got": [13, 4, 251, 250, 0, 3, 255, 252]},
+    {"addr": 276480, "match": false, "got": [116, 0, 5, 254, 2, 4, 255, 252]},
+    {"addr": 350208, "match": true},
+    {"addr": 399352, "match": true}
+  ],
+  "fold0": null,
+  "one_full_status": {"busy": true, "wr_n": 0, "pred": 0, "observed_s": 336},
+  "gates": {
+    "calib": true,
+    "tensor_sequence": true,
+    "upload_399360_frames": true,
+    "upload_spots": false,
+    "fold0_exact": false,
+    "one_full_exact": false,
+    "persist_399360": false,
+    "after_zero_writes": false
+  }
+}

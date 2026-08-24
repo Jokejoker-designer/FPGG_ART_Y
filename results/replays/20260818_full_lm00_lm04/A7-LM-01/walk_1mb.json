@@ -1,0 +1,26 @@
+{
+  "status": {
+    "calib": true,
+    "busy": false,
+    "pass": true,
+    "phase": 23,
+    "err": 0
+  },
+  "counters": {
+    "rd_bytes": 2097152,
+    "rd_cycles": 328108,
+    "wr_bytes": 2097152,
+    "wr_cycles": 157806,
+    "rd_gbps": 0.5326376253173224,
+    "wr_gbps": 1.107452606159563,
+    "mix_gbps": 0.7193152120235927
+  },
+  "expected_bytes": 1048576,
+  "pass": true,
+  "seconds": 2.0780000000377186,
+  "name": "walk_1mb",
+  "mode": 1,
+  "mode_name": "walk",
+  "size_code": 0,
+  "size_bytes": 1048576
+}

@@ -1,0 +1,116 @@
+# A7 Native Graph crew — Cursor + MAF-aligned registry
+# Pattern source: E:\agents\characters\registry.yaml
+# Board: Digilent Arty A7-100T only
+
+version: "1.0.0"
+standard: microsoft-agent-framework
+crew_id: a7-native-graph
+board: xc7a100tcsg324-1
+blueprint: docs/NATIVE_AI_ARTY_A7_BLUEPRINT/
+basys_research: docs/native_graph/references/basys3-eight-agent/
+xilinx_skill: E:\agents\xilinx-skill
+
+authority_tokens:
+  - READ_ONLY_AUDIT
+  - PATCH_DRAFT
+  - VERIFY_ONLY
+  - REPORT_ONLY
+  - HUMAN_APPROVAL_REQUIRED
+
+maf_patterns:
+  - sequential
+  - concurrent
+  - handoff
+  - human_in_the_loop
+
+hard_stops_doc: docs/NATIVE_AI_ARTY_A7_BLUEPRINT/04_HARDSTOPS.md
+
+mcp:
+  vivado: project-0-arty-a7-online-lm-vivado
+  vitis: project-0-arty-a7-online-lm-vitis
+  huggingface: plugin-huggingface-skills-huggingface-skills
+
+characters:
+  - id: a7-ng-orchestrator
+    slot: 1
+    authority: HUMAN_APPROVAL_REQUIRED
+    maf_role: workflow_host
+    file: .cursor/agents/a7-ng-orchestrator.md
+    owns: [docs/native_graph/, .agents/workflows/native-graph/, results/A7-NATIVE-GRAPH/STATUS/]
+
+  - id: a7-ng-teacher-protocol
+    slot: 2
+    authority: PATCH_DRAFT
+    maf_role: agent
+    file: .cursor/agents/a7-ng-teacher-protocol.md
+    owns: [docs/contracts/native_graph/, tests/native_graph/]
+
+  - id: a7-ng-rtl-scorer
+    slot: 3
+    authority: PATCH_DRAFT
+    maf_role: agent
+    file: .cursor/agents/a7-ng-rtl-scorer.md
+    owns: [rtl/native_graph/scorer/, rtl/native_graph/pkg/]
+
+  - id: a7-ng-topk-frontier
+    slot: 4
+    authority: PATCH_DRAFT
+    maf_role: agent
+    file: .cursor/agents/a7-ng-topk-frontier.md
+    owns: [rtl/native_graph/topk/, rtl/native_graph/frontier/]
+
+  - id: a7-ng-memory-arch
+    slot: 5
+    authority: PATCH_DRAFT
+    maf_role: agent
+    file: .cursor/agents/a7-ng-memory-arch.md
+    owns: [rtl/native_graph/memory/, docs/native_graph/RESOURCE_BUDGET.md]
+
+  - id: a7-ng-xsim-verify
+    slot: 6
+    authority: VERIFY_ONLY
+    maf_role: agent
+    file: .cursor/agents/a7-ng-xsim-verify.md
+    owns: [tests/xsim/native_graph/, results/A7-NATIVE-GRAPH/NG-01/]
+
+  - id: a7-vivado-gate
+    slot: 7
+    authority: VERIFY_ONLY
+    maf_role: agent
+    file: .cursor/agents/a7-vivado-gate.md
+    owns: [vivado/tcl/native_graph/]
+
+  - id: a7-evidence-auditor
+    slot: 8
+    authority: READ_ONLY_AUDIT
+    maf_role: agent
+    file: .cursor/agents/a7-evidence-auditor.md
+    owns: [results/A7-NATIVE-GRAPH/]
+
+  - id: a7-hlb-auditor
+    slot: 9
+    authority: READ_ONLY_AUDIT
+    maf_role: agent
+    file: .cursor/agents/a7-hlb-auditor.md
+    owns: [docs/native_graph/CONTRACT_FREEZE.md]
+
+  - id: a7-ng-scientific
+    slot: 10
+    authority: READ_ONLY_AUDIT
+    maf_role: agent
+    file: .cursor/agents/a7-ng-scientific.md
+    owns: [docs/native_graph/TEST_MATRIX.md]
+
+  - id: a7-ng-hf-research
+    slot: 11
+    authority: REPORT_ONLY
+    maf_role: agent
+    file: .cursor/agents/a7-ng-hf-research.md
+    owns: [results/A7-NATIVE-GRAPH/HF_RESEARCH/]
+
+frozen_do_not_touch:
+  - A7-EAM-01R
+  - A7-EAM-02M
+  - A7-LM-00..06 bits
+  - A0.3 arty_a7_eam03e_a03.bit
+  - encoder law goldens 3930/5362 bag

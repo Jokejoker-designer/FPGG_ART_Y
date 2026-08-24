@@ -1,0 +1,15 @@
+# SHA256 — wf_global_topk_00
+
+| Artifact | SHA256 |
+|----------|--------|
+| `rtl/native_graph/topk/a7ng_topk_wavefront_global.sv` | `D6D6882BD4C5505246C9B24CB95CEF66BE3BC1F0881545AEDCEC302B01C14B7B` |
+| `rtl/native_graph/topk/a7ng_topk.sv` | `F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636` |
+| `rtl/native_graph/memory/a7ng_ddr_wavefront_top.sv` | `C1167BFCD35D36AB058CB7CB0BADE5D348383C885A100A965D1523C4A72DE912` |
+| `tests/xsim/tb_a7ng_wf_global_topk.sv` | `98DD3CE1F1DA159E9AF9042527091A83EE261E043698042F86262817180D8C17` |
+| `tests/xsim/run_a7ng_wf_global_topk.tcl` | `C7D625FA99132A9525754833B624597A8C5DF6754FBF762792AE9AFFC93C5C19` |
+| `results/A7-NATIVE-GRAPH/WF-GLOBAL-TOPK-00/PREREGISTER.md` | `01543D341CD10FB69F552B23D41D56BFA379FFD219E519D11966C76067A86864` |
+| `xsim_wf_global_topk.log` | (see below) |
+
+**CONTROL:** `a7ng_topk.sv` SHA **MATCH** NG-02R closeout (`F671FCB1...`) — comparator law unchanged.
+
+**Marker:** `A7NG_WF_GLOBAL_TOPK_XSIM_PASS fails=0 merge_count=3`

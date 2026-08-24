@@ -1,0 +1,80 @@
+PREREG_GATE: ddr_wavefront_00
+PREREG_UNKNOWN: from correctly measured MIG, can a BOUNDED candidate/cue working set feed 16 physical lanes with EXACTLY measured traffic?
+PREREG_H_CANDIDATE: bounded ping/pong cue working set sustains 16-lane waves; candidates conserved; zero data mismatch; traffic accounted per-run
+PREREG_H_RIVAL: buffer starves the wave, or loses/duplicates candidates, or traffic is only cumulative
+PREREG_FALSIFIER: invented GB/s; cumulative counters as per-run; loss hidden as backpressure; law change; COM12 program
+PREREG_CONTROL: MIG-METRIC-00 cells (1,1)=1024B/64bursts (4,8)=1024B/16bursts TOTAL=64
+PREREG_UNIT: one query run (seed x candidates x burst/out x consumer pattern); 6 runs / 3 seeds / 3 patterns
+PREREG_METRICS: ddr_bytes_per_candidate, ddr_bytes_per_query, beats_per_query, wavefront_fill_cycles, memory_wait_fraction, jobs_per_cycle_during_wave, candidate_conservation, data_mismatch, swap_count, buffer_empty_stall, buffer_full_stall
+PREREG_NON_GATE: PE utilization >= 80% is NOT a gate here (scheduler-local); reported as diagnostic only
+PREREG_LIMIT: frozen a7ng_ng02_core needs all 16 lane valids, so candidate counts are quantized to WAVE=16
+NOTE: Digilent AXI MIG + ddr3_model — Evidence_class=MIG_XSIM; not BOARD; not HS-02
+NOTE: runs execute back-to-back WITHOUT rst_n; only start_i clears per-run telemetry
+WF_CALIB_COMPLETE at 122810625.0 ps
+WF_PRELOAD_DONE nodes=160 NodeRecordV1_deterministic
+WF_RUN Q0 seed=0 base=0 total=64 burst=1 out=1 pattern=0
+WF_TRAFFIC Q0 ddr_bytes_per_query=1024 beats_per_query=64 bursts=64 ddr_bytes_per_candidate=16.0000 (expect bytes=1024 beats=64 bursts=64)
+WF_WAVE Q0 waves=4 wavefront_fill_cycles=1510 fill_episodes=4 fill_cycles_per_wave=377.5000 swap_count=4
+WF_STALL Q0 memory_wait_fraction=0.997449 memory_wait_fraction_total=0.973242 buffer_empty_stall=1564 buffer_full_stall=0 cons_ready_cycles=1568 cycles=1607 r_backpressure_cycles=0
+WF_CONSERVE Q0 accepted=64 completed=64 queued=0 pruned=0 in_flight=0 conserve_err=0 tb_delivered=64 tb_seq_err=0
+WF_INTEGRITY Q0 data_mismatch=0 axi_data_mismatch=0 tb_record_mismatch=0 rresp=0 rlast=0 expected_records=64 received_records=64 rid_order_error=0
+WF_CONSUMER Q0 jobs_per_cycle_during_wave=0.039826 batches_accepted=4 consumer_loss=0 topk_batches=4 frontier_push=32 frontier_overflow=0 flow_busy=44
+WF_DIAG Q0 pe_utilization_diagnostic=0.0050 (NOT A GATE) cache_hit_ratio=0.000 (no reuse cache in path)
+RUN_PASS Q0 bounded_wave_ok traffic_exact conservation_ok integrity_ok
+WF_RUN Q1 seed=0 base=0 total=64 burst=4 out=8 pattern=0
+WF_TRAFFIC Q1 ddr_bytes_per_query=1024 beats_per_query=64 bursts=16 ddr_bytes_per_candidate=16.0000 (expect bytes=1024 beats=64 bursts=16)
+WF_WAVE Q1 waves=4 wavefront_fill_cycles=64 fill_episodes=4 fill_cycles_per_wave=16.0000 swap_count=4
+WF_STALL Q1 memory_wait_fraction=0.932203 memory_wait_fraction_total=0.561224 buffer_empty_stall=55 buffer_full_stall=0 cons_ready_cycles=59 cycles=98 r_backpressure_cycles=0
+WF_CONSERVE Q1 accepted=64 completed=64 queued=0 pruned=0 in_flight=0 conserve_err=0 tb_delivered=64 tb_seq_err=0
+WF_INTEGRITY Q1 data_mismatch=0 axi_data_mismatch=0 tb_record_mismatch=0 rresp=0 rlast=0 expected_records=64 received_records=64 rid_order_error=0
+WF_CONSUMER Q1 jobs_per_cycle_during_wave=0.653061 batches_accepted=4 consumer_loss=0 topk_batches=4 frontier_push=32 frontier_overflow=0 flow_busy=44
+WF_DIAG Q1 pe_utilization_diagnostic=0.0816 (NOT A GATE) cache_hit_ratio=0.000 (no reuse cache in path)
+RUN_PASS Q1 bounded_wave_ok traffic_exact conservation_ok integrity_ok
+WF_RUN Q2 seed=0 base=0 total=64 burst=16 out=8 pattern=0
+WF_TRAFFIC Q2 ddr_bytes_per_query=1024 beats_per_query=64 bursts=4 ddr_bytes_per_candidate=16.0000 (expect bytes=1024 beats=64 bursts=4)
+WF_WAVE Q2 waves=4 wavefront_fill_cycles=66 fill_episodes=4 fill_cycles_per_wave=16.5000 swap_count=4
+WF_STALL Q2 memory_wait_fraction=0.934426 memory_wait_fraction_total=0.570000 buffer_empty_stall=57 buffer_full_stall=0 cons_ready_cycles=61 cycles=100 r_backpressure_cycles=0
+WF_CONSERVE Q2 accepted=64 completed=64 queued=0 pruned=0 in_flight=0 conserve_err=0 tb_delivered=64 tb_seq_err=0
+WF_INTEGRITY Q2 data_mismatch=0 axi_data_mismatch=0 tb_record_mismatch=0 rresp=0 rlast=0 expected_records=64 received_records=64 rid_order_error=0
+WF_CONSUMER Q2 jobs_per_cycle_during_wave=0.640000 batches_accepted=4 consumer_loss=0 topk_batches=4 frontier_push=32 frontier_overflow=0 flow_busy=44
+WF_DIAG Q2 pe_utilization_diagnostic=0.0800 (NOT A GATE) cache_hit_ratio=0.000 (no reuse cache in path)
+RUN_PASS Q2 bounded_wave_ok traffic_exact conservation_ok integrity_ok
+WF_RUN Q3 seed=1 base=64 total=64 burst=4 out=8 pattern=0
+WF_TRAFFIC Q3 ddr_bytes_per_query=1024 beats_per_query=64 bursts=16 ddr_bytes_per_candidate=16.0000 (expect bytes=1024 beats=64 bursts=16)
+WF_WAVE Q3 waves=4 wavefront_fill_cycles=64 fill_episodes=4 fill_cycles_per_wave=16.0000 swap_count=4
+WF_STALL Q3 memory_wait_fraction=0.932203 memory_wait_fraction_total=0.561224 buffer_empty_stall=55 buffer_full_stall=0 cons_ready_cycles=59 cycles=98 r_backpressure_cycles=0
+WF_CONSERVE Q3 accepted=64 completed=64 queued=0 pruned=0 in_flight=0 conserve_err=0 tb_delivered=64 tb_seq_err=0
+WF_INTEGRITY Q3 data_mismatch=0 axi_data_mismatch=0 tb_record_mismatch=0 rresp=0 rlast=0 expected_records=64 received_records=64 rid_order_error=0
+WF_CONSUMER Q3 jobs_per_cycle_during_wave=0.653061 batches_accepted=4 consumer_loss=0 topk_batches=4 frontier_push=32 frontier_overflow=0 flow_busy=44
+WF_DIAG Q3 pe_utilization_diagnostic=0.0816 (NOT A GATE) cache_hit_ratio=0.000 (no reuse cache in path)
+RUN_PASS Q3 bounded_wave_ok traffic_exact conservation_ok integrity_ok
+WF_RUN Q4 seed=1 base=64 total=64 burst=16 out=8 pattern=1
+WF_TRAFFIC Q4 ddr_bytes_per_query=1024 beats_per_query=64 bursts=4 ddr_bytes_per_candidate=16.0000 (expect bytes=1024 beats=64 bursts=4)
+WF_WAVE Q4 waves=4 wavefront_fill_cycles=64 fill_episodes=4 fill_cycles_per_wave=16.0000 swap_count=4
+WF_STALL Q4 memory_wait_fraction=0.764706 memory_wait_fraction_total=0.125000 buffer_empty_stall=13 buffer_full_stall=0 cons_ready_cycles=17 cycles=104 r_backpressure_cycles=0
+WF_CONSERVE Q4 accepted=64 completed=64 queued=0 pruned=0 in_flight=0 conserve_err=0 tb_delivered=64 tb_seq_err=0
+WF_INTEGRITY Q4 data_mismatch=0 axi_data_mismatch=0 tb_record_mismatch=0 rresp=0 rlast=0 expected_records=64 received_records=64 rid_order_error=0
+WF_CONSUMER Q4 jobs_per_cycle_during_wave=0.615385 batches_accepted=4 consumer_loss=0 topk_batches=4 frontier_push=32 frontier_overflow=0 flow_busy=44
+WF_DIAG Q4 pe_utilization_diagnostic=0.0769 (NOT A GATE) cache_hit_ratio=0.000 (no reuse cache in path)
+RUN_PASS Q4 bounded_wave_ok traffic_exact conservation_ok integrity_ok
+WF_RUN Q5 seed=2 base=128 total=32 burst=8 out=4 pattern=2
+WF_TRAFFIC Q5 ddr_bytes_per_query=512 beats_per_query=32 bursts=4 ddr_bytes_per_candidate=16.0000 (expect bytes=512 beats=32 bursts=4)
+WF_WAVE Q5 waves=2 wavefront_fill_cycles=32 fill_episodes=2 fill_cycles_per_wave=16.0000 swap_count=2
+WF_STALL Q5 memory_wait_fraction=0.800000 memory_wait_fraction_total=0.103896 buffer_empty_stall=8 buffer_full_stall=0 cons_ready_cycles=10 cycles=77 r_backpressure_cycles=0
+WF_CONSERVE Q5 accepted=32 completed=32 queued=0 pruned=0 in_flight=0 conserve_err=0 tb_delivered=32 tb_seq_err=0
+WF_INTEGRITY Q5 data_mismatch=0 axi_data_mismatch=0 tb_record_mismatch=0 rresp=0 rlast=0 expected_records=32 received_records=32 rid_order_error=0
+WF_CONSUMER Q5 jobs_per_cycle_during_wave=0.415584 batches_accepted=2 consumer_loss=0 topk_batches=2 frontier_push=16 frontier_overflow=0 flow_busy=22
+WF_DIAG Q5 pe_utilization_diagnostic=0.0519 (NOT A GATE) cache_hit_ratio=0.000 (no reuse cache in path)
+RUN_PASS Q5 bounded_wave_ok traffic_exact conservation_ok integrity_ok
+WF_INVARIANCE_PASS Q0==Q1 top8_sequence_identical waves=4
+WF_INVARIANCE_PASS Q0==Q2 top8_sequence_identical waves=4
+WF_INVARIANCE_PASS Q3==Q4 top8_sequence_identical waves=4
+WF_BACKPRESSURE_NOT_OBSERVED Q4=0 Q5=0 — bounded buffer never had to hold a beat back
+WF_SUMMARY_HDR run bytes beats bursts waves fill_cycles fill_eps empty_stall full_stall cons_ready cycles swaps
+WF_SUMMARY 0 1024 64 64 4 1510 4 1564 0 1568 1607 4
+WF_SUMMARY 1 1024 64 16 4 64 4 55 0 59 98 4
+WF_SUMMARY 2 1024 64 4 4 66 4 57 0 61 100 4
+WF_SUMMARY 3 1024 64 16 4 64 4 55 0 59 98 4
+WF_SUMMARY 4 1024 64 4 4 64 4 13 0 17 104 4
+WF_SUMMARY 5 512 32 4 2 32 2 8 0 10 77 2
+A7NG_DDR_WAVEFRONT00_XSIM_PASS

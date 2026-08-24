@@ -1,0 +1,31 @@
+{
+  "gate": "bram_consolidate",
+  "agent": "a7-ng-memory-arch",
+  "device": "xc7a100tcsg324-1",
+  "consol_lever": "WM_phase_share_wt_and_act",
+  "evidence_class": "POST_ROUTE_PROXY",
+  "measured": {
+    "bram_tiles": 132.0,
+    "ramb36": 132,
+    "ramb18": 0,
+    "lut_cells": 153,
+    "ff_cells": 23,
+    "dsp": 0,
+    "wns_ns": 0.586,
+    "tns_ns": 0.0,
+    "whs_ns": 0.069,
+    "ths_ns": 0.0
+  },
+  "control": {
+    "ua_bram": 128,
+    "tinygpt_bram": 132,
+    "additive_bram": 260,
+    "ua_headroom": 7,
+    "device_bram": 135
+  },
+  "projection": {
+    "cofit_bram": 132.0,
+    "headroom_after": 3.0,
+    "formula": "shared_pool=max(UA128,TinyGPT132)=132 (not additive 260)"
+  }
+}

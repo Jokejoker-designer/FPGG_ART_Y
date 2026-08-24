@@ -1,0 +1,147 @@
+{
+  "started_utc": "2026-08-17T07:48:08.398843+00:00",
+  "status0": {
+    "pass": false,
+    "busy": false,
+    "calib": true,
+    "done": false,
+    "phase": 0,
+    "cases": 0
+  },
+  "gates": {
+    "calib": true,
+    "k257": false,
+    "k511": false,
+    "k513": false,
+    "corner13": true,
+    "sat8": true,
+    "requant_0x28": true,
+    "per_case_10k": true
+  },
+  "pass": false,
+  "wording": "per-case folds, not one batch aggregate",
+  "requant": {
+    "ok": true,
+    "fold": {
+      "xor32": 32767,
+      "add32": 1474515,
+      "macs": 0
+    },
+    "exp_xor": 32767,
+    "exp_add": 1474515
+  },
+  "per_case": {
+    "n": 8,
+    "misses": [],
+    "ok": true
+  },
+  "pingpong": [
+    {
+      "k": 257,
+      "match": false,
+      "fold": {
+        "xor32": 4201379460,
+        "add32": 4223369672,
+        "macs": 32896
+      },
+      "expected": {
+        "xor32": 4197225188,
+        "add32": 4224893224,
+        "macs": 32896
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 31,
+        "ntile": 2
+      },
+      "ok": false
+    },
+    {
+      "k": 511,
+      "match": false,
+      "fold": {
+        "xor32": 112444135,
+        "add32": 4228110509,
+        "macs": 65408
+      },
+      "expected": {
+        "xor32": 114574343,
+        "add32": 4229634061,
+        "macs": 65408
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 1
+      },
+      "overlap": {
+        "overlap_cyc": 256,
+        "ntile": 2
+      },
+      "ok": false
+    },
+    {
+      "k": 513,
+      "match": false,
+      "fold": {
+        "xor32": 82109417,
+        "add32": 4226549459,
+        "macs": 65664
+      },
+      "expected": {
+        "xor32": 4186759747,
+        "add32": 4270895305,
+        "macs": 65664
+      },
+      "counters2": {
+        "dma_under": 0,
+        "bank_haz": 0,
+        "axi_berr": 0,
+        "axi_rerr": 0,
+        "swaps": 2
+      },
+      "overlap": {
+        "overlap_cyc": 288,
+        "ntile": 3
+      },
+      "ok": false
+    }
+  ],
+  "spots": [
+    {
+      "i": 13,
+      "corner": true,
+      "sat": false,
+      "ok": true,
+      "fold": {
+        "xor32": 4274240946,
+        "add32": 4274240946,
+        "macs": 64
+      },
+      "exp_xor": 4274240946,
+      "exp_add": 4274240946
+    },
+    {
+      "i": 8,
+      "corner": false,
+      "sat": true,
+      "ok": true,
+      "fold": {
+        "xor32": 4161409,
+        "add32": 187263405,
+        "macs": 45
+      },
+      "exp_xor": 4161409,
+      "exp_add": 187263405
+    }
+  ],
+  "ended_utc": "2026-08-17T07:48:17.103495+00:00"
+}

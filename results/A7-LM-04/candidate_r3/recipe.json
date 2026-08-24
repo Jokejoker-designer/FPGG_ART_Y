@@ -1,0 +1,18 @@
+{
+  "confirmation_set": "HELDOUT-R3",
+  "early_stop": false,
+  "extra_full_passes": 2,
+  "extra_full_scope": "board_corpus_k1to8",
+  "frozen_before_r3_eval": true,
+  "head_epochs": 24,
+  "head_lr": 3,
+  "head_n": 8,
+  "head_opcode": "0x3A",
+  "heldout_used_for_tuning": false,
+  "law_id": "lm05-signsgd-v1",
+  "no_ce_retry": true,
+  "recipe_id": "A7-LM-04-R3-TRAIN-v1",
+  "sha256": "d1be0eee2235f30abd48788199b8eabe2b07e8b1b0d53b5d2fdc3086eb9aa7e3",
+  "train_pairs": "[k]->32+(k-1) k=1..8",
+  "validation_set": "HELDOUT-R2"
+}

@@ -1,0 +1,273 @@
+{
+  "ts_utc": "2026-08-21T23:25:08.564214+00:00",
+  "board": "Digilent Arty A7-100T xc7a100tcsg324-1",
+  "jtag_serial": "210319BE776EA",
+  "programmed_bit": "results\\\\A7-NATIVE-GRAPH\\\\LM06-UA\\\\arty_a7_ng_lm06_ua_soc.bit",
+  "programmed_sha256": "D2C6CF4B28706B24CE513E2B7A09A4018EB9BB01EBB864FA3A5375B11DB9A92C",
+  "control_stub_sha256": "D65F3524BE1BD53D6B461CD8CD872DDCF8DE04EC4B7B0C8FB4CA4F959559A4DF",
+  "control_role": "prior TEACHER_OFF UART stub on D65F3524 lm_path=0",
+  "proxy_programmed": false,
+  "weight_only_programmed": false,
+  "uart": {
+    "port": "COM12",
+    "baud": 115200,
+    "protocol": "a7ng_exam_uart_stub: CMD_ENTER=0xE0 CMD_STATUS=0x53 STATUS_HS02=0x91 flags={mig,pe,lm_path,exam,pe_nib}",
+    "probes": [
+      {
+        "label": "t20_status_only",
+        "tx": [
+          "53"
+        ],
+        "rx_hex": "9189",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x89",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 0,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t20_enter_status",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t30_enter_status",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t50_enter_status",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t80_enter_status",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      }
+    ],
+    "primary": {
+      "label": "t80_enter_status",
+      "tx": [
+        "E0",
+        "53"
+      ],
+      "rx_hex": "9199",
+      "rx_len": 2,
+      "decode": {
+        "status_hs02": "0x91",
+        "status_hs02_match": true,
+        "flags_byte": "0x99",
+        "mig_calib": 1,
+        "pe_alive": 0,
+        "lm_path": 0,
+        "exam_mode": 1,
+        "pe_nibble": 9
+      }
+    },
+    "long_settle_probes": [
+      {
+        "label": "t+60s_long",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t+90s_long",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t+120s_long",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t+150s_long",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t+180s_long",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      },
+      {
+        "label": "t+210s_long",
+        "tx": [
+          "E0",
+          "53"
+        ],
+        "rx_hex": "9199",
+        "rx_len": 2,
+        "decode": {
+          "status_hs02": "0x91",
+          "status_hs02_match": true,
+          "flags_byte": "0x99",
+          "mig_calib": 1,
+          "pe_alive": 0,
+          "lm_path": 0,
+          "exam_mode": 1,
+          "pe_nibble": 9
+        }
+      }
+    ]
+  },
+  "payload_classification": [
+    {
+      "field": "CMD_ENTER 0xE0",
+      "class": "MODE_FLAG"
+    },
+    {
+      "field": "CMD_STATUS 0x53",
+      "class": "MODE_FLAG"
+    },
+    {
+      "field": "no tokens/cue/addr/winner/grad/answer sent",
+      "class": "ABSENT_BY_DESIGN"
+    }
+  ],
+  "retrieval_answers": null,
+  "host_graded_answers": false,
+  "lm_path_observed": 0,
+  "exam_mode_observed": 1,
+  "tinygpt": "ABSENT",
+  "evidence_class": "BOARD_UART_LM_PATH",
+  "hs02_semantic_retrieval": "LIMIT_NOT_CLAIMED",
+  "hs22_full_lm_participation": "LIMIT_TinyGPT_ABSENT",
+  "board_pass": false,
+  "unknown_closed": false,
+  "result": "FAIL",
+  "note": "All probes through t+210s: status 0x91 exam_mode=1 mig=1 lm_path=0; H_CANDIDATE lm_path!=0 FALSIFIED on board"
+}

@@ -1,0 +1,35 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Aug 22 03:44:37 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm/results/A7-NATIVE-GRAPH/BRAM-WM-00/util_hier.rpt
+| Design       : a7ng_wm00_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+|      Instance     |        Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+| a7ng_wm00_top     |               (top) |      10238 |      10238 |       0 |    0 | 7359 |      0 |      0 |          0 |
+|   (a7ng_wm00_top) |               (top) |          0 |          0 |       0 |    0 |    9 |      0 |      0 |          0 |
+|   u_cand          |  a7ng_wm00_cand_buf |       2390 |       2390 |       0 |    0 | 4402 |      0 |      0 |          0 |
+|   u_ddr           | a7ng_wm00_synth_ddr |          4 |          4 |       0 |    0 |  129 |      0 |      0 |          0 |
+|   u_ev            |  a7ng_wm00_evidence |       6890 |       6890 |       0 |    0 |  521 |      0 |      0 |          0 |
+|   u_learn         | a7ng_wm00_learn_upd |        740 |        740 |       0 |    0 | 1607 |      0 |      0 |          0 |
+|   u_pe            |  a7ng_wm00_pe_iface |        188 |        188 |       0 |    0 |  617 |      0 |      0 |          0 |
++-------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

@@ -1,0 +1,17 @@
+{
+  "stages": {
+    "ng04": {
+      "status": "PASS",
+      "agent": "a7-ng-scientific",
+      "gate_ok": true,
+      "log_tail": "b_a7ng_ctx_prune -s tb_a7ng_ctx_prune -timescale 1ns/1ps \nMulti-threading is on. Using 14 slave threads.\nStarting static elaboration\nPass Through NonSizing Optimizer\nCompleted static elaboration\nStarting simulation data flow analysis\nCompleted simulation data flow analysis\nTime Resolution for simulation is 1ps\nCompiling module work.a7ng_ctx_prune\nCompiling module work.tb_a7ng_ctx_prune\nBuilt simulation snapshot tb_a7ng_ctx_prune\n# if {[catch {exec xsim tb_a7ng_ctx_prune -runall} sim_out]} { puts $sim_out; puts XSIM_FAIL; exit 4 }\n# puts $sim_out\n\n****** xsim v2026.1 (64-bit)\n  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026\n  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026\n  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026\n  **** Start of session at: Fri Aug 21 23:05:18 2026\n    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.\n    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.\n\nsource xsim.dir/tb_a7ng_ctx_prune/xsim_script.tcl\n# xsim {tb_a7ng_ctx_prune} -autoloadwcfg -runall\nTime resolution is 1 ps\nrun -all\nA7NG04_PRUNE_PASS\n$finish called at time : 86 ns : File \"D:/Jetking_sem4/SEM_4/arty-a7-online-lm/tests/xsim/tb_a7ng_ctx_prune.sv\" Line 68\nexit\nINFO: [Common 17-206] Exiting xsim at Fri Aug 21 23:05:20 2026...\n# if {![string match \"*A7NG04_PRUNE_PASS*\" $sim_out]} { puts A7NG04_PRUNE_NO_PASS; exit 5 }\n# puts A7NG04_PRUNE_XSIM_OK\nA7NG04_PRUNE_XSIM_OK\nINFO: [Common 17-206] Exiting Vivado at Fri Aug 21 23:05:20 2026...\n"
+    },
+    "ng05": {
+      "status": "PASS",
+      "agent": "a7-ng-scientific",
+      "gate_ok": true,
+      "log_tail": "_local_learn -timescale 1ns/1ps \nMulti-threading is on. Using 14 slave threads.\nStarting static elaboration\nPass Through NonSizing Optimizer\nCompleted static elaboration\nStarting simulation data flow analysis\nCompleted simulation data flow analysis\nTime Resolution for simulation is 1ps\nCompiling module work.a7ng_local_learn\nCompiling module work.tb_a7ng_local_learn\nBuilt simulation snapshot tb_a7ng_local_learn\n# if {[catch {exec xsim tb_a7ng_local_learn -runall} sim_out]} { puts $sim_out; puts XSIM_FAIL; exit 4 }\n# puts $sim_out\n\n****** xsim v2026.1 (64-bit)\n  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026\n  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026\n  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026\n  **** Start of session at: Fri Aug 21 23:07:05 2026\n    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.\n    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.\n\nsource xsim.dir/tb_a7ng_local_learn/xsim_script.tcl\n# xsim {tb_a7ng_local_learn} -autoloadwcfg -runall\nTime resolution is 1 ps\nrun -all\nA7NG05_LEARN_XSIM_PASS\n$finish called at time : 176 ns : File \"D:/Jetking_sem4/SEM_4/arty-a7-online-lm/tests/xsim/tb_a7ng_local_learn.sv\" Line 92\nexit\nINFO: [Common 17-206] Exiting xsim at Fri Aug 21 23:07:07 2026...\n# if {![string match \"*A7NG05_LEARN_XSIM_PASS*\" $sim_out]} { puts A7NG05_LEARN_NO_PASS; exit 5 }\n# puts A7NG05_LEARN_XSIM_OK\nA7NG05_LEARN_XSIM_OK\nINFO: [Common 17-206] Exiting Vivado at Fri Aug 21 23:07:07 2026...\n"
+    }
+  },
+  "updated": "2026-08-21T16:07:07.797850+00:00"
+}

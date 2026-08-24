@@ -1,0 +1,123 @@
+{
+  "lane": "A7-EAM-02Q",
+  "status": "OPEN",
+  "semantic_evidence": false,
+  "note": "PARA/UNREL are text-only until LM-06 last-token dumps exist. synth_* is not semantic.",
+  "twin": {
+    "q0_law": "eam02q-q0-even-v1",
+    "q1_law": "eam02q-q1-rh-v1",
+    "q1_seed": 245432833,
+    "matrix_frozen_ok": true,
+    "encode_mismatch": 0,
+    "pass": true
+  },
+  "laws": {
+    "q0": "eam02q-q0-even-v1",
+    "q1": "eam02q-q1-rh-v1"
+  },
+  "bags": {
+    "PARA": [
+      [
+        "FPGA nào đang dùng?",
+        "Board hiện tại dùng chip gì?"
+      ],
+      [
+        "Arty đang nạp bitstream nào?",
+        "Bit hiện tại trên kit là file nào?"
+      ],
+      [
+        "Nhớ giúp câu hỏi về chip FPGA",
+        "Lưu giúp thông tin board đang dùng chip gì"
+      ]
+    ],
+    "UNREL": [
+      [
+        "FPGA nào đang dùng?",
+        "Giá điều hòa phòng khách bao nhiêu?"
+      ],
+      [
+        "Board hiện tại dùng chip gì?",
+        "Ngày nghiệm thu tầng 2 là khi nào?"
+      ],
+      [
+        "Arty đang nạp bitstream nào?",
+        "Công nợ khách hàng A còn lại bao nhiêu?"
+      ]
+    ],
+    "HOLD": [
+      [
+        "Chip trên board tên gì?",
+        "Kit này dùng FPGA model nào?"
+      ],
+      [
+        "Bitstream đang chạy là cái nào?",
+        "Hôm nay ăn gì?"
+      ]
+    ],
+    "hold_unused_for_tuning": true
+  },
+  "synth_q0": {
+    "close": {
+      "n": 32,
+      "mean": 0.0,
+      "p50": 0,
+      "p90": 0,
+      "min": 0,
+      "max": 0,
+      "fp_or_tp_at_T": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0
+      }
+    },
+    "far": {
+      "n": 32,
+      "mean": 32.0,
+      "p50": 32,
+      "p90": 34,
+      "min": 28,
+      "max": 35,
+      "fp_or_tp_at_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      }
+    }
+  },
+  "synth_q1": {
+    "close": {
+      "n": 32,
+      "mean": 0.031,
+      "p50": 0,
+      "p90": 0,
+      "min": 0,
+      "max": 1,
+      "fp_or_tp_at_T": {
+        "0": 0.96875,
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0
+      }
+    },
+    "far": {
+      "n": 32,
+      "mean": 31.719,
+      "p50": 32,
+      "p90": 37,
+      "min": 21,
+      "max": 40,
+      "fp_or_tp_at_T": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      }
+    }
+  }
+}

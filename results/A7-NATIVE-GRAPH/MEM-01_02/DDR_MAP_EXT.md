@@ -1,0 +1,1 @@
+EPISODE 0x0400_0000 / INDEX 0x0500_0000 — FPGA-owned; frozen 01R/02M bits untouched.\n

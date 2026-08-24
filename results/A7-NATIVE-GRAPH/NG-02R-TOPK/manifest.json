@@ -1,0 +1,15 @@
+{
+  "gate": "ng02",
+  "branch": "NG-02R-TOPK",
+  "law_id": "a7ng-topk-global-v1",
+  "agent": "a7-ng-topk-frontier",
+  "result": "PASS",
+  "primitive": "full_bitonic_16_to_8",
+  "nvec": 100000,
+  "oracle_seed": "0xA7020201",
+  "xsim_marker": "A7NG02R_TOPK_XSIM_PASS",
+  "rtl_sha256": "F671FCB1B8FB891EE77A9AC3D5A0BA24AE4DBB8109A6645F2250F611AA197636",
+  "artifact": "results/A7-NATIVE-GRAPH/NG-02R-TOPK/closeout.md",
+  "does_not_overwrite": "results/A7-NATIVE-GRAPH/NG-02/",
+  "not_claimed": ["BOARD_PASS", "ng02r_flow", "silicon_global_topk"]
+}

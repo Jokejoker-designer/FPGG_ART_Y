@@ -1,0 +1,1 @@
+Frozen LM-06 bit not overwritten. This module packs evidence tokens for the LM path; full LM-06 compose on one integrated bit is integrate_fit.\n

@@ -1,0 +1,44 @@
+{
+  "milestone": "M8-LM-05",
+  "port": "COM12",
+  "grad_match_128": 128,
+  "loss0": 512,
+  "loss1": 304,
+  "loss_drop": 0.40625,
+  "ce_method": "dumpz_softmax_shift",
+  "ce0_detail": {
+    "loss": 512,
+    "n": 32,
+    "misses": 0
+  },
+  "ce1_detail": {
+    "loss": 304,
+    "n": 32,
+    "misses": 0
+  },
+  "online_loss0": 448,
+  "online_loss1": 400,
+  "online_drop": 0.10714285714285714,
+  "loss_drop_ref": 0.3125,
+  "all_moved": true,
+  "all_moved_hw": true,
+  "moved_hw": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true
+  },
+  "wr_head": 512,
+  "wr_blk": 2048,
+  "wr_head_abs": 512,
+  "wr_blk_abs": 2048,
+  "after_writes0": true,
+  "first_ev": 15,
+  "pass": true,
+  "claim": "FULL_TINY_TRANSFORMER_BACKPROP_FPGA_BOARD_VALIDATED"
+}
