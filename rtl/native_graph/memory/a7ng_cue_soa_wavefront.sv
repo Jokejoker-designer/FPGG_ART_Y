@@ -1,5 +1,5 @@
 // a7ng_cue_soa_wavefront.sv — SOA stage-1: 3 column planes + post-fetch 104b pack
-// Gate: ddr_cue_soa_00r_axi_liveness attempt 7. Direct cue_wavefront-class plane_engine.
+// Gate: ddr_cue_soa_00r_axi_liveness attempt 8. AR accept sync (pf_ar_ready==MIG fire).
 `timescale 1ns / 1ps
 
 module a7ng_cue_soa_wavefront #(
@@ -134,8 +134,11 @@ module a7ng_cue_soa_wavefront #(
        (id_bcnt == 32'(id_beats_exp)) &&
        (cue_bcnt == 32'(cue_beats_exp)));
 
-  assign pf_ar_ready = ar_ready_i;
+  // Attempt 8: plane AR fire credit == outward MIG AR fire only.
+  // Never present ar_ready to plane_engine while ar_plane_ok gates ar_valid_o off
+  // (desync: engine advances issued/pending while MIG never saw ARVALID).
   assign ar_valid_o  = pf_ar_valid && ar_plane_ok;
+  assign pf_ar_ready = ar_ready_i && ar_plane_ok;
   assign ar_addr_o   = pf_ar_addr;
   assign ar_len_o    = pf_ar_len;
   assign ar_id_o     = pf_ar_id;
@@ -145,6 +148,9 @@ module a7ng_cue_soa_wavefront #(
   assign pf_r_data   = r_data_i;
   assign r_ready_o   = pf_r_ready;
   assign plane_fetch_idle_o = pf_idle;
+
+  wire [27:0] id_plane_base = NG_DDR_NODE_BASE + (base_q << 2);
+  wire        mig_ar_fire   = ar_valid_o && ar_ready_i;
 
   wire bank_full0 = (cnt0 == CNT_W'(WAVE));
   wire bank_full1 = (cnt1 == CNT_W'(WAVE));
@@ -219,7 +225,10 @@ module a7ng_cue_soa_wavefront #(
   function automatic logic [63:0] golden_cue64(input logic [31:0] nid);
     logic [31:0] c32;
     c32 = 32'hDDFE_0000 + nid;
-    return {c32, ~c32};
+    // AOS control widens its 32-bit NodeRecordV1 cue by replication.
+    // SOA changes only physical layout, so its 64-bit cue must encode the
+    // same candidate content for an AOS==SOA comparison.
+    return {c32, c32};
   endfunction
 
   function automatic logic [127:0] pack_desc(
@@ -234,7 +243,7 @@ module a7ng_cue_soa_wavefront #(
   endfunction
 
   function automatic logic [127:0] golden_desc(input logic [31:0] nid);
-    return pack_desc(nid, golden_cue64(nid), 8'h01);
+    return pack_desc(nid, golden_cue64(nid), 8'h03);
   endfunction
 
   function automatic logic [31:0] id_at(input int unsigned pi);
@@ -258,12 +267,27 @@ module a7ng_cue_soa_wavefront #(
     return prior_beats_mem[bi][slot*8 +: 8];
   endfunction
 
-  wire prior_ar_illegal = pf_ar_valid && ar_ready_i &&
+  wire prior_ar_illegal = mig_ar_fire &&
                           (phase != SOA_FETCH_PRIOR) &&
-                          (pf_ar_addr >= NG_DDR_PRIOR_BASE) &&
-                          (pf_ar_addr < (NG_DDR_PRIOR_BASE + 28'h0100_0000));
+                          (ar_addr_o >= NG_DDR_PRIOR_BASE) &&
+                          (ar_addr_o < (NG_DDR_PRIOR_BASE + 28'h0100_0000));
 
 `ifndef SYNTHESIS
+  logic first_ar_seen;
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+      first_ar_seen <= 1'b0;
+    else if (start_pulse)
+      first_ar_seen <= 1'b0;
+    else if (mig_ar_fire && !first_ar_seen) begin
+      first_ar_seen <= 1'b1;
+      if (ar_addr_o != id_plane_base) begin
+        $error("first_ar_not_id_plane: got=0x%08h expect=0x%08h phase=%0d pf_base=0x%08h",
+               ar_addr_o, id_plane_base, phase, pf_base);
+        $fatal(1, "SOA first AR must be ID-plane base");
+      end
+    end
+  end
   always_ff @(posedge clk) begin
     if (rst_n && prior_ar_illegal)
       $error("illegal_prior_skip: PRIOR AR before ID/CUE beats id=%0d cue=%0d phase=%0d",
@@ -422,7 +446,10 @@ module a7ng_cue_soa_wavefront #(
           d_sel = ~d_sel;
           del   = del + 32'(WAVE);
           waves <= waves + 32'd1;
-          if (del + 32'(WAVE) < target)
+          // del already includes the wave consumed above.  Re-arm packing
+          // whenever records remain; the old del+WAVE test skipped wave 4
+          // for a 64-record target and stalled permanently at delivered=48.
+          if (del < target)
             need_pack <= 1'b1;
         end else if (phase == SOA_DRAIN && cons_ready_i && (del < target) && !drain_full) begin
           empty_st <= empty_st + 32'd1;

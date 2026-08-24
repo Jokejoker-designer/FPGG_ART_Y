@@ -144,6 +144,10 @@ module a7ng_soa_plane_engine #(
       end
     end else begin
       ar_valid_q <= 1'b0;
+      // This output is consumed as an event by the multi-plane wavefront.
+      // Clear it in the first idle cycle so an ID completion cannot be
+      // replayed while the following CUE plane is being started.
+      done_pulse_q <= 1'b0;
     end
   end
 endmodule

@@ -81,6 +81,7 @@ module a7ng_cue_soa_mig_top #(
   logic [127:0] r_data;
 
   logic         core_batch_ready;
+  logic         global_topk_busy;
   logic [1:0]   tg_pipe;
   logic         wf_cons_ready;
   logic         start_d;
@@ -143,7 +144,8 @@ module a7ng_cue_soa_mig_top #(
     end
   end
 
-  assign wf_cons_ready = cons_ready_i && core_batch_ready && (tg_pipe == 2'b00);
+  assign wf_cons_ready = cons_ready_i && core_batch_ready &&
+                         (tg_pipe == 2'b00) && !global_topk_busy;
 
   logic         wave_valid;
   logic [127:0] wave_rec [WAVE];
@@ -240,6 +242,10 @@ module a7ng_cue_soa_mig_top #(
   logic core_topk_valid;
   score_t   core_topk_score [8];
   node_id_t core_topk_id    [8];
+  logic global_topk_valid;
+  score_t   global_topk_score [8];
+  node_id_t global_topk_id    [8];
+  logic [31:0] global_merge_count;
   logic [31:0] topk_batch_cnt;
 
   a7ng_ng02_core u_core (
@@ -258,11 +264,28 @@ module a7ng_cue_soa_mig_top #(
     .push_beat_valid_o(), .push_beat_score_o(), .push_beat_id_o(), .flow_state_o()
   );
 
-  assign topk_valid_o = core_topk_valid;
+  // Reuse the frozen AOS cross-wave reducer.  Local NG02 still computes an
+  // exact Top-8 for each 16-candidate wave; this stage merges four waves into
+  // the query-wide Global Top-8 required by the 00R authority.
+  a7ng_topk_wavefront_global #(.K(8)) u_global (
+    .clk(clk), .rst_n(rst_n),
+    .clear_i(wf_start),
+    .wave_valid_i(core_topk_valid),
+    .wave_scored_i(5'd16),
+    .wave_score_i(core_topk_score),
+    .wave_id_i(core_topk_id),
+    .global_valid_o(global_topk_valid),
+    .global_score_o(global_topk_score),
+    .global_id_o(global_topk_id),
+    .busy_o(global_topk_busy),
+    .merge_count_o(global_merge_count)
+  );
+
+  assign topk_valid_o = global_topk_valid;
   always_comb begin
     for (int k = 0; k < 8; k++) begin
-      topk_score_o[k] = core_topk_score[k];
-      topk_id_o[k]    = core_topk_id[k];
+      topk_score_o[k] = global_topk_score[k];
+      topk_id_o[k]    = global_topk_id[k];
     end
   end
 

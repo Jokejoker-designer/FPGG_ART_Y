@@ -1,0 +1,13 @@
+{
+  "gate": "native_v1_existence_board_parallel_00",
+  "stage": "STAGE0_ISOLATED_SNAPSHOT",
+  "created": "2026-08-24T14:39:27.227159+00:00",
+  "source_root": "D:\\Jetking_sem4\\SEM_4\\arty-a7-online-lm",
+  "board_root": "D:\\Jetking_sem4\\SEM_4\\arty-a7-online-lm-board",
+  "r6_head": "43273753ab2fe237c90101cd0d60d179b996146d",
+  "ledger_sha256": "2151615A1E6A2B7D315FC56CE12DF656BC0E87E2ABD80FEEA9AC552582B42A0B",
+  "wmem_sha256": "9A6BBC7AC8AF82725CAFD0B50241EE683C07FB9943C754753025F3569967D10F",
+  "copied_count": 151,
+  "missing": [],
+  "mismatch": []
+}
