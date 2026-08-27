@@ -20,9 +20,16 @@ module tb_a7ng_native_v1_ab_fast;
   logic [2:0]  arsize_f;
   logic [1:0]  arburst_f;
   logic        arvalid_f, arready;
+  logic [3:0]  arid;
+  logic [27:0] araddr;
+  logic [7:0]  arlen;
+  logic [2:0]  arsize;
+  logic [1:0]  arburst;
+  logic        arvalid;
   logic [127:0] rdata;
   logic [1:0]  rresp;
   logic        rlast, rvalid, rready_f;
+  logic        rready;
   logic [3:0]  awid, bid;
   logic [27:0] awaddr;
   logic [7:0]  awlen;
@@ -130,7 +137,8 @@ module tb_a7ng_native_v1_ab_fast;
     .m_axi_arvalid(arvalid_f), .m_axi_arready(arready),
     .m_axi_rid(rid), .m_axi_rdata(rdata), .m_axi_rresp(rresp),
     .m_axi_rlast(rlast), .m_axi_rvalid(rvalid), .m_axi_rready(rready_f),
-    .owner_ready_o(owner_ready)
+    .owner_ready_o(owner_ready),
+    .r_path_idle_o()
   );
 
   always_ff @(posedge clk) begin
@@ -141,6 +149,8 @@ module tb_a7ng_native_v1_ab_fast;
       ar_fire_count <= '0;
     end else begin
       if (start) begin
+        topk_seen <= 1'b0;
+        topk_update_count <= '0;
         query_ar_seen <= 1'b0;
         ar_fire_count <= '0;
       end
@@ -157,11 +167,80 @@ module tb_a7ng_native_v1_ab_fast;
     return 32'hDDFE_0000 + nid;
   endfunction
 
+  function automatic logic [31:0] aos_global_top8_id(input int idx);
+    case (idx)
+      0: return 32'd9;
+      1: return 32'd11;
+      2: return 32'd25;
+      3: return 32'd27;
+      4: return 32'd41;
+      5: return 32'd43;
+      6: return 32'd57;
+      7: return 32'd59;
+      default: return 32'hFFFF_FFFF;
+    endcase
+  endfunction
+
+  logic [31:0] topk_id_seen [8];
+  logic signed [15:0] topk_score_seen [8];
+  logic [31:0] top1_id_seen;
+  logic signed [15:0] top1_score_seen;
+
+  always_ff @(posedge clk) begin
+    if (!dut_rst_n) begin
+      top1_id_seen <= '0;
+      top1_score_seen <= '0;
+    end else if (start) begin
+      top1_id_seen <= '0;
+      top1_score_seen <= '0;
+      for (int tk = 0; tk < 8; tk++) begin
+        topk_id_seen[tk]    <= '0;
+        topk_score_seen[tk] <= '0;
+      end
+    end else if (topk_valid) begin
+      top1_id_seen <= topk_id[0];
+      top1_score_seen <= topk_score[0];
+      for (int tk = 0; tk < 8; tk++) begin
+        topk_id_seen[tk] <= topk_id[tk];
+        topk_score_seen[tk] <= topk_score[tk];
+      end
+    end
+  end
+
   function automatic logic [63:0] golden_cue64(input logic [31:0] nid);
     logic [31:0] c32;
     c32 = golden_cue32(nid);
     return {c32, c32};
   endfunction
+
+  function automatic logic [127:0] golden_desc_tb(input logic [31:0] nid);
+    return {24'h0, 8'h03, golden_cue64(nid), nid};
+  endfunction
+
+  task automatic axi_write_beat(input logic [27:0] addr, input logic [127:0] data);
+    @(posedge clk);
+    awid <= 4'd0; awaddr <= addr; awlen <= 8'd0; awsize <= 3'd4; awburst <= 2'b01;
+    awvalid <= 1'b1; wdata <= data; wstrb <= 16'hFFFF; wlast <= 1'b1; wvalid <= 1'b1; bready <= 1'b1;
+    fork
+      begin wait (awvalid && awready); @(posedge clk); awvalid <= 1'b0; end
+      begin wait (wvalid && wready); @(posedge clk); wvalid <= 1'b0; wlast <= 1'b0; end
+    join
+    wait (bvalid && bready);
+    @(posedge clk);
+    bready <= 1'b0;
+  endtask
+
+  task automatic drain_stale_axi_r;
+    int drain;
+    begin
+      drain = 0;
+      while (rvalid && drain < 64) begin
+        @(posedge clk);
+        drain = drain + 1;
+      end
+      repeat (20) @(posedge clk);
+    end
+  endtask
 
   task automatic preload_soa_planes(input int n);
     int b, k, pi;
@@ -219,6 +298,7 @@ module tb_a7ng_native_v1_ab_fast;
     stub_rst_n = 1'b1;
     dut_rst_n = 1'b1;
     repeat (50) @(posedge clk);
+    drain_stale_axi_r();
 
     begin
       int ow;
@@ -253,8 +333,9 @@ module tb_a7ng_native_v1_ab_fast;
         timeout = timeout + 1;
       end
       if (done !== 1'b1) begin
-        $display("A_FAST_LM_BOARD_LANE_FAIL SOA_TIMEOUT bytes=%0d beats=%0d gv=%0d ar_fires=%0d",
-                 axi_bytes, axi_beats, gv_count, ar_fire_count);
+        $display("A_FAST_LM_BOARD_LANE_FAIL SOA_TIMEOUT bytes=%0d beats=%0d gv=%0d ar_fires=%0d rlast_err=%0d br_out=%0d",
+                 axi_bytes, axi_beats, gv_count, ar_fire_count,
+                 dut.u_soa.u_br.rlast_error_count_o, dut.u_soa.u_br.outstanding_beats_o);
         $finish;
       end
     end
@@ -281,6 +362,26 @@ module tb_a7ng_native_v1_ab_fast;
       $finish;
     end
     $display("SOA_PATTERN_PASS burst=16 out=8");
+    $display("SOA_DATA_MISMATCH=%0d", dut.u_soa.data_mismatch_o);
+    $display("SOA_TOP1 id=%0d score=%0d (expect id=9 score=165)", top1_id_seen, top1_score_seen);
+    for (int k = 0; k < 8; k++)
+      $display("SOA_GLOBAL_TOP8[%0d] id=%0d score=%0d expect_id=%0d",
+               k, topk_id_seen[k], topk_score_seen[k], aos_global_top8_id(k));
+    if (dut.u_soa.data_mismatch_o !== 32'd0) begin
+      $display("A_FAST_LM_BOARD_LANE_FAIL SOA_DATA_MISMATCH=%0d", dut.u_soa.data_mismatch_o);
+      $finish;
+    end
+    if (top1_id_seen != 9 || top1_score_seen != 165) begin
+      $display("A_FAST_LM_BOARD_LANE_FAIL SOA_SCORE_LAW id=%0d score=%0d", top1_id_seen, top1_score_seen);
+      $finish;
+    end
+    for (int k = 0; k < 8; k++) begin
+      if (topk_id_seen[k] != aos_global_top8_id(k) || topk_score_seen[k] != 165) begin
+        $display("A_FAST_LM_BOARD_LANE_FAIL SOA_GLOBAL_TOP8[%0d] id=%0d score=%0d expect=%0d/165",
+                 k, topk_id_seen[k], topk_score_seen[k], aos_global_top8_id(k));
+        $finish;
+      end
+    end
 
     lm_hold = 1'b1;
     $display("AXI_LM_HOLD freeze DUT AR after SOA_PATTERN_PASS");
@@ -306,6 +407,7 @@ module tb_a7ng_native_v1_ab_fast;
     poison = 1'b1;
     for (int k = 0; k < 8; k++) poison_id[k] = 32'd255;
     @(posedge clk);
+    #1;
     if (ctx_we !== 1'b1 || ctx_pack !== 64'h3b392b291b190b09) begin
       $display("A_FAST_LM_BOARD_LANE_FAIL CAPTURE pack=%h ctx_we=%0b", ctx_pack, ctx_we);
       $finish;
@@ -317,7 +419,7 @@ module tb_a7ng_native_v1_ab_fast;
     begin
       int lt;
       lt = 0;
-      while (bind_done !== 1'b1 && lt < 5_000_000) begin
+      while (bind_done !== 1'b1 && lt < 200_000_000) begin
         @(posedge clk);
         lt = lt + 1;
         if (lt % 200000 == 0)
@@ -339,7 +441,7 @@ module tb_a7ng_native_v1_ab_fast;
   end
 
   initial begin
-    #50ms;
+    #2500ms;
     $display("A_FAST_LM_BOARD_LANE_FAIL WALL_TIMEOUT");
     $finish;
   end

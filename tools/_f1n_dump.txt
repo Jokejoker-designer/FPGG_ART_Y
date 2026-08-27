@@ -1,0 +1,256 @@
+===== find:u_f1m_probe@27356 =====
+ // F1m: WDMA_BUSY / WDMA_DONE / CORE_BUSY sticky → UART (after BIND_BUSY)
+  sync_bits #(.WIDTH(3)) u_f1m_probe_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in({sticky_core_busy, sticky_wdma_done, sticky_wdma_busy}),
+    .sync_out({core_busy_100, wdma_done_100, wdma_busy_100})
+  );
+  sync_bits #(.WIDTH(12)) u_post_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in({sticky_fwd, sticky_pack, sticky_accept, sticky_topk, stic
+
+===== find:u_f1l_probe@27062 =====
+0)
+  );
+  // F1l: BIND_BUSY / PRED_NZ / CORE_DONE sticky → UART (after LM)
+  sync_bits #(.WIDTH(3)) u_f1l_probe_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in({sticky_core_done, sticky_pred_nz, sticky_bind_busy}),
+    .sync_out({core_done_100, pred_nz_100, bind_busy_100})
+  );
+  // F1m: WDMA_BUSY / WDMA_DONE / CORE_BUSY sticky → UART (after BIND_BUSY)
+  sync_bits #(.WIDTH(3)) u_f1m_probe_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locke
+
+===== find:6'd41@40549 =====
+"O"; 6'd7: return "N";
+        6'd8: return "E";
+        default: return 8'h00;
+      endcase
+      6'd41: unique case (i) // CORE_BUSY (F1m)
+        6'd0: return "C"; 6'd1: return "O"; 6'd2: return "R"; 6'd3: return "E";
+        6'd4: return "_"; 6'd5: return "B"; 6'd6: return "U"; 6'd7: return "S";
+        6'd8: return "Y";
+        default: return 8'h00;
+      endcase
+      6'd42: unique case (i) // PRED_NZ (F1l)
+        6'd0: return "P"; 6'd1:
+
+===== find:6'd42@40828 =====
+"U"; 6'd7: return "S";
+        6'd8: return "Y";
+        default: return 8'h00;
+      endcase
+      6'd42: unique case (i) // PRED_NZ (F1l)
+        6'd0: return "P"; 6'd1: return "R"; 6'd2: return "E"; 6'd3: return "D";
+        6'd4: return "_"; 6'd5: return "N"; 6'd6: return "Z";
+        default: return 8'h00;
+      endcase
+      6'd43: unique case (i) // CORE_DONE (F1l)
+        6'd0: return "C"; 6'd1: return "O"; 6'd2: return "R"; 6'd3: return 
+
+===== find:6'd43@41061 =====
+ return "_"; 6'd5: return "N"; 6'd6: return "Z";
+        default: return 8'h00;
+      endcase
+      6'd43: unique case (i) // CORE_DONE (F1l)
+        6'd0: return "C"; 6'd1: return "O"; 6'd2: return "R"; 6'd3: return "E";
+        6'd4: return "_"; 6'd5: return "D"; 6'd6: return "O"; 6'd7: return "N";
+        6'd8: return "E";
+        default: return 8'h00;
+      endcase
+      default: unique case (i) // NATIVE_V1_EXIST_ROW,pred=DDD  (F2 decimal)
+
+
+===== find:sent_mask@30697 =====
+/          41 CORE_BUSY … 42 PRED_NZ … 43 CORE_DONE … 44 PRED
+  logic [5:0] msg_sel;
+  logic [44:0] sent_mask; // sticky: bit i set after message i completed
+  logic [3:0] led_sticky;
+  logic saw_busy;
+  // LOAD pulses start; WAIT_BUSY until uart_tx latches; WAIT_IDLE until byte done.
+  typedef enum logic [2:0] {
+    UT_IDLE, UT_LOAD, UT_WAIT_BUSY, UT_WAIT_IDLE, UT_NL_LOAD, UT_NL_BUSY, UT_NL_IDLE, UT_DONE
+  } ut_t;
+  ut_t ut;
+
+  uart_tx #(.CLK_HZ
+
+===== functions =====
+hb_char width=7 @31280
+hb_len width=5 @42171
+hb_next width=5 @44100
+
+===== hb_char =====
+function automatic logic [7:0] hb_char(input logic [5:0] sel, input logic [5:0] i);
+    unique case (sel)
+      6'd0: unique case (i) // BOOT
+        6'd0: return "B"; 6'd1: return "O"; 6'd2: return "O"; 6'd3: return "T";
+        default: return 8'h0
+
+===== hb_len =====
+function automatic logic [5:0] hb_len(input logic [5:0] sel);
+    unique case (sel)
+      6'd0:  return 6'd4;   // BOOT
+      6'd1:  return 6'd6;   // MIG_OK
+      6'd2:  return 6'd7;   // WMEM_OK
+      6'd3:  return 6'd6;   // SOA_OK
+      6'd4:  re
+
+===== hb_next =====
+function automatic logic [5:0] hb_next(
+      input logic [44:0] mask,
+      input logic mig_ok, wmem_ok, soa_ok, core_ok,
+      input logic owner_ok, qgo_ok, soarun_ok, ar_ok, rbeat_ok,
+      input logic rbusy_ok, ridle_ok,
+      input logic rvseen_
+
+===== sent_mask_line =====
+  logic [44:0] sent_mask; // sticky: bit i set after message i completed
+
+===== sent_mask_line =====
+  assign nxt_sel = hb_next(sent_mask, calib_100, wmem_100, boot_ui_100, core_live_100,
+
+===== sent_mask_line =====
+      (!sent_mask[0]) ||
+
+===== sent_mask_line =====
+      (calib_100     && !sent_mask[1]) ||
+
+===== sent_mask_line =====
+      (wmem_100      && !sent_mask[2]) ||
+
+===== sent_mask_line =====
+      (boot_ui_100   && !sent_mask[3]) ||
+
+===== sent_mask_line =====
+      (core_live_100 && !sent_mask[4]) ||
+
+===== sent_mask_line =====
+      (owner_100     && !sent_mask[5]) ||
+
+===== sent_mask_line =====
+      (qgo_100       && !sent_mask[6]) ||
+
+===== sent_mask_line =====
+      (soarun_100    && !sent_mask[7]) ||
+
+===== sent_mask_line =====
+      (ar_100        && !sent_mask[8]) ||
+
+===== sent_mask_line =====
+      (rbeat_100     && !sent_mask[9]) ||
+
+===== sent_mask_line =====
+      (rbusy_100     && !sent_mask[10]) ||
+
+===== sent_mask_line =====
+      (ridle_100     && !sent_mask[11]) ||
+
+===== sent_mask_line =====
+      (rvseen_100    && !sent_mask[12]) ||
+
+===== sent_mask_line =====
+      (rready1_100   && !sent_mask[13]) ||
+
+===== sent_mask_line =====
+      (ridok_100     && !sent_mask[14]) ||
+
+===== sent_mask_line =====
+      (ridbad_100    && !sent_mask[15]) ||
+
+===== sent_mask_line =====
+      (outst_100     && !sent_mask[16]) ||
+
+===== sent_mask_line =====
+      (migrv_100     && !sent_mask[17]) ||
+
+===== sent_mask_line =====
+      (cdcne_100     && !sent_mask[18]) ||
+
+===== sent_mask_line =====
+      (migar_100     && !sent_mask[19]) ||
+
+===== sent_mask_line =====
+      (ownwdma_100   && !sent_mask[20]) ||
+
+===== sent_mask_line =====
+      (cdcar_100     && !sent_mask[21]) ||
+
+===== sent_mask_line =====
+      (muxcdc_100    && !sent_mask[22]) ||
+
+===== sent_mask_line =====
+      (cdc_marf_100  && !sent_mask[23]) ||
+
+===== sent_mask_line =====
+      (cdc_sarv_100  && !sent_mask[24]) ||
+
+===== sent_mask_line =====
+      (cdc_sarr_100  && !sent_mask[25]) ||
+
+===== sent_mask_line =====
+      (ar_fifo_ne_100 && !sent_mask[26]) ||
+
+===== sent_mask_line =====
+      (sticky_m_rst_lo_100 && !sent_mask[27]) ||
+
+===== sent_mask_line =====
+      (sticky_s_rst_lo_100 && !sent_mask[28]) ||
+
+===== sent_mask_line =====
+      (cdc_sarf_100  && !sent_mask[29]) ||
+
+===== sent_mask_line =====
+      (cdc_hold_100  && !sent_mask[30]) ||
+
+===== sent_mask_line =====
+      (soaq_100      && !sent_mask[31]) ||
+
+===== sent_mask_line =====
+      (topk_100      && !sent_mask[32]) ||
+
+===== sent_mask_line =====
+      (accept_100    && !sent_mask[33]) ||
+
+===== sent_mask_line =====
+      (pack_100      && !sent_mask[34]) ||
+
+===== sent_mask_line =====
+      (bind_100      && !sent_mask[35]) ||
+
+===== sent_mask_line =====
+      (fwd_100       && !sent_mask[36]) ||
+
+===== sent_mask_line =====
+      (lm_100        && !sent_mask[37]) ||
+
+===== sent_mask_line =====
+      (bind_busy_100 && !sent_mask[38]) ||
+
+===== sent_mask_line =====
+      (wdma_busy_100 && !sent_mask[39]) ||
+
+===== sent_mask_line =====
+      (wdma_done_100 && !sent_mask[40]) ||
+
+===== sent_mask_line =====
+      (core_busy_100 && !sent_mask[41]) ||
+
+===== sent_mask_line =====
+      (pred_nz_100   && !sent_mask[42]) ||
+
+===== sent_mask_line =====
+      (core_done_100 && !sent_mask[43]) ||
+
+===== sent_mask_line =====
+      (pred_ready    && !sent_mask[44]);
+
+===== sent_mask_line =====
+      sent_mask <= 45'd0;
+
+===== sent_mask_line =====
+          end else if (&sent_mask[44:0]) begin
+
+===== sent_mask_line =====
+            sent_mask[msg_sel] <= 1'b1;

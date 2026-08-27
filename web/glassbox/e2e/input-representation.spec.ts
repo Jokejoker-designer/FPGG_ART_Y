@@ -17,7 +17,7 @@ const FORBIDDEN = [
 ];
 
 async function openTab(page: import("@playwright/test").Page, id: "input" | "forward") {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-input")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId(`tab-${id}`).click();
   await expect(page.getByTestId(`tab-${id}`)).toHaveAttribute("aria-current", "page");
@@ -77,7 +77,7 @@ test.describe("dữ liệu vào và biểu diễn", () => {
   });
 
   test("keyboard can reach the input tab and a byte cell", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/studio");
     await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
     await page.locator("body").click();
     await page.keyboard.press("3");

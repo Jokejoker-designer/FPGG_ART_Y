@@ -1,0 +1,5 @@
+row	drive_dest	drive_grant	drive_idle	print_dest	print_grant	print_idle	is_400
+RINJ	4	0	1	4	0	1	0
+RMUX	3	0	0	3	0	0	0
+MUX	4	1	0	4	1	0	0
+SI	4	0	0	4	0	0	1

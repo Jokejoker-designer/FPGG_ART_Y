@@ -1,0 +1,39 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe -mt off -O0 tb_e2r_rpath_idle_cxsim_destwait_00 -s e2r_rpath_idle_cxsim_destwait_00 -timescale 1ns/1ps 
+Turned off multi-threading.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7ng_pkg
+Compiling package work.a7lm06_pkg
+Compiling module work.a7ng_axi_soa_mem_stub
+Compiling module work.a7ng_lm_graph_arb
+Compiling module work.a7ng_soa_plane_engine(MAX_BEATS=...
+Compiling module work.a7ng_cue_soa_wavefront_default
+Compiling module work.a7ng_ddr_soa_axi_bridge_default
+Compiling module work.a7ng_termgen_lane
+Compiling module work.a7ng_termgen_array_default
+Compiling module work.a7ng_scorer_lane
+Compiling module work.a7ng_scorer_array_default
+Compiling module work.a7ng_topk
+Compiling module work.a7ng_frontier_buckets_default
+Compiling module work.a7ng_ng02_core
+Compiling module work.a7ng_topk_wavefront_global
+Compiling module work.a7ng_cue_soa_mig_top
+Compiling module work.a7ng_native_ctx_bind
+Compiling module work.a7lm06_logits_lutram
+Compiling module work.weight_bram_tdp8(DEPTH=131072)
+Compiling module work.weight_tile803k(SIM_FULL=1'b0)
+Compiling module work.act_ram128k16
+Compiling module work.snap_ram4k16
+Compiling module work.isqrt32
+Compiling module work.floordiv_s48
+Compiling module work.tiny_gpt803k_core(SIM_FULL=1'b0)
+Compiling module work.a7ng_native_v1_ab_core(SIM_FULL=...
+Compiling module work.tb_e2r_rpath_idle_cxsim_destwait...
+Built simulation snapshot e2r_rpath_idle_cxsim_destwait_00

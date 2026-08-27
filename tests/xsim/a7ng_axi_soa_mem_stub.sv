@@ -1,4 +1,4 @@
-// Behavioral AXI4 slave for SOA (no MIG). mem_model burst FSM + 8-deep AR queue + region map.
+// Behavioral AXI4 slave for SOA (no MIG). Multi-beat + outstanding AR (smoke-law read path).
 `timescale 1ns / 1ps
 
 module a7ng_axi_soa_mem_stub #(
@@ -63,36 +63,50 @@ module a7ng_axi_soa_mem_stub #(
   logic [3:0]  q_id   [QD];
   logic [3:0]  q_wr, q_rd, q_cnt;
 
-  typedef enum logic [1:0] {RIDLE, RDATA} rst_t;
-  rst_t rst;
-  logic [27:0] ar_a;
-  logic [3:0]  ar_id;
-  logic [7:0]  ar_left;
+  logic        streaming;
+  logic [27:0] cur_a;
+  logic [7:0]  cur_l;
+  logic [3:0]  cur_id;
 
   assign s_axi_arready = (q_cnt < QD[3:0]);
-  assign s_axi_bresp   = 2'b00;
+  assign s_axi_rvalid  = streaming;
+  assign s_axi_rdata   = (idx_of(cur_a) < DEPTH_WORDS) ? mem[idx_of(cur_a)] : '0;
+  assign s_axi_rlast   = streaming && (cur_l == 8'd0);
+  assign s_axi_rid     = cur_id;
   assign s_axi_rresp   = 2'b00;
+  assign s_axi_bresp   = 2'b00;
 
-  wire do_ar_in  = s_axi_arvalid && s_axi_arready;
-  wire do_ar_pop = (rst == RIDLE) && (q_cnt != 4'd0);
-  wire do_r      = s_axi_rvalid && s_axi_rready;
+  wire do_ar = s_axi_arvalid && s_axi_arready;
+  wire do_r  = s_axi_rvalid && s_axi_rready;
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
       q_wr <= '0; q_rd <= '0; q_cnt <= '0;
-      rst <= RIDLE;
-      s_axi_rvalid <= 1'b0;
-      s_axi_rlast  <= 1'b0;
-      s_axi_rdata  <= '0;
-      s_axi_rid    <= '0;
-      ar_left <= '0;
-      ar_a <= '0;
-      ar_id <= '0;
+      streaming <= 1'b0; cur_a <= '0; cur_l <= '0; cur_id <= '0;
     end else begin
       automatic logic [3:0] wr, rd, cn;
-      wr = q_wr; rd = q_rd; cn = q_cnt;
+      automatic logic       st;
+      wr = q_wr; rd = q_rd; cn = q_cnt; st = streaming;
 
-      if (do_ar_in) begin
+      if (st && do_r) begin
+        if (cur_l == 8'd0)
+          st = 1'b0;
+        else begin
+          cur_l <= cur_l - 8'd1;
+          cur_a <= cur_a + 28'd16;
+        end
+      end
+
+      if (!st && (cn != 4'd0)) begin
+        cur_a  <= q_addr[rd[2:0]];
+        cur_l  <= q_len[rd[2:0]];
+        cur_id <= q_id[rd[2:0]];
+        rd     = rd + 4'd1;
+        cn     = cn - 4'd1;
+        st     = 1'b1;
+      end
+
+      if (do_ar) begin
         q_addr[wr[2:0]] <= s_axi_araddr;
         q_len[wr[2:0]]  <= s_axi_arlen;
         q_id[wr[2:0]]   <= s_axi_arid;
@@ -100,42 +114,8 @@ module a7ng_axi_soa_mem_stub #(
         cn = cn + 4'd1;
       end
 
-      unique case (rst)
-        RIDLE: begin
-          s_axi_rvalid <= 1'b0;
-          s_axi_rlast  <= 1'b0;
-          if (do_ar_pop) begin
-            ar_a    <= q_addr[rd[2:0]];
-            ar_id   <= q_id[rd[2:0]];
-            ar_left <= q_len[rd[2:0]];
-            rd = rd + 4'd1;
-            cn = cn - 4'd1;
-            rst <= RDATA;
-          end
-        end
-        RDATA: begin
-          s_axi_rvalid <= 1'b1;
-          s_axi_rid    <= ar_id;
-          if (idx_of(ar_a) < DEPTH_WORDS)
-            s_axi_rdata <= mem[idx_of(ar_a)];
-          else
-            s_axi_rdata <= '0;
-          s_axi_rlast <= (ar_left == 8'd0);
-          if (do_r) begin
-            if (ar_left == 8'd0) begin
-              s_axi_rvalid <= 1'b0;
-              s_axi_rlast  <= 1'b0;
-              rst <= RIDLE;
-            end else begin
-              ar_left <= ar_left - 8'd1;
-              ar_a    <= ar_a + 28'd16;
-            end
-          end
-        end
-        default: rst <= RIDLE;
-      endcase
-
       q_wr <= wr; q_rd <= rd; q_cnt <= cn;
+      streaming <= st;
     end
   end
 
@@ -188,7 +168,9 @@ module a7ng_axi_soa_mem_stub #(
   end
 
   task automatic poke128(input logic [27:0] byte_addr, input logic [127:0] data);
-    if (idx_of(byte_addr) < DEPTH_WORDS)
-      mem[idx_of(byte_addr)] = data;
+    int unsigned ix;
+    ix = idx_of(byte_addr);
+    if (ix < DEPTH_WORDS)
+      mem[ix] = data;
   endtask
 endmodule

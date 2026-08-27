@@ -1,0 +1,2 @@
+UART_ARMED
+\nRESULT: NO_MARKER bytes=0

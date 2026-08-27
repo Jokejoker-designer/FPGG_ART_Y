@@ -1,0 +1,49 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 13:22:56 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_rpath_idle_cxsim_mux_00/xsim_script.tcl
+# xsim {e2r_rpath_idle_cxsim_mux_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-RPATH-IDLE-CXSIM-MUX-00 START
+VEHICLE=a7ng_native_v1_ab_core SIM_FULL=0 do_lm=1 CDC+B1+MUX ungated_cdc_rvalid SHARED_STUB_WDMA
+PREREG_UNKNOWN: which AND term is 1 at first legal TILE_DST==4 through shared stub+CDC+B1+ungated cdc_rvalid
+PREREG_H_CANDIDATE: shared-bus leftover or WDMA R via ungated cdc_rvalid holds c_rvalid → idle=0
+PREREG_H_RIVAL: dest-wait still idle=1 (NONE) — leftover is true MIG-only
+PREREG_FALSIFIER: FAIL_NO_DESTWAIT or force dst or more than one term (SET) or C-FIX
+PREREG_UNIT: first dest-wait occupancy after one query start
+FORBIDDEN: force TILE_DST/dst; assign r_path_idle=1; C-FIX; soc_top; MIG; board
+SOA_PRELOAD_DONE candidates=64
+PROBE t=5000000 phase=RESET dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0
+SOA_OWNER_READY ok cycles=0
+PROBE t=5000000 phase=OWNER_READY dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0
+SOA_QUERY_START t=5120000 do_lm=1
+PROBE t=5160000 phase=POST_START_1 dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0
+PROBE t=24760000 phase=SOA_DONE dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=1 run=0 fwd=0 core_busy=0 phase=0 gv=3
+PROBE t=25960000 phase=START_FWD dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=1 run=0 fwd=1 core_busy=0 phase=0 gv=4
+EMB t=26200000 dim=0 wrd=x crd=x awd=x
+PROBE t=26760000 phase=WDMA_GO dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=1 own_ui=0 cdc_rv=0 stub_rv=0 go=1 busy=0 rready=0 rleft=0 wst=0 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=29640000 phase=FIRST_DESTWAIT dst=4 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=0 rleft=0 wst=4 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+REACHED_DESTWAIT=1 FIRST_TILE_DST=4 LIVE_TILE_DST=4
+SNAP destwait_cyc=355 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=0 stub_rv=0
+GRANT_ROSE_BEFORE_DESTWAIT=1
+SOA_DONE_SEEN=1 START_FWD_SEEN=1 CORE_BUSY=1 PHASE=1 GV=4 BEATS=52
+WDMA hold busy=1 done=0 rvalid=0 rleft=0 owner=1 own_ui=1
+AND_MASK drain,fifo,rvalid,tr = 0110 n_hot=2
+WIRE_THAT_HOLDS_IDLE_0=AMBIGUOUS
+VERDICT_CLASS=SET
+C_FIX=NONE
+C_FIX_CONSTITUENT=NONE
+EXISTENCE=not_claimed
+BOARD_PASS=not_claimed
+XSIM=PASS
+E2R_RPATH_IDLE_CXSIM_MUX_00_XSIM_PASS verdict=SET wire=AMBIGUOUS c_fix=NONE idle=0 n_hot=2 dst=4 grant_rose=1
+$finish called at time : 29640 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_rpath_idle_cxsim_mux_00.sv" Line 627
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 13:22:57 2026...

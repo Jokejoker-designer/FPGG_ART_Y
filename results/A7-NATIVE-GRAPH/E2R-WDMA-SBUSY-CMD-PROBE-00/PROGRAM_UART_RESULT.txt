@@ -1,0 +1,22 @@
+GATE=E2R-WDMA-SBUSY-CMD-PROBE-00
+PROVENANCE=board UART one boot; bit not rebuilt
+JTAG=210319BE776EA
+PROGRAM_PID=237752
+PROGRAM_T=2026-08-27T11:22:16+07
+PROGRAM_EXIT=0
+BIT_SHA=A9F529B2FAFC3FE6E8C79DA16F200508633356448CBC29B47CBFDE04FE1A91C0
+WNS=0.692
+TNS=0
+WHS=0.009
+THS=0
+BRAM36=103
+unsafe_cdc=0
+core_WNS=7.792
+ui_WNS=1.788
+WNS_PROVENANCE=post-route report_timing_summary.rpt Design Timing Summary
+FIRST_MISSING_MARKER=NONE
+UART_BLOCK=SGO=0 MGO=1 CMD_EMPTY=0 SBUSY_PEND=1 CMD_ST=2(C_BUSY) CMD_RD=1 TILE_DST=4 DMA_ST=0 WDMA_GRANT=0 RPATH_IDLE=0 pred=NO
+CLASS=B
+VERDICT=CMD_EMPTY=0 after MGO=1 (write crossed ui). SBUSY_PEND=1 and CMD_ST=2 C_BUSY (not IDLE) with SGO=0. H_RIVAL write-drop falsified. H_CANDIDATE s_busy/cmd_st block supported. pred absent. No BOARD_PASS.
+NEXT_ONE_UNKNOWN=B-FIX only: does clearing s_busy / leaving C_BUSY produce SGO=1 on silicon (XSim already preregistered; no B3 probe)
+NOTE=this lane programmed once (PID 237752). A second identical TCL batch PID 238280 ran 11:25:28 after UART closed; UART_BLOCK is from the first program window. No recapture. No B3.

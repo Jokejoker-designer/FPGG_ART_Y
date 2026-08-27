@@ -282,7 +282,8 @@ module tb_a7ng_native_v1_ab_mig;
     .m_axi_arvalid(arvalid_f), .m_axi_arready(arready),
     .m_axi_rid(rid), .m_axi_rdata(rdata), .m_axi_rresp(rresp),
     .m_axi_rlast(rlast), .m_axi_rvalid(rvalid), .m_axi_rready(rready_f),
-    .owner_ready_o(owner_ready)
+    .owner_ready_o(owner_ready),
+    .r_path_idle_o()
   );
   assign bytes_id = dut.u_soa.bytes_id_o;
   assign bytes_cue = dut.u_soa.bytes_cue_o;

@@ -1,0 +1,8 @@
+t_ns,phase,r_drain_hold,fifo_cnt,m_axi_rvalid,tr_cnt,r_path_idle,dirty_count,mc_count,mc_after_start,br_rvalid,br_rready,owner_st,soa_done,soa_running,axi_beats,delivered
+235000,RESET,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+235000,OWNER_READY,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+255000,POST_START_1,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0
+265000,METRIC_CLEAR,0,0,0,0,1,0,0,0,0,0,3,0,0,0,0
+285000,RUNNING_RISE,0,0,0,0,1,0,1,1,0,0,0,0,1,0,0
+1455000,SOA_DONE,0,0,0,0,1,0,1,1,0,0,0,1,0,52,64
+1615000,UNIT_SOA_DONE_SETTLE,0,0,0,0,1,0,1,1,0,0,0,1,0,52,64

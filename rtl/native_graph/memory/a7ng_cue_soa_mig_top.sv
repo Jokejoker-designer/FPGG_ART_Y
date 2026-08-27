@@ -62,7 +62,8 @@ module a7ng_cue_soa_mig_top #(
   input  logic         m_axi_rlast,
   input  logic         m_axi_rvalid,
   output logic         m_axi_rready,
-  output logic         owner_ready_o
+  output logic         owner_ready_o,
+  output logic         r_path_idle_o
 );
   import a7ng_pkg::*;
 
@@ -100,6 +101,7 @@ module a7ng_cue_soa_mig_top #(
                      (br_outstanding == 32'd0) && !m_axi_rvalid;
 
   assign owner_ready_o = owner_ready;
+  assign r_path_idle_o = r_path_idle;
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n)

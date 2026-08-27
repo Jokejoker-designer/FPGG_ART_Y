@@ -38,7 +38,7 @@ export function InsightRail() {
       data-testid="insight-rail"
       className={cn(
         "gb-insight-rail fixed inset-y-0 right-0 z-40 w-80 overflow-y-auto border-l border-line bg-surface p-3 gbx-scroll transition-transform duration-200",
-        insightOpen ? "translate-x-0" : "translate-x-full",
+        insightOpen ? "gb-insight-rail-open translate-x-0" : "translate-x-full",
       )}
     >
       <div className="mb-3 flex items-center justify-between">

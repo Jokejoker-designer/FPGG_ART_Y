@@ -19,7 +19,7 @@ const FORBIDDEN = [
 ];
 
 async function ready(page: import("@playwright/test").Page) {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
 }
 

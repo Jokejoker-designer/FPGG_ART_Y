@@ -1,0 +1,10 @@
+E2R-UART-MGO-HB-FIX-00-EXCL RTL verify (pre-build)
+file=rtl/board/arty_a7_ng_native_v1_ab_soc_top.sv
+SOC_TOP_SHA256=618BB9336B4471286AC8B9CFD0AAA82BF8F0EE2CC479F015107232554DB33304
+msg_sel=logic [6:0]
+sent_mask=logic [64:0]
+MGO_case=7'd64 (hb_char + hb_len)
+BOOT_retransmit=refused after sent_mask[0]
+6d64_MGO=ABSENT
+scope=UART selector only (no B1/CDC/tile/data-path edits this gate)
+control_f1v_bit=6DA35A623B185592D07DB19D82EEC2009F82E9DB77714C49AC9B1CC402E47534

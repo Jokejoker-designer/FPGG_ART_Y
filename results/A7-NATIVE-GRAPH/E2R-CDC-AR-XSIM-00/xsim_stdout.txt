@@ -1,0 +1,30 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Aug 26 09:32:44 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_cdc_ar_xsim/xsim_script.tcl
+# xsim {e2r_cdc_ar_xsim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-CDC-AR-XSIM-00 F1f START m_period=80ns s_period=10ns window=50
+T=0 m_rst_n=0 s_rst_n=0 | m_arv=0 m_arr=x ar_wr_en=x ar_full=0 | ar_empty=1 s_arv=0 ar_rd_en=0 | dbg_ne=x dbg_hold=x
+T=0 m_rst_n=0 s_rst_n=0 | m_arv=0 m_arr=0 ar_wr_en=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd_en=0 | dbg_ne=x dbg_hold=x
+RESET_RELEASED T=1960000
+T=1960000 m_rst_n=1 s_rst_n=1 | m_arv=0 m_arr=1 ar_wr_en=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd_en=0 | dbg_ne=0 dbg_hold=0
+M_AR_DRIVE T=5960000 addr=0001000
+T=5960000 m_rst_n=1 s_rst_n=1 | m_arv=1 m_arr=1 ar_wr_en=1 ar_full=0 | ar_empty=1 s_arv=0 ar_rd_en=0 | dbg_ne=0 dbg_hold=0
+M_AR_ACCEPT T=6040000 ar_wr_en=1 ar_full=0 ar_empty=1
+T=6040000 m_rst_n=1 s_rst_n=1 | m_arv=0 m_arr=1 ar_wr_en=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd_en=0 | dbg_ne=0 dbg_hold=0
+T=6185000 m_rst_n=1 s_rst_n=1 | m_arv=0 m_arr=1 ar_wr_en=0 ar_full=0 | ar_empty=0 s_arv=1 ar_rd_en=1 | dbg_ne=0 dbg_hold=0
+S_ARVALID T=6195000 s_cycles_after_m=16 ar_empty=0 ar_rd_en=1 addr=0001000
+T=6195000 m_rst_n=1 s_rst_n=1 | m_arv=0 m_arr=1 ar_wr_en=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd_en=0 | dbg_ne=1 dbg_hold=1
+SUMMARY m_accepted=1 saw_s_arv=1 s_cycles_after_m=16 ar_empty_final=1 dbg_ne=0 dbg_hold=0
+E2R_CDC_AR_XSIM_PASS s_cycles_after_m=16 (window=50) H_RIVAL_FAVORED
+$finish called at time : 6295 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-CDC-AR-XSIM-00/tb_e2r_cdc_ar_xsim_00.sv" Line 182
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Aug 26 09:32:46 2026...

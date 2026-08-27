@@ -1,0 +1,57 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 13:44:52 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_rpath_idle_cxsim_grant0_rinj_00/xsim_script.tcl
+# xsim {e2r_rpath_idle_cxsim_grant0_rinj_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-RPATH-IDLE-CXSIM-GRANT0-RINJ-00 START
+VEHICLE=a7ng_native_v1_ab_core SIM_FULL=0 do_lm=1 CDC+B1_GRANT0+MUX ungated_cdc_rvalid SHARED_STUB_WDMA RINJ8_AFTER_DST3
+PREREG_UNKNOWN: grant=0 from reset; after first dbg_tile_dst==3, do 8 TB-injected CDC-slave R beats make dest==4?
+PREREG_H_CANDIDATE: dest=4 with grant stayed 0; then classify AND terms (ONE/SET/NONE)
+PREREG_H_RIVAL: dest stays 3 after 8 R (FAIL_NO_DESTWAIT_GRANT0)
+PREREG_FALSIFIER: force dst; raise grant; product RTL; C-FIX; soc_top+MIG; board
+PREREG_UNIT: one query, grant=0 from reset, inject exactly 8 R after first dest==3
+FORBIDDEN: force TILE_DST/dst; assign r_path_idle=1; raise grant; C-FIX; soc_top; MIG; board
+SOA_PRELOAD_DONE candidates=64
+PROBE t=5000000 phase=RESET dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0 rinj_acc=0 rinj_left=0 rinj_done=0 dma_rv=0 wdma_rv=0
+SOA_OWNER_READY ok cycles=0
+PROBE t=5000000 phase=OWNER_READY dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0 rinj_acc=0 rinj_left=0 rinj_done=0 dma_rv=0 wdma_rv=0
+SOA_QUERY_START t=5120000 do_lm=1
+PROBE t=5160000 phase=POST_START_1 dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0 rinj_acc=0 rinj_left=0 rinj_done=0 dma_rv=0 wdma_rv=0
+PROBE t=24760000 phase=SOA_DONE dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=1 run=0 fwd=0 core_busy=0 phase=0 gv=3 rinj_acc=0 rinj_left=0 rinj_done=0 dma_rv=0 wdma_rv=0
+PROBE t=25960000 phase=START_FWD dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=1 run=0 fwd=1 core_busy=0 phase=0 gv=4 rinj_acc=0 rinj_left=0 rinj_done=0 dma_rv=0 wdma_rv=0
+EMB t=26200000 dim=0 wrd=x crd=x awd=x
+PROBE t=26760000 phase=WDMA_GO dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=1 busy=0 rready=0 rleft=0 wst=0 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4 rinj_acc=0 rinj_left=0 rinj_done=0 dma_rv=0 wdma_rv=0
+PROBE t=27640000 phase=DEST3_BEFORE_INJECT dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4 rinj_acc=8 rinj_left=0 rinj_done=1 dma_rv=0 wdma_rv=0
+DEST_BEFORE_INJECT=3
+GRANT_AT_INJECT=0
+PROBE t=27640000 phase=AFTER_RINJ dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4 rinj_acc=8 rinj_left=0 rinj_done=1 dma_rv=0 wdma_rv=0
+R_INJECTED=8 rinj_done=1
+PROBE t=30200000 phase=FIRST_DESTWAIT dst=4 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=0 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4 rinj_acc=8 rinj_left=0 rinj_done=1 dma_rv=0 wdma_rv=0
+REACHED_DESTWAIT=1 FIRST_TILE_DST=4 LIVE_TILE_DST=4 MAX_DST=4
+SNAP destwait_cyc=362 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0
+GRANT_ROSE_BEFORE_DESTWAIT=0 GRANT_STAYED_0=1
+DEST_BEFORE_INJECT=3 DEST_AFTER_INJECT=4
+DEST=4
+R_INJECTED=8
+SOA_DONE_SEEN=1 START_FWD_SEEN=1 CORE_BUSY=1 PHASE=1 GV=4 BEATS=52
+WDMA hold busy=1 done=0 rvalid=0 rleft=8 owner=1 own_ui=0
+AND_MASK drain,fifo,rvalid,tr = 0000 n_hot=0
+WIRE_THAT_HOLDS_IDLE_0=NONE
+VERDICT_CLASS=NONE
+C_FIX=NONE
+C_FIX_CONSTITUENT=NONE
+EXISTENCE=not_claimed
+BOARD_PASS=not_claimed
+XSIM=PASS
+E2R_RPATH_IDLE_CXSIM_GRANT0_RINJ_00_XSIM_PASS verdict=NONE wire=NONE c_fix=NONE idle=1 n_hot=0 dst=4 grant_stayed_0=1 rinj=8
+$finish called at time : 30200 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_rpath_idle_cxsim_grant0_rinj_00.sv" Line 742
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 13:44:54 2026...

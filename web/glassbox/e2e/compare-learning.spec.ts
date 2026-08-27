@@ -17,7 +17,7 @@ const FORBIDDEN = [
 ];
 
 async function openTab(page: import("@playwright/test").Page, id: "compare" | "learning") {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId(`tab-${id}`).click();
   await expect(page.getByTestId(`tab-${id}`)).toHaveAttribute("aria-current", "page");
@@ -78,7 +78,7 @@ test.describe("so sánh và học", () => {
   });
 
   test("keyboard 5 and 6 open compare then learning", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/studio");
     await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
     await page.locator("body").click();
     await page.keyboard.press("5");

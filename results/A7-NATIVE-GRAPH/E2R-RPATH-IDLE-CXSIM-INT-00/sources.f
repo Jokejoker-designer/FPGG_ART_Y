@@ -1,0 +1,19 @@
+# E2R-RPATH-IDLE-CXSIM-INT-00 — xvlog file list (no MIG, no vivado.exe impl)
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/pkg/a7ng_pkg.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_mem_schema_v1.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/scorer/a7ng_scorer_lane.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/scorer/a7ng_scorer_array.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/scorer/a7ng_termgen_lane.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/scorer/a7ng_termgen_array.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/topk/a7ng_topk.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/topk/a7ng_topk_wavefront_global.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/topk/a7ng_ng02_core.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/frontier/a7ng_frontier_buckets.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_ddr_soa_axi_bridge.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_soa_plane_engine.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_soa_plane_fetch.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_axi_read_stream.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_cue_soa_wavefront.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_cue_soa_mig_top.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/a7ng_axi_soa_mem_stub.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_rpath_idle_cxsim_int_00.sv

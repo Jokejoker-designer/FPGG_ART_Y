@@ -17,7 +17,7 @@ const FORBIDDEN = [
 ];
 
 async function openTab(page: import("@playwright/test").Page, id: "eam" | "model") {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId(`tab-${id}`).click();
   await expect(page.getByTestId(`tab-${id}`)).toHaveAttribute("aria-current", "page");
@@ -68,7 +68,7 @@ test.describe("bộ nhớ và mô hình", () => {
   });
 
   test("keyboard 7 and 8 open memory then model", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/studio");
     await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
     await page.locator("body").click();
     await page.keyboard.press("7");

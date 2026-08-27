@@ -86,8 +86,13 @@ module a7ng_cue_soa_wavefront #(
   (* ram_style = "distributed" *) logic [127:0] cue_beats_mem  [MAX_CUE_BEATS];
   (* ram_style = "distributed" *) logic [127:0] prior_beats_mem[MAX_PRIOR_BEATS];
 
-  (* ram_style = "distributed" *) logic [127:0] rec0 [WAVE];
-  (* ram_style = "distributed" *) logic [127:0] rec1 [WAVE];
+  // Field-split wave banks: 128b distributed-RAM pack showed rec0 id lag (pi-1) in XSim.
+  logic [31:0] r0_nid   [WAVE];
+  logic [63:0] r0_cue   [WAVE];
+  logic [7:0]  r0_prior [WAVE];
+  logic [31:0] r1_nid   [WAVE];
+  logic [63:0] r1_cue   [WAVE];
+  logic [7:0]  r1_prior [WAVE];
 
   logic [CNT_W-1:0] cnt0, cnt1;
   logic             fill_sel, drain_sel;
@@ -192,8 +197,10 @@ module a7ng_cue_soa_wavefront #(
   logic [127:0] wave_rec_c [WAVE];
   always_comb begin
     for (int k = 0; k < int'(WAVE); k++) begin
-      wave_rec_c[k] = drain_sel ? rec1[k] : rec0[k];
-      wave_rec_o[k] = drain_sel ? rec1[k] : rec0[k];
+      wave_rec_c[k] = drain_sel
+          ? pack_desc(r1_nid[k], r1_cue[k], r1_prior[k])
+          : pack_desc(r0_nid[k], r0_cue[k], r0_prior[k]);
+      wave_rec_o[k] = wave_rec_c[k];
     end
   end
   assign wave_base_id_o = base_q + delivered;
@@ -418,10 +425,15 @@ module a7ng_cue_soa_wavefront #(
           for (k0 = 0; k0 < int'(WAVE); k0++) begin
             pi = int'(del) + k0;
             if (pi < int'(target)) begin
-              if (f_sel)
-                rec1[k0] <= pack_desc(id_at(pi), cue_at(pi), prior_at(pi));
-              else
-                rec0[k0] <= pack_desc(id_at(pi), cue_at(pi), prior_at(pi));
+              if (f_sel) begin
+                r1_nid[k0]   <= id_at(pi);
+                r1_cue[k0]   <= cue_at(pi);
+                r1_prior[k0] <= prior_at(pi);
+              end else begin
+                r0_nid[k0]   <= id_at(pi);
+                r0_cue[k0]   <= cue_at(pi);
+                r0_prior[k0] <= prior_at(pi);
+              end
             end
           end
           if (f_sel) c1 = CNT_W'(WAVE);

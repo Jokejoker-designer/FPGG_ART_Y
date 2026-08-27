@@ -58,6 +58,11 @@ module a7ng_native_v1_ab_core #(
   output logic         core_done_o,
   output logic [9:0]   pred_o,
   output logic [7:0]   phase_o,
+  output logic         w_stall_o, // F1n probe: tiny_gpt803k tile stall
+  output logic         dbg_tile_miss_o, // F1o probe: weight_tile803k miss
+  output logic [3:0]   dbg_tile_bst_o,
+  output logic [2:0]   dbg_tile_dst_o,
+  output logic         dbg_tile_req_s1_o, // F1q: req_s[1] at D_IDLE gate
   output logic         final_accept_o,
   output logic [3:0]   m_axi_arid,
   output logic [27:0]  m_axi_araddr,
@@ -72,7 +77,23 @@ module a7ng_native_v1_ab_core #(
   input  logic         m_axi_rlast,
   input  logic         m_axi_rvalid,
   output logic         m_axi_rready,
-  output logic         owner_ready_o
+  output logic         owner_ready_o,
+  output logic         r_path_idle_o,
+  input  logic         clk_dma = 1'b0,
+  input  logic         rst_dma_n = 1'b1,
+  output logic         wdma_owner,
+  output logic         wdma_go,
+  output logic         wdma_wr,
+  output logic [27:0]  wdma_addr,
+  output logic [31:0]  wdma_bytes,
+  input  logic         wdma_busy = 1'b0,
+  input  logic         wdma_done = 1'b0,
+  output logic         wdma_w_valid,
+  input  logic         wdma_w_ready = 1'b0,
+  output logic [127:0] wdma_w_data,
+  input  logic         wdma_r_valid = 1'b0,
+  output logic         wdma_r_ready,
+  input  logic [127:0] wdma_r_data = 128'd0
 );
   import a7ng_pkg::*;
 
@@ -114,7 +135,8 @@ module a7ng_native_v1_ab_core #(
     .m_axi_arvalid(m_axi_arvalid), .m_axi_arready(m_axi_arready),
     .m_axi_rid(m_axi_rid), .m_axi_rdata(m_axi_rdata), .m_axi_rresp(m_axi_rresp),
     .m_axi_rlast(m_axi_rlast), .m_axi_rvalid(m_axi_rvalid), .m_axi_rready(m_axi_rready),
-    .owner_ready_o(owner_ready_o)
+    .owner_ready_o(owner_ready_o),
+    .r_path_idle_o(r_path_idle_o)
   );
 
   node_id_t bind_gid [0:7];
@@ -193,7 +215,16 @@ module a7ng_native_v1_ab_core #(
     .tgt_in(10'd0), .lr_in(4'd0), .corpus_n(8'd0), .corpus_ep(8'd0),
     .busy(core_busy_o), .done(core_done), .pred(pred_o),
     .last_loss(), .ce0(), .ce1(), .wr_n(), .xor32(), .add32(),
-    .phase(phase_o), .w_stall()
+    .phase(phase_o), .w_stall(w_stall_o),
+    .clk_dma(clk_dma), .rst_dma_n(rst_dma_n),
+    .wdma_owner(wdma_owner), .wdma_go(wdma_go), .wdma_wr(wdma_wr),
+    .wdma_addr(wdma_addr), .wdma_bytes(wdma_bytes),
+    .wdma_busy(wdma_busy), .wdma_done(wdma_done),
+    .wdma_w_valid(wdma_w_valid), .wdma_w_ready(wdma_w_ready), .wdma_w_data(wdma_w_data),
+    .wdma_r_valid(wdma_r_valid), .wdma_r_ready(wdma_r_ready), .wdma_r_data(wdma_r_data),
+    .dbg_tile_bst(dbg_tile_bst_o), .dbg_tile_dst(dbg_tile_dst_o), .dbg_tile_rg(),
+    .dbg_tile_miss(dbg_tile_miss_o), .dbg_tile_dirty(), .dbg_tile_req(),
+    .dbg_tile_req_s1(dbg_tile_req_s1_o)
   );
   assign core_done_o = core_done;
 endmodule

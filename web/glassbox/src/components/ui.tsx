@@ -1,19 +1,21 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function Panel({
   className,
   children,
+  ...rest
 }: {
   className?: string;
   children: ReactNode;
-}) {
+} & HTMLAttributes<HTMLElement>) {
   return (
     <section
       className={cn(
         "rounded-2xl border border-line bg-card p-4 shadow-[var(--shadow-panel)]",
         className,
       )}
+      {...rest}
     >
       {children}
     </section>

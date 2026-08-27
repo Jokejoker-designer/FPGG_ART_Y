@@ -17,10 +17,11 @@ function vn(n: number): string {
 }
 
 export function EamTab() {
+  useStudio((s) => s.session);
   const { setTab, level } = useStudio();
   const header = useStudioHeader();
   const retrieval = sessionView.retrieval;
-  const events = sessionView.memoryEvents;
+  const events = sessionView.memoryEvents ?? [];
   const selected = retrieval?.selectedEpisodeId ?? null;
 
   const funnelSteps = retrieval
@@ -79,7 +80,7 @@ export function EamTab() {
         }
       />
 
-      <div className="grid gap-3 lg:grid-cols-[1.1fr_1fr]">
+      <div className="grid items-start gap-3 lg:grid-cols-[1.1fr_1fr]">
         <Panel>
           <PanelTitle>Phễu truy hồi</PanelTitle>
           <Funnel steps={funnelSteps} />
@@ -116,22 +117,73 @@ export function EamTab() {
         </Panel>
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-2">
+      <Panel data-testid="eam-memory-log">
+        <PanelTitle
+          hint={`${events.length} sự kiện đã ghi`}
+          action={events[0] ? <EvidenceBadge provenance={events[0].provenance} /> : null}
+        >
+          Nhật ký bộ nhớ
+        </PanelTitle>
+        {events.length === 0 ? (
+          <p className="rounded-lg border border-line bg-surface px-3 py-3 text-[13px] text-fg">
+            Không có sự kiện bộ nhớ.
+          </p>
+        ) : (
+          <ul className="divide-y divide-line overflow-hidden rounded-xl border border-line">
+            {events.map((e) => (
+              <li
+                key={e.eventId}
+                className="grid min-h-12 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 bg-surface px-3 py-2.5 sm:grid-cols-[5.5rem_7rem_minmax(0,1fr)_auto_auto]"
+              >
+                <Pill tone={e.kind === "HIT" ? "ok" : e.kind === "MISS" ? "bad" : "mem"}>
+                  {e.kind}
+                </Pill>
+                <span className="font-mono text-[13px] text-fg">
+                  {e.episodeId ? `#${e.episodeId}` : "—"}
+                </span>
+                <span className="hidden font-mono text-[13px] tabular text-muted sm:inline">
+                  {e.address === null ? "—" : `0x${e.address.toString(16)}`}
+                </span>
+                <span className="hidden sm:inline">
+                  <EvidenceBadge provenance={e.provenance} />
+                </span>
+                <button
+                  type="button"
+                  className="justify-self-end text-caption text-cyan underline"
+                  onClick={() => setTab("waveform")}
+                >
+                  Mở sóng
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        {level === "rtl" ? (
+          <p className="mt-2 text-caption text-subtle">
+            axi_rnw / hit chỉ khi nguồn là BOARD. Bản ghi này là SYNTHETIC.
+          </p>
+        ) : null}
+      </Panel>
+
+      <div className="grid items-start gap-3 lg:grid-cols-2">
         <Panel>
           <PanelTitle>Bản đồ cue</PanelTitle>
           {selected ? (
-            <svg viewBox="0 0 420 160" className="h-40 w-full" role="img" aria-label={`Episode ${selected}, không có cue được ghi.`}>
-              <circle cx="210" cy="80" r="32" fill="#2dd4bf22" stroke="#2dd4bf" />
-              <text x="210" y="84" textAnchor="middle" fill="#e8eef4" fontSize="12">
+            <div className="flex items-center gap-3">
+              <div
+                className="grid size-16 shrink-0 place-items-center rounded-full border border-mem bg-mem/15 font-mono text-xs text-fg"
+                role="img"
+                aria-label={`Episode ${selected}, không có cue được ghi.`}
+              >
                 #{selected}
-              </text>
-            </svg>
+              </div>
+              <p className="text-[13px] text-muted">
+                Chỉ hiện episode được chọn. Không có danh sách cue trong bản ghi — không bịa nhãn.
+              </p>
+            </div>
           ) : (
             <p className="text-[13px] text-muted">Không có episode để vẽ.</p>
           )}
-          <p className="mt-2 text-caption text-subtle">
-            Chỉ hiện episode được chọn. Không có danh sách cue trong bản ghi — không bịa nhãn.
-          </p>
         </Panel>
         <Panel>
           <PanelTitle>Mật độ DDR</PanelTitle>
@@ -141,53 +193,6 @@ export function EamTab() {
           </p>
         </Panel>
       </div>
-
-      <Panel>
-        <PanelTitle>Nhật ký bộ nhớ</PanelTitle>
-        {events.length === 0 ? (
-          <p className="text-[13px] text-muted">Không có sự kiện bộ nhớ.</p>
-        ) : (
-          <table className="w-full text-left text-[13px]">
-            <thead className="text-caption uppercase text-subtle">
-              <tr>
-                <th className="py-2">Loại</th>
-                <th>Episode</th>
-                <th>Địa chỉ</th>
-                <th>Nguồn</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((e) => (
-                <tr key={e.eventId} className="border-t border-line">
-                  <td className="py-2">
-                    <Pill tone={e.kind === "HIT" ? "ok" : e.kind === "MISS" ? "bad" : "mem"}>{e.kind}</Pill>
-                  </td>
-                  <td className="font-mono">{e.episodeId ? `#${e.episodeId}` : "—"}</td>
-                  <td className="font-mono tabular">
-                    {e.address === null ? "—" : `0x${e.address.toString(16)}`}
-                  </td>
-                  <td>
-                    <EvidenceBadge provenance={e.provenance} />
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="text-caption text-cyan underline"
-                      onClick={() => setTab("waveform")}
-                    >
-                      Mở sóng
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-        {level === "rtl" ? (
-          <p className="mt-2 text-caption text-subtle">axi_rnw / hit chỉ khi nguồn là BOARD. Bản ghi này là SYNTHETIC.</p>
-        ) : null}
-      </Panel>
     </div>
   );
 }

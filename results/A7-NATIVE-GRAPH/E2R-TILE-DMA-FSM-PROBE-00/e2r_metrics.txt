@@ -1,0 +1,6 @@
+ramb36=103 ramb18=0 dsps=19
+WNS=NA TNS=NA WHS=NA THS=NA
+core_WNS=9.971 core_TNS=0 ui_WNS=2.754 ui_TNS=0
+unsafe_cdc=0 gate_pass=1
+TILE_DMA_STATE=0 TILE_BST=4 TILE_MISS=YES W_STALL=YES PHASE=01 pred=NO_PRED PROBE_PASS=YES
+NEXT=F1q_tile_dma_req_ack_probe

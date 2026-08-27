@@ -1,8 +1,12 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
+
+const root = fileURLToPath(new URL(".", import.meta.url));
 
 /**
  * GlassBox Studio dev/build config.
@@ -27,7 +31,19 @@ export default defineConfig(({ command, isPreview }) => ({
     port: 8081,
     strictPort: true,
   },
-  resolve: { tsconfigPaths: true },
+  resolve: {
+    tsconfigPaths: true,
+    // @glassbox/contracts is consumed as TypeScript source from
+    // ../../contracts/glassbox, which has no node_modules. Pin zod to this
+    // app so client chunks (Observatory dynamic import of GlassBox) resolve.
+    alias: {
+      zod: path.resolve(root, "node_modules/zod"),
+    },
+    dedupe: ["zod", "react", "react-dom"],
+  },
+  optimizeDeps: {
+    include: ["zod", "@glassbox/contracts"],
+  },
   plugins: [
     tailwindcss(),
     tanstackStart(),

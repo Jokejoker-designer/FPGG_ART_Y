@@ -9,7 +9,7 @@ import { expect, test } from "@playwright/test";
  */
 test.describe("adapter wiring (fixture default)", () => {
   test("hydrate through ports; settings shows SYNTHETIC and no serial", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/studio");
     await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
     await page.getByTestId("tab-settings").click();
     await expect(page.getByRole("heading", { name: "Nguồn dữ liệu" })).toBeVisible();

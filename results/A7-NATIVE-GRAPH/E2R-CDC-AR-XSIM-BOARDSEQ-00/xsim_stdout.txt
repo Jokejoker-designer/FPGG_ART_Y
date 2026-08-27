@@ -1,0 +1,50 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Aug 26 11:21:18 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_cdc_ar_boardseq/xsim_script.tcl
+# xsim {e2r_cdc_ar_boardseq} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-CDC-AR-XSIM-BOARDSEQ-00 F1h START m_period=80ns s_period=10ns window=50
+CASE_START id=0 name=s_then_m T=0
+T=0 m_rst_n=0 s_rst_n=0 fifo_rst=x | m_arv=0 m_arr=x ar_wr=x ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+T=0 m_rst_n=0 s_rst_n=0 fifo_rst=1 | m_arv=0 m_arr=0 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+HOLD_BOTH T=1960000 fifo_rst=1
+RELEASE_FIRST s_rst_n T=1960000 fifo_rst=1 (expect still 1)
+T=1960000 m_rst_n=0 s_rst_n=1 fifo_rst=1 | m_arv=0 m_arr=0 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+RELEASE_SECOND m_rst_n T=4360000 fifo_rst=1
+T=4360000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+M_AR_DRIVE case=s_then_m T=8360000 addr=0001000
+T=8360000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=1 m_arr=1 ar_wr=1 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+M_AR_ACCEPT case=s_then_m T=8440000 ar_wr_en=1 ar_full=0 ar_empty=1
+T=8440000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+T=8585000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=0 s_arv=1 ar_rd=1
+S_ARVALID case=s_then_m T=8595000 s_cycles_after_m=16 ar_empty=0 ar_rd_en=1 addr=0001000
+T=8595000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+CASE_SUMMARY id=0 name=s_then_m m_accepted=1 saw_s_arv=1 s_cycles_after_m=16 ar_empty_final=1
+T=8795000 m_rst_n=0 s_rst_n=0 fifo_rst=1 | m_arv=0 m_arr=0 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+CASE_START id=1 name=m_then_s T=10760000
+HOLD_BOTH T=12760000 fifo_rst=1
+RELEASE_FIRST m_rst_n T=12760000 fifo_rst=1 (expect still 1)
+T=12760000 m_rst_n=1 s_rst_n=0 fifo_rst=1 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+RELEASE_SECOND s_rst_n T=15160000 fifo_rst=1
+T=15160000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+M_AR_DRIVE case=m_then_s T=19160000 addr=0001000
+T=19160000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=1 m_arr=1 ar_wr=1 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+M_AR_ACCEPT case=m_then_s T=19240000 ar_wr_en=1 ar_full=0 ar_empty=1
+T=19240000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+T=19385000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=0 s_arv=1 ar_rd=1
+S_ARVALID case=m_then_s T=19395000 s_cycles_after_m=16 ar_empty=0 ar_rd_en=1 addr=0001000
+T=19395000 m_rst_n=1 s_rst_n=1 fifo_rst=0 | m_arv=0 m_arr=1 ar_wr=0 ar_full=0 | ar_empty=1 s_arv=0 ar_rd=0
+CASE_SUMMARY id=1 name=m_then_s m_accepted=1 saw_s_arv=1 s_cycles_after_m=16 ar_empty_final=1
+SUMMARY s_then_m: m_ok=1 saw=1 cyc=16 PASS=1 | m_then_s: m_ok=1 saw=1 cyc=16 PASS=1
+E2R_CDC_AR_XSIM_BOARDSEQ_PASS s_then_m_cyc=16 m_then_s_cyc=16 (window=50) H_RIVAL_FAVORED
+$finish called at time : 19595 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-CDC-AR-XSIM-BOARDSEQ-00/tb_e2r_cdc_ar_xsim_boardseq_00.sv" Line 219
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Aug 26 11:21:20 2026...

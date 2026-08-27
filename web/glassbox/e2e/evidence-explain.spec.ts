@@ -18,7 +18,7 @@ const FORBIDDEN = [
 ];
 
 async function openEvidence(page: import("@playwright/test").Page) {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId("tab-evidence").click();
   await expect(page.getByTestId("tab-evidence")).toHaveAttribute("aria-current", "page");
@@ -50,7 +50,7 @@ test.describe("bằng chứng và giải thích", () => {
   });
 
   test("Giải thích uses live collapsed rank, not the stale glossary", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/studio");
     await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
     await page.getByTestId("tab-metrics").click();
     await page.getByRole("button", { name: "Giải thích" }).first().click();

@@ -1,0 +1,37 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 18:28:05 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_uart_enc_cxsim_00/xsim_script.tcl
+# xsim {e2r_uart_enc_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-UART-ENC-CXSIM-00 START
+VEHICLE=tb_hex_nib_hb_char_43_62_63 NO_SOC_TOP NO_MIG C_FIX=NONE
+LAW TILE_DST=hex_nib({1'b0,tile_dst_100}) sel=6'd43 i=9
+LAW WDMA_GRANT=hex_nib({3'b0,wdma_grant_f1v_100}) sel=6'd62 i=11
+LAW RPATH_IDLE=hex_nib({3'b0,rpath_idle_f1v_100}) sel=6'd63 i=11
+LAW F1w_6d64_BOOT_alias=does_not_apply
+ROW=RINJ drive=4,0,1 digits=4,0,1
+ROW=RMUX drive=3,0,0 digits=3,0,0
+ROW=MUX drive=4,1,0 digits=4,1,0
+ROW=SI drive=4,0,0 digits=4,0,0
+DIGITS_RINJ=4,0,1
+DIGITS_RMUX=3,0,0
+DIGITS_MUX=4,1,0
+DIGITS_SI=4,0,0
+ROW_RINJ_400=0 ROW_RMUX_400=0 ROW_MUX_400=0 ROW_SI_400=1
+DEST3_AS_4=0 SI_OK=1
+C_FIX=NONE
+BOARD_PASS=not_claimed
+XSIM=FAITHFUL
+VERDICT_CLASS=FAITHFUL
+E2R_UART_ENC_CXSIM_00_XSIM_PASS verdict=FAITHFUL c_fix=NONE
+$finish called at time : 0 fs : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_uart_enc_cxsim_00.sv" Line 147
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 18:28:08 2026...

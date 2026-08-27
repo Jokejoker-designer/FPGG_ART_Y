@@ -1,0 +1,177 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 13:31:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_rpath_idle_cxsim_grant0_00/xsim_script.tcl
+# xsim {e2r_rpath_idle_cxsim_grant0_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-RPATH-IDLE-CXSIM-GRANT0-00 START
+VEHICLE=a7ng_native_v1_ab_core SIM_FULL=0 do_lm=1 CDC+B1_GRANT0+MUX ungated_cdc_rvalid SHARED_STUB_WDMA
+PREREG_UNKNOWN: on mux vehicle with TB holding grant=0, does DUT-driven dbg_tile_dst reach 4?
+PREREG_H_CANDIDATE: dest=4 with grant=0; then classify AND terms (ONE/SET/NONE)
+PREREG_H_RIVAL: dest never 4 (FAIL_NO_DESTWAIT_GRANT0) — silicon TILE_DST=4 AND GRANT=0 not reproduced
+PREREG_FALSIFIER: force dst; product RTL; C-FIX; soc_top+MIG only
+PREREG_UNIT: one query, grant=0 from reset. First dst=4 occupancy, or timeout without dst=4
+FORBIDDEN: force TILE_DST/dst; assign r_path_idle=1; C-FIX; soc_top; MIG; board
+SOA_PRELOAD_DONE candidates=64
+PROBE t=5000000 phase=RESET dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0
+SOA_OWNER_READY ok cycles=0
+PROBE t=5000000 phase=OWNER_READY dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0
+SOA_QUERY_START t=5120000 do_lm=1
+PROBE t=5160000 phase=POST_START_1 dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=0 run=0 fwd=0 core_busy=0 phase=0 gv=0
+PROBE t=24760000 phase=SOA_DONE dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=1 run=0 fwd=0 core_busy=0 phase=0 gv=3
+PROBE t=25960000 phase=START_FWD dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=0 rready=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 stall=0 soa_done=1 run=0 fwd=1 core_busy=0 phase=0 gv=4
+EMB t=26200000 dim=0 wrd=x crd=x awd=x
+PROBE t=26760000 phase=WDMA_GO dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=1 busy=0 rready=0 rleft=0 wst=0 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=165080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=325080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=485080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=645080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=805080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=965080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=1125080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=1285080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=1445080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=1605080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=1765080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=1925080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=2085080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=2245080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=2405080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=2565080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=2725080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=2885080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=3045080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=3205080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=3365080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=3525080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=3685080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=3845080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4005080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4165080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4325080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4485080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4645080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4805080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=4965080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=5125080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=5285080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=5445080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=5605080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=5765080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=5925080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=6085080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=6245080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=6405080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=6565080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=6725080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=6885080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=7045080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=7205080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=7365080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=7525080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=7685080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=7845080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8005080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8165080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8325080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8485080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8645080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8805080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=8965080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=9125080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=9285080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=9445080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=9605080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=9765080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=9925080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=10085080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=10245080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=10405080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=10565080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=10725080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=10885080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=11045080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=11205080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=11365080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=11525080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=11685080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=11845080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12005080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12165080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12325080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12485080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12645080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12805080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=12965080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=13125080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=13285080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=13445080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=13605080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=13765080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=13925080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=14085080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=14245080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=14405080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=14565080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=14725080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=14885080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=15045080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=15205080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=15365080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=15525080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=15685080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=15845080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16005080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16165080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16325080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16485080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16645080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16805080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=16965080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=17125080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=17285080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=17445080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=17605080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=17765080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=17925080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=18085080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=18245080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=18405080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=18565080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=18725080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=18885080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=19045080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=19205080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=19365080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=19525080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=19685080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=19845080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=20005080000 phase=HB dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=20005080000 phase=LIMIT_NO_DESTWAIT dst=3 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 go=0 busy=1 rready=1 rleft=8 wst=1 miss=1 reqs1=1 bst=4 stall=1 soa_done=1 run=0 fwd=0 core_busy=1 phase=1 gv=4
+REACHED_DESTWAIT=0 FIRST_TILE_DST=0 LIVE_TILE_DST=3 MAX_DST=3
+SNAP destwait_cyc=250050 drain=0 fifo=0 c_rvalid=0 tr=0 idle=0 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0
+GRANT_ROSE_BEFORE_DESTWAIT=0 GRANT_STAYED_0=1
+DEST=3
+SOA_DONE_SEEN=1 START_FWD_SEEN=1 CORE_BUSY=1 PHASE=1 GV=4 BEATS=52
+WDMA hold busy=1 done=0 rvalid=0 rleft=8 owner=1 own_ui=0
+AND_MASK drain,fifo,rvalid,tr = 0000 n_hot=0
+WIRE_THAT_HOLDS_IDLE_0=NONE
+VERDICT_CLASS=FAIL_NO_DESTWAIT_GRANT0
+C_FIX=NONE
+C_FIX_CONSTITUENT=NONE
+EXISTENCE=not_claimed
+BOARD_PASS=not_claimed
+XSIM=FAIL_NO_DESTWAIT_GRANT0
+E2R_RPATH_IDLE_CXSIM_GRANT0_00_FAIL_NO_DESTWAIT_GRANT0 dst=3 max_dst=3 bst=4 miss=1 reqs1=1 go=0 busy=1 soa=1 fwd=1 grant=0 grant_stayed_0=1 own_ui=0
+$finish called at time : 20005080 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_rpath_idle_cxsim_grant0_00.sv" Line 631
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:28 . Memory (MB): peak = 231.855 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 21692 KB (Peak: 21692 KB), Simulation CPU Usage: 25437 ms
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 13:31:55 2026...

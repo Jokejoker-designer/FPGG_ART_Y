@@ -17,7 +17,7 @@ const FORBIDDEN = [
 ];
 
 async function openTab(page: import("@playwright/test").Page, id: "output" | "waveform") {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId(`tab-${id}`).click();
   await expect(page.getByTestId(`tab-${id}`)).toHaveAttribute("aria-current", "page");
@@ -65,7 +65,7 @@ test.describe("đầu ra và sóng FPGA", () => {
   });
 
   test("keyboard 9 opens đầu ra", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/studio");
     await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
     await page.locator("body").click();
     await page.keyboard.press("9");

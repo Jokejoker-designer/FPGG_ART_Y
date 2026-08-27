@@ -1,0 +1,9 @@
+t_ns,phase,r_drain_hold,fifo_cnt,m_axi_rvalid,tr_cnt,r_path_idle,dirty_count,m_rvalid_r,m_r_hold,r_empty,m_r_pend,s_ar_hold,ar_m_st,cdc_quiet,cons_beats,cons_last
+3955000,RESET,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0
+4200000,POST_CLEAR,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0
+4360000,AR_ACCEPTED,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0
+6120000,R_CONSUMED,0,0,0,0,1,0,0,0,1,0,0,0,1,4,1
+8680000,UNIT_CDC_SOA_SETTLE,0,0,0,0,1,0,0,0,1,0,0,0,1,4,1
+8681000,PHASE_C_CLEAN,0,0,0,0,1,0,0,0,1,0,0,0,1,4,1
+8682000,PHASE_C_FORCE_MRVALID_R,0,0,1,0,0,1,1,0,1,0,0,0,0,4,1
+8683000,PHASE_C_RESTORE,0,0,0,0,1,0,0,0,1,0,0,0,1,4,1

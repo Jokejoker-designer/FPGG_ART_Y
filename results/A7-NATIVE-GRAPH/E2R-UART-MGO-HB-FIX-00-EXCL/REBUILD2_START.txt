@@ -1,0 +1,1 @@
+REBUILD2_START 2026-08-27T09:36:15.8119822+07:00 vivado_count=0 tcl=build_e2r_uart_mgo_hb_fix_00_excl.tcl leftover_xpr_removed=yes

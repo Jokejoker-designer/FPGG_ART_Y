@@ -1,0 +1,4 @@
+ramb36=104 ramb18=0 dsps=19
+WNS=0.768 TNS=0.000 WHS=0.022 THS=0.000
+core_WNS=5.817 core_TNS=0 ui_WNS=2.783 ui_TNS=0
+unsafe_cdc=0 gate_pass=1

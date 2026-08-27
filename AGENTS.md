@@ -58,3 +58,20 @@ Basys3 eight-agent zip is **research reference** under `docs/native_graph/refere
 Hugging Face BitNet / Qwen AWQ = design inspiration (`results/A7-NATIVE-GRAPH/HF_RESEARCH/`); never host EVAL answer path.
 
 Do not overwrite frozen A0.3 / 01R / 02M / LM-06. Do not claim Native V1 BOARD_PASS from scaffolding alone. GlassBox remains out of scope until Native V1 freeze.
+
+---
+
+## Learned User Preferences
+
+- Keep existence before quality: prove FPGA-owned `pred=664` before quality, perf, or BRAM-optimization work.
+- Run the E2R board existence ladder as one-change-per-experiment (one unknown, one RTL/probe delta, then rebuild/program/UART).
+- Parent chat stays `a7-ng-orchestrator` only: `python .agents/workflows/native-graph/run_blueprint_loop.py --dispatch` then Task with pipeline `character_id`; do not implement silicon gates or edit board RTL in the parent.
+- Board silicon work belongs in the board worktree; keep main-tree STATUS/dispatch ownership separate from board build/program/UART.
+
+## Learned Workspace Facts
+
+- Main repo: `D:/Jetking_sem4/SEM_4/arty-a7-online-lm`. Board existence worktree: `D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board` (RTL/build/bit/UART); main tree holds `results/A7-NATIVE-GRAPH/STATUS/` dispatch and closeout pointers.
+- E2R F1 ladder (post-F1u): F1k restored AR handshake CDC into LM; F1r–F1s identified WDMA CDC ghost `m_busy` (partial `busy_hold` fix; tile advanced to D_WAITDONE); F1t–F1u showed `s_go` never reaches `ddr_tile_dma` (`DMA_ST=IDLE`, `SGO=0`) under subclass `LM_WDMA_MUX_OWNER_BLOCK`; F1v owner-grant/`m_go` probe in flight.
+- `NATIVE_V1_EXISTENCE_BOARD_PASS` requires UART `pred=664`; AI must not self-declare `BOARD_PASS` or `NATIVE_V1_MINI_AI_BOARD_PASS`.
+- UART evidence: arm capture on COM before programming; occasional 0-byte captures happen—recapture before treating empty UART as design FAIL.
+- Standing doctrine: `.agents/handoff/EXISTENCE_BEFORE_QUALITY.md` and Native STATUS existence law; XSim ≠ board; harness ≠ HS-02.

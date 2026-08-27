@@ -1,0 +1,39 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 12:48:18 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_rpath_idle_cxsim_cdc_00/xsim_script.tcl
+# xsim {e2r_rpath_idle_cxsim_cdc_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-RPATH-IDLE-CXSIM-CDC-00 START beats=4 settle_m=32 m_period=80ns s_period=10ns
+PREREG_UNKNOWN: after one completed AR/R through CDC into SOA bridge, leftover idle=0?
+VEHICLE=soa_bridge+axi_read_cdc PRIOR=isolated_NONE+stubINT_NONE
+RESET_RELEASED t=1960000
+PROBE t=3955000 phase=RESET drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=0 last=0
+PROBE t=4200000 phase=POST_CLEAR drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=0 last=0
+PROBE t=4360000 phase=AR_ACCEPTED drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=0 last=0
+PROBE t=6120000 phase=R_CONSUMED drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=4 last=1
+PROBE t=8680000 phase=UNIT_CDC_SOA_SETTLE drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=4 last=1
+UNIT idle=1 drain=0 fifo=0 rvalid=0 tr=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 indep=0 wire=NONE mask=0000
+PROBE t=8681000 phase=PHASE_C_CLEAN drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=4 last=1
+PROBE t=8682000 phase=PHASE_C_FORCE_MRVALID_R drain=0 fifo=0 rvalid=1 tr=0 idle=0 dirty=1 mrv=1 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=0 cons=4 last=1
+PROBE t=8683000 phase=PHASE_C_RESTORE drain=0 fifo=0 rvalid=0 tr=0 idle=1 dirty=0 mrv=0 hold=0 empty=1 pend=0 arhold=0 armst=0 cdc_q=1 cons=4 last=1
+PHASE_C law_ok=1 m_rvalid_r_holds_idle0=1
+RESET_IDLE=1 POST_CLEAR_IDLE=1 UNIT_IDLE=1 CDC_QUIET=1 LAW_OK=1 REACHED=1
+WIRE_THAT_HOLDS_IDLE_0=NONE
+C_FIX_CONSTITUENT=NONE
+VERDICT=H_RIVAL_CDC_QUIET_NO_CFIX
+NEXT_ONE_UNKNOWN=silicon leftover is mux/tile dest-wait (not CDC leftover after SOA-complete)
+EXISTENCE=not_claimed
+BOARD_PASS=not_claimed
+XSIM=PASS
+E2R_RPATH_IDLE_CXSIM_CDC_00_XSIM_PASS probes_recorded=1 wire=NONE c_fix=NONE verdict=H_RIVAL_CDC_QUIET_NO_CFIX law_ok=1 idle=1 cdc_q=1
+$finish called at time : 8683 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-RPATH-IDLE-CXSIM-CDC-00/tb_e2r_rpath_idle_cxsim_cdc_00.sv" Line 482
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 12:48:20 2026...

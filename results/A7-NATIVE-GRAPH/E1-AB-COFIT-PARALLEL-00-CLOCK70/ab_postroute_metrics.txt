@@ -1,0 +1,1 @@
+clock_period_ns=70.000 ramb36=96 ramb18=0 eq36=96 luts=63982 lutram=2736 ffs=49821 dsps=19 WNS=0.519 WHS=0.066 route_ok=1

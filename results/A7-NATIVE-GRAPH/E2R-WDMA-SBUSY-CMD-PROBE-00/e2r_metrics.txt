@@ -1,0 +1,6 @@
+ramb36=103 ramb18=0 dsps=19
+WNS=0.692 TNS=0.000 WHS=0.009 THS=0.000
+WNS_provenance=post-route report_timing_summary.rpt Design Timing Summary
+core_WNS=7.792 core_TNS=0 ui_WNS=1.788 ui_TNS=0
+unsafe_cdc=0 gate_pass=1
+BIT_SHA256=A9F529B2FAFC3FE6E8C79DA16F200508633356448CBC29B47CBFDE04FE1A91C0

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/native_graph/memory/a7ng_ddr_soa_axi_bridge.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_ddr_soa_axi_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-RPATH-IDLE-CXSIM-00/tb_e2r_rpath_idle_cxsim_00.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_e2r_rpath_idle_cxsim_00

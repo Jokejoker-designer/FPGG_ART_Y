@@ -10,17 +10,35 @@ vivado -mode batch -notrace -source run_a7ng_native_v1_ab_fast.tcl
 
 ## Outcome
 
-**FAIL** — exit code 5 (`A_FAST_LM_BOARD_LANE_NO_PASS`)
+**PASS** — `A_FAST_LM_BOARD_LANE_XSIM_PASS pred=664` (exit 0)
 
-Last log lines:
+## Evidence (2026-08-24)
+
+| Check | Result |
+|-------|--------|
+| SOA bytes/beats/bursts | **PASS** 832 / 52 / 4 |
+| SOA planes / delivered / waves | **PASS** 16/32/4 / 64 / 4 |
+| `SOA_DATA_MISMATCH` | **PASS** 0 |
+| Global Top-8 | **PASS** `9,11,25,27,41,43,57,59` @ score 165 |
+| CAPTURE pack | **PASS** `3b392b291b190b09` |
+| `pred` | **PASS** 664 |
+| `dual_ticks` / `mem_we_exam` | **PASS** 0 / 0 |
+| `start_fwd_beats` | **PASS** 1 |
+
+## Fixes applied (one unknown each)
+
+1. **AXI mux undeclared nets** — `tb_a7ng_native_v1_ab_fast.sv` AR mux outputs declared (prior session).
+2. **rec0 wave-bank ID lag** — `a7ng_cue_soa_wavefront.sv`: split `rec0`/`rec1` 128b distributed RAM into per-field registers (`r0_nid/cue/prior`, `r1_*`). Root cause: XSim distributed-RAM pack left `rec0[k].id = pi-1` while cue/prior correct (Codex `BOARD_LANE_SCORE_DATA_DIAG_CODEX.md`).
+3. **LM bind timeout** — TB bind wait 5M→200M cycles, wall 50ms→2500ms (HS22-aligned; TinyGPT forward ~18M cycles).
+
+## Marker
 
 ```text
-SOA_PRELOAD_DONE candidates=64
-LM06_WMEM_BACKDOOR_DONE
-SOA_OWNER_READY ok cycles=0
-A_FAST_LM_BOARD_LANE_FAIL SOA_TIMEOUT bytes=256 beats=16 gv=0 ar_fires=1
+A_FAST_LM_BOARD_LANE_XSIM_PASS pred=664
 ```
 
-## Ancillary (not Class A)
+## Artifacts
 
-HS22 in same worktree: `HS22_LM06_NATIVE_CTX_FWD_XSIM_PASS pred_E0=664 pred_E1=733`
+- `tests/xsim/xsim.log`
+- `rtl/native_graph/memory/a7ng_cue_soa_wavefront.sv`
+- `tests/xsim/tb_a7ng_native_v1_ab_fast.sv`

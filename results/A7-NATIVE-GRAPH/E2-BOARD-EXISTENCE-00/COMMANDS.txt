@@ -1,0 +1,39 @@
+# E2-BOARD-EXISTENCE-00 — commands (board lane)
+
+## Preregister / build
+
+```powershell
+$env:XILINXD_LICENSE_FILE = 'D:\Xilinx\licenses\vivado_basic.lic'
+cd D:\Jetking_sem4\SEM_4\arty-a7-online-lm-board
+cmd /c "call C:\2026.1\Vivado\bin\vivado.bat -mode batch -notrace -source vivado\tcl\build_native_v1_e2_board_12p5mhz.tcl"
+```
+
+## Program (pinned JTAG)
+
+```powershell
+$env:XILINXD_LICENSE_FILE = 'D:\Xilinx\licenses\vivado_basic.lic'
+cd D:\Jetking_sem4\SEM_4\arty-a7-online-lm-board
+cmd /c "call C:\2026.1\Vivado\bin\vivado.bat -mode batch -notrace -source vivado\tcl\program_native_v1_existence_00.tcl"
+```
+
+Expected: `NATIVE_V1_EXISTENCE_00_PROGRAM_PASS` target=`.../210319BE776EA`
+
+## UART capture
+
+```powershell
+cd D:\Jetking_sem4\SEM_4\arty-a7-online-lm-board
+python results\A7-NATIVE-GRAPH\E2-BOARD-EXISTENCE-00\capture_e2_uart.py --port COM12 --seconds 45 --out-dir results\A7-NATIVE-GRAPH\E2-BOARD-EXISTENCE-00
+```
+
+## SHA256
+
+```powershell
+Get-FileHash build\out\arty_a7_ng_native_v1_existence_00.bit -Algorithm SHA256
+Get-FileHash results\A7-NATIVE-GRAPH\E1-AB-COFIT-PARALLEL-00-CLOCK80\ab_post_route.dcp -Algorithm SHA256
+```
+
+## Observed (2026-08-25)
+
+- Build R2 exit 1 (redundant file copy tcl line; bitstream OK)
+- Program PASS on `210319BE776EA`
+- UART 0 bytes / pred null

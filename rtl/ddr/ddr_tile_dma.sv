@@ -12,6 +12,7 @@ module ddr_tile_dma (
     output logic         underflow,
     output logic         axi_berr,
     output logic         axi_rerr,
+    output logic [2:0]   dbg_st, // F1u: FSM state probe (IDLE=0..DONE=6)
     input  logic         w_valid,
     output logic         w_ready,
     input  logic [127:0] w_data,
@@ -70,6 +71,7 @@ module ddr_tile_dma (
     assign m_axi_arlen = blen;
     assign m_axi_wdata = w_data;
     assign r_data = m_axi_rdata;
+    assign dbg_st = st;
     assign busy = (st != IDLE) && (st != DONE);
     assign w_ready = (st == W) && m_axi_wready;
     assign r_valid = (st == R) && m_axi_rvalid;

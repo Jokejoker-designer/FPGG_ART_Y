@@ -1,38 +1,33 @@
-# CLOSEOUT — A-FAST-LM-BOARD-LANE-00 (INTERIM FAIL)
+# CLOSEOUT — A-FAST-LM-BOARD-LANE-00
 
 **Gate:** `native_v1_existence_board_parallel_00` Stage A  
 **Worktree:** `D:\Jetking_sem4\SEM_4\arty-a7-online-lm-board`  
 **Evidence class:** `XSIM_FAST_CAUSAL`  
-**Verdict:** **FAIL** (stub/bridge `RLAST` mismatch blocks full `ab_core` SOA chain)
+**Verdict:** **PASS**
 
 ## Run summary
 
 | Item | Result |
 |------|--------|
-| `tb_a7ng_native_v1_ab_fast` | **FAIL** — SOA_TIMEOUT after ID plane (256 B / 16 beats / 1 AR) |
-| Bridge `rlast_error_count` | **1** at stall (`br_out=1`, `rcv=16`, `exp=16`) |
-| `gv_count` / Top-K | **0** (CUE/PRIOR planes never armed) |
-| Ancillary `tb_a7ng_hs22_native_ctx_fwd` | **PASS** `pred_E0=664` (bind+TinyGPT slice only; not Class A substitute) |
+| `tb_a7ng_native_v1_ab_fast` | **PASS** `A_FAST_LM_BOARD_LANE_XSIM_PASS pred=664` |
+| SOA transport | 832 B / 52 beats / 4 AR / 4 waves / `data_mismatch=0` |
+| Global Top-8 | `9,11,25,27,41,43,57,59` @ 165 |
+| CAPTURE | `ctx_pack=3b392b291b190b09` |
+| LM forward | `pred=664`, `start_fwd_beats=1`, `dual_ticks=0` |
 
-## Root cause (FACT)
+## Root cause closed
 
-ID-plane burst completes 16/16 beats, but `a7ng_ddr_soa_axi_bridge` records `rlast_error_count=1` and leaves `outstanding_beats_o=1`. That blocks `plane_fetch_idle`, so `pf_arm=1` for CUE plane never starts. Behavioral AXI stub variants tried (single/multi-outstanding, wf_smoke FSM, mem_model registered `RLAST`) — same failure signature.
+`rec0` fill bank used `(* ram_style="distributed" *)` 128-bit words; XSim left the 32-bit ID field one record behind on even waves (`mm=31`, Top-8 off-by-one). Fix: field-split wave banks in `a7ng_cue_soa_wavefront.sv`.
 
-## Falsifier status
+## Law
 
-- No TB bind/pred injection  
-- `SIM_FULL=1`, backdoor `a7lm06_wmem.hex` only pre-reset  
-- HS22 PASS does **not** close Class A (no live SOA→Top-8 through `a7ng_native_v1_ab_core`)
+- Class A: live SOA→Top-8→bind→TinyGPT through `a7ng_native_v1_ab_core` with `SIM_FULL=1`, AXI stub, backdoor `wmem.hex`.
+- HS22 ancillary PASS does not substitute Class A (now superseded by this closeout).
 
-## Next unknown
+## Next
 
-Does a MIG-aligned behavioral slave (or Vivado `ddr3_model` shim) clear `rlast_error_count` for all four SOA AR bursts while keeping Class A no-PHY law?
-
-## Artifacts
-
-- `results/A7-NATIVE-GRAPH/A-FAST-LM-BOARD-LANE-00/xsim_fast.log`
-- `tests/xsim/tb_a7ng_native_v1_ab_fast.sv`
-- `tests/xsim/a7ng_axi_soa_mem_stub.sv`
-- `tests/xsim/run_a7ng_native_v1_ab_fast.tcl`
+- Stage E1 co-fit (`E1-AB-COFIT-PARALLEL-00`) when authorized.
+- Stage E2 board requires Codex `ALLOW_PROGRAM` / `com12_authorized_gate`.
+- Cherry-pick `a7ng_cue_soa_wavefront.sv` field-split fix to R6 main tree (Grok-owned).
 
 **Date:** 2026-08-24

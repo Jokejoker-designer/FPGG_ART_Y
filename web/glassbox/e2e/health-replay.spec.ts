@@ -17,7 +17,7 @@ const FORBIDDEN = [
 ];
 
 async function openTab(page: import("@playwright/test").Page, id: "metrics" | "experiments") {
-  await page.goto("/");
+  await page.goto("/studio");
   await expect(page.getByTestId("tab-overview")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId(`tab-${id}`).click();
   await expect(page.getByTestId(`tab-${id}`)).toHaveAttribute("aria-current", "page");

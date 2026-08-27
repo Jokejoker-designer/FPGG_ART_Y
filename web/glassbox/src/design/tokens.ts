@@ -37,6 +37,8 @@ export const COLOR_TOKENS = [
   "evidence-twin",
   "evidence-derived",
   "evidence-synthetic",
+  "evidence-stall",
+  "evidence-active",
 ] as const;
 
 export type ColorToken = (typeof COLOR_TOKENS)[number];
@@ -83,38 +85,49 @@ export const EVIDENCE_PRESENTATION: Record<
     glyph: "\u25C6",
     token: "evidence-board",
     authoritative: true,
-    explanation: "Đo trực tiếp trên FPGA. Đây là bằng chứng silicon.",
+    explanation: "UART silicon. Bằng chứng vật lý.",
   },
   XSIM: {
     label: "XSIM",
     glyph: "\u25C7",
     token: "evidence-xsim",
     authoritative: false,
-    explanation: "Mô phỏng RTL. Đúng về logic, không phải bằng chứng silicon.",
+    explanation: "Mô phỏng RTL. Không phải silicon.",
   },
   TWIN: {
     label: "TWIN",
     glyph: "\u25B3",
     token: "evidence-twin",
     authoritative: false,
-    explanation: "Mô hình tham chiếu chạy trên máy chủ. Chỉ để minh họa.",
+    explanation: "Bản sao số trên host. Không phải silicon.",
   },
   DERIVED: {
     label: "DERIVED",
     glyph: "\u0192",
     token: "evidence-derived",
     authoritative: false,
-    explanation: "Tính ra từ giá trị khác. Xem nguồn gốc trong tab Bằng chứng.",
+    explanation: "Tính từ nguồn khác. Không đo trực tiếp.",
   },
   SYNTHETIC: {
     label: "SYNTHETIC",
     glyph: "\u25CB",
     token: "evidence-synthetic",
     authoritative: false,
-    explanation:
-      "Dữ liệu sinh sẵn để dựng giao diện. Không đo từ bo mạch hay mô phỏng.",
+    explanation: "Generated data. Not silicon.",
   },
 };
+
+/** Observatory source copy. Short commercial labels; colour is locked in CSS. */
+export const OBS_SOURCE_COPY = {
+  BOARD: "UART silicon. Physical board.",
+  XSIM: "RTL simulation. Not silicon.",
+  SYNTHETIC: "Generated data. Not silicon.",
+  TWIN: "Host digital twin. Not silicon.",
+  STALL: "Pipeline stall.",
+  ALERT: "Link down or hardware alert.",
+  ACTIVE: "Active stream.",
+  AI_RESPONSE: "FPGA-generated output.",
+} as const;
 
 /** §6.2 stage colours, so the process strip and the tab accents agree. */
 export const PHASE_TOKEN = {

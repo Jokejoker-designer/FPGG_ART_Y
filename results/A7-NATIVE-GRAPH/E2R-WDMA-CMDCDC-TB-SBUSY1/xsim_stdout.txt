@@ -1,0 +1,90 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 11:10:53 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_wdma_cmdcdc_sbusy1/xsim_script.tcl
+# xsim {e2r_wdma_cmdcdc_sbusy1} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-WDMA-CMDCDC-TB-SBUSY1 START m_period=80ns s_period=10ns window=50 s_busy=1
+CHG  t=0 m_go=0 s_go=x s_busy=1 wr_en=x full=0 empty=1 rd_en=0 pend=x s_go_r=x
+CHG  t=0 m_go=0 s_go=x s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=x s_go_r=x
+CHG  t=5000 m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0
+RESET_RELEASED T=1960000
+CHG  t=1960000 m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0
+PROBE t=5955000 clk=post_recovery m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+RECOVERY full=0 empty=1 s_busy=1
+PROBE t=5960000 clk=m m_go=1 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+M_GO_PULSE T=5960000 wr_en=0 full=0 empty=1 s_busy=1
+CHG  t=5960000 m_go=1 s_go=0 s_busy=1 wr_en=1 full=0 empty=1 rd_en=0 pend=0 s_go_r=0
+PROBE t=6040000 clk=m m_go=1 s_go=0 s_busy=1 wr_en=1 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+CHG  t=6040000 m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0
+PROBE t=6120000 clk=m m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6125000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6135000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6145000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6155000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6165000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=1 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+CHG  t=6165000 m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0
+PROBE t=6175000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6185000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6195000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6205000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6215000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6225000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6235000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6245000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6255000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6265000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6275000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6285000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6295000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6305000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6315000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6325000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6335000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6345000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6355000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6365000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6375000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6385000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6395000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6405000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6415000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6425000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6435000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6445000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6455000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6465000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6475000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6485000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6495000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6505000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6515000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6525000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6535000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6545000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6555000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6565000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6575000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6585000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6595000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6605000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6615000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+PROBE t=6695000 clk=s m_go=0 s_go=0 s_busy=1 wr_en=0 full=0 empty=0 rd_en=0 pend=0 s_go_r=0 rst_m=1 rst_s=1
+SUMMARY m_go=1 wr_en=1 empty_clr=1 rd_en=0 pend=0 s_go_r=0 s_go=0 s_busy_held=1 s_cyc=50 full_final=0 empty_final=0
+FIRST_MISSING_MARKER=NONE
+S_GO_SEEN=0 S_GO_R_SEEN=0 CMD_RD_EN_EVER=0 SBUSY_HELD=1
+DBG_CMD_RD_STICKY=0 DBG_SBUSY_PEND=1 DBG_CMD_EMPTY_MGO=0 DBG_CMD_ST=0
+VERDICT=B_FIX_SUPPORTED
+EXISTENCE=not_claimed
+PROBE_TABLE=probe_table.csv
+E2R_WDMA_CMDCDC_TB_SBUSY1_XSIM_PASS probes_recorded=1 s_go=0 cmd_rd_en_ever=0 verdict=B_FIX_SUPPORTED window=50
+$finish called at time : 6695 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-WDMA-CMDCDC-TB-SBUSY1/tb_e2r_wdma_cmdcdc_sbusy1.sv" Line 224
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 11:10:55 2026...

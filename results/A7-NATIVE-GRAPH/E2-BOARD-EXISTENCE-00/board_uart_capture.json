@@ -1,0 +1,15 @@
+{
+  "port": "COM12",
+  "baud": 115200,
+  "seconds": 45.0,
+  "pred": null,
+  "host_next_token": 0,
+  "teacher_api_calls": 0,
+  "learn": 0,
+  "freeze": 1,
+  "actual_lm06_active": 0,
+  "fpga_next_token_valid": 0,
+  "line_count": 0,
+  "raw_bytes": 0,
+  "note": "30s raw retry also 0 bytes after program PASS"
+}

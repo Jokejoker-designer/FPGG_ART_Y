@@ -1,0 +1,88 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Tue Aug 25 02:32:12 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E1-AB-COFIT-PARALLEL-00-CLOCK80/ab_util_hier.rpt
+| Design       : a7ng_native_v1_ab_core
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------------+----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|          Instance          |           Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++----------------------------+----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| a7ng_native_v1_ab_core     |                      (top) |      50096 |      47952 |    2144 |    0 | 49821 |     96 |      0 |         19 |
+|   (a7ng_native_v1_ab_core) |                      (top) |         32 |         32 |       0 |    0 |    34 |      0 |      0 |          0 |
+|   u_bind                   |       a7ng_native_ctx_bind |         11 |         11 |       0 |    0 |   136 |      0 |      0 |          0 |
+|   u_core                   |          tiny_gpt803k_core |      17292 |      15148 |    2144 |    0 | 23040 |     96 |      0 |         19 |
+|     (u_core)               |          tiny_gpt803k_core |       9452 |       9420 |      32 |    0 | 22738 |      0 |      0 |         18 |
+|     u_a                    |              act_ram128k16 |        430 |        430 |       0 |    0 |     4 |     64 |      0 |          0 |
+|     u_fd                   |               floordiv_s48 |       2470 |       2470 |       0 |    0 |   189 |      0 |      0 |          0 |
+|     u_isq                  |                    isqrt32 |         87 |         87 |       0 |    0 |    57 |      0 |      0 |          1 |
+|     u_logits               |       a7lm06_logits_lutram |       1089 |        385 |     704 |    0 |     0 |      0 |      0 |          0 |
+|     u_snap                 |               snap_ram4k16 |       1786 |        378 |    1408 |    0 |    16 |      0 |      0 |          0 |
+|       u_candidate          |        snap_ram4k16_lutram |       1786 |        378 |    1408 |    0 |    16 |      0 |      0 |          0 |
+|     u_w                    |            weight_tile803k |       1986 |       1986 |       0 |    0 |    36 |     32 |      0 |          0 |
+|       (u_w)                |            weight_tile803k |       1805 |       1805 |       0 |    0 |    35 |      0 |      0 |          0 |
+|       TILE.u_bank          |           weight_bram_tdp8 |        182 |        182 |       0 |    0 |     1 |     32 |      0 |          0 |
+|   u_soa                    |       a7ng_cue_soa_mig_top |      32762 |      32762 |       0 |    0 | 26608 |      0 |      0 |          0 |
+|     u_tg                   |         a7ng_termgen_array |      12467 |      12467 |       0 |    0 |  8112 |      0 |      0 |          0 |
+|       g_tg[9].u_tg         |      a7ng_termgen_lane__10 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[0].u_tg         |       a7ng_termgen_lane__1 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[10].u_tg        |      a7ng_termgen_lane__11 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[11].u_tg        |      a7ng_termgen_lane__12 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[12].u_tg        |      a7ng_termgen_lane__13 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[13].u_tg        |      a7ng_termgen_lane__14 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[14].u_tg        |      a7ng_termgen_lane__15 |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[15].u_tg        |          a7ng_termgen_lane |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[1].u_tg         |       a7ng_termgen_lane__2 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[2].u_tg         |       a7ng_termgen_lane__3 |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[3].u_tg         |       a7ng_termgen_lane__4 |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[4].u_tg         |       a7ng_termgen_lane__5 |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[5].u_tg         |       a7ng_termgen_lane__6 |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[6].u_tg         |       a7ng_termgen_lane__7 |        780 |        780 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[7].u_tg         |       a7ng_termgen_lane__8 |        778 |        778 |       0 |    0 |   507 |      0 |      0 |          0 |
+|       g_tg[8].u_tg         |       a7ng_termgen_lane__9 |        779 |        779 |       0 |    0 |   507 |      0 |      0 |          0 |
+|     u_br                   |    a7ng_ddr_soa_axi_bridge |        390 |        390 |       0 |    0 |   625 |      0 |      0 |          0 |
+|     u_core                 |             a7ng_ng02_core |       9023 |       9023 |       0 |    0 |  2278 |      0 |      0 |          0 |
+|       u_topk               |                  a7ng_topk |          4 |          4 |       0 |    0 |   385 |      0 |      0 |          0 |
+|       u_frontier           |      a7ng_frontier_buckets |        269 |        269 |       0 |    0 |    64 |      0 |      0 |          0 |
+|       u_scorer             |          a7ng_scorer_array |       8748 |       8748 |       0 |    0 |  1792 |      0 |      0 |          0 |
+|         (u_scorer)         |          a7ng_scorer_array |       7810 |       7810 |       0 |    0 |     0 |      0 |      0 |          0 |
+|         g_lane[0].u_lane   |        a7ng_scorer_lane__1 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[10].u_lane  |       a7ng_scorer_lane__11 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[11].u_lane  |       a7ng_scorer_lane__12 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[12].u_lane  |       a7ng_scorer_lane__13 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[13].u_lane  |       a7ng_scorer_lane__14 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[14].u_lane  |       a7ng_scorer_lane__15 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[15].u_lane  |           a7ng_scorer_lane |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[1].u_lane   |        a7ng_scorer_lane__2 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[2].u_lane   |        a7ng_scorer_lane__3 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[3].u_lane   |        a7ng_scorer_lane__4 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[4].u_lane   |        a7ng_scorer_lane__5 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[5].u_lane   |        a7ng_scorer_lane__6 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[6].u_lane   |        a7ng_scorer_lane__7 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[7].u_lane   |        a7ng_scorer_lane__8 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[8].u_lane   |        a7ng_scorer_lane__9 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|         g_lane[9].u_lane   |       a7ng_scorer_lane__10 |         59 |         59 |       0 |    0 |   112 |      0 |      0 |          0 |
+|     u_global               | a7ng_topk_wavefront_global |       7729 |       7729 |       0 |    0 |  1166 |      0 |      0 |          0 |
+|       (u_global)           | a7ng_topk_wavefront_global |         57 |         57 |       0 |    0 |   781 |      0 |      0 |          0 |
+|       u_merge              |  a7ng_topk__parameterized0 |       7672 |       7672 |       0 |    0 |   385 |      0 |      0 |          0 |
+|     u_soa                  |     a7ng_cue_soa_wavefront |       3122 |       3122 |       0 |    0 | 14384 |      0 |      0 |          0 |
+|       (u_soa)              |     a7ng_cue_soa_wavefront |       2814 |       2814 |       0 |    0 | 10185 |      0 |      0 |          0 |
+|       u_pf                 |      a7ng_soa_plane_engine |        310 |        310 |       0 |    0 |  4199 |      0 |      0 |          0 |
++----------------------------+----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

@@ -1,0 +1,47 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Aug 26 13:25:19 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_cdc_ar_hs/xsim_script.tcl
+# xsim {e2r_cdc_ar_hs} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-CDC-AR-HS-BYPASS-00 F1k START m_period=80ns s_period=10ns window=50
+T=0 m_rst=0 s_rst=0 | m_arv=0 m_arr=0 send=x rcv=x | dest_req=x dest_ack=x hold=x s_arv=0 empty=x
+T=0 m_rst=0 s_rst=0 | m_arv=0 m_arr=0 send=0 rcv=x | dest_req=x dest_ack=0 hold=0 s_arv=0 empty=x
+T=75000 m_rst=0 s_rst=0 | m_arv=0 m_arr=0 send=0 rcv=x | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=200000 m_rst=0 s_rst=0 | m_arv=0 m_arr=0 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+RESET_RELEASED T=1960000
+T=1960000 m_rst=1 s_rst=1 | m_arv=0 m_arr=1 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+M_AR_DRIVE T=3960000 addr=0001000
+T=3960000 m_rst=1 s_rst=1 | m_arv=1 m_arr=1 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=3960000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=4040000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=1 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=4155000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=1 rcv=0 | dest_req=1 dest_ack=0 hold=0 s_arv=0 empty=0
+T=4165000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=1 rcv=0 | dest_req=1 dest_ack=0 hold=1 s_arv=1 empty=0
+T=4175000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=1 rcv=0 | dest_req=1 dest_ack=1 hold=0 s_arv=0 empty=1
+T=4360000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=1 rcv=1 | dest_req=1 dest_ack=1 hold=0 s_arv=0 empty=1
+T=4440000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=0 rcv=1 | dest_req=1 dest_ack=1 hold=0 s_arv=0 empty=1
+T=4555000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=0 rcv=1 | dest_req=0 dest_ack=1 hold=0 s_arv=0 empty=1
+T=4565000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=0 rcv=1 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=4760000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=4840000 m_rst=1 s_rst=1 | m_arv=1 m_arr=1 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=4920000 m_rst=1 s_rst=1 | m_arv=1 m_arr=0 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+M_AR_ACCEPT T=5000000 send=0 rcv=0
+T=5000000 m_rst=1 s_rst=1 | m_arv=0 m_arr=0 send=0 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=5000000 m_rst=1 s_rst=1 | m_arv=0 m_arr=0 send=1 rcv=0 | dest_req=0 dest_ack=0 hold=0 s_arv=0 empty=1
+T=5115000 m_rst=1 s_rst=1 | m_arv=0 m_arr=0 send=1 rcv=0 | dest_req=1 dest_ack=0 hold=0 s_arv=0 empty=0
+T=5125000 m_rst=1 s_rst=1 | m_arv=0 m_arr=0 send=1 rcv=0 | dest_req=1 dest_ack=0 hold=1 s_arv=1 empty=0
+S_ARVALID T=5135000 s_cycles_after_m=14 addr=0001000 dest_req=1 hold=1
+T=5135000 m_rst=1 s_rst=1 | m_arv=0 m_arr=0 send=1 rcv=0 | dest_req=1 dest_ack=1 hold=0 s_arv=0 empty=1
+T=5320000 m_rst=1 s_rst=1 | m_arv=0 m_arr=0 send=1 rcv=1 | dest_req=1 dest_ack=1 hold=0 s_arv=0 empty=1
+SUMMARY m_accepted=1 saw_s_arv=1 s_cycles_after_m=14 ar_empty_final=1 dbg_ne=0 dbg_hold=0 dbg_empty=1
+E2R_CDC_AR_HS_XSIM_PASS s_cycles_after_m=14 (window=50)
+$finish called at time : 5335 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-CDC-AR-HS-BYPASS-00/tb_e2r_cdc_ar_hs_bypass_00.sv" Line 171
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Aug 26 13:25:21 2026...

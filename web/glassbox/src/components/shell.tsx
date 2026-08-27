@@ -124,7 +124,7 @@ export function StudioShell() {
   }, [setSidebar, setInsightOpen, setTab, tab]);
 
   return (
-    <div className={cn("flex h-dvh min-h-0 flex-col bg-bg text-fg", level === "rtl" && "font-mono")}>
+    <div className={cn("flex h-dvh min-h-0 flex-col overflow-hidden bg-bg text-fg", level === "rtl" && "font-mono")}>
       <a
         href="#gb-main"
         data-testid="skip-to-main"
@@ -232,7 +232,7 @@ export function StudioShell() {
       <div className="flex min-h-0 flex-1">
         <aside
           className={cn(
-            "fixed inset-y-0 left-0 z-40 w-56 border-r border-line bg-surface p-2 transition-transform duration-200 lg:static lg:translate-x-0",
+            "fixed inset-y-0 left-0 z-40 w-56 overflow-y-auto border-r border-line bg-surface p-2 transition-transform duration-200 lg:static lg:translate-x-0",
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
           )}
         >
@@ -277,8 +277,8 @@ export function StudioShell() {
             onClick={() => setSidebar(false)}
           />
         ) : null}
-        <div className="gb-studio-body flex min-h-0 min-w-0 flex-1 flex-col">
-          <main id="gb-main" tabIndex={-1} className="min-w-0 flex-1 overflow-y-auto p-3 gbx-scroll md:p-4">
+        <div className="gb-studio-body flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+          <main id="gb-main" tabIndex={-1} className="min-h-0 min-w-0 flex-1 overflow-y-auto p-3 gbx-scroll md:p-4">
             {!header.live ? (
               <div className="mb-3">
                 <StudioState

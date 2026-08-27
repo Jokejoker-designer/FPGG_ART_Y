@@ -1,0 +1,35 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Tue Aug 25 10:44:05 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_cdc -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-CLOCK-CDC-00/report_cdc.rpt
+| Design       : arty_a7_ng_native_v1_ab_soc_top
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Physopt postRoute
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CDC Report
+
+Severity  Source Clock   Destination Clock                                                                                                                                          CDC Type      Exceptions               Endpoints  Safe  Unsafe  Unknown  No ASYNC_REG  
+--------  -------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------  ------------  -----------------------  ---------  ----  ------  -------  ------------  
+Critical  c166_raw       clk_div2_bufg_in                                                                                                                                           User Ignored  False Path                       1     0       1        0             1  
+Critical  c166_raw       clk_pll_i                                                                                                                                                  User Ignored  False Path                       1     0       1        0             1  
+Critical  c166_raw       mmcm_ps_clk_bufg_in                                                                                                                                        User Ignored  False Path                       1     0       1        0             1  
+Warning   c166_raw       c200_raw                                                                                                                                                   User Ignored  False Path                       1     1       0        0             1  
+Warning   core_clk       clk_pll_i                                                                                                                                                  User Ignored  Asynch Clock Groups             59    59       0        0             0  
+Warning   clk_pll_i      core_clk                                                                                                                                                   User Ignored  Asynch Clock Groups             62    62       0        0             2  
+Warning   clk_pll_i      sys_clk_pin                                                                                                                                                User Ignored  Asynch Clock Groups              2     2       0        0             2  
+Info      clk_pll_i      c200_raw                                                                                                                                                   Safely Timed  Max Delay Datapath Only          1     1       0        0             0  
+Info      c200_raw       clk_pll_i                                                                                                                                                  Safely Timed  None                            12    12       0        0             0  
+Info      mem_refclk     clk_pll_i                                                                                                                                                  User Ignored  False Path                       2     2       0        0             0  
+Info      sync_pulse     mem_refclk                                                                                                                                                 Safely Timed  None                             1     1       0        0             0  
+Info      oserdes_clk    oserdes_clkdiv                                                                                                                                             Safely Timed  None                            12    12       0        0             0  
+Info      oserdes_clk_1  oserdes_clkdiv_1                                                                                                                                           Safely Timed  None                            13    13       0        0             0  
+Info      oserdes_clk_2  oserdes_clkdiv_2                                                                                                                                           Safely Timed  None                            15    15       0        0             0  
+Info      oserdes_clk_3  oserdes_clkdiv_3                                                                                                                                           Safely Timed  None                            15    15       0        0             0  
+Info      core_clk       sys_clk_pin                                                                                                                                                Safely Timed  None                            34    34       0        0             0  
+Info      clk_pll_i      u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/iserdes_clk  Safely Timed  None                             8     8       0        0             0  
+Info      clk_pll_i      u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/iserdes_clk  Safely Timed  None                             8     8       0        0             0  
+

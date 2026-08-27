@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/board/a7ng_axi_read_cdc.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_axi_read_cdc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-CDC-AR-XSIM-BOARDSEQ-00/tb_e2r_cdc_ar_xsim_boardseq_00.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_e2r_cdc_ar_xsim_boardseq_00

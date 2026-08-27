@@ -1,0 +1,1 @@
+ramb36=96 ramb18=0 eq36=96 luts=63982 lutram=2736 ffs=49828 dsps=19 WNS=-47.931 WHS=0.070 route_ok=1

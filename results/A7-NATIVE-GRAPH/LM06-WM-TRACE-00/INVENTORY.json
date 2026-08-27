@@ -1,0 +1,375 @@
+{
+  "gate": "lm06_wm_trace_00",
+  "one_unknown": "What is u_a M_peak lifetime and tile residency under frozen LM-06 law?",
+  "evidence_class": "TRACE / POST_ROUTE_PROXY",
+  "board": false,
+  "ladder_opened": false,
+  "m_peak_u_a": {
+    "status": "MISSING",
+    "value_slots": null,
+    "value_bits": null,
+    "units": [],
+    "reason": "No WMTR_REC tile-id lifetime stream on disk. L0 instantiated u_a=66 is occupancy of the frozen array, not M_peak. L2 max_live_per_cycle is simultaneous port demand (WM-00 L11). BANK_LIFETIMES CORE_act M_peak_bits cell is capacity / peak-live UNKNOWN."
+  },
+  "files": [
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-WM-TRACE-00/GATE.md",
+      "role": "gate",
+      "exists": true,
+      "bytes": 1350,
+      "sha256": "690E0B04A2F6955C9577AF48F42F5CE9DCE4D3F24D8A390AF0F49CCE572BCC4B"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-WM-TRACE-00/PLAN.md",
+      "role": "this_plan",
+      "exists": true,
+      "bytes": 24969,
+      "sha256": "BBECFA565BB9484092DA2BF01F92A1CDF723ECE4BA11E50BAAB72904EED8769D"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/MEM-00/BRAM_OWNERSHIP.md",
+      "role": "mem00_ownership",
+      "exists": true,
+      "bytes": 1397,
+      "sha256": "79ECB936A15856D095D61F35B1E4DA5AC129B85E9DDCD37EA6CA5059FC9EDF3D"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/MEM-00/LM06_BRAM_OWNERSHIP_SOURCE.md",
+      "role": "mem00_source",
+      "exists": true,
+      "bytes": 5678,
+      "sha256": "E3FADFD27F2296F57381B9CE4D17ADCFA56E4A1F5D6508769F35AE0B6FD924C0"
+    },
+    {
+      "path": "results/A7-NATIVE-V1/LM06_Q0_BRAM/LM06_BRAM_OWNERSHIP.md",
+      "role": "q0_ownership",
+      "exists": true,
+      "bytes": 5678,
+      "sha256": "E3FADFD27F2296F57381B9CE4D17ADCFA56E4A1F5D6508769F35AE0B6FD924C0"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-BRAM-PHYS-AUDIT-00/LOGICAL_BANKS.tsv",
+      "role": "phys_logical_banks",
+      "exists": true,
+      "bytes": 1357,
+      "sha256": "8562A053E78E4814424A4C1DF2744E89B84A9D028E01052F4483124014CBB8EC"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-BRAM-PHYS-AUDIT-00/BRAM_PHYSICAL.tsv",
+      "role": "phys_cells",
+      "exists": true,
+      "bytes": 50666,
+      "sha256": "3A8B73D2C44B7E54E7456512C6EC2117A1D409B16015BCD20BA4495AA4492B21"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-WM-00/RESULTS.md",
+      "role": "wm00_results",
+      "exists": true,
+      "bytes": 18651,
+      "sha256": "FBCF4893AE4DB0DCC408AF25EA8D9A123B94466B5EA0EC4AAC111514F12C5E70"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-WM-00/CLOSEOUT.md",
+      "role": "wm00_closeout",
+      "exists": true,
+      "bytes": 18877,
+      "sha256": "3C4A4850EA9AA566C543671A738DC2D6F5FA9C3393B111EC1DD019928BDE4FB9"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-WM-00/SHA256.txt",
+      "role": "wm00_sha_manifest",
+      "exists": true,
+      "bytes": 9248,
+      "sha256": "EC521D934036009FC11DAC69EB8D500870D60D3D4030FB54A0CFC1881AF4468C"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-BANK-CONCURRENCY-00/BANK_ACCESS_TRACE_SUMMARY.txt",
+      "role": "bank_summary",
+      "exists": true,
+      "bytes": 350,
+      "sha256": "7D84D0AE5899182E5855BBB1E7F0594205F29BAE2839097D83AC203B1EAC6CCF"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-BANK-CONCURRENCY-00/BANK_LIFETIMES.tsv",
+      "role": "bank_lifetimes",
+      "exists": true,
+      "bytes": 838,
+      "sha256": "687F4DC64473ED2F5DDB6EE0660B241ED76B90D3EA19DE21AB45E93851B6B7A6"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-BANK-CONCURRENCY-00/ACCESS_TRACE_SCHEMA.md",
+      "role": "bank_schema",
+      "exists": true,
+      "bytes": 1531,
+      "sha256": "DD6EC5D59B9B3F3B5FB098C8694C7DA072B410FEFEB420509A77B0F7FB885A3D"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/LM06-BANK-CONCURRENCY-00/PHYSICAL_TO_LOGICAL_BANKS.tsv",
+      "role": "core_vs_board",
+      "exists": true,
+      "bytes": 1572,
+      "sha256": "C033D46B4EA976B0130196BF67D73E3143FAA06EC44EF25ED3435C67CF8D12F0"
+    },
+    {
+      "path": "rtl/native_graph/memory/a7ng_lm06_wm_act.sv",
+      "role": "wm_act_rtl",
+      "exists": true,
+      "bytes": 6730,
+      "sha256": "273B186D06188E49DFEBACCF4D0E64BA681D96AFC6147C2AA526D4E63FFBCBEB"
+    },
+    {
+      "path": "rtl/native_graph/memory/a7ng_lm06_wm_wbank.sv",
+      "role": "wm_wbank_rtl",
+      "exists": true,
+      "bytes": 3489,
+      "sha256": "AABFDD9E6433A7999E5A4AABC200124A71DBCE92467CB83B76ADFE8832B07153"
+    },
+    {
+      "path": "rtl/native_graph/memory/a7ng_lm06_wm_snap.sv",
+      "role": "wm_snap_rtl",
+      "exists": true,
+      "bytes": 5394,
+      "sha256": "6522D23D7B90CEC1FE7BE69B24B1966DD1C8384FEB8312154E6FE26353BC4B5A"
+    },
+    {
+      "path": "tests/xsim/tb_a7ng_lm06_wm.sv",
+      "role": "wm00_tb",
+      "exists": true,
+      "bytes": 20143,
+      "sha256": "35219708216B044FE1F40AC915F94CC7AD31C4524F32D678236FD8FAAADC26F4"
+    },
+    {
+      "path": "tests/xsim/run_a7ng_lm06_wm.ps1",
+      "role": "wm00_runner",
+      "exists": true,
+      "bytes": 4579,
+      "sha256": "F91CEF48034BC75FE1CF17A944299C8B48F0C6E12123D8B5FA807C7BD4D7DBDA"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/STATUS/AUTHORITY_MEMORY_DOCTRINE.md",
+      "role": "doctrine",
+      "exists": true,
+      "bytes": 4041,
+      "sha256": "A611B4238B00DC0636944C378FA5F73C16B8CCC690CE247E1E9859D67E5B5AF2"
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/STATUS/VERDICT_lm06_wm_00_BINDING.md",
+      "role": "wm00_binding",
+      "exists": true,
+      "bytes": 2099,
+      "sha256": "E768FCC5C846832AA27208DDC4339D25D16C2C95BEA1250133448F62EC1B3A8E"
+    },
+    {
+      "path": "build/out/a7lm06_post_route.dcp",
+      "role": "frozen_lm06_dcp",
+      "exists": false,
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "path": "build/out/a7lm06_utilization_route.rpt",
+      "role": "lm06_util_route",
+      "exists": false,
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "path": "results/A7-NATIVE-GRAPH/TINYGPT-SOC/frozen_lm06_utilization_route.rpt",
+      "role": "lm06_util_route",
+      "exists": true,
+      "bytes": 13863,
+      "sha256": "5118B57C0D04020EE9E15FF3A53922AB158A90EE39FAD396C916B095CA19DB8A"
+    }
+  ],
+  "extracted": {
+    "logical_banks": {
+      "rows": [
+        {
+          "bank_id": "u_w.SDP_CH_ram_104b",
+          "owner": "u_w",
+          "physical_tiles": 32,
+          "limiting_dimension": "width+banking",
+          "estimated_removable_tiles": "0"
+        },
+        {
+          "bank_id": "u_w.TILE.u_bank_bitsliced",
+          "owner": "u_w",
+          "physical_tiles": 32,
+          "limiting_dimension": "port",
+          "estimated_removable_tiles": "0"
+        },
+        {
+          "bank_id": "u_a.SDP_104b_pair",
+          "owner": "u_a",
+          "physical_tiles": 2,
+          "limiting_dimension": "width",
+          "estimated_removable_tiles": "0"
+        },
+        {
+          "bank_id": "u_a.core_bitsliced_4x16",
+          "owner": "u_a",
+          "physical_tiles": 64,
+          "limiting_dimension": "port",
+          "estimated_removable_tiles": "0"
+        },
+        {
+          "bank_id": "u_snap.TDP_x9",
+          "owner": "u_snap",
+          "physical_tiles": 2,
+          "limiting_dimension": "aspect",
+          "estimated_removable_tiles": "0"
+        }
+      ],
+      "u_a_tiles": 66,
+      "u_w_tiles": 64,
+      "u_snap_tiles": 2,
+      "sum_named": 132
+    },
+    "bram_physical": {
+      "n_rows": 132,
+      "by_owner": {
+        "u_a": 66,
+        "u_snap": 2,
+        "u_w": 64
+      }
+    },
+    "wm00_results": {
+      "source": "results/A7-NATIVE-GRAPH/LM06-WM-00/RESULTS.md",
+      "u_a": {
+        "pp_swaps": 704580,
+        "live_pair_events": 173453232,
+        "max_live_per_cycle": 2,
+        "class": "L2_port_demand_NOT_M_peak"
+      },
+      "wr_act": {
+        "eval": 169344,
+        "train": 169344,
+        "after": 6272,
+        "fold": 0,
+        "class": "write_count_NOT_live_set"
+      }
+    },
+    "wm00_logs": {
+      "logs_present": false,
+      "n_logs": 0,
+      "by_tag": {}
+    },
+    "wm00_sha_manifest_logs": {
+      "listed_xsim_logs": [
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_CAND_ARMA.log",
+          "manifest_sha256": "9F4A018A2200969C18235DADBE24D60BCFDB0A6C5641D99D4D8B9E6EF699A68D",
+          "manifest_bytes": 1421324,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_CAND_ARMB_SNAP.log",
+          "manifest_sha256": "CCF3EBFB44A772220EFFA3EAEC75C3488D76E8C10769161889A1A0F589B1C6A1",
+          "manifest_bytes": 19530,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_CAND_ARMB_SNAP_n1.log",
+          "manifest_sha256": "CFCF9391DE3DFF6EA427226619B9134ABBC7D9491CA14AD259D1154B3F454011",
+          "manifest_bytes": 128688,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_CAND_ARMB_SNAP_nvec9_ABORTED.log",
+          "manifest_sha256": "CCF3EBFB44A772220EFFA3EAEC75C3488D76E8C10769161889A1A0F589B1C6A1",
+          "manifest_bytes": 19530,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_control.log",
+          "manifest_sha256": "8859AFA26170F55E221A00C99D6C42063187D38B6A28EDAB332C38A6D016174A",
+          "manifest_bytes": 1420882,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_CONTROL_n1.log",
+          "manifest_sha256": "2BA6C335F588AE1318EB27B6EB5713B207B4245BC359990144ED9070776829AE",
+          "manifest_bytes": 128174,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_MUTANT_NEGCTL.log",
+          "manifest_sha256": "5FDE917A740B1DFBC49017813CE1FAE19A3867A4A9D418DE668897E15BE3B054",
+          "manifest_bytes": 128122,
+          "on_disk": false,
+          "on_disk_sha256": null
+        },
+        {
+          "manifest_path": "results/A7-NATIVE-GRAPH/LM06-WM-00/raw/xsim_MUTANT2_NEGCTL.log",
+          "manifest_sha256": "517E41B46A508A04B5C9D7D1B9567C5C8EC1E982C1142FA99964B742EB8E0185",
+          "manifest_bytes": 123824,
+          "on_disk": false,
+          "on_disk_sha256": null
+        }
+      ]
+    },
+    "bank_access_summary": {
+      "source": "results/A7-NATIVE-GRAPH/LM06-BANK-CONCURRENCY-00/BANK_ACCESS_TRACE_SUMMARY.txt",
+      "lines": {
+        "workload": "workload=A7LM06_FWD_ONLY",
+        "SIM_FULL": "SIM_FULL=1",
+        "evidence_class": "evidence_class=LM06_XSIM_RESEARCH",
+        "busy_cycles": "busy_cycles=2730657",
+        "act_cycles": "act_cycles=2730657 act_wr=6272 act_diff_addr=2515697 act_rw_collide=512 max_act_ports=2",
+        "w_wr": "w_wr=0 w_diff_addr=0 max_w_ports=2",
+        "snap_w": "snap_w=2560 snap_rw_collide=0",
+        "pred": "pred=744 exp_pred=744",
+        "NOTE": "NOTE=SIM_FULL1_weight_array_not_silicon_TILE; act/snap dual-port FSM is law-faithful"
+      },
+      "busy_cycles": 2730657,
+      "busy_cycles_class": "duration_NOT_sample_size",
+      "act_diff_addr": 2515697,
+      "act_diff_addr_class": "address_inequality_NOT_M_peak",
+      "max_act_ports": 2,
+      "max_act_ports_class": "L2_port_demand_NOT_M_peak",
+      "act_wr": 6272,
+      "workload": "A7LM06_FWD_ONLY"
+    },
+    "bank_lifetimes": {
+      "n_rows": 3,
+      "core_act": {
+        "logical_bank_id": "CORE_act_ram128k16",
+        "M_peak_bits_cell": "2097152 (full array capacity; peak-live UNKNOWN)",
+        "notes": "lifetime != access; full mem not rewritten each token",
+        "peak_live_measured": false,
+        "treat_cell_as_measured_m_peak": false
+      }
+    },
+    "wmtr": {
+      "n_records": 0,
+      "files": []
+    }
+  },
+  "missing_for_unknown": [
+    "tile-id WMTR_REC journal (PLAN.md \u00a77.2)",
+    "per-UNIT M_peak_slots including idle-live",
+    "MRC(C) / reuse-distance histogram",
+    "EVAL vs TRAIN live-set table",
+    "ntok scaling of M_peak (seq 0 vs seq 8)",
+    "overlay last-read vs ah/ay write",
+    "A7NG_WM_ENFORCE_ACT run (WM-00 L5 NOT RUN)",
+    "LM06-WM-00/raw/xsim_*.log on disk (listed in SHA256.txt; RESULTS.md is the surviving extract)"
+  ],
+  "do_not_treat_as_m_peak": [
+    "max_live_per_cycle",
+    "pp_swaps",
+    "live_pair_events",
+    "act_diff_addr",
+    "busy_cycles as N",
+    "LOGICAL_BANKS physical_tiles as M_peak",
+    "BANK_LIFETIMES M_peak_bits capacity cell",
+    "INTEGRATE 130-tile cut proposal"
+  ],
+  "next": "research-only WMTR_REC for UNIT in {(0,EVAL),(0,TRAIN),(8,EVAL),(8,TRAIN)}; not lm06_wm_ladder"
+}

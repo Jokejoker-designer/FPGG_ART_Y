@@ -78,7 +78,8 @@ module tiny_gpt803k_core #(
     output logic [2:0]         dbg_tile_rg,
     output logic               dbg_tile_miss,
     output logic               dbg_tile_dirty,
-    output logic               dbg_tile_req
+    output logic               dbg_tile_req,
+    output logic               dbg_tile_req_s1
 );
     typedef enum logic [5:0] {
         ST_IDLE, ST_EMB, ST_LN_S, ST_LN_V, ST_LN_SQ, ST_LN_O,
@@ -227,7 +228,8 @@ module tiny_gpt803k_core #(
         .dma_w_valid(wdma_w_valid), .dma_w_ready(wdma_w_ready), .dma_w_data(wdma_w_data),
         .dma_r_valid(wdma_r_valid), .dma_r_ready(wdma_r_ready), .dma_r_data(wdma_r_data),
         .dbg_bst(dbg_tile_bst), .dbg_dst(dbg_tile_dst), .dbg_cur_rg(dbg_tile_rg),
-        .dbg_miss(dbg_tile_miss), .dbg_dirty(dbg_tile_dirty), .dbg_req(dbg_tile_req)
+        .dbg_miss(dbg_tile_miss), .dbg_dirty(dbg_tile_dirty), .dbg_req(dbg_tile_req),
+        .dbg_req_s1(dbg_tile_req_s1)
     );
     // On-chip checkpoint dropped: snap/restore are DDR persist in the top.
     assign ckd = 8'sd0;

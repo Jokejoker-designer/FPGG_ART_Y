@@ -15,7 +15,7 @@ import appCss from "../styles.css?url";
  *
  * `data-density` starts at `comfortable` per §7.6 and is switched by the shell.
  */
-const APP_NAME = "Native AI GlassBox Studio";
+const APP_NAME = "Native AI Observatory";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -27,7 +27,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Theo dõi một tương tác của Native AI trên FPGA từ câu hỏi đến trạng thái đã học, bộ nhớ, đầu ra và sóng silicon.",
+          "Native AI Observatory — Arty A7-100T UART silicon, pipeline, Vivado snapshot.",
       },
     ],
     links: [
@@ -41,7 +41,7 @@ export const Route = createRootRoute({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
     ],
   }),

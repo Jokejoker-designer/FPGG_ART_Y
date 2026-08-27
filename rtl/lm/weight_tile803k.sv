@@ -36,7 +36,8 @@ module weight_tile803k #(
     output logic [2:0]         dbg_cur_rg,
     output logic               dbg_miss,
     output logic               dbg_dirty,
-    output logic               dbg_req
+    output logic               dbg_req,
+    output logic               dbg_req_s1
 );
     function automatic [2:0] rg_of(input logic [19:0] a);
         if (a < 20'(OFF_POS)) return 3'd0;
@@ -85,6 +86,7 @@ module weight_tile803k #(
             assign dbg_miss = 1'b0;
             assign dbg_dirty = 1'b0;
             assign dbg_req = 1'b0;
+            assign dbg_req_s1 = 1'b0;
             assign dma_w_valid = 1'b0;
             assign dma_w_data = 128'd0;
             assign dma_r_ready = 1'b0;
@@ -131,6 +133,7 @@ module weight_tile803k #(
             assign dbg_miss = miss;
             assign dbg_dirty = dirty_r;
             assign dbg_req = req;
+            assign dbg_req_s1 = req_s[1];
             logic [2:0] dst_s0, dst_s1;
             always_ff @(posedge clk) begin
                 if (!rst_n) begin
@@ -265,8 +268,8 @@ module weight_tile803k #(
                 end
             end
 
-            always_ff @(posedge clk_dma) begin
-                if (!rst_dma_n) begin
+            always_ff @(posedge clk) begin
+                if (!rst_n) begin
                     dst <= D_IDLE;
                     dma_go <= 1'b0;
                     dma_wr <= 1'b0;
