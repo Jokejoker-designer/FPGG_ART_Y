@@ -1,0 +1,38 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 18:37:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_uart_skew_cxsim_00/xsim_script.tcl
+# xsim {e2r_uart_skew_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-UART-SKEW-CXSIM-00 START
+VEHICLE=tb_hex_nib_hb_char_43_then_62_63 NO_SOC_TOP NO_MIG C_FIX=NONE
+LAW TILE_DST=hex_nib({1'b0,tile_dst_100}) sel=6'd43 i=9 sample=T_dst
+LAW WDMA_GRANT=hex_nib({3'b0,wdma_grant_f1v_100}) sel=6'd62 i=11 sample=T_gi
+LAW RPATH_IDLE=hex_nib({3'b0,rpath_idle_f1v_100}) sel=6'd63 i=11 sample=T_gi
+LAW GAP_NS=1000 dest_frozen_at_T_dst
+LAW F1w_6d64_BOOT_alias=does_not_apply
+ROW=HOLD_SI drive_tdst=4,0,0 drive_tgi=4,0,0 digits=4,0,0 samecycle_before_tgi=1 samecycle_any=1
+ROW=HOLD_RINJ drive_tdst=4,0,1 drive_tgi=4,0,1 digits=4,0,1 samecycle_before_tgi=0 samecycle_any=0
+ROW=TRANS_RINJ_IDLE drive_tdst=4,0,1 drive_tgi=4,0,0 digits=4,0,0 samecycle_before_tgi=0 samecycle_any=1
+DIGITS_HOLD_SI=4,0,0
+DIGITS_HOLD_RINJ=4,0,1
+DIGITS_TRANS=4,0,0
+HOLD_SI_400=1 HOLD_RINJ_OK=1 TRANS_400=1
+SAMECYCLE_HOLD_SI_BEFORE=1 SAMECYCLE_HOLD_SI_ANY=1
+SAMECYCLE_HOLD_RINJ_BEFORE=0 SAMECYCLE_HOLD_RINJ_ANY=0
+SAMECYCLE_TRANS_BEFORE_TGI=0 SAMECYCLE_TRANS_ANY=1 TRANS_NEVER_HELD_400=1
+C_FIX=NONE
+BOARD_PASS=not_claimed
+XSIM=SKEW
+VERDICT_CLASS=SKEW
+E2R_UART_SKEW_CXSIM_00_XSIM_PASS verdict=SKEW c_fix=NONE
+$finish called at time : 3010 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_uart_skew_cxsim_00.sv" Line 180
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 18:37:37 2026...

@@ -1,0 +1,4 @@
+row	drive_tdst	drive_tgi	digits	prints_400	samecycle_before_tgi	samecycle_any
+HOLD_SI	4,0,0	4,0,0	4,0,0	1	1	1
+HOLD_RINJ	4,0,1	4,0,1	4,0,1	0	0	0
+TRANS_RINJ_IDLE	4,0,1	4,0,0	4,0,0	1	0	1

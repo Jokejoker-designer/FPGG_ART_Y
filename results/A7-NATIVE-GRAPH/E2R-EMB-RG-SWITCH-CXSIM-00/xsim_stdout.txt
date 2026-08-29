@@ -1,0 +1,52 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Aug 28 14:47:33 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_emb_rg_switch_cxsim_00/xsim_script.tcl
+# xsim {e2r_emb_rg_switch_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-EMB-RG-SWITCH-CXSIM-00 START
+VEHICLE=tiny_gpt803k_core SIM_FULL=1 CORE_ONLY NO_SOC_TOP NO_MIG C_FIX=NONE
+LAW ST_EMB_sub0=TOK ST_EMB_sub2=POS OFF_TOK=0 OFF_POS=131072 OFF_L0=147456 D=128
+LAW ctx_n=8 UNIT=one_start_fwd_embedding TIMEOUT_CLK=100000
+LAW SIM_FULL=1 stall=0 no_DMA_farm
+PROGRAM=NO
+CTX_LOAD ntok=8 ctx_n_in=8
+ENTER_EMB cyc=1 st=1 waddr=0 sub=1 rg=0 w_stall=0
+TOK_SET n=1 cyc=1 waddr=0 sub=1 tok_i=0 dim=0
+EMB t=195000 dim=0 wrd=x crd=x awd=x
+POS_SET n=1 cyc=3 waddr=131072 sub=3 tok_i=0 dim=0
+RG_SW n=1 cyc=3 prev_rg=0 now_rg=1 waddr=131072
+TOK_SET n=2 cyc=6 waddr=1 sub=1 tok_i=0 dim=1
+RG_SW n=2 cyc=6 prev_rg=1 now_rg=0 waddr=1
+EMB t=245000 dim=1 wrd=x crd=x awd=x
+POS_SET n=2 cyc=8 waddr=131073 sub=3 tok_i=0 dim=1
+RG_SW n=3 cyc=8 prev_rg=0 now_rg=1 waddr=131073
+TOK_SET n=3 cyc=11 waddr=2 sub=1 tok_i=0 dim=2
+RG_SW n=4 cyc=11 prev_rg=1 now_rg=0 waddr=2
+POS_SET n=3 cyc=13 waddr=131074 sub=3 tok_i=0 dim=2
+RG_SW n=5 cyc=13 prev_rg=0 now_rg=1 waddr=131074
+TOK_SET n=4 cyc=16 waddr=3 sub=1 tok_i=0 dim=3
+RG_SW n=6 cyc=16 prev_rg=1 now_rg=0 waddr=3
+POS_SET n=4 cyc=18 waddr=131075 sub=3 tok_i=0 dim=3
+TOK_SET n=1024 cyc=5116 waddr=1023 sub=1 tok_i=7 dim=127
+POS_SET n=1024 cyc=5118 waddr=132095 sub=3 tok_i=7 dim=127
+LEAVE_EMB cyc=5120 st=2 waddr=132095 sub=0 emb_cycles=5119
+TOK_SETS=1024 POS_SETS=1024 RG_SWITCHES=2047 EMB_CYCLES=5119 LEAVE_EMB=1 TIMEOUT=0 ENTERED=1
+EXPECT_SETS=1024 ntok=8 D=128 w_stall_end=0 busy=1
+C_FIX=NONE
+BOARD_PASS=not_claimed
+EXISTENCE=not_claimed
+PROGRAM=NO
+XSIM=OSC_2ND
+VERDICT_CLASS=OSC_2ND
+E2R_EMB_RG_SWITCH_CXSIM_00_XSIM_PASS verdict=OSC_2ND c_fix=NONE
+$finish called at time : 51366 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_emb_rg_switch_cxsim_00.sv" Line 221
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Aug 28 14:47:36 2026...

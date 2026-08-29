@@ -1,0 +1,9 @@
+t_ns,phase,tile_dst,r_drain_hold,fifo_cnt,m_axi_rvalid,tr_cnt,r_path_idle,wdma_owner,wdma_owner_grant,wdma_owner_ui,m_go,s_go,sgo_sticky,mgo_sticky,sgo_ever,cmd_st,sbusy_pend,cmd_rd_sticky,cmd_empty_mgo,wdma_busy,soa_done,lm_phase,core_busy,core_busy_ui,sticky_qgo,sticky_qgo_ui,latched_sgo_f1u
+5000000,RESET,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+5000000,OWNER_READY,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+5160000,POST_START_1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0
+24760000,SOA_DONE,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,1,0
+25960000,START_FWD,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,1,0
+26760000,WDMA_GO,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0
+29640000,FIRST_DESTWAIT,4,0,4,1,0,0,1,1,1,0,0,1,1,1,2,1,1,0,1,1,1,1,1,1,1,1
+39880000,END_SETTLE,4,0,4,1,0,0,1,1,1,0,0,1,1,1,2,1,1,0,1,1,1,1,1,1,1,1

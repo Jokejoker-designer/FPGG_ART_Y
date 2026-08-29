@@ -1,0 +1,9 @@
+ramb36=103 ramb18=0 dsps=19 lut=55269 ff=56725
+WNS=0.406 TNS=0.000 WHS=0.021 THS=0.000
+core_WNS=8.796 core_TNS=0.000 ui_WNS=1.709 ui_TNS=0.000
+unsafe_cdc=3 note=clk_pll_i_to_core 3 unsafe (requested 3b dma_st sync_bits); F1x same path was 0
+gate_pass=1
+BIT_SHA256=832E55E26232B4F2A5D84199EB86AEA1C7EBEEFEF30E51842BC44D8BB16385D2
+CLASS=SGO_HIT ATOM0=00001B9C ATOM1=00001B9D
+C_FIX=NONE
+provenance=post-route report_timing_summary.rpt Design Timing Summary + Intra Clock Table

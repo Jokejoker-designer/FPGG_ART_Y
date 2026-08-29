@@ -1,5 +1,5 @@
 {
-  "schema": "cursor-codex-bridge/v1",
+  "schema": "cursor-codex-grok-bridge/v2",
   "repoRoot": "d:/Jetking_sem4/SEM_4/arty-a7-online-lm",
   "cursor": {
     "chatId": "f66cc793-5eb0-41d2-ae4f-46f101e32b87"
@@ -10,12 +10,104 @@
     "sessionId": "01a02edc-411a-72e2-9e9b-15c77f4198f5",
     "deeplink": "codex://threads/01a02edc-411a-72e2-9e9b-15c77f4198f5"
   },
+  "grok": {
+    "sessionId": "019ffa1c-a65c-71e0-8521-7d285e7c2ffd",
+    "requestId": "4f4841c0-de0f-487d-a5b1-56f33fa9b897",
+    "model": "grok-4.6",
+    "agent": "grok-build-plan",
+    "lane": "Native AI (not Thanh Hoai inject)",
+    "cliCwdRecorded": "C:/Users/phant/.grok/downloads",
+    "workspaceMustBe": "D:/Jetking_sem4/SEM_4/arty-a7-online-lm",
+    "resume": "grok --resume 019ffa1c-a65c-71e0-8521-7d285e7c2ffd",
+    "tui": "/resume then paste 019ffa1c-a65c-71e0-8521-7d285e7c2ffd",
+    "deeplinkOfficial": null,
+    "mcpHeader": "x-mcp-session-id: 019ffa1c-a65c-71e0-8521-7d285e7c2ffd",
+    "transcript": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019ffa1c-a65c-71e0-8521-7d285e7c2ffd"
+  },
+  "coordination": {
+    "lead": "codex",
+    "goal": "NATIVE_V1_MINI_AI_BOARD_PASS",
+    "projectA": {
+      "owner": "codex",
+      "gate": "LM06-SNAPSHOT-LUTRAM-01",
+      "mode": "DONE_ENG_CONTRACT_V0_PUBLISHED"
+    },
+    "projectB": {
+      "owner": "grok",
+      "gate": "HS22-LM06-NATIVE-TOPK-INTEGRATE-01",
+      "mode": "DONE_ENG_PASS_NARROW_XSIM"
+    },
+    "projectC": {
+      "owner": "grok",
+      "gate": "native_v1_ab_integrate_accept_00",
+      "mode": "ACTIVE_R6_MIG_XSIM_HUMAN_DIRECTED_NO_BOARD",
+      "parallelPrep": {
+        "owner": "cursor",
+        "gate": "R6-PARALLEL-BOARD-PREP-00",
+        "mode": "R1_AUDIT_CONDITIONS_CLOSED_STOP"
+      }
+    },
+    "boardLane": {
+      "owner": "cursor",
+      "gate": "native_v1_existence_board_parallel_00",
+      "mode": "E2R_UART_HOLD_REARM_PROGRAM",
+      "e2r_auto_ladder": true,
+      "e2r_gates_1_3": "PASS",
+      "e2r_gate4": "BLOCKED_Q_GO_SOA",
+      "e2r_t2_agent": "efaa27a6-703e-461a-95a8-f588bcd92963",
+      "e2r_target": "NATIVE_V1_EXISTENCE_BOARD_PASS",
+      "e2_verdict": "FAIL",
+      "e2_pred": null,
+      "e2_uart_bytes": 0,
+      "e2_wns_ns": -40.339,
+      "e2_bram36": 96,
+      "allow_program": true,
+      "e1_decide": {
+        "by": "grok",
+        "reason": "human assigned DECIDE because Codex off",
+        "option": "A",
+        "class": "DONE_ENG_BRAM_ONLY_PASS_OOC_TIMING_LIMIT",
+        "clock65": "WNS_-0.858_MARGINAL",
+        "clock80": "WNS_+3.648_PASS"
+      },
+      "allow_program_by": "grok",
+      "e2_clock_ns": 80.0,
+      "e2_clock_mhz": 12.5,
+      "worktree": "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board",
+      "lock": "cursor",
+      "r6_lock_unchanged": "grok",
+      "stage_a_marker": "A_FAST_LM_BOARD_LANE_XSIM_PASS pred=664",
+      "e1_in_flight": false,
+      "e1_bram36": 96,
+      "e1_wns": -47.931,
+      "e2_blocked": false,
+      "e2r_last_stage": "UART_HOLD_REARM_PROGRAM",
+      "e2r_a_plus_bit": "139526F78D390174002F60A4CBE1BBD9555F1992A85BFAD10FA8E83AD74A5EB5",
+      "e2r_d1_agent": "99a57510-e703-4241-9f50-3ea1ae6d4412",
+      "e2r_d1_bit": "D2CF44C66AEB6086FE25F669126A7C4B85FEE66C4CBEC8A4B9B8D37E60BD255C",
+      "e2r_stall_class": "AXI_MIG_R_PATH",
+      "board_hold_reason": null,
+      "e2r_d2_bit_ready": true,
+      "e2r_stall_subclass": "NO_RVALID"
+    }
+  },
   "lock": {
-    "owner": "cursor",
-    "task": "ddr_cue_soa_bench_01 matched-law AOS-vs-SOA iron-law benchmark",
-    "updatedAt": "2026-08-24T10:16:20+07:00",
+    "owner": "grok",
+    "task": "Human-directed R6 MIG XSim with AXI hold after SOA; do not kill, redirect, or open R7 without new human instruction",
+    "updatedAt": "2026-08-24T20:14:11+07:00",
     "parallel_notes": [
-      "LM06 BRAM phys+concurrency amend synced in TURN.md (read-only for Codex; do not steal lock)"
+      "Human assigned Cursor R6-PARALLEL-BOARD-PREP-00 in current worktree: results/mailbox documentation only; no product lock, tool run, Git mutation, board action, or R6 interference"
     ]
+  },
+  "board": {
+    "physical_connected": true,
+    "reported_by": "human",
+    "reported_at": "2026-08-28T10:46:00+07:00",
+    "com12_authorized_gate": "E2R-UART-HOLD-REARM-00",
+    "com12_authorized_by": "human",
+    "com12_authorized_at": "2026-08-28T11:58:00+07:00",
+    "program_authorized": true,
+    "target_preflight": "FTDI VID_0403 PID_6010 serial 210319BE776E; USB Serial Port COM12 status OK; JTAG target must still be resolved exactly before program",
+    "note": "Human: one reprogram + continuous capture. Authorize E2R-UART-HOLD-REARM-00 only. Same SDONE bit 9DC0F8DF. Arm COM12 first. pred=664 absent until measured."
   }
 }

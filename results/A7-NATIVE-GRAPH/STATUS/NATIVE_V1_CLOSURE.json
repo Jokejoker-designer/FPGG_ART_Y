@@ -1,0 +1,236 @@
+{
+  "schema": "native_v1_closure/v1",
+  "goal": "NATIVE_V1_MINI_AI_BOARD_PASS",
+  "updated": "2026-08-28T00:45:00+07:00",
+  "current_phase": "E2R_ATOMIC_SDONE_AWAIT_COM12",
+  "hb_r1": {
+    "core_wns": 9.298,
+    "ui_wns": 2.245,
+    "unsafe_cdc": 1,
+    "bitstream": "SKIPPED"
+  },
+  "board_lane": {
+    "gate": "native_v1_existence_board_parallel_00",
+    "worktree": "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board",
+    "branch": "native-v1-board-lane-stage0",
+    "snapshot_commit": "65d8e1abb77f100a8f1ba86402c6e23d1cf58aa0",
+    "snapshot_tree": "7e0f402c8b30c29561bd1364fa410ebd4a109c8f",
+    "stage": "E2_FAIL",
+    "stage_a": {
+      "gate": "A-FAST-LM-BOARD-LANE-00",
+      "verdict": "PASS",
+      "marker": "A_FAST_LM_BOARD_LANE_XSIM_PASS pred=664",
+      "soa_data_mismatch": 0,
+      "top8": "9,11,25,27,41,43,57,59",
+      "capture_pack": "3b392b291b190b09",
+      "fix": "a7ng_cue_soa_wavefront field-split rec0/rec1 banks",
+      "hs22_ancillary": "PASS pred_E0=664"
+    },
+    "next": "E2R-ATOMIC-SDONE-PROBE-00_AWAIT_COM12",
+    "e2r_ladder": {
+      "gate1": "PASS",
+      "gate1_unsafe_cdc": 0,
+      "gate1_core_wns": 12.126,
+      "gate1_ui_wns": 2.046,
+      "gate1_bram36": 104,
+      "gate2": "PASS_XSIM",
+      "gate3": "PASS_XSIM",
+      "gate4": "BLOCKED",
+      "gate4_reason": "AXI_MIG_R_PATH_AR_yes_R_never",
+      "decide": [
+        "A_T2_SPI",
+        "B_T2_COMPRESS_if_proven",
+        "C_pause"
+      ],
+      "cursor_preference": "A",
+      "agent": "c2190a85-0ecd-4179-a0a9-eb69655f3ebb",
+      "status_doc": "results/A7-NATIVE-GRAPH/STATUS/E2R_LADDER_G123_PASS_G4_BLOCK.md"
+    },
+    "oa1": {
+      "artifact": "results/A7-NATIVE-GRAPH/STATUS/OX_ALPHA_OA1_CDC_AUDIT.md",
+      "receipt": "results/A7-NATIVE-GRAPH/STATUS/OA1_RECEIPT_CURSOR.md",
+      "r2d_user_unsafe": 2,
+      "r2d_bram36": 104,
+      "residual_class": "LED_STAT_quasi_static",
+      "unnamed_clk_pll_to_core": true,
+      "loop2": "vivado_build_r2e.log",
+      "superseded_by": "gate1_PASS_unsafe_0"
+    },
+    "auto_ladder": {
+      "authority": "results/A7-NATIVE-GRAPH/STATUS/E2R_AUTO_LADDER.md",
+      "agent": "c2190a85-0ecd-4179-a0a9-eb69655f3ebb",
+      "on_gate1_fail": "fix_retry_max_3",
+      "on_gate1_pass": "continue_gates_2_3_4_same_session",
+      "target_claim": "NATIVE_V1_EXISTENCE_BOARD_PASS",
+      "forbid_full_board_pass_self_claim": true
+    },
+    "e2r_gate1": {
+      "gate": "E2R-CLOCK-CDC-00",
+      "verdict": "PASS",
+      "timing_pass": true,
+      "core_wns_ns": 12.126,
+      "ui_wns_ns": 2.046,
+      "bram36": 104,
+      "unsafe_cdc": 0,
+      "closeout": "arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-CLOCK-CDC-00/CLOSEOUT.md"
+    },
+    "e2": {
+      "gate": "E2-BOARD-EXISTENCE-00",
+      "verdict": "FAIL",
+      "marker": null,
+      "pred": null,
+      "uart_bytes": 0,
+      "bram36_r2": 96,
+      "wns_integrated_ns": -40.339,
+      "bit_sha": "EF8FA31226D00450C9173D6DAAD71FDB62005CE6D0BBF791A370A096AD112084",
+      "jtag": "210319BE776EA",
+      "blockers": [
+        "integrated_timing_ui_clk",
+        "ddr_wmem_preload_missing",
+        "r1_sim_full_bram_overflow"
+      ],
+      "closeout": "results/A7-NATIVE-GRAPH/E2-BOARD-EXISTENCE-00/CLOSEOUT.md"
+    },
+    "e1": {
+      "gate": "E1-AB-COFIT-PARALLEL-00",
+      "verdict": "DONE_ENG_BRAM_ONLY_PASS_OOC_TIMING_LIMIT",
+      "decide": "OPTION_A_GROK_2026-08-25",
+      "bram36_equiv": 96,
+      "bram_pass": true,
+      "wns_100mhz_ns": -47.931,
+      "timing_100mhz": "LIMIT",
+      "route_pass": true,
+      "dcp_route_sha_100mhz": "8F5A554A94C938E819394744D8FF098E77F428ACFA799F7077B8C91225C03B7E",
+      "clock65": {
+        "verdict": "FAIL_MARGINAL",
+        "wns_ns": -0.858,
+        "period_ns": 65.0
+      },
+      "clock80": {
+        "verdict": "PASS",
+        "wns_ns": 3.648,
+        "tns_ns": 0.0,
+        "period_ns": 80.0,
+        "mhz": 12.5,
+        "dcp_sha": "92A27DF729039D60BD18704F7B857FB62CA54AA331B2244F331FC8CB35F358EA"
+      },
+      "e2_graph_clock_mhz": 12.5,
+      "closeout": "results/A7-NATIVE-GRAPH/E1-AB-COFIT-PARALLEL-00/CLOSEOUT.md"
+    },
+    "e2_blocked": true,
+    "e2_block_reason": "E2_FAIL_integrated_WNS_-40ns_UART_silent_no_pred",
+    "allow_program": "HOLD_UNTIL_DECIDE_T2_SPI_THEN_REBUILD_BIT",
+    "verify_trio": {
+      "evidence": "PASS",
+      "xsim": "PASS",
+      "hlb": "PASS",
+      "date": "2026-08-24"
+    },
+    "a_plus": {
+      "gate": "E2R-HB-CORE-BIND-00",
+      "verdict": "PASS_LOCALIZE",
+      "last_stage": "Q_GO",
+      "bit_sha": "139526F78D390174002F60A4CBE1BBD9555F1992A85BFAD10FA8E83AD74A5EB5",
+      "agent": "ae8d6288-9558-4488-82aa-5b2ab2050643",
+      "existence_pass": false
+    },
+    "d1": {
+      "gate": "E2R-HB-SOA-AXI-00",
+      "verdict": "PASS_LOCALIZE",
+      "last_stage": "R_IDLE",
+      "stall_class": "AXI_MIG_R_PATH",
+      "heartbeats": "BOOT..Q_GO->SOA_RUN->AR_BEAT->R_BUSY->R_IDLE",
+      "missing": [
+        "R_BEAT",
+        "SOA_Q",
+        "BIND",
+        "pred"
+      ],
+      "pred": null,
+      "bit_sha": "D2CF44C66AEB6086FE25F669126A7C4B85FEE66C4CBEC8A4B9B8D37E60BD255C",
+      "core_wns": 10.881,
+      "ui_wns": 1.885,
+      "unsafe_cdc": 0,
+      "bram36": 104,
+      "b1_applied": false,
+      "agent": "99a57510-e703-4241-9f50-3ea1ae6d4412",
+      "closeout": "arty-a7-online-lm-board/results/A7-NATIVE-GRAPH/E2R-HB-SOA-AXI-00/CLOSEOUT.md",
+      "existence_pass": false
+    },
+    "d2": {
+      "gate": "E2R-B1-RPATH-00",
+      "verdict": "FAIL_SILICON",
+      "last_stage": "R_IDLE",
+      "r_beat": false,
+      "pred": null,
+      "bit_sha": "87C04F573210312C09AB00F977160ED21F4ACA773A0B0E0FCDC521D0AF0D6616",
+      "agent": "6f2ce8b7-2f6a-4fcb-9ff6-f1256ca9cf1b",
+      "existence_pass": false,
+      "next": "D3"
+    },
+    "d3": {
+      "gate": "E2R-HB-RVALID-00",
+      "subclass": "NO_RVALID",
+      "existence_pass": false,
+      "agent": "6f746d8b-6a7a-4082-abb0-f04d4c3018a1"
+    },
+    "d4": {
+      "gate": "E2R-HB-MIG-AR-00",
+      "case": "A",
+      "mig_ar": false,
+      "cdc_ar": false,
+      "ar_beat": true,
+      "bit_sha": "8E1E393D71DC3699A849010A13C53F305C855CC03F24B7811B8FF579C1B81E05",
+      "agent": "48ae2b0e-d044-498e-8b9f-505763d342eb",
+      "existence_pass": false
+    },
+    "e3": {
+      "gate": "E2R-HB-CDC-AR-00",
+      "subclass": "CDC_INTERNAL_STUCK",
+      "cdc_m_arf": true,
+      "cdc_s_arv": false,
+      "cdc_s_arr": true,
+      "bit_sha": "94C03E066DF4E21C3723B34F60CF27E9496EF54E6C8CD70878804901ED4C4136",
+      "agent": "9ed84a0c-d0fc-4ed5-ba91-4abe69e38e44",
+      "existence_pass": false
+    },
+    "f1a": {
+      "verdict": "FAIL",
+      "subclass": "CDC_INTERNAL_STUCK",
+      "bit": "678E3541CD5FA9AD060E4AD83EF7F0813527E703E6789DDA2F7606ACDDC039A8"
+    },
+    "f1b": {
+      "verdict": "FAIL",
+      "subclass": "CDC_INTERNAL_STUCK",
+      "bit": "D57E6A51DF0DC939159EF985466667BC214AC5E105AC5EC8AF4004AC67FD6A9B"
+    }
+  },
+  "active_gate": "native_v1_ab_integrate_accept_00",
+  "owner_agent": "grok",
+  "cursor_policy": "DO_NOT_STEAL \u2014 poll only; R1 prep CLOSED",
+  "parallel_prep": {
+    "gate": "R6-PARALLEL-BOARD-PREP-00",
+    "round": "R1",
+    "verdict": "R1_AUDIT_CONDITIONS_CLOSED",
+    "ledger_sources": 134,
+    "ledger_sha": "2151615A1E6A2B7D315FC56CE12DF656BC0E87E2ABD80FEEA9AC552582B42A0B"
+  },
+  "ab_integrate": {
+    "status": "R6_WK_MV0_10TOK",
+    "capture_ok": true,
+    "mv0_tokens": 10,
+    "mv0_last_ps": 7970091000,
+    "sim_tail_ps": 7970487466,
+    "lm_hb_max_cyc": 600000,
+    "pred": 0,
+    "bind_done": 0,
+    "wk_att_smx": false,
+    "target_close": "NATIVE_EXISTENCE_XSIM_PASS",
+    "progress": "results/A7-NATIVE-GRAPH/STATUS/AB_R6_PROGRESS.md"
+  },
+  "next_dependency": "WQ L0 complete \u2192 WK/ATT/SMX \u2192 pred=664",
+  "deferred_queue": "graph_late_materialize_00 (EXISTENCE_BEFORE_QUALITY)",
+  "board_authorized": false,
+  "human_board_pass": "FORBIDDEN_UNTIL_CANDIDATE_READY",
+  "section14_open": 8
+}

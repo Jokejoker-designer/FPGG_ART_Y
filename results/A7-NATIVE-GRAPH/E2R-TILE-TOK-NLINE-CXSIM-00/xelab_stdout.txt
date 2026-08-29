@@ -1,0 +1,17 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe -mt off -O0 tb_e2r_tile_tok_nline_cxsim_00 glbl -s e2r_tile_tok_nline_cxsim_00 -timescale 1ns/1ps 
+Turned off multi-threading.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7lm06_pkg
+Compiling module work.weight_bram_tdp8(DEPTH=131072)
+Compiling module work.weight_tile803k(SIM_FULL=1'b0)
+Compiling module work.tb_e2r_tile_tok_nline_cxsim_00
+Compiling module work.glbl
+Built simulation snapshot e2r_tile_tok_nline_cxsim_00

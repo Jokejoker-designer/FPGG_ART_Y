@@ -1,0 +1,14 @@
+gate=E2R-UART-HOLD-PRED-00
+mode=LISTEN_ONLY
+program=NO
+reset=NO
+open_hw_manager=NO
+port=COM12
+baud=115200
+window_s>=180
+stop_early=pred=664_only
+do_not_stop_on=ATOM0,ATOM1
+bit_already_on_fpga=9DC0F8DFF7BF068A92ED3E5A1A5B66FF5C56BEB7D6B3FACA7911912D498F951B
+control=E2R-ATOMIC-SDONE-PROBE-00/uart_capture.txt ended ATOM1 + PHASE=01
+com12_authorized_gate_consumed=E2R-ATOMIC-SDONE-PROBE-00
+started_local=2026-08-28T11:04+07

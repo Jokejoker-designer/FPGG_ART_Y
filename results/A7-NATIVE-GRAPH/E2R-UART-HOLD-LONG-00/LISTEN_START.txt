@@ -1,0 +1,14 @@
+﻿gate=E2R-UART-HOLD-LONG-00
+mode=LISTEN_ONLY
+program=NO
+reset=NO
+open_hw_manager=NO
+port=COM12
+baud=115200
+window_s=1800
+stop_early=pred=664_only
+do_not_stop_on=ATOM0,ATOM1
+bit_already_on_fpga=9DC0F8DFF7BF068A92ED3E5A1A5B66FF5C56BEB7D6B3FACA7911912D498F951B
+control=E2R-UART-HOLD-REARM-00 STILL_STALL 300s after ATOM1
+com12_authorized_gate_consumed=E2R-UART-HOLD-REARM-00
+started_local=2026-08-28T12:43:39+07:00

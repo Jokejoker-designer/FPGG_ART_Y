@@ -1,0 +1,47 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Aug 28 14:17:04 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_tile_nline_bound_cxsim_00/xsim_script.tcl
+# xsim {e2r_tile_nline_bound_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+VEHICLE=weight_tile803k SIM_FULL=0 TILE_ONLY same_clk_dma COMPLETABLE_STUB_EVERY_GO
+MISS_FORCE addr_a=OFF_POS(131072) cur_rg_reset=0 we_a=0
+RG_NLINE_LAW POS_rg1=128 else=1024
+DST D_IDLE=0 D_GO=1 D_FEED=2 D_DRAIN=3 D_WAITDONE=4 D_ACK=5
+BST B_IDLE=0 B_FILL=1 B_FWAIT=2 B_FCAP=3 B_REQ=4 B_WAITACK=5 B_STORE=6 B_SWAIT=7 B_NEXT=8
+WATCH until stall==0 OR timeout; TO_CYC=1000000; do not stop at dest4_2; stall=0 not required
+SNAP_GO_BURST cyc=7 burst=1 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=0 dest4=0
+SNAP_D4_1 cyc=18 dest=4 dbg_dst=3 bst=4 stall=1 dest4=1 nline_h=128 hold_rg=1 cur_rg=0 ch=0
+SNAP_D5_1 cyc=20 dest=5 dbg_dst=4 bst=4 stall=1 dest4=1 burst=1 ack=0
+SNAP_IDLE cyc=28 dest=0 dbg_dst=5 bst=5 stall=1 dest4=1 burst=1
+SNAP_GO_BURST cyc=293 burst=2 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=1 dest4=1
+SNAP_D4_2 cyc=304 dest=4 dbg_dst=3 bst=4 stall=1 dest4=2 nline_h=128 hold_rg=1 cur_rg=0 ch=1 CONTROL_CHUNK2
+SNAP_GO_BURST cyc=8873 burst=32 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=31 dest4=31
+SNAP_D4 cyc=8884 dest4=32 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=31 burst=32
+SNAP_GO_BURST cyc=18025 burst=64 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=63 dest4=63
+SNAP_D4 cyc=18036 dest4=64 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=63 burst=64
+SNAP_GO_BURST cyc=27177 burst=96 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=95 dest4=95
+SNAP_D4 cyc=27188 dest4=96 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=95 burst=96
+SNAP_GO_BURST cyc=36329 burst=128 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=127 dest4=127
+SNAP_D4 cyc=36340 dest4=128 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 ch=127 burst=128
+SNAP_STALL0 cyc=36610 dest=0 bst=0 dest4=128 burst=128 nline_h=128 nline_meas=128 hold_rg=1 cur_rg=1 ch=127
+CLASS=REGION_DONE
+C_FIX=NONE
+BOARD_PASS=not_claimed
+EXISTENCE=not_claimed
+PROGRAM=NO
+XSIM=PASS
+TIMEOUT_CAP=1000000
+NLINE_MEAS=128 NLINE_H=128 NLINE_LAW_HOLD=128 HOLD_RG=1 CUR_RG=1 DBG_CUR_RG=1 CH=127
+DEST4_CNT=128 DMA_GO_BURST=128 DMA_GO_CYC=384 STALL0_CYC=36610 STALL_END=0 BST_END=0
+E2R_TILE_NLINE_BOUND_CXSIM_00_XSIM_PASS class=REGION_DONE c_fix=NONE dest4_cnt=128 dma_go_burst=128 nline=128 stall_end=0 stall0_cyc=36610 bst_end=0 dest5=1 dest0=1 dest4_2=1 dest4_2_cyc=304
+$finish called at time : 366215 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_tile_nline_bound_cxsim_00.sv" Line 185
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Aug 28 14:17:07 2026...

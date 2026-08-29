@@ -1,0 +1,7 @@
+snap	cyc	st	sub	waddr	tok_sets	pos_sets	rg_switches	notes
+CTX_LOAD	0	0	0	0	0	0	0	ntok=8
+ENTER_EMB	1	1	1	0	1	0	0	first TOK set waddr=OFF_TOK
+POS_SET1	3	1	3	131072	1	1	1	first POS set OFF_POS
+TOK_SET2	6	1	1	1	2	1	2	POS->TOK
+POS_SET1024	5118	1	3	132095	1024	1024	2047	last POS tok_i=7 dim=127
+LEAVE_EMB	5120	2	0	132095	1024	1024	2047	st=ST_LN_S leave_emb=1

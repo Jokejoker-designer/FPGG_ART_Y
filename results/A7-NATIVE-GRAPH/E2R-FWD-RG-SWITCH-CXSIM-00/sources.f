@@ -1,0 +1,10 @@
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/a7lm06_pkg.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/isqrt32.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/floordiv_s48.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/weight_bram803k.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/weight_bram_tdp8.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/weight_tile803k.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/act_ram128k16.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/snap_ram4k16.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/tiny_gpt803k_core.sv
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_fwd_rg_switch_cxsim_00.sv

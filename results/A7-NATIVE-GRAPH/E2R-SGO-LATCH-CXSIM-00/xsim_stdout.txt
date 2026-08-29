@@ -1,0 +1,65 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Aug 27 21:25:51 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_sgo_latch_cxsim_00/xsim_script.tcl
+# xsim {e2r_sgo_latch_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-SGO-LATCH-CXSIM-00 START
+VEHICLE=a7ng_native_v1_ab_core SIM_FULL=0 do_lm=1 CDC+B1+MUX ungated_cdc_rvalid SHARED_STUB_WDMA s_dma_idle=0 F1U_LATCH_REPLICA
+PREREG_UNKNOWN: on dest=4 sticky=1 occupancy, does TB latched_sgo_f1u equal 1
+PREREG_H_CANDIDATE: LATCH_MISS sticky=1 latch=0 at dest=4 and end
+PREREG_H_RIVAL: LATCH_HIT latch=1 at dest=4 or end when sticky=1
+PREREG_FALSIFIER: force dest; C-FIX; A2; LiteScope; soc_top+MIG; retie s_dma_idle
+PREREG_UNIT: one query; first dest=4 snapshot + end latch vs sticky
+FORBIDDEN: force TILE_DST/dst; assign r_path_idle=1; C-FIX; soc_top; MIG; board; retie s_dma_idle
+SOA_PRELOAD_DONE candidates=64
+PROBE t=5000000 phase=RESET dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 cmd_st=0 sbusy_pend=0 cmd_rd=0 cmd_empty_mgo=1 busy=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=0 fwd=0 core_busy=0 core_busy_ui=0 qgo=0 qgo_ui=0 latch_sgo=0 phase=0 gv=0
+SOA_OWNER_READY ok cycles=0
+PROBE t=5000000 phase=OWNER_READY dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 cmd_st=0 sbusy_pend=0 cmd_rd=0 cmd_empty_mgo=1 busy=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=0 fwd=0 core_busy=0 core_busy_ui=0 qgo=0 qgo_ui=0 latch_sgo=0 phase=0 gv=0
+SOA_QUERY_START t=5120000 do_lm=1
+PROBE t=5160000 phase=POST_START_1 dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 cmd_st=0 sbusy_pend=0 cmd_rd=0 cmd_empty_mgo=1 busy=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=0 fwd=0 core_busy=0 core_busy_ui=0 qgo=1 qgo_ui=1 latch_sgo=0 phase=0 gv=0
+PROBE t=24760000 phase=SOA_DONE dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 cmd_st=0 sbusy_pend=0 cmd_rd=0 cmd_empty_mgo=1 busy=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=1 fwd=0 core_busy=0 core_busy_ui=0 qgo=1 qgo_ui=1 latch_sgo=0 phase=0 gv=3
+PROBE t=25960000 phase=START_FWD dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 cmd_st=0 sbusy_pend=0 cmd_rd=0 cmd_empty_mgo=1 busy=0 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=1 fwd=1 core_busy=0 core_busy_ui=0 qgo=1 qgo_ui=1 latch_sgo=0 phase=0 gv=4
+EMB t=26200000 dim=0 wrd=x crd=x awd=x
+PROBE t=26760000 phase=WDMA_GO dst=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=1 own_ui=0 cdc_rv=0 stub_rv=0 m_go=1 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 cmd_st=0 sbusy_pend=0 cmd_rd=0 cmd_empty_mgo=1 busy=0 rleft=0 wst=0 miss=1 reqs1=1 bst=4 soa_done=1 fwd=0 core_busy=1 core_busy_ui=1 qgo=1 qgo_ui=1 latch_sgo=0 phase=1 gv=4
+PROBE t=29640000 phase=FIRST_DESTWAIT dst=4 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=1 mgo_st=1 sgo_ever=1 cmd_st=2 sbusy_pend=1 cmd_rd=1 cmd_empty_mgo=0 busy=1 rleft=0 wst=4 miss=1 reqs1=1 bst=4 soa_done=1 fwd=0 core_busy=1 core_busy_ui=1 qgo=1 qgo_ui=1 latch_sgo=1 phase=1 gv=4
+PROBE t=39880000 phase=END_SETTLE dst=4 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=1 mgo_st=1 sgo_ever=1 cmd_st=2 sbusy_pend=1 cmd_rd=1 cmd_empty_mgo=0 busy=1 rleft=0 wst=4 miss=1 reqs1=1 bst=4 soa_done=1 fwd=0 core_busy=1 core_busy_ui=1 qgo=1 qgo_ui=1 latch_sgo=1 phase=1 gv=4
+REACHED_DESTWAIT=1 FIRST_TILE_DST=4 LIVE_TILE_DST=4
+SNAP destwait_cyc=355 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=0 stub_rv=0
+SNAP_SGO sgo_st=1 mgo_st=1 sgo_ever=1 cmd_st=2 sbusy_pend=1 cmd_rd=1 cmd_empty_mgo=0
+SNAP_LATCH latch=1 core_busy=1 core_busy_ui=1 qgo=1 qgo_ui=1
+END_SGO dst=4 fifo=4 idle=0 grant=1 sgo_st=1 mgo_st=1 sgo_ever=1 cmd_st=2 sbusy_pend=1 cmd_rd=1
+END_LATCH latch=1 core_busy=1 core_busy_ui=1 qgo=1 qgo_ui=1
+GRANT_ROSE_BEFORE_DESTWAIT=1
+SOA_DONE_SEEN=1 START_FWD_SEEN=1 CORE_BUSY=1 PHASE=1 GV=4 BEATS=52
+WDMA hold busy=1 done=0 rvalid=0 rleft=0 owner=1 own_ui=1 s_dma_idle=0
+AND_MASK drain,fifo,rvalid,tr = 0110 n_hot=2 leftover_ctrl=AMBIGUOUS
+SGO_STICKY_AT_DEST4=1
+SGO_STICKY_END=1
+LATCHED_AT_DEST4=1
+LATCHED_END=1
+CORE_BUSY_AT_DEST4=1
+CORE_BUSY_END=1
+CORE_BUSY_UI_AT_DEST4=1
+CORE_BUSY_UI_END=1
+STICKY_QGO_AT_DEST4=1
+STICKY_QGO_UI_AT_DEST4=1
+MGO_STICKY=1
+SGO_EVER=1
+CLASS=LATCH_HIT
+C_FIX=NONE
+C_FIX_CONSTITUENT=NONE
+EXISTENCE=not_claimed
+BOARD_PASS=not_claimed
+XSIM=PASS
+E2R_SGO_LATCH_CXSIM_00_XSIM_PASS class=LATCH_HIT c_fix=NONE dst=4 grant=1 idle=0 fifo=4 c_rvalid=1 sgo_st_dest4=1 sgo_st_end=1 latch_dest4=1 latch_end=1 core_busy=1 core_busy_ui=1
+$finish called at time : 39880 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_sgo_latch_cxsim_00.sv" Line 815
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 21:25:55 2026...

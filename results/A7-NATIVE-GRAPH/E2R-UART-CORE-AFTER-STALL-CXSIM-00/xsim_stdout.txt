@@ -1,0 +1,40 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Aug 28 14:31:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_uart_core_after_stall_cxsim_00/xsim_script.tcl
+# xsim {e2r_uart_core_after_stall_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-UART-CORE-AFTER-STALL-CXSIM-00 START
+VEHICLE=tb_hb_next_have_pending_sent_mask_stepper NO_SOC_TOP NO_MIG C_FIX=NONE
+LAW hb_next_order=51,52,53,54,55_after_atom69_70
+LAW other_ok=0 ATOM69_70=0 bind_ok=0
+LAW core_done_raised_after_mask_51_52
+LAW pred_ready_driven_as_pred_ok bind_100_held_0
+PROGRAM=NO
+STEP=SETUP_PRE nxt_sel=0 have_pending=1 mask51=0 mask52=0 mask54=0 mask55=0 w_stall=0 phase=0 core_done=0 pred_ready=0 atom0=0 atom1=0 giveup=0 bind=0
+SETUP_PRE nxt_sel=0 (expect 0 BOOT)
+STEP=SETUP_BOOT_SENT nxt_sel=0 have_pending=0 mask51=0 mask52=0 mask54=0 mask55=0 w_stall=0 phase=0 core_done=0 pred_ready=0 atom0=0 atom1=0 giveup=0 bind=0
+STEP=A nxt_sel=51 have_pending=1 mask51=0 mask52=0 mask54=0 mask55=0 w_stall=1 phase=1 core_done=0 pred_ready=0 atom0=0 atom1=0 giveup=0 bind=0
+STEP=B nxt_sel=52 have_pending=1 mask51=1 mask52=0 mask54=0 mask55=0 w_stall=1 phase=1 core_done=0 pred_ready=0 atom0=0 atom1=0 giveup=0 bind=0
+STEP=C nxt_sel=54 have_pending=1 mask51=1 mask52=1 mask54=0 mask55=0 w_stall=1 phase=1 core_done=1 pred_ready=0 atom0=0 atom1=0 giveup=0 bind=0
+STEP=D nxt_sel=55 have_pending=1 mask51=1 mask52=1 mask54=1 mask55=0 w_stall=1 phase=1 core_done=1 pred_ready=1 atom0=0 atom1=0 giveup=0 bind=0
+SEL_SETUP=0 SEL_A=51 SEL_B=52 SEL_C=54 SEL_D=55
+PEND_A=1 PEND_B=1 PEND_C=1 PEND_D=1
+MASK_END 51=1 52=1 54=1 55=0
+C_FIX=NONE
+BOARD_PASS=not_claimed
+EXISTENCE=not_claimed
+PROGRAM=NO
+XSIM=CORE_PRED
+VERDICT_CLASS=CORE_PRED
+E2R_UART_CORE_AFTER_STALL_CXSIM_00_XSIM_PASS verdict=CORE_PRED c_fix=NONE
+$finish called at time : 8 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_uart_core_after_stall_cxsim_00.sv" Line 345
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Aug 28 14:31:37 2026...

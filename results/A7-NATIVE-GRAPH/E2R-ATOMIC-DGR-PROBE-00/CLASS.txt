@@ -1,0 +1,13 @@
+ATOM0=0000059C
+ATOM1=0000059D
+ATOM0_DECODE dest=4 owner=1 grant=1 idle=0 drain=0 fifo_ne=1 c_rvalid=1 tr_nz=0 mgo=1
+ATOM1_DECODE dest=5 owner=1 grant=1 idle=0 drain=0 fifo_ne=1 c_rvalid=1 tr_nz=0 mgo=1
+CLASS=SET
+WIRE=fifo_ne,c_rvalid
+C_FIX=NONE
+BOARD_PASS=not_claimed
+EXISTENCE=not_claimed
+UART_BYTES=593
+BIT_SHA256=771163814B6914CECB872839A36BD95ED0249E839038E16C46D48755E66C48EA
+WNS=0.265
+TNS=0.000

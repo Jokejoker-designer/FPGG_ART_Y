@@ -1,0 +1,2 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_uart_skew_cxsim_00.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_e2r_uart_skew_cxsim_00

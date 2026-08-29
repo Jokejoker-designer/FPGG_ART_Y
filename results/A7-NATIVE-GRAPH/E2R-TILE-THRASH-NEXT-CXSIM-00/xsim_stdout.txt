@@ -1,0 +1,52 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Sat Aug 29 13:57:38 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_tile_thrash_next_cxsim_00/xsim_script.tcl
+# xsim {e2r_tile_thrash_next_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+VEHICLE=weight_tile803k SIM_FULL=0 TILE_ONLY same_clk_dma COMPLETABLE_STUB_EVERY_GO
+MISS_FORCE addr_a=OFF_POS(131072) then after stall=0 addr_a=OFF_TOK(0) we_a=0
+RG_NLINE_LAW POS_rg1=128 else=1024 rg_of(<OFF_POS)=0
+DST D_IDLE=0 D_GO=1 D_FEED=2 D_DRAIN=3 D_WAITDONE=4 D_ACK=5
+BST B_IDLE=0 B_FILL=1 B_FWAIT=2 B_FCAP=3 B_REQ=4 B_WAITACK=5 B_STORE=6 B_SWAIT=7 B_NEXT=8
+WATCH first stall==0 then TOK switch; new dest=4 OR timeout TO_AFTER=500000; TO_FIRST=1000000; do not finish TOK region
+SNAP_GO_BURST cyc=7 burst=1 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=0 dest4=0 switched=0
+SNAP_D4_1 cyc=18 dest=4 dbg_dst=3 bst=4 stall=1 dest4=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=0
+SNAP_D5_1 cyc=20 dest=5 dbg_dst=4 bst=4 stall=1 dest4=1 burst=1 ack=0
+SNAP_IDLE cyc=28 dest=0 dbg_dst=5 bst=5 stall=1 dest4=1 burst=1
+SNAP_GO_BURST cyc=293 burst=2 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=1 dest4=1 switched=0
+SNAP_D4_2 cyc=304 dest=4 dbg_dst=3 bst=4 stall=1 dest4=2 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=1 CONTROL_CHUNK2
+SNAP_GO_BURST cyc=8873 burst=32 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=31 dest4=31 switched=0
+SNAP_D4 cyc=8884 dest4=32 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=31 burst=32 switched=0
+SNAP_GO_BURST cyc=18025 burst=64 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=63 dest4=63 switched=0
+SNAP_D4 cyc=18036 dest4=64 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=63 burst=64 switched=0
+SNAP_GO_BURST cyc=27177 burst=96 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=95 dest4=95 switched=0
+SNAP_D4 cyc=27188 dest4=96 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=95 burst=96 switched=0
+SNAP_GO_BURST cyc=36329 burst=128 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=127 dest4=127 switched=0
+SNAP_D4 cyc=36340 dest4=128 dest=4 bst=4 stall=1 nline_h=128 hold_rg=1 cur_rg=0 miss=1 ch=127 burst=128 switched=0
+SNAP_STALL0_BEFORE_SWITCH cyc=36610 dest=0 bst=0 dest4=128 burst=128 nline_h=128 nline_meas=128 hold_rg=1 cur_rg=1 miss=0 stall=0 ch=127 addr_a=131072
+SNAP_SWITCH_TOK cyc=36610 addr_a=0 OFF_TOK=0 dest4=128 cur_rg=1 miss=0 stall=0 dest=0 bst=0
+SNAP_GO_BURST cyc=36617 burst=129 dest=1 dbg_dst=0 bst=4 stall=1 nline_h=1024 hold_rg=0 cur_rg=1 miss=1 ch=0 dest4=128 switched=1
+SNAP_D4_AFTER_SWITCH cyc=36628 dest=4 bst=4 stall=1 dest4=129 dest4_after=1 nline_h=1024 hold_rg=0 cur_rg=1 miss=1 ch=0 burst=129
+CLASS=THRASH_NEXT
+C_FIX=NONE
+BOARD_PASS=not_claimed
+EXISTENCE=not_claimed
+PROGRAM=NO
+XSIM=PASS
+TIMEOUT_FIRST=1000000 TIMEOUT_AFTER=500000
+NLINE_MEAS=128 NLINE_H=1024 NLINE_LAW_HOLD=1024 HOLD_RG=0 CUR_RG=1 DBG_CUR_RG=1 CH=0
+DEST4_CNT=129 DEST4_AT_SWITCH=128 DEST4_AFTER_SWITCH=1 DMA_GO_BURST=129 DMA_GO_CYC=387
+STALL0_CYC=36610 SWITCH_CYC=36610 DEST4_POST_CYC=36628 STALL_END=1 BST_END=4
+CUR_RG_BEFORE=1 CUR_RG_AFTER=1 MISS_BEFORE=0 MISS_AFTER=0 STALL_BEFORE=0 STALL_AFTER=0
+E2R_TILE_THRASH_NEXT_CXSIM_00_XSIM_PASS class=THRASH_NEXT c_fix=NONE dest4_cnt=129 dest4_after_switch=1 dma_go_burst=129 nline=128 stall_end=1 stall0_cyc=36610 switch_cyc=36610 dest4_post_cyc=36628 cur_rg_before=1 cur_rg_after=1 miss_before=0 miss_after=0 dest5=1 dest0=1 dest4_2=1
+$finish called at time : 366395 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_tile_thrash_next_cxsim_00.sv" Line 205
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Aug 29 13:57:41 2026...

@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/a7lm06_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/weight_bram_tdp8.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_bram_tdp8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/rtl/lm/weight_tile803k.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_tile803k
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_tile_nline_bound_cxsim_00.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_e2r_tile_nline_bound_cxsim_00

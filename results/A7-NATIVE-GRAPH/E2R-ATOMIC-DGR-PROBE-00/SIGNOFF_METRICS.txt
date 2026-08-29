@@ -1,0 +1,17 @@
+provenance=post-route report_timing_summary.rpt
+WNS=0.265
+TNS=0.000
+WHS=0.016
+THS=0.000
+core_WNS=10.582
+core_TNS=0
+ui_WNS=2.505
+ui_TNS=0
+ramb36=103
+ramb18=0
+dsps=19
+unsafe_cdc=0
+gate_pass=1
+BIT_SHA256=771163814B6914CECB872839A36BD95ED0249E839038E16C46D48755E66C48EA
+C_FIX=NONE
+BOARD_PASS=not_claimed

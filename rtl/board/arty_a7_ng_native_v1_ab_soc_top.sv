@@ -8,6 +8,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
   input  logic [3:0]  sw,
   input  logic [3:0]  btn,
   output logic [3:0]  led,
+  output logic [7:0]  ja,
   input  logic        uart_txd_in,
   output logic        uart_rxd_out,
   // Arty QSPI flash (T2-SPI wmem loader)
@@ -595,6 +596,67 @@ module arty_a7_ng_native_v1_ab_soc_top (
     // else: LM requests owner but R-path busy → hold (no 0→1 grant mid-query)
   end
 
+  // E2R-ATOMIC-SDONE-PROBE-00: dest=4∧owner pack. UI s_done bits via
+  // sync_bits (2-FF) onto core_clk — never sample raw UI on core.
+  // No 3-bit dma_st (prior unsafe CDC). Probe-only: no B1 / soa_done
+  // / r_path_idle / force dest / C-FIX / LiteScope.
+  logic        atom_sdone_latch_core, atom_sdone_sticky_core;
+  sync_bits #(.WIDTH(1)) u_atom_sdone_latch_core (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .async_in(latched_sdone_f1t),
+    .sync_out(atom_sdone_latch_core)
+  );
+  sync_bits #(.WIDTH(1)) u_atom_sdone_sticky_core (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .async_in(wdma_dbg_sdone),
+    .sync_out(atom_sdone_sticky_core)
+  );
+  // [2:0] dest [3] owner [4] grant [5] idle
+  // [6] latched_sdone_f1t_sync [7] s_done_sticky_sync
+  // [8] w_stall [9] core_done [10] mgo_sticky
+  // [12:11]=0 [31:13]=0
+  wire [31:0] atom_now = {21'd0, wdma_dbg_mgo, core_done, w_stall,
+                          atom_sdone_sticky_core, atom_sdone_latch_core,
+                          r_path_idle, wdma_owner_grant, wdma_owner,
+                          dbg_tile_dst};
+
+  logic [31:0] atom0_q, atom1_q;
+  logic        atom0_valid, atom1_valid, atom_giveup;
+  logic [1:0]  atom_st;
+  localparam logic [1:0] AST_IDLE  = 2'd0;
+  localparam logic [1:0] AST_HAVE0 = 2'd1;
+  localparam logic [1:0] AST_DONE  = 2'd2;
+
+  always_ff @(posedge core_clk or negedge core_rst_n) begin
+    if (!core_rst_n) begin
+      atom0_q      <= 32'd0;
+      atom1_q      <= 32'd0;
+      atom0_valid  <= 1'b0;
+      atom1_valid  <= 1'b0;
+      atom_giveup  <= 1'b0;
+      atom_st      <= AST_IDLE;
+    end else begin
+      unique case (atom_st)
+        AST_IDLE: begin
+          if (dbg_tile_dst == 3'd4 && wdma_owner) begin
+            atom0_q     <= atom_now;
+            atom0_valid <= 1'b1;
+            atom_st     <= AST_HAVE0;
+          end else if (sticky_w_stall || sticky_core_done || (qs == QS_DONE))
+            atom_giveup <= 1'b1;
+        end
+        AST_HAVE0: begin
+          atom1_q     <= atom_now;
+          atom1_valid <= 1'b1;
+          atom_st     <= AST_DONE;
+        end
+        AST_DONE: begin
+        end
+        default: atom_st <= AST_IDLE;
+      endcase
+    end
+  end
+
   // F1r: latch ui-domain dma busy/owner while core_busy (ui_clk)
   logic core_busy_ui;
   sync_bits #(.WIDTH(1)) u_core_busy_ui_sync (
@@ -834,6 +896,26 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .async_in({wdma_dbg_cmd_rd, wdma_dbg_cmd_empty_mgo, wdma_dbg_cmd_st, wdma_dbg_sbusy_pend}),
     .sync_out({cmd_rd_100, cmd_empty_mgo_100, cmd_st_100, sbusy_pend_100})
   );
+  // E2R-ATOMIC-SDONE-PROBE-00: frozen ATOM0/ATOM1 packs → UART (core_clk only)
+  logic [31:0] atom0_100, atom1_100;
+  logic        atom0_valid_100, atom1_valid_100, atom_giveup_100;
+  sync_bits #(.WIDTH(32)) u_atom0_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in(atom0_q),
+    .sync_out(atom0_100)
+  );
+  sync_bits #(.WIDTH(32)) u_atom1_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in(atom1_q),
+    .sync_out(atom1_100)
+  );
+  sync_bits #(.WIDTH(3)) u_atom_flag_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in({atom_giveup, atom1_valid, atom0_valid}),
+    .sync_out({atom_giveup_100, atom1_valid_100, atom0_valid_100})
+  );
+  wire atom0_print = atom0_valid_100 || atom_giveup_100;
+  wire atom1_print = atom1_valid_100 || atom_giveup_100;
   sync_bits #(.WIDTH(12)) u_post_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({sticky_fwd, sticky_pack, sticky_accept, sticky_topk, sticky_soaq,
@@ -916,8 +998,9 @@ module arty_a7_ng_native_v1_ab_soc_top (
   //          56 SDONE=H … 57 MDONE=H … 58 BUSY_HOLD=H … 59 DMA_ST=H … 60 SGO=H
   //          61 WDMA_OWNER=H … 62 WDMA_GRANT=H … 63 RPATH_IDLE=H … 64 MGO=H
   //          65 CMD_EMPTY=H … 66 SBUSY_PEND=H … 67 CMD_ST=H … 68 CMD_RD=H
+  //          69 ATOM0=<8hex|NONE> … 70 ATOM1=<8hex|NONE>  (frozen pack; not live D/G/I)
   logic [6:0] msg_sel;
-  logic [68:0] sent_mask; // sticky: bit i set after message i completed
+  logic [70:0] sent_mask; // sticky: bit i set after message i completed
   logic [3:0] led_sticky;
   logic saw_busy;
   // LOAD pulses start; WAIT_BUSY until uart_tx latches; WAIT_IDLE until byte done.
@@ -1335,6 +1418,48 @@ module arty_a7_ng_native_v1_ab_soc_top (
         6'd7: return hex_nib({3'b0, cmd_rd_100});
         default: return 8'h00;
       endcase
+      7'd69: begin // ATOM0=<8 hex> or ATOM0=NONE (frozen SDONE pack; not live sequential SDONE=)
+        if (!atom0_valid_100) unique case (i)
+          6'd0: return "A"; 6'd1: return "T"; 6'd2: return "O"; 6'd3: return "M";
+          6'd4: return "0"; 6'd5: return "=";
+          6'd6: return "N"; 6'd7: return "O"; 6'd8: return "N"; 6'd9: return "E";
+          default: return 8'h00;
+        endcase
+        else unique case (i)
+          6'd0: return "A"; 6'd1: return "T"; 6'd2: return "O"; 6'd3: return "M";
+          6'd4: return "0"; 6'd5: return "=";
+          6'd6:  return hex_nib(atom0_100[31:28]);
+          6'd7:  return hex_nib(atom0_100[27:24]);
+          6'd8:  return hex_nib(atom0_100[23:20]);
+          6'd9:  return hex_nib(atom0_100[19:16]);
+          6'd10: return hex_nib(atom0_100[15:12]);
+          6'd11: return hex_nib(atom0_100[11:8]);
+          6'd12: return hex_nib(atom0_100[7:4]);
+          6'd13: return hex_nib(atom0_100[3:0]);
+          default: return 8'h00;
+        endcase
+      end
+      7'd70: begin // ATOM1=<8 hex> or ATOM1=NONE
+        if (!atom1_valid_100) unique case (i)
+          6'd0: return "A"; 6'd1: return "T"; 6'd2: return "O"; 6'd3: return "M";
+          6'd4: return "1"; 6'd5: return "=";
+          6'd6: return "N"; 6'd7: return "O"; 6'd8: return "N"; 6'd9: return "E";
+          default: return 8'h00;
+        endcase
+        else unique case (i)
+          6'd0: return "A"; 6'd1: return "T"; 6'd2: return "O"; 6'd3: return "M";
+          6'd4: return "1"; 6'd5: return "=";
+          6'd6:  return hex_nib(atom1_100[31:28]);
+          6'd7:  return hex_nib(atom1_100[27:24]);
+          6'd8:  return hex_nib(atom1_100[23:20]);
+          6'd9:  return hex_nib(atom1_100[19:16]);
+          6'd10: return hex_nib(atom1_100[15:12]);
+          6'd11: return hex_nib(atom1_100[11:8]);
+          6'd12: return hex_nib(atom1_100[7:4]);
+          6'd13: return hex_nib(atom1_100[3:0]);
+          default: return 8'h00;
+        endcase
+      end
       default: return 8'h00;
     endcase
   endfunction
@@ -1410,13 +1535,15 @@ module arty_a7_ng_native_v1_ab_soc_top (
       7'd66: return 7'd12;  // SBUSY_PEND=H
       7'd67: return 7'd8;   // CMD_ST=H
       7'd68: return 7'd8;   // CMD_RD=H
+      7'd69: return atom0_valid_100 ? 7'd14 : 7'd10; // ATOM0=hex|NONE
+      7'd70: return atom1_valid_100 ? 7'd14 : 7'd10; // ATOM1=hex|NONE
       default: return 7'd28; // PRED row
     endcase
   endfunction
 
   // Next unsent stage whose condition is true (priority low→high).
   function automatic logic [6:0] hb_next(
-      input logic [68:0] mask,
+      input logic [70:0] mask,
       input logic mig_ok, wmem_ok, soa_ok, core_ok,
       input logic owner_ok, qgo_ok, soarun_ok, ar_ok, rbeat_ok,
       input logic rbusy_ok, ridle_ok,
@@ -1504,6 +1631,8 @@ module arty_a7_ng_native_v1_ab_soc_top (
     if (sbusy_pend_ok    && !mask[66]) return 7'd66;
     if (cmd_st_ok        && !mask[67]) return 7'd67;
     if (cmd_rd_ok        && !mask[68]) return 7'd68;
+    if ((atom0_valid_100 || atom_giveup_100) && !mask[69]) return 7'd69;
+    if ((atom1_valid_100 || atom_giveup_100) && !mask[70]) return 7'd70;
     if (w_stall_ok && !mask[51]) return 7'd51;
     if (phase_ok   && !mask[52]) return 7'd52;
     if (pred_nz_ok && !mask[53]) return 7'd53;
@@ -1603,6 +1732,8 @@ module arty_a7_ng_native_v1_ab_soc_top (
       (mgo_f1v_100   && !sent_mask[66]) ||
       (mgo_f1v_100   && !sent_mask[67]) ||
       (mgo_f1v_100   && !sent_mask[68]) ||
+      (atom0_print   && !sent_mask[69]) ||
+      (atom1_print   && !sent_mask[70]) ||
       (w_stall_100   && !sent_mask[51]) ||
       (phase_valid_100 && !sent_mask[52]) ||
       (pred_nz_100   && !sent_mask[53]) ||
@@ -1617,7 +1748,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
       tx_i <= 7'd0;
       tx_len <= 6'd0;
       msg_sel <= 6'd0;
-      sent_mask <= 69'd0;
+      sent_mask <= 71'd0;
       led_sticky <= 4'd0;
       saw_busy <= 1'b0;
     end else begin
@@ -1637,7 +1768,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
             tx_i <= 7'd0;
             tx_len <= hb_len(nxt_sel);
             ut <= UT_LOAD;
-          end else if (&sent_mask[68:0]) begin
+          end else if (&sent_mask[70:0]) begin
             ut <= UT_DONE;
           end
         end
@@ -1692,4 +1823,24 @@ module arty_a7_ng_native_v1_ab_soc_top (
   assign unused_rx = uart_txd_in;
   assign unused_tie = |{boot_100, soa_core_100, bind_core_100, axi_b_100, dual_err, lm06_active};
   assign led = led_sticky ^ sw;
+
+  // E2R-LA-PMOD-00: observe-only Pmod JA (3.3 V). Does not touch ready/valid/winner/TopK/bind/LM FSM.
+  // Sticky/synced CLK100MHZ levels so a 24 MHz LA can see DC after the event.
+  (* IOB = "TRUE" *) logic [7:0] ja_q;
+  always_ff @(posedge CLK100MHZ or negedge clk_locked) begin
+    if (!clk_locked)
+      ja_q <= 8'd0;
+    else
+      ja_q <= {
+        sgo_lat_100,     // ja[7] SGO
+        w_stall_100,     // ja[6] W_STALL
+        core_busy_100,   // ja[5] LM_ACTIVE
+        bind_100,        // ja[4] BIND_DONE
+        rbeat_100,       // ja[3] SOA_R_FIRST
+        ar_100,          // ja[2] SOA_AR_FIRE
+        qgo_100,         // ja[1] QUERY_ACCEPT
+        core_live_100    // ja[0] CORE_START / core live
+      };
+  end
+  assign ja = ja_q;
 endmodule

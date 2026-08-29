@@ -1,12 +1,16 @@
-# Existence close — blocked on DECIDE
+# Existence close — 2026-08-29
 
-**Goal:** UART `pred=664`. Phase 2 DEFERRED. Board plugged ≠ program.
+**Goal:** UART `pred=664`.
 
 | Slot | Status |
 |------|--------|
-| B-FIX | SEALED CLASS B — UART `4,0,0` idle |
-| Leftover namers | dest=4 only via tile R (idle=1); mux leftover dest=3 idle=0 |
-| UART-ENC | **FAITHFUL** — digits not an artifact |
-| C-FIX | **not licensed** |
+| Tile dest after ACK | CHUNK2_GO (stub) |
+| POS region | REGION_DONE nline=128 |
+| UART after W_STALL | CORE_PRED (replica) |
+| ST_EMB TOK↔POS sets | OSC_2ND |
+| Full-fwd switches | 2048 (not 4.3e6 misses) |
+| TOK/POS switch = miss? | **this turn** (THRASH-NEXT) |
+| From-boot ≥40 min | PREP_READY; wait `com12_authorized_gate=E2R-UART-HOLD-LONGBOOT-00` |
+| EXISTENCE | **NO** |
 
-Need Codex/human `DECIDE`: A2 / F1x / C. No C-FIX. No program this turn.
+No C-FIX. Do not reprogram on leftover REARM. Do not task `graph_late_materialize_00`.

@@ -1,0 +1,7 @@
+CLASS=SGO_HIT
+ATOM0=00001B9C dest=4 owner=1 grant=1 idle=0 sgo_latch=0 sgo_sticky=1 own_ui=1 dma_st=5 mgo=1
+ATOM1=00001B9D dest=5 owner=1 grant=1 idle=0 sgo_latch=0 sgo_sticky=1 own_ui=1 dma_st=5 mgo=1
+first_match=NO_DST4/SGO_HIT/OWN_UI0/SGO_MISS/SET
+H_CANDIDATE=SGO_MISS not_supported
+H_RIVAL=SGO_HIT supported
+C_FIX=NONE

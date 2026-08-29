@@ -1,0 +1,6 @@
+step	nxt_sel	have_pending	mask51	mask52	mask54	mask55	w_stall	phase	core_done	pred_ready
+SETUP_PRE	0	1	0	0	0	0	0	0	0	0
+A	51	1	0	0	0	0	1	1	0	0
+B	52	1	1	0	0	0	1	1	0	0
+C	54	1	1	1	0	0	1	1	1	0
+D	55	1	1	1	1	0	1	1	1	1

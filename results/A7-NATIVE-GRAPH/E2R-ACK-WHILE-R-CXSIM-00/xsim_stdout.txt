@@ -1,0 +1,82 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Aug 28 00:41:49 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/e2r_ack_while_r_cxsim_00/xsim_script.tcl
+# xsim {e2r_ack_while_r_cxsim_00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+E2R-ACK-WHILE-R-CXSIM-00 START
+VEHICLE=a7ng_native_v1_ab_core SIM_FULL=0 do_lm=1 CDC+B1+MUX ungated_cdc_rvalid SHARED_STUB_WDMA STILLR_THEN_COMPLETE s_dma_idle=0
+PREREG_UNKNOWN: can dest become 5 while responder still in-R/busy
+PREREG_H_CANDIDATE: ACK_WHILE_R dest=5 and in-R/busy same cycle
+PREREG_H_RIVAL: ACK_ONLY_AFTER_DONE dest=5 only after s_done or !busy
+PREREG_FALSIFIER: force dest; C-FIX; complete before dest=4; hold forever; soc_top+MIG; A2; LiteScope
+PREREG_UNIT: one query; dest vs in-R each core cycle from first dest=4 until dest=5
+FORBIDDEN: force TILE_DST/dst; complete before dest=4; hold busy forever; assign r_path_idle=1; C-FIX; soc_top; MIG; board; retie s_dma_idle
+SOA_PRELOAD_DONE candidates=64
+PROBE t=5000000 phase=RESET dst=0 raw=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 s_done=0 sdone_st=0 mdone_st=0 sdone_ever=0 cmd_st=0 sbusy_pend=0 s_busy=0 m_busy=0 m_done=0 cmd_rd=0 cmd_empty_mgo=1 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=0 fwd=0 core_busy=0 phase=0 gv=0
+SOA_OWNER_READY ok cycles=0
+PROBE t=5000000 phase=OWNER_READY dst=0 raw=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 s_done=0 sdone_st=0 mdone_st=0 sdone_ever=0 cmd_st=0 sbusy_pend=0 s_busy=0 m_busy=0 m_done=0 cmd_rd=0 cmd_empty_mgo=1 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=0 fwd=0 core_busy=0 phase=0 gv=0
+SOA_QUERY_START t=5120000 do_lm=1
+PROBE t=5160000 phase=POST_START_1 dst=0 raw=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 s_done=0 sdone_st=0 mdone_st=0 sdone_ever=0 cmd_st=0 sbusy_pend=0 s_busy=0 m_busy=0 m_done=0 cmd_rd=0 cmd_empty_mgo=1 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=0 fwd=0 core_busy=0 phase=0 gv=0
+PROBE t=24760000 phase=SOA_DONE dst=0 raw=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 s_done=0 sdone_st=0 mdone_st=0 sdone_ever=0 cmd_st=0 sbusy_pend=0 s_busy=0 m_busy=0 m_done=0 cmd_rd=0 cmd_empty_mgo=1 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=1 fwd=0 core_busy=0 phase=0 gv=3
+PROBE t=25960000 phase=START_FWD dst=0 raw=0 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=0 grant=0 own_ui=0 cdc_rv=0 stub_rv=0 m_go=0 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 s_done=0 sdone_st=0 mdone_st=0 sdone_ever=0 cmd_st=0 sbusy_pend=0 s_busy=0 m_busy=0 m_done=0 cmd_rd=0 cmd_empty_mgo=1 rleft=0 wst=0 miss=0 reqs1=0 bst=0 soa_done=1 fwd=1 core_busy=0 phase=0 gv=4
+EMB t=26200000 dim=0 wrd=x crd=x awd=x
+PROBE t=26760000 phase=WDMA_GO dst=0 raw=1 drain=0 fifo=0 c_rvalid=0 tr=0 idle=1 own=1 grant=1 own_ui=0 cdc_rv=0 stub_rv=0 m_go=1 s_go=0 sgo_st=0 mgo_st=0 sgo_ever=0 s_done=0 sdone_st=0 mdone_st=0 sdone_ever=0 cmd_st=0 sbusy_pend=0 s_busy=0 m_busy=0 m_done=0 cmd_rd=0 cmd_empty_mgo=1 rleft=0 wst=0 miss=1 reqs1=1 bst=4 soa_done=1 fwd=0 core_busy=1 phase=1 gv=4
+PROBE t=29640000 phase=FIRST_DESTWAIT dst=4 raw=4 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=1 stub_rv=1 m_go=0 s_go=0 sgo_st=1 mgo_st=1 sgo_ever=1 s_done=0 sdone_st=1 mdone_st=0 sdone_ever=1 cmd_st=2 sbusy_pend=1 s_busy=1 m_busy=1 m_done=0 cmd_rd=1 cmd_empty_mgo=0 rleft=3 wst=3 miss=1 reqs1=1 bst=4 soa_done=1 fwd=0 core_busy=1 phase=1 gv=4
+DEST_BUSY t=29640000 phase=DEST4 dest=4 raw=4 in_r=1 s_busy=1 m_busy=1 s_done=0 m_done=0 sdone_ever=1 sdone_st=1 wst=3
+DEST_BUSY t=29720000 phase=ACK_WATCH dest=4 raw=4 in_r=0 s_busy=1 m_busy=1 s_done=0 m_done=0 sdone_ever=1 sdone_st=1 wst=1
+DEST_BUSY t=29800000 phase=ACK_WATCH dest=4 raw=4 in_r=1 s_busy=1 m_busy=0 s_done=0 m_done=0 sdone_ever=1 sdone_st=1 wst=3
+DEST_BUSY t=29880000 phase=ACK_WATCH dest=4 raw=5 in_r=0 s_busy=1 m_busy=1 s_done=0 m_done=0 sdone_ever=1 sdone_st=1 wst=1
+DEST_BUSY t=29960000 phase=ACK_WATCH dest=4 raw=5 in_r=1 s_busy=1 m_busy=0 s_done=0 m_done=1 sdone_ever=1 sdone_st=1 wst=3
+DEST_BUSY t=30040000 phase=ACK_WATCH dest=5 raw=5 in_r=0 s_busy=1 m_busy=0 s_done=0 m_done=0 sdone_ever=1 sdone_st=1 wst=1
+DEST_BUSY t=30120000 phase=ACK_WATCH dest=5 raw=5 in_r=1 s_busy=1 m_busy=0 s_done=0 m_done=1 sdone_ever=1 sdone_st=1 wst=3
+DEST_BUSY t=30120000 phase=FIRST_DEST5 dest=5 raw=5 in_r=1 s_busy=1 m_busy=0 s_done=0 m_done=1 sdone_ever=1 sdone_st=1 wst=3
+PROBE t=30120000 phase=END_WATCH dst=5 raw=5 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=1 stub_rv=1 m_go=0 s_go=0 sgo_st=1 mgo_st=1 sgo_ever=1 s_done=0 sdone_st=1 mdone_st=1 sdone_ever=1 cmd_st=2 sbusy_pend=1 s_busy=1 m_busy=0 m_done=1 cmd_rd=1 cmd_empty_mgo=0 rleft=3 wst=3 miss=1 reqs1=1 bst=4 soa_done=1 fwd=0 core_busy=1 phase=1 gv=4
+REACHED_DESTWAIT=1 FIRST_TILE_DST=4 LIVE_TILE_DST=5
+SNAP destwait_cyc=355 drain=0 fifo=4 c_rvalid=1 tr=0 idle=0 own=1 grant=1 own_ui=1 cdc_rv=0 stub_rv=0
+SNAP_SGO sgo_st=1 mgo_st=1 sgo_ever=1 cmd_st=2 sbusy_pend=1 cmd_rd=1 cmd_empty_mgo=0
+SNAP_SDONE sdone_st=0 mdone_st=0 sdone_ever=0 s_busy=1 m_busy=1 wst=3
+END_SGO dst=5 fifo=4 idle=0 grant=1 sgo_st=1 mgo_st=1 sgo_ever=1 cmd_st=2 sbusy_pend=1 cmd_rd=1
+END_SDONE sdone_st=1 mdone_st=1 sdone_ever=1 s_busy=1 m_busy=0 wst=3
+GRANT_ROSE_BEFORE_DESTWAIT=1
+SOA_DONE_SEEN=1 START_FWD_SEEN=1 CORE_BUSY=1 PHASE=1 GV=4 BEATS=52
+WDMA completable busy=0 done=1 rvalid=0 rleft=3 owner=1 own_ui=1 s_dma_idle=0 wst=3
+AND_MASK drain,fifo,rvalid,tr = 0110 n_hot=2 leftover_ctrl=AMBIGUOUS
+SGO_STICKY_AT_DEST4=1
+SGO_STICKY_END=1
+SGO_EVER=1
+S_DONE_EVER=1
+S_DONE_STICKY_AT_DEST4=0
+S_DONE_STICKY_END=1
+M_DONE_STICKY=1
+BUSY_AT_DEST4 s_busy=1 m_busy=1
+BUSY_AT_END s_busy=1 m_busy=0
+IN_R_AT_SNAP=1
+S_DONE_AFTER_COMPLETE=1
+DEST4=1
+DEST5=1
+DEST5_RAW=5
+IN_R_AT_DEST5=0
+BUSY_AT_DEST5 s_busy=1 m_busy=0 wst=1
+S_DONE_AT_DEST5=1
+S_DONE_BEFORE_DEST5=1
+M_DONE_AT_DEST5=0
+FIRST_DEST5_CYC=7 FIRST_DONE_CYC=0
+DEST5_WHILE_IN_R_NODONE=0 DEST5_WHILE_BUSY_NODONE=0
+CLASS=ACK_ONLY_AFTER_DONE
+C_FIX=NONE
+C_FIX_CONSTITUENT=NONE
+EXISTENCE=not_claimed
+BOARD_PASS=not_claimed
+XSIM=PASS
+E2R_ACK_WHILE_R_CXSIM_00_XSIM_PASS class=ACK_ONLY_AFTER_DONE c_fix=NONE dest5=5 raw=5 in_r_at_dest5=0 s_done_before_dest5=1 s_busy=1 m_busy=0 wst=1 dest5_cyc=7 done_cyc=0
+$finish called at time : 30120 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board/tests/xsim/tb_e2r_ack_while_r_cxsim_00.sv" Line 950
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Aug 28 00:41:51 2026...
