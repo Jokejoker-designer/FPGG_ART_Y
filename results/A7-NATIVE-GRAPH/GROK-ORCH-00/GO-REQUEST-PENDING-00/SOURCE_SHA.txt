@@ -1,0 +1,27 @@
+GATE=GO-REQUEST-PENDING-00
+TREE=D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00
+BRANCH=research/native-ai-v1-grok-orch-00
+GIT_HEAD=140345e1e848bd66552e412b43197e895f94715c
+PROGRAM=NO
+JTAG=NO
+SOC_QSTAR=NO
+
+FILE=rtl/board/a7ng_wdma_cdc.sv
+SHA256_BEFORE_CONTROL=C02F0D5403AADEAF21ED161116BE607D0A45B3180544995D3623F03A8B66DDEE
+LAW_BEFORE=assign cmd_wr_en = m_rst_n && m_go && m_owner && !cmd_full;
+SHA256_AFTER=E951F1F37D9FE7353103860CA0185D74A1C6D12FB43348C07C91816B093AA582
+LAW_AFTER=assign cmd_wr_en = m_rst_n && cmd_accept;  cmd_accept = cmd_hold_valid && m_owner && !cmd_full;
+POP_LAW=assign cmd_rd_en = ... && s_owner;  UNCHANGED
+tile=UNCHANGED
+top=UNCHANGED
+qstar=UNCHANGED
+lm06_01r_02m=UNCHANGED
+
+FILE=rtl/ddr/ddr_tile_dma.sv
+SHA256=20BAE36ECCB6C94C2C5C9635D5FB7F771F09539E252316CC75D8F723810AD7C5
+STATUS=UNCHANGED MATCH prereg SHA 20BAE36E
+
+FILE=tests/xsim/tb_go_request_pending_00.sv
+SHA256=1EF8712C65CF8724D96D06E4C34F2AF8DDC1D6CA4038DBCCBDC0CA40802AFC52
+DUT_INSTANCE=u_cdc + u_dma
+PROBE=hierarchical u_cdc.cmd_wr_en/cmd_full/cmd_empty/cmd_rd_en/cmd_hold_valid/cmd_hold_overflow/cmd_hold_data/cmd_accept (no debug export)

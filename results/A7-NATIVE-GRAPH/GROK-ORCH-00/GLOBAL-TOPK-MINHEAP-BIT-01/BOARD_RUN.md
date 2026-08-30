@@ -1,0 +1,22 @@
+# GLOBAL-TOPK-MINHEAP-BIT-01 — board 2026-08-30 23:11
+
+**PROGRAM_DONE.** Token consumed.
+
+```text
+NATIVE_V1_EXIST_ROW,pred=664
+POISON=0
+TOPK=3B392B291B190B09
+PACK=3B392B291B190B09
+CORE_DONE GRANT=1 PHASE=07
+```
+
+| Field | Value |
+|-------|--------|
+| SHA256 | `439CC42D9BA0B3780C384C47E6E7F0A886269929E3ED3667471F064A8A222A8D` |
+| JTAG | `210319BE776EA` startup HIGH |
+| UART | 42.8 s STOP_EARLY pred=664, 683 B |
+| H2 pack vs A-FAST | MATCH |
+| H2 topk vs A-FAST | MATCH |
+| BOARD_PASS | **not_claimed** (AI does not stamp) |
+
+XSim A-FAST pred=664 is **not** this row. This row is FPGA UART.

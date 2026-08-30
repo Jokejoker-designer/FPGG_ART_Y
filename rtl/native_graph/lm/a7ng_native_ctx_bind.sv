@@ -98,14 +98,19 @@ module a7ng_native_ctx_bind (
           end
         end
         S_START: begin
+          // Do not drop to IDLE if grant_lm is 0 for a cycle: pending already
+          // cleared, TinyGPT never sees start_fwd (H4 SIM_FULL=0: busy=0 forever).
           if (grant_lm_i) begin
             start_fwd_o <= 1'b1;
             st_beats    <= st_beats + 32'd1;
             st          <= S_WAIT;
-          end else
-            st <= S_IDLE;
+          end
         end
         S_WAIT: begin
+          // Re-issue start_fwd until TinyGPT leaves IDLE. One-cycle pulse
+          // is missed if ntok/ctx NBA or stall-on-idle (H4: st_beats=1, busy=0).
+          if (!core_busy_i && !core_done_i && grant_lm_i)
+            start_fwd_o <= 1'b1;
           if (core_done_i) begin
             pred_r <= core_pred_i;
             done_o <= 1'b1;

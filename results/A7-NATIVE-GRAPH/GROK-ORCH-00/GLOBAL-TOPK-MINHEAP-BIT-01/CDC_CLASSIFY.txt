@@ -1,0 +1,4 @@
+GLOBAL-TOPK-MINHEAP-BIT-01 CDC classify (each Unsafe>0 row)
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_pll_i uns=1 class=CLOCK_GEN_FALSEPATH
+CDC_UNSAFE sev=Critical src=clk_pll_i dst=core_clk uns=2 class=CANDIDATE_LOGIC
+SUMMARY rows_unsafe=2 clkgen_falsepath_endpoints=1 candidate_logic_endpoints=2

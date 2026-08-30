@@ -1,0 +1,47 @@
+XILINX_VIVADO=C:\\2026.1\Vivado
+C:\2026.1\Vivado\bin\xvlog
+C:\2026.1\Vivado\bin\xvlog.bat
+C:\2026.1\Vivado\bin\xelab
+C:\2026.1\Vivado\bin\xelab.bat
+C:\2026.1\Vivado\bin\xsim
+C:\2026.1\Vivado\bin\xsim.bat
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/qstar/qstar_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/qstar/qstar_ctrl.sv" into library work
+INFO: [VRFC 10-311] analyzing module qstar_ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_qstar_ctrl_v0.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_qstar_ctrl_v0
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_qstar_ctrl_v0 -s tb_qstar_ctrl_v0 -timescale 1ns/1ps -mt off -O0 
+Turned off multi-threading.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.qstar_pkg
+Compiling module work.qstar_ctrl
+Compiling module work.tb_qstar_ctrl_v0
+Built simulation snapshot tb_qstar_ctrl_v0
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Sat Aug 29 20:36:55 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_qstar_ctrl_v0/xsim_script.tcl
+# xsim {tb_qstar_ctrl_v0} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+QSTAR_BEST_ACTION=3
+QSTAR_NODE_COUNT=1
+QSTAR_GOAL_ID=1
+QSTAR_V0_UNIT_PASS
+$finish called at time : 105 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_qstar_ctrl_v0.sv" Line 80
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Aug 29 20:36:57 2026...

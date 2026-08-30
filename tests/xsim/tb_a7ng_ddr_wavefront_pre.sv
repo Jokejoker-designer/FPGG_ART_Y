@@ -197,8 +197,16 @@ module tb_a7ng_ddr_wavefront_pre;
       while (!(feed_done && wave_done) && timeout < 200000) begin
         @(posedge clk); timeout = timeout + 1;
       end
-      // TermGen + scorer are each 1 registered stage: let the last wave retire before sampling
-      repeat (8) @(posedge clk);
+      // running_o includes min-heap busy + TG/SC inflight. Bitonic settle was 8.
+      begin
+        int heap_wait;
+        heap_wait = 0;
+        while (running && heap_wait < 4096) begin
+          @(posedge clk);
+          heap_wait = heap_wait + 1;
+        end
+        repeat (8) @(posedge clk);
+      end
       if (!(feed_done && wave_done)) begin
         $display("PRE_FAIL p=%0d TIMEOUT feed=%0b wave=%0b accepted=%0d dispatched=%0d resident=%0d rcv=%0d beat_mm=%0d struct=%0d bank=%0d tb=%0d",
                  pid, feed_done, wave_done, w_accepted, w_dispatched, w_resident, rcv_rec,

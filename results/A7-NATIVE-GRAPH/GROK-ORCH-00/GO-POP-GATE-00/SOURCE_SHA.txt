@@ -1,0 +1,25 @@
+GATE=GO-POP-GATE-00
+TREE=D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00
+BRANCH=research/native-ai-v1-grok-orch-00
+GIT_HEAD=140345e1e848bd66552e412b43197e895f94715c
+PROGRAM=NO
+JTAG=NO
+SOC_QSTAR=NO
+
+FILE=rtl/board/a7ng_wdma_cdc.sv
+SHA256_BEFORE_CONTROL=A036F21644EF29E4DA9A9702D01CE26E7AB6994EEFF634A0110F56352DD56E3F
+LAW_BEFORE=assign cmd_rd_en = s_rst_n && (cmd_st == C_IDLE) && !cmd_pend && !cmd_empty && (!s_busy || ghost_busy_rel);
+SHA256_AFTER=C02F0D5403AADEAF21ED161116BE607D0A45B3180544995D3623F03A8B66DDEE
+LAW_AFTER=assign cmd_rd_en = s_rst_n && (cmd_st == C_IDLE) && !cmd_pend && !cmd_empty && (!s_busy || ghost_busy_rel) && s_owner;
+DIFF=1 insertion, 1 deletion (cmd_rd_en line only; && s_owner)
+cmd_wr_en=UNCHANGED (still m_rst_n && m_go && m_owner && !cmd_full)
+tile=UNCHANGED
+top=UNCHANGED
+dma=UNCHANGED
+qstar=UNCHANGED
+lm06_01r_02m=UNCHANGED
+
+FILE=tests/xsim/tb_go_pop_gate_00.sv
+SHA256=EAD0FAD4839EABCB35504C9C734B069E18019EFE05B99A1A23E28BE5F1C467C4
+DUT_INSTANCE=u_cdc
+PROBE=hierarchical u_cdc.cmd_empty / cmd_rd_en / cmd_wr_en (no debug export)

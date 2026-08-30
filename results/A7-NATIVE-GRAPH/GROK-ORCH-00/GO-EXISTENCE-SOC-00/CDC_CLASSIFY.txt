@@ -1,0 +1,10 @@
+GO-EXISTENCE-SOC-00 CDC classify (each Unsafe>0 row)
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_div2_bufg_in uns=1 class=CLOCK_GEN_FALSEPATH
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_pll_i uns=1 class=CLOCK_GEN_FALSEPATH
+CDC_UNSAFE sev=Critical src=clk_pll_i dst=core_clk uns=2 class=CANDIDATE_LOGIC
+CDC_UNSAFE sev=Critical src=c166_raw dst=mmcm_ps_clk_bufg_in uns=1 class=CLOCK_GEN_FALSEPATH
+SUMMARY rows_unsafe=4 clkgen_falsepath_endpoints=3 candidate_logic_endpoints=2
+FINDING_ONLY not bitstream skip (same INTEGRATE law): clk_pll_i -> core_clk CDC-10 combo-before-sync into u_wdma_rel_sync/meta_reg
+  EP src=wdma_arr_outst_reg[3]/C dst=u_wdma_rel_sync/meta_reg[0]/D
+  EP src=u_wdma/FSM_onehot_st_reg[4]/C dst=u_wdma_rel_sync/meta_reg[1]/D
+  CDC-2 Warning fifo empty -> meta_reg[2] missing ASYNC_REG (not unsafe-row)

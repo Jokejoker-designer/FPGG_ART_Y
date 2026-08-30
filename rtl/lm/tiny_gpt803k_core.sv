@@ -82,7 +82,7 @@ module tiny_gpt803k_core #(
     output logic               dbg_tile_req_s1
 );
     typedef enum logic [5:0] {
-        ST_IDLE, ST_EMB, ST_LN_S, ST_LN_V, ST_LN_SQ, ST_LN_O,
+        ST_IDLE, ST_EMB_POS, ST_EMB_TOK, ST_LN_S, ST_LN_V, ST_LN_SQ, ST_LN_O,
         ST_MV, ST_ATT_SC, ST_ATT_MX, ST_ATT_E, ST_ATT_Z, ST_ATT_O,
         ST_ADD, ST_SMX, ST_ARG,
         ST_BH, ST_DHID, ST_AFF2, ST_DN2, ST_AFF1, ST_ALIN, ST_BEM,
@@ -259,8 +259,10 @@ module tiny_gpt803k_core #(
 
 `ifndef SYNTHESIS
     always_ff @(posedge clk) begin
-        if (rst_n && st == ST_EMB && sub == 4'd2 && tok_i == 4'd0 && dim < 9'd2)
-            $display("EMB t=%0t dim=%0d wrd=%0d crd=%0d awd=%0d", $time, dim, wrd, crd, sat16(32'(wrd)+32'(crd)));
+        if (rst_n && st == ST_EMB_POS && sub == 4'd2 && tok_i == 4'd0 && dim < 9'd2)
+            $display("EMB_POS t=%0t dim=%0d wrd=%0d awd=%0d", $time, dim, wrd, 32'(wrd));
+        if (rst_n && st == ST_EMB_TOK && sub == 4'd2 && tok_i == 4'd0 && dim < 9'd2)
+            $display("EMB_TOK t=%0t dim=%0d wrd=%0d ard=%0d awd=%0d", $time, dim, wrd, ard, sat16(ard + 32'(wrd)));
         if (rst_n && st == ST_LN_V && sub == 4'd4)
             $display("LNV t=%0t acc=%0d var=%0d mu=%0d", $time, acc, acc[37:6], mu);
         if (rst_n && st == ST_LN_O && fd_done && dim == 9'd0)
@@ -321,7 +323,10 @@ module tiny_gpt803k_core #(
             for (ii = 0; ii < 512; ii = ii + 1) begin
                 smx_e[ii] <= 8'd0;
             end
-        end else if (w_stall) begin
+        end else if (w_stall && (st != ST_IDLE)) begin
+            // Freeze compute only. ST_IDLE must still take ctx_we/start_fwd:
+            // dest miss while parked on mem_addr raises stall and was dropping
+            // ntok/start_fwd (H4: ntok=0, st_beats=1, busy=0).
             done <= 1'b0;
             wwe <= 1'b0;
             cwe <= 1'b0;
@@ -372,7 +377,7 @@ module tiny_gpt803k_core #(
                         end else if (ntok == 4'd0) begin
                             st <= ST_DONE;
                         end else begin
-                            ly <= 2'd0; tok_i <= 7'd0; dim <= 9'd0; sub <= 4'd0; acc <= 64'sd0; st <= ST_EMB;
+                            ly <= 2'd0; tok_i <= 7'd0; dim <= 9'd0; sub <= 4'd0; acc <= 64'sd0; st <= ST_EMB_POS;
                         end
                     end
                 end
@@ -394,27 +399,47 @@ module tiny_gpt803k_core #(
                         train <= 1'b1;
                         head_only <= 1'b1;
                     end
-                    ly <= 2'd0; tok_i <= 7'd0; dim <= 9'd0; sub <= 4'd0; acc <= 64'sd0; st <= ST_EMB;
+                    ly <= 2'd0; tok_i <= 7'd0; dim <= 9'd0; sub <= 4'd0; acc <= 64'sd0; st <= ST_EMB_POS;
                 end
-                ST_EMB: begin
+                ST_EMB_POS: begin
                     unique case (sub)
                         4'd0: begin
-                            waddr <= 20'(OFF_TOK) + 20'(tok[tok_i]) * 20'(D) + 20'(dim);
-                            caddr <= 20'(OFF_TOK);
+                            waddr <= 20'(OFF_POS) + 20'(tok_i) * 20'(D) + 20'(dim);
+                            caddr <= 20'(OFF_POS);
                             sub <= 4'd1;
                         end
                         4'd1: sub <= 4'd2;
                         4'd2: begin
-                            acc[31:0] <= 32'(wrd);
-                            waddr <= 20'(OFF_POS) + 20'(tok_i) * 20'(D) + 20'(dim);
-                            caddr <= 20'(OFF_POS);
-                            sub <= 4'd3;
-                        end
-                        4'd3: sub <= 4'd4;
-                        default: begin
                             awe <= 1'b1;
                             aaddr <= aa(2'd0, 3'd0, tok_i, dim[6:0]);
-                            awd <= 32'(sat16(acc[31:0] + 32'(wrd)));
+                            awd <= 32'(wrd);
+                            sub <= 4'd0;
+                            if (dim + 9'd1 == 11'(D)) begin
+                                dim <= 9'd0;
+                                if (tok_i + 7'd1 >= ntok) begin
+                                    tok_i <= 7'd0;
+                                    st <= ST_EMB_TOK;
+                                end else
+                                    tok_i <= tok_i + 7'd1;
+                            end else
+                                dim <= dim + 9'd1;
+                        end
+                        default: sub <= 4'd0;
+                    endcase
+                end
+                ST_EMB_TOK: begin
+                    unique case (sub)
+                        4'd0: begin
+                            waddr <= 20'(OFF_TOK) + 20'(tok[tok_i]) * 20'(D) + 20'(dim);
+                            caddr <= 20'(OFF_TOK);
+                            aaddr <= aa(2'd0, 3'd0, tok_i, dim[6:0]);
+                            sub <= 4'd1;
+                        end
+                        4'd1: sub <= 4'd2;
+                        4'd2: begin
+                            awe <= 1'b1;
+                            aaddr <= aa(2'd0, 3'd0, tok_i, dim[6:0]);
+                            awd <= 32'(sat16(ard + 32'(wrd)));
                             sub <= 4'd0;
                             if (dim + 9'd1 == 11'(D)) begin
                                 dim <= 9'd0;
@@ -425,6 +450,7 @@ module tiny_gpt803k_core #(
                             end else
                                 dim <= dim + 9'd1;
                         end
+                        default: sub <= 4'd0;
                     endcase
                 end
                 ST_LN_S: begin

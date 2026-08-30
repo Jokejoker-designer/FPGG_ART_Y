@@ -3,7 +3,9 @@
 `timescale 1ns / 1ps
 
 (* keep_hierarchy = "yes" *)
-module arty_a7_ng_native_v1_ab_soc_top (
+module arty_a7_ng_native_v1_ab_soc_top #(
+  parameter bit UART_SLIM = 1'b1  // 1: existence UART only (keep pred=664 CONTROL bit separate)
+) (
   input  logic        CLK100MHZ,
   input  logic [3:0]  sw,
   input  logic [3:0]  btn,
@@ -237,9 +239,10 @@ module arty_a7_ng_native_v1_ab_soc_top (
 
   assign ui_rst_n = ~ui_rst & calib;
 
+  // GO-READY-GATE-00: one ownership law on go / ARREADY / RVALID (AW/W/B unchanged).
   ddr_tile_dma u_wdma (
     .clk(ui_clk), .rst_n(ui_rst_n),
-    .go(dma_go), .wr(dma_wr), .addr(dma_addr), .bytes(dma_bytes),
+    .go(dma_go && wdma_owner_ui), .wr(dma_wr), .addr(dma_addr), .bytes(dma_bytes),
     .busy(s_dma_busy), .done(s_dma_done), .underflow(dma_under),
     .axi_berr(axi_berr), .axi_rerr(axi_rerr),
     .w_valid(dma_w_valid), .w_ready(dma_w_ready), .w_data(dma_w_data),
@@ -252,9 +255,9 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .m_axi_bid(bid), .m_axi_bresp(bresp), .m_axi_bvalid(bvalid), .m_axi_bready(d_bready),
     .m_axi_arid(d_arid), .m_axi_araddr(d_araddr), .m_axi_arlen(d_arlen),
     .m_axi_arsize(d_arsize), .m_axi_arburst(d_arburst),
-    .m_axi_arvalid(d_arvalid), .m_axi_arready(arready),
+    .m_axi_arvalid(d_arvalid), .m_axi_arready(arready && wdma_owner_ui),
     .m_axi_rid(rid), .m_axi_rdata(rdata), .m_axi_rresp(rresp),
-    .m_axi_rlast(rlast), .m_axi_rvalid(rvalid), .m_axi_rready(d_rready),
+    .m_axi_rlast(rlast), .m_axi_rvalid(rvalid && wdma_owner_ui), .m_axi_rready(d_rready),
     .dbg_st(wdma_dbg_st)
   );
 
@@ -306,8 +309,15 @@ module arty_a7_ng_native_v1_ab_soc_top (
   logic [3:0] outstanding;
   logic [31:0] base_node, total_recs;
   logic soa_done, soa_running, owner_ready, r_path_idle, bind_done, final_accept;
+  logic [31:0] gv_count;
+  logic        global_topk_busy;
   logic core_busy, dual_err;
   logic topk_valid, ctx_we, start_fwd;
+  logic [63:0] ctx_pack;       // H2: bind captured pack
+  logic [63:0] ctx_pack_lat;   // frozen at first ctx_we
+  node_id_t    topk_id [8];    // SOA ids (before poison mux)
+  logic [63:0] topk_pack_lat;  // latched at topk_valid
+  logic        poison_lat;     // 0 on this bit (was 1 → PACK=FF)
   logic [31:0] axi_bytes, axi_beats, axi_bursts, st_beats;
   logic [9:0] pred;
   logic [7:0] phase;
@@ -420,14 +430,9 @@ module arty_a7_ng_native_v1_ab_soc_top (
       latched_tile_req <= 1'b0;
       latched_tile_dma_busy <= 1'b0;
       latched_tile_dma_own <= 1'b0;
-      latched_s_dma_busy <= 1'b0;
-      latched_wdma_owner_ui <= 1'b0;
       latched_wdma_busy_f1r <= 1'b0;
-      latched_sdone_f1t <= 1'b0;
       latched_mdone_f1t <= 1'b0;
       latched_busy_hold_f1t <= 1'b0;
-      latched_dma_st_f1u <= 3'd0;
-      latched_sgo_f1u <= 1'b0;
       latched_wdma_own_f1v <= 1'b0;
       latched_wdma_grant_f1v <= 1'b0;
       latched_rpath_idle_f1v <= 1'b0;
@@ -441,6 +446,9 @@ module arty_a7_ng_native_v1_ab_soc_top (
       sticky_cdc_marf <= 1'b0;
       last_arid     <= 4'd0;
       ar_outst_cnt  <= 5'd0;
+      ctx_pack_lat  <= 64'd0;
+      topk_pack_lat <= 64'd0;
+      poison_lat    <= 1'b0;
     end else begin
       start_q <= 1'b0;
       unique case (qs)
@@ -469,70 +477,79 @@ module arty_a7_ng_native_v1_ab_soc_top (
       if (pred != 10'd0 && bind_done)
         fpga_nt_valid <= fpga_nt_valid + 32'd1;
 
-      // A+ heartbeats: sticky DUT status between CORE_START and PRED
-      if (owner_ready) sticky_owner <= 1'b1;
-      if (start_q || (qs == QS_WAIT_SOA) || (qs == QS_HOLD) ||
-          (qs == QS_WAIT_BIND) || (qs == QS_DONE))
-        sticky_qgo <= 1'b1;
-      // D1: mid-query SOA/AXI sticky (after Q_GO only — real DUT bits)
-      if (sticky_qgo && soa_running) sticky_soarun <= 1'b1;
-      if (sticky_qgo && c_arvalid && c_arready) sticky_ar <= 1'b1;
-      if (sticky_qgo && c_arvalid && c_arready) sticky_cdc_marf <= 1'b1;
-      if (sticky_qgo && c_rvalid && c_rready) sticky_rbeat <= 1'b1;
-      if (sticky_qgo && !r_path_idle) sticky_rbusy <= 1'b1;
-      if (sticky_qgo && r_path_idle) sticky_ridle <= 1'b1;
-      // D3: finer R-path sticky (real DUT bits; no B1 re-patch)
-      if (sticky_qgo && c_rvalid) sticky_rvseen <= 1'b1;
-      if (sticky_qgo && sticky_ar && c_rready) sticky_rready1 <= 1'b1;
-      if (sticky_qgo && c_arvalid && c_arready) last_arid <= c_arid;
-      if (sticky_qgo && c_rvalid) begin
-        if (c_rid == last_arid) sticky_rid_ok <= 1'b1;
-        else sticky_rid_bad <= 1'b1;
+      // Existence UART (UART_SLIM): TOPK/PACK/POISON/CORE_DONE/pred only.
+      if (topk_valid) begin
+        sticky_topk <= 1'b1;
+        topk_pack_lat[7:0]   <= topk_id[0][7:0];
+        topk_pack_lat[15:8]  <= topk_id[1][7:0];
+        topk_pack_lat[23:16] <= topk_id[2][7:0];
+        topk_pack_lat[31:24] <= topk_id[3][7:0];
+        topk_pack_lat[39:32] <= topk_id[4][7:0];
+        topk_pack_lat[47:40] <= topk_id[5][7:0];
+        topk_pack_lat[55:48] <= topk_id[6][7:0];
+        topk_pack_lat[63:56] <= topk_id[7][7:0];
       end
-      // Local outstanding AR count (core AR/RLAST handshakes)
-      if (sticky_qgo && c_arvalid && c_arready &&
-          !(c_rvalid && c_rready && c_rlast)) begin
-        if (ar_outst_cnt != 5'd31) ar_outst_cnt <= ar_outst_cnt + 5'd1;
-      end else if (sticky_qgo && c_rvalid && c_rready && c_rlast &&
-                   !(c_arvalid && c_arready)) begin
-        if (ar_outst_cnt != 5'd0) ar_outst_cnt <= ar_outst_cnt - 5'd1;
+      poison_lat <= 1'b0;
+      if (ctx_we) begin
+        sticky_pack  <= 1'b1;
+        ctx_pack_lat <= ctx_pack;
       end
-      if (sticky_ar && (ar_outst_cnt != 5'd0)) sticky_outst <= 1'b1;
-      if (sticky_qgo && cdc_r_ne) sticky_cdc_ne <= 1'b1;
-      if (soa_done && sticky_qgo) sticky_soaq <= 1'b1;
-      if (topk_valid) sticky_topk <= 1'b1;
-      if (final_accept) sticky_accept <= 1'b1;
-      if (ctx_we) sticky_pack <= 1'b1;
       if (bind_done) sticky_bind <= 1'b1;
-      if (start_fwd || (st_beats != 32'd0)) sticky_fwd <= 1'b1;
-      if (bind_done || core_busy || (st_beats != 32'd0)) sticky_lm <= 1'b1;
-      // F1l: bind/pred/core_done probes (after Q_GO; no CDC/core functional change)
-      if (sticky_qgo && bind_busy) sticky_bind_busy <= 1'b1;
-      if (sticky_qgo && (pred != 10'd0)) sticky_pred_nz <= 1'b1;
-      if (sticky_qgo && core_done) sticky_core_done <= 1'b1;
-      // F1m: WDMA/core_busy probes (after Q_GO / FWD preference; sticky+UART only)
-      if (sticky_qgo && (sticky_fwd || start_fwd) && wdma_busy) sticky_wdma_busy <= 1'b1;
-      if (sticky_qgo && (sticky_fwd || start_fwd) && wdma_done) sticky_wdma_done <= 1'b1;
-      if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy) sticky_core_busy <= 1'b1;
-      // F1n: W_STALL sticky + latched phase (after Q_GO/FWD; sticky+UART only)
-      if (sticky_qgo && (sticky_fwd || start_fwd) && w_stall) sticky_w_stall <= 1'b1;
-      if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy) latched_phase <= phase;
-      // F1o: TILE_MISS sticky + latched dst (after CORE_BUSY; sticky+UART only)
-      if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy && dbg_tile_miss)
-        sticky_tile_miss <= 1'b1;
-      if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy) begin
-        latched_tile_dst <= dbg_tile_dst;
-        latched_tile_bst <= dbg_tile_bst;
-        latched_tile_req <= dbg_tile_req_s1;
-        latched_tile_dma_busy <= wdma_busy;
-        latched_tile_dma_own <= wdma_owner;
-        latched_wdma_busy_f1r <= wdma_busy;
-        latched_mdone_f1t <= wdma_dbg_mdone;
-        latched_busy_hold_f1t <= wdma_dbg_busy_hold;
-        latched_wdma_own_f1v <= wdma_owner;
-        latched_wdma_grant_f1v <= wdma_owner_grant;
-        latched_rpath_idle_f1v <= r_path_idle;
-        latched_mgo_f1v <= wdma_dbg_mgo;
+      if (core_done) sticky_core_done <= 1'b1;
+      if (!UART_SLIM) begin
+        if (owner_ready) sticky_owner <= 1'b1;
+        if (start_q || (qs == QS_WAIT_SOA) || (qs == QS_HOLD) ||
+            (qs == QS_WAIT_BIND) || (qs == QS_DONE))
+          sticky_qgo <= 1'b1;
+        if (sticky_qgo && soa_running) sticky_soarun <= 1'b1;
+        if (sticky_qgo && c_arvalid && c_arready) sticky_ar <= 1'b1;
+        if (sticky_qgo && c_arvalid && c_arready) sticky_cdc_marf <= 1'b1;
+        if (sticky_qgo && c_rvalid && c_rready) sticky_rbeat <= 1'b1;
+        if (sticky_qgo && !r_path_idle) sticky_rbusy <= 1'b1;
+        if (sticky_qgo && r_path_idle) sticky_ridle <= 1'b1;
+        if (sticky_qgo && c_rvalid) sticky_rvseen <= 1'b1;
+        if (sticky_qgo && sticky_ar && c_rready) sticky_rready1 <= 1'b1;
+        if (sticky_qgo && c_arvalid && c_arready) last_arid <= c_arid;
+        if (sticky_qgo && c_rvalid) begin
+          if (c_rid == last_arid) sticky_rid_ok <= 1'b1;
+          else sticky_rid_bad <= 1'b1;
+        end
+        if (sticky_qgo && c_arvalid && c_arready &&
+            !(c_rvalid && c_rready && c_rlast)) begin
+          if (ar_outst_cnt != 5'd31) ar_outst_cnt <= ar_outst_cnt + 5'd1;
+        end else if (sticky_qgo && c_rvalid && c_rready && c_rlast &&
+                     !(c_arvalid && c_arready)) begin
+          if (ar_outst_cnt != 5'd0) ar_outst_cnt <= ar_outst_cnt - 5'd1;
+        end
+        if (sticky_ar && (ar_outst_cnt != 5'd0)) sticky_outst <= 1'b1;
+        if (sticky_qgo && cdc_r_ne) sticky_cdc_ne <= 1'b1;
+        if (soa_done && sticky_qgo) sticky_soaq <= 1'b1;
+        if (final_accept) sticky_accept <= 1'b1;
+        if (start_fwd || (st_beats != 32'd0)) sticky_fwd <= 1'b1;
+        if (bind_done || core_busy || (st_beats != 32'd0)) sticky_lm <= 1'b1;
+        if (sticky_qgo && bind_busy) sticky_bind_busy <= 1'b1;
+        if (sticky_qgo && (pred != 10'd0)) sticky_pred_nz <= 1'b1;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && wdma_busy) sticky_wdma_busy <= 1'b1;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && wdma_done) sticky_wdma_done <= 1'b1;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy) sticky_core_busy <= 1'b1;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && w_stall) sticky_w_stall <= 1'b1;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy) latched_phase <= phase;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy && dbg_tile_miss)
+          sticky_tile_miss <= 1'b1;
+        if (sticky_qgo && (sticky_fwd || start_fwd) && core_busy) begin
+          latched_tile_dst <= dbg_tile_dst;
+          latched_tile_bst <= dbg_tile_bst;
+          latched_tile_req <= dbg_tile_req_s1;
+          latched_tile_dma_busy <= wdma_busy;
+          latched_tile_dma_own <= wdma_owner;
+          latched_wdma_busy_f1r <= wdma_busy;
+          latched_mdone_f1t <= wdma_dbg_mdone;
+          latched_busy_hold_f1t <= wdma_dbg_busy_hold;
+          latched_wdma_own_f1v <= wdma_owner;
+          latched_wdma_grant_f1v <= wdma_owner_grant;
+          latched_rpath_idle_f1v <= r_path_idle;
+          latched_mgo_f1v <= wdma_dbg_mgo;
+        end
       end
     end
   end
@@ -560,16 +577,16 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .q_relation_cue_i(64'h0F1E_2D3C_4B5A_6978),
     .q_context_cue_i(64'hDEAD_BEEF_CAFE_0001),
     .q_path_cue_i(64'h00FF_00FF_00FF_00FF),
-    .poison_i(1'b1), .poison_id_i(poison_id),
+    .poison_i(1'b0), .poison_id_i(poison_id), // H2: was 1 → pack FF×8 / pred=733; 0 uses SOA topk
     .mem_we(1'b0), .mem_addr(20'd0), .mem_wdata(8'sd0), .mem_rdata(),
     .soa_done_o(soa_done), .soa_running_o(soa_running),
     .axi_read_bytes_o(axi_bytes), .axi_read_beats_o(axi_beats), .axi_read_bursts_o(axi_bursts),
     .soa_id_beats_o(), .soa_cue_beats_o(), .soa_prior_beats_o(),
     .waves_o(), .cand_delivered_o(),
-    .topk_batches_o(), .topk_valid_o(topk_valid), .topk_score_o(), .topk_id_o(),
-    .gv_count_o(), .grant_graph_o(), .grant_lm_o(), .dual_owner_err_o(dual_err),
+    .topk_batches_o(), .topk_valid_o(topk_valid), .topk_score_o(), .topk_id_o(topk_id),
+    .gv_count_o(gv_count), .grant_graph_o(), .grant_lm_o(), .dual_owner_err_o(dual_err),
     .bind_busy_o(bind_busy), .bind_done_o(bind_done),
-    .ctx_we_o(ctx_we), .ctx_pack_o(), .start_fwd_o(start_fwd), .capture_valid_o(),
+    .ctx_we_o(ctx_we), .ctx_pack_o(ctx_pack), .start_fwd_o(start_fwd), .capture_valid_o(),
     .ctx_we_beats_o(), .start_fwd_beats_o(st_beats),
     .core_busy_o(core_busy), .core_done_o(core_done), .pred_o(pred), .phase_o(phase),
     .w_stall_o(w_stall),
@@ -582,18 +599,60 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .m_axi_rid(c_rid), .m_axi_rdata(c_rdata), .m_axi_rresp(c_rresp),
     .m_axi_rlast(c_rlast), .m_axi_rvalid(c_rvalid), .m_axi_rready(c_rready),
     .owner_ready_o(owner_ready),
+    .global_topk_busy_o(global_topk_busy),
     .r_path_idle_o(r_path_idle)
   );
 
-  // B1: do not assert WDMA mux ownership while r_path_idle==0 (query R busy).
+  // UART_SLIM + min-heap: print TOPK/PACK after G_(t) commit (4 waves) and bind,
+  // not on first topk_valid/ctx_we (64-bit CDC was inside UART_SLIM-off generate).
+  wire uart_topk_hs = sticky_topk && (gv_count == 32'd4) && !global_topk_busy;
+  wire uart_pack_hs = sticky_pack && bind_done;
+
+  // GO-GRANT-QUIESCE-00: ui facts to core for grant release.
+  // Law: wdma_owner && r_path_idle → grant=1
+  //      !wdma_owner && cmd_empty && DMA IDLE && AR/R outstanding==0 → grant=0
+  //      else hold grant while drain.
+  // Ready-gate ANDs on u_wdma go/ARREADY/RVALID stay.
+  logic [3:0] wdma_arr_outst;
+  logic       wdma_dma_idle_ui, wdma_arr_quiet_ui, wdma_cmd_empty_ui;
+  logic       wdma_dma_idle_c, wdma_arr_quiet_c, wdma_cmd_empty_c;
+
+  assign wdma_cmd_empty_ui = u_wdma_cdc.cmd_empty;
+  assign wdma_dma_idle_ui  = (wdma_dbg_st == 3'd0);
+
+  always_ff @(posedge ui_clk or negedge ui_rst_n) begin
+    if (!ui_rst_n)
+      wdma_arr_outst <= 4'd0;
+    else if (d_arvalid && arready && wdma_owner_ui &&
+             !(rvalid && wdma_owner_ui && d_rready && rlast)) begin
+      if (wdma_arr_outst != 4'd15)
+        wdma_arr_outst <= wdma_arr_outst + 4'd1;
+    end else if (rvalid && wdma_owner_ui && d_rready && rlast &&
+                 !(d_arvalid && arready && wdma_owner_ui)) begin
+      if (wdma_arr_outst != 4'd0)
+        wdma_arr_outst <= wdma_arr_outst - 4'd1;
+    end
+  end
+  assign wdma_arr_quiet_ui = (wdma_arr_outst == 4'd0);
+
+  sync_bits #(.WIDTH(3)) u_wdma_rel_sync (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .async_in({wdma_cmd_empty_ui, wdma_dma_idle_ui, wdma_arr_quiet_ui}),
+    .sync_out({wdma_cmd_empty_c, wdma_dma_idle_c, wdma_arr_quiet_c})
+  );
+
+  // Silicon GO-GRANT-MISS: GRANT=0 for 90s with dest in D_GO, sticky R_IDLE
+  // already true, live r_path_idle never 1. Do not wait on r_path_idle
+  // after SOA has stopped. Mux still uses grant so query R can drain
+  // until soa_running falls.
   always_ff @(posedge core_clk or negedge core_rst_n) begin
     if (!core_rst_n)
       wdma_owner_grant <= 1'b0;
-    else if (!wdma_owner)
-      wdma_owner_grant <= 1'b0;
-    else if (r_path_idle)
+    else if ((wdma_owner || dbg_tile_miss) && !soa_running)
       wdma_owner_grant <= 1'b1;
-    // else: LM requests owner but R-path busy → hold (no 0→1 grant mid-query)
+    else if (!wdma_owner && !dbg_tile_miss &&
+             wdma_cmd_empty_c && wdma_dma_idle_c && wdma_arr_quiet_c)
+      wdma_owner_grant <= 1'b0;
   end
 
   // E2R-ATOMIC-SDONE-PROBE-00: dest=4∧owner pack. UI s_done bits via
@@ -635,7 +694,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
       atom1_valid  <= 1'b0;
       atom_giveup  <= 1'b0;
       atom_st      <= AST_IDLE;
-    end else begin
+    end else if (!UART_SLIM) begin
       unique case (atom_st)
         AST_IDLE: begin
           if (dbg_tile_dst == 3'd4 && wdma_owner) begin
@@ -670,7 +729,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
   // E3: CDC slave AR valid/ready/fire + AR FIFO/hold occupancy after Q_GO.
   logic sticky_qgo_ui, sticky_migrv;
   logic sticky_migar, sticky_ownwdma, sticky_cdcar, sticky_muxcdc;
-  (* DONT_TOUCH = "TRUE" *) logic sticky_cdc_sarv, sticky_cdc_sarr, sticky_cdc_sarf, sticky_cdc_hold;
+  logic sticky_cdc_sarv, sticky_cdc_sarr, sticky_cdc_sarf, sticky_cdc_hold;
   logic sticky_ar_fifo_ne; // F1j: AR FIFO not empty after Q_GO (ui domain)
   logic cdc_arready_r;
   sync_bits #(.WIDTH(1)) u_qgo_ui_sync (
@@ -686,7 +745,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
       latched_sdone_f1t <= 1'b0;
       latched_dma_st_f1u <= 3'd0;
       latched_sgo_f1u <= 1'b0;
-    end else if (sticky_qgo_ui && core_busy_ui) begin
+    end else if (!UART_SLIM && sticky_qgo_ui && core_busy_ui) begin
       latched_s_dma_busy <= s_dma_busy;
       latched_wdma_owner_ui <= wdma_owner_ui;
       latched_sdone_f1t <= wdma_dbg_sdone;
@@ -707,7 +766,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
       sticky_cdc_hold <= 1'b0;
       sticky_ar_fifo_ne <= 1'b0;
       cdc_arready_r   <= 1'b0;
-    end else begin
+    end else if (!UART_SLIM) begin
       cdc_arready_r <= cdc_arready;
       if (sticky_qgo_ui) begin
         if (!boot_active && !wdma_owner_ui && rvalid)
@@ -757,6 +816,9 @@ module arty_a7_ng_native_v1_ab_soc_top (
   logic cdc_marf_100, cdc_sarv_100, cdc_sarr_100, cdc_sarf_100, cdc_hold_100;
   logic ar_fifo_ne_100;
   logic soaq_100, topk_100, accept_100, pack_100, fwd_100;
+  logic [63:0] ctx_pack_100; // H2 PACK= hex (latched at ctx_we)
+  logic [63:0] topk_pack_100;
+  logic        poison_100;
   logic bind_busy_100, pred_nz_100, core_done_100; // F1l
   logic wdma_busy_100, wdma_done_100, core_busy_100; // F1m
   logic w_stall_100, phase_valid_100; // F1n
@@ -799,6 +861,17 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .async_in({sticky_core_done, sticky_pred_nz, sticky_bind_busy}),
     .sync_out({core_done_100, pred_nz_100, bind_busy_100})
   );
+  logic atom0_print, atom1_print;
+  logic [31:0] atom0_100, atom1_100;
+  logic atom0_valid_100, atom1_valid_100, atom_giveup_100;
+  logic mgo_f1v_100, wdma_own_f1v_100, wdma_grant_f1v_100, rpath_idle_f1v_100;
+  logic cmd_rd_100, sbusy_pend_100, cmd_empty_mgo_100;
+  logic [1:0] cmd_st_100;
+  logic sdma_busy_lat_100, wdma_busy_lat_100, wdma_own_ui_lat_100;
+  logic sdone_lat_100, mdone_lat_100, busy_hold_lat_100;
+  logic [2:0] dma_st_lat_100;
+  logic sgo_lat_100;
+  if (!UART_SLIM) begin : g_f1dbg
   // F1m: WDMA_BUSY / WDMA_DONE / CORE_BUSY sticky → UART (after BIND_BUSY)
   sync_bits #(.WIDTH(3)) u_f1m_probe_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
@@ -860,71 +933,86 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .sync_out({tile_dma_own_lat_100, tile_dma_busy_lat_100, tile_req_100})
   );
   // F1r: SDMA_BUSY / WDMA_BUSY / WDMA_OWN_UI latched → UART (after TILE_REQ)
-  logic sdma_busy_lat_100, wdma_busy_lat_100, wdma_own_ui_lat_100;
   sync_bits #(.WIDTH(3)) u_f1r_dma_src_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({latched_wdma_owner_ui, latched_wdma_busy_f1r, latched_s_dma_busy}),
     .sync_out({wdma_own_ui_lat_100, wdma_busy_lat_100, sdma_busy_lat_100})
   );
   // F1t: SDONE / MDONE / BUSY_HOLD latched → UART (after TILE_DMA_OWN)
-  logic sdone_lat_100, mdone_lat_100, busy_hold_lat_100;
   sync_bits #(.WIDTH(3)) u_f1t_done_probe_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({latched_busy_hold_f1t, latched_mdone_f1t, latched_sdone_f1t}),
     .sync_out({busy_hold_lat_100, mdone_lat_100, sdone_lat_100})
   );
   // F1u: DMA_ST / SGO latched → UART (after BUSY_HOLD)
-  logic [2:0] dma_st_lat_100;
-  logic sgo_lat_100;
   sync_bits #(.WIDTH(4)) u_f1u_fsm_probe_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({latched_sgo_f1u, latched_dma_st_f1u}),
     .sync_out({sgo_lat_100, dma_st_lat_100})
   );
   // F1v: WDMA_OWNER / WDMA_GRANT / RPATH_IDLE / MGO latched → UART (after SGO)
-  logic wdma_own_f1v_100, wdma_grant_f1v_100, rpath_idle_f1v_100, mgo_f1v_100;
   sync_bits #(.WIDTH(4)) u_f1v_owner_grant_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({latched_mgo_f1v, latched_rpath_idle_f1v, latched_wdma_grant_f1v, latched_wdma_own_f1v}),
     .sync_out({mgo_f1v_100, rpath_idle_f1v_100, wdma_grant_f1v_100, wdma_own_f1v_100})
   );
   // F1B2: CMD_EMPTY / SBUSY_PEND / CMD_ST / CMD_RD stickies → UART (after MGO)
-  logic sbusy_pend_100, cmd_empty_mgo_100, cmd_rd_100;
-  logic [1:0] cmd_st_100;
   sync_bits #(.WIDTH(5)) u_f1b2_cmd_probe_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({wdma_dbg_cmd_rd, wdma_dbg_cmd_empty_mgo, wdma_dbg_cmd_st, wdma_dbg_sbusy_pend}),
     .sync_out({cmd_rd_100, cmd_empty_mgo_100, cmd_st_100, sbusy_pend_100})
   );
-  // E2R-ATOMIC-SDONE-PROBE-00: frozen ATOM0/ATOM1 packs → UART (core_clk only)
-  logic [31:0] atom0_100, atom1_100;
-  logic        atom0_valid_100, atom1_valid_100, atom_giveup_100;
-  sync_bits #(.WIDTH(32)) u_atom0_sync (
-    .clk(CLK100MHZ), .rst_n(clk_locked),
-    .async_in(atom0_q),
-    .sync_out(atom0_100)
-  );
-  sync_bits #(.WIDTH(32)) u_atom1_sync (
-    .clk(CLK100MHZ), .rst_n(clk_locked),
-    .async_in(atom1_q),
-    .sync_out(atom1_100)
-  );
-  sync_bits #(.WIDTH(3)) u_atom_flag_sync (
-    .clk(CLK100MHZ), .rst_n(clk_locked),
-    .async_in({atom_giveup, atom1_valid, atom0_valid}),
-    .sync_out({atom_giveup_100, atom1_valid_100, atom0_valid_100})
-  );
-  wire atom0_print = atom0_valid_100 || atom_giveup_100;
-  wire atom1_print = atom1_valid_100 || atom_giveup_100;
-  sync_bits #(.WIDTH(12)) u_post_sync (
-    .clk(CLK100MHZ), .rst_n(clk_locked),
-    .async_in({sticky_fwd, sticky_pack, sticky_accept, sticky_topk, sticky_soaq,
-               sticky_ridle, sticky_rbusy, sticky_rbeat, sticky_ar, sticky_soarun,
-               sticky_qgo, sticky_owner}),
-    .sync_out({fwd_100, pack_100, accept_100, topk_100, soaq_100,
-               ridle_100, rbusy_100, rbeat_100, ar_100, soarun_100,
-               qgo_100, owner_100})
-  );
+  if (!UART_SLIM) begin : g_atom_uart
+    sync_bits #(.WIDTH(32)) u_atom0_sync (
+      .clk(CLK100MHZ), .rst_n(clk_locked),
+      .async_in(atom0_q),
+      .sync_out(atom0_100)
+    );
+    sync_bits #(.WIDTH(32)) u_atom1_sync (
+      .clk(CLK100MHZ), .rst_n(clk_locked),
+      .async_in(atom1_q),
+      .sync_out(atom1_100)
+    );
+    sync_bits #(.WIDTH(3)) u_atom_flag_sync (
+      .clk(CLK100MHZ), .rst_n(clk_locked),
+      .async_in({atom_giveup, atom1_valid, atom0_valid}),
+      .sync_out({atom_giveup_100, atom1_valid_100, atom0_valid_100})
+    );
+    assign atom0_print = atom0_valid_100 || atom_giveup_100;
+    assign atom1_print = atom1_valid_100 || atom_giveup_100;
+    sync_bits #(.WIDTH(12)) u_post_sync (
+      .clk(CLK100MHZ), .rst_n(clk_locked),
+      .async_in({sticky_fwd, sticky_pack, sticky_accept, sticky_topk, sticky_soaq,
+                 sticky_ridle, sticky_rbusy, sticky_rbeat, sticky_ar, sticky_soarun,
+                 sticky_qgo, sticky_owner}),
+      .sync_out({fwd_100, pack_100, accept_100, topk_100, soaq_100,
+                 ridle_100, rbusy_100, rbeat_100, ar_100, soarun_100,
+                 qgo_100, owner_100})
+    );
+  end else begin : g_atom_tie
+    assign atom0_100 = 32'd0;
+    assign atom1_100 = 32'd0;
+    assign atom0_valid_100 = 1'b0;
+    assign atom1_valid_100 = 1'b0;
+    assign atom_giveup_100 = 1'b0;
+    assign atom0_print = 1'b0;
+    assign atom1_print = 1'b0;
+    assign fwd_100 = 1'b0;
+    assign accept_100 = 1'b0;
+    assign soaq_100 = 1'b0;
+    assign ridle_100 = 1'b0;
+    assign rbusy_100 = 1'b0;
+    assign rbeat_100 = 1'b0;
+    assign ar_100 = 1'b0;
+    assign soarun_100 = 1'b0;
+    assign qgo_100 = 1'b0;
+    assign owner_100 = 1'b0;
+    sync_bits #(.WIDTH(2)) u_h2_flags (
+      .clk(CLK100MHZ), .rst_n(clk_locked),
+      .async_in({sticky_pack, sticky_topk}),
+      .sync_out({pack_100, topk_100})
+    );
+  end
   sync_bits #(.WIDTH(7)) u_d3_sync (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in({sticky_cdc_ne, sticky_migrv, sticky_outst, sticky_rid_bad,
@@ -951,6 +1039,90 @@ module arty_a7_ng_native_v1_ab_soc_top (
     .clk(CLK100MHZ), .rst_n(clk_locked),
     .async_in(sticky_ar_fifo_ne),
     .sync_out(ar_fifo_ne_100)
+  );
+  end else begin : g_f1dbg_tie
+    assign core_busy_100 = 1'b0;
+    assign wdma_done_100 = 1'b0;
+    assign wdma_busy_100 = 1'b0;
+    assign w_stall_100 = 1'b0;
+    assign phase_valid_100 = 1'b0;
+    assign phase_100 = 8'd0;
+    assign tile_miss_100 = 1'b0;
+    assign tile_dst_valid_100 = 1'b0;
+    assign tile_dst_100 = 3'd0;
+    assign tile_bst_valid_100 = 1'b0;
+    assign tile_req_valid_100 = 1'b0;
+    assign ar_fifo_ne_100 = 1'b0;
+    assign cdc_marf_100 = 1'b0;
+    assign muxcdc_100 = 1'b0;
+    assign cdcar_100 = 1'b0;
+    assign ownwdma_100 = 1'b0;
+    assign migar_100 = 1'b0;
+    assign cdcne_100 = 1'b0;
+    assign migrv_100 = 1'b0;
+    assign outst_100 = 1'b0;
+    assign ridbad_100 = 1'b0;
+    assign ridok_100 = 1'b0;
+    assign rready1_100 = 1'b0;
+    assign rvseen_100 = 1'b0;
+    assign cdc_hold_100 = 1'b0;
+    assign cdc_sarf_100 = 1'b0;
+    assign cdc_sarr_100 = 1'b0;
+    assign cdc_sarv_100 = 1'b0;
+    assign fwd_100 = 1'b0;
+    assign accept_100 = 1'b0;
+    assign soaq_100 = 1'b0;
+    assign ridle_100 = 1'b0;
+    assign rbusy_100 = 1'b0;
+    assign rbeat_100 = 1'b0;
+    assign ar_100 = 1'b0;
+    assign soarun_100 = 1'b0;
+    assign qgo_100 = 1'b0;
+    assign owner_100 = 1'b0;
+    assign atom0_print = 1'b0;
+    assign atom1_print = 1'b0;
+    assign atom0_100 = 32'd0;
+    assign atom1_100 = 32'd0;
+    assign mgo_f1v_100 = 1'b0;
+    assign wdma_own_f1v_100 = 1'b0;
+    assign wdma_grant_f1v_100 = 1'b0;
+    assign rpath_idle_f1v_100 = 1'b0;
+    assign cmd_rd_100 = 1'b0;
+    assign sbusy_pend_100 = 1'b0;
+    assign cmd_empty_mgo_100 = 1'b0;
+    assign cmd_st_100 = 2'd0;
+    assign sdma_busy_lat_100 = 1'b0;
+    assign wdma_busy_lat_100 = 1'b0;
+    assign wdma_own_ui_lat_100 = 1'b0;
+    assign sdone_lat_100 = 1'b0;
+    assign mdone_lat_100 = 1'b0;
+    assign busy_hold_lat_100 = 1'b0;
+    assign dma_st_lat_100 = 3'd0;
+    assign sgo_lat_100 = 1'b0;
+    assign tile_req_100 = 1'b0;
+    assign tile_dma_own_lat_100 = 1'b0;
+    assign tile_dma_busy_lat_100 = 1'b0;
+    sync_bits #(.WIDTH(2)) u_h2_flags_slim (
+      .clk(CLK100MHZ), .rst_n(clk_locked),
+      .async_in({uart_pack_hs, uart_topk_hs}),
+      .sync_out({pack_100, topk_100})
+    );
+  end
+  // H2 64-bit PACK/TOPK CDC is module-scope: UART_SLIM must not drop it.
+  sync_bits #(.WIDTH(64)) u_h2_pack_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in(ctx_pack_lat),
+    .sync_out(ctx_pack_100)
+  );
+  sync_bits #(.WIDTH(64)) u_h2_topk_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in(topk_pack_lat),
+    .sync_out(topk_pack_100)
+  );
+  sync_bits #(.WIDTH(1)) u_h2_poison_sync (
+    .clk(CLK100MHZ), .rst_n(clk_locked),
+    .async_in(poison_lat),
+    .sync_out(poison_100)
   );
   // F1g: register rst in native domain first (combo ui_rst_n caused unsafe CDC),
   // then sync into CLK100MHZ; latch LO after Q_GO in a domain that survives ui/core rst.
@@ -1186,8 +1358,25 @@ module arty_a7_ng_native_v1_ab_soc_top (
         6'd4: return "Q";
         default: return 8'h00;
       endcase
-      6'd32: unique case (i) // TOPK
-        6'd0: return "T"; 6'd1: return "O"; 6'd2: return "P"; 6'd3: return "K";
+      6'd32: unique case (i) // TOPK=HHHHHHHHHHHHHHHH (SOA ids; A-FAST 3B392B291B190B09)
+        6'd0:  return "T"; 6'd1: return "O"; 6'd2: return "P"; 6'd3: return "K";
+        6'd4:  return "=";
+        6'd5:  return hex_nib(topk_pack_100[63:60]);
+        6'd6:  return hex_nib(topk_pack_100[59:56]);
+        6'd7:  return hex_nib(topk_pack_100[55:52]);
+        6'd8:  return hex_nib(topk_pack_100[51:48]);
+        6'd9:  return hex_nib(topk_pack_100[47:44]);
+        6'd10: return hex_nib(topk_pack_100[43:40]);
+        6'd11: return hex_nib(topk_pack_100[39:36]);
+        6'd12: return hex_nib(topk_pack_100[35:32]);
+        6'd13: return hex_nib(topk_pack_100[31:28]);
+        6'd14: return hex_nib(topk_pack_100[27:24]);
+        6'd15: return hex_nib(topk_pack_100[23:20]);
+        6'd16: return hex_nib(topk_pack_100[19:16]);
+        6'd17: return hex_nib(topk_pack_100[15:12]);
+        6'd18: return hex_nib(topk_pack_100[11:8]);
+        6'd19: return hex_nib(topk_pack_100[7:4]);
+        6'd20: return hex_nib(topk_pack_100[3:0]);
         default: return 8'h00;
       endcase
       6'd33: unique case (i) // ACCEPT
@@ -1195,12 +1384,31 @@ module arty_a7_ng_native_v1_ab_soc_top (
         6'd4: return "P"; 6'd5: return "T";
         default: return 8'h00;
       endcase
-      6'd34: unique case (i) // PACK
-        6'd0: return "P"; 6'd1: return "A"; 6'd2: return "C"; 6'd3: return "K";
+      6'd34: unique case (i) // PACK=HHHHHHHHHHHHHHHH (H2 vs A-FAST 3B392B291B190B09)
+        6'd0:  return "P"; 6'd1: return "A"; 6'd2: return "C"; 6'd3: return "K";
+        6'd4:  return "=";
+        6'd5:  return hex_nib(ctx_pack_100[63:60]);
+        6'd6:  return hex_nib(ctx_pack_100[59:56]);
+        6'd7:  return hex_nib(ctx_pack_100[55:52]);
+        6'd8:  return hex_nib(ctx_pack_100[51:48]);
+        6'd9:  return hex_nib(ctx_pack_100[47:44]);
+        6'd10: return hex_nib(ctx_pack_100[43:40]);
+        6'd11: return hex_nib(ctx_pack_100[39:36]);
+        6'd12: return hex_nib(ctx_pack_100[35:32]);
+        6'd13: return hex_nib(ctx_pack_100[31:28]);
+        6'd14: return hex_nib(ctx_pack_100[27:24]);
+        6'd15: return hex_nib(ctx_pack_100[23:20]);
+        6'd16: return hex_nib(ctx_pack_100[19:16]);
+        6'd17: return hex_nib(ctx_pack_100[15:12]);
+        6'd18: return hex_nib(ctx_pack_100[11:8]);
+        6'd19: return hex_nib(ctx_pack_100[7:4]);
+        6'd20: return hex_nib(ctx_pack_100[3:0]);
         default: return 8'h00;
       endcase
-      6'd35: unique case (i) // BIND
-        6'd0: return "B"; 6'd1: return "I"; 6'd2: return "N"; 6'd3: return "D";
+      6'd35: unique case (i) // POISON=H (1 on EC286E9E → PACK=FF)
+        6'd0: return "P"; 6'd1: return "O"; 6'd2: return "I"; 6'd3: return "S";
+        6'd4: return "O"; 6'd5: return "N"; 6'd6: return "=";
+        6'd7: return hex_nib({3'b0, poison_100});
         default: return 8'h00;
       endcase
       6'd36: unique case (i) // FWD
@@ -1498,10 +1706,10 @@ module arty_a7_ng_native_v1_ab_soc_top (
       6'd29: return 7'd9;   // CDC_S_ARF
       6'd30: return 7'd8;   // CDC_HOLD
       6'd31: return 7'd5;   // SOA_Q
-      6'd32: return 7'd4;   // TOPK
+      6'd32: return 7'd21;  // TOPK= + 16 hex
       6'd33: return 7'd6;   // ACCEPT
-      6'd34: return 7'd4;   // PACK
-      6'd35: return 7'd4;   // BIND
+      6'd34: return 7'd21;  // PACK= + 16 hex (H2)
+      6'd35: return 7'd8;   // POISON=H
       6'd36: return 7'd3;   // FWD
       6'd37: return 7'd2;   // LM
       6'd38: return 7'd9;   // BIND_BUSY
@@ -1567,6 +1775,17 @@ module arty_a7_ng_native_v1_ab_soc_top (
       input logic w_stall_ok, phase_ok,
       input logic pred_nz_ok, core_done_ok, pred_ok
   );
+    if (UART_SLIM) begin
+      if (!mask[0]) return 7'd0;                 // BOOT
+      if (mig_ok && !mask[1]) return 7'd1;       // CALIB/MIG_OK
+      if (wmem_ok && !mask[2]) return 7'd2;      // WMEM
+      if (topk_ok && !mask[32]) return 7'd32;    // TOPK=
+      if (pack_ok && !mask[34]) return 7'd34;    // PACK=
+      if (bind_ok && !mask[35]) return 7'd35;    // POISON=
+      if (core_done_ok && !mask[54]) return 7'd54;
+      if (pred_ok && !mask[55]) return 7'd55;    // EXIST_ROW
+      return 7'd0;
+    end
     if (!mask[0])  return 7'd0;
     if (mig_ok     && !mask[1])  return 7'd1;
     if (wmem_ok    && !mask[2])  return 7'd2;
@@ -1667,7 +1886,22 @@ module arty_a7_ng_native_v1_ab_soc_top (
                            mgo_f1v_100, mgo_f1v_100, mgo_f1v_100, mgo_f1v_100,
                            w_stall_100, phase_valid_100,
                            pred_nz_100, core_done_100, pred_ready);
-  assign have_pending =
+  logic uart_complete;
+  assign uart_complete = UART_SLIM
+      ? (sent_mask[0] && sent_mask[1] && sent_mask[2]
+         && sent_mask[32] && sent_mask[34] && sent_mask[35]
+         && sent_mask[54] && sent_mask[55])
+      : (&sent_mask[70:0]);
+  assign have_pending = UART_SLIM
+      ? ((!sent_mask[0])
+         || (calib_100 && !sent_mask[1])
+         || (wmem_100 && !sent_mask[2])
+         || (topk_100 && !sent_mask[32])
+         || (pack_100 && !sent_mask[34])
+         || (bind_100 && !sent_mask[35])
+         || (core_done_100 && !sent_mask[54])
+         || (pred_ready && !sent_mask[55]))
+      : (
       (!sent_mask[0]) ||
       (calib_100     && !sent_mask[1]) ||
       (wmem_100      && !sent_mask[2]) ||
@@ -1738,7 +1972,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
       (phase_valid_100 && !sent_mask[52]) ||
       (pred_nz_100   && !sent_mask[53]) ||
       (core_done_100 && !sent_mask[54]) ||
-      (pred_ready    && !sent_mask[55]);
+      (pred_ready    && !sent_mask[55]));
 
   always_ff @(posedge CLK100MHZ) begin
     if (!clk_locked) begin
@@ -1768,7 +2002,7 @@ module arty_a7_ng_native_v1_ab_soc_top (
             tx_i <= 7'd0;
             tx_len <= hb_len(nxt_sel);
             ut <= UT_LOAD;
-          end else if (&sent_mask[70:0]) begin
+          end else if (uart_complete) begin
             ut <= UT_DONE;
           end
         end

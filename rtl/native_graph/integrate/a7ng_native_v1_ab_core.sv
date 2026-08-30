@@ -78,6 +78,7 @@ module a7ng_native_v1_ab_core #(
   input  logic         m_axi_rvalid,
   output logic         m_axi_rready,
   output logic         owner_ready_o,
+  output logic         global_topk_busy_o,
   output logic         r_path_idle_o,
   input  logic         clk_dma = 1'b0,
   input  logic         rst_dma_n = 1'b1,
@@ -136,7 +137,8 @@ module a7ng_native_v1_ab_core #(
     .m_axi_rid(m_axi_rid), .m_axi_rdata(m_axi_rdata), .m_axi_rresp(m_axi_rresp),
     .m_axi_rlast(m_axi_rlast), .m_axi_rvalid(m_axi_rvalid), .m_axi_rready(m_axi_rready),
     .owner_ready_o(owner_ready_o),
-    .r_path_idle_o(r_path_idle_o)
+    .r_path_idle_o(r_path_idle_o),
+    .global_topk_busy_o(global_topk_busy_o)
   );
 
   node_id_t bind_gid [0:7];

@@ -343,7 +343,8 @@ module tb_a7ng_native_v1_ab_fast;
     begin
       int topk_wait;
       topk_wait = 0;
-      while (topk_update_count < 4 && topk_wait < 64) begin
+      // Min-heap merge is multi-cycle; bitonic was ~2. Wait for 4 global_valid.
+      while ((topk_update_count < 4 || gv_count < 4) && topk_wait < 4096) begin
         @(posedge clk);
         topk_wait = topk_wait + 1;
       end

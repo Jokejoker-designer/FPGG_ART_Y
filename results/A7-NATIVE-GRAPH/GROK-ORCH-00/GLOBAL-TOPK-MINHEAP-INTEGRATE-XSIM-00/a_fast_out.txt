@@ -1,0 +1,906 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 13-aug-2027.
+
+****** Vivado v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Sun Aug 30 21:40:23 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/2026.1/Vivado/scripts/Vivado_init.tcl'
+vivado-mcp server ready on port 9999
+source {D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\tests\xsim\run_a7ng_native_v1_ab_fast.tcl}
+# set root [file normalize [file join [file dirname [info script]] ../..]]
+# set xsimdir [file join $root tests xsim]
+# set snapdir [file join $xsimdir xsim.dir.board_lane_fast]
+# file mkdir $snapdir
+# cd $xsimdir
+# set src [list \
+#   [file join $root rtl/native_graph/pkg a7ng_pkg.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_mem_schema_v1.sv] \
+#   [file join $root rtl/native_graph/scorer a7ng_scorer_lane.sv] \
+#   [file join $root rtl/native_graph/scorer a7ng_scorer_array.sv] \
+#   [file join $root rtl/native_graph/scorer a7ng_termgen_lane.sv] \
+#   [file join $root rtl/native_graph/scorer a7ng_termgen_array.sv] \
+#   [file join $root rtl/native_graph/topk a7ng_topk.sv] \
+#   [file join $root rtl/native_graph/topk a7ng_topk_wavefront_global.sv] \
+#   [file join $root rtl/native_graph/topk a7ng_topk_wavefront_minheap.sv] \
+#   [file join $root rtl/native_graph/topk a7ng_ng02_core.sv] \
+#   [file join $root rtl/native_graph/frontier a7ng_frontier_buckets.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_ddr_soa_axi_bridge.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_soa_plane_engine.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_soa_plane_fetch.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_axi_read_stream.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_cue_soa_wavefront.sv] \
+#   [file join $root rtl/native_graph/memory a7ng_cue_soa_mig_top.sv] \
+#   [file join $root rtl/native_graph/integrate a7ng_lm_graph_arb.sv] \
+#   [file join $root rtl/native_graph/lm a7ng_native_ctx_bind.sv] \
+#   [file join $root rtl/native_graph/integrate a7ng_native_v1_ab_core.sv] \
+#   [file join $root rtl/lm a7lm06_pkg.sv] \
+#   [file join $root rtl/lm isqrt32.sv] \
+#   [file join $root rtl/lm floordiv_s48.sv] \
+#   [file join $root rtl/lm weight_bram803k.sv] \
+#   [file join $root rtl/lm weight_bram_tdp8.sv] \
+#   [file join $root rtl/lm weight_tile803k.sv] \
+#   [file join $root rtl/lm act_ram128k16.sv] \
+#   [file join $root rtl/lm snap_ram4k16.sv] \
+#   [file join $root rtl/lm tiny_gpt803k_core.sv] \
+#   [file join $xsimdir a7ng_axi_soa_mem_stub.sv] \
+#   [file join $xsimdir tb_a7ng_native_v1_ab_fast.sv]]
+# if {[catch {exec xvlog -sv {*}$src} vlog_out]} {
+#   puts $vlog_out
+#   puts "XVLOG_FAIL"
+#   exit 2
+# }
+# puts $vlog_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/pkg/a7ng_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_mem_schema_v1.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/scorer/a7ng_scorer_lane.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_scorer_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/scorer/a7ng_scorer_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_scorer_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/scorer/a7ng_termgen_lane.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_termgen_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/scorer/a7ng_termgen_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_termgen_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/topk/a7ng_topk.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_topk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/topk/a7ng_topk_wavefront_global.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_topk_wavefront_global
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/topk/a7ng_topk_wavefront_minheap.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_topk_wavefront_minheap
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/topk/a7ng_ng02_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_ng02_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/frontier/a7ng_frontier_buckets.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_frontier_buckets
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_ddr_soa_axi_bridge.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_ddr_soa_axi_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_soa_plane_engine.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_soa_plane_engine
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_soa_plane_fetch.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_soa_plane_fetch
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_axi_read_stream.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_axi_read_stream
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_cue_soa_wavefront.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_cue_soa_wavefront
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/memory/a7ng_cue_soa_mig_top.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_cue_soa_mig_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/integrate/a7ng_lm_graph_arb.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_lm_graph_arb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/lm/a7ng_native_ctx_bind.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_native_ctx_bind
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/integrate/a7ng_native_v1_ab_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_native_v1_ab_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/a7lm06_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/isqrt32.sv" into library work
+INFO: [VRFC 10-311] analyzing module isqrt32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/floordiv_s48.sv" into library work
+INFO: [VRFC 10-311] analyzing module floordiv_s48
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/weight_bram803k.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_bram803k
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/weight_bram_tdp8.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_bram_tdp8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/weight_tile803k.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_tile803k
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/act_ram128k16.sv" into library work
+INFO: [VRFC 10-311] analyzing module act_ram128k16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/snap_ram4k16.sv" into library work
+INFO: [VRFC 10-311] analyzing module snap_ram4k16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/tiny_gpt803k_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7lm06_logits_lutram
+INFO: [VRFC 10-311] analyzing module tiny_gpt803k_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/a7ng_axi_soa_mem_stub.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_axi_soa_mem_stub
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_native_v1_ab_fast.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_a7ng_native_v1_ab_fast
+# if {[catch {exec xelab tb_a7ng_native_v1_ab_fast -s tb_a7ng_native_v1_ab_fast_sim -timescale 1ns/1ps} elab_out]} {
+#   puts $elab_out
+#   puts "XELAB_FAIL"
+#   exit 3
+# }
+# puts $elab_out
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:\2026.1\Vivado\bin\unwrapped\win64.o\xelab.exe tb_a7ng_native_v1_ab_fast -s tb_a7ng_native_v1_ab_fast_sim -timescale 1ns/1ps 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'w_stall_o' remains unconnected for this instance [D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_native_v1_ab_fast.sv:108]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7ng_pkg
+Compiling package work.a7lm06_pkg
+Compiling module work.a7ng_axi_soa_mem_stub
+Compiling module work.a7ng_lm_graph_arb
+Compiling module work.a7ng_soa_plane_engine(MAX_BEATS=...
+Compiling module work.a7ng_cue_soa_wavefront_default
+Compiling module work.a7ng_ddr_soa_axi_bridge_default
+Compiling module work.a7ng_termgen_lane
+Compiling module work.a7ng_termgen_array_default
+Compiling module work.a7ng_scorer_lane
+Compiling module work.a7ng_scorer_array_default
+Compiling module work.a7ng_topk
+Compiling module work.a7ng_frontier_buckets_default
+Compiling module work.a7ng_ng02_core
+Compiling module work.a7ng_topk_wavefront_minheap
+Compiling module work.a7ng_cue_soa_mig_top
+Compiling module work.a7ng_native_ctx_bind
+Compiling module work.a7lm06_logits_lutram
+Compiling module work.weight_bram803k
+Compiling module work.weight_tile803k_default
+Compiling module work.act_ram128k16
+Compiling module work.snap_ram4k16
+Compiling module work.isqrt32
+Compiling module work.floordiv_s48
+Compiling module work.tiny_gpt803k_core
+Compiling module work.a7ng_native_v1_ab_core
+Compiling module work.tb_a7ng_native_v1_ab_fast
+Built simulation snapshot tb_a7ng_native_v1_ab_fast_sim
+# set logfile [file join $root results A7-NATIVE-GRAPH A-FAST-LM-BOARD-LANE-00 xsim_fast.log]
+# if {[catch {exec xsim tb_a7ng_native_v1_ab_fast_sim -runall} sim_out]} {
+#   set f [open $logfile w]
+#   puts $f $sim_out
+#   close $f
+#   puts $sim_out
+#   puts "XSIM_FAIL"
+#   exit 4
+# }
+# set f [open $logfile w]
+# puts $f $sim_out
+# close $f
+# puts $sim_out
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Sun Aug 30 21:40:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_a7ng_native_v1_ab_fast_sim/xsim_script.tcl
+# xsim {tb_a7ng_native_v1_ab_fast_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PREREG_GATE: A-FAST-LM-BOARD-LANE-00
+EVIDENCE_CLASS: XSIM_FAST_CAUSAL
+STRUCTURAL TB_DOES_NOT_DRIVE_BIND_OR_TOP8_INJECTION
+SOA_PRELOAD_DONE candidates=64
+LM06_WMEM_BACKDOOR_DONE
+SOA_OWNER_READY ok cycles=0
+SOA_DELTA axi_read_bytes=832 axi_read_beats=52 bursts=4 gv=4 topk_updates=4
+SOA_PLANE id=16 cue=32 prior=4 delivered=64 waves=4
+SOA_PATTERN_PASS burst=16 out=8
+SOA_DATA_MISMATCH=0
+SOA_TOP1 id=9 score=165 (expect id=9 score=165)
+SOA_GLOBAL_TOP8[0] id=9 score=165 expect_id=9
+SOA_GLOBAL_TOP8[1] id=11 score=165 expect_id=11
+SOA_GLOBAL_TOP8[2] id=25 score=165 expect_id=25
+SOA_GLOBAL_TOP8[3] id=27 score=165 expect_id=27
+SOA_GLOBAL_TOP8[4] id=41 score=165 expect_id=41
+SOA_GLOBAL_TOP8[5] id=43 score=165 expect_id=43
+SOA_GLOBAL_TOP8[6] id=57 score=165 expect_id=57
+SOA_GLOBAL_TOP8[7] id=59 score=165 expect_id=59
+AXI_LM_HOLD freeze DUT AR after SOA_PATTERN_PASS
+NEG_CHECK pred=0 start_fwd_beats=0 do_lm=0
+CAPTURE_OK pack=3b392b291b190b09
+EMB_POS t=5745000 dim=0 wrd=-3 awd=-3
+EMB_POS t=5775000 dim=1 wrd=3 awd=3
+EMB_TOK t=36465000 dim=0 wrd=0 ard=-3 awd=-3
+EMB_TOK t=36495000 dim=1 wrd=0 ard=3 awd=3
+LNV t=76655000 acc=2873 var=44 mu=-1
+LNO t=77925000 ly=0 ten=0 ard=-3 mu=-1 sc=4 q=-8
+LNO t=148325000 ly=0 ten=0 ard=2 mu=-1 sc=4 q=12
+LNO t=218725000 ly=0 ten=0 ard=-3 mu=-1 sc=4 q=-8
+LNO t=289125000 ly=0 ten=0 ard=0 mu=-1 sc=4 q=4
+LNO t=359525000 ly=0 ten=0 ard=-2 mu=-1 sc=4 q=-4
+LNO t=429925000 ly=0 ten=0 ard=5 mu=-1 sc=4 q=24
+LNO t=500325000 ly=0 ten=0 ard=1 mu=-1 sc=4 q=8
+LNO t=570725000 ly=0 ten=0 ard=-6 mu=-1 sc=4 q=-20
+MV0 t=640615000 ly=0 ten_o=2 acc=0 dest=32768
+MV0 t=1297255000 ly=0 ten_o=2 acc=0 dest=32896
+MV0 t=1953895000 ly=0 ten_o=2 acc=0 dest=33024
+LM_HB cyc=200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=2610535000 ly=0 ten_o=2 acc=0 dest=33152
+MV0 t=3267175000 ly=0 ten_o=2 acc=0 dest=33280
+MV0 t=3923815000 ly=0 ten_o=2 acc=0 dest=33408
+LM_HB cyc=400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=4580455000 ly=0 ten_o=2 acc=0 dest=33536
+MV0 t=5237095000 ly=0 ten_o=2 acc=0 dest=33664
+MV0 t=5893735000 ly=0 ten_o=3 acc=0 dest=49152
+LM_HB cyc=600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=6550375000 ly=0 ten_o=3 acc=0 dest=49280
+MV0 t=7207015000 ly=0 ten_o=3 acc=0 dest=49408
+MV0 t=7863655000 ly=0 ten_o=3 acc=0 dest=49536
+LM_HB cyc=800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=8520295000 ly=0 ten_o=3 acc=0 dest=49664
+MV0 t=9176935000 ly=0 ten_o=3 acc=0 dest=49792
+MV0 t=9833575000 ly=0 ten_o=3 acc=0 dest=49920
+LM_HB cyc=1000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=10490215000 ly=0 ten_o=3 acc=0 dest=50048
+MV0 t=11146855000 ly=0 ten_o=4 acc=0 dest=65536
+MV0 t=11803495000 ly=0 ten_o=4 acc=0 dest=65664
+LM_HB cyc=1200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=12460135000 ly=0 ten_o=4 acc=0 dest=65792
+MV0 t=13116775000 ly=0 ten_o=4 acc=0 dest=65920
+MV0 t=13773415000 ly=0 ten_o=4 acc=0 dest=66048
+LM_HB cyc=1400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=14430055000 ly=0 ten_o=4 acc=0 dest=66176
+MV0 t=15086695000 ly=0 ten_o=4 acc=0 dest=66304
+MV0 t=15743335000 ly=0 ten_o=4 acc=0 dest=66432
+LM_HB cyc=1600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ATTQK t=16399965000 ard=-300 ardb=-16 qa=32768 ka=49152
+ATTO t=16403095000 h=0 q=372 z=16 acc=5952 dest=81920
+ATTQK t=16420795000 ard=-484 ardb=-732 qa=32800 ka=49184
+ATTO t=16423925000 h=1 q=-600 z=16 acc=-9600 dest=81952
+ATTQK t=16441625000 ard=-484 ardb=716 qa=32832 ka=49216
+ATTO t=16444755000 h=2 q=-296 z=16 acc=-4736 dest=81984
+ATTQK t=16462455000 ard=180 ardb=-216 qa=32864 ka=49248
+ATTO t=16465585000 h=3 q=-4 z=16 acc=-64 dest=82016
+ATTQK t=16483285000 ard=664 ardb=-16 qa=32896 ka=49152
+ATTO t=16487765000 h=0 q=372 z=16 acc=5952 dest=82048
+ATTQK t=16506705000 ard=-1312 ardb=-732 qa=32928 ka=49184
+ATTO t=16511185000 h=1 q=768 z=16 acc=12288 dest=82080
+ATTQK t=16530125000 ard=-712 ardb=716 qa=32960 ka=49216
+ATTO t=16534605000 h=2 q=-296 z=16 acc=-4736 dest=82112
+ATTQK t=16553545000 ard=-812 ardb=-216 qa=32992 ka=49248
+ATTO t=16558025000 h=3 q=176 z=16 acc=2816 dest=82144
+ATTQK t=16576965000 ard=1304 ardb=-16 qa=33024 ka=49152
+ATTO t=16582795000 h=0 q=372 z=16 acc=5952 dest=82176
+ATTQK t=16602975000 ard=176 ardb=-732 qa=33056 ka=49184
+ATTO t=16608805000 h=1 q=768 z=16 acc=12288 dest=82208
+ATTQK t=16628985000 ard=12 ardb=716 qa=33088 ka=49216
+ATTO t=16634815000 h=2 q=920 z=16 acc=14720 dest=82240
+ATTQK t=16654995000 ard=220 ardb=-216 qa=33120 ka=49248
+ATTO t=16660825000 h=3 q=-4 z=16 acc=-64 dest=82272
+ATTQK t=16681005000 ard=-808 ardb=-16 qa=33152 ka=49152
+ATTO t=16688185000 h=0 q=-752 z=16 acc=-12032 dest=82304
+ATTQK t=16709605000 ard=-540 ardb=-732 qa=33184 ka=49184
+ATTO t=16716785000 h=1 q=-316 z=16 acc=-5056 dest=82336
+ATTQK t=16738205000 ard=-712 ardb=716 qa=33216 ka=49216
+ATTO t=16745385000 h=2 q=920 z=16 acc=14720 dest=82368
+ATTQK t=16766805000 ard=-1204 ardb=-216 qa=33248 ka=49248
+ATTO t=16773985000 h=3 q=-4 z=16 acc=-64 dest=82400
+ATTQK t=16795405000 ard=-212 ardb=-16 qa=33280 ka=49152
+ATTO t=16803935000 h=0 q=372 z=16 acc=5952 dest=82432
+ATTQK t=16826595000 ard=76 ardb=-732 qa=33312 ka=49184
+ATTO t=16835125000 h=1 q=768 z=16 acc=12288 dest=82464
+ATTQK t=16857785000 ard=1812 ardb=716 qa=33344 ka=49216
+ATTO t=16866315000 h=2 q=-352 z=16 acc=-5632 dest=82496
+ATTQK t=16888975000 ard=-916 ardb=-216 qa=33376 ka=49248
+ATTO t=16897505000 h=3 q=-128 z=16 acc=-2048 dest=82528
+ATTQK t=16920165000 ard=-296 ardb=-16 qa=33408 ka=49152
+ATTO t=16930045000 h=0 q=372 z=16 acc=5952 dest=82560
+ATTQK t=16953945000 ard=-28 ardb=-732 qa=33440 ka=49184
+ATTO t=16963825000 h=1 q=404 z=16 acc=6464 dest=82592
+ATTQK t=16987725000 ard=960 ardb=716 qa=33472 ka=49216
+ATTO t=16997605000 h=2 q=28 z=16 acc=448 dest=82624
+ATTQK t=17021505000 ard=288 ardb=-216 qa=33504 ka=49248
+ATTO t=17031385000 h=3 q=-4 z=16 acc=-64 dest=82656
+ATTQK t=17055285000 ard=356 ardb=-16 qa=33536 ka=49152
+ATTO t=17066515000 h=0 q=372 z=16 acc=5952 dest=82688
+ATTQK t=17091655000 ard=944 ardb=-732 qa=33568 ka=49184
+ATTO t=17102885000 h=1 q=768 z=16 acc=12288 dest=82720
+ATTQK t=17128025000 ard=-144 ardb=716 qa=33600 ka=49216
+ATTO t=17139255000 h=2 q=28 z=16 acc=448 dest=82752
+ATTQK t=17164395000 ard=520 ardb=-216 qa=33632 ka=49248
+ATTO t=17175625000 h=3 q=624 z=16 acc=9984 dest=82784
+ATTQK t=17200765000 ard=-1080 ardb=-16 qa=33664 ka=49152
+ATTO t=17213345000 h=0 q=-1712 z=16 acc=-27392 dest=82816
+ATTQK t=17239725000 ard=208 ardb=-732 qa=33696 ka=49184
+ATTO t=17252305000 h=1 q=472 z=16 acc=7552 dest=82848
+ATTQK t=17278685000 ard=352 ardb=716 qa=33728 ka=49216
+ATTO t=17291265000 h=2 q=-296 z=16 acc=-4736 dest=82880
+ATTQK t=17317645000 ard=-64 ardb=-216 qa=33760 ka=49248
+ATTO t=17330225000 h=3 q=624 z=16 acc=9984 dest=82912
+MV0 t=17356615000 ly=0 ten_o=5 acc=0 dest=81920
+LM_HB cyc=1800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=18013255000 ly=0 ten_o=5 acc=0 dest=82048
+MV0 t=18669895000 ly=0 ten_o=5 acc=0 dest=82176
+MV0 t=19326535000 ly=0 ten_o=5 acc=0 dest=82304
+MV0 t=19983175000 ly=0 ten_o=5 acc=0 dest=82432
+LM_HB cyc=2000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=20639815000 ly=0 ten_o=5 acc=0 dest=82560
+MV0 t=21296455000 ly=0 ten_o=5 acc=0 dest=82688
+MV0 t=21953095000 ly=0 ten_o=5 acc=0 dest=82816
+LM_HB cyc=2200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ADD t=22609725000 ly=0 ten=0 ard=-3 ardb=25968
+ADD t=22613565000 ly=0 ten=0 ard=2 ardb=28884
+ADD t=22617405000 ly=0 ten=0 ard=-3 ardb=-28872
+ADD t=22621245000 ly=0 ten=0 ard=0 ardb=-1836
+ADD t=22625085000 ly=0 ten=0 ard=-2 ardb=12868
+ADD t=22628925000 ly=0 ten=0 ard=5 ardb=32236
+ADD t=22632765000 ly=0 ten=0 ard=1 ardb=18136
+ADD t=22636605000 ly=0 ten=0 ard=-6 ardb=20676
+LNV t=22649915000 acc=70987883773 var=1109185683 mu=1346
+LNO t=22651185000 ly=0 ten=6 ard=25965 mu=1346 sc=23549 q=16
+LNO t=22721585000 ly=0 ten=6 ard=28886 mu=1346 sc=23549 q=18
+LNO t=22791985000 ly=0 ten=6 ard=-28875 mu=1346 sc=23549 q=-21
+LNO t=22862385000 ly=0 ten=6 ard=-1836 mu=1346 sc=23549 q=-3
+LNO t=22932785000 ly=0 ten=6 ard=12866 mu=1346 sc=23549 q=7
+LNO t=23003185000 ly=0 ten=6 ard=32241 mu=1346 sc=23549 q=20
+LNO t=23073585000 ly=0 ten=6 ard=18137 mu=1346 sc=23549 q=11
+LNO t=23143985000 ly=0 ten=6 ard=20670 mu=1346 sc=23549 q=13
+MV0 t=23213875000 ly=0 ten_o=0 acc=0 dest=0
+LM_HB cyc=2400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=24527155000 ly=0 ten_o=0 acc=0 dest=128
+MV0 t=25840435000 ly=0 ten_o=0 acc=0 dest=256
+LM_HB cyc=2600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=27153715000 ly=0 ten_o=0 acc=0 dest=384
+LM_HB cyc=2800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=28466995000 ly=0 ten_o=0 acc=0 dest=512
+MV0 t=29780275000 ly=0 ten_o=0 acc=0 dest=640
+LM_HB cyc=3000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=31093555000 ly=0 ten_o=0 acc=0 dest=768
+LM_HB cyc=3200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=32406835000 ly=0 ten_o=0 acc=0 dest=896
+MV0 t=33720115000 ly=0 ten_o=6 acc=0 dest=98304
+LM_HB cyc=3400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=35032115000 ly=0 ten_o=6 acc=0 dest=98432
+LM_HB cyc=3600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=36344115000 ly=0 ten_o=6 acc=0 dest=98560
+MV0 t=37656115000 ly=0 ten_o=6 acc=0 dest=98688
+LM_HB cyc=3800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=38968115000 ly=0 ten_o=6 acc=0 dest=98816
+LM_HB cyc=4000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=40280115000 ly=0 ten_o=6 acc=0 dest=98944
+MV0 t=41592115000 ly=0 ten_o=6 acc=0 dest=99072
+LM_HB cyc=4200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=42904115000 ly=0 ten_o=6 acc=0 dest=99200
+LM_HB cyc=4400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ADD t=44216105000 ly=0 ten=1 ard=25965 ardb=19708
+ADD t=44219945000 ly=0 ten=1 ard=28886 ardb=16727
+ADD t=44223785000 ly=0 ten=1 ard=-28875 ardb=27301
+ADD t=44227625000 ly=0 ten=1 ard=-1836 ardb=20484
+ADD t=44231465000 ly=0 ten=1 ard=12866 ardb=18981
+ADD t=44235305000 ly=0 ten=1 ard=32241 ardb=8502
+ADD t=44239145000 ly=0 ten=1 ard=18137 ardb=10165
+ADD t=44242985000 ly=0 ten=1 ard=20670 ardb=-11443
+LNV t=44256295000 acc=74414839647 var=1162731869 mu=1025
+LNO t=44257565000 ly=1 ten=0 ard=32767 mu=1025 sc=24111 q=21
+LNO t=44327965000 ly=1 ten=0 ard=32767 mu=1025 sc=24111 q=21
+LNO t=44398365000 ly=1 ten=0 ard=-1574 mu=1025 sc=24111 q=-2
+LNO t=44468765000 ly=1 ten=0 ard=18648 mu=1025 sc=24111 q=11
+LNO t=44539165000 ly=1 ten=0 ard=31847 mu=1025 sc=24111 q=20
+LNO t=44609565000 ly=1 ten=0 ard=32767 mu=1025 sc=24111 q=21
+LNO t=44679965000 ly=1 ten=0 ard=28302 mu=1025 sc=24111 q=18
+LNO t=44750365000 ly=1 ten=0 ard=9227 mu=1025 sc=24111 q=5
+MV0 t=44820255000 ly=1 ten_o=2 acc=0 dest=32768
+MV0 t=45476895000 ly=1 ten_o=2 acc=0 dest=32896
+LM_HB cyc=4600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=46133535000 ly=1 ten_o=2 acc=0 dest=33024
+MV0 t=46790175000 ly=1 ten_o=2 acc=0 dest=33152
+MV0 t=47446815000 ly=1 ten_o=2 acc=0 dest=33280
+LM_HB cyc=4800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=48103455000 ly=1 ten_o=2 acc=0 dest=33408
+MV0 t=48760095000 ly=1 ten_o=2 acc=0 dest=33536
+MV0 t=49416735000 ly=1 ten_o=2 acc=0 dest=33664
+LM_HB cyc=5000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=50073375000 ly=1 ten_o=3 acc=0 dest=49152
+MV0 t=50730015000 ly=1 ten_o=3 acc=0 dest=49280
+MV0 t=51386655000 ly=1 ten_o=3 acc=0 dest=49408
+LM_HB cyc=5200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=52043295000 ly=1 ten_o=3 acc=0 dest=49536
+MV0 t=52699935000 ly=1 ten_o=3 acc=0 dest=49664
+MV0 t=53356575000 ly=1 ten_o=3 acc=0 dest=49792
+LM_HB cyc=5400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=54013215000 ly=1 ten_o=3 acc=0 dest=49920
+MV0 t=54669855000 ly=1 ten_o=3 acc=0 dest=50048
+MV0 t=55326495000 ly=1 ten_o=4 acc=0 dest=65536
+MV0 t=55983135000 ly=1 ten_o=4 acc=0 dest=65664
+LM_HB cyc=5600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=56639775000 ly=1 ten_o=4 acc=0 dest=65792
+MV0 t=57296415000 ly=1 ten_o=4 acc=0 dest=65920
+MV0 t=57953055000 ly=1 ten_o=4 acc=0 dest=66048
+LM_HB cyc=5800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=58609695000 ly=1 ten_o=4 acc=0 dest=66176
+MV0 t=59266335000 ly=1 ten_o=4 acc=0 dest=66304
+MV0 t=59922975000 ly=1 ten_o=4 acc=0 dest=66432
+LM_HB cyc=6000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ATTQK t=60579605000 ard=362 ardb=837 qa=32768 ka=49152
+ATTO t=60582735000 h=0 q=69 z=16 acc=1104 dest=81920
+ATTQK t=60600435000 ard=548 ardb=914 qa=32800 ka=49184
+ATTO t=60603565000 h=1 q=-231 z=16 acc=-3696 dest=81952
+ATTQK t=60621265000 ard=133 ardb=119 qa=32832 ka=49216
+ATTO t=60624395000 h=2 q=-1181 z=16 acc=-18896 dest=81984
+ATTQK t=60642095000 ard=374 ardb=-734 qa=32864 ka=49248
+ATTO t=60645225000 h=3 q=227 z=16 acc=3632 dest=82016
+ATTQK t=60662925000 ard=-288 ardb=837 qa=32896 ka=49152
+ATTO t=60667405000 h=0 q=69 z=16 acc=1104 dest=82048
+ATTQK t=60686345000 ard=908 ardb=914 qa=32928 ka=49184
+ATTO t=60690825000 h=1 q=-523 z=16 acc=-8368 dest=82080
+ATTQK t=60709765000 ard=224 ardb=119 qa=32960 ka=49216
+ATTO t=60714245000 h=2 q=-1553 z=16 acc=-24848 dest=82112
+ATTQK t=60733185000 ard=322 ardb=-734 qa=32992 ka=49248
+ATTO t=60737665000 h=3 q=538 z=16 acc=8608 dest=82144
+ATTQK t=60756605000 ard=-270 ardb=837 qa=33024 ka=49152
+ATTO t=60762435000 h=0 q=-700 z=16 acc=-11200 dest=82176
+ATTQK t=60782615000 ard=700 ardb=914 qa=33056 ka=49184
+ATTO t=60788445000 h=1 q=-523 z=16 acc=-8368 dest=82208
+ATTQK t=60808625000 ard=163 ardb=119 qa=33088 ka=49216
+ATTO t=60814455000 h=2 q=-1553 z=16 acc=-24848 dest=82240
+ATTQK t=60834635000 ard=-308 ardb=-734 qa=33120 ka=49248
+ATTO t=60840465000 h=3 q=538 z=16 acc=8608 dest=82272
+ATTQK t=60860645000 ard=-349 ardb=837 qa=33152 ka=49152
+ATTO t=60867825000 h=0 q=-700 z=16 acc=-11200 dest=82304
+ATTQK t=60889245000 ard=1201 ardb=914 qa=33184 ka=49184
+ATTO t=60896425000 h=1 q=-523 z=16 acc=-8368 dest=82336
+ATTQK t=60917845000 ard=569 ardb=119 qa=33216 ka=49216
+ATTO t=60925025000 h=2 q=-1553 z=16 acc=-24848 dest=82368
+ATTQK t=60946445000 ard=-269 ardb=-734 qa=33248 ka=49248
+ATTO t=60953625000 h=3 q=-349 z=16 acc=-5584 dest=82400
+ATTQK t=60975045000 ard=221 ardb=837 qa=33280 ka=49152
+ATTO t=60983575000 h=0 q=69 z=16 acc=1104 dest=82432
+ATTQK t=61006235000 ard=881 ardb=914 qa=33312 ka=49184
+ATTO t=61014765000 h=1 q=-523 z=16 acc=-8368 dest=82464
+ATTQK t=61037425000 ard=-872 ardb=119 qa=33344 ka=49216
+ATTO t=61045955000 h=2 q=-1553 z=16 acc=-24848 dest=82496
+ATTQK t=61068615000 ard=1106 ardb=-734 qa=33376 ka=49248
+ATTO t=61077145000 h=3 q=-349 z=16 acc=-5584 dest=82528
+ATTQK t=61099805000 ard=-603 ardb=837 qa=33408 ka=49152
+ATTO t=61109685000 h=0 q=-700 z=16 acc=-11200 dest=82560
+ATTQK t=61133585000 ard=671 ardb=914 qa=33440 ka=49184
+ATTO t=61143465000 h=1 q=-320 z=16 acc=-5120 dest=82592
+ATTQK t=61167365000 ard=-265 ardb=119 qa=33472 ka=49216
+ATTO t=61177245000 h=2 q=-1553 z=16 acc=-24848 dest=82624
+ATTQK t=61201145000 ard=-491 ardb=-734 qa=33504 ka=49248
+ATTO t=61211025000 h=3 q=538 z=16 acc=8608 dest=82656
+ATTQK t=61234925000 ard=-193 ardb=837 qa=33536 ka=49152
+ATTO t=61246155000 h=0 q=96 z=16 acc=1536 dest=82688
+ATTQK t=61271295000 ard=101 ardb=914 qa=33568 ka=49184
+ATTO t=61282525000 h=1 q=-320 z=16 acc=-5120 dest=82720
+ATTQK t=61307665000 ard=434 ardb=119 qa=33600 ka=49216
+ATTO t=61318895000 h=2 q=-1553 z=16 acc=-24848 dest=82752
+ATTQK t=61344035000 ard=-1130 ardb=-734 qa=33632 ka=49248
+ATTO t=61355265000 h=3 q=538 z=16 acc=8608 dest=82784
+ATTQK t=61380405000 ard=-296 ardb=837 qa=33664 ka=49152
+ATTO t=61392985000 h=0 q=-496 z=16 acc=-7936 dest=82816
+ATTQK t=61419365000 ard=-1306 ardb=914 qa=33696 ka=49184
+ATTO t=61431945000 h=1 q=1196 z=16 acc=19136 dest=82848
+ATTQK t=61458325000 ard=-174 ardb=119 qa=33728 ka=49216
+ATTO t=61470905000 h=2 q=-643 z=16 acc=-10288 dest=82880
+ATTQK t=61497285000 ard=767 ardb=-734 qa=33760 ka=49248
+ATTO t=61509865000 h=3 q=-349 z=16 acc=-5584 dest=82912
+MV0 t=61536255000 ly=1 ten_o=5 acc=0 dest=81920
+LM_HB cyc=6200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=62192895000 ly=1 ten_o=5 acc=0 dest=82048
+MV0 t=62849535000 ly=1 ten_o=5 acc=0 dest=82176
+MV0 t=63506175000 ly=1 ten_o=5 acc=0 dest=82304
+LM_HB cyc=6400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=64162815000 ly=1 ten_o=5 acc=0 dest=82432
+MV0 t=64819455000 ly=1 ten_o=5 acc=0 dest=82560
+MV0 t=65476095000 ly=1 ten_o=5 acc=0 dest=82688
+LM_HB cyc=6600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=66132735000 ly=1 ten_o=5 acc=0 dest=82816
+ADD t=66789365000 ly=1 ten=0 ard=32767 ardb=11150
+ADD t=66793205000 ly=1 ten=0 ard=32767 ardb=17795
+ADD t=66797045000 ly=1 ten=0 ard=-1574 ardb=6909
+ADD t=66800885000 ly=1 ten=0 ard=18648 ardb=16597
+ADD t=66804725000 ly=1 ten=0 ard=31847 ardb=27483
+ADD t=66808565000 ly=1 ten=0 ard=32767 ardb=-10487
+ADD t=66812405000 ly=1 ten=0 ard=28302 ardb=-1874
+ADD t=66816245000 ly=1 ten=0 ard=9227 ardb=32767
+LNV t=66829555000 acc=81365794934 var=1271340545 mu=909
+LNO t=66830825000 ly=1 ten=6 ard=32767 mu=909 sc=25212 q=20
+LNO t=66901225000 ly=1 ten=6 ard=32767 mu=909 sc=25212 q=20
+LNO t=66971625000 ly=1 ten=6 ard=5335 mu=909 sc=25212 q=2
+LNO t=67042025000 ly=1 ten=6 ard=32767 mu=909 sc=25212 q=20
+LNO t=67112425000 ly=1 ten=6 ard=32767 mu=909 sc=25212 q=20
+LNO t=67182825000 ly=1 ten=6 ard=22280 mu=909 sc=25212 q=13
+LNO t=67253225000 ly=1 ten=6 ard=26428 mu=909 sc=25212 q=16
+LNO t=67323625000 ly=1 ten=6 ard=32767 mu=909 sc=25212 q=20
+MV0 t=67393515000 ly=1 ten_o=0 acc=0 dest=0
+LM_HB cyc=6800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=68706795000 ly=1 ten_o=0 acc=0 dest=128
+LM_HB cyc=7000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=70020075000 ly=1 ten_o=0 acc=0 dest=256
+MV0 t=71333355000 ly=1 ten_o=0 acc=0 dest=384
+LM_HB cyc=7200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=72646635000 ly=1 ten_o=0 acc=0 dest=512
+MV0 t=73959915000 ly=1 ten_o=0 acc=0 dest=640
+LM_HB cyc=7400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=75273195000 ly=1 ten_o=0 acc=0 dest=768
+LM_HB cyc=7600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=76586475000 ly=1 ten_o=0 acc=0 dest=896
+MV0 t=77899755000 ly=1 ten_o=6 acc=0 dest=98304
+LM_HB cyc=7800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=79211755000 ly=1 ten_o=6 acc=0 dest=98432
+LM_HB cyc=8000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=80523755000 ly=1 ten_o=6 acc=0 dest=98560
+MV0 t=81835755000 ly=1 ten_o=6 acc=0 dest=98688
+LM_HB cyc=8200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=83147755000 ly=1 ten_o=6 acc=0 dest=98816
+LM_HB cyc=8400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=84459755000 ly=1 ten_o=6 acc=0 dest=98944
+MV0 t=85771755000 ly=1 ten_o=6 acc=0 dest=99072
+LM_HB cyc=8600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=87083755000 ly=1 ten_o=6 acc=0 dest=99200
+LM_HB cyc=8800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ADD t=88395745000 ly=1 ten=1 ard=32767 ardb=-3615
+ADD t=88399585000 ly=1 ten=1 ard=32767 ardb=270
+ADD t=88403425000 ly=1 ten=1 ard=5335 ardb=19830
+ADD t=88407265000 ly=1 ten=1 ard=32767 ardb=15698
+ADD t=88411105000 ly=1 ten=1 ard=32767 ardb=-25918
+ADD t=88414945000 ly=1 ten=1 ard=22280 ardb=5244
+ADD t=88418785000 ly=1 ten=1 ard=26428 ardb=180
+ADD t=88422625000 ly=1 ten=1 ard=32767 ardb=-28191
+LNV t=88435935000 acc=78113705308 var=1220526645 mu=3617
+LNO t=88437205000 ly=2 ten=0 ard=29152 mu=3617 sc=24703 q=16
+LNO t=88507605000 ly=2 ten=0 ard=32767 mu=3617 sc=24703 q=18
+LNO t=88578005000 ly=2 ten=0 ard=25165 mu=3617 sc=24703 q=13
+LNO t=88648405000 ly=2 ten=0 ard=32767 mu=3617 sc=24703 q=18
+LNO t=88718805000 ly=2 ten=0 ard=6849 mu=3617 sc=24703 q=2
+LNO t=88789205000 ly=2 ten=0 ard=27524 mu=3617 sc=24703 q=15
+LNO t=88859605000 ly=2 ten=0 ard=26608 mu=3617 sc=24703 q=14
+LNO t=88930005000 ly=2 ten=0 ard=4576 mu=3617 sc=24703 q=0
+MV0 t=88999895000 ly=2 ten_o=2 acc=0 dest=32768
+MV0 t=89656535000 ly=2 ten_o=2 acc=0 dest=32896
+LM_HB cyc=9000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=90313175000 ly=2 ten_o=2 acc=0 dest=33024
+MV0 t=90969815000 ly=2 ten_o=2 acc=0 dest=33152
+MV0 t=91626455000 ly=2 ten_o=2 acc=0 dest=33280
+LM_HB cyc=9200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=92283095000 ly=2 ten_o=2 acc=0 dest=33408
+MV0 t=92939735000 ly=2 ten_o=2 acc=0 dest=33536
+MV0 t=93596375000 ly=2 ten_o=2 acc=0 dest=33664
+LM_HB cyc=9400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=94253015000 ly=2 ten_o=3 acc=0 dest=49152
+MV0 t=94909655000 ly=2 ten_o=3 acc=0 dest=49280
+MV0 t=95566295000 ly=2 ten_o=3 acc=0 dest=49408
+LM_HB cyc=9600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=96222935000 ly=2 ten_o=3 acc=0 dest=49536
+MV0 t=96879575000 ly=2 ten_o=3 acc=0 dest=49664
+MV0 t=97536215000 ly=2 ten_o=3 acc=0 dest=49792
+LM_HB cyc=9800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=98192855000 ly=2 ten_o=3 acc=0 dest=49920
+MV0 t=98849495000 ly=2 ten_o=3 acc=0 dest=50048
+MV0 t=99506135000 ly=2 ten_o=4 acc=0 dest=65536
+LM_HB cyc=10000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=100162775000 ly=2 ten_o=4 acc=0 dest=65664
+MV0 t=100819415000 ly=2 ten_o=4 acc=0 dest=65792
+MV0 t=101476055000 ly=2 ten_o=4 acc=0 dest=65920
+LM_HB cyc=10200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=102132695000 ly=2 ten_o=4 acc=0 dest=66048
+MV0 t=102789335000 ly=2 ten_o=4 acc=0 dest=66176
+MV0 t=103445975000 ly=2 ten_o=4 acc=0 dest=66304
+LM_HB cyc=10400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=104102615000 ly=2 ten_o=4 acc=0 dest=66432
+ATTQK t=104759245000 ard=-1635 ardb=-659 qa=32768 ka=49152
+ATTO t=104762375000 h=0 q=-113 z=16 acc=-1808 dest=81920
+ATTQK t=104780075000 ard=-195 ardb=532 qa=32800 ka=49184
+ATTO t=104783205000 h=1 q=-1252 z=16 acc=-20032 dest=81952
+ATTQK t=104800905000 ard=279 ardb=-593 qa=32832 ka=49216
+ATTO t=104804035000 h=2 q=519 z=16 acc=8304 dest=81984
+ATTQK t=104821735000 ard=822 ardb=-160 qa=32864 ka=49248
+ATTO t=104824865000 h=3 q=292 z=16 acc=4672 dest=82016
+ATTQK t=104842565000 ard=-1333 ardb=-659 qa=32896 ka=49152
+ATTO t=104847045000 h=0 q=-113 z=16 acc=-1808 dest=82048
+ATTQK t=104865985000 ard=-296 ardb=532 qa=32928 ka=49184
+ATTO t=104870465000 h=1 q=-1252 z=16 acc=-20032 dest=82080
+ATTQK t=104889405000 ard=752 ardb=-593 qa=32960 ka=49216
+ATTO t=104893885000 h=2 q=-27 z=16 acc=-432 dest=82112
+ATTQK t=104912825000 ard=-169 ardb=-160 qa=32992 ka=49248
+ATTO t=104917305000 h=3 q=292 z=16 acc=4672 dest=82144
+ATTQK t=104936245000 ard=-222 ardb=-659 qa=33024 ka=49152
+ATTO t=104942075000 h=0 q=-139 z=16 acc=-2224 dest=82176
+ATTQK t=104962255000 ard=-10 ardb=532 qa=33056 ka=49184
+ATTO t=104968085000 h=1 q=-1135 z=16 acc=-18160 dest=82208
+ATTQK t=104988265000 ard=-72 ardb=-593 qa=33088 ka=49216
+ATTO t=104994095000 h=2 q=-45 z=16 acc=-720 dest=82240
+ATTQK t=105014275000 ard=-314 ardb=-160 qa=33120 ka=49248
+ATTO t=105020105000 h=3 q=-20 z=16 acc=-320 dest=82272
+ATTQK t=105040285000 ard=-345 ardb=-659 qa=33152 ka=49152
+ATTO t=105047465000 h=0 q=-139 z=16 acc=-2224 dest=82304
+ATTQK t=105068885000 ard=-783 ardb=532 qa=33184 ka=49184
+ATTO t=105076065000 h=1 q=-1135 z=16 acc=-18160 dest=82336
+ATTQK t=105097485000 ard=519 ardb=-593 qa=33216 ka=49216
+ATTO t=105104665000 h=2 q=-27 z=16 acc=-432 dest=82368
+ATTQK t=105126085000 ard=-134 ardb=-160 qa=33248 ka=49248
+ATTO t=105133265000 h=3 q=-20 z=16 acc=-320 dest=82400
+ATTQK t=105154685000 ard=-1120 ardb=-659 qa=33280 ka=49152
+ATTO t=105163215000 h=0 q=-1185 z=16 acc=-18960 dest=82432
+ATTQK t=105185875000 ard=-280 ardb=532 qa=33312 ka=49184
+ATTO t=105194405000 h=1 q=-989 z=16 acc=-15824 dest=82464
+ATTQK t=105217065000 ard=-141 ardb=-593 qa=33344 ka=49216
+ATTO t=105225595000 h=2 q=-45 z=16 acc=-720 dest=82496
+ATTQK t=105248255000 ard=66 ardb=-160 qa=33376 ka=49248
+ATTO t=105256785000 h=3 q=-893 z=16 acc=-14288 dest=82528
+ATTQK t=105279445000 ard=-522 ardb=-659 qa=33408 ka=49152
+ATTO t=105289325000 h=0 q=-587 z=16 acc=-9392 dest=82560
+ATTQK t=105313225000 ard=1021 ardb=532 qa=33440 ka=49184
+ATTO t=105323105000 h=1 q=-989 z=16 acc=-15824 dest=82592
+ATTQK t=105347005000 ard=583 ardb=-593 qa=33472 ka=49216
+ATTO t=105356885000 h=2 q=117 z=16 acc=1872 dest=82624
+ATTQK t=105380785000 ard=-12 ardb=-160 qa=33504 ka=49248
+ATTO t=105390665000 h=3 q=265 z=16 acc=4240 dest=82656
+ATTQK t=105414565000 ard=156 ardb=-659 qa=33536 ka=49152
+ATTO t=105425795000 h=0 q=-139 z=16 acc=-2224 dest=82688
+ATTQK t=105450935000 ard=7 ardb=532 qa=33568 ka=49184
+ATTO t=105462165000 h=1 q=-1135 z=16 acc=-18160 dest=82720
+ATTQK t=105487305000 ard=-2 ardb=-593 qa=33600 ka=49216
+ATTO t=105498535000 h=2 q=-2 z=16 acc=-32 dest=82752
+ATTQK t=105523675000 ard=66 ardb=-160 qa=33632 ka=49248
+ATTO t=105534905000 h=3 q=265 z=16 acc=4240 dest=82784
+ATTQK t=105560045000 ard=-171 ardb=-659 qa=33664 ka=49152
+ATTO t=105572625000 h=0 q=-139 z=16 acc=-2224 dest=82816
+ATTQK t=105599005000 ard=-710 ardb=532 qa=33696 ka=49184
+ATTO t=105611585000 h=1 q=-1135 z=16 acc=-18160 dest=82848
+ATTQK t=105637965000 ard=480 ardb=-593 qa=33728 ka=49216
+ATTO t=105650545000 h=2 q=166 z=16 acc=2656 dest=82880
+ATTQK t=105676925000 ard=332 ardb=-160 qa=33760 ka=49248
+ATTO t=105689505000 h=3 q=-20 z=16 acc=-320 dest=82912
+MV0 t=105715895000 ly=2 ten_o=5 acc=0 dest=81920
+LM_HB cyc=10600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=106372535000 ly=2 ten_o=5 acc=0 dest=82048
+MV0 t=107029175000 ly=2 ten_o=5 acc=0 dest=82176
+MV0 t=107685815000 ly=2 ten_o=5 acc=0 dest=82304
+LM_HB cyc=10800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=108342455000 ly=2 ten_o=5 acc=0 dest=82432
+MV0 t=108999095000 ly=2 ten_o=5 acc=0 dest=82560
+MV0 t=109655735000 ly=2 ten_o=5 acc=0 dest=82688
+LM_HB cyc=11000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=110312375000 ly=2 ten_o=5 acc=0 dest=82816
+ADD t=110969005000 ly=2 ten=0 ard=29152 ardb=21562
+ADD t=110972845000 ly=2 ten=0 ard=32767 ardb=11736
+ADD t=110976685000 ly=2 ten=0 ard=25165 ardb=10808
+ADD t=110980525000 ly=2 ten=0 ard=32767 ardb=8224
+ADD t=110984365000 ly=2 ten=0 ard=6849 ardb=22500
+ADD t=110988205000 ly=2 ten=0 ard=27524 ardb=13477
+ADD t=110992045000 ly=2 ten=0 ard=26608 ardb=-16946
+ADD t=110995885000 ly=2 ten=0 ard=4576 ardb=11780
+LNV t=111009195000 acc=88370634183 var=1380791159 mu=1348
+LNO t=111010465000 ly=2 ten=6 ard=32767 mu=1348 sc=26275 q=19
+LNO t=111080865000 ly=2 ten=6 ard=32767 mu=1348 sc=26275 q=19
+LNO t=111151265000 ly=2 ten=6 ard=32767 mu=1348 sc=26275 q=19
+LNO t=111221665000 ly=2 ten=6 ard=32767 mu=1348 sc=26275 q=19
+LNO t=111292065000 ly=2 ten=6 ard=29349 mu=1348 sc=26275 q=17
+LNO t=111362465000 ly=2 ten=6 ard=32767 mu=1348 sc=26275 q=19
+LNO t=111432865000 ly=2 ten=6 ard=9662 mu=1348 sc=26275 q=5
+LNO t=111503265000 ly=2 ten=6 ard=16356 mu=1348 sc=26275 q=9
+MV0 t=111573155000 ly=2 ten_o=0 acc=0 dest=0
+LM_HB cyc=11200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=112886435000 ly=2 ten_o=0 acc=0 dest=128
+LM_HB cyc=11400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=114199715000 ly=2 ten_o=0 acc=0 dest=256
+MV0 t=115512995000 ly=2 ten_o=0 acc=0 dest=384
+LM_HB cyc=11600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=116826275000 ly=2 ten_o=0 acc=0 dest=512
+LM_HB cyc=11800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=118139555000 ly=2 ten_o=0 acc=0 dest=640
+MV0 t=119452835000 ly=2 ten_o=0 acc=0 dest=768
+LM_HB cyc=12000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=120766115000 ly=2 ten_o=0 acc=0 dest=896
+LM_HB cyc=12200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=122079395000 ly=2 ten_o=6 acc=0 dest=98304
+MV0 t=123391395000 ly=2 ten_o=6 acc=0 dest=98432
+LM_HB cyc=12400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=124703395000 ly=2 ten_o=6 acc=0 dest=98560
+LM_HB cyc=12600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=126015395000 ly=2 ten_o=6 acc=0 dest=98688
+MV0 t=127327395000 ly=2 ten_o=6 acc=0 dest=98816
+LM_HB cyc=12800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=128639395000 ly=2 ten_o=6 acc=0 dest=98944
+MV0 t=129951395000 ly=2 ten_o=6 acc=0 dest=99072
+LM_HB cyc=13000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=131263395000 ly=2 ten_o=6 acc=0 dest=99200
+LM_HB cyc=13200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ADD t=132575385000 ly=2 ten=1 ard=32767 ardb=-4996
+ADD t=132579225000 ly=2 ten=1 ard=32767 ardb=-25211
+ADD t=132583065000 ly=2 ten=1 ard=32767 ardb=-16229
+ADD t=132586905000 ly=2 ten=1 ard=32767 ardb=-27831
+ADD t=132590745000 ly=2 ten=1 ard=29349 ardb=-32768
+ADD t=132594585000 ly=2 ten=1 ard=32767 ardb=-25768
+ADD t=132598425000 ly=2 ten=1 ard=9662 ardb=32767
+ADD t=132602265000 ly=2 ten=1 ard=16356 ardb=7805
+LNV t=132615575000 acc=73822295743 var=1153473370 mu=-547
+LNO t=132616845000 ly=3 ten=0 ard=27771 mu=-547 sc=24015 q=18
+LNO t=132687245000 ly=3 ten=0 ard=7556 mu=-547 sc=24015 q=5
+LNO t=132757645000 ly=3 ten=0 ard=16538 mu=-547 sc=24015 q=11
+LNO t=132828045000 ly=3 ten=0 ard=4936 mu=-547 sc=24015 q=3
+LNO t=132898445000 ly=3 ten=0 ard=-3419 mu=-547 sc=24015 q=-2
+LNO t=132968845000 ly=3 ten=0 ard=6999 mu=-547 sc=24015 q=5
+LNO t=133039245000 ly=3 ten=0 ard=32767 mu=-547 sc=24015 q=22
+LNO t=133109645000 ly=3 ten=0 ard=24161 mu=-547 sc=24015 q=16
+MV0 t=133179535000 ly=3 ten_o=2 acc=0 dest=32768
+MV0 t=133836175000 ly=3 ten_o=2 acc=0 dest=32896
+LM_HB cyc=13400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=134492815000 ly=3 ten_o=2 acc=0 dest=33024
+MV0 t=135149455000 ly=3 ten_o=2 acc=0 dest=33152
+MV0 t=135806095000 ly=3 ten_o=2 acc=0 dest=33280
+LM_HB cyc=13600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=136462735000 ly=3 ten_o=2 acc=0 dest=33408
+MV0 t=137119375000 ly=3 ten_o=2 acc=0 dest=33536
+MV0 t=137776015000 ly=3 ten_o=2 acc=0 dest=33664
+LM_HB cyc=13800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=138432655000 ly=3 ten_o=3 acc=0 dest=49152
+MV0 t=139089295000 ly=3 ten_o=3 acc=0 dest=49280
+MV0 t=139745935000 ly=3 ten_o=3 acc=0 dest=49408
+LM_HB cyc=14000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=140402575000 ly=3 ten_o=3 acc=0 dest=49536
+MV0 t=141059215000 ly=3 ten_o=3 acc=0 dest=49664
+MV0 t=141715855000 ly=3 ten_o=3 acc=0 dest=49792
+LM_HB cyc=14200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=142372495000 ly=3 ten_o=3 acc=0 dest=49920
+MV0 t=143029135000 ly=3 ten_o=3 acc=0 dest=50048
+MV0 t=143685775000 ly=3 ten_o=4 acc=0 dest=65536
+LM_HB cyc=14400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=144342415000 ly=3 ten_o=4 acc=0 dest=65664
+MV0 t=144999055000 ly=3 ten_o=4 acc=0 dest=65792
+MV0 t=145655695000 ly=3 ten_o=4 acc=0 dest=65920
+LM_HB cyc=14600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=146312335000 ly=3 ten_o=4 acc=0 dest=66048
+MV0 t=146968975000 ly=3 ten_o=4 acc=0 dest=66176
+MV0 t=147625615000 ly=3 ten_o=4 acc=0 dest=66304
+LM_HB cyc=14800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=148282255000 ly=3 ten_o=4 acc=0 dest=66432
+ATTQK t=148938885000 ard=142 ardb=-302 qa=32768 ka=49152
+ATTO t=148942015000 h=0 q=651 z=16 acc=10416 dest=81920
+ATTQK t=148959715000 ard=672 ardb=-804 qa=32800 ka=49184
+ATTO t=148962845000 h=1 q=-200 z=16 acc=-3200 dest=81952
+ATTQK t=148980545000 ard=185 ardb=502 qa=32832 ka=49216
+ATTO t=148983675000 h=2 q=404 z=16 acc=6464 dest=81984
+ATTQK t=149001375000 ard=-1570 ardb=829 qa=32864 ka=49248
+ATTO t=149004505000 h=3 q=309 z=16 acc=4944 dest=82016
+ATTQK t=149022205000 ard=-200 ardb=-302 qa=32896 ka=49152
+ATTO t=149026685000 h=0 q=-277 z=16 acc=-4432 dest=82048
+ATTQK t=149045625000 ard=319 ardb=-804 qa=32928 ka=49184
+ATTO t=149050105000 h=1 q=-730 z=16 acc=-11680 dest=82080
+ATTQK t=149069045000 ard=507 ardb=502 qa=32960 ka=49216
+ATTO t=149073525000 h=2 q=626 z=16 acc=10016 dest=82112
+ATTQK t=149092465000 ard=-897 ardb=829 qa=32992 ka=49248
+ATTO t=149096945000 h=3 q=232 z=16 acc=3712 dest=82144
+ATTQK t=149115885000 ard=-481 ardb=-302 qa=33024 ka=49152
+ATTO t=149121715000 h=0 q=-277 z=16 acc=-4432 dest=82176
+ATTQK t=149141895000 ard=493 ardb=-804 qa=33056 ka=49184
+ATTO t=149147725000 h=1 q=-730 z=16 acc=-11680 dest=82208
+ATTQK t=149167905000 ard=667 ardb=502 qa=33088 ka=49216
+ATTO t=149173735000 h=2 q=626 z=16 acc=10016 dest=82240
+ATTQK t=149193915000 ard=868 ardb=829 qa=33120 ka=49248
+ATTO t=149199745000 h=3 q=309 z=16 acc=4944 dest=82272
+ATTQK t=149219925000 ard=-561 ardb=-302 qa=33152 ka=49152
+ATTO t=149227105000 h=0 q=651 z=16 acc=10416 dest=82304
+ATTQK t=149248525000 ard=213 ardb=-804 qa=33184 ka=49184
+ATTO t=149255705000 h=1 q=1053 z=16 acc=16848 dest=82336
+ATTQK t=149277125000 ard=695 ardb=502 qa=33216 ka=49216
+ATTO t=149284305000 h=2 q=742 z=16 acc=11872 dest=82368
+ATTQK t=149305725000 ard=618 ardb=829 qa=33248 ka=49248
+ATTO t=149312905000 h=3 q=309 z=16 acc=4944 dest=82400
+ATTQK t=149334325000 ard=-1898 ardb=-302 qa=33280 ka=49152
+ATTO t=149342855000 h=0 q=619 z=16 acc=9904 dest=82432
+ATTQK t=149365515000 ard=788 ardb=-804 qa=33312 ka=49184
+ATTO t=149374045000 h=1 q=1053 z=16 acc=16848 dest=82464
+ATTQK t=149396705000 ard=854 ardb=502 qa=33344 ka=49216
+ATTO t=149405235000 h=2 q=404 z=16 acc=6464 dest=82496
+ATTQK t=149427895000 ard=675 ardb=829 qa=33376 ka=49248
+ATTO t=149436425000 h=3 q=871 z=16 acc=13936 dest=82528
+ATTQK t=149459085000 ard=-708 ardb=-302 qa=33408 ka=49152
+ATTO t=149468965000 h=0 q=619 z=16 acc=9904 dest=82560
+ATTQK t=149492865000 ard=672 ardb=-804 qa=33440 ka=49184
+ATTO t=149502745000 h=1 q=1053 z=16 acc=16848 dest=82592
+ATTQK t=149526645000 ard=-260 ardb=502 qa=33472 ka=49216
+ATTO t=149536525000 h=2 q=742 z=16 acc=11872 dest=82624
+ATTQK t=149560425000 ard=340 ardb=829 qa=33504 ka=49248
+ATTO t=149570305000 h=3 q=740 z=16 acc=11840 dest=82656
+ATTQK t=149594205000 ard=-449 ardb=-302 qa=33536 ka=49152
+ATTO t=149605435000 h=0 q=-89 z=16 acc=-1424 dest=82688
+ATTQK t=149630575000 ard=935 ardb=-804 qa=33568 ka=49184
+ATTO t=149641805000 h=1 q=1053 z=16 acc=16848 dest=82720
+ATTQK t=149666945000 ard=293 ardb=502 qa=33600 ka=49216
+ATTO t=149678175000 h=2 q=661 z=16 acc=10576 dest=82752
+ATTQK t=149703315000 ard=728 ardb=829 qa=33632 ka=49248
+ATTO t=149714545000 h=3 q=309 z=16 acc=4944 dest=82784
+ATTQK t=149739685000 ard=-254 ardb=-302 qa=33664 ka=49152
+ATTO t=149752265000 h=0 q=-277 z=16 acc=-4432 dest=82816
+ATTQK t=149778645000 ard=1162 ardb=-804 qa=33696 ka=49184
+ATTO t=149791225000 h=1 q=1053 z=16 acc=16848 dest=82848
+ATTQK t=149817605000 ard=622 ardb=502 qa=33728 ka=49216
+ATTO t=149830185000 h=2 q=661 z=16 acc=10576 dest=82880
+ATTQK t=149856565000 ard=974 ardb=829 qa=33760 ka=49248
+ATTO t=149869145000 h=3 q=309 z=16 acc=4944 dest=82912
+MV0 t=149895535000 ly=3 ten_o=5 acc=0 dest=81920
+LM_HB cyc=15000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=150552175000 ly=3 ten_o=5 acc=0 dest=82048
+MV0 t=151208815000 ly=3 ten_o=5 acc=0 dest=82176
+MV0 t=151865455000 ly=3 ten_o=5 acc=0 dest=82304
+LM_HB cyc=15200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=152522095000 ly=3 ten_o=5 acc=0 dest=82432
+MV0 t=153178735000 ly=3 ten_o=5 acc=0 dest=82560
+MV0 t=153835375000 ly=3 ten_o=5 acc=0 dest=82688
+LM_HB cyc=15400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=154492015000 ly=3 ten_o=5 acc=0 dest=82816
+ADD t=155148645000 ly=3 ten=0 ard=27771 ardb=8013
+ADD t=155152485000 ly=3 ten=0 ard=7556 ardb=-23527
+ADD t=155156325000 ly=3 ten=0 ard=16538 ardb=-28292
+ADD t=155160165000 ly=3 ten=0 ard=4936 ardb=21215
+ADD t=155164005000 ly=3 ten=0 ard=-3419 ardb=-30950
+ADD t=155167845000 ly=3 ten=0 ard=6999 ardb=-13675
+ADD t=155171685000 ly=3 ten=0 ard=32767 ardb=-6139
+ADD t=155175525000 ly=3 ten=0 ard=24161 ardb=-7589
+LNV t=155188835000 acc=75438933350 var=1178733333 mu=-3390
+LNO t=155190105000 ly=3 ten=6 ard=32767 mu=-3390 sc=24276 q=23
+LNO t=155260505000 ly=3 ten=6 ard=-15971 mu=-3390 sc=24276 q=-9
+LNO t=155330905000 ly=3 ten=6 ard=-11754 mu=-3390 sc=24276 q=-6
+LNO t=155401305000 ly=3 ten=6 ard=26151 mu=-3390 sc=24276 q=19
+LNO t=155471705000 ly=3 ten=6 ard=-32768 mu=-3390 sc=24276 q=-20
+LNO t=155542105000 ly=3 ten=6 ard=-6676 mu=-3390 sc=24276 q=-3
+LNO t=155612505000 ly=3 ten=6 ard=26628 mu=-3390 sc=24276 q=19
+LNO t=155682905000 ly=3 ten=6 ard=16572 mu=-3390 sc=24276 q=13
+MV0 t=155752795000 ly=3 ten_o=0 acc=0 dest=0
+LM_HB cyc=15600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=157066075000 ly=3 ten_o=0 acc=0 dest=128
+LM_HB cyc=15800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=158379355000 ly=3 ten_o=0 acc=0 dest=256
+MV0 t=159692635000 ly=3 ten_o=0 acc=0 dest=384
+LM_HB cyc=16000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=161005915000 ly=3 ten_o=0 acc=0 dest=512
+LM_HB cyc=16200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=162319195000 ly=3 ten_o=0 acc=0 dest=640
+MV0 t=163632475000 ly=3 ten_o=0 acc=0 dest=768
+LM_HB cyc=16400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=164945755000 ly=3 ten_o=0 acc=0 dest=896
+LM_HB cyc=16600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=166259035000 ly=3 ten_o=6 acc=0 dest=98304
+MV0 t=167571035000 ly=3 ten_o=6 acc=0 dest=98432
+LM_HB cyc=16800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=168883035000 ly=3 ten_o=6 acc=0 dest=98560
+LM_HB cyc=17000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=170195035000 ly=3 ten_o=6 acc=0 dest=98688
+MV0 t=171507035000 ly=3 ten_o=6 acc=0 dest=98816
+LM_HB cyc=17200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=172819035000 ly=3 ten_o=6 acc=0 dest=98944
+LM_HB cyc=17400000 phase=7 busy=1 done=0 pred=0 bind_done=0
+MV0 t=174131035000 ly=3 ten_o=6 acc=0 dest=99072
+MV0 t=175443035000 ly=3 ten_o=6 acc=0 dest=99200
+LM_HB cyc=17600000 phase=7 busy=1 done=0 pred=0 bind_done=0
+ADD t=176755025000 ly=3 ten=1 ard=32767 ardb=-20926
+ADD t=176758865000 ly=3 ten=1 ard=-15971 ardb=19450
+ADD t=176762705000 ly=3 ten=1 ard=-11754 ardb=-2652
+ADD t=176766545000 ly=3 ten=1 ard=26151 ardb=-8089
+ADD t=176770385000 ly=3 ten=1 ard=-32768 ardb=2021
+ADD t=176774225000 ly=3 ten=1 ard=-6676 ardb=-2545
+ADD t=176778065000 ly=3 ten=1 ard=26628 ardb=-13346
+ADD t=176781905000 ly=3 ten=1 ard=16572 ardb=-9303
+HEAD t=176785745000 col=0 wrd=6 ard=7269 waddr=671744 aaddr=896 acc=0
+MV0 t=176785755000 ly=3 ten_o=7 acc=0 dest=115584
+HEAD t=176785785000 col=1 wrd=6 ard=5230 waddr=671745 aaddr=897 acc=43614
+LM_HB cyc=17800000 phase=7 busy=1 done=0 pred=0 bind_done=0
+LM_HB cyc=18000000 phase=7 busy=1 done=0 pred=0 bind_done=0
+LM_HB cyc=18200000 phase=7 busy=1 done=0 pred=0 bind_done=0
+SMX t=182038845000 logit0=1310985
+A_FAST_LM_BOARD_LANE_XSIM_PASS pred=664
+$finish called at time : 182069585 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_native_v1_ab_fast.sv" Line 441
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:05:59 . Memory (MB): peak = 228.195 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 20184 KB (Peak: 20184 KB), Simulation CPU Usage: 287984 ms
+INFO: [Common 17-206] Exiting xsim at Sun Aug 30 21:46:36 2026...
+# if {![string match "*A_FAST_LM_BOARD_LANE_XSIM_PASS*" $sim_out]} {
+#   puts "A_FAST_LM_BOARD_LANE_NO_PASS"
+#   exit 5
+# }
+# puts "A_FAST_LM_BOARD_LANE_OK"
+A_FAST_LM_BOARD_LANE_OK
+INFO: [Common 17-206] Exiting Vivado at Sun Aug 30 21:46:36 2026...

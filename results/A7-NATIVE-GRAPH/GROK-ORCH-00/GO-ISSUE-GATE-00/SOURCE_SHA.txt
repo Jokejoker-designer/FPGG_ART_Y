@@ -1,0 +1,25 @@
+GATE=GO-ISSUE-GATE-00
+TREE=D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00
+BRANCH=research/native-ai-v1-grok-orch-00
+GIT_HEAD=140345e1e848bd66552e412b43197e895f94715c
+PROGRAM=NO
+JTAG=NO
+SOC_QSTAR=NO
+
+FILE=rtl/board/a7ng_wdma_cdc.sv
+SHA256_BEFORE_CONTROL=FE13D1BBECB95D88BCBAC525BE680AE5281F6EA3FD0B1E729D7E781884BF92D7
+LAW_BEFORE=assign cmd_wr_en = m_rst_n && m_go && !cmd_full;
+SHA256_AFTER=A036F21644EF29E4DA9A9702D01CE26E7AB6994EEFF634A0110F56352DD56E3F
+LAW_AFTER=assign cmd_wr_en = m_rst_n && m_go && m_owner && !cmd_full;
+DIFF=1 insertion, 1 deletion (line 96 only)
+cmd_rd_en=UNCHANGED
+tile=UNCHANGED
+top=UNCHANGED
+dma=UNCHANGED
+qstar=UNCHANGED
+lm06_01r_02m=UNCHANGED
+
+FILE=tests/xsim/tb_go_issue_gate_00.sv
+SHA256=C48D13AB18F1252FB1CADEBAE80D12EDBBEDA2A141F41934EDB3CDD85C9989CA
+DUT_INSTANCE=u_cdc
+PROBE=hierarchical u_cdc.cmd_wr_en (no debug export)

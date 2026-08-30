@@ -408,16 +408,23 @@ module tb_a7ng_ddr_cue_soa;
   endtask
 
   task automatic drain_stale_axi_r;
-    int drain;
+    int quiet, guard;
     begin
       rready_w = 1'b1;
-      drain = 0;
-      while (rvalid && drain < 64) begin
+      quiet = 0;
+      guard = 0;
+      // Attempt 8: idle MIG R after preload before DUT reset/feed_en.
+      while (quiet < 32 && guard < 20000) begin
         @(posedge ui_clk);
-        drain = drain + 1;
+        guard = guard + 1;
+        if (rvalid || arvalid_w)
+          quiet = 0;
+        else
+          quiet = quiet + 1;
       end
       rready_w = 1'b0;
-      repeat (4) @(posedge ui_clk);
+      repeat (16) @(posedge ui_clk);
+      $display("SOA_PRELOAD_DRAIN quiet=%0d guard=%0d", quiet, guard);
     end
   endtask
 

@@ -1,0 +1,12 @@
+# GO-DGO-WAITBUSY-00 — XSim3
+
+Tile SHA256 `DFF70FA7D767A95AD6C859EB646F7AE8D9B8151D9B60DBB345EA063E05C50DA2`
+
+Law: 1-cycle `dma_go`, stay in `D_GO` until `dma_busy`, then DRAIN/FEED. Not level-hold go.
+
+```
+GO_COUNT=1152 DONE_COUNT=1152 GO_WHILE_BUSY=0
+EMB_EXACT=1 XSIM3_TRANSPORT_PASS
+```
+
+PROGRAM=NO. COM12 is Cursor's until human returns it.

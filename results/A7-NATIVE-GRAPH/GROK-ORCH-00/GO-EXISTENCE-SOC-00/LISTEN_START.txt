@@ -1,0 +1,13 @@
+gate=GO-EXISTENCE-SOC-00
+mode=ARMED_BEFORE_PROGRAM
+token=human Cursor-done arm COM12
+branch=research/native-ai-v1-grok-orch-00
+port=COM12
+baud=115200
+window_s=600
+stop_early=pred=664_only
+bit_sha256=B64B26498F960980903FD4D7CF305FD4861996EBC60307901B32F89454870F17
+dtr=false
+rts=false
+started_local=2026-08-30T10:21:57+07:00
+BOARD_PASS=not_claimed

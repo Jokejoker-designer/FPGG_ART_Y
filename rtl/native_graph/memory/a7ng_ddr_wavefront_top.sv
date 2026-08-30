@@ -6,8 +6,8 @@
 //   a7ng_ddr_feed_axi_bridge    (a7ng-mig-rival-v0 + mig_metric_00 per-run deltas)
 //   a7ng_termgen_array          (a7ng-termgen-v0)
 //   a7ng_scorer_array           (a7ng-scorer-v0)
-//   a7ng_topk                   (a7ng-topk-global-v1)
-//   a7ng_topk_wavefront_global  (a7ng-topk-wavefront-global-v1) — wf_global_topk_00
+//   a7ng_topk                   (a7ng-topk-global-v1) — per-wave 16→8, law frozen
+//   a7ng_topk_wavefront_minheap — serial/min-heap cross-wave Top-8 (not bitonic)
 // Evidence class: MIG_XSIM only. Never claim BOARD_PASS or silicon bandwidth from this.
 `timescale 1ns / 1ps
 
@@ -182,6 +182,9 @@ module a7ng_ddr_wavefront_top #(
   logic [N_LANES-1:0] w_mask;
   logic [31:0] w_id  [N_LANES];
   logic [31:0] w_cue [N_LANES];
+  logic gl_busy;
+  logic gl_pipe_inflight;
+  wire  wave_cons_ready;
 
   // pp_pop is a REQUEST: asserting it while pp is empty is what makes
   // buffer_empty_stall meaningful (SPEC §10). pp only pops when pe_valid_o is high.
@@ -195,7 +198,7 @@ module a7ng_ddr_wavefront_top #(
     .total_i(total_recs_i),
     .flush_i(flush_i),
     .in_valid_i(pp_valid), .in_ready_o(wave_in_ready), .in_rec_i(pp_data),
-    .wave_ready_i(sink_ready_i),
+    .wave_ready_i(wave_cons_ready),
     .wave_valid_o(wave_valid),
     .wave_mask_o(w_mask), .wave_id_o(w_id), .wave_cue_o(w_cue),
     .wave_index_o(wave_index_o),
@@ -217,7 +220,7 @@ module a7ng_ddr_wavefront_top #(
     .done_o(wave_done)
   );
 
-  wire wave_fire = wave_valid && sink_ready_i;
+  wire wave_fire = wave_valid && wave_cons_ready;
 
   assign wave_fire_o = wave_fire;
   assign wave_mask_o = w_mask;
@@ -301,7 +304,22 @@ module a7ng_ddr_wavefront_top #(
       wave_scored_q <= 5'(lane_pop);
   end
 
-  a7ng_topk_wavefront_global #(.K(8)) u_global (
+  // Serial/min-heap: one wave in TG→SC→local Top-8→merge at a time.
+  // Frozen bitonic a7ng_topk_wavefront_global is 1–2 cycle; do not reuse that handshake.
+  assign wave_cons_ready = sink_ready_i && !gl_busy && !gl_pipe_inflight && !tk_valid_o;
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+      gl_pipe_inflight <= 1'b0;
+    else if (start_i)
+      gl_pipe_inflight <= 1'b0;
+    else if (wave_fire)
+      gl_pipe_inflight <= 1'b1;
+    else if (tk_valid_o)
+      gl_pipe_inflight <= 1'b0;
+  end
+
+  a7ng_topk_wavefront_minheap #(.K(8), .HEAP_CMP_LANES(1)) u_global (
     .clk(clk), .rst_n(rst_n),
     .clear_i(start_i),
     .wave_valid_i(tk_valid_o),
@@ -311,7 +329,7 @@ module a7ng_ddr_wavefront_top #(
     .global_valid_o(gl_valid_o),
     .global_score_o(gl_score_o),
     .global_id_o(gl_id_o),
-    .busy_o(),
+    .busy_o(gl_busy),
     .merge_count_o(gl_merges)
   );
 
@@ -361,7 +379,7 @@ module a7ng_ddr_wavefront_top #(
 
   assign feed_done_o          = pp_done;
   assign wave_done_o          = wave_done;
-  assign running_o            = pp_running || wave_active;
+  assign running_o            = pp_running || wave_active || gl_busy || gl_pipe_inflight;
   assign buffer_empty_stall_o = pp_empty_st;
   assign buffer_full_stall_o  = pp_full_st;
   assign pp_cycles_o          = pp_cyc;

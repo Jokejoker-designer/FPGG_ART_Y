@@ -91,9 +91,31 @@ module a7ng_wdma_cdc (
   typedef enum logic [1:0] {C_IDLE, C_GO, C_BUSY} cmd_st_t;
   cmd_st_t cmd_st;
 
-  assign cmd_wdata = {m_wr, m_addr, m_bytes};
+  // GO-REQUEST-PENDING-00: hold one cmd on m_clk until owned accept.
+  // Live-write (ISSUE_GATED) was: cmd_wr_en = m_rst_n && m_go && m_owner && !cmd_full.
+  logic              cmd_hold_valid, cmd_hold_overflow;
+  logic [CMD_W-1:0]  cmd_hold_data;
+  wire               cmd_accept = cmd_hold_valid && m_owner && !cmd_full;
+  assign cmd_wdata = cmd_hold_data;
+  assign cmd_wr_en = m_rst_n && cmd_accept;
+
+  always_ff @(posedge m_clk) begin
+    if (!m_rst_n) begin
+      cmd_hold_valid    <= 1'b0;
+      cmd_hold_data     <= '0;
+      cmd_hold_overflow <= 1'b0;
+    end else if (cmd_accept) begin
+      // Drop hold on accept. Do not relatch same-cycle m_go (371 3× GO).
+      cmd_hold_valid    <= 1'b0;
+    end else if (m_go && !cmd_hold_valid) begin
+      cmd_hold_data     <= {m_wr, m_addr, m_bytes};
+      cmd_hold_valid    <= 1'b1;
+    end else if (m_go && cmd_hold_valid) begin
+      cmd_hold_overflow <= 1'b1;
+    end
+  end
+
   assign m_w_ready = m_rst_n && !w_full;
-  assign cmd_wr_en = m_rst_n && m_go && !cmd_full;
   assign w_wr_en   = m_rst_n && m_w_valid && m_w_ready;
   assign w_wdata   = m_w_data;
 
@@ -311,7 +333,7 @@ module a7ng_wdma_cdc (
   assign ghost_busy_rel = dest_allow_s && s_dma_idle;
 
   assign cmd_rd_en = s_rst_n && (cmd_st == C_IDLE) && !cmd_pend && !cmd_empty &&
-                     (!s_busy || ghost_busy_rel);
+                     (!s_busy || ghost_busy_rel) && s_owner;
 
   always_ff @(posedge s_clk) begin
     if (!s_rst_n) begin

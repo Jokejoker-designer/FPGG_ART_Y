@@ -1,0 +1,26 @@
+# SLICE-OPT-BIT-00 — board 2026-08-31 00:54
+
+**PROGRAM_DONE.** Token consumed. CONTROL file `439CC42D` not overwritten.
+
+```text
+BOOT
+MIG_OK
+WMEM_OK
+TOPK=0000000000000000
+PACK=0000000000000000
+CORE_DONE
+POISON=0
+NATIVE_V1_EXIST_ROW,pred=664
+```
+
+| Field | Value |
+|-------|--------|
+| SHA256 | `2C1D58CE877B2F3A356B7765CBE74DC5247EE1761F94E8D3E45ECA5AAF141366` |
+| JTAG | `210319BE776EA` startup HIGH |
+| UART | COM12 FTDI `210319BE776EB`, STOP_EARLY pred=664, 112 B, 55.2 s |
+| EXISTENCE row | `NATIVE_V1_EXIST_ROW,pred=664` **CONFIRMED** |
+| POISON | 0 **CONFIRMED** |
+| PACK/TOPK vs A-FAST `3B392B291B190B09` | **0** (UART_SLIM first print) — not H2 MATCH |
+| BOARD_PASS | **not_claimed** |
+
+XSim ≠ this UART row. Handshake `ddr_wavefront_top` is not on this SoC bit.

@@ -411,9 +411,16 @@ module tb_a7ng_ddr_wavefront;
         @(posedge ui_clk);
         timeout = timeout + 1;
       end
-      // TermGen + scorer are each one registered stage: let the last wave retire through the
-      // 16 lanes before sampling, otherwise `scored` lags `dispatched` by exactly one wave.
-      repeat (8) @(posedge ui_clk);
+      // running_o includes min-heap busy + TG/SC inflight. Bitonic settle was 8.
+      begin
+        int heap_wait;
+        heap_wait = 0;
+        while (running && heap_wait < 4096) begin
+          @(posedge ui_clk);
+          heap_wait = heap_wait + 1;
+        end
+        repeat (8) @(posedge ui_clk);
+      end
 
       if (!(feed_done && wave_done)) begin
         $display("PATTERN_FAIL p=%0d burst=%0d out=%0d thr=%0d TIMEOUT feed_done=%0b wave_done=%0b",

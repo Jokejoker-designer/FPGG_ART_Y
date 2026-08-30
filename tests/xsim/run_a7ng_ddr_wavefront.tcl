@@ -27,6 +27,7 @@ foreach f {
   rtl/native_graph/scorer/a7ng_termgen_array.sv
   rtl/native_graph/topk/a7ng_topk.sv
   rtl/native_graph/topk/a7ng_topk_wavefront_global.sv
+  rtl/native_graph/topk/a7ng_topk_wavefront_minheap.sv
   rtl/native_graph/memory/a7ng_ddr_feed_pp.sv
   rtl/native_graph/memory/a7ng_ddr_feed_axi_bridge.sv
   rtl/native_graph/memory/a7ng_cue_wave_stage.sv

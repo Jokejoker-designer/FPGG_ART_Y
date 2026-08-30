@@ -274,6 +274,31 @@ module a7ng_cue_soa_wavefront #(
     return prior_beats_mem[bi][slot*8 +: 8];
   endfunction
 
+  // LUTRAM mailbox: copy stays parallel/combo-read, but NOT in the async-reset
+  // FSM (that mapped the arrays to FF and later BRAM broke pred=664).
+  wire plane_done_w = pf_done_pulse && plane_active && !pf_running;
+  wire copy_id_w = running && plane_done_w && (phase == SOA_FETCH_ID) &&
+                   (pf_returned == id_beats_exp) && (pf_issued == id_beats_exp);
+  wire copy_cue_w = running && plane_done_w && (phase == SOA_FETCH_CUE) &&
+                    (pf_returned == cue_beats_exp) && (pf_issued == cue_beats_exp) &&
+                    (id_bcnt == 32'(id_beats_exp));
+  wire copy_prior_w = running && plane_done_w && (phase == SOA_FETCH_PRIOR) &&
+                      (pf_returned == prior_beats_exp) && (pf_issued == prior_beats_exp) &&
+                      (id_bcnt == 32'(id_beats_exp)) && (cue_bcnt == 32'(cue_beats_exp));
+
+  always_ff @(posedge clk) begin
+    integer bi;
+    if (copy_id_w)
+      for (bi = 0; bi < MAX_ID_BEATS; bi++)
+        id_beats_mem[bi] <= pf_beats[bi];
+    if (copy_cue_w)
+      for (bi = 0; bi < MAX_CUE_BEATS; bi++)
+        cue_beats_mem[bi] <= pf_beats[bi];
+    if (copy_prior_w)
+      for (bi = 0; bi < MAX_PRIOR_BEATS; bi++)
+        prior_beats_mem[bi] <= pf_beats[bi];
+  end
+
   wire prior_ar_illegal = mig_ar_fire &&
                           (phase != SOA_FETCH_PRIOR) &&
                           (ar_addr_o >= NG_DDR_PRIOR_BASE) &&
@@ -326,7 +351,6 @@ module a7ng_cue_soa_wavefront #(
       automatic logic [31:0]      del, mmadd;
       automatic int unsigned      k0, pi;
       automatic soa_phase_e       nphase;
-      automatic logic [5:0]       bi;
       automatic logic             plane_done;
 
       start_d <= start_i;
@@ -383,8 +407,6 @@ module a7ng_cue_soa_wavefront #(
           unique case (phase)
             SOA_FETCH_ID: begin
               if ((pf_returned == id_beats_exp) && (pf_issued == id_beats_exp)) begin
-                for (bi = 0; bi < MAX_ID_BEATS; bi++)
-                  id_beats_mem[bi] <= pf_beats[bi];
                 id_bcnt <= 32'(pf_returned);
                 nphase = SOA_FETCH_CUE;
                 pf_base <= NG_DDR_CUE64_BASE + (base_q << 3);
@@ -395,8 +417,6 @@ module a7ng_cue_soa_wavefront #(
             SOA_FETCH_CUE: begin
               if ((pf_returned == cue_beats_exp) && (pf_issued == cue_beats_exp) &&
                   (id_bcnt == 32'(id_beats_exp))) begin
-                for (bi = 0; bi < MAX_CUE_BEATS; bi++)
-                  cue_beats_mem[bi] <= pf_beats[bi];
                 cue_bcnt <= 32'(pf_returned);
                 nphase = SOA_FETCH_PRIOR;
                 pf_base <= NG_DDR_PRIOR_BASE + base_q[27:0];
@@ -408,8 +428,6 @@ module a7ng_cue_soa_wavefront #(
               if ((pf_returned == prior_beats_exp) && (pf_issued == prior_beats_exp) &&
                   (id_bcnt == 32'(id_beats_exp)) &&
                   (cue_bcnt == 32'(cue_beats_exp))) begin
-                for (bi = 0; bi < MAX_PRIOR_BEATS; bi++)
-                  prior_beats_mem[bi] <= pf_beats[bi];
                 prior_bcnt <= 32'(pf_returned);
                 nphase = SOA_DRAIN;
                 need_pack <= 1'b1;

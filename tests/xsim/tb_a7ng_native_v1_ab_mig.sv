@@ -685,7 +685,8 @@ module tb_a7ng_native_v1_ab_mig;
       begin
         int topk_wait;
         topk_wait = 0;
-        while (topk_update_count < 4 && topk_wait < 64) begin
+        // Min-heap merge is multi-cycle; bitonic was ~2. Do not reuse 64.
+        while ((topk_update_count < 4 || gv_count < 4) && topk_wait < 4096) begin
           @(posedge ui_clk);
           topk_wait = topk_wait + 1;
         end

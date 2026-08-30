@@ -378,7 +378,16 @@ module tb_a7ng_wf_global_topk_integrated;
         @(posedge ui_clk);
         timeout = timeout + 1;
       end
-      repeat (16) @(posedge ui_clk);
+      // running_o includes min-heap busy. Bitonic settle was 16. Wait for G_(t).
+      begin
+        int heap_wait;
+        heap_wait = 0;
+        while ((global_merge_cnt < 32'd2 || running) && heap_wait < 4096) begin
+          @(posedge ui_clk);
+          heap_wait = heap_wait + 1;
+        end
+        repeat (4) @(posedge ui_clk);
+      end
 
       if (!(feed_done && wave_done)) begin
         $display("FAIL integrated TIMEOUT feed=%0b wave=%0b", feed_done, wave_done);

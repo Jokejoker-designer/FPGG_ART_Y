@@ -13,6 +13,7 @@ set src [list \
   [file join $root rtl/native_graph/scorer a7ng_termgen_array.sv] \
   [file join $root rtl/native_graph/topk a7ng_topk.sv] \
   [file join $root rtl/native_graph/topk a7ng_topk_wavefront_global.sv] \
+  [file join $root rtl/native_graph/topk a7ng_topk_wavefront_minheap.sv] \
   [file join $root rtl/native_graph/topk a7ng_ng02_core.sv] \
   [file join $root rtl/native_graph/frontier a7ng_frontier_buckets.sv] \
   [file join $root rtl/native_graph/memory a7ng_ddr_soa_axi_bridge.sv] \

@@ -1,0 +1,15 @@
+# CONTROL-SET-MAILBOX-BIT-00 — human 2026-08-31 "OK làm đi"
+
+```text
+gate=CONTROL-SET-MAILBOX-BIT-00
+bit=arty_a7_ng_native_v1_grok_orch_mailbox_00.bit
+sha256=582F9E4753413B4856E497111A7A29256A1110E00F03D4D89F1B248F74EEF452
+jtag=210319BE776EA
+uart=COM12
+program_authorized=true
+overwrite_B0F42C11=false
+overwrite_439CC42D=false
+BOARD_PASS=not_claimed
+```
+
+Expect: POISON=0 PACK=TOPK=3B392B291B190B09 NATIVE_V1_EXIST_ROW,pred=664

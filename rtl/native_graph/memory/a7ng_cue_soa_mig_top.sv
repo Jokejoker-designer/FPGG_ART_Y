@@ -63,7 +63,8 @@ module a7ng_cue_soa_mig_top #(
   input  logic         m_axi_rvalid,
   output logic         m_axi_rready,
   output logic         owner_ready_o,
-  output logic         r_path_idle_o
+  output logic         r_path_idle_o,
+  output logic         global_topk_busy_o
 );
   import a7ng_pkg::*;
 
@@ -266,10 +267,9 @@ module a7ng_cue_soa_mig_top #(
     .push_beat_valid_o(), .push_beat_score_o(), .push_beat_id_o(), .flow_state_o()
   );
 
-  // Reuse the frozen AOS cross-wave reducer.  Local NG02 still computes an
-  // exact Top-8 for each 16-candidate wave; this stage merges four waves into
-  // the query-wide Global Top-8 required by the 00R authority.
-  a7ng_topk_wavefront_global #(.K(8)) u_global (
+  // Grok independent product copy: min-heap Global Top-8 (bitonic file frozen).
+  // Local NG02 still computes an exact Top-8 per 16-candidate wave.
+  a7ng_topk_wavefront_minheap #(.K(8), .HEAP_CMP_LANES(1)) u_global (
     .clk(clk), .rst_n(rst_n),
     .clear_i(wf_start),
     .wave_valid_i(core_topk_valid),
@@ -284,6 +284,7 @@ module a7ng_cue_soa_mig_top #(
   );
 
   assign topk_valid_o = global_topk_valid;
+  assign global_topk_busy_o = global_topk_busy;
   always_comb begin
     for (int k = 0; k < 8; k++) begin
       topk_score_o[k] = global_topk_score[k];

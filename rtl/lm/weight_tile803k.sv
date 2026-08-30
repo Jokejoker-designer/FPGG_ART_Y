@@ -25,6 +25,7 @@ module weight_tile803k #(
     output logic [31:0]        dma_bytes,
     input  logic               dma_busy,
     input  logic               dma_done,
+    input  logic               dma_grant = 1'b1,
     output logic               dma_w_valid,
     input  logic               dma_w_ready,
     output logic [127:0]       dma_w_data,
@@ -111,6 +112,7 @@ module weight_tile803k #(
             } dst_t;
             bst_t bst;
             dst_t dst;
+            logic        go_sent;
             logic [6:0] beat;
             logic        bank_we;
             logic [16:0] bank_aa, bank_ab, tile_idx;
@@ -278,27 +280,38 @@ module weight_tile803k #(
                     beat <= 7'd0;
                     ack <= 1'b0;
                     req_s <= 2'd0;
+                    go_sent <= 1'b0;
                 end else begin
                     dma_go <= 1'b0;
                     req_s <= {req_s[0], req};
                     unique case (dst)
                         D_IDLE: begin
                             ack <= 1'b0;
+                            go_sent <= 1'b0;
                             // Raw dma_busy (not AND-owned): dest is IDLE so
                             // owner=0; a gated busy would always look free
                             // and pulse go into a still-busy MIG.
-                            if (req_s[1] && !dma_busy) begin
+                            // Wait grant so the 1-cycle go is already owned
+                            // (silicon GRANT=0 while dest sat in D_GO).
+                            if (req_s[1] && !dma_busy && dma_grant) begin
                                 beat <= 7'd0;
                                 dst <= D_GO;
                             end
                         end
                         D_GO: begin
-                            dma_go <= 1'b1;
-                            dma_wr <= is_flush;
-                            dma_addr <= 28'(DDR_WBASE) + 28'(rg_base(is_flush ? cur_rg : hold_rg))
-                                + {10'd0, ch, 7'd0};
-                            dma_bytes <= 32'(CHUNK);
-                            beat <= 7'd0;
+                            // One dma_go pulse, then wait dma_busy (do not
+                            // level-hold go — that is 3× GO). Do not DRAIN
+                            // until busy: a pulse while GRANT=0 must sit
+                            // here until REQUEST_HELD + grant start DMA.
+                            if (!go_sent) begin
+                                dma_go <= 1'b1;
+                                dma_wr <= is_flush;
+                                dma_addr <= 28'(DDR_WBASE) + 28'(rg_base(is_flush ? cur_rg : hold_rg))
+                                    + {10'd0, ch, 7'd0};
+                                dma_bytes <= 32'(CHUNK);
+                                beat <= 7'd0;
+                                go_sent <= 1'b1;
+                            end
                             if (dma_busy)
                                 dst <= is_flush ? D_FEED : D_DRAIN;
                         end

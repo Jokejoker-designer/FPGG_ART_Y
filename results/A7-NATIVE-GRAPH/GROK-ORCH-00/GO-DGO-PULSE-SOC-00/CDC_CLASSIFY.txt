@@ -1,0 +1,6 @@
+GO-DGO-PULSE-SOC-00 CDC classify (each Unsafe>0 row)
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_div2_bufg_in uns=1 class=CLOCK_GEN_FALSEPATH
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_pll_i uns=1 class=CLOCK_GEN_FALSEPATH
+CDC_UNSAFE sev=Critical src=clk_pll_i dst=core_clk uns=2 class=CANDIDATE_LOGIC
+CDC_UNSAFE sev=Critical src=c166_raw dst=mmcm_ps_clk_bufg_in uns=1 class=CLOCK_GEN_FALSEPATH
+SUMMARY rows_unsafe=4 clkgen_falsepath_endpoints=3 candidate_logic_endpoints=2
