@@ -10,8 +10,11 @@ set src [list \
   [file join $root rtl/native_graph/scorer a7ng_scorer_lane.sv] \
   [file join $root rtl/native_graph/scorer a7ng_scorer_array.sv] \
   [file join $root rtl/native_graph/scorer a7ng_termgen_lane.sv] \
+  [file join $root rtl/native_graph/scorer a7ng_termgen_lane_fold6.sv] \
   [file join $root rtl/native_graph/scorer a7ng_termgen_array.sv] \
+  [file join $root rtl/native_graph/scorer a7ng_termgen_array_fold6.sv] \
   [file join $root rtl/native_graph/topk a7ng_topk.sv] \
+  [file join $root rtl/native_graph/topk a7ng_topk_stream_minheap.sv] \
   [file join $root rtl/native_graph/topk a7ng_topk_wavefront_global.sv] \
   [file join $root rtl/native_graph/topk a7ng_topk_wavefront_minheap.sv] \
   [file join $root rtl/native_graph/topk a7ng_ng02_core.sv] \
