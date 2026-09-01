@@ -100,7 +100,7 @@ module a7ng_teacher_off_glue (
     endcase
   endfunction
   function automatic logic need_lm(input logic [7:0] t);
-    return (t == T_HOLD_A) || (t == T_HOLD_B);
+    return (t == T_HOLD_A) || (t == T_UNREL) || (t == T_CONTRA) || (t == T_HOLD_B);
   endfunction
   function automatic logic [63:0] mix64(input logic [63:0] a, input logic [7:0] t);
     mix64 = {a[62:0], a[63]} ^ {56'd0, t} ^ {t, a[63:8]};
@@ -168,7 +168,9 @@ module a7ng_teacher_off_glue (
             C_FIRE: begin
               mapped_q <= map_q(tok0);
               want_lm  <= (mode == 4'h8) && need_lm(tok0);
-              c10_lmst_o <= 1'b0; c10_lmdn_o <= 1'b0;
+              c10_lmst_o <= 1'b0;
+              c10_lmdn_o <= 1'b0;
+              c10_out_o  <= 10'd0;
               tok_any  <= 1'b0;
               if (p_qready_i) begin
                 p_qvalid_o <= 1'b1; st <= S_QWAIT;

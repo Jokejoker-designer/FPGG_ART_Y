@@ -11,6 +11,11 @@ module a7ng_teacher_off_soc_xsim (
   input  logic [3:0]   cmd_i,
   input  logic [7:0]   tok_i,
   input  logic signed [3:0] reward_i,
+  // INIT-only LM-06 image load (exam: mem_we must stay 0)
+  input  logic         mem_we_i,
+  input  logic [19:0]  mem_addr_i,
+  input  logic signed [7:0] mem_wdata_i,
+  output logic signed [7:0] mem_rdata_o,
   output logic [3:0]   c1_mode_o,
   output logic [63:0]  c2_anch_o,
   output logic [63:0]  c9_topk_o,
@@ -58,7 +63,6 @@ module a7ng_teacher_off_soc_xsim (
   logic [63:0] ctx_pack;
   logic [9:0] core_pred, bind_pred;
   logic [31:0] ctx_beats, st_beats;
-  logic signed [7:0] mem_rd;
   integer di;
 
   assign topk_id_o = p_id;
@@ -150,7 +154,8 @@ module a7ng_teacher_off_soc_xsim (
 
   tiny_gpt803k_core #(.SIM_FULL(1'b1)) u_lm06 (
     .clk(clk), .rst_n(rst_n),
-    .mem_we(1'b0), .mem_addr(20'd0), .mem_wdata(8'sd0), .mem_rdata(mem_rd),
+    .mem_we(mem_we_i), .mem_addr(mem_addr_i), .mem_wdata(mem_wdata_i),
+    .mem_rdata(mem_rdata_o),
     .ctx_we(ctx_we), .ctx_idx(ctx_idx), .ctx_n_in(ctx_n), .ctx_pack(ctx_pack),
     .start_fwd(start_fwd),
     .start_train(1'b0), .start_ce(1'b0), .start_corpus(1'b0),

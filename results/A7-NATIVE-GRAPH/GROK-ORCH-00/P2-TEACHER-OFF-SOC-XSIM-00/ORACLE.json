@@ -1,0 +1,78 @@
+{
+  "gate": "P2-TEACHER-OFF-SOC-XSIM-00",
+  "classification_prior": "PASS_NARROW_FRAMING / FAIL_LM_KNOWNNESS",
+  "PROGRAM": "NO",
+  "TEACHER_OFF": "not_claimed",
+  "law_id": "lm06-signsgd-v1",
+  "wmem_path": "tests/xsim/a7lm06_wmem.hex",
+  "wmem_sha256": "C204E55909D99370387C479C74E28C15F285FDDEE20239459D7C0EC3373001E0",
+  "wmem_words": 802816,
+  "sanity_token1_pred": 744,
+  "sanity_golden_pred": 744,
+  "queries": [
+    {
+      "tag": "HOLD_A",
+      "tokens": [
+        2,
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "ctx_pack_hex": "0706050403010002",
+      "query_sha256": "80E38F6F5D2EA13FE5E7BAB9FD9712C6F21878DCA9705592276A6D7209F225A8",
+      "oracle_out": 549
+    },
+    {
+      "tag": "UNREL",
+      "tokens": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "ctx_pack_hex": "0f0e0d0c0b0a0908",
+      "query_sha256": "F4168CF7CA51844EF40DEF73200D0207BA66DA22F890367915D3826301B9BB60",
+      "oracle_out": 861
+    },
+    {
+      "tag": "CONTRA",
+      "tokens": [
+        2,
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "ctx_pack_hex": "0706050403010002",
+      "query_sha256": "2FA367709038CD9EF13AB4109ABE475F086BF5ECD355C594D7922B874BCDCAC0",
+      "oracle_out": 549
+    },
+    {
+      "tag": "HOLD_B",
+      "tokens": [
+        10,
+        8,
+        11,
+        9,
+        12,
+        13,
+        14,
+        15
+      ],
+      "ctx_pack_hex": "0f0e0d0c090b080a",
+      "query_sha256": "CA08C0D991E36D1312D7E6BBD35C8873DBD4D2482D278FFEF9E9183F21747EAC",
+      "oracle_out": 237
+    }
+  ]
+}

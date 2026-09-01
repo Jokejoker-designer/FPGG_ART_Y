@@ -1,0 +1,1822 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Sep  1 22:09:12 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g5_s00/xsim_script.tcl
+# xsim {g5_s00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PRETRAIN A rank=3 score=39
+TRAIN A vis rank=2 score=42 MODE=5
+CFRAME LIVE C1 MODE=8 (train was 5)
+CELL_LIVE_MODE PASS MODE=8 DROP=5
+EMB_POS t=56600000 dim=0 wrd=x awd=x
+EMB_POS t=56840000 dim=1 wrd=x awd=x
+EMB_TOK t=302360000 dim=0 wrd=x ard=x awd=x
+EMB_TOK t=302600000 dim=1 wrd=x ard=x awd=x
+LNV t=623880000 acc=x var=x mu=-1
+LNO t=632520000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1195720000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1758920000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2322120000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2885320000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3448520000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=4011720000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=4574920000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=5134040000 ly=0 ten_o=2 acc=0 dest=32768
+MV0 t=10387160000 ly=0 ten_o=2 acc=0 dest=32896
+MV0 t=15640280000 ly=0 ten_o=2 acc=0 dest=33024
+MV0 t=20893400000 ly=0 ten_o=2 acc=0 dest=33152
+MV0 t=26146520000 ly=0 ten_o=2 acc=0 dest=33280
+MV0 t=31399640000 ly=0 ten_o=2 acc=0 dest=33408
+MV0 t=36652760000 ly=0 ten_o=2 acc=0 dest=33536
+MV0 t=41905880000 ly=0 ten_o=2 acc=0 dest=33664
+MV0 t=47159000000 ly=0 ten_o=3 acc=0 dest=49152
+MV0 t=52412120000 ly=0 ten_o=3 acc=0 dest=49280
+MV0 t=57665240000 ly=0 ten_o=3 acc=0 dest=49408
+MV0 t=62918360000 ly=0 ten_o=3 acc=0 dest=49536
+MV0 t=68171480000 ly=0 ten_o=3 acc=0 dest=49664
+MV0 t=73424600000 ly=0 ten_o=3 acc=0 dest=49792
+MV0 t=78677720000 ly=0 ten_o=3 acc=0 dest=49920
+MV0 t=83930840000 ly=0 ten_o=3 acc=0 dest=50048
+MV0 t=89183960000 ly=0 ten_o=4 acc=0 dest=65536
+MV0 t=94437080000 ly=0 ten_o=4 acc=0 dest=65664
+MV0 t=99690200000 ly=0 ten_o=4 acc=0 dest=65792
+MV0 t=104943320000 ly=0 ten_o=4 acc=0 dest=65920
+MV0 t=110196440000 ly=0 ten_o=4 acc=0 dest=66048
+MV0 t=115449560000 ly=0 ten_o=4 acc=0 dest=66176
+MV0 t=120702680000 ly=0 ten_o=4 acc=0 dest=66304
+MV0 t=125955800000 ly=0 ten_o=4 acc=0 dest=66432
+ATTQK t=131208840000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=131233880000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=131375480000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=131400520000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=131542120000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=131567160000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=131708760000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=131733800000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=131875400000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=131911240000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=132062760000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=132098600000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=132250120000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=132285960000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=132437480000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=132473320000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=132624840000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=132671480000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=132832920000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=132879560000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=133041000000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=133087640000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=133249080000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=133295720000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=133457160000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=133514600000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=133685960000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=133743400000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=133914760000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=133972200000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=134143560000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=134201000000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=134372360000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=134440600000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=134621880000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=134690120000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=134871400000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=134939640000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=135120920000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=135189160000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=135370440000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=135449480000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=135640680000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=135719720000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=135910920000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=135989960000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=136181160000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=136260200000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=136451400000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=136541240000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=136742360000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=136832200000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=137033320000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=137123160000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=137324280000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=137414120000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=137615240000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=137715880000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=137926920000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=138027560000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=138238600000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=138339240000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=138550280000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=138650920000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=138862040000 ly=0 ten_o=5 acc=0 dest=81920
+MV0 t=144115160000 ly=0 ten_o=5 acc=0 dest=82048
+MV0 t=149368280000 ly=0 ten_o=5 acc=0 dest=82176
+MV0 t=154621400000 ly=0 ten_o=5 acc=0 dest=82304
+MV0 t=159874520000 ly=0 ten_o=5 acc=0 dest=82432
+MV0 t=165127640000 ly=0 ten_o=5 acc=0 dest=82560
+MV0 t=170380760000 ly=0 ten_o=5 acc=0 dest=82688
+MV0 t=175633880000 ly=0 ten_o=5 acc=0 dest=82816
+ADD t=180886920000 ly=0 ten=0 ard=x ardb=x
+ADD t=180917640000 ly=0 ten=0 ard=x ardb=x
+ADD t=180948360000 ly=0 ten=0 ard=x ardb=x
+ADD t=180979080000 ly=0 ten=0 ard=x ardb=x
+ADD t=181009800000 ly=0 ten=0 ard=x ardb=x
+ADD t=181040520000 ly=0 ten=0 ard=x ardb=x
+ADD t=181071240000 ly=0 ten=0 ard=x ardb=x
+ADD t=181101960000 ly=0 ten=0 ard=x ardb=x
+LNV t=181208440000 acc=x var=x mu=-1
+LNO t=181217080000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=181780280000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=182343480000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=182906680000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=183469880000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=184033080000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=184596280000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=185159480000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=185718600000 ly=0 ten_o=0 acc=0 dest=0
+MV0 t=196224840000 ly=0 ten_o=0 acc=0 dest=128
+MV0 t=206731080000 ly=0 ten_o=0 acc=0 dest=256
+MV0 t=217237320000 ly=0 ten_o=0 acc=0 dest=384
+MV0 t=227743560000 ly=0 ten_o=0 acc=0 dest=512
+MV0 t=238249800000 ly=0 ten_o=0 acc=0 dest=640
+MV0 t=248756040000 ly=0 ten_o=0 acc=0 dest=768
+MV0 t=259262280000 ly=0 ten_o=0 acc=0 dest=896
+MV0 t=269768520000 ly=0 ten_o=6 acc=0 dest=98304
+MV0 t=280264520000 ly=0 ten_o=6 acc=0 dest=98432
+MV0 t=290760520000 ly=0 ten_o=6 acc=0 dest=98560
+MV0 t=301256520000 ly=0 ten_o=6 acc=0 dest=98688
+MV0 t=311752520000 ly=0 ten_o=6 acc=0 dest=98816
+MV0 t=322248520000 ly=0 ten_o=6 acc=0 dest=98944
+MV0 t=332744520000 ly=0 ten_o=6 acc=0 dest=99072
+MV0 t=343240520000 ly=0 ten_o=6 acc=0 dest=99200
+ADD t=353736440000 ly=0 ten=1 ard=x ardb=x
+ADD t=353767160000 ly=0 ten=1 ard=x ardb=x
+ADD t=353797880000 ly=0 ten=1 ard=x ardb=x
+ADD t=353828600000 ly=0 ten=1 ard=x ardb=x
+ADD t=353859320000 ly=0 ten=1 ard=x ardb=x
+ADD t=353890040000 ly=0 ten=1 ard=x ardb=x
+ADD t=353920760000 ly=0 ten=1 ard=x ardb=x
+ADD t=353951480000 ly=0 ten=1 ard=x ardb=x
+LNV t=354057960000 acc=x var=x mu=-1
+LNO t=354066600000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=354629800000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=355193000000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=355756200000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=356319400000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=356882600000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=357445800000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=358009000000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=358568120000 ly=1 ten_o=2 acc=0 dest=32768
+MV0 t=363821240000 ly=1 ten_o=2 acc=0 dest=32896
+MV0 t=369074360000 ly=1 ten_o=2 acc=0 dest=33024
+MV0 t=374327480000 ly=1 ten_o=2 acc=0 dest=33152
+MV0 t=379580600000 ly=1 ten_o=2 acc=0 dest=33280
+MV0 t=384833720000 ly=1 ten_o=2 acc=0 dest=33408
+MV0 t=390086840000 ly=1 ten_o=2 acc=0 dest=33536
+MV0 t=395339960000 ly=1 ten_o=2 acc=0 dest=33664
+MV0 t=400593080000 ly=1 ten_o=3 acc=0 dest=49152
+MV0 t=405846200000 ly=1 ten_o=3 acc=0 dest=49280
+MV0 t=411099320000 ly=1 ten_o=3 acc=0 dest=49408
+MV0 t=416352440000 ly=1 ten_o=3 acc=0 dest=49536
+MV0 t=421605560000 ly=1 ten_o=3 acc=0 dest=49664
+MV0 t=426858680000 ly=1 ten_o=3 acc=0 dest=49792
+MV0 t=432111800000 ly=1 ten_o=3 acc=0 dest=49920
+MV0 t=437364920000 ly=1 ten_o=3 acc=0 dest=50048
+MV0 t=442618040000 ly=1 ten_o=4 acc=0 dest=65536
+MV0 t=447871160000 ly=1 ten_o=4 acc=0 dest=65664
+MV0 t=453124280000 ly=1 ten_o=4 acc=0 dest=65792
+MV0 t=458377400000 ly=1 ten_o=4 acc=0 dest=65920
+MV0 t=463630520000 ly=1 ten_o=4 acc=0 dest=66048
+MV0 t=468883640000 ly=1 ten_o=4 acc=0 dest=66176
+MV0 t=474136760000 ly=1 ten_o=4 acc=0 dest=66304
+MV0 t=479389880000 ly=1 ten_o=4 acc=0 dest=66432
+ATTQK t=484642920000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=484667960000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=484809560000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=484834600000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=484976200000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=485001240000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=485142840000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=485167880000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=485309480000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=485345320000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=485496840000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=485532680000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=485684200000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=485720040000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=485871560000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=485907400000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=486058920000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=486105560000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=486267000000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=486313640000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=486475080000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=486521720000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=486683160000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=486729800000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=486891240000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=486948680000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=487120040000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=487177480000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=487348840000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=487406280000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=487577640000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=487635080000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=487806440000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=487874680000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=488055960000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=488124200000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=488305480000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=488373720000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=488555000000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=488623240000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=488804520000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=488883560000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=489074760000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=489153800000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=489345000000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=489424040000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=489615240000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=489694280000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=489885480000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=489975320000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=490176440000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=490266280000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=490467400000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=490557240000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=490758360000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=490848200000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=491049320000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=491149960000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=491361000000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=491461640000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=491672680000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=491773320000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=491984360000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=492085000000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=492296120000 ly=1 ten_o=5 acc=0 dest=81920
+MV0 t=497549240000 ly=1 ten_o=5 acc=0 dest=82048
+MV0 t=502802360000 ly=1 ten_o=5 acc=0 dest=82176
+MV0 t=508055480000 ly=1 ten_o=5 acc=0 dest=82304
+MV0 t=513308600000 ly=1 ten_o=5 acc=0 dest=82432
+MV0 t=518561720000 ly=1 ten_o=5 acc=0 dest=82560
+MV0 t=523814840000 ly=1 ten_o=5 acc=0 dest=82688
+MV0 t=529067960000 ly=1 ten_o=5 acc=0 dest=82816
+ADD t=534321000000 ly=1 ten=0 ard=x ardb=x
+ADD t=534351720000 ly=1 ten=0 ard=x ardb=x
+ADD t=534382440000 ly=1 ten=0 ard=x ardb=x
+ADD t=534413160000 ly=1 ten=0 ard=x ardb=x
+ADD t=534443880000 ly=1 ten=0 ard=x ardb=x
+ADD t=534474600000 ly=1 ten=0 ard=x ardb=x
+ADD t=534505320000 ly=1 ten=0 ard=x ardb=x
+ADD t=534536040000 ly=1 ten=0 ard=x ardb=x
+LNV t=534642520000 acc=x var=x mu=-1
+LNO t=534651160000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=535214360000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=535777560000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=536340760000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=536903960000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=537467160000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=538030360000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=538593560000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=539152680000 ly=1 ten_o=0 acc=0 dest=0
+MV0 t=549658920000 ly=1 ten_o=0 acc=0 dest=128
+MV0 t=560165160000 ly=1 ten_o=0 acc=0 dest=256
+MV0 t=570671400000 ly=1 ten_o=0 acc=0 dest=384
+MV0 t=581177640000 ly=1 ten_o=0 acc=0 dest=512
+MV0 t=591683880000 ly=1 ten_o=0 acc=0 dest=640
+MV0 t=602190120000 ly=1 ten_o=0 acc=0 dest=768
+MV0 t=612696360000 ly=1 ten_o=0 acc=0 dest=896
+MV0 t=623202600000 ly=1 ten_o=6 acc=0 dest=98304
+MV0 t=633698600000 ly=1 ten_o=6 acc=0 dest=98432
+MV0 t=644194600000 ly=1 ten_o=6 acc=0 dest=98560
+MV0 t=654690600000 ly=1 ten_o=6 acc=0 dest=98688
+MV0 t=665186600000 ly=1 ten_o=6 acc=0 dest=98816
+MV0 t=675682600000 ly=1 ten_o=6 acc=0 dest=98944
+MV0 t=686178600000 ly=1 ten_o=6 acc=0 dest=99072
+MV0 t=696674600000 ly=1 ten_o=6 acc=0 dest=99200
+ADD t=707170520000 ly=1 ten=1 ard=x ardb=x
+ADD t=707201240000 ly=1 ten=1 ard=x ardb=x
+ADD t=707231960000 ly=1 ten=1 ard=x ardb=x
+ADD t=707262680000 ly=1 ten=1 ard=x ardb=x
+ADD t=707293400000 ly=1 ten=1 ard=x ardb=x
+ADD t=707324120000 ly=1 ten=1 ard=x ardb=x
+ADD t=707354840000 ly=1 ten=1 ard=x ardb=x
+ADD t=707385560000 ly=1 ten=1 ard=x ardb=x
+LNV t=707492040000 acc=x var=x mu=-1
+LNO t=707500680000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=708063880000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=708627080000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=709190280000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=709753480000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=710316680000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=710879880000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=711443080000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=712002200000 ly=2 ten_o=2 acc=0 dest=32768
+MV0 t=717255320000 ly=2 ten_o=2 acc=0 dest=32896
+MV0 t=722508440000 ly=2 ten_o=2 acc=0 dest=33024
+MV0 t=727761560000 ly=2 ten_o=2 acc=0 dest=33152
+MV0 t=733014680000 ly=2 ten_o=2 acc=0 dest=33280
+MV0 t=738267800000 ly=2 ten_o=2 acc=0 dest=33408
+MV0 t=743520920000 ly=2 ten_o=2 acc=0 dest=33536
+MV0 t=748774040000 ly=2 ten_o=2 acc=0 dest=33664
+MV0 t=754027160000 ly=2 ten_o=3 acc=0 dest=49152
+MV0 t=759280280000 ly=2 ten_o=3 acc=0 dest=49280
+MV0 t=764533400000 ly=2 ten_o=3 acc=0 dest=49408
+MV0 t=769786520000 ly=2 ten_o=3 acc=0 dest=49536
+MV0 t=775039640000 ly=2 ten_o=3 acc=0 dest=49664
+MV0 t=780292760000 ly=2 ten_o=3 acc=0 dest=49792
+MV0 t=785545880000 ly=2 ten_o=3 acc=0 dest=49920
+MV0 t=790799000000 ly=2 ten_o=3 acc=0 dest=50048
+MV0 t=796052120000 ly=2 ten_o=4 acc=0 dest=65536
+MV0 t=801305240000 ly=2 ten_o=4 acc=0 dest=65664
+MV0 t=806558360000 ly=2 ten_o=4 acc=0 dest=65792
+MV0 t=811811480000 ly=2 ten_o=4 acc=0 dest=65920
+MV0 t=817064600000 ly=2 ten_o=4 acc=0 dest=66048
+MV0 t=822317720000 ly=2 ten_o=4 acc=0 dest=66176
+MV0 t=827570840000 ly=2 ten_o=4 acc=0 dest=66304
+MV0 t=832823960000 ly=2 ten_o=4 acc=0 dest=66432
+ATTQK t=838077000000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=838102040000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=838243640000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=838268680000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=838410280000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=838435320000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=838576920000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=838601960000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=838743560000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=838779400000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=838930920000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=838966760000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=839118280000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=839154120000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=839305640000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=839341480000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=839493000000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=839539640000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=839701080000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=839747720000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=839909160000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=839955800000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=840117240000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=840163880000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=840325320000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=840382760000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=840554120000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=840611560000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=840782920000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=840840360000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=841011720000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=841069160000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=841240520000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=841308760000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=841490040000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=841558280000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=841739560000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=841807800000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=841989080000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=842057320000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=842238600000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=842317640000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=842508840000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=842587880000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=842779080000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=842858120000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=843049320000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=843128360000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=843319560000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=843409400000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=843610520000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=843700360000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=843901480000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=843991320000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=844192440000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=844282280000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=844483400000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=844584040000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=844795080000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=844895720000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=845106760000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=845207400000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=845418440000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=845519080000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=845730200000 ly=2 ten_o=5 acc=0 dest=81920
+MV0 t=850983320000 ly=2 ten_o=5 acc=0 dest=82048
+MV0 t=856236440000 ly=2 ten_o=5 acc=0 dest=82176
+MV0 t=861489560000 ly=2 ten_o=5 acc=0 dest=82304
+MV0 t=866742680000 ly=2 ten_o=5 acc=0 dest=82432
+MV0 t=871995800000 ly=2 ten_o=5 acc=0 dest=82560
+MV0 t=877248920000 ly=2 ten_o=5 acc=0 dest=82688
+MV0 t=882502040000 ly=2 ten_o=5 acc=0 dest=82816
+ADD t=887755080000 ly=2 ten=0 ard=x ardb=x
+ADD t=887785800000 ly=2 ten=0 ard=x ardb=x
+ADD t=887816520000 ly=2 ten=0 ard=x ardb=x
+ADD t=887847240000 ly=2 ten=0 ard=x ardb=x
+ADD t=887877960000 ly=2 ten=0 ard=x ardb=x
+ADD t=887908680000 ly=2 ten=0 ard=x ardb=x
+ADD t=887939400000 ly=2 ten=0 ard=x ardb=x
+ADD t=887970120000 ly=2 ten=0 ard=x ardb=x
+LNV t=888076600000 acc=x var=x mu=-1
+LNO t=888085240000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=888648440000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=889211640000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=889774840000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=890338040000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=890901240000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=891464440000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=892027640000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=892586760000 ly=2 ten_o=0 acc=0 dest=0
+MV0 t=903093000000 ly=2 ten_o=0 acc=0 dest=128
+MV0 t=913599240000 ly=2 ten_o=0 acc=0 dest=256
+MV0 t=924105480000 ly=2 ten_o=0 acc=0 dest=384
+MV0 t=934611720000 ly=2 ten_o=0 acc=0 dest=512
+MV0 t=945117960000 ly=2 ten_o=0 acc=0 dest=640
+MV0 t=955624200000 ly=2 ten_o=0 acc=0 dest=768
+MV0 t=966130440000 ly=2 ten_o=0 acc=0 dest=896
+MV0 t=976636680000 ly=2 ten_o=6 acc=0 dest=98304
+MV0 t=987132680000 ly=2 ten_o=6 acc=0 dest=98432
+MV0 t=997628680000 ly=2 ten_o=6 acc=0 dest=98560
+MV0 t=1008124680000 ly=2 ten_o=6 acc=0 dest=98688
+MV0 t=1018620680000 ly=2 ten_o=6 acc=0 dest=98816
+MV0 t=1029116680000 ly=2 ten_o=6 acc=0 dest=98944
+MV0 t=1039612680000 ly=2 ten_o=6 acc=0 dest=99072
+MV0 t=1050108680000 ly=2 ten_o=6 acc=0 dest=99200
+ADD t=1060604600000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060635320000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060666040000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060696760000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060727480000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060758200000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060788920000 ly=2 ten=1 ard=x ardb=x
+ADD t=1060819640000 ly=2 ten=1 ard=x ardb=x
+LNV t=1060926120000 acc=x var=x mu=-1
+LNO t=1060934760000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1061497960000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1062061160000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1062624360000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1063187560000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1063750760000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1064313960000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1064877160000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=1065436280000 ly=3 ten_o=2 acc=0 dest=32768
+MV0 t=1070689400000 ly=3 ten_o=2 acc=0 dest=32896
+MV0 t=1075942520000 ly=3 ten_o=2 acc=0 dest=33024
+MV0 t=1081195640000 ly=3 ten_o=2 acc=0 dest=33152
+MV0 t=1086448760000 ly=3 ten_o=2 acc=0 dest=33280
+MV0 t=1091701880000 ly=3 ten_o=2 acc=0 dest=33408
+MV0 t=1096955000000 ly=3 ten_o=2 acc=0 dest=33536
+MV0 t=1102208120000 ly=3 ten_o=2 acc=0 dest=33664
+MV0 t=1107461240000 ly=3 ten_o=3 acc=0 dest=49152
+MV0 t=1112714360000 ly=3 ten_o=3 acc=0 dest=49280
+MV0 t=1117967480000 ly=3 ten_o=3 acc=0 dest=49408
+MV0 t=1123220600000 ly=3 ten_o=3 acc=0 dest=49536
+MV0 t=1128473720000 ly=3 ten_o=3 acc=0 dest=49664
+MV0 t=1133726840000 ly=3 ten_o=3 acc=0 dest=49792
+MV0 t=1138979960000 ly=3 ten_o=3 acc=0 dest=49920
+MV0 t=1144233080000 ly=3 ten_o=3 acc=0 dest=50048
+MV0 t=1149486200000 ly=3 ten_o=4 acc=0 dest=65536
+MV0 t=1154739320000 ly=3 ten_o=4 acc=0 dest=65664
+MV0 t=1159992440000 ly=3 ten_o=4 acc=0 dest=65792
+MV0 t=1165245560000 ly=3 ten_o=4 acc=0 dest=65920
+MV0 t=1170498680000 ly=3 ten_o=4 acc=0 dest=66048
+MV0 t=1175751800000 ly=3 ten_o=4 acc=0 dest=66176
+MV0 t=1181004920000 ly=3 ten_o=4 acc=0 dest=66304
+MV0 t=1186258040000 ly=3 ten_o=4 acc=0 dest=66432
+ATTQK t=1191511080000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=1191536120000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=1191677720000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=1191702760000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=1191844360000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=1191869400000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=1192011000000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=1192036040000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=1192177640000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=1192213480000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=1192365000000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=1192400840000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=1192552360000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=1192588200000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=1192739720000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=1192775560000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=1192927080000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=1192973720000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=1193135160000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=1193181800000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=1193343240000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=1193389880000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=1193551320000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=1193597960000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=1193759400000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=1193816840000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=1193988200000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=1194045640000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=1194217000000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=1194274440000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=1194445800000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=1194503240000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=1194674600000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=1194742840000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=1194924120000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=1194992360000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=1195173640000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=1195241880000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=1195423160000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=1195491400000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=1195672680000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=1195751720000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=1195942920000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=1196021960000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=1196213160000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=1196292200000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=1196483400000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=1196562440000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=1196753640000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=1196843480000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=1197044600000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=1197134440000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=1197335560000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=1197425400000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=1197626520000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=1197716360000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=1197917480000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=1198018120000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=1198229160000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=1198329800000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=1198540840000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=1198641480000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=1198852520000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=1198953160000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=1199164280000 ly=3 ten_o=5 acc=0 dest=81920
+MV0 t=1204417400000 ly=3 ten_o=5 acc=0 dest=82048
+MV0 t=1209670520000 ly=3 ten_o=5 acc=0 dest=82176
+MV0 t=1214923640000 ly=3 ten_o=5 acc=0 dest=82304
+MV0 t=1220176760000 ly=3 ten_o=5 acc=0 dest=82432
+MV0 t=1225429880000 ly=3 ten_o=5 acc=0 dest=82560
+MV0 t=1230683000000 ly=3 ten_o=5 acc=0 dest=82688
+MV0 t=1235936120000 ly=3 ten_o=5 acc=0 dest=82816
+ADD t=1241189160000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241219880000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241250600000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241281320000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241312040000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241342760000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241373480000 ly=3 ten=0 ard=x ardb=x
+ADD t=1241404200000 ly=3 ten=0 ard=x ardb=x
+LNV t=1241510680000 acc=x var=x mu=-1
+LNO t=1241519320000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1242082520000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1242645720000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1243208920000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1243772120000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1244335320000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1244898520000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1245461720000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=1246020840000 ly=3 ten_o=0 acc=0 dest=0
+MV0 t=1256527080000 ly=3 ten_o=0 acc=0 dest=128
+MV0 t=1267033320000 ly=3 ten_o=0 acc=0 dest=256
+MV0 t=1277539560000 ly=3 ten_o=0 acc=0 dest=384
+MV0 t=1288045800000 ly=3 ten_o=0 acc=0 dest=512
+MV0 t=1298552040000 ly=3 ten_o=0 acc=0 dest=640
+MV0 t=1309058280000 ly=3 ten_o=0 acc=0 dest=768
+MV0 t=1319564520000 ly=3 ten_o=0 acc=0 dest=896
+MV0 t=1330070760000 ly=3 ten_o=6 acc=0 dest=98304
+MV0 t=1340566760000 ly=3 ten_o=6 acc=0 dest=98432
+MV0 t=1351062760000 ly=3 ten_o=6 acc=0 dest=98560
+MV0 t=1361558760000 ly=3 ten_o=6 acc=0 dest=98688
+MV0 t=1372054760000 ly=3 ten_o=6 acc=0 dest=98816
+MV0 t=1382550760000 ly=3 ten_o=6 acc=0 dest=98944
+MV0 t=1393046760000 ly=3 ten_o=6 acc=0 dest=99072
+MV0 t=1403542760000 ly=3 ten_o=6 acc=0 dest=99200
+ADD t=1414038680000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414069400000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414100120000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414130840000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414161560000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414192280000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414223000000 ly=3 ten=1 ard=x ardb=x
+ADD t=1414253720000 ly=3 ten=1 ard=x ardb=x
+HEAD t=1414284440000 col=0 wrd=x ard=x waddr=671744 aaddr=896 acc=0
+MV0 t=1414284520000 ly=3 ten_o=7 acc=0 dest=115584
+HEAD t=1414284760000 col=1 wrd=x ard=x waddr=671745 aaddr=897 acc=x
+SMX t=1456309240000 logit0=x
+CFRAME HELD_A C1 MODE=8 C2 ANCH=00000000000000a2
+CFRAME HELD_A C9 TOPK=0706050403010002 R1S=00000022 R1R=04 R1O=00000202
+CFRAME HELD_A C10 LMST=1 LMDN=1 OUT=0
+CELL_UPDATED_EVIDENCE PASS
+CELL_LM_ACTIVE PASS OUT=0
+CFRAME UNREL C1 MODE=8 C2 ANCH=00000000000000a3
+CFRAME UNREL C9 TOPK=0f0e0d0c0b0a0908 R1S=00000088 R1R=0a R1O=00000208
+CFRAME UNREL C10 LMST=0 LMDN=0 OUT=0
+CELL_NATIVE_ANCHOR PASS ANCH_A=00000000000000a2 ANCH_U=00000000000000a3
+CFRAME CONTRA C1 MODE=8 C2 ANCH=00000000000000a4
+CFRAME CONTRA C9 TOPK=0706050403010002 R1S=00000022 R1R=04 R1O=00000202
+CFRAME CONTRA C10 LMST=0 LMDN=0 OUT=0
+CELL_HELD_OUT_EXAM_A PASS rankA=2 scoreA=42
+INGRESS cue=0 win=0 addr=0 tok=0 w=0 mode=0
+CELL_HOST_INGRESS_ZERO PASS
+STUB_CONTROL SHA=D65F3524 lm_path=0 0x91 NOT used as PASS
+CELL_STUB_NOT_PASS PASS (CONTROL cited; DUT uses TinyGPT)
+EMB_POS t=1456603000000 dim=0 wrd=x awd=x
+EMB_POS t=1456603240000 dim=1 wrd=x awd=x
+EMB_TOK t=1456848760000 dim=0 wrd=x ard=x awd=x
+EMB_TOK t=1456849000000 dim=1 wrd=x ard=x awd=x
+LNV t=1457170280000 acc=x var=x mu=-1
+LNO t=1457178920000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1457742120000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1458305320000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1458868520000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1459431720000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1459994920000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1460558120000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1461121320000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=1461680440000 ly=0 ten_o=2 acc=0 dest=32768
+MV0 t=1466933560000 ly=0 ten_o=2 acc=0 dest=32896
+MV0 t=1472186680000 ly=0 ten_o=2 acc=0 dest=33024
+MV0 t=1477439800000 ly=0 ten_o=2 acc=0 dest=33152
+MV0 t=1482692920000 ly=0 ten_o=2 acc=0 dest=33280
+MV0 t=1487946040000 ly=0 ten_o=2 acc=0 dest=33408
+MV0 t=1493199160000 ly=0 ten_o=2 acc=0 dest=33536
+MV0 t=1498452280000 ly=0 ten_o=2 acc=0 dest=33664
+MV0 t=1503705400000 ly=0 ten_o=3 acc=0 dest=49152
+MV0 t=1508958520000 ly=0 ten_o=3 acc=0 dest=49280
+MV0 t=1514211640000 ly=0 ten_o=3 acc=0 dest=49408
+MV0 t=1519464760000 ly=0 ten_o=3 acc=0 dest=49536
+MV0 t=1524717880000 ly=0 ten_o=3 acc=0 dest=49664
+MV0 t=1529971000000 ly=0 ten_o=3 acc=0 dest=49792
+MV0 t=1535224120000 ly=0 ten_o=3 acc=0 dest=49920
+MV0 t=1540477240000 ly=0 ten_o=3 acc=0 dest=50048
+MV0 t=1545730360000 ly=0 ten_o=4 acc=0 dest=65536
+MV0 t=1550983480000 ly=0 ten_o=4 acc=0 dest=65664
+MV0 t=1556236600000 ly=0 ten_o=4 acc=0 dest=65792
+MV0 t=1561489720000 ly=0 ten_o=4 acc=0 dest=65920
+MV0 t=1566742840000 ly=0 ten_o=4 acc=0 dest=66048
+MV0 t=1571995960000 ly=0 ten_o=4 acc=0 dest=66176
+MV0 t=1577249080000 ly=0 ten_o=4 acc=0 dest=66304
+MV0 t=1582502200000 ly=0 ten_o=4 acc=0 dest=66432
+ATTQK t=1587755240000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=1587780280000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=1587921880000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=1587946920000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=1588088520000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=1588113560000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=1588255160000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=1588280200000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=1588421800000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=1588457640000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=1588609160000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=1588645000000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=1588796520000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=1588832360000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=1588983880000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=1589019720000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=1589171240000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=1589217880000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=1589379320000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=1589425960000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=1589587400000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=1589634040000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=1589795480000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=1589842120000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=1590003560000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=1590061000000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=1590232360000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=1590289800000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=1590461160000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=1590518600000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=1590689960000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=1590747400000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=1590918760000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=1590987000000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=1591168280000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=1591236520000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=1591417800000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=1591486040000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=1591667320000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=1591735560000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=1591916840000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=1591995880000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=1592187080000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=1592266120000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=1592457320000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=1592536360000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=1592727560000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=1592806600000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=1592997800000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=1593087640000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=1593288760000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=1593378600000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=1593579720000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=1593669560000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=1593870680000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=1593960520000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=1594161640000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=1594262280000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=1594473320000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=1594573960000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=1594785000000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=1594885640000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=1595096680000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=1595197320000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=1595408440000 ly=0 ten_o=5 acc=0 dest=81920
+MV0 t=1600661560000 ly=0 ten_o=5 acc=0 dest=82048
+MV0 t=1605914680000 ly=0 ten_o=5 acc=0 dest=82176
+MV0 t=1611167800000 ly=0 ten_o=5 acc=0 dest=82304
+MV0 t=1616420920000 ly=0 ten_o=5 acc=0 dest=82432
+MV0 t=1621674040000 ly=0 ten_o=5 acc=0 dest=82560
+MV0 t=1626927160000 ly=0 ten_o=5 acc=0 dest=82688
+MV0 t=1632180280000 ly=0 ten_o=5 acc=0 dest=82816
+ADD t=1637433320000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637464040000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637494760000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637525480000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637556200000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637586920000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637617640000 ly=0 ten=0 ard=x ardb=x
+ADD t=1637648360000 ly=0 ten=0 ard=x ardb=x
+LNV t=1637754840000 acc=x var=x mu=-1
+LNO t=1637763480000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1638326680000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1638889880000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1639453080000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1640016280000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1640579480000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1641142680000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1641705880000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=1642265000000 ly=0 ten_o=0 acc=0 dest=0
+MV0 t=1652771240000 ly=0 ten_o=0 acc=0 dest=128
+MV0 t=1663277480000 ly=0 ten_o=0 acc=0 dest=256
+MV0 t=1673783720000 ly=0 ten_o=0 acc=0 dest=384
+MV0 t=1684289960000 ly=0 ten_o=0 acc=0 dest=512
+MV0 t=1694796200000 ly=0 ten_o=0 acc=0 dest=640
+MV0 t=1705302440000 ly=0 ten_o=0 acc=0 dest=768
+MV0 t=1715808680000 ly=0 ten_o=0 acc=0 dest=896
+MV0 t=1726314920000 ly=0 ten_o=6 acc=0 dest=98304
+MV0 t=1736810920000 ly=0 ten_o=6 acc=0 dest=98432
+MV0 t=1747306920000 ly=0 ten_o=6 acc=0 dest=98560
+MV0 t=1757802920000 ly=0 ten_o=6 acc=0 dest=98688
+MV0 t=1768298920000 ly=0 ten_o=6 acc=0 dest=98816
+MV0 t=1778794920000 ly=0 ten_o=6 acc=0 dest=98944
+MV0 t=1789290920000 ly=0 ten_o=6 acc=0 dest=99072
+MV0 t=1799786920000 ly=0 ten_o=6 acc=0 dest=99200
+ADD t=1810282840000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810313560000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810344280000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810375000000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810405720000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810436440000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810467160000 ly=0 ten=1 ard=x ardb=x
+ADD t=1810497880000 ly=0 ten=1 ard=x ardb=x
+LNV t=1810604360000 acc=x var=x mu=-1
+LNO t=1810613000000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1811176200000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1811739400000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1812302600000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1812865800000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1813429000000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1813992200000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=1814555400000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=1815114520000 ly=1 ten_o=2 acc=0 dest=32768
+MV0 t=1820367640000 ly=1 ten_o=2 acc=0 dest=32896
+MV0 t=1825620760000 ly=1 ten_o=2 acc=0 dest=33024
+MV0 t=1830873880000 ly=1 ten_o=2 acc=0 dest=33152
+MV0 t=1836127000000 ly=1 ten_o=2 acc=0 dest=33280
+MV0 t=1841380120000 ly=1 ten_o=2 acc=0 dest=33408
+MV0 t=1846633240000 ly=1 ten_o=2 acc=0 dest=33536
+MV0 t=1851886360000 ly=1 ten_o=2 acc=0 dest=33664
+MV0 t=1857139480000 ly=1 ten_o=3 acc=0 dest=49152
+MV0 t=1862392600000 ly=1 ten_o=3 acc=0 dest=49280
+MV0 t=1867645720000 ly=1 ten_o=3 acc=0 dest=49408
+MV0 t=1872898840000 ly=1 ten_o=3 acc=0 dest=49536
+MV0 t=1878151960000 ly=1 ten_o=3 acc=0 dest=49664
+MV0 t=1883405080000 ly=1 ten_o=3 acc=0 dest=49792
+MV0 t=1888658200000 ly=1 ten_o=3 acc=0 dest=49920
+MV0 t=1893911320000 ly=1 ten_o=3 acc=0 dest=50048
+MV0 t=1899164440000 ly=1 ten_o=4 acc=0 dest=65536
+MV0 t=1904417560000 ly=1 ten_o=4 acc=0 dest=65664
+MV0 t=1909670680000 ly=1 ten_o=4 acc=0 dest=65792
+MV0 t=1914923800000 ly=1 ten_o=4 acc=0 dest=65920
+MV0 t=1920176920000 ly=1 ten_o=4 acc=0 dest=66048
+MV0 t=1925430040000 ly=1 ten_o=4 acc=0 dest=66176
+MV0 t=1930683160000 ly=1 ten_o=4 acc=0 dest=66304
+MV0 t=1935936280000 ly=1 ten_o=4 acc=0 dest=66432
+ATTQK t=1941189320000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=1941214360000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=1941355960000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=1941381000000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=1941522600000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=1941547640000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=1941689240000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=1941714280000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=1941855880000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=1941891720000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=1942043240000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=1942079080000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=1942230600000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=1942266440000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=1942417960000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=1942453800000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=1942605320000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=1942651960000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=1942813400000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=1942860040000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=1943021480000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=1943068120000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=1943229560000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=1943276200000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=1943437640000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=1943495080000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=1943666440000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=1943723880000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=1943895240000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=1943952680000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=1944124040000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=1944181480000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=1944352840000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=1944421080000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=1944602360000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=1944670600000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=1944851880000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=1944920120000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=1945101400000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=1945169640000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=1945350920000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=1945429960000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=1945621160000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=1945700200000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=1945891400000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=1945970440000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=1946161640000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=1946240680000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=1946431880000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=1946521720000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=1946722840000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=1946812680000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=1947013800000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=1947103640000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=1947304760000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=1947394600000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=1947595720000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=1947696360000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=1947907400000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=1948008040000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=1948219080000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=1948319720000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=1948530760000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=1948631400000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=1948842520000 ly=1 ten_o=5 acc=0 dest=81920
+MV0 t=1954095640000 ly=1 ten_o=5 acc=0 dest=82048
+MV0 t=1959348760000 ly=1 ten_o=5 acc=0 dest=82176
+MV0 t=1964601880000 ly=1 ten_o=5 acc=0 dest=82304
+MV0 t=1969855000000 ly=1 ten_o=5 acc=0 dest=82432
+MV0 t=1975108120000 ly=1 ten_o=5 acc=0 dest=82560
+MV0 t=1980361240000 ly=1 ten_o=5 acc=0 dest=82688
+MV0 t=1985614360000 ly=1 ten_o=5 acc=0 dest=82816
+ADD t=1990867400000 ly=1 ten=0 ard=x ardb=x
+ADD t=1990898120000 ly=1 ten=0 ard=x ardb=x
+ADD t=1990928840000 ly=1 ten=0 ard=x ardb=x
+ADD t=1990959560000 ly=1 ten=0 ard=x ardb=x
+ADD t=1990990280000 ly=1 ten=0 ard=x ardb=x
+ADD t=1991021000000 ly=1 ten=0 ard=x ardb=x
+ADD t=1991051720000 ly=1 ten=0 ard=x ardb=x
+ADD t=1991082440000 ly=1 ten=0 ard=x ardb=x
+LNV t=1991188920000 acc=x var=x mu=-1
+LNO t=1991197560000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1991760760000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1992323960000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1992887160000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1993450360000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1994013560000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1994576760000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=1995139960000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=1995699080000 ly=1 ten_o=0 acc=0 dest=0
+MV0 t=2006205320000 ly=1 ten_o=0 acc=0 dest=128
+MV0 t=2016711560000 ly=1 ten_o=0 acc=0 dest=256
+MV0 t=2027217800000 ly=1 ten_o=0 acc=0 dest=384
+MV0 t=2037724040000 ly=1 ten_o=0 acc=0 dest=512
+MV0 t=2048230280000 ly=1 ten_o=0 acc=0 dest=640
+MV0 t=2058736520000 ly=1 ten_o=0 acc=0 dest=768
+MV0 t=2069242760000 ly=1 ten_o=0 acc=0 dest=896
+MV0 t=2079749000000 ly=1 ten_o=6 acc=0 dest=98304
+MV0 t=2090245000000 ly=1 ten_o=6 acc=0 dest=98432
+MV0 t=2100741000000 ly=1 ten_o=6 acc=0 dest=98560
+MV0 t=2111237000000 ly=1 ten_o=6 acc=0 dest=98688
+MV0 t=2121733000000 ly=1 ten_o=6 acc=0 dest=98816
+MV0 t=2132229000000 ly=1 ten_o=6 acc=0 dest=98944
+MV0 t=2142725000000 ly=1 ten_o=6 acc=0 dest=99072
+MV0 t=2153221000000 ly=1 ten_o=6 acc=0 dest=99200
+ADD t=2163716920000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163747640000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163778360000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163809080000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163839800000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163870520000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163901240000 ly=1 ten=1 ard=x ardb=x
+ADD t=2163931960000 ly=1 ten=1 ard=x ardb=x
+LNV t=2164038440000 acc=x var=x mu=-1
+LNO t=2164047080000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2164610280000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2165173480000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2165736680000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2166299880000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2166863080000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2167426280000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2167989480000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=2168548600000 ly=2 ten_o=2 acc=0 dest=32768
+MV0 t=2173801720000 ly=2 ten_o=2 acc=0 dest=32896
+MV0 t=2179054840000 ly=2 ten_o=2 acc=0 dest=33024
+MV0 t=2184307960000 ly=2 ten_o=2 acc=0 dest=33152
+MV0 t=2189561080000 ly=2 ten_o=2 acc=0 dest=33280
+MV0 t=2194814200000 ly=2 ten_o=2 acc=0 dest=33408
+MV0 t=2200067320000 ly=2 ten_o=2 acc=0 dest=33536
+MV0 t=2205320440000 ly=2 ten_o=2 acc=0 dest=33664
+MV0 t=2210573560000 ly=2 ten_o=3 acc=0 dest=49152
+MV0 t=2215826680000 ly=2 ten_o=3 acc=0 dest=49280
+MV0 t=2221079800000 ly=2 ten_o=3 acc=0 dest=49408
+MV0 t=2226332920000 ly=2 ten_o=3 acc=0 dest=49536
+MV0 t=2231586040000 ly=2 ten_o=3 acc=0 dest=49664
+MV0 t=2236839160000 ly=2 ten_o=3 acc=0 dest=49792
+MV0 t=2242092280000 ly=2 ten_o=3 acc=0 dest=49920
+MV0 t=2247345400000 ly=2 ten_o=3 acc=0 dest=50048
+MV0 t=2252598520000 ly=2 ten_o=4 acc=0 dest=65536
+MV0 t=2257851640000 ly=2 ten_o=4 acc=0 dest=65664
+MV0 t=2263104760000 ly=2 ten_o=4 acc=0 dest=65792
+MV0 t=2268357880000 ly=2 ten_o=4 acc=0 dest=65920
+MV0 t=2273611000000 ly=2 ten_o=4 acc=0 dest=66048
+MV0 t=2278864120000 ly=2 ten_o=4 acc=0 dest=66176
+MV0 t=2284117240000 ly=2 ten_o=4 acc=0 dest=66304
+MV0 t=2289370360000 ly=2 ten_o=4 acc=0 dest=66432
+ATTQK t=2294623400000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=2294648440000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=2294790040000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=2294815080000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=2294956680000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=2294981720000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=2295123320000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=2295148360000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=2295289960000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=2295325800000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=2295477320000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=2295513160000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=2295664680000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=2295700520000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=2295852040000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=2295887880000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=2296039400000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=2296086040000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=2296247480000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=2296294120000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=2296455560000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=2296502200000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=2296663640000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=2296710280000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=2296871720000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=2296929160000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=2297100520000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=2297157960000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=2297329320000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=2297386760000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=2297558120000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=2297615560000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=2297786920000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=2297855160000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=2298036440000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=2298104680000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=2298285960000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=2298354200000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=2298535480000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=2298603720000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=2298785000000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=2298864040000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=2299055240000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=2299134280000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=2299325480000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=2299404520000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=2299595720000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=2299674760000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=2299865960000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=2299955800000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=2300156920000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=2300246760000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=2300447880000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=2300537720000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=2300738840000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=2300828680000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=2301029800000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=2301130440000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=2301341480000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=2301442120000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=2301653160000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=2301753800000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=2301964840000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=2302065480000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=2302276600000 ly=2 ten_o=5 acc=0 dest=81920
+MV0 t=2307529720000 ly=2 ten_o=5 acc=0 dest=82048
+MV0 t=2312782840000 ly=2 ten_o=5 acc=0 dest=82176
+MV0 t=2318035960000 ly=2 ten_o=5 acc=0 dest=82304
+MV0 t=2323289080000 ly=2 ten_o=5 acc=0 dest=82432
+MV0 t=2328542200000 ly=2 ten_o=5 acc=0 dest=82560
+MV0 t=2333795320000 ly=2 ten_o=5 acc=0 dest=82688
+MV0 t=2339048440000 ly=2 ten_o=5 acc=0 dest=82816
+ADD t=2344301480000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344332200000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344362920000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344393640000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344424360000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344455080000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344485800000 ly=2 ten=0 ard=x ardb=x
+ADD t=2344516520000 ly=2 ten=0 ard=x ardb=x
+LNV t=2344623000000 acc=x var=x mu=-1
+LNO t=2344631640000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2345194840000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2345758040000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2346321240000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2346884440000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2347447640000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2348010840000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2348574040000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=2349133160000 ly=2 ten_o=0 acc=0 dest=0
+MV0 t=2359639400000 ly=2 ten_o=0 acc=0 dest=128
+MV0 t=2370145640000 ly=2 ten_o=0 acc=0 dest=256
+MV0 t=2380651880000 ly=2 ten_o=0 acc=0 dest=384
+MV0 t=2391158120000 ly=2 ten_o=0 acc=0 dest=512
+MV0 t=2401664360000 ly=2 ten_o=0 acc=0 dest=640
+MV0 t=2412170600000 ly=2 ten_o=0 acc=0 dest=768
+MV0 t=2422676840000 ly=2 ten_o=0 acc=0 dest=896
+MV0 t=2433183080000 ly=2 ten_o=6 acc=0 dest=98304
+MV0 t=2443679080000 ly=2 ten_o=6 acc=0 dest=98432
+MV0 t=2454175080000 ly=2 ten_o=6 acc=0 dest=98560
+MV0 t=2464671080000 ly=2 ten_o=6 acc=0 dest=98688
+MV0 t=2475167080000 ly=2 ten_o=6 acc=0 dest=98816
+MV0 t=2485663080000 ly=2 ten_o=6 acc=0 dest=98944
+MV0 t=2496159080000 ly=2 ten_o=6 acc=0 dest=99072
+MV0 t=2506655080000 ly=2 ten_o=6 acc=0 dest=99200
+ADD t=2517151000000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517181720000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517212440000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517243160000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517273880000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517304600000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517335320000 ly=2 ten=1 ard=x ardb=x
+ADD t=2517366040000 ly=2 ten=1 ard=x ardb=x
+LNV t=2517472520000 acc=x var=x mu=-1
+LNO t=2517481160000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2518044360000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2518607560000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2519170760000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2519733960000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2520297160000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2520860360000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2521423560000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=2521982680000 ly=3 ten_o=2 acc=0 dest=32768
+MV0 t=2527235800000 ly=3 ten_o=2 acc=0 dest=32896
+MV0 t=2532488920000 ly=3 ten_o=2 acc=0 dest=33024
+MV0 t=2537742040000 ly=3 ten_o=2 acc=0 dest=33152
+MV0 t=2542995160000 ly=3 ten_o=2 acc=0 dest=33280
+MV0 t=2548248280000 ly=3 ten_o=2 acc=0 dest=33408
+MV0 t=2553501400000 ly=3 ten_o=2 acc=0 dest=33536
+MV0 t=2558754520000 ly=3 ten_o=2 acc=0 dest=33664
+MV0 t=2564007640000 ly=3 ten_o=3 acc=0 dest=49152
+MV0 t=2569260760000 ly=3 ten_o=3 acc=0 dest=49280
+MV0 t=2574513880000 ly=3 ten_o=3 acc=0 dest=49408
+MV0 t=2579767000000 ly=3 ten_o=3 acc=0 dest=49536
+MV0 t=2585020120000 ly=3 ten_o=3 acc=0 dest=49664
+MV0 t=2590273240000 ly=3 ten_o=3 acc=0 dest=49792
+MV0 t=2595526360000 ly=3 ten_o=3 acc=0 dest=49920
+MV0 t=2600779480000 ly=3 ten_o=3 acc=0 dest=50048
+MV0 t=2606032600000 ly=3 ten_o=4 acc=0 dest=65536
+MV0 t=2611285720000 ly=3 ten_o=4 acc=0 dest=65664
+MV0 t=2616538840000 ly=3 ten_o=4 acc=0 dest=65792
+MV0 t=2621791960000 ly=3 ten_o=4 acc=0 dest=65920
+MV0 t=2627045080000 ly=3 ten_o=4 acc=0 dest=66048
+MV0 t=2632298200000 ly=3 ten_o=4 acc=0 dest=66176
+MV0 t=2637551320000 ly=3 ten_o=4 acc=0 dest=66304
+MV0 t=2642804440000 ly=3 ten_o=4 acc=0 dest=66432
+ATTQK t=2648057480000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=2648082520000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=2648224120000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=2648249160000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=2648390760000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=2648415800000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=2648557400000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=2648582440000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=2648724040000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=2648759880000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=2648911400000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=2648947240000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=2649098760000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=2649134600000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=2649286120000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=2649321960000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=2649473480000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=2649520120000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=2649681560000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=2649728200000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=2649889640000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=2649936280000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=2650097720000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=2650144360000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=2650305800000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=2650363240000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=2650534600000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=2650592040000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=2650763400000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=2650820840000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=2650992200000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=2651049640000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=2651221000000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=2651289240000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=2651470520000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=2651538760000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=2651720040000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=2651788280000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=2651969560000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=2652037800000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=2652219080000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=2652298120000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=2652489320000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=2652568360000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=2652759560000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=2652838600000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=2653029800000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=2653108840000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=2653300040000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=2653389880000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=2653591000000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=2653680840000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=2653881960000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=2653971800000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=2654172920000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=2654262760000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=2654463880000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=2654564520000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=2654775560000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=2654876200000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=2655087240000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=2655187880000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=2655398920000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=2655499560000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=2655710680000 ly=3 ten_o=5 acc=0 dest=81920
+MV0 t=2660963800000 ly=3 ten_o=5 acc=0 dest=82048
+MV0 t=2666216920000 ly=3 ten_o=5 acc=0 dest=82176
+MV0 t=2671470040000 ly=3 ten_o=5 acc=0 dest=82304
+MV0 t=2676723160000 ly=3 ten_o=5 acc=0 dest=82432
+MV0 t=2681976280000 ly=3 ten_o=5 acc=0 dest=82560
+MV0 t=2687229400000 ly=3 ten_o=5 acc=0 dest=82688
+MV0 t=2692482520000 ly=3 ten_o=5 acc=0 dest=82816
+ADD t=2697735560000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697766280000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697797000000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697827720000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697858440000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697889160000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697919880000 ly=3 ten=0 ard=x ardb=x
+ADD t=2697950600000 ly=3 ten=0 ard=x ardb=x
+LNV t=2698057080000 acc=x var=x mu=-1
+LNO t=2698065720000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2698628920000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2699192120000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2699755320000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2700318520000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2700881720000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2701444920000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=2702008120000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=2702567240000 ly=3 ten_o=0 acc=0 dest=0
+MV0 t=2713073480000 ly=3 ten_o=0 acc=0 dest=128
+MV0 t=2723579720000 ly=3 ten_o=0 acc=0 dest=256
+MV0 t=2734085960000 ly=3 ten_o=0 acc=0 dest=384
+MV0 t=2744592200000 ly=3 ten_o=0 acc=0 dest=512
+MV0 t=2755098440000 ly=3 ten_o=0 acc=0 dest=640
+MV0 t=2765604680000 ly=3 ten_o=0 acc=0 dest=768
+MV0 t=2776110920000 ly=3 ten_o=0 acc=0 dest=896
+MV0 t=2786617160000 ly=3 ten_o=6 acc=0 dest=98304
+MV0 t=2797113160000 ly=3 ten_o=6 acc=0 dest=98432
+MV0 t=2807609160000 ly=3 ten_o=6 acc=0 dest=98560
+MV0 t=2818105160000 ly=3 ten_o=6 acc=0 dest=98688
+MV0 t=2828601160000 ly=3 ten_o=6 acc=0 dest=98816
+MV0 t=2839097160000 ly=3 ten_o=6 acc=0 dest=98944
+MV0 t=2849593160000 ly=3 ten_o=6 acc=0 dest=99072
+MV0 t=2860089160000 ly=3 ten_o=6 acc=0 dest=99200
+ADD t=2870585080000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870615800000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870646520000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870677240000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870707960000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870738680000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870769400000 ly=3 ten=1 ard=x ardb=x
+ADD t=2870800120000 ly=3 ten=1 ard=x ardb=x
+HEAD t=2870830840000 col=0 wrd=x ard=x waddr=671744 aaddr=896 acc=0
+MV0 t=2870830920000 ly=3 ten_o=7 acc=0 dest=115584
+HEAD t=2870831160000 col=1 wrd=x ard=x waddr=671745 aaddr=897 acc=x
+SMX t=2912855640000 logit0=x
+CFRAME HELD_B C1 MODE=8 C2 ANCH=00000000000000b2
+CFRAME HELD_B C9 TOPK=0f0e0d0c090b080a R1S=0000008a R1R=0c R1O=0000020a
+CFRAME HELD_B C10 LMST=1 LMDN=1 OUT=0
+EMB_POS t=2913108840000 dim=0 wrd=x awd=x
+EMB_POS t=2913109080000 dim=1 wrd=x awd=x
+EMB_TOK t=2913354600000 dim=0 wrd=x ard=x awd=x
+EMB_TOK t=2913354840000 dim=1 wrd=x ard=x awd=x
+LNV t=2913676120000 acc=x var=x mu=-1
+LNO t=2913684760000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2914247960000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2914811160000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2915374360000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2915937560000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2916500760000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2917063960000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=2917627160000 ly=0 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=2918186280000 ly=0 ten_o=2 acc=0 dest=32768
+MV0 t=2923439400000 ly=0 ten_o=2 acc=0 dest=32896
+MV0 t=2928692520000 ly=0 ten_o=2 acc=0 dest=33024
+MV0 t=2933945640000 ly=0 ten_o=2 acc=0 dest=33152
+MV0 t=2939198760000 ly=0 ten_o=2 acc=0 dest=33280
+MV0 t=2944451880000 ly=0 ten_o=2 acc=0 dest=33408
+MV0 t=2949705000000 ly=0 ten_o=2 acc=0 dest=33536
+MV0 t=2954958120000 ly=0 ten_o=2 acc=0 dest=33664
+MV0 t=2960211240000 ly=0 ten_o=3 acc=0 dest=49152
+MV0 t=2965464360000 ly=0 ten_o=3 acc=0 dest=49280
+MV0 t=2970717480000 ly=0 ten_o=3 acc=0 dest=49408
+MV0 t=2975970600000 ly=0 ten_o=3 acc=0 dest=49536
+MV0 t=2981223720000 ly=0 ten_o=3 acc=0 dest=49664
+MV0 t=2986476840000 ly=0 ten_o=3 acc=0 dest=49792
+MV0 t=2991729960000 ly=0 ten_o=3 acc=0 dest=49920
+MV0 t=2996983080000 ly=0 ten_o=3 acc=0 dest=50048
+MV0 t=3002236200000 ly=0 ten_o=4 acc=0 dest=65536
+MV0 t=3007489320000 ly=0 ten_o=4 acc=0 dest=65664
+MV0 t=3012742440000 ly=0 ten_o=4 acc=0 dest=65792
+MV0 t=3017995560000 ly=0 ten_o=4 acc=0 dest=65920
+MV0 t=3023248680000 ly=0 ten_o=4 acc=0 dest=66048
+MV0 t=3028501800000 ly=0 ten_o=4 acc=0 dest=66176
+MV0 t=3033754920000 ly=0 ten_o=4 acc=0 dest=66304
+MV0 t=3039008040000 ly=0 ten_o=4 acc=0 dest=66432
+ATTQK t=3044261080000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=3044286120000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=3044427720000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=3044452760000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=3044594360000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=3044619400000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=3044761000000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=3044786040000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=3044927640000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=3044963480000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=3045115000000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=3045150840000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=3045302360000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=3045338200000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=3045489720000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=3045525560000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=3045677080000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=3045723720000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=3045885160000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=3045931800000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=3046093240000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=3046139880000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=3046301320000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=3046347960000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=3046509400000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=3046566840000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=3046738200000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=3046795640000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=3046967000000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=3047024440000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=3047195800000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=3047253240000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=3047424600000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=3047492840000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=3047674120000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=3047742360000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=3047923640000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=3047991880000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=3048173160000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=3048241400000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=3048422680000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=3048501720000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=3048692920000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=3048771960000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=3048963160000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=3049042200000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=3049233400000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=3049312440000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=3049503640000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=3049593480000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=3049794600000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=3049884440000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=3050085560000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=3050175400000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=3050376520000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=3050466360000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=3050667480000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=3050768120000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=3050979160000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=3051079800000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=3051290840000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=3051391480000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=3051602520000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=3051703160000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=3051914280000 ly=0 ten_o=5 acc=0 dest=81920
+MV0 t=3057167400000 ly=0 ten_o=5 acc=0 dest=82048
+MV0 t=3062420520000 ly=0 ten_o=5 acc=0 dest=82176
+MV0 t=3067673640000 ly=0 ten_o=5 acc=0 dest=82304
+MV0 t=3072926760000 ly=0 ten_o=5 acc=0 dest=82432
+MV0 t=3078179880000 ly=0 ten_o=5 acc=0 dest=82560
+MV0 t=3083433000000 ly=0 ten_o=5 acc=0 dest=82688
+MV0 t=3088686120000 ly=0 ten_o=5 acc=0 dest=82816
+ADD t=3093939160000 ly=0 ten=0 ard=x ardb=x
+ADD t=3093969880000 ly=0 ten=0 ard=x ardb=x
+ADD t=3094000600000 ly=0 ten=0 ard=x ardb=x
+ADD t=3094031320000 ly=0 ten=0 ard=x ardb=x
+ADD t=3094062040000 ly=0 ten=0 ard=x ardb=x
+ADD t=3094092760000 ly=0 ten=0 ard=x ardb=x
+ADD t=3094123480000 ly=0 ten=0 ard=x ardb=x
+ADD t=3094154200000 ly=0 ten=0 ard=x ardb=x
+LNV t=3094260680000 acc=x var=x mu=-1
+LNO t=3094269320000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3094832520000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3095395720000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3095958920000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3096522120000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3097085320000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3097648520000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3098211720000 ly=0 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=3098770840000 ly=0 ten_o=0 acc=0 dest=0
+MV0 t=3109277080000 ly=0 ten_o=0 acc=0 dest=128
+MV0 t=3119783320000 ly=0 ten_o=0 acc=0 dest=256
+MV0 t=3130289560000 ly=0 ten_o=0 acc=0 dest=384
+MV0 t=3140795800000 ly=0 ten_o=0 acc=0 dest=512
+MV0 t=3151302040000 ly=0 ten_o=0 acc=0 dest=640
+MV0 t=3161808280000 ly=0 ten_o=0 acc=0 dest=768
+MV0 t=3172314520000 ly=0 ten_o=0 acc=0 dest=896
+MV0 t=3182820760000 ly=0 ten_o=6 acc=0 dest=98304
+MV0 t=3193316760000 ly=0 ten_o=6 acc=0 dest=98432
+MV0 t=3203812760000 ly=0 ten_o=6 acc=0 dest=98560
+MV0 t=3214308760000 ly=0 ten_o=6 acc=0 dest=98688
+MV0 t=3224804760000 ly=0 ten_o=6 acc=0 dest=98816
+MV0 t=3235300760000 ly=0 ten_o=6 acc=0 dest=98944
+MV0 t=3245796760000 ly=0 ten_o=6 acc=0 dest=99072
+MV0 t=3256292760000 ly=0 ten_o=6 acc=0 dest=99200
+ADD t=3266788680000 ly=0 ten=1 ard=x ardb=x
+ADD t=3266819400000 ly=0 ten=1 ard=x ardb=x
+ADD t=3266850120000 ly=0 ten=1 ard=x ardb=x
+ADD t=3266880840000 ly=0 ten=1 ard=x ardb=x
+ADD t=3266911560000 ly=0 ten=1 ard=x ardb=x
+ADD t=3266942280000 ly=0 ten=1 ard=x ardb=x
+ADD t=3266973000000 ly=0 ten=1 ard=x ardb=x
+ADD t=3267003720000 ly=0 ten=1 ard=x ardb=x
+LNV t=3267110200000 acc=x var=x mu=-1
+LNO t=3267118840000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3267682040000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3268245240000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3268808440000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3269371640000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3269934840000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3270498040000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3271061240000 ly=1 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=3271620360000 ly=1 ten_o=2 acc=0 dest=32768
+MV0 t=3276873480000 ly=1 ten_o=2 acc=0 dest=32896
+MV0 t=3282126600000 ly=1 ten_o=2 acc=0 dest=33024
+MV0 t=3287379720000 ly=1 ten_o=2 acc=0 dest=33152
+MV0 t=3292632840000 ly=1 ten_o=2 acc=0 dest=33280
+MV0 t=3297885960000 ly=1 ten_o=2 acc=0 dest=33408
+MV0 t=3303139080000 ly=1 ten_o=2 acc=0 dest=33536
+MV0 t=3308392200000 ly=1 ten_o=2 acc=0 dest=33664
+MV0 t=3313645320000 ly=1 ten_o=3 acc=0 dest=49152
+MV0 t=3318898440000 ly=1 ten_o=3 acc=0 dest=49280
+MV0 t=3324151560000 ly=1 ten_o=3 acc=0 dest=49408
+MV0 t=3329404680000 ly=1 ten_o=3 acc=0 dest=49536
+MV0 t=3334657800000 ly=1 ten_o=3 acc=0 dest=49664
+MV0 t=3339910920000 ly=1 ten_o=3 acc=0 dest=49792
+MV0 t=3345164040000 ly=1 ten_o=3 acc=0 dest=49920
+MV0 t=3350417160000 ly=1 ten_o=3 acc=0 dest=50048
+MV0 t=3355670280000 ly=1 ten_o=4 acc=0 dest=65536
+MV0 t=3360923400000 ly=1 ten_o=4 acc=0 dest=65664
+MV0 t=3366176520000 ly=1 ten_o=4 acc=0 dest=65792
+MV0 t=3371429640000 ly=1 ten_o=4 acc=0 dest=65920
+MV0 t=3376682760000 ly=1 ten_o=4 acc=0 dest=66048
+MV0 t=3381935880000 ly=1 ten_o=4 acc=0 dest=66176
+MV0 t=3387189000000 ly=1 ten_o=4 acc=0 dest=66304
+MV0 t=3392442120000 ly=1 ten_o=4 acc=0 dest=66432
+ATTQK t=3397695160000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=3397720200000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=3397861800000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=3397886840000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=3398028440000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=3398053480000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=3398195080000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=3398220120000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=3398361720000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=3398397560000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=3398549080000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=3398584920000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=3398736440000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=3398772280000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=3398923800000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=3398959640000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=3399111160000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=3399157800000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=3399319240000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=3399365880000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=3399527320000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=3399573960000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=3399735400000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=3399782040000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=3399943480000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=3400000920000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=3400172280000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=3400229720000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=3400401080000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=3400458520000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=3400629880000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=3400687320000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=3400858680000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=3400926920000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=3401108200000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=3401176440000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=3401357720000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=3401425960000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=3401607240000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=3401675480000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=3401856760000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=3401935800000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=3402127000000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=3402206040000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=3402397240000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=3402476280000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=3402667480000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=3402746520000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=3402937720000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=3403027560000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=3403228680000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=3403318520000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=3403519640000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=3403609480000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=3403810600000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=3403900440000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=3404101560000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=3404202200000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=3404413240000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=3404513880000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=3404724920000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=3404825560000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=3405036600000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=3405137240000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=3405348360000 ly=1 ten_o=5 acc=0 dest=81920
+MV0 t=3410601480000 ly=1 ten_o=5 acc=0 dest=82048
+MV0 t=3415854600000 ly=1 ten_o=5 acc=0 dest=82176
+MV0 t=3421107720000 ly=1 ten_o=5 acc=0 dest=82304
+MV0 t=3426360840000 ly=1 ten_o=5 acc=0 dest=82432
+MV0 t=3431613960000 ly=1 ten_o=5 acc=0 dest=82560
+MV0 t=3436867080000 ly=1 ten_o=5 acc=0 dest=82688
+MV0 t=3442120200000 ly=1 ten_o=5 acc=0 dest=82816
+ADD t=3447373240000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447403960000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447434680000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447465400000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447496120000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447526840000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447557560000 ly=1 ten=0 ard=x ardb=x
+ADD t=3447588280000 ly=1 ten=0 ard=x ardb=x
+LNV t=3447694760000 acc=x var=x mu=-1
+LNO t=3447703400000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3448266600000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3448829800000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3449393000000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3449956200000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3450519400000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3451082600000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3451645800000 ly=1 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=3452204920000 ly=1 ten_o=0 acc=0 dest=0
+MV0 t=3462711160000 ly=1 ten_o=0 acc=0 dest=128
+MV0 t=3473217400000 ly=1 ten_o=0 acc=0 dest=256
+MV0 t=3483723640000 ly=1 ten_o=0 acc=0 dest=384
+MV0 t=3494229880000 ly=1 ten_o=0 acc=0 dest=512
+MV0 t=3504736120000 ly=1 ten_o=0 acc=0 dest=640
+MV0 t=3515242360000 ly=1 ten_o=0 acc=0 dest=768
+MV0 t=3525748600000 ly=1 ten_o=0 acc=0 dest=896
+MV0 t=3536254840000 ly=1 ten_o=6 acc=0 dest=98304
+MV0 t=3546750840000 ly=1 ten_o=6 acc=0 dest=98432
+MV0 t=3557246840000 ly=1 ten_o=6 acc=0 dest=98560
+MV0 t=3567742840000 ly=1 ten_o=6 acc=0 dest=98688
+MV0 t=3578238840000 ly=1 ten_o=6 acc=0 dest=98816
+MV0 t=3588734840000 ly=1 ten_o=6 acc=0 dest=98944
+MV0 t=3599230840000 ly=1 ten_o=6 acc=0 dest=99072
+MV0 t=3609726840000 ly=1 ten_o=6 acc=0 dest=99200
+ADD t=3620222760000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620253480000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620284200000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620314920000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620345640000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620376360000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620407080000 ly=1 ten=1 ard=x ardb=x
+ADD t=3620437800000 ly=1 ten=1 ard=x ardb=x
+LNV t=3620544280000 acc=x var=x mu=-1
+LNO t=3620552920000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3621116120000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3621679320000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3622242520000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3622805720000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3623368920000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3623932120000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3624495320000 ly=2 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=3625054440000 ly=2 ten_o=2 acc=0 dest=32768
+MV0 t=3630307560000 ly=2 ten_o=2 acc=0 dest=32896
+MV0 t=3635560680000 ly=2 ten_o=2 acc=0 dest=33024
+MV0 t=3640813800000 ly=2 ten_o=2 acc=0 dest=33152
+MV0 t=3646066920000 ly=2 ten_o=2 acc=0 dest=33280
+MV0 t=3651320040000 ly=2 ten_o=2 acc=0 dest=33408
+MV0 t=3656573160000 ly=2 ten_o=2 acc=0 dest=33536
+MV0 t=3661826280000 ly=2 ten_o=2 acc=0 dest=33664
+MV0 t=3667079400000 ly=2 ten_o=3 acc=0 dest=49152
+MV0 t=3672332520000 ly=2 ten_o=3 acc=0 dest=49280
+MV0 t=3677585640000 ly=2 ten_o=3 acc=0 dest=49408
+MV0 t=3682838760000 ly=2 ten_o=3 acc=0 dest=49536
+MV0 t=3688091880000 ly=2 ten_o=3 acc=0 dest=49664
+MV0 t=3693345000000 ly=2 ten_o=3 acc=0 dest=49792
+MV0 t=3698598120000 ly=2 ten_o=3 acc=0 dest=49920
+MV0 t=3703851240000 ly=2 ten_o=3 acc=0 dest=50048
+MV0 t=3709104360000 ly=2 ten_o=4 acc=0 dest=65536
+MV0 t=3714357480000 ly=2 ten_o=4 acc=0 dest=65664
+MV0 t=3719610600000 ly=2 ten_o=4 acc=0 dest=65792
+MV0 t=3724863720000 ly=2 ten_o=4 acc=0 dest=65920
+MV0 t=3730116840000 ly=2 ten_o=4 acc=0 dest=66048
+MV0 t=3735369960000 ly=2 ten_o=4 acc=0 dest=66176
+MV0 t=3740623080000 ly=2 ten_o=4 acc=0 dest=66304
+MV0 t=3745876200000 ly=2 ten_o=4 acc=0 dest=66432
+ATTQK t=3751129240000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=3751154280000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=3751295880000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=3751320920000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=3751462520000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=3751487560000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=3751629160000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=3751654200000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=3751795800000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=3751831640000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=3751983160000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=3752019000000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=3752170520000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=3752206360000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=3752357880000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=3752393720000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=3752545240000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=3752591880000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=3752753320000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=3752799960000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=3752961400000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=3753008040000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=3753169480000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=3753216120000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=3753377560000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=3753435000000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=3753606360000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=3753663800000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=3753835160000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=3753892600000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=3754063960000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=3754121400000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=3754292760000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=3754361000000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=3754542280000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=3754610520000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=3754791800000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=3754860040000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=3755041320000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=3755109560000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=3755290840000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=3755369880000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=3755561080000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=3755640120000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=3755831320000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=3755910360000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=3756101560000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=3756180600000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=3756371800000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=3756461640000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=3756662760000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=3756752600000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=3756953720000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=3757043560000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=3757244680000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=3757334520000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=3757535640000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=3757636280000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=3757847320000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=3757947960000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=3758159000000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=3758259640000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=3758470680000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=3758571320000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=3758782440000 ly=2 ten_o=5 acc=0 dest=81920
+MV0 t=3764035560000 ly=2 ten_o=5 acc=0 dest=82048
+MV0 t=3769288680000 ly=2 ten_o=5 acc=0 dest=82176
+MV0 t=3774541800000 ly=2 ten_o=5 acc=0 dest=82304
+MV0 t=3779794920000 ly=2 ten_o=5 acc=0 dest=82432
+MV0 t=3785048040000 ly=2 ten_o=5 acc=0 dest=82560
+MV0 t=3790301160000 ly=2 ten_o=5 acc=0 dest=82688
+MV0 t=3795554280000 ly=2 ten_o=5 acc=0 dest=82816
+ADD t=3800807320000 ly=2 ten=0 ard=x ardb=x
+ADD t=3800838040000 ly=2 ten=0 ard=x ardb=x
+ADD t=3800868760000 ly=2 ten=0 ard=x ardb=x
+ADD t=3800899480000 ly=2 ten=0 ard=x ardb=x
+ADD t=3800930200000 ly=2 ten=0 ard=x ardb=x
+ADD t=3800960920000 ly=2 ten=0 ard=x ardb=x
+ADD t=3800991640000 ly=2 ten=0 ard=x ardb=x
+ADD t=3801022360000 ly=2 ten=0 ard=x ardb=x
+LNV t=3801128840000 acc=x var=x mu=-1
+LNO t=3801137480000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3801700680000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3802263880000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3802827080000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3803390280000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3803953480000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3804516680000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=3805079880000 ly=2 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=3805639000000 ly=2 ten_o=0 acc=0 dest=0
+MV0 t=3816145240000 ly=2 ten_o=0 acc=0 dest=128
+MV0 t=3826651480000 ly=2 ten_o=0 acc=0 dest=256
+MV0 t=3837157720000 ly=2 ten_o=0 acc=0 dest=384
+MV0 t=3847663960000 ly=2 ten_o=0 acc=0 dest=512
+MV0 t=3858170200000 ly=2 ten_o=0 acc=0 dest=640
+MV0 t=3868676440000 ly=2 ten_o=0 acc=0 dest=768
+MV0 t=3879182680000 ly=2 ten_o=0 acc=0 dest=896
+MV0 t=3889688920000 ly=2 ten_o=6 acc=0 dest=98304
+MV0 t=3900184920000 ly=2 ten_o=6 acc=0 dest=98432
+MV0 t=3910680920000 ly=2 ten_o=6 acc=0 dest=98560
+MV0 t=3921176920000 ly=2 ten_o=6 acc=0 dest=98688
+MV0 t=3931672920000 ly=2 ten_o=6 acc=0 dest=98816
+MV0 t=3942168920000 ly=2 ten_o=6 acc=0 dest=98944
+MV0 t=3952664920000 ly=2 ten_o=6 acc=0 dest=99072
+MV0 t=3963160920000 ly=2 ten_o=6 acc=0 dest=99200
+ADD t=3973656840000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973687560000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973718280000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973749000000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973779720000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973810440000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973841160000 ly=2 ten=1 ard=x ardb=x
+ADD t=3973871880000 ly=2 ten=1 ard=x ardb=x
+LNV t=3973978360000 acc=x var=x mu=-1
+LNO t=3973987000000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3974550200000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3975113400000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3975676600000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3976239800000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3976803000000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3977366200000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+LNO t=3977929400000 ly=3 ten=0 ard=x mu=-1 sc=16 q=-1
+MV0 t=3978488520000 ly=3 ten_o=2 acc=0 dest=32768
+MV0 t=3983741640000 ly=3 ten_o=2 acc=0 dest=32896
+MV0 t=3988994760000 ly=3 ten_o=2 acc=0 dest=33024
+MV0 t=3994247880000 ly=3 ten_o=2 acc=0 dest=33152
+MV0 t=3999501000000 ly=3 ten_o=2 acc=0 dest=33280
+MV0 t=4004754120000 ly=3 ten_o=2 acc=0 dest=33408
+MV0 t=4010007240000 ly=3 ten_o=2 acc=0 dest=33536
+MV0 t=4015260360000 ly=3 ten_o=2 acc=0 dest=33664
+MV0 t=4020513480000 ly=3 ten_o=3 acc=0 dest=49152
+MV0 t=4025766600000 ly=3 ten_o=3 acc=0 dest=49280
+MV0 t=4031019720000 ly=3 ten_o=3 acc=0 dest=49408
+MV0 t=4036272840000 ly=3 ten_o=3 acc=0 dest=49536
+MV0 t=4041525960000 ly=3 ten_o=3 acc=0 dest=49664
+MV0 t=4046779080000 ly=3 ten_o=3 acc=0 dest=49792
+MV0 t=4052032200000 ly=3 ten_o=3 acc=0 dest=49920
+MV0 t=4057285320000 ly=3 ten_o=3 acc=0 dest=50048
+MV0 t=4062538440000 ly=3 ten_o=4 acc=0 dest=65536
+MV0 t=4067791560000 ly=3 ten_o=4 acc=0 dest=65664
+MV0 t=4073044680000 ly=3 ten_o=4 acc=0 dest=65792
+MV0 t=4078297800000 ly=3 ten_o=4 acc=0 dest=65920
+MV0 t=4083550920000 ly=3 ten_o=4 acc=0 dest=66048
+MV0 t=4088804040000 ly=3 ten_o=4 acc=0 dest=66176
+MV0 t=4094057160000 ly=3 ten_o=4 acc=0 dest=66304
+MV0 t=4099310280000 ly=3 ten_o=4 acc=0 dest=66432
+ATTQK t=4104563320000 ard=x ardb=x qa=32768 ka=49152
+ATTO t=4104588360000 h=0 q=-1 z=x acc=x dest=81920
+ATTQK t=4104729960000 ard=x ardb=x qa=32800 ka=49184
+ATTO t=4104755000000 h=1 q=-1 z=x acc=x dest=81952
+ATTQK t=4104896600000 ard=x ardb=x qa=32832 ka=49216
+ATTO t=4104921640000 h=2 q=-1 z=x acc=x dest=81984
+ATTQK t=4105063240000 ard=x ardb=x qa=32864 ka=49248
+ATTO t=4105088280000 h=3 q=-1 z=x acc=x dest=82016
+ATTQK t=4105229880000 ard=x ardb=x qa=32896 ka=49152
+ATTO t=4105265720000 h=0 q=-1 z=x acc=x dest=82048
+ATTQK t=4105417240000 ard=x ardb=x qa=32928 ka=49184
+ATTO t=4105453080000 h=1 q=-1 z=x acc=x dest=82080
+ATTQK t=4105604600000 ard=x ardb=x qa=32960 ka=49216
+ATTO t=4105640440000 h=2 q=-1 z=x acc=x dest=82112
+ATTQK t=4105791960000 ard=x ardb=x qa=32992 ka=49248
+ATTO t=4105827800000 h=3 q=-1 z=x acc=x dest=82144
+ATTQK t=4105979320000 ard=x ardb=x qa=33024 ka=49152
+ATTO t=4106025960000 h=0 q=-1 z=x acc=x dest=82176
+ATTQK t=4106187400000 ard=x ardb=x qa=33056 ka=49184
+ATTO t=4106234040000 h=1 q=-1 z=x acc=x dest=82208
+ATTQK t=4106395480000 ard=x ardb=x qa=33088 ka=49216
+ATTO t=4106442120000 h=2 q=-1 z=x acc=x dest=82240
+ATTQK t=4106603560000 ard=x ardb=x qa=33120 ka=49248
+ATTO t=4106650200000 h=3 q=-1 z=x acc=x dest=82272
+ATTQK t=4106811640000 ard=x ardb=x qa=33152 ka=49152
+ATTO t=4106869080000 h=0 q=-1 z=x acc=x dest=82304
+ATTQK t=4107040440000 ard=x ardb=x qa=33184 ka=49184
+ATTO t=4107097880000 h=1 q=-1 z=x acc=x dest=82336
+ATTQK t=4107269240000 ard=x ardb=x qa=33216 ka=49216
+ATTO t=4107326680000 h=2 q=-1 z=x acc=x dest=82368
+ATTQK t=4107498040000 ard=x ardb=x qa=33248 ka=49248
+ATTO t=4107555480000 h=3 q=-1 z=x acc=x dest=82400
+ATTQK t=4107726840000 ard=x ardb=x qa=33280 ka=49152
+ATTO t=4107795080000 h=0 q=-1 z=x acc=x dest=82432
+ATTQK t=4107976360000 ard=x ardb=x qa=33312 ka=49184
+ATTO t=4108044600000 h=1 q=-1 z=x acc=x dest=82464
+ATTQK t=4108225880000 ard=x ardb=x qa=33344 ka=49216
+ATTO t=4108294120000 h=2 q=-1 z=x acc=x dest=82496
+ATTQK t=4108475400000 ard=x ardb=x qa=33376 ka=49248
+ATTO t=4108543640000 h=3 q=-1 z=x acc=x dest=82528
+ATTQK t=4108724920000 ard=x ardb=x qa=33408 ka=49152
+ATTO t=4108803960000 h=0 q=-1 z=x acc=x dest=82560
+ATTQK t=4108995160000 ard=x ardb=x qa=33440 ka=49184
+ATTO t=4109074200000 h=1 q=-1 z=x acc=x dest=82592
+ATTQK t=4109265400000 ard=x ardb=x qa=33472 ka=49216
+ATTO t=4109344440000 h=2 q=-1 z=x acc=x dest=82624
+ATTQK t=4109535640000 ard=x ardb=x qa=33504 ka=49248
+ATTO t=4109614680000 h=3 q=-1 z=x acc=x dest=82656
+ATTQK t=4109805880000 ard=x ardb=x qa=33536 ka=49152
+ATTO t=4109895720000 h=0 q=-1 z=x acc=x dest=82688
+ATTQK t=4110096840000 ard=x ardb=x qa=33568 ka=49184
+ATTO t=4110186680000 h=1 q=-1 z=x acc=x dest=82720
+ATTQK t=4110387800000 ard=x ardb=x qa=33600 ka=49216
+ATTO t=4110477640000 h=2 q=-1 z=x acc=x dest=82752
+ATTQK t=4110678760000 ard=x ardb=x qa=33632 ka=49248
+ATTO t=4110768600000 h=3 q=-1 z=x acc=x dest=82784
+ATTQK t=4110969720000 ard=x ardb=x qa=33664 ka=49152
+ATTO t=4111070360000 h=0 q=-1 z=x acc=x dest=82816
+ATTQK t=4111281400000 ard=x ardb=x qa=33696 ka=49184
+ATTO t=4111382040000 h=1 q=-1 z=x acc=x dest=82848
+ATTQK t=4111593080000 ard=x ardb=x qa=33728 ka=49216
+ATTO t=4111693720000 h=2 q=-1 z=x acc=x dest=82880
+ATTQK t=4111904760000 ard=x ardb=x qa=33760 ka=49248
+ATTO t=4112005400000 h=3 q=-1 z=x acc=x dest=82912
+MV0 t=4112216520000 ly=3 ten_o=5 acc=0 dest=81920
+MV0 t=4117469640000 ly=3 ten_o=5 acc=0 dest=82048
+MV0 t=4122722760000 ly=3 ten_o=5 acc=0 dest=82176
+MV0 t=4127975880000 ly=3 ten_o=5 acc=0 dest=82304
+MV0 t=4133229000000 ly=3 ten_o=5 acc=0 dest=82432
+MV0 t=4138482120000 ly=3 ten_o=5 acc=0 dest=82560
+MV0 t=4143735240000 ly=3 ten_o=5 acc=0 dest=82688
+MV0 t=4148988360000 ly=3 ten_o=5 acc=0 dest=82816
+ADD t=4154241400000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154272120000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154302840000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154333560000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154364280000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154395000000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154425720000 ly=3 ten=0 ard=x ardb=x
+ADD t=4154456440000 ly=3 ten=0 ard=x ardb=x
+LNV t=4154562920000 acc=x var=x mu=-1
+LNO t=4154571560000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4155134760000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4155697960000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4156261160000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4156824360000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4157387560000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4157950760000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+LNO t=4158513960000 ly=3 ten=6 ard=x mu=-1 sc=16 q=-1
+MV0 t=4159073080000 ly=3 ten_o=0 acc=0 dest=0
+MV0 t=4169579320000 ly=3 ten_o=0 acc=0 dest=128
+MV0 t=4180085560000 ly=3 ten_o=0 acc=0 dest=256
+MV0 t=4190591800000 ly=3 ten_o=0 acc=0 dest=384
+MV0 t=4201098040000 ly=3 ten_o=0 acc=0 dest=512
+MV0 t=4211604280000 ly=3 ten_o=0 acc=0 dest=640
+MV0 t=4222110520000 ly=3 ten_o=0 acc=0 dest=768
+MV0 t=4232616760000 ly=3 ten_o=0 acc=0 dest=896
+MV0 t=4243123000000 ly=3 ten_o=6 acc=0 dest=98304
+MV0 t=4253619000000 ly=3 ten_o=6 acc=0 dest=98432
+MV0 t=4264115000000 ly=3 ten_o=6 acc=0 dest=98560
+MV0 t=4274611000000 ly=3 ten_o=6 acc=0 dest=98688
+MV0 t=4285107000000 ly=3 ten_o=6 acc=0 dest=98816
+MV0 t=4295603000000 ly=3 ten_o=6 acc=0 dest=98944
+MV0 t=4306099000000 ly=3 ten_o=6 acc=0 dest=99072
+MV0 t=4316595000000 ly=3 ten_o=6 acc=0 dest=99200
+ADD t=4327090920000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327121640000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327152360000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327183080000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327213800000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327244520000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327275240000 ly=3 ten=1 ard=x ardb=x
+ADD t=4327305960000 ly=3 ten=1 ard=x ardb=x
+HEAD t=4327336680000 col=0 wrd=x ard=x waddr=671744 aaddr=896 acc=0
+MV0 t=4327336760000 ly=3 ten_o=7 acc=0 dest=115584
+HEAD t=4327337000000 col=1 wrd=x ard=x waddr=671745 aaddr=897 acc=x
+SMX t=4369361480000 logit0=x
+CELL_BLIND_EXAM_B PASS Brank=2 Bscore=42
+SCALE mapping_A_complete ran_40=0
+CELL_SCALE_20_THEN_40 PASS
+TEACHER_OFF_SOC_XSIM_PASS fails=0 CELLS=9
+$finish called at time : 4369607480 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_teacher_off_soc_xsim.sv" Line 219
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:02:04 . Memory (MB): peak = 227.938 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 20444 KB (Peak: 20444 KB), Simulation CPU Usage: 119984 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep  1 22:11:18 2026...

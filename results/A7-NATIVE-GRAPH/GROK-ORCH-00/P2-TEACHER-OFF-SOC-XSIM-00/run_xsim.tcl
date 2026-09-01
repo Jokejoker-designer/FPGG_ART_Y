@@ -40,7 +40,7 @@ if {[catch {exec $xsim g5_s00 -runall > [file join $bag unit_xsim.log] 2>@1}]} {
 }
 set out [read [open [file join $bag unit_xsim.log] r]]
 puts $out
-if {![string match "*TEACHER_OFF_SOC_XSIM_PASS*" $out]} {
+if {![string match "*TEACHER_OFF_SOC_XSIM_PASS fails=0 CELLS=9 LM_KNOWN*" $out]} {
   puts UNIT_XSIM_FAIL
   exit 5
 }
