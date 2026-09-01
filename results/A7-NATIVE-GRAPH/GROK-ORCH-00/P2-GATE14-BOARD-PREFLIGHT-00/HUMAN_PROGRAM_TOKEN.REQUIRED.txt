@@ -1,0 +1,21 @@
+# This file is NOT an authorization token.
+
+gate=P2-GATE14-BOARD-PREFLIGHT-00
+authorize_program=false
+PROGRAM=NO
+bit_sha256=6975AB757FE592DBD0EAB68FBDC7463559A3712CAA9A8BD1E429C9A6BDF8B39A
+bit_name=arty_a7_ng_native_v1_grok_orch_p2_wdma_release_cdc_audit_03.bit
+jtag=210319BE776EA
+uart=COM12
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+GATE14=not_closed
+
+# A later human token MUST be a new file, named, and contain ALL of:
+#   HUMAN_PROGRAM_TOKEN
+#   gate=<exact next program gate>
+#   bit_sha256=6975AB757FE592DBD0EAB68FBDC7463559A3712CAA9A8BD1E429C9A6BDF8B39A
+#   authorize_program=yes
+#   signer=<human name>
+#   date=<ISO>
+# Any other bit SHA, D5B/F06C/2E18/AOS/mailbox/pred664 leftover, or missing signer = REFUSE.
