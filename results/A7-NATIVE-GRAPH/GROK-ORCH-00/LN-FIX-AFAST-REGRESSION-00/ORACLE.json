@@ -1,0 +1,30 @@
+{
+  "gate": "LN-FIX-AFAST-REGRESSION-00",
+  "PROGRAM": "NO",
+  "historical_pred_old_core": 664,
+  "historical_old_core_sha256": "29D230FCC23247F49DD58E081607314C1CC4F8C8B4ECBD422E2FA75412290C9E",
+  "patched_core_sha256": "75706E2C804C4044CF7A76638978A617A83DE0D4E7D5A37EF703C974E8EFB5FB",
+  "wmem_sha256": "C204E55909D99370387C479C74E28C15F285FDDEE20239459D7C0EC3373001E0",
+  "python_ref_sha256": "05FACAF42AE4A7EBA00D1F3377A8223ACD0B70A4153AC335D7F80C78E8EEA870",
+  "law_id": "lm06-signsgd-v1",
+  "ctx_idx": 0,
+  "ctx_n": 8,
+  "ctx_pack_hex": "3b392b291b190b09",
+  "tokens": [
+    9,
+    11,
+    25,
+    27,
+    41,
+    43,
+    57,
+    59
+  ],
+  "sanity_token1_pred": 744,
+  "sanity_token1_logit0": -1090663,
+  "python_pred": 249,
+  "python_logit0": 1623245,
+  "oracle_rec_sha256": "BA53DD69859E3DB1376B71350AA98C138D7BF2BC431703546676ED160515BE5E",
+  "do_not_hardcode_664_as_patched_acceptance": true,
+  "historical_afast_wmem_cite": "9A6BBC7AC8AF82725CAFD0B50241EE683C07FB9943C754753025F3569967D10F"
+}

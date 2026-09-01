@@ -1,0 +1,24 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_a7lm06_afast_lnfix_regression -s afast_old -timescale 1ns/1ps 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'w_stall' remains unconnected for this instance [D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7lm06_afast_lnfix_regression.sv:30]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7lm06_pkg
+Compiling package work.$unit_a7lm06_pkg_sv_3816856136
+Compiling module work.a7lm06_logits_lutram
+Compiling module work.weight_bram803k
+Compiling module work.weight_tile803k_default
+Compiling module work.act_ram128k16
+Compiling module work.snap_ram4k16
+Compiling module work.isqrt32
+Compiling module work.floordiv_s48
+Compiling module work.tiny_gpt803k_core
+Compiling module work.tb_a7lm06_afast_lnfix_regression
+Built simulation snapshot afast_old
