@@ -1,0 +1,32 @@
+```text
+gate=P2-MIG-PERSIST-CDC-CLOSURE-02
+program_authorized=false
+PROGRAM=NO
+LABEL=MINHEAP
+PHYS=4
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+GATE14=not_claimed
+preserve_mig_persist_bit=F06C6E846369B30AE721E32758BEB56FE0216106024F05948B7A16B20C482489
+preserve_cofit_bit=2E18B1440791D4554A3DD863AAC35A6150B6B2302CF23494D09649BFAAB225C4
+BIT_SHA256=D5B725CF44614E6D90EDF997435E6051BE66723037E9B5DE688E799306D22C22
+bit_name=arty_a7_ng_native_v1_grok_orch_p2_mig_persist_cdc_closure_02.bit
+bytes=3826011
+persist_cdc_critical=0
+candidate_logic=2 FINDING_wdma_rel_sync
+core_clk_to_ui_unsafe=0
+afast_acceptance=pred249/logit0=1623245
+persist_sha_lock=D1BF0340 UNEDITED
+bridge=BDBA4785
+top=1898E136
+free_slices=445
+WNS=+1.276
+TNS=0
+WHS=+0.014
+THS=0
+route_err=0
+BRAM36=103
+DSP=19
+MIG=UNEDITED
+STOP=CODEX_AUDIT_TOKEN
+```
