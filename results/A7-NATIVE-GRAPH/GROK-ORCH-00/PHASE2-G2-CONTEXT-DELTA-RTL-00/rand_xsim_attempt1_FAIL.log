@@ -1,0 +1,18 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Sep  1 18:47:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g2_rand/xsim_script.tcl
+# xsim {g2_rand} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+RAND n_in=100000 n_out=99999 n_stall=1 n_gap=49999 mismatch=0 extra=0 loss=1 stale=0 sat_bad=0 seed=c0deda7a
+CONTEXT_DELTA_RAND_XSIM_FAIL fails=2 MISMATCH_COUNT=0
+$finish called at time : 12006520 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_context_delta_rand.sv" Line 270
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Sep  1 18:47:49 2026...
