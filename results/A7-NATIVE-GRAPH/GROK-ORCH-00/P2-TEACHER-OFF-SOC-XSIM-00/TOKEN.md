@@ -1,0 +1,11 @@
+```text
+gate=P2-TEACHER-OFF-SOC-XSIM-00
+program_authorized=false
+PROGRAM=NO
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+HS-02=not_claimed
+verdict=PASS_FUNCTIONAL
+physical=glue_OOC_only
+ran_40=0
+```

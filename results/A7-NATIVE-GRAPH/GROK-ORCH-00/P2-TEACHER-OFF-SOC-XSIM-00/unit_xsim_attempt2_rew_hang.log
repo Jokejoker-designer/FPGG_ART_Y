@@ -1,0 +1,28 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Sep  1 21:56:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g5_s00/xsim_script.tcl
+# xsim {g5_s00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PRETRAIN A rank=3 score=39
+TRAIN A vis rank=2 score=42 MODE=5
+CFRAME LIVE C1 MODE=8 (train was 5)
+FAIL cmd done timeout c=3
+FAIL freeze ack=1 want DROP=5
+CELL_LIVE_MODE PASS MODE=8 DROP=1
+FAIL cmd_ready timeout c=1
+FAIL cmd done timeout c=1
+FAIL cmd_ready timeout c=2
+FAIL TB watchdog
+$finish called at time : 16000000680 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_teacher_off_soc_xsim.sv" Line 119
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:06:26 . Memory (MB): peak = 227.906 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 20168 KB (Peak: 20168 KB), Simulation CPU Usage: 371046 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep  1 22:02:53 2026...
