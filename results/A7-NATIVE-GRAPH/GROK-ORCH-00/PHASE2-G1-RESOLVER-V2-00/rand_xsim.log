@@ -1,0 +1,20 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Sep  1 10:28:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/v2_rand/xsim_script.tcl
+# xsim {v2_rand} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+DIRECTED_DONE fails=0 wrap_seen=1
+SCOREBOARD issue=25 hs=25 n_c=25 n_or=11110 n_rg=5556 n_lt=2 n_dr=1 n_dp=11112 n_md=1
+MISMATCH_COUNT=0
+RESOLVER_V2_RAND_XSIM_PASS cycles=100000 wrap_seen=1
+$finish called at time : 1001256 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_feedback_resolver_v2_rand.sv" Line 287
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Sep  1 10:28:48 2026...

@@ -1,0 +1,19 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Sep  1 10:28:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/cx_res_v2/xsim_script.tcl
+# xsim {cx_res_v2} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS learn0_latch_rejected
+PASS no_echo_reject_late
+RESOLVER_COUNTEREXAMPLE_XSIM_PASS
+$finish called at time : 90 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_resolver_counterexample.sv" Line 77
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Sep  1 10:28:43 2026...
