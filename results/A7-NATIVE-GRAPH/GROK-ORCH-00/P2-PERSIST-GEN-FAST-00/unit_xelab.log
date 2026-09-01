@@ -1,0 +1,18 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_a7ng_persist_gen_fast -s g4_s00 -timescale 1ns/1ps 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7ng_pkg
+Compiling module work.a7ng_scorer_lane
+Compiling module work.a7ng_feedback_resolver_default
+Compiling module work.a7ng_context_delta
+Compiling module work.a7ng_persist_gen_fast
+Compiling module work.tb_a7ng_persist_gen_fast
+Built simulation snapshot g4_s00
