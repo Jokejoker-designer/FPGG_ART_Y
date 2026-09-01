@@ -1,0 +1,5 @@
+21AD48A5F900435F02741E96D9A9FE1A90355430CB77393A5CA6EC90467F99A5  D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\rtl\native_graph\learn\a7ng_causal_learn_fast.sv
+2219DA29C265D2461ED30783EBEA0F0649050B9B6E5F6EAFDB8F1C4E05F3F5F7  D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\rtl\native_graph\learn\a7ng_feedback_resolver.sv
+0614386298F31DC6A5EB456959290F9C6ADDC899FBF91F8CD49BB5A3D2BBA800  D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\rtl\native_graph\learn\a7ng_context_delta.sv
+167F5C6D3052F3702A75ABBC3146F21F78536143440E5D8223057777FF408767  D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\tests\xsim\tb_a7ng_causal_learn_fast.sv
+CAAEB8217F922400937404E02EAFC4E9DB3950E0CCC7DE42630FC80444867088  D:\Jetking_sem4\SEM_4\arty-a7-online-lm\results\A7-NATIVE-GRAPH\PHASE2-SERIAL-G3-PREREG-00\PREREGISTER.md
