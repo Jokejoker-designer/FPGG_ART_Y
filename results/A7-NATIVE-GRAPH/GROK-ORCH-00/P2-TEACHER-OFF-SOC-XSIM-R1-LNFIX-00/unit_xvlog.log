@@ -1,0 +1,35 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/pkg/a7ng_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/scorer/a7ng_scorer_lane.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_scorer_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/learn/a7ng_feedback_resolver.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_feedback_resolver
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/learn/a7ng_context_delta.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_context_delta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/learn/a7ng_persist_gen_fast.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_persist_gen_fast
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/lm/a7ng_native_ctx_bind.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_native_ctx_bind
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/integrate/a7ng_teacher_off_glue.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_teacher_off_glue
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/a7lm06_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/isqrt32.sv" into library work
+INFO: [VRFC 10-311] analyzing module isqrt32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/floordiv_s48.sv" into library work
+INFO: [VRFC 10-311] analyzing module floordiv_s48
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/weight_bram803k.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_bram803k
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/weight_bram_tdp8.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_bram_tdp8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/weight_tile803k.sv" into library work
+INFO: [VRFC 10-311] analyzing module weight_tile803k
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/act_ram128k16.sv" into library work
+INFO: [VRFC 10-311] analyzing module act_ram128k16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/snap_ram4k16.sv" into library work
+INFO: [VRFC 10-311] analyzing module snap_ram4k16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/lm/tiny_gpt803k_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7lm06_logits_lutram
+INFO: [VRFC 10-311] analyzing module tiny_gpt803k_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/integrate/a7ng_teacher_off_soc_xsim.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_teacher_off_soc_xsim
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_teacher_off_soc_xsim_r1.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_a7ng_teacher_off_soc_xsim_r1
