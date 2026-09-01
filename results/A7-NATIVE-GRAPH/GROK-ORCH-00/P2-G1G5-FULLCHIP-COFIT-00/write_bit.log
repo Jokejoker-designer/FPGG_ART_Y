@@ -1,0 +1,105 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 13-aug-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Wed Sep  2 01:25:53 2026
+# Process ID         : 103668
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-G1G5-FULLCHIP-COFIT-00
+# Command line       : vivado.exe -mode batch -notrace -source D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\P2-G1G5-FULLCHIP-COFIT-00\write_bit_from_dcp.tcl -log D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\P2-G1G5-FULLCHIP-COFIT-00\write_bit.log -journal D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\P2-G1G5-FULLCHIP-COFIT-00\write_bit.jou
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-G1G5-FULLCHIP-COFIT-00/write_bit.log
+# Journal file       : D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\P2-G1G5-FULLCHIP-COFIT-00\write_bit.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 35915 MB
+# Total Virtual      : 52457 MB
+# Available Virtual  : 29387 MB
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/2026.1/Vivado/scripts/Vivado_init.tcl'
+vivado-mcp server ready on port 9999
+source {D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\P2-G1G5-FULLCHIP-COFIT-00\write_bit_from_dcp.tcl} -notrace
+Command: open_checkpoint D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-G1G5-FULLCHIP-COFIT-00/e2r_post_route.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 338.738 ; gain = 0.527
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.431 . Memory (MB): peak = 905.488 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 8042 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 1070.930 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.097 . Memory (MB): peak = 1756.145 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1756.145 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1756.145 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1821.996 ; gain = 65.852
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1821.996 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.796 . Memory (MB): peak = 1835.340 ; gain = 13.344
+Read Physdb Files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1835.340 ; gain = 79.195
+Restored from archive | CPU: 3.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1835.340 ; gain = 79.195
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1912.086 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 730 instances were transformed.
+  IBUFDS_INTERMDISABLE => IBUFDS_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2)): 2 instances
+  IOBUFDS_INTERMDISABLE => IOBUFDS_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2), INV, OBUFTDS(x2)): 2 instances
+  IOBUF_INTERMDISABLE => IOBUF_INTERMDISABLE (IBUF_INTERMDISABLE, OBUFT): 16 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  OBUFTDS => OBUFTDS_DUAL_BUF (INV, OBUFTDS(x2)): 2 instances
+  RAM16X1S => RAM32X1S (RAMS32): 32 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 112 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 496 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 64 instances
+  SRLC32E => SRL16E: 1 instance 
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1913.141 ; gain = 1583.602
+SLICE used=15360 tot=15850 free=490
+BRAM36=103 RAMB18=0 DSP=19
+Command: write_bitstream -force D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-G1G5-FULLCHIP-COFIT-00/arty_a7_ng_native_v1_grok_orch_p2_g1g5_cofit_00.bit
+Attempting to get a license for feature 'Vivado_Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Vivado_Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/2026.1/Vivado/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Integrating Hard IP ELF/MEM with the PDI.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Initializing bitstream generation complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.993 . Memory (MB): peak = 2256.465 ; gain = 87.586
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-G1G5-FULLCHIP-COFIT-00/arty_a7_ng_native_v1_grok_orch_p2_g1g5_cofit_00.bit...
+Generate Bitstream complete. Time (s): cpu = 00:00:43 ; elapsed = 00:00:26 . Memory (MB): peak = 2549.828 ; gain = 380.949
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Vivado_Implementation
+23 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:58 ; elapsed = 00:00:44 . Memory (MB): peak = 2549.828 ; gain = 636.688
+BIT_OK path=D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-G1G5-FULLCHIP-COFIT-00/arty_a7_ng_native_v1_grok_orch_p2_g1g5_cofit_00.bit sha256=2E18B1440791D4554A3DD863AAC35A6150B6B2302CF23494D09649BFAAB225C4 PROGRAM=NO free=490 risk=0
+INFO: [Common 17-206] Exiting Vivado at Wed Sep  2 01:27:13 2026...
