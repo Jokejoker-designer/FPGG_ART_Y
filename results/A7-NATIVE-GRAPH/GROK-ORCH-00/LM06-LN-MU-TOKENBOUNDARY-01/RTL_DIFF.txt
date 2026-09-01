@@ -1,0 +1,20 @@
+diff --git a/rtl/lm/tiny_gpt803k_core.sv b/rtl/lm/tiny_gpt803k_core.sv
+index 814dce6..b993278 100644
+--- a/rtl/lm/tiny_gpt803k_core.sv
++++ b/rtl/lm/tiny_gpt803k_core.sv
+@@ -582,8 +582,14 @@ module tiny_gpt803k_core #(
+                                         ten_o <= 3'd0; nrows <= 11'(FF); ncols <= 11'(D); relu <= 1'b1;
+                                         row <= 9'd0; col <= 9'd0; acc <= 64'sd0; st <= ST_MV;
+                                     end
+-                                end else
++                                end else begin
++                                    // Per-token LN: recompute mu/var. Staying in
++                                    // ST_LN_O reuses tok0 mu (H1 token boundary).
+                                     tok_i <= tok_i + 7'd1;
++                                    acc   <= 64'sd0;
++                                    sub   <= 4'd0;
++                                    st    <= ST_LN_S;
++                                end
+                             end else
+                                 dim <= dim + 9'd1;
+                         end
