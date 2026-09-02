@@ -35,7 +35,18 @@ module a7ng_teacher_off_soc_xsim (
   output logic [2:0]   last_ack_o,
   output logic         exam_lm_used_o,
   output a7ng_pkg::node_id_t topk_id_o [8],
-  output a7ng_pkg::score_t   topk_sc_o [8]
+  output a7ng_pkg::score_t   topk_sc_o [8],
+  output logic [15:0]  p_txn_o,
+  output logic         c5_cons_o,
+  output logic [31:0]  c8_gen_o,
+  output logic [63:0]  c8_sdig_o,
+  output logic [31:0]  c7_addr_o,
+  output logic         c7_v_o,
+  output logic         persist_busy_o,
+  output logic [63:0]  c11_adig_o,
+  output logic [63:0]  c11_bdig_o,
+  output logic         c11_a_for_o,
+  output logic         c11_b_vis_o
 );
   import a7ng_pkg::*;
 
@@ -67,6 +78,13 @@ module a7ng_teacher_off_soc_xsim (
 
   assign topk_id_o = p_id;
   assign topk_sc_o = p_sc;
+  assign p_txn_o = p_txn;
+  assign c5_cons_o = p_c5;
+  assign c8_gen_o = c8g;
+  assign c8_sdig_o = c8d;
+  assign c7_addr_o = p_c7a;
+  assign c7_v_o = p_c7v;
+  assign persist_busy_o = p_busy;
 
   always_ff @(posedge clk) begin
     if (ddr_req && ddr_we)
@@ -172,4 +190,17 @@ module a7ng_teacher_off_soc_xsim (
     .dbg_tile_bst(), .dbg_tile_dst(), .dbg_tile_rg(),
     .dbg_tile_miss(), .dbg_tile_dirty(), .dbg_tile_req(), .dbg_tile_req_s1()
   );
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      c11_adig_o <= 64'd0; c11_bdig_o <= 64'd0;
+      c11_a_for_o <= 1'b0; c11_b_vis_o <= 1'b0;
+    end else if (cmd_valid_i && cmd_ready_o) begin
+      if (cmd_i == 4'd7) begin
+        if (!c11_b_vis_o && !c11_a_for_o) c11_adig_o <= c8d;
+        else begin c11_bdig_o <= c8d; c11_b_vis_o <= 1'b1; end
+      end
+      if (cmd_i == 4'd8) c11_a_for_o <= 1'b1;
+    end
+  end
 endmodule

@@ -42,7 +42,22 @@ module a7ng_g1g5_cofit (
   output logic         persist_c7_valid_o,
   output logic [31:0]  persist_c7_addr_o,
   input  logic         persist_c7_ready_i,
-  output logic         persist_busy_o
+  output logic         persist_busy_o,
+  // Gate14 UART command (optional). When g14_en_i, auto-freeze is off.
+  input  logic         g14_en_i,
+  input  logic         g14_cmd_v_i,
+  output logic         g14_cmd_r_o,
+  input  logic [3:0]   g14_cmd_i,
+  input  logic [7:0]   g14_tok_i,
+  input  logic signed [3:0] g14_rew_i,
+  output logic [31:0]  c8_gen_o,
+  output logic [63:0]  c8_sdig_o,
+  output logic [63:0]  c11_adig_o,
+  output logic [63:0]  c11_bdig_o,
+  output logic         c11_a_for_o,
+  output logic         c11_b_vis_o,
+  output logic [15:0]  p_txn_o,
+  output logic         c5_cons_o
 );
   import a7ng_pkg::*;
 
@@ -98,6 +113,11 @@ module a7ng_g1g5_cofit (
   assign persist_c7_valid_o  = p_c7v;
   assign persist_c7_addr_o   = p_c7a;
   assign persist_busy_o      = p_busy;
+  assign c8_gen_o            = c8g;
+  assign c8_sdig_o           = c8d;
+  assign p_txn_o             = p_txn;
+  assign c5_cons_o           = p_c5;
+  assign g14_cmd_r_o         = g14_en_i ? cr : 1'b0;
 
   a7ng_persist_gen_fast #(.WRAP_LIMIT(32'd6)) u_persist (
     .clk(clk), .rst_n(rst_n), .learn_i(p_learn), .freeze_i(p_freeze),
@@ -122,8 +142,11 @@ module a7ng_g1g5_cofit (
 
   a7ng_teacher_off_glue u_glue (
     .clk(clk), .rst_n(rst_n),
-    .cmd_valid_i(cv), .cmd_ready_o(cr),
-    .cmd_i(cmd), .tok_i(tok), .reward_i(rew),
+    .cmd_valid_i(g14_en_i ? g14_cmd_v_i : cv),
+    .cmd_ready_o(cr),
+    .cmd_i(g14_en_i ? g14_cmd_i : cmd),
+    .tok_i(g14_en_i ? g14_tok_i : tok),
+    .reward_i(g14_en_i ? g14_rew_i : rew),
     .host_cue_i(64'd0), .host_winner_i(32'd0), .host_addr_i(32'd0),
     .host_next_i(10'd0), .host_wren_i(1'b0), .host_mode_i(4'd0),
     .p_learn_o(p_learn), .p_freeze_o(p_freeze),
@@ -162,9 +185,18 @@ module a7ng_g1g5_cofit (
     if (!rst_n) begin
       cv <= 1'b0; cmd <= 4'd0; tok <= 8'd0; rew <= 4'sd0;
       froze <= 1'b0; boot_wait <= 8'd0;
+      c11_adig_o <= 64'd0; c11_bdig_o <= 64'd0;
+      c11_a_for_o <= 1'b0; c11_b_vis_o <= 1'b0;
     end else begin
       cv <= 1'b0;
-      if (!froze && cr && !p_busy) begin
+      if (g14_en_i) begin
+        if (g14_cmd_v_i && cr && g14_cmd_i == C_FREEZE) begin
+          if (!c11_b_vis_o && !c11_a_for_o) c11_adig_o <= c8d;
+          else begin c11_bdig_o <= c8d; c11_b_vis_o <= 1'b1; end
+        end
+        if (g14_cmd_v_i && cr && g14_cmd_i == 4'd8)
+          c11_a_for_o <= 1'b1;
+      end else if (!froze && cr && !p_busy) begin
         if (boot_wait != 8'hFF)
           boot_wait <= boot_wait + 8'd1;
         if (p_done || (boot_wait == 8'hFE)) begin
@@ -175,3 +207,4 @@ module a7ng_g1g5_cofit (
     end
   end
 endmodule
+

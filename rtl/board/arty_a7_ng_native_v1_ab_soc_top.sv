@@ -658,7 +658,26 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .persist_c7_valid_o(persist_c7v),
     .persist_c7_addr_o(persist_c7a),
     .persist_c7_ready_i(persist_c7rdy),
-    .persist_busy_o(persist_busy)
+    .persist_busy_o(persist_busy),
+    .g14_en_i(1'b1),
+    .g14_cmd_v_i(g14_cmd_v),
+    .g14_cmd_r_o(g14_cmd_r),
+    .g14_cmd_i(g14_cmd),
+    .g14_tok_i(g14_tok),
+    .g14_rew_i(g14_rew),
+    .c8_gen_o(g14_c8g),
+    .c8_sdig_o(g14_c8d),
+    .c11_adig_o(g14_adig),
+    .c11_bdig_o(g14_bdig),
+    .c11_a_for_o(g14_afor),
+    .c11_b_vis_o(g14_bvis),
+    .p_txn_o(g14_txn),
+    .c5_cons_o(g14_c5),
+    .c9_score_o(g14_sc),
+    .c9_r1s_o(g14_r1s),
+    .c9_r1r_o(g14_r1r),
+    .c9_r1o_o(g14_r1o),
+    .last_ack_o(g14_ack)
   );
 
   // Register on core_clk first — combo soa_running (tr_cnt) must not feed the
@@ -1276,8 +1295,8 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   assign core_live_100 = calib_ui_100 && wmem_100 && boot_ui_100;
   assign axi_b_100[31:19] = '0;
 
-  logic [7:0] tx_data;
-  logic tx_start, tx_busy;
+  logic [7:0] tx_data, cf_hold;
+  logic tx_start, tx_busy, cf_take, cf_hold_v;
   logic [6:0] tx_i;
   logic [5:0] tx_len;
   // msg_sel: 0 BOOT … 37 LM … 38 BIND_BUSY … 39 WDMA_BUSY … 40 WDMA_DONE …
@@ -1294,8 +1313,9 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   logic [3:0] led_sticky;
   logic saw_busy;
   // LOAD pulses start; WAIT_BUSY until uart_tx latches; WAIT_IDLE until byte done.
-  typedef enum logic [2:0] {
-    UT_IDLE, UT_LOAD, UT_WAIT_BUSY, UT_WAIT_IDLE, UT_NL_LOAD, UT_NL_BUSY, UT_NL_IDLE, UT_DONE
+  typedef enum logic [3:0] {
+    UT_IDLE, UT_LOAD, UT_WAIT_BUSY, UT_WAIT_IDLE, UT_NL_LOAD, UT_NL_BUSY, UT_NL_IDLE, UT_DONE,
+    UT_CF_LOAD, UT_CF_BUSY, UT_CF_IDLE
   } ut_t;
   ut_t ut;
 
@@ -2096,6 +2116,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     if (!clk_locked) begin
       ut <= UT_IDLE;
       tx_start <= 1'b0;
+      cf_take <= 1'b0;
       tx_data <= 8'd0;
       tx_i <= 7'd0;
       tx_len <= 6'd0;
@@ -2105,6 +2126,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       saw_busy <= 1'b0;
     end else begin
       tx_start <= 1'b0;
+      cf_take <= 1'b0;
       // Sticky LEDs: bit0=MIG,1=WMEM,2=SOA/CORE,3=BIND
       if (calib_100) led_sticky[0] <= 1'b1;
       if (wmem_100)  led_sticky[1] <= 1'b1;
@@ -2164,7 +2186,25 @@ module arty_a7_ng_native_v1_ab_soc_top #(
             ut <= UT_IDLE;
           end
         end
-        UT_DONE: ut <= UT_DONE;
+        UT_DONE: begin
+          if (cf_hold_v && !tx_busy) ut <= UT_CF_LOAD;
+        end
+        UT_CF_LOAD: begin
+          tx_data <= cf_hold;
+          tx_start <= 1'b1;
+          cf_take <= 1'b1;
+          saw_busy <= 1'b0;
+          ut <= UT_CF_BUSY;
+        end
+        UT_CF_BUSY: begin
+          if (tx_busy) begin
+            saw_busy <= 1'b1;
+            ut <= UT_CF_IDLE;
+          end
+        end
+        UT_CF_IDLE: begin
+          if (!tx_busy) ut <= UT_DONE;
+        end
         default: ut <= UT_IDLE;
       endcase
     end
@@ -2172,7 +2212,107 @@ module arty_a7_ng_native_v1_ab_soc_top #(
 
   logic unused_rx;
   logic unused_tie;
-  assign unused_rx = uart_txd_in;
+  logic [7:0] urx_data, ubyte, g14_typ, g14_tok, qtok;
+  logic urx_v, ubyte_v, g14_qv, g14_qr, g14_map_r, g14_cmd_v, g14_cmd_r, g14_snap;
+  logic g14_mis, g14_c5, g14_afor, g14_bvis;
+  logic [3:0] g14_cmd;
+  logic signed [3:0] g14_rew, qrew;
+  logic [15:0] g14_seq, g14_echo, g14_txn;
+  logic [7:0] rjv, rjl, rjc, rjt, rjd, rjb, ferr, oerr;
+  logic [31:0] g14_c8g, g14_r1s, g14_r1o, c5cnt, c5rej;
+  logic [63:0] g14_c8d, g14_adig, g14_bdig;
+  logic [127:0] g14_sc;
+  logic [7:0] g14_r1r;
+  logic [2:0] g14_ack;
+  logic [7:0] cf_byte, cf_pay [0:47], cf_cdc_d;
+  logic cf_v, cf_r, cf_busy, cf_start, cf_cdc_v, cdc_sr, uart_done_core, uart_done_d;
+  logic [7:0] cf_ckpt;
+  logic [15:0] cf_len, cf_seq;
+  logic dump_all;
+
+  a7ng_uart_rx100 u_g14_rx (
+    .clk(CLK100MHZ), .rst_n(clk_locked), .rx(uart_txd_in),
+    .data(urx_data), .valid(urx_v), .ferr(ferr), .oerr(oerr)
+  );
+  a7ng_byte_cdc u_g14_bcdc (
+    .src_clk(CLK100MHZ), .src_rst_n(clk_locked),
+    .src_data(urx_data), .src_valid(urx_v),
+    .dst_clk(core_clk), .dst_rst_n(core_rst_n),
+    .dst_data(ubyte), .dst_valid(ubyte_v),
+    .src_ready(cdc_sr), .dst_ready(1'b1)
+  );
+  a7ng_gate14_uart_cmd_rx u_g14_dec (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .byte_i(ubyte), .byte_v_i(ubyte_v),
+    .cmd_valid_o(g14_qv), .cmd_ready_i(g14_qr),
+    .cmd_type_o(g14_typ), .cmd_seq_o(g14_seq),
+    .tok_o(qtok), .rew_o(qrew), .echo_o(g14_echo),
+    .rj_ver(rjv), .rj_len(rjl), .rj_crc(rjc), .rj_typ(rjt), .rj_dup(rjd), .rj_busy(rjb)
+  );
+  a7ng_gate14_cmd_map u_g14_map (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .in_v(g14_qv), .in_r(g14_qr),
+    .typ(g14_typ), .tok(qtok), .rew(qrew), .echo(g14_echo),
+    .fpga_txn(g14_txn),
+    .out_v(g14_cmd_v), .out_r(g14_cmd_r),
+    .cmd(g14_cmd), .tok_o(g14_tok), .rew_o(g14_rew),
+    .snap_v(g14_snap), .rew_mismatch(g14_mis)
+  );
+
+  always_ff @(posedge core_clk or negedge core_rst_n) begin
+    if (!core_rst_n) begin
+      c5cnt <= 32'd0; c5rej <= 32'd0; uart_done_d <= 1'b0;
+    end else begin
+      uart_done_d <= uart_done_core;
+      if (g14_c5 && c5cnt != 32'hFFFF_FFFF) c5cnt <= c5cnt + 32'd1;
+      c5rej <= {rjv, rjl, rjc, rjt};
+    end
+  end
+  sync_bits #(.WIDTH(1)) u_g14_udone (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .async_in(uart_complete),
+    .sync_out(uart_done_core)
+  );
+  assign dump_all = g14_snap | (uart_done_core & ~uart_done_d);
+
+  a7ng_gate14_cframe_sched u_g14_cfs (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .start_all(dump_all), .tx_busy(cf_busy),
+    .start_tx(cf_start), .ckpt(cf_ckpt), .seq(cf_seq), .len(cf_len), .pay(cf_pay),
+    .c0_id(64'hA714_01C0_4743_3134),
+    .c1_mode(c1_mode), .c2_anch(c2_anch),
+    .c3_ids(c9_cframe), .c3_sc(g14_sc),
+    .c4_ev({g14_r1s, g14_r1o}),
+    .c5_cons(c5cnt), .c5_rej(c5rej), .c5_ack({5'd0, g14_ack}),
+    .c6_rsv(16'd0), .c6_sat(1'b0),
+    .c7_addr(persist_c7a), .c7_ack({7'd0, persist_c7v}), .c7_err({7'd0, persist_busy}),
+    .c8_gen(g14_c8g), .c8_sdig(g14_c8d),
+    .c9_ids(c9_cframe), .c9_sc(g14_sc), .c9_pack(c9_cframe),
+    .c9_poison(poison_lat), .c9_r1s(g14_r1s), .c9_r1r(g14_r1r), .c9_r1o(g14_r1o),
+    .c10_lmst(c10_lmst), .c10_lmdn(c10_lmdn), .c10_out(c10_out), .c10_x(16'd0),
+    .c11_adig(g14_adig), .c11_bdig(g14_bdig), .c11_afor(g14_afor), .c11_bvis(g14_bvis)
+  );
+  a7ng_gate14_cframe_tx u_g14_cftx (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .start(cf_start), .ckpt(cf_ckpt), .seq(cf_seq), .pay(cf_pay), .len(cf_len),
+    .byte_o(cf_byte), .byte_v(cf_v), .byte_r(cf_r), .busy(cf_busy)
+  );
+  a7ng_byte_cdc u_g14_cfcdc (
+    .src_clk(core_clk), .src_rst_n(core_rst_n),
+    .src_data(cf_byte), .src_valid(cf_v), .src_ready(cf_r),
+    .dst_clk(CLK100MHZ), .dst_rst_n(clk_locked),
+    .dst_data(cf_cdc_d), .dst_valid(cf_cdc_v), .dst_ready(!cf_hold_v)
+  );
+  always_ff @(posedge CLK100MHZ or negedge clk_locked) begin
+    if (!clk_locked) begin
+      cf_hold <= 8'd0; cf_hold_v <= 1'b0;
+    end else begin
+      if (cf_cdc_v) begin cf_hold <= cf_cdc_d; cf_hold_v <= 1'b1; end
+      else if (cf_take) cf_hold_v <= 1'b0;
+    end
+  end
+
+  assign unused_rx = 1'b0;
   assign unused_tie = |{boot_100, soa_core_100, bind_core_100, axi_b_100, dual_err, lm06_active};
   assign led = led_sticky ^ sw;
 
