@@ -1,0 +1,13 @@
+gate=P2-GATE14-BOARD-PROGRAM-20-00
+PROGRAM=NO
+want_jtag=210319BE776EA
+hw_server=connected
+n_targets=0
+want_found=0
+JTAG_ABSENT
+COM12=absent
+ports=COM3,COM4
+FTDI_VID0403_PID6010=absent
+STOP=COM_JTAG_TRANSPORT
+no_program=yes
+no_com_open=yes

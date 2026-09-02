@@ -1,0 +1,18 @@
+HUMAN_PROGRAM_TOKEN
+gate=P2-GATE14-BOARD-PROGRAM-20-00
+bit_sha256=6975AB757FE592DBD0EAB68FBDC7463559A3712CAA9A8BD1E429C9A6BDF8B39A
+bit_name=arty_a7_ng_native_v1_grok_orch_p2_wdma_release_cdc_audit_03.bit
+authorize_program=yes
+signer=User
+date=2026-09-02
+source=Ok cho program
+jtag=210319BE776EA
+device=xc7a100t_0
+uart=COM12
+program_once=yes
+no_old_bit=yes
+no_auto_reprogram=yes
+no_40_fact=yes
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+GATE14_CLOSE=not_claimed
