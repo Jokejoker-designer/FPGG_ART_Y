@@ -1,0 +1,19 @@
+HUMAN_PROGRAM_TOKEN
+gate=P2-GATE14-BOARD-PROGRAM-20-R1-00
+authorize_program=yes
+bit_sha256=6975AB757FE592DBD0EAB68FBDC7463559A3712CAA9A8BD1E429C9A6BDF8B39A
+human_authorized=yes
+program_count_limit=1
+arm_uart_before_program=yes
+run_20_facts=yes
+run_40_facts=no
+signer=User
+date=2026-09-02
+source=HUMAN RE-AUTHORIZATION BOARD RECONNECTED
+jtag=210319BE776EA
+device=xc7a100t_0
+uart=COM12
+no_old_bit=yes
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+GATE14_PASS=not_claimed

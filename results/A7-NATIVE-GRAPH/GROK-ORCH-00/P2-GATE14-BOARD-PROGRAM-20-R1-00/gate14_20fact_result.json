@@ -1,0 +1,27 @@
+{
+  "gate": "P2-GATE14-BOARD-PROGRAM-20-R1-00",
+  "run_20_facts": "NOT_RUN",
+  "reason": "uart_txd_in is unused_rx; UART_SLIM existence print only",
+  "corpus_20": "results/A7-NATIVE-GRAPH/TRAIN-V2/corpus_20.json",
+  "host_injected_facts": false,
+  "TEACHER_OFF": "not_claimed",
+  "GATE14_PASS": "not_claimed",
+  "BOARD_PASS": "not_claimed",
+  "existence": {
+    "pred": 249,
+    "TOPK": "3B392B291B190B09",
+    "PACK": "3B392B291B190B09",
+    "POISON": "0",
+    "BOOT": true,
+    "MIG_OK": true,
+    "WMEM_OK": true,
+    "CORE_DONE": true
+  },
+  "g5_oracles_on_uart": {
+    "HELD_A_549": "NOT_OBSERVED",
+    "UNRELATED_861": "NOT_OBSERVED",
+    "CONTRADICTION_549": "NOT_OBSERVED",
+    "HELD_B_237": "NOT_OBSERVED"
+  },
+  "first_divergence": "C1"
+}
