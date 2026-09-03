@@ -160,6 +160,22 @@ def c11_fields(payload: bytes) -> dict:
     }
 
 
+def c12_fields(payload: bytes) -> dict:
+    """Live host-obs CFRAME. Not a UART-hardcoded zero page."""
+    if len(payload) < 12:
+        return {}
+    return {
+        "teacher": payload[0] & 1,
+        "ext_llm": (payload[0] >> 1) & 1,
+        "mode": payload[1] & 0x0F,
+        "n_cue": int.from_bytes(payload[2:4], "little"),
+        "n_win": int.from_bytes(payload[4:6], "little"),
+        "n_addr": int.from_bytes(payload[6:8], "little"),
+        "n_next": int.from_bytes(payload[8:10], "little"),
+        "n_wren": int.from_bytes(payload[10:12], "little"),
+    }
+
+
 CMD_RESET_LEARNED = 0x01
 CMD_TRAIN_BEGIN = 0x02
 CMD_QUERY_TOKEN = 0x03

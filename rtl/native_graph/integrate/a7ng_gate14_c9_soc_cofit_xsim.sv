@@ -135,6 +135,7 @@ module a7ng_gate14_c9_soc_cofit_xsim (
     .n_host_cue_o(n_host_cue_o), .n_host_win_o(n_host_win_o),
     .n_host_addr_o(n_host_addr_o), .n_host_tok_o(n_host_tok_o),
     .n_host_w_o(n_host_w_o), .n_host_mode_o(n_host_mode_o),
+    .teacher_active_o(), .ext_llm_active_o(),
     .last_ack_o(last_ack_o), .exam_lm_used_o(exam_lm_used_o),
     .persist_ddr_req_o(ddr_req), .persist_ddr_we_o(ddr_we),
     .persist_ddr_addr_o(ddr_addr), .persist_ddr_wdata_o(ddr_wdata),

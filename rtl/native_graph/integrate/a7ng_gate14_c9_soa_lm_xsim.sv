@@ -171,6 +171,7 @@ module a7ng_gate14_c9_soa_lm_xsim (
     .n_host_cue_o(n_host_cue_o), .n_host_win_o(n_host_win_o),
     .n_host_addr_o(n_host_addr_o), .n_host_tok_o(n_host_tok_o),
     .n_host_w_o(n_host_w_o), .n_host_mode_o(n_host_mode_o),
+    .teacher_active_o(), .ext_llm_active_o(),
     .last_ack_o(last_ack_o), .exam_lm_used_o(exam_lm_used_o)
   );
 

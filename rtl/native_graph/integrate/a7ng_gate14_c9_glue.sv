@@ -67,10 +67,18 @@ module a7ng_gate14_c9_glue (
   output logic [15:0]  n_host_tok_o,
   output logic [15:0]  n_host_w_o,
   output logic [15:0]  n_host_mode_o,
+  output logic         teacher_active_o,
+  output logic         ext_llm_active_o,
   output logic [2:0]   last_ack_o,
   output logic         exam_lm_used_o
 );
   import a7ng_pkg::*;
+
+  // Live (not UART-hardcoded). Same wires that increment n_host_*.
+  assign teacher_active_o =
+      (host_cue_i != 64'd0) | (host_winner_i != 32'd0) |
+      (host_addr_i != 32'd0) | (host_mode_i != 4'd0);
+  assign ext_llm_active_o = (host_next_i != 10'd0) | host_wren_i;
 
   localparam logic [3:0] C_TOK=4'd1, C_FIRE=4'd2, C_REW=4'd3, C_FLUSH=4'd4,
                          C_KILL=4'd5, C_RELOAD=4'd6, C_FREEZE=4'd7,
