@@ -1,0 +1,12 @@
+G14 P0: reject dirty DDR P_BOOT header as GEN=FFFFFFFF
+
+P_BOOT used to accept any DDR word with bit0=1 and gen!=0.
+All-ones DRAM therefore became live_gen=0xFFFFFFFF, vis_w stamped 0xFF,
+and C7 ack_count advanced without architectural commits.
+
+XSim TWO_FREE (30 vis_w + 2 free) reproduces silicon HOLD_A pack
+2322838281802120. Header must now match FLUSH format
+{31'd0, gen, 1'b1} with gen<=WRAP_LIMIT, else P_CLR.
+
+Oracle 653 / 8382238122802120 not retargeted. PROGRAM=NO.
+GATE14_PASS / BOARD_PASS not claimed.
