@@ -27,7 +27,11 @@ JTAG: Digilent `210319BE776EA`
 UART: COM12 @ 115200  
 
 Causal claim: **one functional unknown = epoch object** (STORE+PKG).
-See `DELTA_FROM_3A7EF204.md`. Not “only one file differs.”
+See `DELTA_FROM_3A7EF204.md` and `SILICON_READOUT.md`.
+
+Not “only one file differs.” Not “same placement + one RTL file.”
+Exactly: frozen graph/LM/data path + epoch law + observability-only TOP
++ new physical implementation. Grade E0→E5. Stop at first divergence.
 
 ---
 
@@ -101,9 +105,12 @@ OUT = 653 ?
 
 Expect vs fail bit `3A7EF204`: boot C8 GEN ≠ `FFFFFFFF`.
 
-Full oracle match on this bit closes P_BOOT/epoch on silicon. It still
-does **not** make `GATE14_PASS`. Gate14 still has teacher-off,
-reset/retrain, persistence identity, LM active-chain, and other
-acceptance items.
+After DONE, if UART looks strange: do **not** reprogram, reset-retry,
+change spacing, add delay, regenerate, or retarget the decoder onto this
+capture. Keep raw bytes. Name first divergence first.
+See `SILICON_READOUT.md` (E0–E5).
+
+Full E0–E5 match closes P_BOOT/epoch **on board**. It still does **not**
+make `GATE14_PASS`.
 
 Agent must not call `program_device` / `hw_server` program.

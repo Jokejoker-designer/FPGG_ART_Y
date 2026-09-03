@@ -31,7 +31,7 @@ Mailbox for Cursor: `D:\Jetking_sem4\SEM_4\arty-a7-online-lm\.agents\handoff\GRO
 | `P2-GATE14-C9-CMD-ACCEPT-FIX-05/` | Handshake = cmd_valid&&cmd_ready; TRESET wait GEN+1; vis_w 20 B in 32 slots. XSim PASS_NARROW. PROGRAM=NO. |
 | `P2-GATE14-C9-SOC-COFIT-BIT-06/` | Full-chip C9 SoC. Bit SHA `B0F64E6C…`. Codex rejected: ja[7:0] NSTD-1/UCIO-1 waived. PROGRAM=NO. |
 | `P2-GATE14-C9-SOC-IO-SAFE-BIT-07/` | Unique IO-safe bit SHA `3A7EF204…`. JA removed. NSTD=0 UCIO=0. Programmed once COM12. CLASS=SILICON_FAIL_DIVERGENCE HOLD_A OUT=748 want=653. GATE14_PASS=NO. BOARD_PASS=not_claimed. |
-| `G14-EPOCH-REBIRTH-BIT-00/` | Unique bit SHA `1F0F2ABB…`. WNS +0.373. XSim 653/689/237/60. READY_TO_PROGRAM=YES. PROGRAM=NO. GATE14_PASS=NO. One functional unknown = epoch object. `DELTA_FROM_3A7EF204.md`. Do not rebuild. |
+| `G14-EPOCH-REBIRTH-BIT-00/` | Unique bit SHA `1F0F2ABB…`. WNS +0.373. XSim 653/689/237/60. READY_TO_PROGRAM=YES. PROGRAM=NO. GATE14_PASS=NO. One functional unknown = epoch object. `DELTA_FROM_3A7EF204.md`. Readout E0–E5: `SILICON_READOUT.md`. Do not rebuild. |
 | `CODEX-AUDIT-GATE14-C9-SILICON-HOLD-A-748.md` | Codex audit branch pointer. Frozen oracle SHA `062932B3…`. Do not retarget. Do not auto-reprogram. |
 
 | `CODEX_GATE14_BALANCED_MVP_HANDOFF_20260831.md` | Prompt SHA `C0ACFDE7…` — R2=`MINHEAP-AREA-CLEAN-00` not Serial |

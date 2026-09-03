@@ -23,7 +23,8 @@ XSim C9 A = 8382238122802120
 Causal wording: **one functional unknown = epoch object** (STORE+PKG).
 TOP SHA delta is `OBSERVABILITY_ONLY` (`df16ff1` RST UART probes).
 G4 SHA delta is `NOT_IN_FILESET`. ORACLE SHA delta is CRLF metadata.
-Archive: `DELTA_FROM_3A7EF204.md`.
+Archive: `DELTA_FROM_3A7EF204.md`, `SILICON_READOUT.md` (E0–E5).
 
-Human programs this bit once. Do not cleanup / extra-probe / merge RTL /
-regenerate. Agent does not program.
+Human programs this bit once. No further pre-board repair. Agent does
+not program. PR #9 GitHub body still has historical PHYS-blocked prose;
+leave it until after this run.

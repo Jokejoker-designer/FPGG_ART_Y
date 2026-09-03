@@ -135,11 +135,12 @@ Reset / START / owner ranks 1–4 are already closed on unique bit
 
 **Placement caveat (honest, not a second persist unknown):** extra UART
 LUTs/FFs mean `1F0F2ABB` is **not** a placement-identical twin of
-`3A7EF204`. That is why the bit SHA differs. The persist/GEN **law**
-unknown remains the epoch object. Extra ASCII lines must be ignored by
-the host decoder; they are not CFRAME payload. If GEN is legal and C9
-still diverges, stop at first divergence — do not blame TOP probes
-without new evidence.
+`3A7EF204`. The experiment is **not** `same physical placement + one
+RTL file`. It **is** frozen graph/LM/data path + epoch object +
+observability-only TOP + new physical implementation. That does not
+break the causal test. If GEN is legal and an unrelated later stage
+fails, **do not auto-blame epoch**. Stop at first divergence
+(`SILICON_READOUT.md` E0–E5). Extra ASCII lines are not CFRAME payload.
 
 ### ORACLE — `ORACLE_METADATA`
 
