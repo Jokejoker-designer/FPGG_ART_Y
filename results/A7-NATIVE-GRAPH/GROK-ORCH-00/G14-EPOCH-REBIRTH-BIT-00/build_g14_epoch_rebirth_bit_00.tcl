@@ -151,15 +151,30 @@ if {$dma_sha ne "20BAE36ECCB6C94C2C5C9635D5FB7F771F09539E252316CC75D8F723810AD7C
   puts stderr "STOP: dma SHA drifted $dma_sha"
   exit 3
 }
-puts "NOTE: TinyGPT SHA live $core_sha (BIT-07 snapshot 75706E2C; current tree XSim-exact OUT 653/689/237/60)"
+if {$core_sha ne "75706E2C804C4044CF7A76638978A617A83DE0D4E7D5A37EF703C974E8EFB5FB"} {
+  puts stderr "STOP: TinyGPT SHA drifted (want BIT-07 75706E2C) $core_sha"
+  exit 3
+}
 if {$bind_sha ne "C5F57AD1F0A81BB998234BC885EACA5EC7A4F19279E1EDBFDC5DADE163FC94CC"} {
   puts stderr "STOP: bind SHA drifted $bind_sha"
   exit 3
 }
-puts "NOTE: cue/mig_top SHA live $cue_sha (BIT-07 snapshot 1721C298; not epoch path)"
-puts "NOTE: minheap SHA live $heap_sha (BIT-07 snapshot 6A651306; C9-03 + full-chip XSim exact)"
-puts "NOTE: AOS wavefront SHA live $wf_sha (BIT-07 snapshot 2F8888AD; not epoch path)"
-puts "NOTE: AOS boot SHA live $boot_sha (BIT-07 snapshot C02C8D9E; not epoch path)"
+if {$cue_sha ne "1721C298400EFEA7D705E507E5288ABC8BFDECB85BE0393D96DAFCC71E99A7D4"} {
+  puts stderr "STOP: cue SHA drifted (want BIT-07 1721C298) $cue_sha"
+  exit 3
+}
+if {$heap_sha ne "6A6513068936295023878C7E75A1D49A6DA790BD448209B87BEE7806AA2D44E7"} {
+  puts stderr "STOP: minheap SHA drifted (want BIT-07 6A651306) $heap_sha"
+  exit 3
+}
+if {$wf_sha ne "2F8888AD44AC7F4CC9B44DFE19C999392FADE396141BBFE9FB97D8F94056E06A"} {
+  puts stderr "STOP: wavefront SHA drifted (want BIT-07 2F8888AD) $wf_sha"
+  exit 3
+}
+if {$boot_sha ne "C02C8D9E190BBBCEDE86A359B6FE697C80BAF2CA1359232100F12FE70C7B52EF"} {
+  puts stderr "STOP: AOS boot SHA drifted (want BIT-07 C02C8D9E) $boot_sha"
+  exit 3
+}
 if {$g1_sha ne "2219DA29C265D2461ED30783EBEA0F0649050B9B6E5F6EAFDB8F1C4E05F3F5F7"} {
   puts stderr "STOP: G1 SHA drifted $g1_sha"
   exit 3
@@ -228,6 +243,7 @@ set srcs [list \
   [file join $root rtl/native_graph/scorer/a7ng_scorer_array.sv] \
   [file join $root rtl/native_graph/scorer/a7ng_termgen_lane.sv] \
   [file join $root rtl/native_graph/scorer/a7ng_termgen_lane_fold6.sv] \
+  [file join $root rtl/native_graph/scorer/a7ng_termgen_array_fold6.sv] \
   [file join $root rtl/native_graph/scorer/a7ng_termgen_array.sv] \
   [file join $root rtl/native_graph/topk/a7ng_topk.sv] \
   [file join $root rtl/native_graph/topk/a7ng_topk_stream_minheap.sv] \

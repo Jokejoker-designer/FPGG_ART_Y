@@ -67,7 +67,7 @@ module a7ng_topk_wavefront_minheap #(
   score_t     w_s [K];
   node_id_t   w_id [K];
   cand_t      h [K];
-  cand_t      sorted [K];
+  logic [2:0] ord [K];
   logic [2:0] sort_pass;
   logic [2:0] sort_j;
   logic [31:0] merges;
@@ -98,7 +98,7 @@ module a7ng_topk_wavefront_minheap #(
       global_valid_o <= 1'b0;
       for (gi = 0; gi < K; gi = gi + 1) begin
         h[gi]              <= '0;
-        sorted[gi]         <= '0;
+        ord[gi]            <= 3'(gi);
         w_s[gi]            <= '0;
         w_id[gi]           <= '0;
         global_score_o[gi] <= '0;
@@ -136,7 +136,7 @@ module a7ng_topk_wavefront_minheap #(
             sort_pass <= 3'd0;
             sort_j    <= 3'd0;
             for (gi = 0; gi < K; gi = gi + 1)
-              sorted[gi] <= h[gi];
+              ord[gi] <= 3'(gi);
           end else begin
             // Incoming wave slot i uses lane=8+i (frozen 16-slot map)
             cand_t c;
@@ -208,7 +208,7 @@ module a7ng_topk_wavefront_minheap #(
         ST_NEXT: begin
           if ({1'b0, wave_i} + 5'd1 >= wave_n) begin
             for (gi = 0; gi < K; gi = gi + 1)
-              sorted[gi] <= h[gi];
+              ord[gi] <= 3'(gi);
             sort_pass <= 3'd0;
             sort_j    <= 3'd0;
             st        <= ST_SORT;
@@ -219,13 +219,13 @@ module a7ng_topk_wavefront_minheap #(
         end
 
         ST_SORT: begin
-          // Bubble sort: adjacent swap if beats(sorted[j+1], sorted[j]) → better left
+          // MINHEAP: permute ord[] only. Heap h[] stays a min-heap.
           if (sort_j < 3'(K-1)) begin
-            if (beats(sorted[sort_j+1], sorted[sort_j])) begin
-              cand_t tmp;
-              tmp               = sorted[sort_j];
-              sorted[sort_j]    <= sorted[sort_j+1];
-              sorted[sort_j+1]  <= tmp;
+            if (beats(h[ord[sort_j+1]], h[ord[sort_j]])) begin
+              logic [2:0] tmpi;
+              tmpi              = ord[sort_j];
+              ord[sort_j]       <= ord[sort_j+1];
+              ord[sort_j+1]     <= tmpi;
             end
             sort_j <= sort_j + 3'd1;
           end else if (sort_pass < 3'(K-1)) begin
@@ -237,10 +237,9 @@ module a7ng_topk_wavefront_minheap #(
         end
 
         ST_COMMIT: begin
-          // Ranked outputs only. Keep h[] as min-heap (root = worst retained).
           for (oi = 0; oi < K; oi = oi + 1) begin
-            global_score_o[oi] <= sorted[oi].s;
-            global_id_o[oi]    <= sorted[oi].id;
+            global_score_o[oi] <= h[ord[oi]].s;
+            global_id_o[oi]    <= h[ord[oi]].id;
           end
           global_valid_o <= 1'b1;
           merges         <= merges + 32'd1;

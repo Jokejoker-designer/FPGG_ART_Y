@@ -1,3 +1,8 @@
+# BLOCKER — unique bit not built (superseded if PIN + XSim + impl PASS)
+
+Historical: current-main synth failed on `PHYS` bind drift. Graft from
+orch-00 BIT-07 blobs is in `PIN.md`. Re-run full-chip XSim then impl.
+
 # BLOCKER — unique bit not built
 
 ```text

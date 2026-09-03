@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
-// DDR boot: preload SOA id/cue/prior planes (Stage A pattern) before query.
+// DDR boot: preload 16-byte AOS descriptors (id + cue64 + prior + pad).
+// Gate: AOS-STREAM-ONEOWNER-00. Same golden content as former 3-plane SOA.
 import a7ng_pkg::*;
 
 module a7ng_ddr_soa_boot #(
@@ -27,13 +28,10 @@ module a7ng_ddr_soa_boot #(
     input  logic        m_axi_bvalid,
     output logic        m_axi_bready
 );
-    typedef enum logic [2:0] {B_IDLE, B_SOA_ID, B_SOA_CUE, B_SOA_PRIOR, B_DONE} bst_t;
+    typedef enum logic [1:0] {B_IDLE, B_WRITE, B_DONE} bst_t;
     bst_t st;
     logic [31:0] idx;
-    logic [127:0] wbeat;
-    integer pi, k;
 
-    // Registered status (no combo decode into CDC synchronizers)
     always_ff @(posedge clk or negedge rst_n) begin
       if (!rst_n) begin
         busy_o <= 1'b0;
@@ -56,6 +54,15 @@ module a7ng_ddr_soa_boot #(
         return {c32, c32};
     endfunction
 
+    function automatic logic [127:0] pack_desc(input logic [31:0] nid);
+        logic [127:0] b;
+        b = '0;
+        b[31:0]    = nid;
+        b[95:32]   = golden_cue64(nid);
+        b[103:96]  = 8'h03;
+        return b;
+    endfunction
+
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             st <= B_IDLE;
@@ -72,17 +79,12 @@ module a7ng_ddr_soa_boot #(
                     m_axi_wvalid <= 1'b0;
                     if (start_i) begin
                         idx <= 32'd0;
-                        st <= B_SOA_ID;
+                        st <= B_WRITE;
                     end
                 end
-                B_SOA_ID: begin
-                    wbeat = 128'd0;
-                    for (k = 0; k < 4; k = k + 1) begin
-                        pi = idx * 4 + k;
-                        if (pi < N_CAND) wbeat[k*32 +: 32] = 32'(pi);
-                    end
-                    m_axi_awaddr <= NG_DDR_NODE_BASE + idx * 16;
-                    m_axi_wdata <= wbeat;
+                B_WRITE: begin
+                    m_axi_awaddr <= NG_DDR_NODE_BASE + {idx[23:0], 4'b0000};
+                    m_axi_wdata <= pack_desc(idx);
                     m_axi_awvalid <= 1'b1;
                     m_axi_wvalid <= 1'b1;
                     m_axi_wlast <= 1'b1;
@@ -90,51 +92,10 @@ module a7ng_ddr_soa_boot #(
                         m_axi_awvalid <= 1'b0;
                         m_axi_wvalid <= 1'b0;
                         m_axi_wlast <= 1'b0;
-                        if (idx == ((N_CAND + 3) / 4) - 1) begin
-                            idx <= 32'd0;
-                            st <= B_SOA_CUE;
-                        end else idx <= idx + 32'd1;
-                    end
-                end
-                B_SOA_CUE: begin
-                    wbeat = 128'd0;
-                    for (k = 0; k < 2; k = k + 1) begin
-                        pi = idx * 2 + k;
-                        if (pi < N_CAND) wbeat[k*64 +: 64] = golden_cue64(32'(pi));
-                    end
-                    m_axi_awaddr <= NG_DDR_CUE64_BASE + idx * 16;
-                    m_axi_wdata <= wbeat;
-                    m_axi_awvalid <= 1'b1;
-                    m_axi_wvalid <= 1'b1;
-                    m_axi_wlast <= 1'b1;
-                    if (m_axi_awvalid && m_axi_awready && m_axi_wvalid && m_axi_wready) begin
-                        m_axi_awvalid <= 1'b0;
-                        m_axi_wvalid <= 1'b0;
-                        m_axi_wlast <= 1'b0;
-                        if (idx == ((N_CAND + 1) / 2) - 1) begin
-                            idx <= 32'd0;
-                            st <= B_SOA_PRIOR;
-                        end else idx <= idx + 32'd1;
-                    end
-                end
-                B_SOA_PRIOR: begin
-                    wbeat = 128'd0;
-                    for (k = 0; k < 16; k = k + 1) begin
-                        pi = idx * 16 + k;
-                        if (pi < N_CAND) wbeat[k*8 +: 8] = 8'h03;
-                    end
-                    m_axi_awaddr <= NG_DDR_PRIOR_BASE + idx * 16;
-                    m_axi_wdata <= wbeat;
-                    m_axi_awvalid <= 1'b1;
-                    m_axi_wvalid <= 1'b1;
-                    m_axi_wlast <= 1'b1;
-                    if (m_axi_awvalid && m_axi_awready && m_axi_wvalid && m_axi_wready) begin
-                        m_axi_awvalid <= 1'b0;
-                        m_axi_wvalid <= 1'b0;
-                        m_axi_wlast <= 1'b0;
-                        if (idx == ((N_CAND + 15) / 16) - 1)
+                        if (idx == 32'(N_CAND - 1))
                             st <= B_DONE;
-                        else idx <= idx + 32'd1;
+                        else
+                            idx <= idx + 32'd1;
                     end
                 end
                 B_DONE: st <= B_DONE;

@@ -5,7 +5,8 @@ module a7ng_cue_soa_mig_top #(
   parameter int unsigned WAVE      = 16,
   parameter int unsigned MAX_CANDS = 64,
   parameter int unsigned MAX_OUT   = 8,
-  parameter int unsigned MAX_BURST = 16
+  parameter int unsigned MAX_BURST = 16,
+  parameter int unsigned PHYS      = 4
 ) (
   input  logic         clk,
   input  logic         rst_n,
@@ -84,8 +85,8 @@ module a7ng_cue_soa_mig_top #(
 
   logic         core_batch_ready;
   logic         global_topk_busy;
-  logic [1:0]   tg_pipe;
   logic         wf_cons_ready;
+  logic         sched_idle;
   logic         start_d;
   wire          start_pulse = start_i & ~start_d;
 
@@ -147,8 +148,9 @@ module a7ng_cue_soa_mig_top #(
     end
   end
 
+  logic tg_ready;
   assign wf_cons_ready = cons_ready_i && core_batch_ready &&
-                         (tg_pipe == 2'b00) && !global_topk_busy;
+                         sched_idle && tg_ready && !global_topk_busy;
 
   logic         wave_valid;
   logic [127:0] wave_rec [WAVE];
@@ -214,33 +216,119 @@ module a7ng_cue_soa_mig_top #(
     .r_backpressure_cycles_o(r_backpressure_cycles_o)
   );
 
-  node_id_t      tg_id_in   [NG_LANES];
-  termgen_cues_t tg_cues_in [NG_LANES];
-  logic [NG_LANES-1:0] tg_valid_in;
+  localparam int unsigned NBATCH = WAVE / PHYS;
 
+  typedef enum logic [1:0] {
+    SCH_IDLE  = 2'd0,
+    SCH_FIRE  = 2'd1,
+    SCH_WAIT  = 2'd2,
+    SCH_ISSUE = 2'd3
+  } sch_e;
+
+  sch_e sch;
+  logic [2:0]   bidx;
+  logic         issued;
+  logic [127:0] rec_hold [WAVE];
+  node_id_t     tg_id_hold [NG_LANES];
+  score_terms_t tg_terms_hold [NG_LANES];
+  logic [NG_LANES-1:0] core_valid;
+
+  node_id_t      tg_id_in   [PHYS];
+  termgen_cues_t tg_cues_in [PHYS];
+  logic [PHYS-1:0] tg_valid_in;
+  logic [PHYS-1:0] tg_valid_out;
+  node_id_t        tg_id_out [PHYS];
+  score_terms_t    tg_terms  [PHYS];
+
+  assign sched_idle = (sch == SCH_IDLE);
+
+  integer tk_c0, tk_c1, tk_f;
   always_comb begin
-    for (int k = 0; k < int'(NG_LANES); k++) begin
-      tg_valid_in[k]             = wave_valid;
-      tg_id_in[k]                = wave_rec[k][31:0];
-      tg_cues_in[k].query_cue    = q_query_cue_i;
-      tg_cues_in[k].node_cue     = wave_rec[k][95:32];
-      tg_cues_in[k].relation_cue = q_relation_cue_i;
-      tg_cues_in[k].intent_cue   = q_intent_cue_i;
-      tg_cues_in[k].context_cue  = q_context_cue_i;
-      tg_cues_in[k].path_cue     = q_path_cue_i;
-      tg_cues_in[k].learned_prior = term_t'(wave_rec[k][103:96]);
+    for (tk_c0 = 0; tk_c0 < int'(PHYS); tk_c0++) begin
+      tg_valid_in[tk_c0]              = (sch == SCH_FIRE);
+      tg_id_in[tk_c0]                 = rec_hold[int'(bidx) * int'(PHYS) + tk_c0][31:0];
+      tg_cues_in[tk_c0].query_cue     = q_query_cue_i;
+      tg_cues_in[tk_c0].node_cue      = rec_hold[int'(bidx) * int'(PHYS) + tk_c0][95:32];
+      tg_cues_in[tk_c0].relation_cue  = q_relation_cue_i;
+      tg_cues_in[tk_c0].intent_cue    = q_intent_cue_i;
+      tg_cues_in[tk_c0].context_cue   = q_context_cue_i;
+      tg_cues_in[tk_c0].path_cue      = q_path_cue_i;
+      tg_cues_in[tk_c0].learned_prior =
+          term_t'(rec_hold[int'(bidx) * int'(PHYS) + tk_c0][103:96]);
     end
   end
 
-  logic [NG_LANES-1:0] tg_valid_out;
-  node_id_t            tg_id_out [NG_LANES];
-  score_terms_t        tg_terms  [NG_LANES];
-
-  a7ng_termgen_array u_tg (
+  a7ng_termgen_array_fold6 #(.PHYS(PHYS)) u_tg (
     .clk(clk), .rst_n(rst_n),
-    .valid_i(tg_valid_in), .cand_id_i(tg_id_in), .cues_i(tg_cues_in),
-    .valid_o(tg_valid_out), .cand_id_o(tg_id_out), .terms_o(tg_terms)
+    .valid_i(tg_valid_in), .ready_o(tg_ready),
+    .cand_id_i(tg_id_in), .cues_i(tg_cues_in),
+    .valid_o(tg_valid_out), .ready_i(1'b1),
+    .cand_id_o(tg_id_out), .terms_o(tg_terms)
   );
+
+  node_id_t     tg_id_out16 [NG_LANES];
+  score_terms_t tg_terms16  [NG_LANES];
+  always_comb begin
+    for (tk_c1 = 0; tk_c1 < int'(NG_LANES); tk_c1++) begin
+      tg_id_out16[tk_c1] = tg_id_hold[tk_c1];
+      tg_terms16[tk_c1]  = tg_terms_hold[tk_c1];
+    end
+  end
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      sch <= SCH_IDLE;
+      bidx <= 3'd0;
+      issued <= 1'b0;
+      core_valid <= '0;
+      for (tk_f = 0; tk_f < int'(WAVE); tk_f++)
+        rec_hold[tk_f] <= '0;
+      for (tk_f = 0; tk_f < int'(NG_LANES); tk_f++) begin
+        tg_id_hold[tk_f]    <= '0;
+        tg_terms_hold[tk_f] <= '0;
+      end
+    end else begin
+      core_valid <= '0;
+      unique case (sch)
+        SCH_IDLE: begin
+          if (wave_valid) begin
+            for (tk_f = 0; tk_f < int'(WAVE); tk_f++)
+              rec_hold[tk_f] <= wave_rec[tk_f];
+            bidx <= 3'd0;
+            sch <= SCH_FIRE;
+          end
+        end
+        SCH_FIRE: begin
+          if (tg_ready)
+            sch <= SCH_WAIT;
+        end
+        SCH_WAIT: begin
+          if (&tg_valid_out) begin
+            for (tk_f = 0; tk_f < int'(PHYS); tk_f++) begin
+              tg_id_hold[int'(bidx) * int'(PHYS) + tk_f]    <= tg_id_out[tk_f];
+              tg_terms_hold[int'(bidx) * int'(PHYS) + tk_f] <= tg_terms[tk_f];
+            end
+            if (bidx == 3'(NBATCH - 1))
+              sch <= SCH_ISSUE;
+            else begin
+              bidx <= bidx + 3'd1;
+              sch <= SCH_FIRE;
+            end
+          end
+        end
+        SCH_ISSUE: begin
+          if (!issued && core_batch_ready && !global_topk_busy) begin
+            core_valid <= {NG_LANES{1'b1}};
+            issued <= 1'b1;
+          end else if (issued && !core_batch_ready) begin
+            issued <= 1'b0;
+            sch <= SCH_IDLE;
+          end
+        end
+        default: sch <= SCH_IDLE;
+      endcase
+    end
+  end
 
   logic core_topk_valid;
   score_t   core_topk_score [8];
@@ -251,11 +339,11 @@ module a7ng_cue_soa_mig_top #(
   logic [31:0] global_merge_count;
   logic [31:0] topk_batch_cnt;
 
-  a7ng_ng02_core u_core (
+  a7ng_ng02_core #(.PHYS(PHYS)) u_core (
     .clk(clk), .rst_n(rst_n),
-    .lane_valid_i(tg_valid_out),
-    .cand_id_i(tg_id_out),
-    .terms_i(tg_terms),
+    .lane_valid_i(core_valid),
+    .cand_id_i(tg_id_out16),
+    .terms_i(tg_terms16),
     .frontier_pop_i(1'b1),
     .batch_ready_o(core_batch_ready),
     .topk_valid_o(core_topk_valid),
@@ -302,12 +390,4 @@ module a7ng_cue_soa_mig_top #(
   end
   assign topk_batches_o = topk_batch_cnt;
 
-  always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n)
-      tg_pipe <= 2'b00;
-    else if (wf_start)
-      tg_pipe <= 2'b00;
-    else
-      tg_pipe <= {tg_pipe[0], wave_valid};
-  end
 endmodule
