@@ -149,8 +149,11 @@ module a7ng_cue_soa_mig_top #(
   end
 
   logic tg_ready;
-  assign wf_cons_ready = cons_ready_i && core_batch_ready &&
-                         sched_idle && tg_ready && !global_topk_busy;
+  // CUE-OVERLAP-READY-00: WAVE_ACCEPT_READY is not CORE_ISSUE_READY.
+  // TermGen(N+1) may run while NG02/Global still hold wave N.
+  // core_batch_ready and global_topk_busy stay at SCH_ISSUE only.
+  // sched_idle keeps a single rec_hold occupant (overwrite=0).
+  assign wf_cons_ready = cons_ready_i && sched_idle && tg_ready;
 
   logic         wave_valid;
   logic [127:0] wave_rec [WAVE];
@@ -317,6 +320,7 @@ module a7ng_cue_soa_mig_top #(
           end
         end
         SCH_ISSUE: begin
+          // CORE_ISSUE_READY: do not fire into NG02 while it or Global is busy.
           if (!issued && core_batch_ready && !global_topk_busy) begin
             core_valid <= {NG_LANES{1'b1}};
             issued <= 1'b1;
@@ -385,7 +389,7 @@ module a7ng_cue_soa_mig_top #(
       topk_batch_cnt <= '0;
     else if (wf_start)
       topk_batch_cnt <= '0;
-    else if (wave_valid && core_batch_ready)
+    else if (wave_valid)
       topk_batch_cnt <= topk_batch_cnt + 32'd1;
   end
   assign topk_batches_o = topk_batch_cnt;

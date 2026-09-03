@@ -1,0 +1,16 @@
+# PREREG — P3P4-ROOFLINE-REMEASURE-02
+
+```text
+GATE        = P3P4-ROOFLINE-REMEASURE-02
+BASE        = CUE-OVERLAP-READY-00 PASS
+RTL_EDIT    = NO
+BIT         = NO
+SYNTH_IMPL  = NO
+PROGRAM     = NO
+ORACLE      = HOLD
+GATE14_PASS = NO
+M10         = KEEP_OPEN
+
+UNKNOWN     = After overlap, which C_i is the exposed II?
+SOURCE      = CUE-OVERLAP-READY-00 MIG_XSIM P3P4_REPAIR_DONE (no new RTL)
+```
