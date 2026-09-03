@@ -10,9 +10,12 @@
 module a7ng_topk_stream_minheap #(
   parameter int unsigned K = 8,
   // LOCAL-SORT-ELIDE-00: 1 = ST_SORT then ordered drain (C9 default).
-  // 0 = drain heap-array order after last TAKE/HEAPIFY. K-set unchanged.
+  // 0 = drain heap-array order after last TAKE. K-set unchanged.
   // Global re-sorts; order-contract PASS. Do not change beats()/heap.
-  parameter bit SORT_BEFORE_DRAIN = 1'b1
+  parameter bit SORT_BEFORE_DRAIN = 1'b1,
+  // HEAP-TAKE-SIFT-00: 1 = full K=8 sift-up/sift-down in the TAKE cycle.
+  // 0 = multi-cycle ST_HEAPIFY (C9 default). beats() unchanged.
+  parameter bit SIFT_ON_TAKE = 1'b0
 ) (
   input  logic                    clk,
   input  logic                    rst_n,
@@ -94,6 +97,65 @@ module a7ng_topk_stream_minheap #(
     end
   endtask
 
+  // Combinational 3-level sift (K=8, depth<=3). Uses pre-NBA h[] / fill_n.
+  // do_fill=1: insert at fill_n and sift-up. do_fill=0: replace root and sift-down.
+  task automatic write_sifted;
+    input cand_t c;
+    input logic  do_fill;
+    integer      i, step;
+    cand_t       nh [K];
+    cand_t       tmp;
+    logic [3:0]  idx, p;
+    logic [4:0]  l, r, w;
+    logic        cont;
+    begin
+      for (i = 0; i < K; i = i + 1)
+        nh[i] = h[i];
+      if (do_fill) begin
+        idx = fill_n;
+        nh[idx] = c;
+        cont = (idx != 4'd0);
+        for (step = 0; step < 3; step = step + 1) begin
+          if (cont) begin
+            p = 4'((idx - 4'd1) >> 1);
+            if (beats(nh[p], nh[idx])) begin
+              tmp     = nh[p];
+              nh[p]   = nh[idx];
+              nh[idx] = tmp;
+              idx     = p;
+              cont    = (idx != 4'd0);
+            end else
+              cont = 1'b0;
+          end
+        end
+      end else begin
+        nh[0] = c;
+        idx   = 4'd0;
+        cont  = 1'b1;
+        for (step = 0; step < 3; step = step + 1) begin
+          if (cont) begin
+            l = 5'({idx, 1'b0}) + 5'd1;
+            r = l + 5'd1;
+            w = {1'b0, idx};
+            if (l < K && beats(nh[w[3:0]], nh[l[3:0]]))
+              w = l;
+            if (r < K && beats(nh[w[3:0]], nh[r[3:0]]))
+              w = r;
+            if (w[3:0] != idx) begin
+              tmp        = nh[idx];
+              nh[idx]    = nh[w[3:0]];
+              nh[w[3:0]] = tmp;
+              idx        = w[3:0];
+            end else
+              cont = 1'b0;
+          end
+        end
+      end
+      for (i = 0; i < K; i = i + 1)
+        h[i] <= nh[i];
+    end
+  endtask
+
   wire idle_clear_ok = (st == ST_TAKE) && (fill_n == 4'd0) && !out_valid_o && !in_valid_i;
 
   assign busy_o       = (st != ST_TAKE) || (fill_n != 4'd0) || out_valid_o;
@@ -143,7 +205,7 @@ module a7ng_topk_stream_minheap #(
               if (fill_n < 4'(K)) begin
                 hf_idx <= fill_n;
                 fill_n <= fill_n + 4'd1;
-                if (fill_n == 4'd0) begin
+                if ((fill_n == 4'd0) || SIFT_ON_TAKE) begin
                   hf_dir          <= HF_NONE;
                   retired_count_o <= retired_count_o + 32'd1;
                   if (in_last_i) begin
@@ -154,9 +216,17 @@ module a7ng_topk_stream_minheap #(
                   st     <= ST_HEAPIFY;
                 end
               end else if (beats({in_v_i, in_s_i, in_id_i, in_lane_i}, h[0])) begin
-                hf_idx <= 4'd0;
-                hf_dir <= HF_DOWN;
-                st     <= ST_HEAPIFY;
+                if (SIFT_ON_TAKE) begin
+                  hf_dir          <= HF_NONE;
+                  retired_count_o <= retired_count_o + 32'd1;
+                  if (in_last_i) begin
+                    enter_emit;
+                  end
+                end else begin
+                  hf_idx <= 4'd0;
+                  hf_dir <= HF_DOWN;
+                  st     <= ST_HEAPIFY;
+                end
               end else begin
                 retired_count_o <= retired_count_o + 32'd1;
                 if (in_last_i) begin
@@ -281,10 +351,17 @@ module a7ng_topk_stream_minheap #(
             c.s    = in_s_i;
             c.id   = in_id_i;
             c.lane = in_lane_i;
-            if (fill_n < 4'(K))
-              h[fill_n] <= c;
-            else if (beats(c, h[0]))
-              h[0] <= c;
+            if (fill_n < 4'(K)) begin
+              if (SIFT_ON_TAKE)
+                write_sifted(c, 1'b1);
+              else
+                h[fill_n] <= c;
+            end else if (beats(c, h[0])) begin
+              if (SIFT_ON_TAKE)
+                write_sifted(c, 1'b0);
+              else
+                h[0] <= c;
+            end
           end
         end
 

@@ -1,0 +1,6 @@
+HEAP-TAKE-SIFT-00: NG02 TAKE+sift same cycle; T_QUERY 500->432.
+
+SIFT_ON_TAKE defaults to 0 so C9 keeps multi-cycle HEAPIFY. NG02 sets 1.
+SET vs sequential HEAPIFY PASS n=64. STREAM 42/30 -> 16 (WAVE floor).
+C_L_MAX 68 -> 39; II now C_G=52. GATE14_PASS=NO PROGRAM=NO.
+Do not merge as Gate14 pass.
