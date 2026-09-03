@@ -22,10 +22,19 @@ Scorer WAIT is 8 cycles/wave (not the limiter). Heap STREAM+COLLECT is 67–82 o
 
 ST_PUSH is 8 cycles after `topk_valid` (`frontier_pop_i` tied 1 in this instance). It is on issue→idle (104) but not on C_L. Not the C_L bottleneck.
 
-Authority next:
+Authority next (corrected):
 
 ```text
-SCORER-HEAP-DECOUPLE-00   ← heap STREAM/COLLECT serialization
-not FRONTIER-DEADPATH-00  ← PUSH only +8, parent does pop in this TB
-not parallel heaps        ← not yet; first a score/stream FIFO
+COLLECT 37-40 = local ST_SORT 28 + ST_DRAIN 8 + FSM
+  → LOCAL-WAVE-ORDER-CONTRACT-AUDIT-00
+  → if global SET ignores local presentation order:
+       LOCAL-SORT-ELIDE-00   (dominant C_L lever)
+
+SCORER-HEAP-DECOUPLE-00 = optional microopt, ceiling ~9/wave
+  ≠ fix dominant C_L
+  if run: split score_prod_bidx / heap_cons_bidx; 2-bank reservation
+
+not FRONTIER-DEADPATH-00  ← PUSH only +8
+not parallel heaps
 ```
+
