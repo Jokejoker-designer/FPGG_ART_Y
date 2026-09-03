@@ -1,0 +1,5 @@
+LOCAL-TOPK-PARALLEL-COMMIT-00: NG02 vector K-set; T_QUERY 432->397.
+
+VECTOR_COMMIT defaults to 0 so C9 keeps serial drain. NG02 copies
+h[ord[i]] in one COLLECT cycle. SET PASS. COLLECT 9->1. C_L 39->31.
+II still C_G=52. GATE14_PASS=NO PROGRAM=NO. Do not merge as Gate14 pass.

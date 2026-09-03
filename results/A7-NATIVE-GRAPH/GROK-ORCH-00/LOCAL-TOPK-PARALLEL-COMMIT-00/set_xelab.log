@@ -1,0 +1,17 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_g14_vec_set_diff -s g14vpc -timescale 1ns/1ps 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'ordered_valid_o' remains unconnected for this instance [D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/LOCAL-TOPK-PARALLEL-COMMIT-00/tb_g14_vec_set_diff.sv:17]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7ng_pkg
+Compiling module work.a7ng_topk_stream_minheap(SIFT_ON...
+Compiling module work.a7ng_topk_stream_minheap(SIFT_ON...
+Compiling module work.tb_g14_vec_set_diff
+Built simulation snapshot g14vpc
