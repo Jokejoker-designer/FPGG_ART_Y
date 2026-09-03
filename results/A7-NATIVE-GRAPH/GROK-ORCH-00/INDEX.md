@@ -18,6 +18,7 @@
 
 Mailbox for Cursor: `D:\Jetking_sem4\SEM_4\arty-a7-online-lm\.agents\handoff\GROK_ORCH_LANE.md`
 
+| `G14-PERSISTENCE-IDENTITY-00/` | XSim PASS: FLUSH/KILL/RELOAD restores HOLD_A C9 `8382238122802120`. PROGRAM=NO. GATE14_PASS=NO. Do not reprogram `1F0F2ABB`. Next=`G14-RESET-RETRAIN-00`. |
 | `P2-GATE14-C1-UART-RX-COMMAND-01/` | UART RX command path. Parent FAIL_C1 preserved. Codex-named bit `4569115F…`; live filename `46E11DA9…`. PROGRAM=NO. |
 | `P2-GATE14-UART-CMD-BOARD-PREFLIGHT-02/` | Read-only preflight. Token later granted. |
 | `P2-GATE14-UART-CMD-BOARD-PROGRAM-20-00/` | Programmed SHA `4569115F…` once. pred=249. C1 MODE 5→8. C10 OUT=0. BOARD_PASS=not_claimed. |
