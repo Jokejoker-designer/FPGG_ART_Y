@@ -34,6 +34,33 @@ package a7ng_pkg;
   localparam int unsigned NG_PRIOR_BYTES     = NG_PRIOR_DEPTH; // 1 byte/prior
   localparam int unsigned NG_PRIOR_BEATS     = (NG_PRIOR_BYTES + 15) / 16; // 4
 
+  // ---- Training-generation EPOCH (RESET-00 law; Gate14 persist cookie) ----
+  // One object, two operations:
+  //   BUMP     : live_gen++  (logical forget; old 8-bit stamps become !vis_w)
+  //   REBIRTH  : live_gen=1, BRAM wiped, DDR header+slots zeroed
+  // DDR header word 0 MUST be ng_epoch_pack(gen) or it is garbage, never live_gen.
+  // Stamp in the working-set record is live_gen[7:0]; WRAP_LIMIT must be <= 255.
+  localparam int unsigned NG_EPOCH_STAMP_W = 8;
+  function automatic logic ng_epoch_legal(
+      input logic [63:0] d, input logic [31:0] wrap_limit);
+    return d[0] && (d[32:1] != 32'd0) && (d[63:33] == 31'd0)
+        && (d[32:1] <= wrap_limit);
+  endfunction
+  function automatic logic [31:0] ng_epoch_gen(input logic [63:0] d);
+    return d[32:1];
+  endfunction
+  function automatic logic [63:0] ng_epoch_pack(input logic [31:0] gen);
+    return {31'd0, gen, 1'b1};
+  endfunction
+  function automatic logic ng_epoch_visible(
+      input logic        ws_live,
+      input logic [31:0] live_gen,
+      input logic        occ,
+      input logic [7:0]  stmp);
+    return ws_live && (live_gen != 32'd0) && occ && (stmp != 8'd0)
+        && (stmp == live_gen[NG_EPOCH_STAMP_W-1:0]);
+  endfunction
+
   typedef logic signed [NG_SCORE_W-1:0] score_t;
   typedef logic signed [NG_TERM_W-1:0]  term_t;
   typedef logic        [NG_ID_W-1:0]    node_id_t;

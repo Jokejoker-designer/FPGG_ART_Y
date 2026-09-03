@@ -55,6 +55,11 @@ module a7ng_persist_gen_fast #(
 );
   import a7ng_pkg::*;
 
+  initial begin
+    if (WRAP_LIMIT > ((32'd1 << NG_EPOCH_STAMP_W) - 32'd1))
+      $error("a7ng_persist_gen_fast: WRAP_LIMIT exceeds 8-bit epoch stamp");
+  end
+
   localparam logic [7:0] Q_PRE   = 8'd1;
   localparam logic [7:0] Q_HOLD  = 8'd2;
   localparam logic [7:0] Q_UNREL = 8'd3;
@@ -335,8 +340,8 @@ module a7ng_persist_gen_fast #(
             ddr_req_o <= 1'b1;
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
-            if (ddr_rdata_i[0] && (ddr_rdata_i[32:1] != 32'd0)) begin
-              live_gen <= ddr_rdata_i[32:1];
+            if (ng_epoch_legal(ddr_rdata_i, WRAP_LIMIT)) begin
+              live_gen <= ng_epoch_gen(ddr_rdata_i);
               root_valid <= 1'b1;
               slot_i <= 5'd1; rd_pend <= 0; pst <= P_RELOAD;
             end else begin
@@ -382,7 +387,7 @@ module a7ng_persist_gen_fast #(
         P_FLUSH: begin
           ddr_we_o <= 1'b1;
           if (slot_i == 5'd0) begin
-            ddr_wdata_o <= {31'd0, live_gen, 1'b1};
+            ddr_wdata_o <= ng_epoch_pack(live_gen);
             if (!ddr_req_o && !ddr_ack_i)
               ddr_req_o <= 1'b1;
             else if (ddr_req_o && ddr_ack_i) begin
@@ -423,8 +428,13 @@ module a7ng_persist_gen_fast #(
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
             if (slot_i == 5'd16) begin
-              root_valid <= 1'b0; sdig <= 64'd0;
-              persist_done_o <= 1'b1; pst <= P_IDLE;
+              live_gen   <= 32'd1;
+              root_valid <= 1'b0;
+              sdig       <= 64'd0;
+              ws_live    <= 1'b0;
+              boot_done  <= 1'b0;
+              slot_i     <= 5'd0;
+              pst        <= P_CLR;
             end else
               slot_i <= slot_i + 5'd1;
           end

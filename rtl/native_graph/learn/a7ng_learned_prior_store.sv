@@ -58,6 +58,13 @@ module a7ng_learned_prior_store #(
   localparam logic [2:0] P_BOOT=0, P_CLR=1, P_IDLE=2, P_UPD=3, P_FLUSH=4,
                          P_RELOAD=5, P_INVAL=6, P_LK=7;
 
+  // 8-bit working-set stamp cannot encode gen > 255. WRAP_LIMIT=6 is the
+  // Gate14 bound; this is a compile-time identity check, not a runtime patch.
+  initial begin
+    if (WRAP_LIMIT > ((32'd1 << NG_EPOCH_STAMP_W) - 32'd1))
+      $error("a7ng_learned_prior_store: WRAP_LIMIT exceeds 8-bit epoch stamp");
+  end
+
   logic [2:0] pst;
   logic [5:0] slot_i;
   logic       rd_pend, ws_live, wrote, boot_done;
@@ -80,13 +87,12 @@ module a7ng_learned_prior_store #(
   logic [96:0] ram_q, ram_wdata;
   logic        ram_we;
 
+  // Epoch identity lives in a7ng_pkg. Do not re-derive a weaker cookie test here.
   function automatic logic vis_w(input logic occ, input logic [7:0] stmp);
-    return ws_live && (live_gen != 32'd0) && occ && (stmp != 8'd0) && (stmp == live_gen[7:0]);
+    return ng_epoch_visible(ws_live, live_gen, occ, stmp);
   endfunction
-  // FLUSH header is {31'd0, live_gen, 1'b1}. Dirty DRAM all-ones has bit0=1 and
-  // gen=FFFFFFFF — that is not a legal generation (WRAP_LIMIT) and must P_CLR.
   function automatic logic header_ok(input logic [63:0] d);
-    return d[0] && (d[32:1] != 32'd0) && (d[63:33] == 31'd0) && (d[32:1] <= WRAP_LIMIT);
+    return ng_epoch_legal(d, WRAP_LIMIT);
   endfunction
   function automatic logic signed [7:0] sat8(input logic signed [8:0] x);
     if (x > 9'sd127)  return 8'sd127;
@@ -203,7 +209,7 @@ module a7ng_learned_prior_store #(
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
             if (header_ok(ddr_rdata_i)) begin
-              live_gen <= ddr_rdata_i[32:1];
+              live_gen <= ng_epoch_gen(ddr_rdata_i);
               slot_i <= 6'd1; pst <= P_RELOAD;
             end else begin
               live_gen <= 32'd1;
@@ -302,7 +308,7 @@ module a7ng_learned_prior_store #(
         P_FLUSH: begin
           ddr_we_o <= 1'b1;
           if (slot_i == 6'd0) begin
-            ddr_wdata_o <= {31'd0, live_gen, 1'b1};
+            ddr_wdata_o <= ng_epoch_pack(live_gen);
             if (!ddr_req_o && !ddr_ack_i)
               ddr_req_o <= 1'b1;
             else if (ddr_req_o && ddr_ack_i) begin
@@ -337,13 +343,20 @@ module a7ng_learned_prior_store #(
           end
         end
         P_INVAL: begin
+          // REBIRTH, not "zero DDR and keep the epoch". After wrap, the
+          // epoch object is destroyed: DDR cookie+slots, live_gen, BRAM.
           ddr_we_o <= 1'b1; ddr_wdata_o <= 64'd0;
           if (!ddr_req_o && !ddr_ack_i)
             ddr_req_o <= 1'b1;
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
             if (slot_i == 6'd32) begin
-              sdig <= 64'd0; persist_done_o <= 1'b1; pst <= P_IDLE;
+              live_gen  <= 32'd1;
+              sdig      <= 64'd0;
+              ws_live   <= 1'b0;
+              boot_done <= 1'b0;
+              slot_i    <= 6'd0;
+              pst       <= P_CLR;
             end else
               slot_i <= slot_i + 6'd1;
           end
