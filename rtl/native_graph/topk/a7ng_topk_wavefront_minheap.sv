@@ -219,18 +219,27 @@ module a7ng_topk_wavefront_minheap #(
         end
 
         ST_SORT: begin
-          // MINHEAP: permute ord[] only. Heap h[] stays a min-heap.
-          if (sort_j < 3'(K-1)) begin
+          // TOPK-SORT-BOUND-00: triangular bubble on ord[] only.
+          // beats(right,left) swap ⇒ worse moves right; sorted suffix grows
+          // at the right. Pass p compares j=0 .. K-2-p.
+          // Heap h[] is not permuted. beats() unchanged.
+          if (sort_j <= (3'(K-2) - sort_pass)) begin
             if (beats(h[ord[sort_j+1]], h[ord[sort_j]])) begin
               logic [2:0] tmpi;
               tmpi              = ord[sort_j];
               ord[sort_j]       <= ord[sort_j+1];
               ord[sort_j+1]     <= tmpi;
             end
-            sort_j <= sort_j + 3'd1;
-          end else if (sort_pass < 3'(K-1)) begin
-            sort_pass <= sort_pass + 3'd1;
-            sort_j    <= 3'd0;
+            if (sort_j == (3'(K-2) - sort_pass)) begin
+              if (sort_pass >= 3'(K-2))
+                st <= ST_COMMIT;
+              else begin
+                sort_pass <= sort_pass + 3'd1;
+                sort_j    <= 3'd0;
+              end
+            end else begin
+              sort_j <= sort_j + 3'd1;
+            end
           end else begin
             st <= ST_COMMIT;
           end
