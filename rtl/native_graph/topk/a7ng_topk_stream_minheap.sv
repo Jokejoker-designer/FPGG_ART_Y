@@ -8,7 +8,11 @@
 
 (* keep_hierarchy = "yes" *)
 module a7ng_topk_stream_minheap #(
-  parameter int unsigned K = 8
+  parameter int unsigned K = 8,
+  // LOCAL-SORT-ELIDE-00: 1 = ST_SORT then ordered drain (C9 default).
+  // 0 = drain heap-array order after last TAKE/HEAPIFY. K-set unchanged.
+  // Global re-sorts; order-contract PASS. Do not change beats()/heap.
+  parameter bit SORT_BEFORE_DRAIN = 1'b1
 ) (
   input  logic                    clk,
   input  logic                    rst_n,
@@ -75,6 +79,21 @@ module a7ng_topk_stream_minheap #(
   logic         last_q;
   integer       gi;
 
+  task automatic enter_emit;
+    integer ei;
+    begin
+      for (ei = 0; ei < K; ei = ei + 1)
+        ord[ei] <= 3'(ei);
+      drain_i   <= 3'd0;
+      sort_pass <= 3'd0;
+      sort_j    <= 3'd0;
+      if (SORT_BEFORE_DRAIN)
+        st <= ST_SORT;
+      else
+        st <= ST_DRAIN;
+    end
+  endtask
+
   wire idle_clear_ok = (st == ST_TAKE) && (fill_n == 4'd0) && !out_valid_o && !in_valid_i;
 
   assign busy_o       = (st != ST_TAKE) || (fill_n != 4'd0) || out_valid_o;
@@ -128,11 +147,7 @@ module a7ng_topk_stream_minheap #(
                   hf_dir          <= HF_NONE;
                   retired_count_o <= retired_count_o + 32'd1;
                   if (in_last_i) begin
-                    sort_pass <= 3'd0;
-                    sort_j    <= 3'd0;
-                    for (gi = 0; gi < K; gi = gi + 1)
-                      ord[gi] <= 3'(gi);
-                    st <= ST_SORT;
+                    enter_emit;
                   end
                 end else begin
                   hf_dir <= HF_UP;
@@ -145,11 +160,7 @@ module a7ng_topk_stream_minheap #(
               end else begin
                 retired_count_o <= retired_count_o + 32'd1;
                 if (in_last_i) begin
-                  sort_pass <= 3'd0;
-                  sort_j    <= 3'd0;
-                  for (gi = 0; gi < K; gi = gi + 1)
-                    ord[gi] <= 3'(gi);
-                  st <= ST_SORT;
+                  enter_emit;
                 end
               end
             end
@@ -166,11 +177,7 @@ module a7ng_topk_stream_minheap #(
                   hf_dir          <= HF_NONE;
                   retired_count_o <= retired_count_o + 32'd1;
                   if (last_q) begin
-                    sort_pass <= 3'd0;
-                    sort_j    <= 3'd0;
-                    for (gi = 0; gi < K; gi = gi + 1)
-                      ord[gi] <= 3'(gi);
-                    st <= ST_SORT;
+                    enter_emit;
                   end else
                     st <= ST_TAKE;
                 end
@@ -178,11 +185,7 @@ module a7ng_topk_stream_minheap #(
                 hf_dir          <= HF_NONE;
                 retired_count_o <= retired_count_o + 32'd1;
                 if (last_q) begin
-                  sort_pass <= 3'd0;
-                  sort_j    <= 3'd0;
-                  for (gi = 0; gi < K; gi = gi + 1)
-                    ord[gi] <= 3'(gi);
-                  st <= ST_SORT;
+                  enter_emit;
                 end else
                   st <= ST_TAKE;
               end
@@ -201,22 +204,14 @@ module a7ng_topk_stream_minheap #(
                 hf_dir          <= HF_NONE;
                 retired_count_o <= retired_count_o + 32'd1;
                 if (last_q) begin
-                  sort_pass <= 3'd0;
-                  sort_j    <= 3'd0;
-                  for (gi = 0; gi < K; gi = gi + 1)
-                    ord[gi] <= 3'(gi);
-                  st <= ST_SORT;
+                  enter_emit;
                 end else
                   st <= ST_TAKE;
               end
             end else begin
               retired_count_o <= retired_count_o + 32'd1;
               if (last_q) begin
-                sort_pass <= 3'd0;
-                sort_j    <= 3'd0;
-                for (gi = 0; gi < K; gi = gi + 1)
-                  ord[gi] <= 3'(gi);
-                st <= ST_SORT;
+                enter_emit;
               end else
                 st <= ST_TAKE;
             end

@@ -1,0 +1,7 @@
+LOCAL-SORT-ELIDE-00: NG02 skip local ST_SORT; T_QUERY 628->500.
+
+NG02 drains the K-set in heap-array order. SORT_BEFORE_DRAIN defaults to 1
+so C9/learned-prior stay ordered. Order-contract PASS; local SET DIFF=0.
+COLLECT 37-40 -> 9-12; C_L_MAX 96 -> 68; remaining dominant is HEAP_STREAM.
+SCORER-HEAP-DECOUPLE is not this gate (optional, ceiling ~9/wave).
+GATE14_PASS=NO PROGRAM=NO M10=OPEN. Do not merge as Gate14 pass.

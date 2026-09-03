@@ -1,0 +1,78 @@
+{
+  "gate": "LOCAL-SORT-ELIDE-00",
+  "rtl_edit": true,
+  "rtl_scope": "SORT_BEFORE_DRAIN parameter default 1; NG02 instance 0",
+  "allowed_files": [
+    "rtl/native_graph/topk/a7ng_topk_stream_minheap.sv",
+    "rtl/native_graph/topk/a7ng_ng02_core.sv"
+  ],
+  "bit": false,
+  "synth_impl": false,
+  "program": false,
+  "gate14_pass": false,
+  "m10": "KEEP_OPEN",
+  "phys": 4,
+  "wave": 16,
+  "n": 64,
+  "local_sort_elide": "PASS",
+  "set_pass": true,
+  "set_n": 64,
+  "order_contract": "PASS",
+  "frozen_c9_regression": "PASS",
+  "frozen_out_regression": "PASS",
+  "hold_a_c9": "8382238122802120",
+  "out": {"hold_a": 653, "unrel": 689, "contra": 237, "hold_b": 60},
+  "p3p4_tb_score_law_57_165": "NOT_LIVE_ON_AOS_TB",
+  "soa_topk_pulses": [
+    {"n": 1, "id": 60, "score": 232},
+    {"n": 2, "id": 60, "score": 232},
+    {"n": 3, "id": 60, "score": 232},
+    {"n": 4, "id": 60, "score": 232}
+  ],
+  "scorer_heap_decouple": {
+    "role": "optional_microopt_not_cl_fix",
+    "ceiling_cycles_per_wave": 9,
+    "hazard": "split score_prod_bidx vs heap_cons_bidx; 2-bank reservation at sc_fire"
+  },
+  "baseline_after_overlap": {
+    "t_query": 628,
+    "cand_per_cycle": 0.101911,
+    "c_l_max": 96,
+    "collect_per_wave": [40, 37, 37, 37],
+    "stream_per_wave": [42, 30, 30, 30],
+    "g_sort": 112,
+    "overlap3": 60,
+    "blk_hold": 193
+  },
+  "after": {
+    "t_query": 500,
+    "t_run": 305,
+    "cand_per_cycle": 0.128,
+    "c_d_max": 45,
+    "c_t_max": 33,
+    "c_l_max": 68,
+    "c_g_max": 52,
+    "g_sort": 112,
+    "ii_pred": 68,
+    "overlap3": 60,
+    "blk_hold": 124,
+    "collect_total": 39,
+    "stream_total": 132,
+    "dominant": "HEAP_STREAM",
+    "per_wave": [
+      {"w": 0, "c_l": 68, "fire": 4, "wait": 8, "stream": 42, "collect": 12, "commit": 1, "push": 8, "c_d": 45, "c_t": 33, "c_g": 52},
+      {"w": 1, "c_l": 53, "fire": 4, "wait": 8, "stream": 30, "collect": 9, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 48},
+      {"w": 2, "c_l": 53, "fire": 4, "wait": 8, "stream": 30, "collect": 9, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 45},
+      {"w": 3, "c_l": 53, "fire": 4, "wait": 8, "stream": 30, "collect": 9, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 45}
+    ]
+  },
+  "delta_t_query": -128,
+  "evidence_class": "MIG_XSIM",
+  "minheap_sha256": "239375D6FA688DE4FDCCFD14A28FD8A68C5A3442C13A6263C70336122630233D",
+  "ng02_sha256": "1CB51CDCBFFBA3D1A97D39C2B130E7D0C09C00DA6C5548C9A7642E7328DB0689",
+  "audit_log_sha256": "B1D99635AF776B16C59BDFD1D7BE466E6B712EA4845BEA6E84532DF34006A855",
+  "set_log_sha256": "BDB29876D1A4818DFC3A5CC34F9A328ACC165A90A6656A0BABDF8A956EE5C77E",
+  "c9_log_sha256": "6567507C6F62840968DB8AF821FEEB405EAAF2DD9C432E49843C3DF93D2F2E02",
+  "order_log_sha256": "942255C5D12E90CE4B70D0B47AFD95506635051516AB73B6B202ADF903AF1D01",
+  "next": "HEAP-TAKE-SIFT-00"
+}
