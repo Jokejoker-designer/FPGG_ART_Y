@@ -1,0 +1,15 @@
+{
+  "status_class": "CURRENT",
+  "as_of": "2026-09-03",
+  "supersedes": "LOOP_STATE.json next=ddr_cue_soa_00r_axi_liveness (HISTORICAL 2026-08-23)",
+  "pointer": "results/A7-NATIVE-GRAPH/GROK-ORCH-00/CURRENT_GATE14_STATUS.md",
+  "board_commit": "9656245cc05072d6299611c847eecc697baf4212",
+  "bit_sha256": "1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9",
+  "root_a_epoch": "BOARD_CLOSED",
+  "root_b_transaction": "ROOT_B_PARTIALLY_CONFIRMED",
+  "next_gate": "G14-PERSISTENCE-IDENTITY-00",
+  "program": "NO",
+  "gate14_pass": "NO",
+  "board_pass": "not_claimed",
+  "native_v1_mini_ai_board_pass": "NO"
+}
