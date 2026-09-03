@@ -1,0 +1,33 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Sep  4 02:33:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g14sb_ldiff/xsim_script.tcl
+# xsim {g14sb_ldiff} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PROGRESS rnd=0 mismatches=0 fails=0
+PROGRESS rnd=10000 mismatches=0 fails=0
+PROGRESS rnd=20000 mismatches=0 fails=0
+PROGRESS rnd=30000 mismatches=0 fails=0
+PROGRESS rnd=40000 mismatches=0 fails=0
+PROGRESS rnd=50000 mismatches=0 fails=0
+PROGRESS rnd=60000 mismatches=0 fails=0
+PROGRESS rnd=70000 mismatches=0 fails=0
+PROGRESS rnd=80000 mismatches=0 fails=0
+PROGRESS rnd=90000 mismatches=0 fails=0
+MISMATCH_COUNT=0
+accepted_candidates=retired_candidates
+drop_count=0
+FAILS=0
+LOCAL_MINHEAP_STREAM_TOP8_XSIM_PASS
+$finish called at time : 91553626 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/tests/xsim/tb_a7ng_topk_stream_minheap_diff.sv" Line 392
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:20 . Memory (MB): peak = 227.547 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 18032 KB (Peak: 18032 KB), Simulation CPU Usage: 17843 ms
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 02:33:47 2026...
