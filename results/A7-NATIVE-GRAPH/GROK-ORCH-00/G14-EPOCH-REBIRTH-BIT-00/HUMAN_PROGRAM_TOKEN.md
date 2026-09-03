@@ -2,23 +2,36 @@
 
 ```text
 READY_TO_PROGRAM = YES
-PROGRAM          = NO
+PROGRAM          = NO          (agent / MCP / hw_server MUST NOT program)
+GATE14_PASS      = NO
+REBUILD          = NO
+RTL_EDIT         = NO
 ```
 
-Agent must not call `program_device` / `hw_server` program.
+Human programs **this exact bit once**. Do not cleanup, probe, merge RTL,
+or regenerate before the run. Slice headroom is 269/15850 (~1.7%).
+
+---
+
+## Frozen bit
+
+```text
+file  = results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-EPOCH-REBIRTH-BIT-00/arty_a7_ng_native_v1_g14_epoch_rebirth_00.bit
+SHA256= 1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9
+```
+
+Refuse if SHA is `3A7EF204…` / `7ECCA0E2…` / `A0B338E0…` or anything else.
 
 Board: Arty A7-100T `xc7a100tcsg324-1`  
 JTAG: Digilent `210319BE776EA`  
 UART: COM12 @ 115200  
 
-Bit:
+Causal claim: **one functional unknown = epoch object** (STORE+PKG).
+See `DELTA_FROM_3A7EF204.md`. Not “only one file differs.”
 
-```text
-arty_a7_ng_native_v1_g14_epoch_rebirth_00.bit
-SHA256=1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9
-```
+---
 
-Frozen oracle (do not retarget):
+## Frozen oracle (do not retarget)
 
 ```text
 HOLD_A C9=8382238122802120 OUT=653
@@ -27,6 +40,70 @@ CONTRA OUT=237
 HOLD_B OUT=60
 ```
 
-Expect vs fail bit `3A7EF204`: boot C8 GEN ≠ `FFFFFFFF`; HOLD_A C9/OUT match oracle if epoch closed the dirty-DRAM path.
+---
 
-Program once. Capture UART GEN / commit_seq / C9 / OUT after CORE_DONE.
+## One-program protocol (do not improvise)
+
+1. Confirm `.bit` SHA256 is exactly `1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9`.
+2. Arm COM12 @ 115200 **before** JTAG.
+3. Record capture-start timestamp.
+4. Program JTAG `210319BE776EA` **once**.
+5. Record JTAG DONE timestamp.
+6. Do **not** reprogram even if UART looks strange.
+7. Analyse only bytes after DONE.
+8. Capture at least BOOT → GEN → commit_seq/state evidence → CORE_DONE → C9 → OUT.
+9. Keep the raw capture. SHA256 it.
+10. Stop at first divergence. Do not keep running “to see the last pred.”
+
+---
+
+## Decision tree
+
+```text
+BOOT
+ │
+ ▼
+GEN legal?
+ │
+ ├── NO / FFFFFFFF
+ │      → EPOCH REBIRTH NOT CLOSED ON SILICON
+ │      → STOP
+ │
+ └── YES
+        │
+        ▼
+20 intended architectural commits?
+        │
+        ├── NO
+        │      → STATE-COMMIT DIVERGENCE
+        │      → STOP
+        │
+        └── YES
+               │
+               ▼
+HOLD_A C9 = 8382238122802120 ?
+               │
+               ├── NO
+               │      → QUERY/STATE PIPELINE STILL DIVERGES
+               │      → STOP at first available checkpoint
+               │
+               └── YES
+                      │
+                      ▼
+OUT = 653 ?
+                      │
+                      ├── NO → LM/BIND downstream opened
+                      │
+                      └── YES
+                             ↓
+                    run UNREL → CONTRA → HOLD_B
+```
+
+Expect vs fail bit `3A7EF204`: boot C8 GEN ≠ `FFFFFFFF`.
+
+Full oracle match on this bit closes P_BOOT/epoch on silicon. It still
+does **not** make `GATE14_PASS`. Gate14 still has teacher-off,
+reset/retrain, persistence identity, LM active-chain, and other
+acceptance items.
+
+Agent must not call `program_device` / `hw_server` program.

@@ -4,7 +4,8 @@ Source worktree (hashes match BIT-07 `SOURCE_SHA.txt`):
 
 `D:\Jetking_sem4\SEM_4\arty-a7-online-lm-grok-orch-00` @ `3b6622a` (P0 store; not used)
 
-Pinned into this worktree (one unknown remains: epoch store/pkg):
+Pinned into this worktree. **One functional unknown = epoch object**
+(STORE + PKG). Not “one file.” See `DELTA_FROM_3A7EF204.md`.
 
 | File | SHA256 |
 |------|--------|
@@ -19,10 +20,21 @@ Pinned into this worktree (one unknown remains: epoch store/pkg):
 | `a7ng_termgen_lane_fold6.sv` | `1A0FAFD4…` |
 | `a7ng_termgen_array_fold6.sv` | `E2D8CF2D…` |
 
-**Not** pinned (the unknown):
+**Functional unknown (epoch object):**
 
-- `a7ng_pkg.sv` epoch helpers
-- `a7ng_learned_prior_store.sv` epoch REBIRTH
-- `a7ng_persist_gen_fast.sv` same cookie law (not in C9 SoC fileset)
+- `a7ng_pkg.sv` epoch helpers (`FF0ECAED…`; not a SOURCE_SHA key; in fileset)
+- `a7ng_learned_prior_store.sv` epoch REBIRTH (`BE987C43…`)
 
-PROGRAM=NO.
+**Not in C9 SoC fileset:**
+
+- `a7ng_persist_gen_fast.sv` same cookie law (`G4` SHA differs; refused)
+
+**Observability-only SHA delta vs BIT-07 TOP `F395B1BB`:**
+
+- `arty_a7_ng_native_v1_ab_soc_top.sv` `31EEE943…` = `df16ff1` RST UART probes
+
+```text
+PROGRAM          = NO
+READY_TO_PROGRAM = YES
+REBUILD          = NO
+```

@@ -6,6 +6,8 @@ PROGRAM          = NO
 GATE14_PASS      = NO
 BOARD_PASS       = NO
 NATIVE_V1_MINI_AI_BOARD_PASS = NO
+REBUILD          = NO
+RTL_EDIT         = NO
 ```
 
 Unique bit (not `3A7EF204` / `7ECCA0E2` / `A0B338E0`):
@@ -34,7 +36,11 @@ C9  A/U/C/B = 8382238122802120 / 8786858483828180 / 2322832182208180 / 838243814
 OUT A/U/C/B = 653 / 689 / 237 / 60
 ```
 
-One unknown vs silicon `3A7EF204`: epoch object (dirty DRAM cookie + wrap REBIRTH).
-Fileset otherwise pinned to BIT-07 SOURCE_SHA (`PIN.md`).
+Wording: **one functional unknown = epoch object** (STORE+PKG), not
+“only one file differs.” SHA-delta classes: `DELTA_FROM_3A7EF204.md`.
 
-Human owns JTAG. Do not program from this agent.
+Freeze: no cleanup, no extra probe, no RTL merge, no regenerate. Free
+slices ~1.7%. Extra instrumentation can move placement.
+
+Human owns JTAG. Do not program from this agent. Protocol in
+`HUMAN_PROGRAM_TOKEN.md`.

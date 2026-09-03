@@ -1,53 +1,17 @@
-# BLOCKER — unique bit not built (superseded if PIN + XSim + impl PASS)
-
-Historical: current-main synth failed on `PHYS` bind drift. Graft from
-orch-00 BIT-07 blobs is in `PIN.md`. Re-run full-chip XSim then impl.
-
-# BLOCKER — unique bit not built
+# BLOCKER — historical (superseded)
 
 ```text
-PROGRAM = NO
-READY_TO_PROGRAM = NO
-GATE14_PASS = NO
-FIRST_DIVERGENCE = FILESET_BIND_DRIFT
+READY_TO_PROGRAM = YES
+PROGRAM          = NO
+GATE14_PASS      = NO
+FIRST_DIVERGENCE = NONE
 ```
 
-Epoch law is XSim-closed. Unique bitstream from **current main** is not a
-one-unknown experiment against silicon `3A7EF204`.
+Unique bit **was built** after pinning BIT-07 fileset blobs (`PIN.md`).
+SHA `1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9`.
+This file is kept so the PHYS bind-drift story is not rewritten.
 
-## What is closed (XSim)
+Dummy PHYS shims were **reverted**. Fix was pin BIT-07 cue/heap/wf/boot/
+TinyGPT/scorer (`PHYS` present), keep epoch store/pkg as the unknown.
 
-```text
-GATE14_C9_SOC_COFIT_XSIM_PASS fails=0
-HOLD_A C9=8382238122802120 OUT=653
-UNREL  OUT=689
-CONTRA OUT=237
-HOLD_B OUT=60
-```
-
-That DUT is `a7ng_gate14_c9_soc_cofit_xsim` (learned graph + glue + TinyGPT).
-It does **not** instantiate `a7ng_cue_soa_mig_top` / `a7ng_scorer_array`.
-
-## What blocked impl
-
-`synth_design` of `arty_a7_ng_native_v1_ab_soc_top` failed:
-
-```text
-1. a7ng_cue_soa_mig_top has no parameter PHYS
-   overridden from a7ng_native_v1_ab_core.sv:148
-   (ABCORE SHA still matches BIT-07; CUE SHA does not)
-
-2. After a dummy PHYS shim on cue (reverted):
-   a7ng_scorer_array has no parameter PHYS
-   overridden from a7ng_ng02_core.sv:77
-```
-
-BIT-07 SOURCE_SHA vs this tree also drifted on TinyGPT, cue, heap, wavefront,
-AOS boot. Dummy-`PHYS` on every drifted module is the patch treadmill.
-
-## What a unique bit is allowed to be
-
-Same fileset as fail bit `3A7EF204` **except** epoch store/pkg.
-That is not this worktree as it sits. Do not implement a mixed bit.
-
-Do not program the FPGA.
+Do not rebuild. Do not program from this agent.
