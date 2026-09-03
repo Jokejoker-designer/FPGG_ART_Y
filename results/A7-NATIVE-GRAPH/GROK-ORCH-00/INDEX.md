@@ -31,6 +31,9 @@ Mailbox for Cursor: `D:\Jetking_sem4\SEM_4\arty-a7-online-lm\.agents\handoff\GRO
 | `P2-GATE14-C9-CMD-ACCEPT-FIX-05/` | Handshake = cmd_valid&&cmd_ready; TRESET wait GEN+1; vis_w 20 B in 32 slots. XSim PASS_NARROW. PROGRAM=NO. |
 | `P2-GATE14-C9-SOC-COFIT-BIT-06/` | Full-chip C9 SoC. Bit SHA `B0F64E6C…`. Codex rejected: ja[7:0] NSTD-1/UCIO-1 waived. PROGRAM=NO. |
 | `P2-GATE14-C9-SOC-IO-SAFE-BIT-07/` | Unique IO-safe bit SHA `3A7EF204…`. JA removed. NSTD=0 UCIO=0. Programmed once COM12. CLASS=SILICON_FAIL_DIVERGENCE HOLD_A OUT=748 want=653. GATE14_PASS=NO. BOARD_PASS=not_claimed. |
+| `CURRENT_GATE14_STATUS.md` | **CURRENT** pointer. Epoch BOARD_CLOSED on `1F0F2ABB` commit `9656245`. Next=`G14-PERSISTENCE-IDENTITY-00`. GATE14_PASS=NO. PROGRAM=NO. |
+| `G14-EPOCH-REBIRTH-BIT-00/` | Unique bit SHA `1F0F2ABB…` programmed **once** JTAG `210319BE776EA`. CLASS=`EPOCH_CHAIN_CLOSED_ON_BOARD`. E0–E5 exact 653/689/237/60 C9 `8382238122802120` boot GEN=1. GATE14_PASS=NO. Do not reprogram. |
+| `G14-ROOT-B-TXN-AUDIT-00/` | Read-only Root B. CLASS=`ROOT_B_PARTIALLY_CONFIRMED`. No RTL. WDMA `WDMA_PROTOCOL_AMBIGUOUS`. ACK≠commit latent. Next persistence identity. |
 | `CODEX-AUDIT-GATE14-C9-SILICON-HOLD-A-748.md` | Codex audit branch pointer. Frozen oracle SHA `062932B3…`. Do not retarget. Do not auto-reprogram. |
 
 | `CODEX_GATE14_BALANCED_MVP_HANDOFF_20260831.md` | Prompt SHA `C0ACFDE7…` — R2=`MINHEAP-AREA-CLEAN-00` not Serial |

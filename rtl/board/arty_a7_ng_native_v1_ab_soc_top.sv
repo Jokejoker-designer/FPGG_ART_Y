@@ -374,6 +374,8 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   logic [7:0] rjv, rjl, rjc, rjt, rjd, rjb, ferr, oerr;
   logic [31:0] g14_c8g, g14_r1s, g14_r1o, c5cnt, c5rej;
   logic [63:0] g14_c8d, g14_adig, g14_bdig;
+  logic [15:0] g14_nh_cue, g14_nh_win, g14_nh_addr, g14_nh_tok, g14_nh_w;
+  logic        g14_teacher_act, g14_ext_llm_act;
   logic [127:0] g14_sc;
   logic [7:0] g14_r1r;
   logic [2:0] g14_ack;
@@ -692,6 +694,13 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .c11_bdig_o(g14_bdig),
     .c11_a_for_o(g14_afor),
     .c11_b_vis_o(g14_bvis),
+    .n_host_cue_o(g14_nh_cue),
+    .n_host_win_o(g14_nh_win),
+    .n_host_addr_o(g14_nh_addr),
+    .n_host_tok_o(g14_nh_tok),
+    .n_host_w_o(g14_nh_w),
+    .teacher_active_o(g14_teacher_act),
+    .ext_llm_active_o(g14_ext_llm_act),
     .p_txn_o(g14_txn),
     .c5_cons_o(g14_c5),
     .c9_score_o(g14_sc),
@@ -2440,7 +2449,11 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .c9_ids(c9_cframe), .c9_sc(g14_sc), .c9_pack(c9_cframe),
     .c9_poison(poison_lat), .c9_r1s(g14_r1s), .c9_r1r(g14_r1r), .c9_r1o(g14_r1o),
     .c10_lmst(c10_lmst), .c10_lmdn(c10_lmdn), .c10_out(c10_out), .c10_x(16'd0),
-    .c11_adig(g14_adig), .c11_bdig(g14_bdig), .c11_afor(g14_afor), .c11_bvis(g14_bvis)
+    .c11_adig(g14_adig), .c11_bdig(g14_bdig), .c11_afor(g14_afor), .c11_bvis(g14_bvis),
+    .c12_teacher(g14_teacher_act), .c12_ext_llm(g14_ext_llm_act),
+    .c12_mode(c1_mode),
+    .c12_n_cue(g14_nh_cue), .c12_n_win(g14_nh_win), .c12_n_addr(g14_nh_addr),
+    .c12_n_next(g14_nh_tok), .c12_n_wren(g14_nh_w)
   );
   a7ng_gate14_cframe_tx u_g14_cftx (
     .clk(core_clk), .rst_n(core_rst_n),

@@ -1,0 +1,11 @@
+PROGRAM_START 2026-09-03T15:15:04
+utc_unix=1788423304
+bitfile=D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-EPOCH-REBIRTH-BIT-00/arty_a7_ng_native_v1_g14_epoch_rebirth_00.bit
+bit_sha=1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9
+HW_TARGET localhost:3121/xilinx_tcf/Digilent/210319BE776EA
+device=xc7a100t_0 part=xc7a100t
+PROGRAM_END 2026-09-03T15:15:22
+refresh=ok
+done_prop=
+program_count=1
+target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA

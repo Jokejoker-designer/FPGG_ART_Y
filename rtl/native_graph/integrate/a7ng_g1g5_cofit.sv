@@ -29,6 +29,8 @@ module a7ng_g1g5_cofit (
   output logic [15:0]  n_host_tok_o,
   output logic [15:0]  n_host_w_o,
   output logic [15:0]  n_host_mode_o,
+  output logic         teacher_active_o,
+  output logic         ext_llm_active_o,
   output logic [2:0]   last_ack_o,
   output logic         exam_lm_used_o,
   output logic         persist_ddr_req_o,
@@ -180,6 +182,7 @@ module a7ng_g1g5_cofit (
     .n_host_cue_o(n_host_cue_o), .n_host_win_o(n_host_win_o),
     .n_host_addr_o(n_host_addr_o), .n_host_tok_o(n_host_tok_o),
     .n_host_w_o(n_host_w_o), .n_host_mode_o(n_host_mode_o),
+    .teacher_active_o(teacher_active_o), .ext_llm_active_o(ext_llm_active_o),
     .last_ack_o(last_ack_o), .exam_lm_used_o(exam_lm_used_o)
   );
 

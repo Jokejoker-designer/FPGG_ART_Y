@@ -1,0 +1,103 @@
+{
+  "gate": "G14-OPEN-METRIC-00",
+  "BIT_SHA256": "F24150BDE6F69080B3C5865386C49F6F02300782FFB4037FAF044BB2099840F7",
+  "PROGRAM_COUNT": 1,
+  "PROGRAM": "NO",
+  "RTL_EDIT": "NO",
+  "BIT_BUILD": "NO",
+  "ORACLE_CHANGE": "NO",
+  "GATE14_PASS": "NO",
+  "NATIVE_V1_MINI_AI_BOARD_PASS": "NO",
+  "OPEN_METRIC_BEFORE": 5,
+  "OPEN_METRIC_AFTER": 4,
+  "P3_LANE_UTIL": {
+    "value": "INCONCLUSIVE",
+    "method": "CFRAME C0-C12 + UART_SLIM=1 inventory; no lane_busy/lane_util/recs_per_cyc on UART",
+    "evidence_class": "INCONCLUSIVE",
+    "artifact_sha": "F24150BDE6F69080B3C5865386C49F6F02300782FFB4037FAF044BB2099840F7",
+    "box_tick": "OPEN",
+    "historical_mig_xsim_not_this_dut": {
+      "recs_per_cyc_burst4_out8": 0.444444,
+      "evidence_class": "MIG_XSIM",
+      "artifact_sha": "13D52730CAC91EB43527FEB500C1CD04BF692E51EBF47EA72C0D786E91C3186D"
+    }
+  },
+  "P4_DDR_STALL": {
+    "value": "INCONCLUSIVE",
+    "method": "C7 busy is persist, not PE stall; UART_SLIM drops w_stall; no stall_frac on CFRAME",
+    "evidence_class": "INCONCLUSIVE",
+    "artifact_sha": "4E80F238CE2F7665C14ED99D33D360413794E388411D8C0121A6237FB0562E0F",
+    "box_tick": "OPEN",
+    "hold_a_c7_busy": false,
+    "historical_mig_xsim_not_this_dut": {
+      "stall_frac_burst1_out1": 0.960445,
+      "stall_frac_burst4_out8": 0.555556,
+      "evidence_class": "MIG_XSIM"
+    }
+  },
+  "M7_DDR_BYTES_PER_QUERY": {
+    "value": "INCONCLUSIVE",
+    "method": "axi_read_bytes_o not on CFRAME/UART_SLIM; boot start_q once then QS_DONE; C9 exam is K=8 BRAM not 64-rec feeder",
+    "evidence_class": "INCONCLUSIVE",
+    "artifact_sha": "00613B8A6FD060004EC6BFAA060566A938562513E0BA8D0C53EE759FC9907135",
+    "box_tick": "OPEN",
+    "forbidden_claim_zero_bytes_as_board": true,
+    "historical_mig_xsim_not_this_dut": {
+      "axi_read_bytes_per_64_recs": 1024,
+      "bytes_per_record": 16,
+      "evidence_class": "MIG_XSIM"
+    }
+  },
+  "M10_SCALE_800K": {
+    "bytes_per_query": "not_proven",
+    "candidates_per_query": "not_proven",
+    "native_v1_k8_board_c9_ids": "8382238122802120",
+    "scaling_method": "none measured",
+    "status": "not_proven",
+    "evidence_class": "INCONCLUSIVE",
+    "box_tick": "OPEN",
+    "silent_NA": "REFUSED",
+    "checklist_amended": false
+  },
+  "C5_CEILING_VS_THROUGHPUT": {
+    "physical_ceiling": {
+      "PHYS": 4,
+      "K": 8,
+      "RAMB36": 104,
+      "DSP48E1": 19,
+      "slice_used": 15589,
+      "slice_tot": 15850,
+      "lut": 35993,
+      "ff": 44163,
+      "WNS_ns": 0.708,
+      "TNS_ns": 0.0,
+      "evidence_class": "POST_ROUTE"
+    },
+    "ideal_score_ceiling_not_throughput": {
+      "value": "4 * 100e6 scores/s if II=1",
+      "evidence_class": "ENGINEERING_ESTIMATE"
+    },
+    "sustained_measured": "NOT_MEASURED",
+    "bottleneck": "NOT_MEASURED",
+    "evidence_class": "POST_ROUTE+INCONCLUSIVE",
+    "box_tick": "PASS"
+  },
+  "UNSUPPORTED_CLAIMS": [
+    "BOARD lane_util of F24150BD",
+    "BOARD PE DDR stall of F24150BD C9 exam",
+    "BOARD DDR bytes/query of F24150BD C9 exam",
+    "800k-scale bytes/query",
+    "800k-scale candidates/query",
+    "800k runtime",
+    "sustained E2E throughput from PHYS=4 / RAMB36 / DSP",
+    "feeder recs/cyc 0.444444 as this SoC query rate",
+    "16-lane 1.6 Gscore/s on this bit"
+  ],
+  "fault_tree": {
+    "LAW_GAPS": 0,
+    "XSIM_GAPS": 0,
+    "BOARD_GAPS": 0,
+    "METRIC_GAPS": 4,
+    "FAIL": 0
+  }
+}

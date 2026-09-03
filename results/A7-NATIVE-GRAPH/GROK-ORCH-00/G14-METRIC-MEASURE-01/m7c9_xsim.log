@@ -1,0 +1,110 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Sep  4 00:30:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g14m01c9/xsim_script.tcl
+# xsim {g14m01c9} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+G14-METRIC-MEASURE-01 M7 C9 XSIM (g1g5_cofit, no TinyGPT, no AXI4 master)
+EVIDENCE_CLASS=XSIM persist_ddr 64-bit port; AXI4_READ=0 AXI4_WRITE=0 on this wrapper
+GLUE_FIRE tok0=10 map=10 mode=5 want_lm=0
+GLUE_QISS qid=10 qr=1
+GRAPH_Q qid=10 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=11 map=11 mode=5 want_lm=0
+GLUE_QISS qid=11 qr=1
+GRAPH_Q qid=11 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=12 map=12 mode=5 want_lm=0
+GLUE_QISS qid=12 qr=1
+GRAPH_Q qid=12 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=13 map=13 mode=5 want_lm=0
+GLUE_QISS qid=13 qr=1
+GRAPH_Q qid=13 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=14 map=14 mode=5 want_lm=0
+GLUE_QISS qid=14 qr=1
+GRAPH_Q qid=14 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=15 map=15 mode=5 want_lm=0
+GLUE_QISS qid=15 qr=1
+GRAPH_Q qid=15 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=16 map=16 mode=5 want_lm=0
+GLUE_QISS qid=16 qr=1
+GRAPH_Q qid=16 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=17 map=17 mode=5 want_lm=0
+GLUE_QISS qid=17 qr=1
+GRAPH_Q qid=17 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=18 map=18 mode=5 want_lm=0
+GLUE_QISS qid=18 qr=1
+GRAPH_Q qid=18 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=19 map=19 mode=5 want_lm=0
+GLUE_QISS qid=19 qr=1
+GRAPH_Q qid=19 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=1a map=1a mode=5 want_lm=0
+GLUE_QISS qid=1a qr=1
+GRAPH_Q qid=1a train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=1b map=1b mode=5 want_lm=0
+GLUE_QISS qid=1b qr=1
+GRAPH_Q qid=1b train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=1c map=1c mode=5 want_lm=0
+GLUE_QISS qid=1c qr=1
+GRAPH_Q qid=1c train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=1d map=1d mode=5 want_lm=0
+GLUE_QISS qid=1d qr=1
+GRAPH_Q qid=1d train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=1e map=1e mode=5 want_lm=0
+GLUE_QISS qid=1e qr=1
+GRAPH_Q qid=1e train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=1f map=1f mode=5 want_lm=0
+GLUE_QISS qid=1f qr=1
+GRAPH_Q qid=1f train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=20 map=20 mode=5 want_lm=0
+GLUE_QISS qid=20 qr=1
+GRAPH_Q qid=20 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=21 map=21 mode=5 want_lm=0
+GLUE_QISS qid=21 qr=1
+GRAPH_Q qid=21 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=22 map=22 mode=5 want_lm=0
+GLUE_QISS qid=22 qr=1
+GRAPH_Q qid=22 train=1
+GLUE_SNAP want_lm=0
+GLUE_FIRE tok0=23 map=23 mode=5 want_lm=0
+GLUE_QISS qid=23 qr=1
+GRAPH_Q qid=23 train=1
+GLUE_SNAP want_lm=0
+M7_C9_FLUSH_PERSIST_WRITE_BYTES=528 we_cyc_delta_as_bytes=528
+GLUE_FIRE tok0=a2 map=02 mode=8 want_lm=1
+GLUE_QISS qid=02 qr=1
+GRAPH_Q qid=02 train=0
+M7_C9_EXAM_HOLD_A_PACK=2322832182208180 (expect 8382238122802120)
+M7_C9_EXAM_AXI4_READ_BYTES=0
+M7_C9_EXAM_AXI4_WRITE_BYTES=0
+M7_C9_EXAM_PERSIST_WRITE_BYTES=0
+M7_C9_EXAM_PERSIST_WE_CYC=0
+M7_C9_MODE=8
+G14_METRIC_M7_C9_WARN pack mismatch got=2322832182208180
+G14_METRIC_M7_C9_XSIM_PASS
+$finish called at time : 40055635 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-METRIC-MEASURE-01/tb_g14_metric_m7_c9_xsim.sv" Line 156
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 00:30:32 2026...

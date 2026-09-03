@@ -1,5 +1,11 @@
 # PROJECT_COMPLETE — Native V1 §14 file-backed status (REMATCH)
 
+> **SUPERSEDED as live NEXT (2026-09-03).** This rematch is **HISTORICAL**
+> (2026-08-22). Gate14 C9 silicon is now `EPOCH_CHAIN_CLOSED_ON_BOARD` on
+> bit `1F0F2ABB` commit `9656245`. Live pointer:
+> `results/A7-NATIVE-GRAPH/GROK-ORCH-00/CURRENT_GATE14_STATUS.md`.
+> Do not treat the August OPEN boxes below as “nothing has happened since.”
+
 **Date:** 2026-08-22  
 **Gate:** `section14_all` (REMATCH after hs02_lm_path / wm00_timing / mig_h_rival / lm06_*)  
 **Auditor:** `a7-evidence-auditor`  

@@ -1,5 +1,11 @@
 # 00 — CURRENT AUTHORITY (Masterplan V2 revision)
 
+> **CURRENT (2026-09-03):** Gate14 epoch/P_BOOT silicon is `BOARD_CLOSED`
+> on bit `1F0F2ABB…` commit `9656245`. Do **not** start from the August
+> `LOOP_STATE.json` NEXT (`ddr_cue_soa_00r_axi_liveness`). Live pointer:
+> `results/A7-NATIVE-GRAPH/GROK-ORCH-00/CURRENT_GATE14_STATUS.md`.
+> This file below remains the **HISTORICAL** 2026-08-22 evidence delta.
+
 **Revision:** Masterplan V2 · **Written:** 2026-08-22 · **Reconciled:** 2026-08-22 (wavefront closeout) · **Scope:** documentation reconciliation only.
 
 This file is the **evidence delta** between the original blueprint (`01`–`15`, written before

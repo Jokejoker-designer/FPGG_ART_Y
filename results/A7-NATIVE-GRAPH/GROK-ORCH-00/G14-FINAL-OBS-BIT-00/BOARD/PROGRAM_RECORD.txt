@@ -1,0 +1,11 @@
+PROGRAM_START 2026-09-03T23:49:22
+utc_unix=1788454162
+bitfile=D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-FINAL-OBS-BIT-00/arty_a7_ng_native_v1_g14_final_obs_00.bit
+bit_sha=F24150BDE6F69080B3C5865386C49F6F02300782FFB4037FAF044BB2099840F7
+HW_TARGET localhost:3121/xilinx_tcf/Digilent/210319BE776EA
+device=xc7a100t_0 part=xc7a100t
+PROGRAM_END 2026-09-03T23:49:38
+refresh=ok
+done_prop=
+program_count=1
+target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA

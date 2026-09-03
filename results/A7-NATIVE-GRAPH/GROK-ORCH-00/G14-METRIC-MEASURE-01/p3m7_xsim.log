@@ -1,0 +1,30 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Sep  4 00:30:12 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g14m01soa/xsim_script.tcl
+# xsim {g14m01soa} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+G14-METRIC-MEASURE-01 P3/M7 SOA cue_soa_mig_top PHYS=4
+EVIDENCE_CLASS=XSIM AXI_STUB
+OWNER_READY=1 wait=0
+HB t=50000 bytes=768 deliv=32 run=1 sch=0 wf_st=3 busy=0 batch=0 tg_rdy=1 empty=0 ng02=6 stall=x
+HB t=100000 bytes=768 deliv=32 run=1 sch=0 wf_st=3 busy=0 batch=0 tg_rdy=1 empty=0 ng02=6 stall=x
+HB t=150000 bytes=768 deliv=32 run=1 sch=0 wf_st=3 busy=0 batch=0 tg_rdy=1 empty=0 ng02=6 stall=x
+HB t=200000 bytes=768 deliv=32 run=1 sch=0 wf_st=3 busy=0 batch=0 tg_rdy=1 empty=0 ng02=6 stall=x
+HB t=250000 bytes=768 deliv=32 run=1 sch=0 wf_st=3 busy=0 batch=0 tg_rdy=1 empty=0 ng02=6 stall=x
+HB t=300000 bytes=768 deliv=32 run=1 sch=0 wf_st=3 busy=0 batch=0 tg_rdy=1 empty=0 ng02=6 stall=x
+P3_SNAP32_ACT=16 ELIG=291 FIRE=4
+P3_LANE_UTIL_AT_32=0.013746
+M7_SOA_AXI_READ_BYTES_AT_HANG=768 DELIVERED=32
+HANG ng02_batch_ready=0 after 32/64 recs (XSIM). Not a complete query.
+G14_METRIC_P3M7_SOA_XSIM_PARTIAL
+$finish called at time : 3000525 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-METRIC-MEASURE-01/tb_g14_metric_p3m7_soa_xsim.sv" Line 179
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 00:30:15 2026...

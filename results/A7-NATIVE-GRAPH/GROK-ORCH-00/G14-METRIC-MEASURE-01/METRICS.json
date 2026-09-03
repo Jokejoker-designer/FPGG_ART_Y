@@ -1,0 +1,46 @@
+{
+  "gate": "G14-METRIC-MEASURE-01",
+  "RTL_EDIT": "NO",
+  "BIT_BUILD": "NO",
+  "PROGRAM": "NO",
+  "GATE14_PASS": "NO",
+  "OPEN_METRIC_BEFORE": 4,
+  "OPEN_METRIC_AFTER": 1,
+  "P3_LANE_UTIL": {
+    "value": 0.007063,
+    "method": "hier tg_valid_in / running; PHYS=4 FIRE=12 ACT=48 ELIG=1699",
+    "evidence_class": "MIG_XSIM",
+    "artifact_sha": "7AD953C9975CDFA1717B51D430E34DB01CF8B2F4E4A499268E62F9094975AF62",
+    "box_tick": "PASS",
+    "stub_prefix_not_complete": {
+      "util_at_32": 0.013746,
+      "delivered": 32,
+      "evidence_class": "XSIM"
+    }
+  },
+  "P4_DDR_STALL": {
+    "value": 0,
+    "stall_frac": 0.0,
+    "r_backpressure_cycles": 0,
+    "method": "buffer_empty_stall_o + r_backpressure on cue_soa_mig_top + MIG",
+    "evidence_class": "MIG_XSIM",
+    "artifact_sha": "7AD953C9975CDFA1717B51D430E34DB01CF8B2F4E4A499268E62F9094975AF62",
+    "box_tick": "PASS"
+  },
+  "M7_DDR_BYTES_PER_QUERY": {
+    "soa_axi_read_bytes": 1024,
+    "soa_axi_write_bytes": 0,
+    "soa_bytes_per_cand": 16.0,
+    "soa_evidence_class": "MIG_XSIM",
+    "c9_exam_axi4_read": 0,
+    "c9_exam_axi4_write": 0,
+    "c9_exam_persist_write": 0,
+    "c9_flush_persist_write": 528,
+    "c9_evidence_class": "XSIM",
+    "box_tick": "PASS"
+  },
+  "M10_SCALE_800K": {
+    "status": "KEEP_OPEN",
+    "box_tick": "OPEN"
+  }
+}

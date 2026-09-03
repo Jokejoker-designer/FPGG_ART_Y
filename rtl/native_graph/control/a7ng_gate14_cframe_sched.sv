@@ -1,4 +1,4 @@
-// Dump C0–C11 via a7ng_gate14_cframe_tx. FPGA-owned payloads. PROGRAM=NO.
+// Dump C0–C12 via a7ng_gate14_cframe_tx. C12 = live host-obs (not hardcoded 0). PROGRAM=NO.
 `timescale 1ns / 1ps
 module a7ng_gate14_cframe_sched (
   input  logic        clk, rst_n,
@@ -39,7 +39,15 @@ module a7ng_gate14_cframe_sched (
   input  logic [63:0] c11_adig,
   input  logic [63:0] c11_bdig,
   input  logic        c11_afor,
-  input  logic        c11_bvis
+  input  logic        c11_bvis,
+  input  logic        c12_teacher,
+  input  logic        c12_ext_llm,
+  input  logic [3:0]  c12_mode,
+  input  logic [15:0] c12_n_cue,
+  input  logic [15:0] c12_n_win,
+  input  logic [15:0] c12_n_addr,
+  input  logic [15:0] c12_n_next,
+  input  logic [15:0] c12_n_wren
 );
   logic run, want, saw_busy;
   logic [3:0] ck;
@@ -161,6 +169,16 @@ module a7ng_gate14_cframe_sched (
         pay[16] = {7'd0, c11_afor};
         pay[17] = {7'd0, c11_bvis};
       end
+      4'd12: begin
+        len = 16'd12;
+        pay[0] = {6'd0, c12_ext_llm, c12_teacher};
+        pay[1] = {4'd0, c12_mode};
+        pay[2] = c12_n_cue[7:0];   pay[3] = c12_n_cue[15:8];
+        pay[4] = c12_n_win[7:0];   pay[5] = c12_n_win[15:8];
+        pay[6] = c12_n_addr[7:0];  pay[7] = c12_n_addr[15:8];
+        pay[8] = c12_n_next[7:0];  pay[9] = c12_n_next[15:8];
+        pay[10]= c12_n_wren[7:0];  pay[11]= c12_n_wren[15:8];
+      end
     endcase
   end
 
@@ -177,7 +195,7 @@ module a7ng_gate14_cframe_sched (
           start_tx <= 1'b1; want <= 1'b0; saw_busy <= 1'b0;
           sq <= sq + 16'd1;
         end else if (!want && !start_tx && saw_busy && !tx_busy) begin
-          if (ck == 4'd11) run <= 1'b0;
+          if (ck == 4'd12) run <= 1'b0;
           else begin ck <= ck + 4'd1; want <= 1'b1; saw_busy <= 1'b0; end
         end
       end
