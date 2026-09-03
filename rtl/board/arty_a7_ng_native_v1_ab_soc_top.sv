@@ -1313,8 +1313,104 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     end
   end
   // CORE_START after all three boot legs, computed in 100 MHz domain (safe).
+  // This is NOT proof the core domain observed start (CDC/reset gap).
   assign core_live_100 = calib_ui_100 && wmem_100 && boot_ui_100;
   assign axi_b_100[31:19] = '0;
+
+  // E2R-CORE-START-RST-PROBE-00 — 4 sticky bits + counts.
+  // Bank clocks on CLK100MHZ, resets only on btn[0] (not clk_locked, not
+  // core_rst_n) so a lock-drop reboot still preserves cause/counts.
+  // Observability (must be true or silicon classification is garbage):
+  //   * every async probe input is 2FF with rst_n=1'b1 — NOT clk_locked
+  //     (u_core_rst_100_sync / u_stat_sync reset on lock and would fake f
+  //     and overwrite RST_CAUSE with MIG after relock)
+  //   * clk_locked is 2FF before n/f edge counts (no raw async sample)
+  //   * START_SEEN is a core-domain toggle on start_q (same clock as u_ab),
+  //     not "core ran a cycle" (core_ran). Toggle + 100 MHz edge detect
+  //     survives core_rst_n and clk_locked drop. btn[0] wipes the 100 MHz
+  //     sticky and arms the delay so a frozen toggle does not re-set it.
+  //   * RST_CAUSE=LOCK is sticky; trailing MIG/core_rst edges after a lock
+  //     drop must not overwrite 4 with 2 or 3.
+  // RESET_CAUSE: 0=POR 1=BTN 2=MIG_CALIB_DROP 3=CORE_RST 4=LOCK_DROP 5=OTHER
+  // CAUSE=1 is unused while btn[0] is the wipe; do not press BTN0 on silicon.
+  localparam logic [2:0] RC_POR=3'd0, RC_BTN=3'd1, RC_MIG=3'd2,
+                         RC_CRST=3'd3, RC_LOCK=3'd4, RC_OTH=3'd5;
+  logic btn0_100, core_tog, core_tog_100, start_tog_100;
+  (* keep = "true" *) logic start_tog;
+  logic lock_s, crst_s, calib_s;
+  logic sticky_core_clk_alive, sticky_core_rst_released, sticky_core_start_seen;
+  logic [2:0] reset_cause_100;
+  logic [7:0] boot_count_100, crst_fall_100;
+  logic lock_d, crst_d, calib_d, tog_d, start_tog_d;
+  sync_bits #(.WIDTH(1)) u_btn0_100 (
+    .clk(CLK100MHZ), .rst_n(1'b1), .async_in(btn[0]), .sync_out(btn0_100)
+  );
+  sync_bits #(.WIDTH(1)) u_lock_probe_100 (
+    .clk(CLK100MHZ), .rst_n(1'b1), .async_in(clk_locked), .sync_out(lock_s)
+  );
+  // Combo core_rst_n, not core_rst_n_q: if core_clk stops on PLL unlock the
+  // registered copy freezes high and misses the fall.
+  sync_bits #(.WIDTH(1)) u_crst_probe_100 (
+    .clk(CLK100MHZ), .rst_n(1'b1), .async_in(core_rst_n), .sync_out(crst_s)
+  );
+  sync_bits #(.WIDTH(1)) u_calib_probe_100 (
+    .clk(CLK100MHZ), .rst_n(1'b1), .async_in(calib), .sync_out(calib_s)
+  );
+  always_ff @(posedge core_clk or negedge core_pll_locked) begin
+    if (!core_pll_locked) core_tog <= 1'b0;
+    else core_tog <= ~core_tog;
+  end
+  // Toggle on start_q (1-cycle, core_clk, same domain as u_ab.start_query_i).
+  // No core_rst_n / pll reset: last value holds across core reset and clock stop.
+  always_ff @(posedge core_clk) begin
+    if (start_q) start_tog <= ~start_tog;
+  end
+  sync_bits #(.WIDTH(2)) u_core_probe_100 (
+    .clk(CLK100MHZ), .rst_n(1'b1),
+    .async_in({start_tog, core_tog}),
+    .sync_out({start_tog_100, core_tog_100})
+  );
+  always_ff @(posedge CLK100MHZ) begin
+    if (btn0_100) begin
+      sticky_core_clk_alive <= 1'b0;
+      sticky_core_rst_released <= 1'b0;
+      sticky_core_start_seen <= 1'b0;
+      reset_cause_100 <= RC_POR;
+      boot_count_100 <= 8'd0;
+      crst_fall_100 <= 8'd0;
+      lock_d <= 1'b0;
+      crst_d <= 1'b0;
+      calib_d <= 1'b0;
+      tog_d <= 1'b0;
+      start_tog_d <= start_tog_100; // arm; frozen toggle must not re-set sticky
+    end else begin
+      tog_d       <= core_tog_100;
+      start_tog_d <= start_tog_100;
+      lock_d      <= lock_s;
+      crst_d      <= crst_s;
+      calib_d     <= calib_s;
+      if (core_tog_100 != tog_d)
+        sticky_core_clk_alive <= 1'b1;
+      if (crst_s)
+        sticky_core_rst_released <= 1'b1;
+      if (start_tog_100 != start_tog_d)
+        sticky_core_start_seen <= 1'b1;
+      if (!lock_d && lock_s && (boot_count_100 != 8'hFF))
+        boot_count_100 <= boot_count_100 + 8'd1;
+      if (crst_d && !crst_s && (crst_fall_100 != 8'hFF))
+        crst_fall_100 <= crst_fall_100 + 8'd1;
+      // LOCK sticky. Lock drop also drops MIG calib and core_rst_n; those
+      // trailing edges must not overwrite RST_CAUSE=4.
+      if (lock_d && !lock_s)
+        reset_cause_100 <= RC_LOCK;
+      else if (reset_cause_100 != RC_LOCK) begin
+        if (calib_d && !calib_s && lock_s)
+          reset_cause_100 <= RC_MIG;
+        else if (crst_d && !crst_s)
+          reset_cause_100 <= RC_CRST;
+      end
+    end
+  end
 
   logic [7:0] tx_data, cf_hold;
   logic tx_start, tx_busy, cf_take, cf_hold_v;
@@ -1329,8 +1425,10 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   //          61 WDMA_OWNER=H … 62 WDMA_GRANT=H … 63 RPATH_IDLE=H … 64 MGO=H
   //          65 CMD_EMPTY=H … 66 SBUSY_PEND=H … 67 CMD_ST=H … 68 CMD_RD=H
   //          69 ATOM0=<8hex|NONE> … 70 ATOM1=<8hex|NONE>  (frozen pack; not live D/G/I)
+  //          71 CLK_ALIVE=H … 72 RST_REL=H … 73 START_SEEN=H
+  //          74 RST_CAUSE=H n=HH f=HH
   logic [6:0] msg_sel;
-  logic [70:0] sent_mask; // sticky: bit i set after message i completed
+  logic [74:0] sent_mask; // sticky: bit i set after message i completed
   logic [3:0] led_sticky;
   logic saw_busy;
   // LOAD pulses start; WAIT_BUSY until uart_tx latches; WAIT_IDLE until byte done.
@@ -1827,6 +1925,39 @@ module arty_a7_ng_native_v1_ab_soc_top #(
           default: return 8'h00;
         endcase
       end
+      7'd71: unique case (i) // CLK_ALIVE=H
+        6'd0: return "C"; 6'd1: return "L"; 6'd2: return "K"; 6'd3: return "_";
+        6'd4: return "A"; 6'd5: return "L"; 6'd6: return "I"; 6'd7: return "V";
+        6'd8: return "E"; 6'd9: return "=";
+        6'd10: return hex_nib({3'b0, sticky_core_clk_alive});
+        default: return 8'h00;
+      endcase
+      7'd72: unique case (i) // RST_REL=H
+        6'd0: return "R"; 6'd1: return "S"; 6'd2: return "T"; 6'd3: return "_";
+        6'd4: return "R"; 6'd5: return "E"; 6'd6: return "L"; 6'd7: return "=";
+        6'd8: return hex_nib({3'b0, sticky_core_rst_released});
+        default: return 8'h00;
+      endcase
+      7'd73: unique case (i) // START_SEEN=H
+        6'd0: return "S"; 6'd1: return "T"; 6'd2: return "A"; 6'd3: return "R";
+        6'd4: return "T"; 6'd5: return "_"; 6'd6: return "S"; 6'd7: return "E";
+        6'd8: return "E"; 6'd9: return "N"; 6'd10: return "=";
+        6'd11: return hex_nib({3'b0, sticky_core_start_seen});
+        default: return 8'h00;
+      endcase
+      7'd74: unique case (i) // RST_CAUSE=H n=HH f=HH
+        6'd0: return "R"; 6'd1: return "S"; 6'd2: return "T"; 6'd3: return "_";
+        6'd4: return "C"; 6'd5: return "A"; 6'd6: return "U"; 6'd7: return "S";
+        6'd8: return "E"; 6'd9: return "=";
+        6'd10: return hex_nib({1'b0, reset_cause_100});
+        6'd11: return " "; 6'd12: return "n"; 6'd13: return "=";
+        6'd14: return hex_nib(boot_count_100[7:4]);
+        6'd15: return hex_nib(boot_count_100[3:0]);
+        6'd16: return " "; 6'd17: return "f"; 6'd18: return "=";
+        6'd19: return hex_nib(crst_fall_100[7:4]);
+        6'd20: return hex_nib(crst_fall_100[3:0]);
+        default: return 8'h00;
+      endcase
       default: return 8'h00;
     endcase
   endfunction
@@ -1904,13 +2035,17 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       7'd68: return 7'd8;   // CMD_RD=H
       7'd69: return atom0_valid_100 ? 7'd14 : 7'd10; // ATOM0=hex|NONE
       7'd70: return atom1_valid_100 ? 7'd14 : 7'd10; // ATOM1=hex|NONE
+      7'd71: return 7'd11; // CLK_ALIVE=H
+      7'd72: return 7'd9;  // RST_REL=H
+      7'd73: return 7'd12; // START_SEEN=H
+      7'd74: return 7'd21; // RST_CAUSE=H n=HH f=HH
       default: return 7'd28; // PRED row
     endcase
   endfunction
 
   // Next unsent stage whose condition is true (priority low→high).
   function automatic logic [6:0] hb_next(
-      input logic [70:0] mask,
+      input logic [74:0] mask,
       input logic mig_ok, wmem_ok, soa_ok, core_ok,
       input logic owner_ok, qgo_ok, soarun_ok, ar_ok, rbeat_ok,
       input logic rbusy_ok, ridle_ok,
@@ -1938,6 +2073,10 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       if (!mask[0]) return 7'd0;                 // BOOT
       if (mig_ok && !mask[1]) return 7'd1;       // CALIB/MIG_OK
       if (wmem_ok && !mask[2]) return 7'd2;      // WMEM
+      if (wmem_ok && !mask[71]) return 7'd71;    // CLK_ALIVE
+      if (wmem_ok && !mask[72]) return 7'd72;    // RST_REL
+      if (wmem_ok && !mask[73]) return 7'd73;    // START_SEEN
+      if (wmem_ok && !mask[74]) return 7'd74;    // RST_CAUSE
       if (topk_ok && !mask[32]) return 7'd32;    // TOPK=
       if (pack_ok && !mask[34]) return 7'd34;    // PACK=
       if (bind_ok && !mask[35]) return 7'd35;    // POISON=
@@ -1950,6 +2089,10 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     if (wmem_ok    && !mask[2])  return 7'd2;
     if (soa_ok     && !mask[3])  return 7'd3;
     if (core_ok    && !mask[4])  return 7'd4;
+    if (!mask[71]) return 7'd71;                 // CLK_ALIVE (after CORE_START or anyway)
+    if (!mask[72]) return 7'd72;
+    if (!mask[73]) return 7'd73;
+    if (!mask[74]) return 7'd74;
     if (owner_ok   && !mask[5])  return 7'd5;
     if (qgo_ok     && !mask[6])  return 7'd6;
     if (soarun_ok  && !mask[7])  return 7'd7;
@@ -2055,6 +2198,10 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       ? ((!sent_mask[0])
          || (calib_100 && !sent_mask[1])
          || (wmem_100 && !sent_mask[2])
+         || (wmem_100 && !sent_mask[71])
+         || (wmem_100 && !sent_mask[72])
+         || (wmem_100 && !sent_mask[73])
+         || (wmem_100 && !sent_mask[74])
          || (topk_100 && !sent_mask[32])
          || (pack_100 && !sent_mask[34])
          || (bind_100 && !sent_mask[35])
@@ -2131,7 +2278,9 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       (phase_valid_100 && !sent_mask[52]) ||
       (pred_nz_100   && !sent_mask[53]) ||
       (core_done_100 && !sent_mask[54]) ||
-      (pred_ready    && !sent_mask[55]));
+      (pred_ready    && !sent_mask[55]) ||
+      (!sent_mask[71]) || (!sent_mask[72]) ||
+      (!sent_mask[73]) || (!sent_mask[74]));
 
   always_ff @(posedge CLK100MHZ) begin
     if (!clk_locked) begin
@@ -2142,7 +2291,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       tx_i <= 7'd0;
       tx_len <= 6'd0;
       msg_sel <= 6'd0;
-      sent_mask <= 71'd0;
+      sent_mask <= 75'd0;
       led_sticky <= 4'd0;
       saw_busy <= 1'b0;
     end else begin

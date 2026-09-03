@@ -1,0 +1,6 @@
+ramb36=104 ramb18=1 dsps=19
+WNS=NA TNS=NA WHS=NA THS=NA
+core_WNS=44.611 core_TNS=0 ui_WNS=2.019 ui_TNS=0
+unsafe_cdc=5 gate_pass=0
+git_head=cd8c41c10259f5362e5b64e9043604277ae54409
+UART_SLIM=0
