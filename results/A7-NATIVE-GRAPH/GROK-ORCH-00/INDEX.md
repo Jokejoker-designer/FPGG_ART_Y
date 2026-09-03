@@ -18,6 +18,13 @@
 
 Mailbox for Cursor: `D:\Jetking_sem4\SEM_4\arty-a7-online-lm\.agents\handoff\GROK_ORCH_LANE.md`
 
+| `G14-PERSISTENCE-IDENTITY-00/` | XSim PASS: FLUSH/KILL/RELOAD restores HOLD_A C9 `8382238122802120`. PROGRAM=NO. GATE14_PASS=NO. Do not reprogram `1F0F2ABB`. Next=`G14-RESET-RETRAIN-00`. |
+| `G14-RESET-RETRAIN-00/` | XSim PASS: A→TRESET hides A→B→A not resurrected. SoC OUT 653/689/237/60. PROGRAM=NO. GATE14_PASS=NO. RESET_RETRAIN_BOARD=not_claimed. |
+| `G14-TEACHER-OFF-NATIVE-CAUSALITY-00/` | Gate T XSim PASS: host wires 0, learn=0 freeze=1, HOLD_A C9 oracle. OUT observed not scored. PROGRAM=NO. Next=Gate L LM-06. |
+| `G14-LM06-ACTIVE-CHAIN-00/` | Gate L XSim `LM_ACTIVE_CHAIN_PROVEN`. C9→bind→start_fwd→TinyGPT st/busy→pred=OUT 653. UNREL perturb 689. PROGRAM=NO. GATE14_PASS=NO. |
+| `G14-FINAL-GAP-RECONCILIATION-00/` | READ-ONLY §14: 56 boxes. PASS=22 PASS_NARROW=20 OPEN_BOARD=7 OPEN_METRIC=5 FAIL=0. Reset/retrain already BOARD on 1F0F2ABB. Root B does not block a box. PROGRAM=NO. |
+| `G14-OPEN-METRIC-00/` | READ-ONLY on `F24150BD`. C5 PASS (ceilings≠throughput). P3/P4/M7 INCONCLUSIVE. M10 not_proven (no silent N/A). OPEN_METRIC 5→4. PROGRAM=NO. GATE14_PASS=NO. Canonical: preboard `results/.../G14-OPEN-METRIC-00/`. |
+| `G14-METRIC-MEASURE-01/` | NO RTL/BIT/PROGRAM. P3 util=0.007063 MIG_XSIM PASS. P4 stall=0 MIG_XSIM PASS. M7 1024 B/SOA query + 0 B/C9 exam PASS. M10 KEEP_OPEN. OPEN_METRIC 4→1. GATE14_PASS=NO. |
 | `P2-GATE14-C1-UART-RX-COMMAND-01/` | UART RX command path. Parent FAIL_C1 preserved. Codex-named bit `4569115F…`; live filename `46E11DA9…`. PROGRAM=NO. |
 | `P2-GATE14-UART-CMD-BOARD-PREFLIGHT-02/` | Read-only preflight. Token later granted. |
 | `P2-GATE14-UART-CMD-BOARD-PROGRAM-20-00/` | Programmed SHA `4569115F…` once. pred=249. C1 MODE 5→8. C10 OUT=0. BOARD_PASS=not_claimed. |
