@@ -1,0 +1,11 @@
+port=COM12
+baud=115200
+open_unix=1788413557.783084
+done_unix=1788413579.000000
+close_unix=1788413781.497149
+bytes_total=732
+bytes_before_done=0
+bytes_after_done=732
+bit_sha256=7ECCA0E21BF27DD13451F3EFB4F180A7B15627B610D81BECAE07CA9FFA12E219
+program_once=YES
+second_program=NO

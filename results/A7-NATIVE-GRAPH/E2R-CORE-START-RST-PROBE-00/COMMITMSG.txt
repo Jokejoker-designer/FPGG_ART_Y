@@ -1,0 +1,9 @@
+E2R-CORE-START-RST-PROBE-00: classify BOOT×2 vs CORE_START hang
+
+Unique bit 7ECCA0E2 UART_SLIM=0 programmed once after DONE.
+One BOOT in 180s, Q_GO and CORE_DONE observed. Not A (hang
+after CORE_START), not B (lock-drop reboot) on this SHA.
+
+Probe-only RTL: sticky CLK_ALIVE/RST_REL/START_SEEN/RST_CAUSE
+on CLK100MHZ, btn[0] wipe, 2FF rst_n=1. No scorer/minheap/
+TinyGPT/bind/TopK/LM change. GATE14_PASS=NO BOARD_PASS=NO.
