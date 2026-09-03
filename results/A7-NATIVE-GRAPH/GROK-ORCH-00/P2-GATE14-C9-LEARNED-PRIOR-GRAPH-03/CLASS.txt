@@ -1,0 +1,10 @@
+CLASS=PASS_C9_GRAPH_XSIM_OOC
+LM_RTL=not_run
+UNIQUE_BIT=not_created
+PROGRAM=NO
+GATE14_PASS=not_claimed
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+run_40=false
+oracle_549=not_used
+out_733=not_retargeted

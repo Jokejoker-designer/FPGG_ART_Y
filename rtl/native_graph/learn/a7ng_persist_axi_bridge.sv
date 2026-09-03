@@ -13,7 +13,7 @@ module a7ng_persist_axi_bridge #(
   input  logic         core_rst_n,
   input  logic         ddr_req_i,
   input  logic         ddr_we_i,
-  input  logic [4:0]   ddr_addr_i,
+  input  logic [7:0]   ddr_addr_i,
   input  logic [63:0]  ddr_wdata_i,
   output logic [63:0]  ddr_rdata_o,
   output logic         ddr_ack_o,
@@ -76,11 +76,11 @@ module a7ng_persist_axi_bridge #(
     U_IDLE=3'd0, U_GRANT=3'd1, U_AW=3'd2, U_W=3'd3, U_B=3'd4, U_AR=3'd5, U_R=3'd6, U_DONE=3'd7
   } ust_t;
 
-  function automatic logic [27:0] slot_addr(input logic [4:0] s);
-    return BASE + {19'd0, s, 4'b0000};
+  function automatic logic [27:0] slot_addr(input logic [7:0] s);
+    return BASE + {16'd0, s, 4'b0000};
   endfunction
   function automatic logic in_region(input logic [27:0] a);
-    return (a >= BASE) && (a < (BASE + 28'h0000_0200));
+    return (a >= BASE) && (a < (BASE + 28'h0000_1000));
   endfunction
 
   // Handshake nets declared before both domains.
@@ -92,7 +92,7 @@ module a7ng_persist_axi_bridge #(
   // ---- core: capture + request toggle. Payload held until ACK completes. ----
   kind_t       c_kind;
   logic        c_busy, c_ack_pend;
-  logic [4:0]  c_slot;
+  logic [7:0]  c_slot;
   logic [63:0] c_wdata;
   logic [15:0] fz_drop;
   logic        ok_c;
@@ -158,7 +158,7 @@ module a7ng_persist_axi_bridge #(
   logic req_seen;
   ust_t ust;
   kind_t u_kind;
-  logic [4:0] u_slot;
+  logic [7:0] u_slot;
   logic [63:0] u_wdata;
   logic [3:0] retry;
   logic [27:0] u_addr;

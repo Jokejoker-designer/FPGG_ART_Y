@@ -18,5 +18,26 @@
 
 Mailbox for Cursor: `D:\Jetking_sem4\SEM_4\arty-a7-online-lm\.agents\handoff\GROK_ORCH_LANE.md`
 
+| `P2-GATE14-C1-UART-RX-COMMAND-01/` | UART RX command path. Parent FAIL_C1 preserved. Codex-named bit `4569115F…`; live filename `46E11DA9…`. PROGRAM=NO. |
+| `P2-GATE14-UART-CMD-BOARD-PREFLIGHT-02/` | Read-only preflight. Token later granted. |
+| `P2-GATE14-UART-CMD-BOARD-PROGRAM-20-00/` | Programmed SHA `4569115F…` once. pred=249. C1 MODE 5→8. C10 OUT=0. BOARD_PASS=not_claimed. |
+| `P2-GATE14-TXN-ECHO-EXAM-HOST-01/` | PROGRAM=NO. Decoder 8-byte PASS offline. Live COM12 no CFRAME 15s. WAIT_NEW_HUMAN_TOKEN. |
+| `P2-GATE14-TXN-ECHO-EXAM-BOARD-01/` | Reprogrammed SHA `4569115F…`. pred=249. LMDN_NEVER 60s. wait/decoder FALSIFIED. BOARD_PASS=not_claimed. |
+| `P2-GATE14-WIDTH-CORRECT-EXAM-BOARD-01/` | SHA `46E11DA9…` once. pred=249. LMDN_NEVER same as R0. width-fix insufficient. BOARD_PASS=not_claimed. |
+| `P2-GATE14-LM-START-WIRE-01/` | Unique bit `A0B338E0…` once. PASS_NARROW_C10_G5_MATCH (2-lesson, cons=2, OUT 549/861/237). Not Gate14-20. BOARD_PASS=not_claimed. |
+| `P2-GATE14-20FACT-RESIDENT-02/` | PROGRAM=NO resident `A0B338E0…`. 20 A lessons C5 2→22. STOP HOLD_A OUT=733 want=549. CLASS=FAIL_DIVERGENCE. GATE14_PASS/BOARD_PASS=not_claimed. |
+| `P2-GATE14-C9-LEARNED-PRIOR-GRAPH-03/` | PROGRAM=NO FAST. C9 graph TopK after G4 prior lookup. XSim PASS 20 distinct facts. OOC WNS+51.6 DSP=0. LM RTL not run; unique bit not created. BOARD_PASS=not_claimed. |
+| `P2-GATE14-C9-SOA-LM-BIT-04/` | C9 SoA+LM XSim bag. Even-only GRAPH_Q handshake races; superseded by FIX-05. PROGRAM=NO. |
+| `P2-GATE14-C9-CMD-ACCEPT-FIX-05/` | Handshake = cmd_valid&&cmd_ready; TRESET wait GEN+1; vis_w 20 B in 32 slots. XSim PASS_NARROW. PROGRAM=NO. |
+| `P2-GATE14-C9-SOC-COFIT-BIT-06/` | Full-chip C9 SoC. Bit SHA `B0F64E6C…`. Codex rejected: ja[7:0] NSTD-1/UCIO-1 waived. PROGRAM=NO. |
+| `P2-GATE14-C9-SOC-IO-SAFE-BIT-07/` | Unique IO-safe bit SHA `3A7EF204…`. JA removed. NSTD=0 UCIO=0. Programmed once COM12. CLASS=SILICON_FAIL_DIVERGENCE HOLD_A OUT=748 want=653. GATE14_PASS=NO. BOARD_PASS=not_claimed. |
+| `CODEX-AUDIT-GATE14-C9-SILICON-HOLD-A-748.md` | Codex audit branch pointer. Frozen oracle SHA `062932B3…`. Do not retarget. Do not auto-reprogram. |
+
+| `CODEX_GATE14_BALANCED_MVP_HANDOFF_20260831.md` | Prompt SHA `C0ACFDE7…` — R2=`MINHEAP-AREA-CLEAN-00` not Serial |
+| `TERMGEN-FOLD6-16LANE-00/` | Gate R1 fold6 16-lane; PROGRAM=NO |
+| `TERMGEN-FOLD6-BIT-00/` | R1 full-chip impl seat; PROGRAM=NO |
+| `MINHEAP-AREA-CLEAN-00/` | Gate R2 minheap area-clean; never import Serial |
+| `MINHEAP-AREA-CLEAN-BIT-00/` | R2 full-chip impl seat LABEL=MINHEAP; PROGRAM=NO |
+
 | `GO-H4-SIMFULL0-00/` | XSim H4 MATCH_664 pack=`3b392b291b190b09` (stub ≠ board) |
 | `GO-H2PACK-SOC-00/` | UART PACK=16hex + stall-idle + bind hold; impl to BIT_OK; PROGRAM=NO |

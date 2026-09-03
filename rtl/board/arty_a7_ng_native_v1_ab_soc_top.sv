@@ -11,7 +11,6 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   input  logic [3:0]  sw,
   input  logic [3:0]  btn,
   output logic [3:0]  led,
-  output logic [7:0]  ja,
   input  logic        uart_txd_in,
   output logic        uart_rxd_out,
   // Arty QSPI flash (T2-SPI wmem loader)
@@ -174,8 +173,9 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   logic persist_req_ui, persist_idle_ui, persist_grant_ui;
   logic persist_owner_ui = 1'b0;
   logic persist_freeze, persist_c7v, persist_c7rdy, persist_busy;
+  assign persist_c7rdy = 1'b1;
   logic persist_ddr_req, persist_ddr_we, persist_ddr_ack;
-  logic [4:0] persist_ddr_addr;
+  logic [7:0] persist_ddr_addr;
   logic [63:0] persist_ddr_wdata, persist_ddr_rdata;
   logic [31:0] persist_c7a;
   logic [3:0]  p_awid, p_arid;
@@ -361,6 +361,27 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   (* keep = "true" *) logic [63:0] c9_cframe;
   (* keep = "true" *) logic        c10_lmst, c10_lmdn;
   (* keep = "true" *) logic [9:0]  c10_out;
+  // Gate14 command/CFRAME nets MUST be declared before u_ab. Implicit 1-bit
+  // wires here would truncate C8/C9/C11 payloads. PROGRAM=NO.
+  logic unused_rx;
+  logic unused_tie;
+  logic [7:0] urx_data, ubyte, g14_typ, g14_tok, qtok;
+  logic urx_v, ubyte_v, g14_qv, g14_qr, g14_map_r, g14_cmd_v, g14_cmd_r, g14_snap;
+  logic g14_mis, g14_c5, g14_afor, g14_bvis;
+  logic [3:0] g14_cmd;
+  logic signed [3:0] g14_rew, qrew;
+  logic [15:0] g14_seq, g14_echo, g14_txn;
+  logic [7:0] rjv, rjl, rjc, rjt, rjd, rjb, ferr, oerr;
+  logic [31:0] g14_c8g, g14_r1s, g14_r1o, c5cnt, c5rej;
+  logic [63:0] g14_c8d, g14_adig, g14_bdig;
+  logic [127:0] g14_sc;
+  logic [7:0] g14_r1r;
+  logic [2:0] g14_ack;
+  logic [7:0] cf_byte, cf_pay [0:47], cf_cdc_d;
+  logic cf_v, cf_r, cf_busy, cf_start, cf_cdc_v, cdc_sr, uart_done_core, uart_done_d;
+  logic [7:0] cf_ckpt;
+  logic [15:0] cf_len, cf_seq;
+  logic dump_all;
   logic [31:0] fpga_nt_valid;
   logic lm06_active;
   // Sticky post-CORE stage bits (core domain) — DUT events only, no host poke.
@@ -714,7 +735,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .ddr_addr_i(persist_ddr_addr), .ddr_wdata_i(persist_ddr_wdata),
     .ddr_rdata_o(persist_ddr_rdata), .ddr_ack_o(persist_ddr_ack),
     .freeze_i(persist_freeze),
-    .c7_valid_i(persist_c7v), .c7_addr_i(persist_c7a), .c7_ready_o(persist_c7rdy),
+    .c7_valid_i(1'b0), .c7_addr_i(32'd0), .c7_ready_o(),
     .ui_clk(ui_clk), .ui_rst_n(ui_rst_n),
     .grant_i(persist_grant_ui), .req_o(persist_req_ui), .idle_o(persist_idle_ui),
     .m_axi_awid(p_awid), .m_axi_awaddr(p_awaddr), .m_axi_awlen(p_awlen),
@@ -2210,26 +2231,6 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     end
   end
 
-  logic unused_rx;
-  logic unused_tie;
-  logic [7:0] urx_data, ubyte, g14_typ, g14_tok, qtok;
-  logic urx_v, ubyte_v, g14_qv, g14_qr, g14_map_r, g14_cmd_v, g14_cmd_r, g14_snap;
-  logic g14_mis, g14_c5, g14_afor, g14_bvis;
-  logic [3:0] g14_cmd;
-  logic signed [3:0] g14_rew, qrew;
-  logic [15:0] g14_seq, g14_echo, g14_txn;
-  logic [7:0] rjv, rjl, rjc, rjt, rjd, rjb, ferr, oerr;
-  logic [31:0] g14_c8g, g14_r1s, g14_r1o, c5cnt, c5rej;
-  logic [63:0] g14_c8d, g14_adig, g14_bdig;
-  logic [127:0] g14_sc;
-  logic [7:0] g14_r1r;
-  logic [2:0] g14_ack;
-  logic [7:0] cf_byte, cf_pay [0:47], cf_cdc_d;
-  logic cf_v, cf_r, cf_busy, cf_start, cf_cdc_v, cdc_sr, uart_done_core, uart_done_d;
-  logic [7:0] cf_ckpt;
-  logic [15:0] cf_len, cf_seq;
-  logic dump_all;
-
   a7ng_uart_rx100 u_g14_rx (
     .clk(CLK100MHZ), .rst_n(clk_locked), .rx(uart_txd_in),
     .data(urx_data), .valid(urx_v), .ferr(ferr), .oerr(oerr)
@@ -2284,7 +2285,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .c3_ids(c9_cframe), .c3_sc(g14_sc),
     .c4_ev({g14_r1s, g14_r1o}),
     .c5_cons(c5cnt), .c5_rej(c5rej), .c5_ack({5'd0, g14_ack}),
-    .c6_rsv(16'd0), .c6_sat(1'b0),
+    .c6_rsv(g14_txn), .c6_sat(1'b0),
     .c7_addr(persist_c7a), .c7_ack({7'd0, persist_c7v}), .c7_err({7'd0, persist_busy}),
     .c8_gen(g14_c8g), .c8_sdig(g14_c8d),
     .c9_ids(c9_cframe), .c9_sc(g14_sc), .c9_pack(c9_cframe),
@@ -2315,24 +2316,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   assign unused_rx = 1'b0;
   assign unused_tie = |{boot_100, soa_core_100, bind_core_100, axi_b_100, dual_err, lm06_active};
   assign led = led_sticky ^ sw;
-
-  // E2R-LA-PMOD-00: observe-only Pmod JA (3.3 V). Does not touch ready/valid/winner/TopK/bind/LM FSM.
-  // Sticky/synced CLK100MHZ levels so a 24 MHz LA can see DC after the event.
-  (* IOB = "TRUE" *) logic [7:0] ja_q;
-  always_ff @(posedge CLK100MHZ or negedge clk_locked) begin
-    if (!clk_locked)
-      ja_q <= 8'd0;
-    else
-      ja_q <= {
-        sgo_lat_100,     // ja[7] SGO
-        w_stall_100,     // ja[6] W_STALL
-        core_busy_100,   // ja[5] LM_ACTIVE
-        bind_100,        // ja[4] BIND_DONE
-        rbeat_100,       // ja[3] SOA_R_FIRST
-        ar_100,          // ja[2] SOA_AR_FIRE
-        qgo_100,         // ja[1] QUERY_ACCEPT
-        core_live_100    // ja[0] CORE_START / core live
-      };
-  end
-  assign ja = ja_q;
+  // P2-GATE14-C9-SOC-IO-SAFE-BIT-07: Pmod JA was E2R-LA debug only.
+  // Gate14 acceptance is UART CFRAME + TinyGPT. No ja[] port, no unconstrained
+  // debug replacement, no NSTD-1/UCIO-1 waiver. Heartbeat/LED still use *_100.
 endmodule

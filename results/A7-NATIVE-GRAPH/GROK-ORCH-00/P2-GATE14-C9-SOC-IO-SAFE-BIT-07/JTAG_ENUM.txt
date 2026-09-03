@@ -1,0 +1,11 @@
+gate=P2-GATE14-C9-SOC-IO-SAFE-BIT-07
+PROGRAM=NO
+want_jtag=210319BE776EA
+hw_server=connected
+n_targets=1
+target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA
+want_found=1
+n_devices=1
+device name=xc7a100t_0 part=xc7a100t
+xc7a100t_count=1
+JTAG_ENUM_OK target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA device=xc7a100t_0

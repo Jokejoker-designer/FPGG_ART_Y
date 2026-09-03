@@ -1,0 +1,74 @@
+{
+  "gate": "P2-GATE14-C9-LEARNED-PRIOR-GRAPH-03",
+  "source": "actual C9 graph minheap packs from XSim PASS",
+  "not_g5_fast_ids": true,
+  "not_out_733": true,
+  "wmem_sha256": "C204E55909D99370387C479C74E28C15F285FDDEE20239459D7C0EC3373001E0",
+  "law_id": "lm06-signsgd-v1",
+  "queries": [
+    {
+      "tag": "HOLD_A",
+      "tokens": [
+        32,
+        33,
+        128,
+        34,
+        129,
+        35,
+        130,
+        131
+      ],
+      "ctx_pack_hex": "8382238122802120",
+      "query_sha256": "B324D6EEB95D975805F366E7AEB6A4CE246F63B9881CAA97ACC5E787768A9075",
+      "oracle_out": 653
+    },
+    {
+      "tag": "UNREL",
+      "tokens": [
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "ctx_pack_hex": "8786858483828180",
+      "query_sha256": "A5BC058924A75E0090741D19FDDA297259D2026A17DF58C7341E817F71D0B49C",
+      "oracle_out": 689
+    },
+    {
+      "tag": "CONTRA",
+      "tokens": [
+        128,
+        129,
+        32,
+        130,
+        33,
+        131,
+        34,
+        35
+      ],
+      "ctx_pack_hex": "2322832182208180",
+      "query_sha256": "133BBB099BFA746623506A1D1F6C952A15A040ED0EAE6C0D7CF3082F068122A8",
+      "oracle_out": 237
+    },
+    {
+      "tag": "HOLD_B",
+      "tokens": [
+        64,
+        65,
+        128,
+        66,
+        129,
+        67,
+        130,
+        131
+      ],
+      "ctx_pack_hex": "8382438142804140",
+      "query_sha256": "F6A1CF2E89330FA012DDF3B6D93DE9EE170102BB3444C25FB43EDD81F7A99DAA",
+      "oracle_out": 60
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+P2-GATE14-C9 Codex audit: silicon HOLD_A OUT=748 vs oracle 653
+
+Publish the C9 learned-prior path and board evidence on
+codex-audit/gate14-c9-silicon-hold-a-748.
+
+Bags: C9-03 graph, C9-04 SoA+LM, C9-05 handshake fix, C9-06 SoC cofit
+(rejected B0F64E6C: JA NSTD-1/UCIO-1), C9-07 IO-safe unique bit
+3A7EF204 (JA removed; NSTD=0 UCIO=0).
+
+XSim 20/20 A+B packs+OUT match frozen oracle
+062932B3853144526B1C9A42C2076966C45EF108C707546C68C9BC89754C912B
+(HOLD_A 653 / 8382238122802120).
+
+Silicon: programmed 3A7EF204 once, COM12 armed first, distinct tokens
+0x10-0x23. A 20/20 graph+reward. Freeze MODE=8. First divergence
+HOLD_A OUT=748 pack=2322838281802120. Stopped. B not run.
+
+GATE14_PASS=NO. BOARD_PASS=not_claimed. Oracle not retargeted.
+No second program.
