@@ -2,14 +2,14 @@
 
 ```text
 READY_TO_PROGRAM = YES
-PROGRAM          = NO          (agent / MCP / hw_server MUST NOT program)
+PROGRAM          = ONCE        (human authorized 2026-09-03: agent programs this SHA once)
 GATE14_PASS      = NO
 REBUILD          = NO
 RTL_EDIT         = NO
 ```
 
-Human programs **this exact bit once**. Do not cleanup, probe, merge RTL,
-or regenerate before the run. Slice headroom is 269/15850 (~1.7%).
+Human authorized **this exact bit once**. Do not cleanup, probe, merge RTL,
+or regenerate. Do not program a second time. Slice headroom is 269/15850 (~1.7%).
 
 ---
 

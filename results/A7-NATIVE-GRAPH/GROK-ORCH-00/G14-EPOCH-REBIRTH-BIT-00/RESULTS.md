@@ -42,5 +42,5 @@ Wording: **one functional unknown = epoch object** (STORE+PKG), not
 Freeze: no cleanup, no extra probe, no RTL merge, no regenerate. Free
 slices ~1.7%. Extra instrumentation can move placement.
 
-Human owns JTAG. Do not program from this agent. Protocol in
-`HUMAN_PROGRAM_TOKEN.md`.
+Board 2026-09-03: programmed **once**. E0–E5 exact. CLASS=`EPOCH_CHAIN_CLOSED_ON_BOARD`.
+`GATE14_PASS=NO`. Evidence: `BOARD/RESULTS.md`. Do not reprogram.

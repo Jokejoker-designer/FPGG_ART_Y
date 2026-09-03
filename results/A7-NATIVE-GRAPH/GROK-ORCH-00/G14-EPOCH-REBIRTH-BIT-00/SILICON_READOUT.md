@@ -8,8 +8,10 @@ REBUILD          = NO
 RTL_EDIT         = NO
 ```
 
-No further pre-board repair. Program `1F0F2ABB…FF4B9` once.
-Grade the UART against this file. Do not improvise.
+Board run 2026-09-03: E0–E5 **all exact**. CLASS=`EPOCH_CHAIN_CLOSED_ON_BOARD`.
+`GATE14_PASS` remains **NO**. Program count = 1. Do not reprogram.
+
+See `BOARD/RESULTS.md`.
 
 ---
 
