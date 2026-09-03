@@ -83,6 +83,11 @@ module a7ng_learned_prior_store #(
   function automatic logic vis_w(input logic occ, input logic [7:0] stmp);
     return ws_live && (live_gen != 32'd0) && occ && (stmp != 8'd0) && (stmp == live_gen[7:0]);
   endfunction
+  // FLUSH header is {31'd0, live_gen, 1'b1}. Dirty DRAM all-ones has bit0=1 and
+  // gen=FFFFFFFF — that is not a legal generation (WRAP_LIMIT) and must P_CLR.
+  function automatic logic header_ok(input logic [63:0] d);
+    return d[0] && (d[32:1] != 32'd0) && (d[63:33] == 31'd0) && (d[32:1] <= WRAP_LIMIT);
+  endfunction
   function automatic logic signed [7:0] sat8(input logic signed [8:0] x);
     if (x > 9'sd127)  return 8'sd127;
     if (x < -9'sd128) return -8'sd128;
@@ -197,7 +202,7 @@ module a7ng_learned_prior_store #(
             ddr_req_o <= 1'b1;
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
-            if (ddr_rdata_i[0] && (ddr_rdata_i[32:1] != 32'd0)) begin
+            if (header_ok(ddr_rdata_i)) begin
               live_gen <= ddr_rdata_i[32:1];
               slot_i <= 6'd1; pst <= P_RELOAD;
             end else begin

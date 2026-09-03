@@ -1,0 +1,38 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Sep  3 13:06:12 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/pboot_store/xsim_script.tcl
+# xsim {pboot_store} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+CASE ZERO hdr=0000000000000000 data=0000000000000000 zero_tail=0 treset=1
+ZERO S0 GEN=00000001 boot=1 sdig=0 wrap=0
+ZERO AFTER_TRESET GEN=00000002 sdig=0
+ZERO S20 ack=20 seq=20 dack=20 dseq=20 GEN=00000002 sdig=197139
+ZERO LK A0=1 A1=1 A2=1 A3=1
+CASE ONES hdr=ffffffffffffffff data=ffffffffffffffff zero_tail=0 treset=1
+ONES S0 GEN=ffffffff boot=1 sdig=0 wrap=1
+ONES AFTER_TRESET GEN=ffffffff sdig=0
+ONES S20 ack=20 seq=0 dack=20 dseq=0 GEN=ffffffff sdig=0
+ONES LK A0=0 A1=0 A2=0 A3=0
+ONES_CONTRACT gen_ff=1 dseq=0 hits=0000
+CASE TWO_FREE hdr=ffffffffffffffff data=ffffffffffffffff zero_tail=2 treset=1
+TWO_FREE S0 GEN=ffffffff boot=1 sdig=0 wrap=1
+TWO_FREE AFTER_TRESET GEN=ffffffff sdig=0
+TWO_FREE S20 ack=20 seq=2 dack=20 dseq=2 GEN=ffffffff sdig=0
+TWO_FREE LK A0=1 A1=1 A2=0 A3=0
+TWO_FREE_CONTRACT gen_ff=1 dseq=2 hits=1100
+CASE LEGAL hdr=0000000000000007 data=0000000000000000 zero_tail=0 treset=0
+LEGAL S0 GEN=00000003 boot=1 sdig=0 wrap=0
+LEGAL S20 ack=20 seq=20 dack=20 dseq=20 GEN=00000003 sdig=197395
+LEGAL LK A0=1 A1=1 A2=1 A3=1
+PBOOT_DIRTY_DDR_XSIM_PASS fails=0
+$finish called at time : 64255 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-DOWNSTREAM-P0-GEN-BOOT-00/tb_a7ng_pboot_dirty_ddr.sv" Line 198
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Sep  3 13:06:14 2026...

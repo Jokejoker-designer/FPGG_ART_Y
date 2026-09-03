@@ -1,0 +1,98 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Sep  3 13:07:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/pboot_graph/xsim_script.tcl
+# xsim {pboot_graph} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+GRAPH ZERO
+ZERO S0 GEN=00000001
+ZERO AFTER_TRESET GEN=00000002
+GRAPH_Q qid=10 train=1
+GRAPH_Q qid=11 train=1
+GRAPH_Q qid=12 train=1
+GRAPH_Q qid=13 train=1
+GRAPH_Q qid=14 train=1
+GRAPH_Q qid=15 train=1
+GRAPH_Q qid=16 train=1
+GRAPH_Q qid=17 train=1
+GRAPH_Q qid=18 train=1
+GRAPH_Q qid=19 train=1
+GRAPH_Q qid=1a train=1
+GRAPH_Q qid=1b train=1
+GRAPH_Q qid=1c train=1
+GRAPH_Q qid=1d train=1
+GRAPH_Q qid=1e train=1
+GRAPH_Q qid=1f train=1
+GRAPH_Q qid=20 train=1
+GRAPH_Q qid=21 train=1
+GRAPH_Q qid=22 train=1
+GRAPH_Q qid=23 train=1
+ZERO S20 ack=20 seq=20 GEN=00000002 sdig=197139
+GRAPH_Q qid=02 train=0
+ZERO HOLD_A C3=2322832182208180 C9=8382238122802120 r1=20 GEN=00000002
+ZERO CMP C9vsORACLE=1 C9vsC3=0 C9vsSI=0
+GRAPH ONES
+ONES S0 GEN=00000001
+ONES AFTER_TRESET GEN=00000002
+GRAPH_Q qid=10 train=1
+GRAPH_Q qid=11 train=1
+GRAPH_Q qid=12 train=1
+GRAPH_Q qid=13 train=1
+GRAPH_Q qid=14 train=1
+GRAPH_Q qid=15 train=1
+GRAPH_Q qid=16 train=1
+GRAPH_Q qid=17 train=1
+GRAPH_Q qid=18 train=1
+GRAPH_Q qid=19 train=1
+GRAPH_Q qid=1a train=1
+GRAPH_Q qid=1b train=1
+GRAPH_Q qid=1c train=1
+GRAPH_Q qid=1d train=1
+GRAPH_Q qid=1e train=1
+GRAPH_Q qid=1f train=1
+GRAPH_Q qid=20 train=1
+GRAPH_Q qid=21 train=1
+GRAPH_Q qid=22 train=1
+GRAPH_Q qid=23 train=1
+ONES S20 ack=20 seq=20 GEN=00000002 sdig=197139
+GRAPH_Q qid=02 train=0
+ONES HOLD_A C3=2322832182208180 C9=8382238122802120 r1=20 GEN=00000002
+ONES CMP C9vsORACLE=1 C9vsC3=0 C9vsSI=0
+GRAPH TWO_FREE
+TWO_FREE S0 GEN=00000001
+TWO_FREE AFTER_TRESET GEN=00000002
+GRAPH_Q qid=10 train=1
+GRAPH_Q qid=11 train=1
+GRAPH_Q qid=12 train=1
+GRAPH_Q qid=13 train=1
+GRAPH_Q qid=14 train=1
+GRAPH_Q qid=15 train=1
+GRAPH_Q qid=16 train=1
+GRAPH_Q qid=17 train=1
+GRAPH_Q qid=18 train=1
+GRAPH_Q qid=19 train=1
+GRAPH_Q qid=1a train=1
+GRAPH_Q qid=1b train=1
+GRAPH_Q qid=1c train=1
+GRAPH_Q qid=1d train=1
+GRAPH_Q qid=1e train=1
+GRAPH_Q qid=1f train=1
+GRAPH_Q qid=20 train=1
+GRAPH_Q qid=21 train=1
+GRAPH_Q qid=22 train=1
+GRAPH_Q qid=23 train=1
+TWO_FREE S20 ack=20 seq=20 GEN=00000002 sdig=197139
+GRAPH_Q qid=02 train=0
+TWO_FREE HOLD_A C3=2322832182208180 C9=8382238122802120 r1=20 GEN=00000002
+TWO_FREE CMP C9vsORACLE=1 C9vsC3=0 C9vsSI=0
+PBOOT_GRAPH_C9_XSIM_DONE fails=0
+$finish called at time : 489560 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/G14-DOWNSTREAM-P0-GEN-BOOT-00/tb_a7ng_pboot_graph_c9.sv" Line 179
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Sep  3 13:07:43 2026...
