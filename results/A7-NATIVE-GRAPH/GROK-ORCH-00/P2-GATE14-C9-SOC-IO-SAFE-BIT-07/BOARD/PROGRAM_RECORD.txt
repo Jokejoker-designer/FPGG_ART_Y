@@ -1,0 +1,11 @@
+PROGRAM_START 2026-09-03T10:31:02
+utc_unix=1788406262
+bitfile=D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-GATE14-C9-SOC-IO-SAFE-BIT-07/arty_a7_ng_native_v1_grok_orch_C9-SOC-IO-SAFE-BIT-07.bit
+bit_sha=3A7EF2044CD92730F048032ABF9E9CC914461EE7CE767745089CD082CC31A00B
+HW_TARGET localhost:3121/xilinx_tcf/Digilent/210319BE776EA
+device=xc7a100t_0 part=xc7a100t
+PROGRAM_END 2026-09-03T10:31:18
+refresh=ok
+done_prop=
+program_count=1
+target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA

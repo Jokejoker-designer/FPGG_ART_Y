@@ -1,0 +1,55 @@
+# P2-GATE14-C9-SOC-IO-SAFE-BIT-07 RESULTS
+
+**PROGRAM=NO. COM12 listed, not opened. JTAG enumerated, not programmed.**  
+Does **not** declare GATE14_PASS or BOARD_PASS.
+
+Parent bit `B0F64E6C` rejected: NSTD-1/UCIO-1 on `ja[7:0]` with DRC waiver.
+
+## Return
+
+```text
+GATE=P2-GATE14-C9-SOC-IO-SAFE-BIT-07
+CLASS=IO_SAFE_BIT_READY_FOR_CODEX
+JA_REQUIRED=NO
+JA_RESOLUTION=REMOVED_FROM_PRODUCTION_TOP
+JA_XDC_SOURCE=unused; recorded only constraints/e2r_la_pmod_ja.xdc (Digilent Arty A7-100T Pmod JA)
+JA_PIN_MAP=none (port removed; unused map G13/B11/A11/D12/D13/B18/A18/K16 LVCMOS33)
+NSTD1_COUNT=0
+UCIO1_COUNT=0
+DRC_ERROR_COUNT=0
+ROUTE_ERROR_COUNT=0
+SOC_XSIM=PASS GATE14_C9_SOC_COFIT_XSIM_PASS OUT 653/689/237/60
+C9_PACK_A/U/C/B=8382238122802120/8786858483828180/2322832182208180/8382438142804140
+LM_OUT_A/U/C/B=653/689/237/60
+PERSIST_RELOAD=PASS
+FREEZE=PASS
+RESET_FORGET=PASS
+REGRESSIONS=PASS G1 G2 G3 G4 minheap C9-graph
+LUT=35665
+FF=44138
+BRAM_TILE=104 RAMB36 + 1 RAMB18 (≤135)
+DSP=19
+WNS=1.276
+WHS=0.020
+CDC_CANDIDATE_CRITICAL=0
+BIT_PATH=results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-GATE14-C9-SOC-IO-SAFE-BIT-07/arty_a7_ng_native_v1_grok_orch_C9-SOC-IO-SAFE-BIT-07.bit
+BIT_SHA256=3A7EF2044CD92730F048032ABF9E9CC914461EE7CE767745089CD082CC31A00B
+PARENT_BIT_SHA=B0F64E6C37F6BDB428FAB18CD6EEDD191C389AC3EE9FFB4D23B641B5D289A0A1
+JTAG_TARGET=localhost:3121/xilinx_tcf/Digilent/210319BE776EA xc7a100t_0
+COM12=PRESENT
+BOARD_OWNER=grok-orch-00; Cursor editor live; no hw_server lock before enum; enum closed
+PROGRAM=NO
+BIT_READY_FOR_CODEX=YES
+IO_SAFE_BIT_READY_FOR_CODEX=YES
+NEXT=Codex audit unique bit 3A7EF204. Do not program until Codex accepts. Do not claim GATE14_PASS/BOARD_PASS.
+```
+
+## JA
+
+Debug Pmod LA only. Removed from `arty_a7_ng_native_v1_ab_soc_top`. Synth `JA_PORT_COUNT=0`. write_bitstream **no** NSTD-1/UCIO-1 severity downgrade. DRC table has neither rule. `write_bitstream completed successfully`.
+
+## Preflight (read-only)
+
+- Serial ports: COM3, COM4, COM12. Use **COM12 only**.
+- JTAG: Digilent `210319BE776EA` `xc7a100t_0`. Closed after enum.
+- UART capture not started. COM12 not opened.

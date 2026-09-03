@@ -1,0 +1,5 @@
+P2-G1G5-FULLCHIP-MIG-PERSIST-01 CDC classify (each Unsafe>0 row)
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_pll_i uns=1 class=CLOCK_GEN_FALSEPATH
+CDC_UNSAFE sev=Critical src=core_clk dst=clk_pll_i uns=1 class=CANDIDATE_LOGIC
+CDC_UNSAFE sev=Critical src=clk_pll_i dst=core_clk uns=2 class=CANDIDATE_LOGIC
+SUMMARY rows_unsafe=3 clkgen_falsepath_endpoints=1 candidate_logic_endpoints=3

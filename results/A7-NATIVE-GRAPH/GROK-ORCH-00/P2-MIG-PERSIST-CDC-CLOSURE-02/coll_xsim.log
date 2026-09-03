@@ -1,0 +1,17 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Sep  2 02:55:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/pcoll/xsim_script.tcl
+# xsim {pcoll} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PERSIST_AXI_COLLISION_XSIM_PASS fails=0 dual=0
+$finish called at time : 6360 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_persist_axi_collision.sv" Line 172
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Sep  2 02:55:43 2026...

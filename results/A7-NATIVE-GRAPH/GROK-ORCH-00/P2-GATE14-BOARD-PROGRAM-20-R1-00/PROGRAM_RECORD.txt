@@ -1,0 +1,9 @@
+PROGRAM_START 2026-09-02T23:57:59
+bitfile=D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-WDMA-RELEASE-CDC-AUDIT-03/arty_a7_ng_native_v1_grok_orch_p2_wdma_release_cdc_audit_03.bit
+bit_sha=6975AB757FE592DBD0EAB68FBDC7463559A3712CAA9A8BD1E429C9A6BDF8B39A
+HW_TARGET localhost:3121/xilinx_tcf/Digilent/210319BE776EA
+device=xc7a100t_0 part=xc7a100t
+PROGRAM_END 2026-09-02T23:58:17
+refresh=ok
+program_count=1
+target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA

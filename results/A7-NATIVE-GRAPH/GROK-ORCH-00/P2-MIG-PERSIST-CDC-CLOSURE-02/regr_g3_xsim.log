@@ -1,0 +1,136 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Sep  2 02:58:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/cofit_g3/xsim_script.tcl
+# xsim {cofit_g3} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+POS A_pre topk
+  [0] id=00001002 score=44
+  [1] id=00001003 score=41
+  [2] id=00001000 score=40
+  [3] id=00001001 score=38
+  [4] id=00001004 score=32
+  [5] id=00001005 score=28
+  [6] id=00001006 score=24
+  [7] id=00001007 score=20
+POS A_hold topk
+  [0] id=00001002 score=43
+  [1] id=00001003 score=40
+  [2] id=00001000 score=39
+  [3] id=00001001 score=37
+  [4] id=00001004 score=31
+  [5] id=00001005 score=27
+  [6] id=00001006 score=23
+  [7] id=00001007 score=19
+C7 ACK addr=03000100 delta=3 sat=0
+POS B_hold topk
+  [0] id=00001002 score=43
+  [1] id=00001000 score=42
+  [2] id=00001001 score=40
+  [3] id=00001003 score=40
+  [4] id=00001004 score=31
+  [5] id=00001005 score=27
+  [6] id=00001006 score=23
+  [7] id=00001007 score=19
+POS K* A rank=3 score=39  B rank=2 score=42
+ARM_POSITIVE PASS
+NEG A_pre topk
+  [0] id=00001002 score=44
+  [1] id=00001003 score=41
+  [2] id=00001000 score=40
+  [3] id=00001001 score=38
+  [4] id=00001004 score=32
+  [5] id=00001005 score=28
+  [6] id=00001006 score=24
+  [7] id=00001007 score=20
+NEG A_hold topk
+  [0] id=00001002 score=43
+  [1] id=00001003 score=40
+  [2] id=00001000 score=39
+  [3] id=00001001 score=37
+  [4] id=00001004 score=31
+  [5] id=00001005 score=27
+  [6] id=00001006 score=23
+  [7] id=00001007 score=19
+C7 ACK addr=03000100 delta=-3 sat=0
+NEG B_hold topk
+  [0] id=00001002 score=43
+  [1] id=00001003 score=40
+  [2] id=00001000 score=36
+  [3] id=00001001 score=34
+  [4] id=00001004 score=31
+  [5] id=00001005 score=27
+  [6] id=00001006 score=23
+  [7] id=00001007 score=19
+NEG K* A rank=3 score=39  B rank=3 score=36
+ARM_NEGATIVE PASS
+UNR A_pre topk
+  [0] id=00001002 score=44
+  [1] id=00001003 score=41
+  [2] id=00001000 score=40
+  [3] id=00001001 score=38
+  [4] id=00001004 score=32
+  [5] id=00001005 score=28
+  [6] id=00001006 score=24
+  [7] id=00001007 score=20
+UNR A_hold topk
+  [0] id=00001008 score=50
+  [1] id=00001009 score=45
+  [2] id=0000100a score=40
+  [3] id=0000100b score=35
+  [4] id=0000100c score=31
+  [5] id=0000100d score=26
+  [6] id=0000100e score=22
+  [7] id=0000100f score=18
+C7 ACK addr=03000100 delta=2 sat=0
+UNR B_hold topk
+  [0] id=00001008 score=50
+  [1] id=00001009 score=45
+  [2] id=0000100a score=40
+  [3] id=0000100b score=35
+  [4] id=0000100c score=31
+  [5] id=0000100d score=26
+  [6] id=0000100e score=22
+  [7] id=0000100f score=18
+ARM_UNRELATED PASS
+CON A_pre topk
+  [0] id=00001002 score=44
+  [1] id=00001003 score=41
+  [2] id=00001000 score=40
+  [3] id=00001001 score=38
+  [4] id=00001004 score=32
+  [5] id=00001005 score=28
+  [6] id=00001006 score=24
+  [7] id=00001007 score=20
+CON A_hold topk
+  [0] id=00001002 score=43
+  [1] id=00001003 score=40
+  [2] id=00001000 score=39
+  [3] id=00001001 score=37
+  [4] id=00001004 score=31
+  [5] id=00001005 score=27
+  [6] id=00001006 score=23
+  [7] id=00001007 score=19
+C7 ACK addr=03000100 delta=-3 sat=0
+CON B_hold topk
+  [0] id=00001002 score=43
+  [1] id=00001003 score=40
+  [2] id=00001000 score=33
+  [3] id=00001001 score=31
+  [4] id=00001004 score=31
+  [5] id=00001005 score=27
+  [6] id=00001006 score=23
+  [7] id=00001007 score=19
+CON K* A rank=3 score=39  B rank=3 score=33
+ARM_CONTRADICTION PASS
+CAUSAL_LEARN_FAST_XSIM_PASS fails=0 UNIT=held-out-query
+$finish called at time : 72760 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_causal_learn_fast.sv" Line 273
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Sep  2 02:58:27 2026...

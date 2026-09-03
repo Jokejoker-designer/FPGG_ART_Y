@@ -1,0 +1,10 @@
+gate=P2-GATE14-BOARD-PROGRAM-20-R1-00
+PROGRAM=NO_LIST_ONLY
+want_jtag=210319BE776EA
+n_targets=1
+target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA
+want_found=1
+xc7a100t_count=1
+xc7z020_count=0
+device name=xc7a100t_0 part=xc7a100t
+JTAG_ENUM_OK target=localhost:3121/xilinx_tcf/Digilent/210319BE776EA device=xc7a100t_0

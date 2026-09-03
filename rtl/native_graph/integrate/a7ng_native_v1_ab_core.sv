@@ -6,7 +6,8 @@
 module a7ng_native_v1_ab_core #(
   parameter bit SIM_FULL = 1'b1,
   parameter int unsigned WAVE = 16,
-  parameter int unsigned MAX_CANDS = 64
+  parameter int unsigned MAX_CANDS = 64,
+  parameter int unsigned PHYS = 4
 ) (
   input  logic         clk,
   input  logic         rst_n,
@@ -94,7 +95,43 @@ module a7ng_native_v1_ab_core #(
   output logic [127:0] wdma_w_data,
   input  logic         wdma_r_valid = 1'b0,
   output logic         wdma_r_ready,
-  input  logic [127:0] wdma_r_data = 128'd0
+  input  logic [127:0] wdma_r_data = 128'd0,
+  output logic [3:0]   c1_mode_o,
+  output logic [63:0]  c2_anch_o,
+  output logic [63:0]  c9_cframe_o,
+  output logic         c10_lmst_o,
+  output logic         c10_lmdn_o,
+  output logic [9:0]   c10_out_o,
+  output logic         persist_ddr_req_o,
+  output logic         persist_ddr_we_o,
+  output logic [7:0]   persist_ddr_addr_o,
+  output logic [63:0]  persist_ddr_wdata_o,
+  input  logic [63:0]  persist_ddr_rdata_i = 64'd0,
+  input  logic         persist_ddr_ack_i = 1'b0,
+  output logic         persist_freeze_o,
+  output logic         persist_c7_valid_o,
+  output logic [31:0]  persist_c7_addr_o,
+  input  logic         persist_c7_ready_i = 1'b1,
+  output logic         persist_busy_o,
+  input  logic         g14_en_i = 1'b0,
+  input  logic         g14_cmd_v_i = 1'b0,
+  output logic         g14_cmd_r_o,
+  input  logic [3:0]   g14_cmd_i = 4'd0,
+  input  logic [7:0]   g14_tok_i = 8'd0,
+  input  logic signed [3:0] g14_rew_i = 4'sd0,
+  output logic [31:0]  c8_gen_o,
+  output logic [63:0]  c8_sdig_o,
+  output logic [63:0]  c11_adig_o,
+  output logic [63:0]  c11_bdig_o,
+  output logic         c11_a_for_o,
+  output logic         c11_b_vis_o,
+  output logic [15:0]  p_txn_o,
+  output logic         c5_cons_o,
+  output logic [127:0] c9_score_o,
+  output logic [31:0]  c9_r1s_o,
+  output logic [7:0]   c9_r1r_o,
+  output logic [31:0]  c9_r1o_o,
+  output logic [2:0]   last_ack_o
 );
   import a7ng_pkg::*;
 
@@ -108,7 +145,7 @@ module a7ng_native_v1_ab_core #(
   );
 
   a7ng_cue_soa_mig_top #(
-    .WAVE(WAVE), .MAX_CANDS(MAX_CANDS), .MAX_OUT(8), .MAX_BURST(16)
+    .WAVE(WAVE), .MAX_CANDS(MAX_CANDS), .MAX_OUT(8), .MAX_BURST(16), .PHYS(PHYS)
   ) u_soa (
     .clk(clk), .rst_n(rst_n),
     .start_i(start_query_i), .burst_i(burst_i), .outstanding_i(outstanding_i),
@@ -142,23 +179,37 @@ module a7ng_native_v1_ab_core #(
   );
 
   node_id_t bind_gid [0:7];
+  node_id_t g14_persist_id [8];
+  node_id_t g14_persist_lat [0:7];
   integer pi;
-  always_comb begin
-    for (pi = 0; pi < 8; pi = pi + 1)
-      bind_gid[pi] = poison_i ? poison_id_i[pi] : topk_id_o[pi];
-  end
-
   logic pending, start_pulse;
   logic [31:0] gv_cnt;
+  logic g14_lm_start, g14_lm_hold;
+  always_comb begin
+    for (pi = 0; pi < 8; pi = pi + 1) begin
+      if (poison_i)
+        bind_gid[pi] = poison_id_i[pi];
+      else if (g14_en_i && (g14_lm_start || g14_lm_hold))
+        // Gate14 exam bind = learned graph TopK (C9), not persist FAST IDs
+        // and not leftover existence SoA pack.
+        bind_gid[pi] = g14_lm_start ? g14_persist_id[pi] : g14_persist_lat[pi];
+      else
+        bind_gid[pi] = topk_id_o[pi];
+    end
+  end
   assign gv_count_o     = gv_cnt;
   assign final_accept_o = start_pulse;
 
   always_comb begin
-    req_graph = soa_running_o || (!soa_done_o && !pending);
+    // Exam LM must not lose the arbiter to a leftover graph request
+    // (graph wins ties). Existence query already finished before UART exam.
+    req_graph = (soa_running_o || (!soa_done_o && !pending))
+                && !(g14_en_i && (g14_lm_start || g14_lm_hold));
     // Hold LM through the 1-cycle hole: pending clears with start_pulse
     // while bind is still IDLE (busy=0). R3/R4: pack latched, ctx_we never
     // asserted because arb dropped grant before S_CTX.
-    req_lm    = pending || start_pulse || bind_busy_o || core_busy_o;
+    req_lm    = pending || start_pulse || bind_busy_o || core_busy_o
+                || (g14_en_i && (g14_lm_start || g14_lm_hold));
   end
 
   always_ff @(posedge clk or negedge rst_n) begin
@@ -166,6 +217,9 @@ module a7ng_native_v1_ab_core #(
       pending     <= 1'b0;
       start_pulse <= 1'b0;
       gv_cnt      <= 32'd0;
+      g14_lm_hold <= 1'b0;
+      for (pi = 0; pi < 8; pi = pi + 1)
+        g14_persist_lat[pi] <= '0;
     end else begin
       start_pulse <= 1'b0;
       if (start_query_i)
@@ -178,6 +232,12 @@ module a7ng_native_v1_ab_core #(
         start_pulse <= 1'b1;
         pending     <= 1'b0;
       end
+      if (g14_en_i && g14_lm_start) begin
+        g14_lm_hold <= 1'b1;
+        for (pi = 0; pi < 8; pi = pi + 1)
+          g14_persist_lat[pi] <= g14_persist_id[pi];
+      end else if (bind_busy_o || bind_done_o)
+        g14_lm_hold <= 1'b0;
     end
   end
 
@@ -188,7 +248,7 @@ module a7ng_native_v1_ab_core #(
   a7ng_native_ctx_bind u_bind (
     .clk(clk), .rst_n(rst_n),
     .grant_lm_i(grant_lm_o),
-    .start_i(start_pulse),
+    .start_i(start_pulse || (g14_en_i && (g14_lm_start || (g14_lm_hold && grant_lm_o)))),
     .do_start_i(do_lm_i),
     .global_id_i(bind_gid),
     .core_busy_i(core_busy_o),
@@ -229,4 +289,59 @@ module a7ng_native_v1_ab_core #(
     .dbg_tile_req_s1(dbg_tile_req_s1_o)
   );
   assign core_done_o = core_done;
+
+  a7ng_g1g5_cofit u_g1g5 (
+    .clk(clk), .rst_n(rst_n),
+    .graph_topk_valid_i(topk_valid_o),
+    .graph_id_i(topk_id_o),
+    .graph_sc_i(topk_score_o),
+    .graph_bind_done_i(bind_done_o),
+    .graph_lm_busy_i(core_busy_o || bind_busy_o),
+    .graph_pred_i(pred_o),
+    .c1_mode_o(c1_mode_o),
+    .c2_anch_o(c2_anch_o),
+    .c9_topk_o(c9_cframe_o),
+    .c10_lmst_o(c10_lmst_o),
+    .c10_lmdn_o(c10_lmdn_o),
+    .c10_out_o(c10_out_o),
+    .n_host_cue_o(), .n_host_win_o(), .n_host_addr_o(),
+    .n_host_tok_o(), .n_host_w_o(), .n_host_mode_o(),
+    .exam_lm_used_o(),
+    .persist_ddr_req_o(persist_ddr_req_o),
+    .persist_ddr_we_o(persist_ddr_we_o),
+    .persist_ddr_addr_o(persist_ddr_addr_o),
+    .persist_ddr_wdata_o(persist_ddr_wdata_o),
+    .persist_ddr_rdata_i(persist_ddr_rdata_i),
+    .persist_ddr_ack_i(persist_ddr_ack_i),
+    .persist_freeze_o(persist_freeze_o),
+    .persist_c7_valid_o(persist_c7_valid_o),
+    .persist_c7_addr_o(persist_c7_addr_o),
+    .persist_c7_ready_i(persist_c7_ready_i),
+    .persist_busy_o(persist_busy_o),
+    .persist_done_o(),
+    .c7_commit_seq_o(), .c7_ack_count_o(),
+    .query_valid_o(), .query_ready_o(), .query_id_o(), .snap_valid_o(),
+    .g14_en_i(g14_en_i),
+    .g14_cmd_v_i(g14_cmd_v_i),
+    .g14_cmd_r_o(g14_cmd_r_o),
+    .g14_cmd_i(g14_cmd_i),
+    .g14_tok_i(g14_tok_i),
+    .g14_rew_i(g14_rew_i),
+    .c8_gen_o(c8_gen_o),
+    .c8_sdig_o(c8_sdig_o),
+    .c11_adig_o(c11_adig_o),
+    .c11_bdig_o(c11_bdig_o),
+    .c11_a_for_o(c11_a_for_o),
+    .c11_b_vis_o(c11_b_vis_o),
+    .p_txn_o(p_txn_o),
+    .c5_cons_o(c5_cons_o),
+    .g14_lm_start_o(g14_lm_start),
+    .g14_persist_id_o(g14_persist_id),
+    .c9_score_o(c9_score_o),
+    .c9_r1s_o(c9_r1s_o),
+    .c9_r1r_o(c9_r1r_o),
+    .c9_r1o_o(c9_r1o_o),
+    .last_ack_o(last_ack_o)
+  );
 endmodule
+

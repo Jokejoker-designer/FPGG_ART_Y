@@ -1,0 +1,13 @@
+```text
+gate=P2-TEACHER-OFF-SOC-XSIM-00
+program_authorized=false
+PROGRAM=NO
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+HS-02=not_claimed
+verdict=FAIL_LM_ORACLE_MISMATCH
+prior=PASS_NARROW_FRAMING/FAIL_LM_KNOWNNESS
+physical=glue_OOC_only
+ran_40=0
+TEACHER_OFF=not_claimed
+```

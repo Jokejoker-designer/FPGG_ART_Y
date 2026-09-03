@@ -1,0 +1,34 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Sep  2 02:34:56 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/paxi/xsim_script.tcl
+# xsim {paxi} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+FR A vis rank=2 score=42 GEN=1 SDIG=0000000001000001
+FR reload vis rank=2 score=42 GEN=1 SDIG=0000000001000001
+CELL_FLUSH_RELOAD PASS
+CELL_FREEZE_BLOCKS_WRITE done ack=5 awc=1
+TR GEN 1->2 Ascore=39
+CELL_TRAIN_RESET_FORGETS_A done
+ADIG=0000000001000001 BDIG=0000001008030208 Bscore=42 Ascore_after=39
+CELL_RUN_B_NE_A done
+GEN0 GEN=1 KAscore=39
+CELL_GEN0_NEVER_VISIBLE done
+WRAP GEN=6 wimm=1 Ascore=39
+CELL_ROOT_INVALIDATE_BEFORE_WRAP done
+PWR GEN=1 (pre 1) rank=2 score=42 wr=4294967280 rd=256
+CELL_POWER_REPROGRAM_AUTHORITY done
+CELL_BACKPRESSURE_BRESP_RETRY done wrerr=1
+CELL_RLAST_RETRY done rderr=1
+CELL_RRESP_RETRY done rderr=1
+PERSIST_AXI_MIG_XSIM_PASS fails=0 CELLS=7 BP=1 BRESP=1 RRESP=1 RLAST=1
+$finish called at time : 624200 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_persist_axi_bridge.sv" Line 400
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Sep  2 02:34:58 2026...

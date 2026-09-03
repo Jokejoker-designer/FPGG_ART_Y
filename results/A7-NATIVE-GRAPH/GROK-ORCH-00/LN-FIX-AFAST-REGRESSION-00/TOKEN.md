@@ -1,0 +1,15 @@
+```text
+gate=LN-FIX-AFAST-REGRESSION-00
+program_authorized=false
+PROGRAM=NO
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+cofit=not_opened
+parent_ln=LM06-LN-MU-TOKENBOUNDARY-01
+parent_g5=P2-TEACHER-OFF-SOC-XSIM-R1-LNFIX-00
+historical_pred=664
+historical_old_core=29D230FC…12290C9E
+patched_core=75706E2C…E8EFB5FB
+pack=3b392b291b190b09
+ctx_n=8
+```

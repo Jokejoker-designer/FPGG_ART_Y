@@ -1,0 +1,1809 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Sep  1 23:21:37 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/lnmu_s00/xsim_script.tcl
+# xsim {lnmu_s00} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+WMEM_INIT rb0=-6
+EMB_POS t=8028405000 dim=0 wrd=-3 awd=-3
+EMB_POS t=8028435000 dim=1 wrd=3 awd=3
+EMB_TOK t=8032245000 dim=0 wrd=-6 ard=-3 awd=-9
+EMB_TOK t=8032275000 dim=1 wrd=3 ard=3 awd=6
+LNV t=8045555000 acc=2859 var=44 mu=-1
+LNO t=8046825000 ly=0 ten=0 ard=-9 mu=-1 sc=4 q=-32
+MV0 t=8116715000 ly=0 ten_o=2 acc=0 dest=32768
+MV0 t=8773355000 ly=0 ten_o=3 acc=0 dest=49152
+MV0 t=9429995000 ly=0 ten_o=4 acc=0 dest=65536
+ATTQK t=10086625000 ard=148 ardb=-912 qa=32768 ka=49152
+ATTO t=10089755000 h=0 q=404 z=16 acc=6464 dest=81920
+ATTQK t=10107455000 ard=88 ardb=-132 qa=32800 ka=49184
+ATTO t=10110585000 h=1 q=-892 z=16 acc=-14272 dest=81952
+ATTQK t=10128285000 ard=-420 ardb=28 qa=32832 ka=49216
+ATTO t=10131415000 h=2 q=-88 z=16 acc=-1408 dest=81984
+ATTQK t=10149115000 ard=256 ardb=-528 qa=32864 ka=49248
+ATTO t=10152245000 h=3 q=908 z=16 acc=14528 dest=82016
+MV0 t=10169955000 ly=0 ten_o=5 acc=0 dest=81920
+ADD t=10826585000 ly=0 ten=0 ard=-9 ardb=-23724
+LNV t=10839895000 acc=82101621937 var=1282837842 mu=3747
+LNO t=10841165000 ly=0 ten=6 ard=-23733 mu=3747 sc=25326 q=-18
+MV0 t=10911055000 ly=0 ten_o=0 acc=0 dest=0
+MV0 t=12224335000 ly=0 ten_o=6 acc=0 dest=98304
+ADD t=13536325000 ly=0 ten=1 ard=-23733 ardb=23844
+LNV t=13549635000 acc=76648865095 var=1197638517 mu=3078
+LNO t=13550905000 ly=1 ten=0 ard=111 mu=3078 sc=24470 q=-2
+MV0 t=13620795000 ly=1 ten_o=2 acc=0 dest=32768
+MV0 t=14277435000 ly=1 ten_o=3 acc=0 dest=49152
+MV0 t=14934075000 ly=1 ten_o=4 acc=0 dest=65536
+ATTQK t=15590705000 ard=-122 ardb=281 qa=32768 ka=49152
+ATTO t=15593835000 h=0 q=3 z=16 acc=48 dest=81920
+ATTQK t=15611535000 ard=744 ardb=40 qa=32800 ka=49184
+ATTO t=15614665000 h=1 q=-863 z=16 acc=-13808 dest=81952
+ATTQK t=15632365000 ard=265 ardb=-310 qa=32832 ka=49216
+ATTO t=15635495000 h=2 q=-731 z=16 acc=-11696 dest=81984
+ATTQK t=15653195000 ard=-223 ardb=404 qa=32864 ka=49248
+ATTO t=15656325000 h=3 q=285 z=16 acc=4560 dest=82016
+MV0 t=15674035000 ly=1 ten_o=5 acc=0 dest=81920
+ADD t=16330665000 ly=1 ten=0 ard=111 ardb=8581
+LNV t=16343975000 acc=82491613214 var=1288931456 mu=1528
+LNO t=16345245000 ly=1 ten=6 ard=8692 mu=1528 sc=25386 q=4
+MV0 t=16415135000 ly=1 ten_o=0 acc=0 dest=0
+MV0 t=17728415000 ly=1 ten_o=6 acc=0 dest=98304
+ADD t=19040405000 ly=1 ten=1 ard=8692 ardb=-13255
+LNV t=19053715000 acc=80564506575 var=1258820415 mu=3013
+LNO t=19054985000 ly=2 ten=0 ard=-4563 mu=3013 sc=25088 q=-5
+MV0 t=19124875000 ly=2 ten_o=2 acc=0 dest=32768
+MV0 t=19781515000 ly=2 ten_o=3 acc=0 dest=49152
+MV0 t=20438155000 ly=2 ten_o=4 acc=0 dest=65536
+ATTQK t=21094785000 ard=-1272 ardb=1713 qa=32768 ka=49152
+ATTO t=21097915000 h=0 q=-145 z=16 acc=-2320 dest=81920
+ATTQK t=21115615000 ard=116 ardb=620 qa=32800 ka=49184
+ATTO t=21118745000 h=1 q=-649 z=16 acc=-10384 dest=81952
+ATTQK t=21136445000 ard=504 ardb=445 qa=32832 ka=49216
+ATTO t=21139575000 h=2 q=28 z=16 acc=448 dest=81984
+ATTQK t=21157275000 ard=-36 ardb=-247 qa=32864 ka=49248
+ATTO t=21160405000 h=3 q=-795 z=16 acc=-12720 dest=82016
+MV0 t=21178115000 ly=2 ten_o=5 acc=0 dest=81920
+ADD t=21834745000 ly=2 ten=0 ard=-4563 ardb=32767
+LNV t=21848055000 acc=73499486734 var=1148429480 mu=1695
+LNO t=21849325000 ly=2 ten=6 ard=28204 mu=1695 sc=23962 q=17
+MV0 t=21919215000 ly=2 ten_o=0 acc=0 dest=0
+MV0 t=23232495000 ly=2 ten_o=6 acc=0 dest=98304
+ADD t=24544485000 ly=2 ten=1 ard=28204 ardb=-27443
+LNV t=24557795000 acc=74142501677 var=1158476588 mu=2935
+LNO t=24559065000 ly=3 ten=0 ard=761 mu=2935 sc=24067 q=-2
+MV0 t=24628955000 ly=3 ten_o=2 acc=0 dest=32768
+MV0 t=25285595000 ly=3 ten_o=3 acc=0 dest=49152
+MV0 t=25942235000 ly=3 ten_o=4 acc=0 dest=65536
+ATTQK t=26598865000 ard=-1241 ardb=-218 qa=32768 ka=49152
+ATTO t=26601995000 h=0 q=893 z=16 acc=14288 dest=81920
+ATTQK t=26619695000 ard=423 ardb=637 qa=32800 ka=49184
+ATTO t=26622825000 h=1 q=640 z=16 acc=10240 dest=81952
+ATTQK t=26640525000 ard=-250 ardb=-1418 qa=32832 ka=49216
+ATTO t=26643655000 h=2 q=570 z=16 acc=9120 dest=81984
+ATTQK t=26661355000 ard=-16 ardb=-24 qa=32864 ka=49248
+ATTO t=26664485000 h=3 q=-25 z=16 acc=-400 dest=82016
+MV0 t=26682195000 ly=3 ten_o=5 acc=0 dest=81920
+ADD t=27338825000 ly=3 ten=0 ard=761 ardb=32767
+LNV t=27352135000 acc=74580660774 var=1165322824 mu=2482
+LNO t=27353405000 ly=3 ten=6 ard=32767 mu=2482 sc=24138 q=20
+MV0 t=27423295000 ly=3 ten_o=0 acc=0 dest=0
+MV0 t=28736575000 ly=3 ten_o=6 acc=0 dest=98304
+ADD t=30048565000 ly=3 ten=1 ard=32767 ardb=1434
+HEAD t=30052405000 col=0 wrd=6 ard=32767 waddr=671744 aaddr=0 acc=0
+MV0 t=30052415000 ly=3 ten_o=7 acc=0 dest=114688
+HEAD t=30052445000 col=1 wrd=6 ard=-22540 waddr=671745 aaddr=1 acc=196602
+SMX t=35305505000 logit0=-1090663
+CONTROL pred=744
+CONTROL_PASS pred=744
+EMB_POS t=35336405000 dim=0 wrd=-3 awd=-3
+EMB_POS t=35336435000 dim=1 wrd=3 awd=3
+EMB_TOK t=35367125000 dim=0 wrd=6 ard=-3 awd=3
+EMB_TOK t=35367155000 dim=1 wrd=3 ard=3 awd=6
+LN_S_SAMP tok=0 dim=0 aaddr=0 ard=3 acc_pre=0
+PLANE EMB mismatches=0 first=-1
+LN_S_SAMP tok=0 dim=1 aaddr=1 ard=6 acc_pre=3
+LN_S_SAMP tok=0 dim=2 aaddr=2 ard=5 acc_pre=9
+LN_S_SAMP tok=0 dim=3 aaddr=3 ard=1 acc_pre=14
+LN_S_SAMP tok=0 dim=4 aaddr=4 ard=1 acc_pre=15
+LN_S_SAMP tok=0 dim=5 aaddr=5 ard=5 acc_pre=16
+LN_S_SAMP tok=0 dim=6 aaddr=6 ard=3 acc_pre=21
+LN_S_SAMP tok=0 dim=7 aaddr=7 ard=-4 acc_pre=24
+LN_S_SAMP tok=0 dim=8 aaddr=8 ard=-1 acc_pre=20
+LN_S_SAMP tok=0 dim=9 aaddr=9 ard=9 acc_pre=19
+LN_S_SAMP tok=0 dim=10 aaddr=10 ard=-4 acc_pre=28
+LN_S_SAMP tok=0 dim=11 aaddr=11 ard=-1 acc_pre=24
+LN_S_SAMP tok=0 dim=12 aaddr=12 ard=-8 acc_pre=23
+LN_S_SAMP tok=0 dim=13 aaddr=13 ard=0 acc_pre=15
+LN_S_SAMP tok=0 dim=14 aaddr=14 ard=-2 acc_pre=15
+LN_S_SAMP tok=0 dim=15 aaddr=15 ard=-7 acc_pre=13
+LN_S_SAMP tok=0 dim=16 aaddr=16 ard=-4 acc_pre=6
+LN_S_SAMP tok=0 dim=17 aaddr=17 ard=1 acc_pre=2
+LN_S_SAMP tok=0 dim=18 aaddr=18 ard=2 acc_pre=3
+LN_S_SAMP tok=0 dim=19 aaddr=19 ard=-6 acc_pre=5
+LN_S_SAMP tok=0 dim=20 aaddr=20 ard=-2 acc_pre=-1
+LN_S_SAMP tok=0 dim=21 aaddr=21 ard=-8 acc_pre=-3
+LN_S_SAMP tok=0 dim=22 aaddr=22 ard=-3 acc_pre=-11
+LN_S_SAMP tok=0 dim=23 aaddr=23 ard=-8 acc_pre=-14
+LN_S_SAMP tok=0 dim=24 aaddr=24 ard=-7 acc_pre=-22
+LN_S_SAMP tok=0 dim=25 aaddr=25 ard=8 acc_pre=-29
+LN_S_SAMP tok=0 dim=26 aaddr=26 ard=-4 acc_pre=-21
+LN_S_SAMP tok=0 dim=27 aaddr=27 ard=-8 acc_pre=-25
+LN_S_SAMP tok=0 dim=28 aaddr=28 ard=-5 acc_pre=-33
+LN_S_SAMP tok=0 dim=29 aaddr=29 ard=-8 acc_pre=-38
+LN_S_SAMP tok=0 dim=30 aaddr=30 ard=3 acc_pre=-46
+LN_S_SAMP tok=0 dim=31 aaddr=31 ard=5 acc_pre=-43
+LN_S_SAMP tok=0 dim=32 aaddr=32 ard=3 acc_pre=-38
+LN_S_SAMP tok=0 dim=33 aaddr=33 ard=2 acc_pre=-35
+LN_S_SAMP tok=0 dim=34 aaddr=34 ard=-2 acc_pre=-33
+LN_S_SAMP tok=0 dim=35 aaddr=35 ard=4 acc_pre=-35
+LN_S_SAMP tok=0 dim=36 aaddr=36 ard=1 acc_pre=-31
+LN_S_SAMP tok=0 dim=37 aaddr=37 ard=-2 acc_pre=-30
+LN_S_SAMP tok=0 dim=38 aaddr=38 ard=-3 acc_pre=-32
+LN_S_SAMP tok=0 dim=39 aaddr=39 ard=3 acc_pre=-35
+LN_S_SAMP tok=0 dim=40 aaddr=40 ard=9 acc_pre=-32
+LN_S_SAMP tok=0 dim=41 aaddr=41 ard=-4 acc_pre=-23
+LN_S_SAMP tok=0 dim=42 aaddr=42 ard=8 acc_pre=-27
+LN_S_SAMP tok=0 dim=43 aaddr=43 ard=4 acc_pre=-19
+LN_S_SAMP tok=0 dim=44 aaddr=44 ard=-3 acc_pre=-15
+LN_S_SAMP tok=0 dim=45 aaddr=45 ard=-2 acc_pre=-18
+LN_S_SAMP tok=0 dim=46 aaddr=46 ard=3 acc_pre=-20
+LN_S_SAMP tok=0 dim=47 aaddr=47 ard=-3 acc_pre=-17
+LN_S_SAMP tok=0 dim=48 aaddr=48 ard=1 acc_pre=-20
+LN_S_SAMP tok=0 dim=49 aaddr=49 ard=1 acc_pre=-19
+LN_S_SAMP tok=0 dim=50 aaddr=50 ard=-7 acc_pre=-18
+LN_S_SAMP tok=0 dim=51 aaddr=51 ard=2 acc_pre=-25
+LN_S_SAMP tok=0 dim=52 aaddr=52 ard=2 acc_pre=-23
+LN_S_SAMP tok=0 dim=53 aaddr=53 ard=0 acc_pre=-21
+LN_S_SAMP tok=0 dim=54 aaddr=54 ard=-4 acc_pre=-21
+LN_S_SAMP tok=0 dim=55 aaddr=55 ard=-8 acc_pre=-25
+LN_S_SAMP tok=0 dim=56 aaddr=56 ard=3 acc_pre=-33
+LN_S_SAMP tok=0 dim=57 aaddr=57 ard=4 acc_pre=-30
+LN_S_SAMP tok=0 dim=58 aaddr=58 ard=2 acc_pre=-26
+LN_S_SAMP tok=0 dim=59 aaddr=59 ard=2 acc_pre=-24
+LN_S_SAMP tok=0 dim=60 aaddr=60 ard=-5 acc_pre=-22
+LN_S_SAMP tok=0 dim=61 aaddr=61 ard=3 acc_pre=-27
+LN_S_SAMP tok=0 dim=62 aaddr=62 ard=-8 acc_pre=-24
+LN_S_SAMP tok=0 dim=63 aaddr=63 ard=1 acc_pre=-32
+LN_S_SAMP tok=0 dim=64 aaddr=64 ard=2 acc_pre=-31
+LN_S_SAMP tok=0 dim=65 aaddr=65 ard=-1 acc_pre=-29
+LN_S_SAMP tok=0 dim=66 aaddr=66 ard=7 acc_pre=-30
+LN_S_SAMP tok=0 dim=67 aaddr=67 ard=2 acc_pre=-23
+LN_S_SAMP tok=0 dim=68 aaddr=68 ard=-4 acc_pre=-21
+LN_S_SAMP tok=0 dim=69 aaddr=69 ard=-3 acc_pre=-25
+LN_S_SAMP tok=0 dim=70 aaddr=70 ard=4 acc_pre=-28
+LN_S_SAMP tok=0 dim=71 aaddr=71 ard=2 acc_pre=-24
+LN_S_SAMP tok=0 dim=72 aaddr=72 ard=-8 acc_pre=-22
+LN_S_SAMP tok=0 dim=73 aaddr=73 ard=-5 acc_pre=-30
+LN_S_SAMP tok=0 dim=74 aaddr=74 ard=-1 acc_pre=-35
+LN_S_SAMP tok=0 dim=75 aaddr=75 ard=-2 acc_pre=-36
+LN_S_SAMP tok=0 dim=76 aaddr=76 ard=7 acc_pre=-38
+LN_S_SAMP tok=0 dim=77 aaddr=77 ard=1 acc_pre=-31
+LN_S_SAMP tok=0 dim=78 aaddr=78 ard=-6 acc_pre=-30
+LN_S_SAMP tok=0 dim=79 aaddr=79 ard=8 acc_pre=-36
+LN_S_SAMP tok=0 dim=80 aaddr=80 ard=-1 acc_pre=-28
+LN_S_SAMP tok=0 dim=81 aaddr=81 ard=-7 acc_pre=-29
+LN_S_SAMP tok=0 dim=82 aaddr=82 ard=-3 acc_pre=-36
+LN_S_SAMP tok=0 dim=83 aaddr=83 ard=6 acc_pre=-39
+LN_S_SAMP tok=0 dim=84 aaddr=84 ard=3 acc_pre=-33
+LN_S_SAMP tok=0 dim=85 aaddr=85 ard=2 acc_pre=-30
+LN_S_SAMP tok=0 dim=86 aaddr=86 ard=0 acc_pre=-28
+LN_S_SAMP tok=0 dim=87 aaddr=87 ard=3 acc_pre=-28
+LN_S_SAMP tok=0 dim=88 aaddr=88 ard=0 acc_pre=-25
+LN_S_SAMP tok=0 dim=89 aaddr=89 ard=-5 acc_pre=-25
+LN_S_SAMP tok=0 dim=90 aaddr=90 ard=-3 acc_pre=-30
+LN_S_SAMP tok=0 dim=91 aaddr=91 ard=-5 acc_pre=-33
+LN_S_SAMP tok=0 dim=92 aaddr=92 ard=-4 acc_pre=-38
+LN_S_SAMP tok=0 dim=93 aaddr=93 ard=-1 acc_pre=-42
+LN_S_SAMP tok=0 dim=94 aaddr=94 ard=-1 acc_pre=-43
+LN_S_SAMP tok=0 dim=95 aaddr=95 ard=6 acc_pre=-44
+LN_S_SAMP tok=0 dim=96 aaddr=96 ard=-2 acc_pre=-38
+LN_S_SAMP tok=0 dim=97 aaddr=97 ard=-3 acc_pre=-40
+LN_S_SAMP tok=0 dim=98 aaddr=98 ard=7 acc_pre=-43
+LN_S_SAMP tok=0 dim=99 aaddr=99 ard=4 acc_pre=-36
+LN_S_SAMP tok=0 dim=100 aaddr=100 ard=-6 acc_pre=-32
+LN_S_SAMP tok=0 dim=101 aaddr=101 ard=-4 acc_pre=-38
+LN_S_SAMP tok=0 dim=102 aaddr=102 ard=5 acc_pre=-42
+LN_S_SAMP tok=0 dim=103 aaddr=103 ard=1 acc_pre=-37
+LN_S_SAMP tok=0 dim=104 aaddr=104 ard=-2 acc_pre=-36
+LN_S_SAMP tok=0 dim=105 aaddr=105 ard=6 acc_pre=-38
+LN_S_SAMP tok=0 dim=106 aaddr=106 ard=3 acc_pre=-32
+LN_S_SAMP tok=0 dim=107 aaddr=107 ard=-6 acc_pre=-29
+LN_S_SAMP tok=0 dim=108 aaddr=108 ard=8 acc_pre=-35
+LN_S_SAMP tok=0 dim=109 aaddr=109 ard=-4 acc_pre=-27
+LN_S_SAMP tok=0 dim=110 aaddr=110 ard=1 acc_pre=-31
+LN_S_SAMP tok=0 dim=111 aaddr=111 ard=-3 acc_pre=-30
+LN_S_SAMP tok=0 dim=112 aaddr=112 ard=-3 acc_pre=-33
+LN_S_SAMP tok=0 dim=113 aaddr=113 ard=-3 acc_pre=-36
+LN_S_SAMP tok=0 dim=114 aaddr=114 ard=-3 acc_pre=-39
+LN_S_SAMP tok=0 dim=115 aaddr=115 ard=-7 acc_pre=-42
+LN_S_SAMP tok=0 dim=116 aaddr=116 ard=0 acc_pre=-49
+LN_S_SAMP tok=0 dim=117 aaddr=117 ard=-3 acc_pre=-49
+LN_S_SAMP tok=0 dim=118 aaddr=118 ard=7 acc_pre=-52
+LN_S_SAMP tok=0 dim=119 aaddr=119 ard=2 acc_pre=-45
+LN_S_SAMP tok=0 dim=120 aaddr=120 ard=-1 acc_pre=-43
+LN_S_SAMP tok=0 dim=121 aaddr=121 ard=4 acc_pre=-44
+LN_S_SAMP tok=0 dim=122 aaddr=122 ard=-2 acc_pre=-40
+LN_S_SAMP tok=0 dim=123 aaddr=123 ard=-3 acc_pre=-42
+LN_S_SAMP tok=0 dim=124 aaddr=124 ard=3 acc_pre=-45
+LN_S_SAMP tok=0 dim=125 aaddr=125 ard=1 acc_pre=-42
+LN_S_SAMP tok=0 dim=126 aaddr=126 ard=0 acc_pre=-41
+LN_S_SAMP tok=0 dim=127 aaddr=127 ard=5 acc_pre=-41
+LN_S_SUM tok=0 acc=-36 fd_n=-342752 oracle_sum=-36
+LN_S_DIV tok=0 fd_q=-1 oracle_mu=-1
+LNV t=35407315000 acc=2554 var=39 mu=-1
+LNO t=35408585000 ly=0 ten=0 ard=3 mu=-1 sc=4 q=16
+LN_S_SAMP tok=1 dim=0 aaddr=128 ard=-5 acc_pre=0
+LN_S_SAMP tok=1 dim=1 aaddr=129 ard=-3 acc_pre=-5
+LN_S_SAMP tok=1 dim=2 aaddr=130 ard=-7 acc_pre=-8
+LN_S_SAMP tok=1 dim=3 aaddr=131 ard=-1 acc_pre=-15
+LN_S_SAMP tok=1 dim=4 aaddr=132 ard=-2 acc_pre=-16
+LN_S_SAMP tok=1 dim=5 aaddr=133 ard=4 acc_pre=-18
+LN_S_SAMP tok=1 dim=6 aaddr=134 ard=9 acc_pre=-14
+LN_S_SAMP tok=1 dim=7 aaddr=135 ard=2 acc_pre=-5
+LN_S_SAMP tok=1 dim=8 aaddr=136 ard=-3 acc_pre=-3
+LN_S_SAMP tok=1 dim=9 aaddr=137 ard=0 acc_pre=-6
+LN_S_SAMP tok=1 dim=10 aaddr=138 ard=1 acc_pre=-6
+LN_S_SAMP tok=1 dim=11 aaddr=139 ard=-3 acc_pre=-5
+LN_S_SAMP tok=1 dim=12 aaddr=140 ard=4 acc_pre=-8
+LN_S_SAMP tok=1 dim=13 aaddr=141 ard=-9 acc_pre=-4
+LN_S_SAMP tok=1 dim=14 aaddr=142 ard=2 acc_pre=-13
+LN_S_SAMP tok=1 dim=15 aaddr=143 ard=1 acc_pre=-11
+LN_S_SAMP tok=1 dim=16 aaddr=144 ard=-6 acc_pre=-10
+LN_S_SAMP tok=1 dim=17 aaddr=145 ard=2 acc_pre=-16
+LN_S_SAMP tok=1 dim=18 aaddr=146 ard=7 acc_pre=-14
+LN_S_SAMP tok=1 dim=19 aaddr=147 ard=2 acc_pre=-7
+LN_S_SAMP tok=1 dim=20 aaddr=148 ard=8 acc_pre=-5
+LN_S_SAMP tok=1 dim=21 aaddr=149 ard=4 acc_pre=3
+LN_S_SAMP tok=1 dim=22 aaddr=150 ard=0 acc_pre=7
+LN_S_SAMP tok=1 dim=23 aaddr=151 ard=-4 acc_pre=7
+LN_S_SAMP tok=1 dim=24 aaddr=152 ard=2 acc_pre=3
+LN_S_SAMP tok=1 dim=25 aaddr=153 ard=-1 acc_pre=5
+LN_S_SAMP tok=1 dim=26 aaddr=154 ard=0 acc_pre=4
+LN_S_SAMP tok=1 dim=27 aaddr=155 ard=-5 acc_pre=4
+LN_S_SAMP tok=1 dim=28 aaddr=156 ard=-5 acc_pre=-1
+LN_S_SAMP tok=1 dim=29 aaddr=157 ard=-5 acc_pre=-6
+LN_S_SAMP tok=1 dim=30 aaddr=158 ard=-1 acc_pre=-11
+LN_S_SAMP tok=1 dim=31 aaddr=159 ard=0 acc_pre=-12
+LN_S_SAMP tok=1 dim=32 aaddr=160 ard=0 acc_pre=-12
+LN_S_SAMP tok=1 dim=33 aaddr=161 ard=-1 acc_pre=-12
+LN_S_SAMP tok=1 dim=34 aaddr=162 ard=1 acc_pre=-13
+LN_S_SAMP tok=1 dim=35 aaddr=163 ard=5 acc_pre=-12
+LN_S_SAMP tok=1 dim=36 aaddr=164 ard=-4 acc_pre=-7
+LN_S_SAMP tok=1 dim=37 aaddr=165 ard=0 acc_pre=-11
+LN_S_SAMP tok=1 dim=38 aaddr=166 ard=-6 acc_pre=-11
+LN_S_SAMP tok=1 dim=39 aaddr=167 ard=0 acc_pre=-17
+LN_S_SAMP tok=1 dim=40 aaddr=168 ard=-1 acc_pre=-17
+LN_S_SAMP tok=1 dim=41 aaddr=169 ard=-7 acc_pre=-18
+LN_S_SAMP tok=1 dim=42 aaddr=170 ard=-5 acc_pre=-25
+LN_S_SAMP tok=1 dim=43 aaddr=171 ard=-4 acc_pre=-30
+LN_S_SAMP tok=1 dim=44 aaddr=172 ard=-4 acc_pre=-34
+LN_S_SAMP tok=1 dim=45 aaddr=173 ard=-5 acc_pre=-38
+LN_S_SAMP tok=1 dim=46 aaddr=174 ard=0 acc_pre=-43
+LN_S_SAMP tok=1 dim=47 aaddr=175 ard=-1 acc_pre=-43
+LN_S_SAMP tok=1 dim=48 aaddr=176 ard=-1 acc_pre=-44
+LN_S_SAMP tok=1 dim=49 aaddr=177 ard=4 acc_pre=-45
+LN_S_SAMP tok=1 dim=50 aaddr=178 ard=6 acc_pre=-41
+LN_S_SAMP tok=1 dim=51 aaddr=179 ard=1 acc_pre=-35
+LN_S_SAMP tok=1 dim=52 aaddr=180 ard=-1 acc_pre=-34
+LN_S_SAMP tok=1 dim=53 aaddr=181 ard=2 acc_pre=-35
+LN_S_SAMP tok=1 dim=54 aaddr=182 ard=4 acc_pre=-33
+LN_S_SAMP tok=1 dim=55 aaddr=183 ard=2 acc_pre=-29
+LN_S_SAMP tok=1 dim=56 aaddr=184 ard=8 acc_pre=-27
+LN_S_SAMP tok=1 dim=57 aaddr=185 ard=0 acc_pre=-19
+LN_S_SAMP tok=1 dim=58 aaddr=186 ard=9 acc_pre=-19
+LN_S_SAMP tok=1 dim=59 aaddr=187 ard=-4 acc_pre=-10
+LN_S_SAMP tok=1 dim=60 aaddr=188 ard=8 acc_pre=-14
+LN_S_SAMP tok=1 dim=61 aaddr=189 ard=1 acc_pre=-6
+LN_S_SAMP tok=1 dim=62 aaddr=190 ard=-2 acc_pre=-5
+LN_S_SAMP tok=1 dim=63 aaddr=191 ard=-1 acc_pre=-7
+LN_S_SAMP tok=1 dim=64 aaddr=192 ard=4 acc_pre=-8
+LN_S_SAMP tok=1 dim=65 aaddr=193 ard=-3 acc_pre=-4
+LN_S_SAMP tok=1 dim=66 aaddr=194 ard=4 acc_pre=-7
+LN_S_SAMP tok=1 dim=67 aaddr=195 ard=-2 acc_pre=-3
+LN_S_SAMP tok=1 dim=68 aaddr=196 ard=8 acc_pre=-5
+LN_S_SAMP tok=1 dim=69 aaddr=197 ard=5 acc_pre=3
+LN_S_SAMP tok=1 dim=70 aaddr=198 ard=2 acc_pre=8
+LN_S_SAMP tok=1 dim=71 aaddr=199 ard=5 acc_pre=10
+LN_S_SAMP tok=1 dim=72 aaddr=200 ard=3 acc_pre=15
+LN_S_SAMP tok=1 dim=73 aaddr=201 ard=0 acc_pre=18
+LN_S_SAMP tok=1 dim=74 aaddr=202 ard=3 acc_pre=18
+LN_S_SAMP tok=1 dim=75 aaddr=203 ard=-4 acc_pre=21
+LN_S_SAMP tok=1 dim=76 aaddr=204 ard=3 acc_pre=17
+LN_S_SAMP tok=1 dim=77 aaddr=205 ard=3 acc_pre=20
+LN_S_SAMP tok=1 dim=78 aaddr=206 ard=2 acc_pre=23
+LN_S_SAMP tok=1 dim=79 aaddr=207 ard=9 acc_pre=25
+LN_S_SAMP tok=1 dim=80 aaddr=208 ard=1 acc_pre=34
+LN_S_SAMP tok=1 dim=81 aaddr=209 ard=2 acc_pre=35
+LN_S_SAMP tok=1 dim=82 aaddr=210 ard=1 acc_pre=37
+LN_S_SAMP tok=1 dim=83 aaddr=211 ard=4 acc_pre=38
+LN_S_SAMP tok=1 dim=84 aaddr=212 ard=-2 acc_pre=42
+LN_S_SAMP tok=1 dim=85 aaddr=213 ard=4 acc_pre=40
+LN_S_SAMP tok=1 dim=86 aaddr=214 ard=2 acc_pre=44
+LN_S_SAMP tok=1 dim=87 aaddr=215 ard=1 acc_pre=46
+LN_S_SAMP tok=1 dim=88 aaddr=216 ard=4 acc_pre=47
+LN_S_SAMP tok=1 dim=89 aaddr=217 ard=-1 acc_pre=51
+LN_S_SAMP tok=1 dim=90 aaddr=218 ard=4 acc_pre=50
+LN_S_SAMP tok=1 dim=91 aaddr=219 ard=4 acc_pre=54
+LN_S_SAMP tok=1 dim=92 aaddr=220 ard=-5 acc_pre=58
+LN_S_SAMP tok=1 dim=93 aaddr=221 ard=-4 acc_pre=53
+LN_S_SAMP tok=1 dim=94 aaddr=222 ard=2 acc_pre=49
+LN_S_SAMP tok=1 dim=95 aaddr=223 ard=-5 acc_pre=51
+LN_S_SAMP tok=1 dim=96 aaddr=224 ard=0 acc_pre=46
+LN_S_SAMP tok=1 dim=97 aaddr=225 ard=0 acc_pre=46
+LN_S_SAMP tok=1 dim=98 aaddr=226 ard=5 acc_pre=46
+LN_S_SAMP tok=1 dim=99 aaddr=227 ard=-1 acc_pre=51
+LN_S_SAMP tok=1 dim=100 aaddr=228 ard=-3 acc_pre=50
+LN_S_SAMP tok=1 dim=101 aaddr=229 ard=-3 acc_pre=47
+LN_S_SAMP tok=1 dim=102 aaddr=230 ard=9 acc_pre=44
+LN_S_SAMP tok=1 dim=103 aaddr=231 ard=7 acc_pre=53
+LN_S_SAMP tok=1 dim=104 aaddr=232 ard=4 acc_pre=60
+LN_S_SAMP tok=1 dim=105 aaddr=233 ard=3 acc_pre=64
+LN_S_SAMP tok=1 dim=106 aaddr=234 ard=2 acc_pre=67
+LN_S_SAMP tok=1 dim=107 aaddr=235 ard=5 acc_pre=69
+LN_S_SAMP tok=1 dim=108 aaddr=236 ard=4 acc_pre=74
+LN_S_SAMP tok=1 dim=109 aaddr=237 ard=2 acc_pre=78
+LN_S_SAMP tok=1 dim=110 aaddr=238 ard=0 acc_pre=80
+LN_S_SAMP tok=1 dim=111 aaddr=239 ard=0 acc_pre=80
+LN_S_SAMP tok=1 dim=112 aaddr=240 ard=1 acc_pre=80
+LN_S_SAMP tok=1 dim=113 aaddr=241 ard=8 acc_pre=81
+LN_S_SAMP tok=1 dim=114 aaddr=242 ard=-5 acc_pre=89
+LN_S_SAMP tok=1 dim=115 aaddr=243 ard=-1 acc_pre=84
+LN_S_SAMP tok=1 dim=116 aaddr=244 ard=4 acc_pre=83
+LN_S_SAMP tok=1 dim=117 aaddr=245 ard=-1 acc_pre=87
+LN_S_SAMP tok=1 dim=118 aaddr=246 ard=7 acc_pre=86
+LN_S_SAMP tok=1 dim=119 aaddr=247 ard=4 acc_pre=93
+LN_S_SAMP tok=1 dim=120 aaddr=248 ard=-4 acc_pre=97
+LN_S_SAMP tok=1 dim=121 aaddr=249 ard=8 acc_pre=93
+LN_S_SAMP tok=1 dim=122 aaddr=250 ard=-1 acc_pre=101
+LN_S_SAMP tok=1 dim=123 aaddr=251 ard=4 acc_pre=100
+LN_S_SAMP tok=1 dim=124 aaddr=252 ard=-3 acc_pre=104
+LN_S_SAMP tok=1 dim=125 aaddr=253 ard=-3 acc_pre=101
+LN_S_SAMP tok=1 dim=126 aaddr=254 ard=3 acc_pre=98
+LN_S_SAMP tok=1 dim=127 aaddr=255 ard=-5 acc_pre=101
+LN_S_SUM tok=1 acc=96 fd_n=96 oracle_sum=96
+LN_S_DIV tok=1 fd_q=0 oracle_mu=0
+LNV t=35487935000 acc=2138 var=33 mu=0
+LNO t=35489205000 ly=0 ten=0 ard=-5 mu=0 sc=4 q=-20
+LN_S_SAMP tok=2 dim=0 aaddr=256 ard=-8 acc_pre=0
+LN_S_SAMP tok=2 dim=1 aaddr=257 ard=1 acc_pre=-8
+LN_S_SAMP tok=2 dim=2 aaddr=258 ard=5 acc_pre=-7
+LN_S_SAMP tok=2 dim=3 aaddr=259 ard=-4 acc_pre=-2
+LN_S_SAMP tok=2 dim=4 aaddr=260 ard=0 acc_pre=-6
+LN_S_SAMP tok=2 dim=5 aaddr=261 ard=1 acc_pre=-6
+LN_S_SAMP tok=2 dim=6 aaddr=262 ard=-6 acc_pre=-5
+LN_S_SAMP tok=2 dim=7 aaddr=263 ard=3 acc_pre=-11
+LN_S_SAMP tok=2 dim=8 aaddr=264 ard=-8 acc_pre=-8
+LN_S_SAMP tok=2 dim=9 aaddr=265 ard=3 acc_pre=-16
+LN_S_SAMP tok=2 dim=10 aaddr=266 ard=-1 acc_pre=-13
+LN_S_SAMP tok=2 dim=11 aaddr=267 ard=-7 acc_pre=-14
+LN_S_SAMP tok=2 dim=12 aaddr=268 ard=-3 acc_pre=-21
+LN_S_SAMP tok=2 dim=13 aaddr=269 ard=-1 acc_pre=-24
+LN_S_SAMP tok=2 dim=14 aaddr=270 ard=0 acc_pre=-25
+LN_S_SAMP tok=2 dim=15 aaddr=271 ard=-6 acc_pre=-25
+LN_S_SAMP tok=2 dim=16 aaddr=272 ard=2 acc_pre=-31
+LN_S_SAMP tok=2 dim=17 aaddr=273 ard=7 acc_pre=-29
+LN_S_SAMP tok=2 dim=18 aaddr=274 ard=8 acc_pre=-22
+LN_S_SAMP tok=2 dim=19 aaddr=275 ard=-8 acc_pre=-14
+LN_S_SAMP tok=2 dim=20 aaddr=276 ard=-5 acc_pre=-22
+LN_S_SAMP tok=2 dim=21 aaddr=277 ard=-1 acc_pre=-27
+LN_S_SAMP tok=2 dim=22 aaddr=278 ard=-3 acc_pre=-28
+LN_S_SAMP tok=2 dim=23 aaddr=279 ard=-3 acc_pre=-31
+LN_S_SAMP tok=2 dim=24 aaddr=280 ard=-6 acc_pre=-34
+LN_S_SAMP tok=2 dim=25 aaddr=281 ard=3 acc_pre=-40
+LN_S_SAMP tok=2 dim=26 aaddr=282 ard=-3 acc_pre=-37
+LN_S_SAMP tok=2 dim=27 aaddr=283 ard=-2 acc_pre=-40
+LN_S_SAMP tok=2 dim=28 aaddr=284 ard=-8 acc_pre=-42
+LN_S_SAMP tok=2 dim=29 aaddr=285 ard=-2 acc_pre=-50
+LN_S_SAMP tok=2 dim=30 aaddr=286 ard=-9 acc_pre=-52
+LN_S_SAMP tok=2 dim=31 aaddr=287 ard=-8 acc_pre=-61
+LN_S_SAMP tok=2 dim=32 aaddr=288 ard=7 acc_pre=-69
+LN_S_SAMP tok=2 dim=33 aaddr=289 ard=-3 acc_pre=-62
+LN_S_SAMP tok=2 dim=34 aaddr=290 ard=2 acc_pre=-65
+LN_S_SAMP tok=2 dim=35 aaddr=291 ard=-2 acc_pre=-63
+LN_S_SAMP tok=2 dim=36 aaddr=292 ard=-2 acc_pre=-65
+LN_S_SAMP tok=2 dim=37 aaddr=293 ard=-5 acc_pre=-67
+LN_S_SAMP tok=2 dim=38 aaddr=294 ard=7 acc_pre=-72
+LN_S_SAMP tok=2 dim=39 aaddr=295 ard=-2 acc_pre=-65
+LN_S_SAMP tok=2 dim=40 aaddr=296 ard=0 acc_pre=-67
+LN_S_SAMP tok=2 dim=41 aaddr=297 ard=6 acc_pre=-67
+LN_S_SAMP tok=2 dim=42 aaddr=298 ard=-5 acc_pre=-61
+LN_S_SAMP tok=2 dim=43 aaddr=299 ard=1 acc_pre=-66
+LN_S_SAMP tok=2 dim=44 aaddr=300 ard=3 acc_pre=-65
+LN_S_SAMP tok=2 dim=45 aaddr=301 ard=-8 acc_pre=-62
+LN_S_SAMP tok=2 dim=46 aaddr=302 ard=8 acc_pre=-70
+LN_S_SAMP tok=2 dim=47 aaddr=303 ard=-4 acc_pre=-62
+LN_S_SAMP tok=2 dim=48 aaddr=304 ard=-3 acc_pre=-66
+LN_S_SAMP tok=2 dim=49 aaddr=305 ard=-8 acc_pre=-69
+LN_S_SAMP tok=2 dim=50 aaddr=306 ard=-6 acc_pre=-77
+LN_S_SAMP tok=2 dim=51 aaddr=307 ard=2 acc_pre=-83
+LN_S_SAMP tok=2 dim=52 aaddr=308 ard=1 acc_pre=-81
+LN_S_SAMP tok=2 dim=53 aaddr=309 ard=6 acc_pre=-80
+LN_S_SAMP tok=2 dim=54 aaddr=310 ard=8 acc_pre=-74
+LN_S_SAMP tok=2 dim=55 aaddr=311 ard=7 acc_pre=-66
+LN_S_SAMP tok=2 dim=56 aaddr=312 ard=-4 acc_pre=-59
+LN_S_SAMP tok=2 dim=57 aaddr=313 ard=-2 acc_pre=-63
+LN_S_SAMP tok=2 dim=58 aaddr=314 ard=0 acc_pre=-65
+LN_S_SAMP tok=2 dim=59 aaddr=315 ard=2 acc_pre=-65
+LN_S_SAMP tok=2 dim=60 aaddr=316 ard=-3 acc_pre=-63
+LN_S_SAMP tok=2 dim=61 aaddr=317 ard=1 acc_pre=-66
+LN_S_SAMP tok=2 dim=62 aaddr=318 ard=3 acc_pre=-65
+LN_S_SAMP tok=2 dim=63 aaddr=319 ard=4 acc_pre=-62
+LN_S_SAMP tok=2 dim=64 aaddr=320 ard=6 acc_pre=-58
+LN_S_SAMP tok=2 dim=65 aaddr=321 ard=3 acc_pre=-52
+LN_S_SAMP tok=2 dim=66 aaddr=322 ard=2 acc_pre=-49
+LN_S_SAMP tok=2 dim=67 aaddr=323 ard=-6 acc_pre=-47
+LN_S_SAMP tok=2 dim=68 aaddr=324 ard=-2 acc_pre=-53
+LN_S_SAMP tok=2 dim=69 aaddr=325 ard=7 acc_pre=-55
+LN_S_SAMP tok=2 dim=70 aaddr=326 ard=-2 acc_pre=-48
+LN_S_SAMP tok=2 dim=71 aaddr=327 ard=0 acc_pre=-50
+LN_S_SAMP tok=2 dim=72 aaddr=328 ard=2 acc_pre=-50
+LN_S_SAMP tok=2 dim=73 aaddr=329 ard=-3 acc_pre=-48
+LN_S_SAMP tok=2 dim=74 aaddr=330 ard=3 acc_pre=-51
+LN_S_SAMP tok=2 dim=75 aaddr=331 ard=-6 acc_pre=-48
+LN_S_SAMP tok=2 dim=76 aaddr=332 ard=-7 acc_pre=-54
+LN_S_SAMP tok=2 dim=77 aaddr=333 ard=6 acc_pre=-61
+LN_S_SAMP tok=2 dim=78 aaddr=334 ard=6 acc_pre=-55
+LN_S_SAMP tok=2 dim=79 aaddr=335 ard=2 acc_pre=-49
+LN_S_SAMP tok=2 dim=80 aaddr=336 ard=-5 acc_pre=-47
+LN_S_SAMP tok=2 dim=81 aaddr=337 ard=-3 acc_pre=-52
+LN_S_SAMP tok=2 dim=82 aaddr=338 ard=-1 acc_pre=-55
+LN_S_SAMP tok=2 dim=83 aaddr=339 ard=8 acc_pre=-56
+LN_S_SAMP tok=2 dim=84 aaddr=340 ard=-3 acc_pre=-48
+LN_S_SAMP tok=2 dim=85 aaddr=341 ard=3 acc_pre=-51
+LN_S_SAMP tok=2 dim=86 aaddr=342 ard=0 acc_pre=-48
+LN_S_SAMP tok=2 dim=87 aaddr=343 ard=6 acc_pre=-48
+LN_S_SAMP tok=2 dim=88 aaddr=344 ard=2 acc_pre=-42
+LN_S_SAMP tok=2 dim=89 aaddr=345 ard=2 acc_pre=-40
+LN_S_SAMP tok=2 dim=90 aaddr=346 ard=0 acc_pre=-38
+LN_S_SAMP tok=2 dim=91 aaddr=347 ard=1 acc_pre=-38
+LN_S_SAMP tok=2 dim=92 aaddr=348 ard=-2 acc_pre=-37
+LN_S_SAMP tok=2 dim=93 aaddr=349 ard=-2 acc_pre=-39
+LN_S_SAMP tok=2 dim=94 aaddr=350 ard=-4 acc_pre=-41
+LN_S_SAMP tok=2 dim=95 aaddr=351 ard=-1 acc_pre=-45
+LN_S_SAMP tok=2 dim=96 aaddr=352 ard=4 acc_pre=-46
+LN_S_SAMP tok=2 dim=97 aaddr=353 ard=0 acc_pre=-42
+LN_S_SAMP tok=2 dim=98 aaddr=354 ard=3 acc_pre=-42
+LN_S_SAMP tok=2 dim=99 aaddr=355 ard=-6 acc_pre=-39
+LN_S_SAMP tok=2 dim=100 aaddr=356 ard=5 acc_pre=-45
+LN_S_SAMP tok=2 dim=101 aaddr=357 ard=3 acc_pre=-40
+LN_S_SAMP tok=2 dim=102 aaddr=358 ard=-1 acc_pre=-37
+LN_S_SAMP tok=2 dim=103 aaddr=359 ard=6 acc_pre=-38
+LN_S_SAMP tok=2 dim=104 aaddr=360 ard=-4 acc_pre=-32
+LN_S_SAMP tok=2 dim=105 aaddr=361 ard=-3 acc_pre=-36
+LN_S_SAMP tok=2 dim=106 aaddr=362 ard=-9 acc_pre=-39
+LN_S_SAMP tok=2 dim=107 aaddr=363 ard=-2 acc_pre=-48
+LN_S_SAMP tok=2 dim=108 aaddr=364 ard=-5 acc_pre=-50
+LN_S_SAMP tok=2 dim=109 aaddr=365 ard=-7 acc_pre=-55
+LN_S_SAMP tok=2 dim=110 aaddr=366 ard=-6 acc_pre=-62
+LN_S_SAMP tok=2 dim=111 aaddr=367 ard=-2 acc_pre=-68
+LN_S_SAMP tok=2 dim=112 aaddr=368 ard=5 acc_pre=-70
+LN_S_SAMP tok=2 dim=113 aaddr=369 ard=-3 acc_pre=-65
+LN_S_SAMP tok=2 dim=114 aaddr=370 ard=5 acc_pre=-68
+LN_S_SAMP tok=2 dim=115 aaddr=371 ard=4 acc_pre=-63
+LN_S_SAMP tok=2 dim=116 aaddr=372 ard=-9 acc_pre=-59
+LN_S_SAMP tok=2 dim=117 aaddr=373 ard=-3 acc_pre=-68
+LN_S_SAMP tok=2 dim=118 aaddr=374 ard=-1 acc_pre=-71
+LN_S_SAMP tok=2 dim=119 aaddr=375 ard=8 acc_pre=-72
+LN_S_SAMP tok=2 dim=120 aaddr=376 ard=-2 acc_pre=-64
+LN_S_SAMP tok=2 dim=121 aaddr=377 ard=-7 acc_pre=-66
+LN_S_SAMP tok=2 dim=122 aaddr=378 ard=-5 acc_pre=-73
+LN_S_SAMP tok=2 dim=123 aaddr=379 ard=-5 acc_pre=-78
+LN_S_SAMP tok=2 dim=124 aaddr=380 ard=5 acc_pre=-83
+LN_S_SAMP tok=2 dim=125 aaddr=381 ard=-3 acc_pre=-78
+LN_S_SAMP tok=2 dim=126 aaddr=382 ard=5 acc_pre=-81
+LN_S_SAMP tok=2 dim=127 aaddr=383 ard=9 acc_pre=-76
+LN_S_SUM tok=2 acc=-67 fd_n=-80 oracle_sum=-67
+LN_S_DIV tok=2 fd_q=-1 oracle_mu=-1
+LNV t=35568555000 acc=2837 var=44 mu=-1
+LNO t=35569825000 ly=0 ten=0 ard=-8 mu=-1 sc=4 q=-28
+LN_S_SAMP tok=3 dim=0 aaddr=384 ard=-7 acc_pre=0
+LN_S_SAMP tok=3 dim=1 aaddr=385 ard=8 acc_pre=-7
+LN_S_SAMP tok=3 dim=2 aaddr=386 ard=5 acc_pre=1
+LN_S_SAMP tok=3 dim=3 aaddr=387 ard=2 acc_pre=6
+LN_S_SAMP tok=3 dim=4 aaddr=388 ard=-4 acc_pre=8
+LN_S_SAMP tok=3 dim=5 aaddr=389 ard=-2 acc_pre=4
+LN_S_SAMP tok=3 dim=6 aaddr=390 ard=3 acc_pre=2
+LN_S_SAMP tok=3 dim=7 aaddr=391 ard=-1 acc_pre=5
+LN_S_SAMP tok=3 dim=8 aaddr=392 ard=6 acc_pre=4
+LN_S_SAMP tok=3 dim=9 aaddr=393 ard=-4 acc_pre=10
+LN_S_SAMP tok=3 dim=10 aaddr=394 ard=1 acc_pre=6
+LN_S_SAMP tok=3 dim=11 aaddr=395 ard=3 acc_pre=7
+LN_S_SAMP tok=3 dim=12 aaddr=396 ard=-1 acc_pre=10
+LN_S_SAMP tok=3 dim=13 aaddr=397 ard=4 acc_pre=9
+LN_S_SAMP tok=3 dim=14 aaddr=398 ard=7 acc_pre=13
+LN_S_SAMP tok=3 dim=15 aaddr=399 ard=3 acc_pre=20
+LN_S_SAMP tok=3 dim=16 aaddr=400 ard=7 acc_pre=23
+LN_S_SAMP tok=3 dim=17 aaddr=401 ard=3 acc_pre=30
+LN_S_SAMP tok=3 dim=18 aaddr=402 ard=-1 acc_pre=33
+LN_S_SAMP tok=3 dim=19 aaddr=403 ard=6 acc_pre=32
+LN_S_SAMP tok=3 dim=20 aaddr=404 ard=-4 acc_pre=38
+LN_S_SAMP tok=3 dim=21 aaddr=405 ard=-3 acc_pre=34
+LN_S_SAMP tok=3 dim=22 aaddr=406 ard=-2 acc_pre=31
+LN_S_SAMP tok=3 dim=23 aaddr=407 ard=-5 acc_pre=29
+LN_S_SAMP tok=3 dim=24 aaddr=408 ard=3 acc_pre=24
+LN_S_SAMP tok=3 dim=25 aaddr=409 ard=3 acc_pre=27
+LN_S_SAMP tok=3 dim=26 aaddr=410 ard=-2 acc_pre=30
+LN_S_SAMP tok=3 dim=27 aaddr=411 ard=4 acc_pre=28
+LN_S_SAMP tok=3 dim=28 aaddr=412 ard=0 acc_pre=32
+LN_S_SAMP tok=3 dim=29 aaddr=413 ard=6 acc_pre=32
+LN_S_SAMP tok=3 dim=30 aaddr=414 ard=6 acc_pre=38
+LN_S_SAMP tok=3 dim=31 aaddr=415 ard=8 acc_pre=44
+LN_S_SAMP tok=3 dim=32 aaddr=416 ard=-6 acc_pre=52
+LN_S_SAMP tok=3 dim=33 aaddr=417 ard=2 acc_pre=46
+LN_S_SAMP tok=3 dim=34 aaddr=418 ard=8 acc_pre=48
+LN_S_SAMP tok=3 dim=35 aaddr=419 ard=3 acc_pre=56
+LN_S_SAMP tok=3 dim=36 aaddr=420 ard=-4 acc_pre=59
+LN_S_SAMP tok=3 dim=37 aaddr=421 ard=-2 acc_pre=55
+LN_S_SAMP tok=3 dim=38 aaddr=422 ard=-3 acc_pre=53
+LN_S_SAMP tok=3 dim=39 aaddr=423 ard=-3 acc_pre=50
+LN_S_SAMP tok=3 dim=40 aaddr=424 ard=3 acc_pre=47
+LN_S_SAMP tok=3 dim=41 aaddr=425 ard=-6 acc_pre=50
+LN_S_SAMP tok=3 dim=42 aaddr=426 ard=3 acc_pre=44
+LN_S_SAMP tok=3 dim=43 aaddr=427 ard=1 acc_pre=47
+LN_S_SAMP tok=3 dim=44 aaddr=428 ard=-4 acc_pre=48
+LN_S_SAMP tok=3 dim=45 aaddr=429 ard=7 acc_pre=44
+LN_S_SAMP tok=3 dim=46 aaddr=430 ard=-3 acc_pre=51
+LN_S_SAMP tok=3 dim=47 aaddr=431 ard=2 acc_pre=48
+LN_S_SAMP tok=3 dim=48 aaddr=432 ard=4 acc_pre=50
+LN_S_SAMP tok=3 dim=49 aaddr=433 ard=5 acc_pre=54
+LN_S_SAMP tok=3 dim=50 aaddr=434 ard=-7 acc_pre=59
+LN_S_SAMP tok=3 dim=51 aaddr=435 ard=-2 acc_pre=52
+LN_S_SAMP tok=3 dim=52 aaddr=436 ard=1 acc_pre=50
+LN_S_SAMP tok=3 dim=53 aaddr=437 ard=-2 acc_pre=51
+LN_S_SAMP tok=3 dim=54 aaddr=438 ard=-1 acc_pre=49
+LN_S_SAMP tok=3 dim=55 aaddr=439 ard=6 acc_pre=48
+LN_S_SAMP tok=3 dim=56 aaddr=440 ard=5 acc_pre=54
+LN_S_SAMP tok=3 dim=57 aaddr=441 ard=1 acc_pre=59
+LN_S_SAMP tok=3 dim=58 aaddr=442 ard=1 acc_pre=60
+LN_S_SAMP tok=3 dim=59 aaddr=443 ard=4 acc_pre=61
+LN_S_SAMP tok=3 dim=60 aaddr=444 ard=-7 acc_pre=65
+LN_S_SAMP tok=3 dim=61 aaddr=445 ard=-1 acc_pre=58
+LN_S_SAMP tok=3 dim=62 aaddr=446 ard=0 acc_pre=57
+LN_S_SAMP tok=3 dim=63 aaddr=447 ard=-8 acc_pre=57
+LN_S_SAMP tok=3 dim=64 aaddr=448 ard=-5 acc_pre=49
+LN_S_SAMP tok=3 dim=65 aaddr=449 ard=3 acc_pre=44
+LN_S_SAMP tok=3 dim=66 aaddr=450 ard=8 acc_pre=47
+LN_S_SAMP tok=3 dim=67 aaddr=451 ard=-3 acc_pre=55
+LN_S_SAMP tok=3 dim=68 aaddr=452 ard=-3 acc_pre=52
+LN_S_SAMP tok=3 dim=69 aaddr=453 ard=1 acc_pre=49
+LN_S_SAMP tok=3 dim=70 aaddr=454 ard=-1 acc_pre=50
+LN_S_SAMP tok=3 dim=71 aaddr=455 ard=-1 acc_pre=49
+LN_S_SAMP tok=3 dim=72 aaddr=456 ard=6 acc_pre=48
+LN_S_SAMP tok=3 dim=73 aaddr=457 ard=5 acc_pre=54
+LN_S_SAMP tok=3 dim=74 aaddr=458 ard=-1 acc_pre=59
+LN_S_SAMP tok=3 dim=75 aaddr=459 ard=-7 acc_pre=58
+LN_S_SAMP tok=3 dim=76 aaddr=460 ard=-6 acc_pre=51
+LN_S_SAMP tok=3 dim=77 aaddr=461 ard=3 acc_pre=45
+LN_S_SAMP tok=3 dim=78 aaddr=462 ard=8 acc_pre=48
+LN_S_SAMP tok=3 dim=79 aaddr=463 ard=-1 acc_pre=56
+LN_S_SAMP tok=3 dim=80 aaddr=464 ard=0 acc_pre=55
+LN_S_SAMP tok=3 dim=81 aaddr=465 ard=1 acc_pre=55
+LN_S_SAMP tok=3 dim=82 aaddr=466 ard=9 acc_pre=56
+LN_S_SAMP tok=3 dim=83 aaddr=467 ard=9 acc_pre=65
+LN_S_SAMP tok=3 dim=84 aaddr=468 ard=1 acc_pre=74
+LN_S_SAMP tok=3 dim=85 aaddr=469 ard=6 acc_pre=75
+LN_S_SAMP tok=3 dim=86 aaddr=470 ard=-6 acc_pre=81
+LN_S_SAMP tok=3 dim=87 aaddr=471 ard=1 acc_pre=75
+LN_S_SAMP tok=3 dim=88 aaddr=472 ard=3 acc_pre=76
+LN_S_SAMP tok=3 dim=89 aaddr=473 ard=5 acc_pre=79
+LN_S_SAMP tok=3 dim=90 aaddr=474 ard=-7 acc_pre=84
+LN_S_SAMP tok=3 dim=91 aaddr=475 ard=4 acc_pre=77
+LN_S_SAMP tok=3 dim=92 aaddr=476 ard=4 acc_pre=81
+LN_S_SAMP tok=3 dim=93 aaddr=477 ard=-2 acc_pre=85
+LN_S_SAMP tok=3 dim=94 aaddr=478 ard=5 acc_pre=83
+LN_S_SAMP tok=3 dim=95 aaddr=479 ard=-5 acc_pre=88
+LN_S_SAMP tok=3 dim=96 aaddr=480 ard=-2 acc_pre=83
+LN_S_SAMP tok=3 dim=97 aaddr=481 ard=-1 acc_pre=81
+LN_S_SAMP tok=3 dim=98 aaddr=482 ard=-5 acc_pre=80
+LN_S_SAMP tok=3 dim=99 aaddr=483 ard=1 acc_pre=75
+LN_S_SAMP tok=3 dim=100 aaddr=484 ard=-2 acc_pre=76
+LN_S_SAMP tok=3 dim=101 aaddr=485 ard=3 acc_pre=74
+LN_S_SAMP tok=3 dim=102 aaddr=486 ard=-3 acc_pre=77
+LN_S_SAMP tok=3 dim=103 aaddr=487 ard=7 acc_pre=74
+LN_S_SAMP tok=3 dim=104 aaddr=488 ard=6 acc_pre=81
+LN_S_SAMP tok=3 dim=105 aaddr=489 ard=-2 acc_pre=87
+LN_S_SAMP tok=3 dim=106 aaddr=490 ard=6 acc_pre=85
+LN_S_SAMP tok=3 dim=107 aaddr=491 ard=4 acc_pre=91
+LN_S_SAMP tok=3 dim=108 aaddr=492 ard=2 acc_pre=95
+LN_S_SAMP tok=3 dim=109 aaddr=493 ard=-4 acc_pre=97
+LN_S_SAMP tok=3 dim=110 aaddr=494 ard=1 acc_pre=93
+LN_S_SAMP tok=3 dim=111 aaddr=495 ard=-4 acc_pre=94
+LN_S_SAMP tok=3 dim=112 aaddr=496 ard=3 acc_pre=90
+LN_S_SAMP tok=3 dim=113 aaddr=497 ard=8 acc_pre=93
+LN_S_SAMP tok=3 dim=114 aaddr=498 ard=1 acc_pre=101
+LN_S_SAMP tok=3 dim=115 aaddr=499 ard=-2 acc_pre=102
+LN_S_SAMP tok=3 dim=116 aaddr=500 ard=4 acc_pre=100
+LN_S_SAMP tok=3 dim=117 aaddr=501 ard=5 acc_pre=104
+LN_S_SAMP tok=3 dim=118 aaddr=502 ard=-6 acc_pre=109
+LN_S_SAMP tok=3 dim=119 aaddr=503 ard=0 acc_pre=103
+LN_S_SAMP tok=3 dim=120 aaddr=504 ard=3 acc_pre=103
+LN_S_SAMP tok=3 dim=121 aaddr=505 ard=-5 acc_pre=106
+LN_S_SAMP tok=3 dim=122 aaddr=506 ard=1 acc_pre=101
+LN_S_SAMP tok=3 dim=123 aaddr=507 ard=5 acc_pre=102
+LN_S_SAMP tok=3 dim=124 aaddr=508 ard=3 acc_pre=107
+LN_S_SAMP tok=3 dim=125 aaddr=509 ard=1 acc_pre=110
+LN_S_SAMP tok=3 dim=126 aaddr=510 ard=-9 acc_pre=111
+LN_S_SAMP tok=3 dim=127 aaddr=511 ard=0 acc_pre=102
+LN_S_SUM tok=3 acc=102 fd_n=160 oracle_sum=102
+LN_S_DIV tok=3 fd_q=0 oracle_mu=0
+LNV t=35649175000 acc=2492 var=38 mu=0
+LNO t=35650445000 ly=0 ten=0 ard=-7 mu=0 sc=4 q=-28
+LN_S_SAMP tok=4 dim=0 aaddr=512 ard=3 acc_pre=0
+LN_S_SAMP tok=4 dim=1 aaddr=513 ard=4 acc_pre=3
+LN_S_SAMP tok=4 dim=2 aaddr=514 ard=2 acc_pre=7
+LN_S_SAMP tok=4 dim=3 aaddr=515 ard=-2 acc_pre=9
+LN_S_SAMP tok=4 dim=4 aaddr=516 ard=7 acc_pre=7
+LN_S_SAMP tok=4 dim=5 aaddr=517 ard=-3 acc_pre=14
+LN_S_SAMP tok=4 dim=6 aaddr=518 ard=-5 acc_pre=11
+LN_S_SAMP tok=4 dim=7 aaddr=519 ard=-9 acc_pre=6
+LN_S_SAMP tok=4 dim=8 aaddr=520 ard=-2 acc_pre=-3
+LN_S_SAMP tok=4 dim=9 aaddr=521 ard=-4 acc_pre=-5
+LN_S_SAMP tok=4 dim=10 aaddr=522 ard=3 acc_pre=-9
+LN_S_SAMP tok=4 dim=11 aaddr=523 ard=4 acc_pre=-6
+LN_S_SAMP tok=4 dim=12 aaddr=524 ard=4 acc_pre=-2
+LN_S_SAMP tok=4 dim=13 aaddr=525 ard=-1 acc_pre=2
+LN_S_SAMP tok=4 dim=14 aaddr=526 ard=-6 acc_pre=1
+LN_S_SAMP tok=4 dim=15 aaddr=527 ard=-3 acc_pre=-5
+LN_S_SAMP tok=4 dim=16 aaddr=528 ard=3 acc_pre=-8
+LN_S_SAMP tok=4 dim=17 aaddr=529 ard=3 acc_pre=-5
+LN_S_SAMP tok=4 dim=18 aaddr=530 ard=9 acc_pre=-2
+LN_S_SAMP tok=4 dim=19 aaddr=531 ard=9 acc_pre=7
+LN_S_SAMP tok=4 dim=20 aaddr=532 ard=-6 acc_pre=16
+LN_S_SAMP tok=4 dim=21 aaddr=533 ard=1 acc_pre=10
+LN_S_SAMP tok=4 dim=22 aaddr=534 ard=7 acc_pre=11
+LN_S_SAMP tok=4 dim=23 aaddr=535 ard=4 acc_pre=18
+LN_S_SAMP tok=4 dim=24 aaddr=536 ard=1 acc_pre=22
+LN_S_SAMP tok=4 dim=25 aaddr=537 ard=0 acc_pre=23
+LN_S_SAMP tok=4 dim=26 aaddr=538 ard=-1 acc_pre=23
+LN_S_SAMP tok=4 dim=27 aaddr=539 ard=6 acc_pre=22
+LN_S_SAMP tok=4 dim=28 aaddr=540 ard=1 acc_pre=28
+LN_S_SAMP tok=4 dim=29 aaddr=541 ard=-6 acc_pre=29
+LN_S_SAMP tok=4 dim=30 aaddr=542 ard=-7 acc_pre=23
+LN_S_SAMP tok=4 dim=31 aaddr=543 ard=3 acc_pre=16
+LN_S_SAMP tok=4 dim=32 aaddr=544 ard=3 acc_pre=19
+LN_S_SAMP tok=4 dim=33 aaddr=545 ard=1 acc_pre=22
+LN_S_SAMP tok=4 dim=34 aaddr=546 ard=-1 acc_pre=23
+LN_S_SAMP tok=4 dim=35 aaddr=547 ard=1 acc_pre=22
+LN_S_SAMP tok=4 dim=36 aaddr=548 ard=4 acc_pre=23
+LN_S_SAMP tok=4 dim=37 aaddr=549 ard=2 acc_pre=27
+LN_S_SAMP tok=4 dim=38 aaddr=550 ard=-2 acc_pre=29
+LN_S_SAMP tok=4 dim=39 aaddr=551 ard=2 acc_pre=27
+LN_S_SAMP tok=4 dim=40 aaddr=552 ard=6 acc_pre=29
+LN_S_SAMP tok=4 dim=41 aaddr=553 ard=-1 acc_pre=35
+LN_S_SAMP tok=4 dim=42 aaddr=554 ard=6 acc_pre=34
+LN_S_SAMP tok=4 dim=43 aaddr=555 ard=-3 acc_pre=40
+LN_S_SAMP tok=4 dim=44 aaddr=556 ard=-1 acc_pre=37
+LN_S_SAMP tok=4 dim=45 aaddr=557 ard=-8 acc_pre=36
+LN_S_SAMP tok=4 dim=46 aaddr=558 ard=4 acc_pre=28
+LN_S_SAMP tok=4 dim=47 aaddr=559 ard=-1 acc_pre=32
+LN_S_SAMP tok=4 dim=48 aaddr=560 ard=5 acc_pre=31
+LN_S_SAMP tok=4 dim=49 aaddr=561 ard=3 acc_pre=36
+LN_S_SAMP tok=4 dim=50 aaddr=562 ard=-7 acc_pre=39
+LN_S_SAMP tok=4 dim=51 aaddr=563 ard=6 acc_pre=32
+LN_S_SAMP tok=4 dim=52 aaddr=564 ard=4 acc_pre=38
+LN_S_SAMP tok=4 dim=53 aaddr=565 ard=-1 acc_pre=42
+LN_S_SAMP tok=4 dim=54 aaddr=566 ard=6 acc_pre=41
+LN_S_SAMP tok=4 dim=55 aaddr=567 ard=-2 acc_pre=47
+LN_S_SAMP tok=4 dim=56 aaddr=568 ard=-2 acc_pre=45
+LN_S_SAMP tok=4 dim=57 aaddr=569 ard=-1 acc_pre=43
+LN_S_SAMP tok=4 dim=58 aaddr=570 ard=1 acc_pre=42
+LN_S_SAMP tok=4 dim=59 aaddr=571 ard=2 acc_pre=43
+LN_S_SAMP tok=4 dim=60 aaddr=572 ard=-7 acc_pre=45
+LN_S_SAMP tok=4 dim=61 aaddr=573 ard=-4 acc_pre=38
+LN_S_SAMP tok=4 dim=62 aaddr=574 ard=0 acc_pre=34
+LN_S_SAMP tok=4 dim=63 aaddr=575 ard=7 acc_pre=34
+LN_S_SAMP tok=4 dim=64 aaddr=576 ard=-2 acc_pre=41
+LN_S_SAMP tok=4 dim=65 aaddr=577 ard=-6 acc_pre=39
+LN_S_SAMP tok=4 dim=66 aaddr=578 ard=9 acc_pre=33
+LN_S_SAMP tok=4 dim=67 aaddr=579 ard=5 acc_pre=42
+LN_S_SAMP tok=4 dim=68 aaddr=580 ard=8 acc_pre=47
+LN_S_SAMP tok=4 dim=69 aaddr=581 ard=-2 acc_pre=55
+LN_S_SAMP tok=4 dim=70 aaddr=582 ard=-5 acc_pre=53
+LN_S_SAMP tok=4 dim=71 aaddr=583 ard=3 acc_pre=48
+LN_S_SAMP tok=4 dim=72 aaddr=584 ard=5 acc_pre=51
+LN_S_SAMP tok=4 dim=73 aaddr=585 ard=9 acc_pre=56
+LN_S_SAMP tok=4 dim=74 aaddr=586 ard=4 acc_pre=65
+LN_S_SAMP tok=4 dim=75 aaddr=587 ard=-1 acc_pre=69
+LN_S_SAMP tok=4 dim=76 aaddr=588 ard=-4 acc_pre=68
+LN_S_SAMP tok=4 dim=77 aaddr=589 ard=-3 acc_pre=64
+LN_S_SAMP tok=4 dim=78 aaddr=590 ard=0 acc_pre=61
+LN_S_SAMP tok=4 dim=79 aaddr=591 ard=-2 acc_pre=61
+LN_S_SAMP tok=4 dim=80 aaddr=592 ard=0 acc_pre=59
+LN_S_SAMP tok=4 dim=81 aaddr=593 ard=5 acc_pre=59
+LN_S_SAMP tok=4 dim=82 aaddr=594 ard=-5 acc_pre=64
+LN_S_SAMP tok=4 dim=83 aaddr=595 ard=-5 acc_pre=59
+LN_S_SAMP tok=4 dim=84 aaddr=596 ard=-8 acc_pre=54
+LN_S_SAMP tok=4 dim=85 aaddr=597 ard=-1 acc_pre=46
+LN_S_SAMP tok=4 dim=86 aaddr=598 ard=0 acc_pre=45
+LN_S_SAMP tok=4 dim=87 aaddr=599 ard=4 acc_pre=45
+LN_S_SAMP tok=4 dim=88 aaddr=600 ard=-4 acc_pre=49
+LN_S_SAMP tok=4 dim=89 aaddr=601 ard=-3 acc_pre=45
+LN_S_SAMP tok=4 dim=90 aaddr=602 ard=-8 acc_pre=42
+LN_S_SAMP tok=4 dim=91 aaddr=603 ard=5 acc_pre=34
+LN_S_SAMP tok=4 dim=92 aaddr=604 ard=3 acc_pre=39
+LN_S_SAMP tok=4 dim=93 aaddr=605 ard=0 acc_pre=42
+LN_S_SAMP tok=4 dim=94 aaddr=606 ard=0 acc_pre=42
+LN_S_SAMP tok=4 dim=95 aaddr=607 ard=-2 acc_pre=42
+LN_S_SAMP tok=4 dim=96 aaddr=608 ard=5 acc_pre=40
+LN_S_SAMP tok=4 dim=97 aaddr=609 ard=-5 acc_pre=45
+LN_S_SAMP tok=4 dim=98 aaddr=610 ard=1 acc_pre=40
+LN_S_SAMP tok=4 dim=99 aaddr=611 ard=2 acc_pre=41
+LN_S_SAMP tok=4 dim=100 aaddr=612 ard=-3 acc_pre=43
+LN_S_SAMP tok=4 dim=101 aaddr=613 ard=1 acc_pre=40
+LN_S_SAMP tok=4 dim=102 aaddr=614 ard=7 acc_pre=41
+LN_S_SAMP tok=4 dim=103 aaddr=615 ard=3 acc_pre=48
+LN_S_SAMP tok=4 dim=104 aaddr=616 ard=4 acc_pre=51
+LN_S_SAMP tok=4 dim=105 aaddr=617 ard=1 acc_pre=55
+LN_S_SAMP tok=4 dim=106 aaddr=618 ard=-3 acc_pre=56
+LN_S_SAMP tok=4 dim=107 aaddr=619 ard=0 acc_pre=53
+LN_S_SAMP tok=4 dim=108 aaddr=620 ard=1 acc_pre=53
+LN_S_SAMP tok=4 dim=109 aaddr=621 ard=1 acc_pre=54
+LN_S_SAMP tok=4 dim=110 aaddr=622 ard=-4 acc_pre=55
+LN_S_SAMP tok=4 dim=111 aaddr=623 ard=5 acc_pre=51
+LN_S_SAMP tok=4 dim=112 aaddr=624 ard=3 acc_pre=56
+LN_S_SAMP tok=4 dim=113 aaddr=625 ard=-2 acc_pre=59
+LN_S_SAMP tok=4 dim=114 aaddr=626 ard=7 acc_pre=57
+LN_S_SAMP tok=4 dim=115 aaddr=627 ard=3 acc_pre=64
+LN_S_SAMP tok=4 dim=116 aaddr=628 ard=0 acc_pre=67
+LN_S_SAMP tok=4 dim=117 aaddr=629 ard=4 acc_pre=67
+LN_S_SAMP tok=4 dim=118 aaddr=630 ard=-5 acc_pre=71
+LN_S_SAMP tok=4 dim=119 aaddr=631 ard=4 acc_pre=66
+LN_S_SAMP tok=4 dim=120 aaddr=632 ard=6 acc_pre=70
+LN_S_SAMP tok=4 dim=121 aaddr=633 ard=-2 acc_pre=76
+LN_S_SAMP tok=4 dim=122 aaddr=634 ard=-2 acc_pre=74
+LN_S_SAMP tok=4 dim=123 aaddr=635 ard=4 acc_pre=72
+LN_S_SAMP tok=4 dim=124 aaddr=636 ard=-1 acc_pre=76
+LN_S_SAMP tok=4 dim=125 aaddr=637 ard=-7 acc_pre=75
+LN_S_SAMP tok=4 dim=126 aaddr=638 ard=3 acc_pre=68
+LN_S_SAMP tok=4 dim=127 aaddr=639 ard=0 acc_pre=71
+LN_S_SUM tok=4 acc=71 fd_n=0 oracle_sum=71
+LN_S_DIV tok=4 fd_q=0 oracle_mu=0
+LNV t=35729795000 acc=2345 var=36 mu=0
+LNO t=35731065000 ly=0 ten=0 ard=3 mu=0 sc=4 q=12
+LN_S_SAMP tok=5 dim=0 aaddr=640 ard=5 acc_pre=0
+LN_S_SAMP tok=5 dim=1 aaddr=641 ard=-8 acc_pre=5
+LN_S_SAMP tok=5 dim=2 aaddr=642 ard=-3 acc_pre=-3
+LN_S_SAMP tok=5 dim=3 aaddr=643 ard=-7 acc_pre=-6
+LN_S_SAMP tok=5 dim=4 aaddr=644 ard=-6 acc_pre=-13
+LN_S_SAMP tok=5 dim=5 aaddr=645 ard=-1 acc_pre=-19
+LN_S_SAMP tok=5 dim=6 aaddr=646 ard=0 acc_pre=-20
+LN_S_SAMP tok=5 dim=7 aaddr=647 ard=-4 acc_pre=-20
+LN_S_SAMP tok=5 dim=8 aaddr=648 ard=3 acc_pre=-24
+LN_S_SAMP tok=5 dim=9 aaddr=649 ard=0 acc_pre=-21
+LN_S_SAMP tok=5 dim=10 aaddr=650 ard=-6 acc_pre=-21
+LN_S_SAMP tok=5 dim=11 aaddr=651 ard=-5 acc_pre=-27
+LN_S_SAMP tok=5 dim=12 aaddr=652 ard=-3 acc_pre=-32
+LN_S_SAMP tok=5 dim=13 aaddr=653 ard=5 acc_pre=-35
+LN_S_SAMP tok=5 dim=14 aaddr=654 ard=8 acc_pre=-30
+LN_S_SAMP tok=5 dim=15 aaddr=655 ard=3 acc_pre=-22
+LN_S_SAMP tok=5 dim=16 aaddr=656 ard=-3 acc_pre=-19
+LN_S_SAMP tok=5 dim=17 aaddr=657 ard=-3 acc_pre=-22
+LN_S_SAMP tok=5 dim=18 aaddr=658 ard=-3 acc_pre=-25
+LN_S_SAMP tok=5 dim=19 aaddr=659 ard=-4 acc_pre=-28
+LN_S_SAMP tok=5 dim=20 aaddr=660 ard=-3 acc_pre=-32
+LN_S_SAMP tok=5 dim=21 aaddr=661 ard=-2 acc_pre=-35
+LN_S_SAMP tok=5 dim=22 aaddr=662 ard=4 acc_pre=-37
+LN_S_SAMP tok=5 dim=23 aaddr=663 ard=0 acc_pre=-33
+LN_S_SAMP tok=5 dim=24 aaddr=664 ard=-5 acc_pre=-33
+LN_S_SAMP tok=5 dim=25 aaddr=665 ard=4 acc_pre=-38
+LN_S_SAMP tok=5 dim=26 aaddr=666 ard=3 acc_pre=-34
+LN_S_SAMP tok=5 dim=27 aaddr=667 ard=-4 acc_pre=-31
+LN_S_SAMP tok=5 dim=28 aaddr=668 ard=-1 acc_pre=-35
+LN_S_SAMP tok=5 dim=29 aaddr=669 ard=-7 acc_pre=-36
+LN_S_SAMP tok=5 dim=30 aaddr=670 ard=5 acc_pre=-43
+LN_S_SAMP tok=5 dim=31 aaddr=671 ard=0 acc_pre=-38
+LN_S_SAMP tok=5 dim=32 aaddr=672 ard=7 acc_pre=-38
+LN_S_SAMP tok=5 dim=33 aaddr=673 ard=-6 acc_pre=-31
+LN_S_SAMP tok=5 dim=34 aaddr=674 ard=0 acc_pre=-37
+LN_S_SAMP tok=5 dim=35 aaddr=675 ard=-3 acc_pre=-37
+LN_S_SAMP tok=5 dim=36 aaddr=676 ard=-6 acc_pre=-40
+LN_S_SAMP tok=5 dim=37 aaddr=677 ard=-4 acc_pre=-46
+LN_S_SAMP tok=5 dim=38 aaddr=678 ard=-6 acc_pre=-50
+LN_S_SAMP tok=5 dim=39 aaddr=679 ard=0 acc_pre=-56
+LN_S_SAMP tok=5 dim=40 aaddr=680 ard=0 acc_pre=-56
+LN_S_SAMP tok=5 dim=41 aaddr=681 ard=4 acc_pre=-56
+LN_S_SAMP tok=5 dim=42 aaddr=682 ard=6 acc_pre=-52
+LN_S_SAMP tok=5 dim=43 aaddr=683 ard=2 acc_pre=-46
+LN_S_SAMP tok=5 dim=44 aaddr=684 ard=-2 acc_pre=-44
+LN_S_SAMP tok=5 dim=45 aaddr=685 ard=1 acc_pre=-46
+LN_S_SAMP tok=5 dim=46 aaddr=686 ard=-6 acc_pre=-45
+LN_S_SAMP tok=5 dim=47 aaddr=687 ard=3 acc_pre=-51
+LN_S_SAMP tok=5 dim=48 aaddr=688 ard=-3 acc_pre=-48
+LN_S_SAMP tok=5 dim=49 aaddr=689 ard=0 acc_pre=-51
+LN_S_SAMP tok=5 dim=50 aaddr=690 ard=-5 acc_pre=-51
+LN_S_SAMP tok=5 dim=51 aaddr=691 ard=6 acc_pre=-56
+LN_S_SAMP tok=5 dim=52 aaddr=692 ard=1 acc_pre=-50
+LN_S_SAMP tok=5 dim=53 aaddr=693 ard=4 acc_pre=-49
+LN_S_SAMP tok=5 dim=54 aaddr=694 ard=-1 acc_pre=-45
+LN_S_SAMP tok=5 dim=55 aaddr=695 ard=2 acc_pre=-46
+LN_S_SAMP tok=5 dim=56 aaddr=696 ard=9 acc_pre=-44
+LN_S_SAMP tok=5 dim=57 aaddr=697 ard=6 acc_pre=-35
+LN_S_SAMP tok=5 dim=58 aaddr=698 ard=2 acc_pre=-29
+LN_S_SAMP tok=5 dim=59 aaddr=699 ard=-3 acc_pre=-27
+LN_S_SAMP tok=5 dim=60 aaddr=700 ard=6 acc_pre=-30
+LN_S_SAMP tok=5 dim=61 aaddr=701 ard=3 acc_pre=-24
+LN_S_SAMP tok=5 dim=62 aaddr=702 ard=4 acc_pre=-21
+LN_S_SAMP tok=5 dim=63 aaddr=703 ard=1 acc_pre=-17
+LN_S_SAMP tok=5 dim=64 aaddr=704 ard=7 acc_pre=-16
+LN_S_SAMP tok=5 dim=65 aaddr=705 ard=4 acc_pre=-9
+LN_S_SAMP tok=5 dim=66 aaddr=706 ard=0 acc_pre=-5
+LN_S_SAMP tok=5 dim=67 aaddr=707 ard=4 acc_pre=-5
+LN_S_SAMP tok=5 dim=68 aaddr=708 ard=0 acc_pre=-1
+LN_S_SAMP tok=5 dim=69 aaddr=709 ard=7 acc_pre=-1
+LN_S_SAMP tok=5 dim=70 aaddr=710 ard=5 acc_pre=6
+LN_S_SAMP tok=5 dim=71 aaddr=711 ard=5 acc_pre=11
+LN_S_SAMP tok=5 dim=72 aaddr=712 ard=3 acc_pre=16
+LN_S_SAMP tok=5 dim=73 aaddr=713 ard=9 acc_pre=19
+LN_S_SAMP tok=5 dim=74 aaddr=714 ard=7 acc_pre=28
+LN_S_SAMP tok=5 dim=75 aaddr=715 ard=-2 acc_pre=35
+LN_S_SAMP tok=5 dim=76 aaddr=716 ard=2 acc_pre=33
+LN_S_SAMP tok=5 dim=77 aaddr=717 ard=2 acc_pre=35
+LN_S_SAMP tok=5 dim=78 aaddr=718 ard=4 acc_pre=37
+LN_S_SAMP tok=5 dim=79 aaddr=719 ard=6 acc_pre=41
+LN_S_SAMP tok=5 dim=80 aaddr=720 ard=-3 acc_pre=47
+LN_S_SAMP tok=5 dim=81 aaddr=721 ard=-3 acc_pre=44
+LN_S_SAMP tok=5 dim=82 aaddr=722 ard=-4 acc_pre=41
+LN_S_SAMP tok=5 dim=83 aaddr=723 ard=-3 acc_pre=37
+LN_S_SAMP tok=5 dim=84 aaddr=724 ard=-2 acc_pre=34
+LN_S_SAMP tok=5 dim=85 aaddr=725 ard=-6 acc_pre=32
+LN_S_SAMP tok=5 dim=86 aaddr=726 ard=-4 acc_pre=26
+LN_S_SAMP tok=5 dim=87 aaddr=727 ard=-4 acc_pre=22
+LN_S_SAMP tok=5 dim=88 aaddr=728 ard=-2 acc_pre=18
+LN_S_SAMP tok=5 dim=89 aaddr=729 ard=-1 acc_pre=16
+LN_S_SAMP tok=5 dim=90 aaddr=730 ard=-4 acc_pre=15
+LN_S_SAMP tok=5 dim=91 aaddr=731 ard=-7 acc_pre=11
+LN_S_SAMP tok=5 dim=92 aaddr=732 ard=-2 acc_pre=4
+LN_S_SAMP tok=5 dim=93 aaddr=733 ard=0 acc_pre=2
+LN_S_SAMP tok=5 dim=94 aaddr=734 ard=-7 acc_pre=2
+LN_S_SAMP tok=5 dim=95 aaddr=735 ard=-5 acc_pre=-5
+LN_S_SAMP tok=5 dim=96 aaddr=736 ard=-5 acc_pre=-10
+LN_S_SAMP tok=5 dim=97 aaddr=737 ard=1 acc_pre=-15
+LN_S_SAMP tok=5 dim=98 aaddr=738 ard=-4 acc_pre=-14
+LN_S_SAMP tok=5 dim=99 aaddr=739 ard=-4 acc_pre=-18
+LN_S_SAMP tok=5 dim=100 aaddr=740 ard=-3 acc_pre=-22
+LN_S_SAMP tok=5 dim=101 aaddr=741 ard=6 acc_pre=-25
+LN_S_SAMP tok=5 dim=102 aaddr=742 ard=5 acc_pre=-19
+LN_S_SAMP tok=5 dim=103 aaddr=743 ard=1 acc_pre=-14
+LN_S_SAMP tok=5 dim=104 aaddr=744 ard=0 acc_pre=-13
+LN_S_SAMP tok=5 dim=105 aaddr=745 ard=-9 acc_pre=-13
+LN_S_SAMP tok=5 dim=106 aaddr=746 ard=-1 acc_pre=-22
+LN_S_SAMP tok=5 dim=107 aaddr=747 ard=1 acc_pre=-23
+LN_S_SAMP tok=5 dim=108 aaddr=748 ard=-1 acc_pre=-22
+LN_S_SAMP tok=5 dim=109 aaddr=749 ard=4 acc_pre=-23
+LN_S_SAMP tok=5 dim=110 aaddr=750 ard=-1 acc_pre=-19
+LN_S_SAMP tok=5 dim=111 aaddr=751 ard=5 acc_pre=-20
+LN_S_SAMP tok=5 dim=112 aaddr=752 ard=-5 acc_pre=-15
+LN_S_SAMP tok=5 dim=113 aaddr=753 ard=-1 acc_pre=-20
+LN_S_SAMP tok=5 dim=114 aaddr=754 ard=7 acc_pre=-21
+LN_S_SAMP tok=5 dim=115 aaddr=755 ard=-6 acc_pre=-14
+LN_S_SAMP tok=5 dim=116 aaddr=756 ard=-1 acc_pre=-20
+LN_S_SAMP tok=5 dim=117 aaddr=757 ard=-4 acc_pre=-21
+LN_S_SAMP tok=5 dim=118 aaddr=758 ard=-6 acc_pre=-25
+LN_S_SAMP tok=5 dim=119 aaddr=759 ard=0 acc_pre=-31
+LN_S_SAMP tok=5 dim=120 aaddr=760 ard=-6 acc_pre=-31
+LN_S_SAMP tok=5 dim=121 aaddr=761 ard=-2 acc_pre=-37
+LN_S_SAMP tok=5 dim=122 aaddr=762 ard=4 acc_pre=-39
+LN_S_SAMP tok=5 dim=123 aaddr=763 ard=-2 acc_pre=-35
+LN_S_SAMP tok=5 dim=124 aaddr=764 ard=-4 acc_pre=-37
+LN_S_SAMP tok=5 dim=125 aaddr=765 ard=0 acc_pre=-41
+LN_S_SAMP tok=5 dim=126 aaddr=766 ard=-2 acc_pre=-41
+LN_S_SAMP tok=5 dim=127 aaddr=767 ard=0 acc_pre=-43
+LN_S_SUM tok=5 acc=-43 fd_n=0 oracle_sum=-43
+LN_S_DIV tok=5 fd_q=-1 oracle_mu=-1
+LNV t=35810415000 acc=2349 var=36 mu=-1
+LNO t=35811685000 ly=0 ten=0 ard=5 mu=-1 sc=4 q=24
+LN_S_SAMP tok=6 dim=0 aaddr=768 ard=-2 acc_pre=0
+LN_S_SAMP tok=6 dim=1 aaddr=769 ard=0 acc_pre=-2
+LN_S_SAMP tok=6 dim=2 aaddr=770 ard=-8 acc_pre=-2
+LN_S_SAMP tok=6 dim=3 aaddr=771 ard=2 acc_pre=-10
+LN_S_SAMP tok=6 dim=4 aaddr=772 ard=-5 acc_pre=-8
+LN_S_SAMP tok=6 dim=5 aaddr=773 ard=-3 acc_pre=-13
+LN_S_SAMP tok=6 dim=6 aaddr=774 ard=5 acc_pre=-16
+LN_S_SAMP tok=6 dim=7 aaddr=775 ard=-5 acc_pre=-11
+LN_S_SAMP tok=6 dim=8 aaddr=776 ard=8 acc_pre=-16
+LN_S_SAMP tok=6 dim=9 aaddr=777 ard=2 acc_pre=-8
+LN_S_SAMP tok=6 dim=10 aaddr=778 ard=-8 acc_pre=-6
+LN_S_SAMP tok=6 dim=11 aaddr=779 ard=1 acc_pre=-14
+LN_S_SAMP tok=6 dim=12 aaddr=780 ard=-1 acc_pre=-13
+LN_S_SAMP tok=6 dim=13 aaddr=781 ard=4 acc_pre=-14
+LN_S_SAMP tok=6 dim=14 aaddr=782 ard=6 acc_pre=-10
+LN_S_SAMP tok=6 dim=15 aaddr=783 ard=3 acc_pre=-4
+LN_S_SAMP tok=6 dim=16 aaddr=784 ard=-4 acc_pre=-1
+LN_S_SAMP tok=6 dim=17 aaddr=785 ard=-5 acc_pre=-5
+LN_S_SAMP tok=6 dim=18 aaddr=786 ard=-2 acc_pre=-10
+LN_S_SAMP tok=6 dim=19 aaddr=787 ard=-8 acc_pre=-12
+LN_S_SAMP tok=6 dim=20 aaddr=788 ard=3 acc_pre=-20
+LN_S_SAMP tok=6 dim=21 aaddr=789 ard=-2 acc_pre=-17
+LN_S_SAMP tok=6 dim=22 aaddr=790 ard=8 acc_pre=-19
+LN_S_SAMP tok=6 dim=23 aaddr=791 ard=-4 acc_pre=-11
+LN_S_SAMP tok=6 dim=24 aaddr=792 ard=-2 acc_pre=-15
+LN_S_SAMP tok=6 dim=25 aaddr=793 ard=-4 acc_pre=-17
+LN_S_SAMP tok=6 dim=26 aaddr=794 ard=4 acc_pre=-21
+LN_S_SAMP tok=6 dim=27 aaddr=795 ard=6 acc_pre=-17
+LN_S_SAMP tok=6 dim=28 aaddr=796 ard=-3 acc_pre=-11
+LN_S_SAMP tok=6 dim=29 aaddr=797 ard=-3 acc_pre=-14
+LN_S_SAMP tok=6 dim=30 aaddr=798 ard=4 acc_pre=-17
+LN_S_SAMP tok=6 dim=31 aaddr=799 ard=9 acc_pre=-13
+LN_S_SAMP tok=6 dim=32 aaddr=800 ard=4 acc_pre=-4
+LN_S_SAMP tok=6 dim=33 aaddr=801 ard=6 acc_pre=0
+LN_S_SAMP tok=6 dim=34 aaddr=802 ard=3 acc_pre=6
+LN_S_SAMP tok=6 dim=35 aaddr=803 ard=-3 acc_pre=9
+LN_S_SAMP tok=6 dim=36 aaddr=804 ard=-7 acc_pre=6
+LN_S_SAMP tok=6 dim=37 aaddr=805 ard=-3 acc_pre=-1
+LN_S_SAMP tok=6 dim=38 aaddr=806 ard=3 acc_pre=-4
+LN_S_SAMP tok=6 dim=39 aaddr=807 ard=-2 acc_pre=-1
+LN_S_SAMP tok=6 dim=40 aaddr=808 ard=-2 acc_pre=-3
+LN_S_SAMP tok=6 dim=41 aaddr=809 ard=5 acc_pre=-5
+LN_S_SAMP tok=6 dim=42 aaddr=810 ard=0 acc_pre=0
+LN_S_SAMP tok=6 dim=43 aaddr=811 ard=4 acc_pre=0
+LN_S_SAMP tok=6 dim=44 aaddr=812 ard=3 acc_pre=4
+LN_S_SAMP tok=6 dim=45 aaddr=813 ard=6 acc_pre=7
+LN_S_SAMP tok=6 dim=46 aaddr=814 ard=-4 acc_pre=13
+LN_S_SAMP tok=6 dim=47 aaddr=815 ard=2 acc_pre=9
+LN_S_SAMP tok=6 dim=48 aaddr=816 ard=5 acc_pre=11
+LN_S_SAMP tok=6 dim=49 aaddr=817 ard=3 acc_pre=16
+LN_S_SAMP tok=6 dim=50 aaddr=818 ard=5 acc_pre=19
+LN_S_SAMP tok=6 dim=51 aaddr=819 ard=2 acc_pre=24
+LN_S_SAMP tok=6 dim=52 aaddr=820 ard=0 acc_pre=26
+LN_S_SAMP tok=6 dim=53 aaddr=821 ard=6 acc_pre=26
+LN_S_SAMP tok=6 dim=54 aaddr=822 ard=-2 acc_pre=32
+LN_S_SAMP tok=6 dim=55 aaddr=823 ard=-1 acc_pre=30
+LN_S_SAMP tok=6 dim=56 aaddr=824 ard=3 acc_pre=29
+LN_S_SAMP tok=6 dim=57 aaddr=825 ard=2 acc_pre=32
+LN_S_SAMP tok=6 dim=58 aaddr=826 ard=1 acc_pre=34
+LN_S_SAMP tok=6 dim=59 aaddr=827 ard=4 acc_pre=35
+LN_S_SAMP tok=6 dim=60 aaddr=828 ard=-3 acc_pre=39
+LN_S_SAMP tok=6 dim=61 aaddr=829 ard=-8 acc_pre=36
+LN_S_SAMP tok=6 dim=62 aaddr=830 ard=-2 acc_pre=28
+LN_S_SAMP tok=6 dim=63 aaddr=831 ard=1 acc_pre=26
+LN_S_SAMP tok=6 dim=64 aaddr=832 ard=-1 acc_pre=27
+LN_S_SAMP tok=6 dim=65 aaddr=833 ard=-4 acc_pre=26
+LN_S_SAMP tok=6 dim=66 aaddr=834 ard=4 acc_pre=22
+LN_S_SAMP tok=6 dim=67 aaddr=835 ard=4 acc_pre=26
+LN_S_SAMP tok=6 dim=68 aaddr=836 ard=-7 acc_pre=30
+LN_S_SAMP tok=6 dim=69 aaddr=837 ard=-2 acc_pre=23
+LN_S_SAMP tok=6 dim=70 aaddr=838 ard=-1 acc_pre=21
+LN_S_SAMP tok=6 dim=71 aaddr=839 ard=1 acc_pre=20
+LN_S_SAMP tok=6 dim=72 aaddr=840 ard=1 acc_pre=21
+LN_S_SAMP tok=6 dim=73 aaddr=841 ard=6 acc_pre=22
+LN_S_SAMP tok=6 dim=74 aaddr=842 ard=3 acc_pre=28
+LN_S_SAMP tok=6 dim=75 aaddr=843 ard=-4 acc_pre=31
+LN_S_SAMP tok=6 dim=76 aaddr=844 ard=1 acc_pre=27
+LN_S_SAMP tok=6 dim=77 aaddr=845 ard=-2 acc_pre=28
+LN_S_SAMP tok=6 dim=78 aaddr=846 ard=7 acc_pre=26
+LN_S_SAMP tok=6 dim=79 aaddr=847 ard=-1 acc_pre=33
+LN_S_SAMP tok=6 dim=80 aaddr=848 ard=-3 acc_pre=32
+LN_S_SAMP tok=6 dim=81 aaddr=849 ard=-4 acc_pre=29
+LN_S_SAMP tok=6 dim=82 aaddr=850 ard=-7 acc_pre=25
+LN_S_SAMP tok=6 dim=83 aaddr=851 ard=-4 acc_pre=18
+LN_S_SAMP tok=6 dim=84 aaddr=852 ard=-3 acc_pre=14
+LN_S_SAMP tok=6 dim=85 aaddr=853 ard=3 acc_pre=11
+LN_S_SAMP tok=6 dim=86 aaddr=854 ard=-8 acc_pre=14
+LN_S_SAMP tok=6 dim=87 aaddr=855 ard=1 acc_pre=6
+LN_S_SAMP tok=6 dim=88 aaddr=856 ard=7 acc_pre=7
+LN_S_SAMP tok=6 dim=89 aaddr=857 ard=2 acc_pre=14
+LN_S_SAMP tok=6 dim=90 aaddr=858 ard=-6 acc_pre=16
+LN_S_SAMP tok=6 dim=91 aaddr=859 ard=-2 acc_pre=10
+LN_S_SAMP tok=6 dim=92 aaddr=860 ard=-6 acc_pre=8
+LN_S_SAMP tok=6 dim=93 aaddr=861 ard=-2 acc_pre=2
+LN_S_SAMP tok=6 dim=94 aaddr=862 ard=1 acc_pre=0
+LN_S_SAMP tok=6 dim=95 aaddr=863 ard=-3 acc_pre=1
+LN_S_SAMP tok=6 dim=96 aaddr=864 ard=1 acc_pre=-2
+LN_S_SAMP tok=6 dim=97 aaddr=865 ard=-5 acc_pre=-1
+LN_S_SAMP tok=6 dim=98 aaddr=866 ard=-7 acc_pre=-6
+LN_S_SAMP tok=6 dim=99 aaddr=867 ard=4 acc_pre=-13
+LN_S_SAMP tok=6 dim=100 aaddr=868 ard=5 acc_pre=-9
+LN_S_SAMP tok=6 dim=101 aaddr=869 ard=0 acc_pre=-4
+LN_S_SAMP tok=6 dim=102 aaddr=870 ard=-5 acc_pre=-4
+LN_S_SAMP tok=6 dim=103 aaddr=871 ard=-6 acc_pre=-9
+LN_S_SAMP tok=6 dim=104 aaddr=872 ard=-2 acc_pre=-15
+LN_S_SAMP tok=6 dim=105 aaddr=873 ard=4 acc_pre=-17
+LN_S_SAMP tok=6 dim=106 aaddr=874 ard=-7 acc_pre=-13
+LN_S_SAMP tok=6 dim=107 aaddr=875 ard=0 acc_pre=-20
+LN_S_SAMP tok=6 dim=108 aaddr=876 ard=-2 acc_pre=-20
+LN_S_SAMP tok=6 dim=109 aaddr=877 ard=1 acc_pre=-22
+LN_S_SAMP tok=6 dim=110 aaddr=878 ard=4 acc_pre=-21
+LN_S_SAMP tok=6 dim=111 aaddr=879 ard=-1 acc_pre=-17
+LN_S_SAMP tok=6 dim=112 aaddr=880 ard=-3 acc_pre=-18
+LN_S_SAMP tok=6 dim=113 aaddr=881 ard=1 acc_pre=-21
+LN_S_SAMP tok=6 dim=114 aaddr=882 ard=-1 acc_pre=-20
+LN_S_SAMP tok=6 dim=115 aaddr=883 ard=-3 acc_pre=-21
+LN_S_SAMP tok=6 dim=116 aaddr=884 ard=-7 acc_pre=-24
+LN_S_SAMP tok=6 dim=117 aaddr=885 ard=4 acc_pre=-31
+LN_S_SAMP tok=6 dim=118 aaddr=886 ard=-2 acc_pre=-27
+LN_S_SAMP tok=6 dim=119 aaddr=887 ard=-1 acc_pre=-29
+LN_S_SAMP tok=6 dim=120 aaddr=888 ard=-8 acc_pre=-30
+LN_S_SAMP tok=6 dim=121 aaddr=889 ard=3 acc_pre=-38
+LN_S_SAMP tok=6 dim=122 aaddr=890 ard=-4 acc_pre=-35
+LN_S_SAMP tok=6 dim=123 aaddr=891 ard=4 acc_pre=-39
+LN_S_SAMP tok=6 dim=124 aaddr=892 ard=-5 acc_pre=-35
+LN_S_SAMP tok=6 dim=125 aaddr=893 ard=5 acc_pre=-40
+LN_S_SAMP tok=6 dim=126 aaddr=894 ard=-1 acc_pre=-35
+LN_S_SAMP tok=6 dim=127 aaddr=895 ard=2 acc_pre=-36
+LN_S_SUM tok=6 acc=-34 fd_n=16 oracle_sum=-34
+LN_S_DIV tok=6 fd_q=-1 oracle_mu=-1
+LNV t=35891035000 acc=2318 var=36 mu=-1
+LNO t=35892305000 ly=0 ten=0 ard=-2 mu=-1 sc=4 q=-4
+LN_S_SAMP tok=7 dim=0 aaddr=896 ard=-3 acc_pre=0
+LN_S_SAMP tok=7 dim=1 aaddr=897 ard=-1 acc_pre=-3
+LN_S_SAMP tok=7 dim=2 aaddr=898 ard=3 acc_pre=-4
+LN_S_SAMP tok=7 dim=3 aaddr=899 ard=2 acc_pre=-1
+LN_S_SAMP tok=7 dim=4 aaddr=900 ard=3 acc_pre=1
+LN_S_SAMP tok=7 dim=5 aaddr=901 ard=7 acc_pre=4
+LN_S_SAMP tok=7 dim=6 aaddr=902 ard=-1 acc_pre=11
+LN_S_SAMP tok=7 dim=7 aaddr=903 ard=2 acc_pre=10
+LN_S_SAMP tok=7 dim=8 aaddr=904 ard=5 acc_pre=12
+LN_S_SAMP tok=7 dim=9 aaddr=905 ard=4 acc_pre=17
+LN_S_SAMP tok=7 dim=10 aaddr=906 ard=-1 acc_pre=21
+LN_S_SAMP tok=7 dim=11 aaddr=907 ard=2 acc_pre=20
+LN_S_SAMP tok=7 dim=12 aaddr=908 ard=-5 acc_pre=22
+LN_S_SAMP tok=7 dim=13 aaddr=909 ard=-7 acc_pre=17
+LN_S_SAMP tok=7 dim=14 aaddr=910 ard=2 acc_pre=10
+LN_S_SAMP tok=7 dim=15 aaddr=911 ard=-6 acc_pre=12
+LN_S_SAMP tok=7 dim=16 aaddr=912 ard=-1 acc_pre=6
+LN_S_SAMP tok=7 dim=17 aaddr=913 ard=1 acc_pre=5
+LN_S_SAMP tok=7 dim=18 aaddr=914 ard=-5 acc_pre=6
+LN_S_SAMP tok=7 dim=19 aaddr=915 ard=-5 acc_pre=1
+LN_S_SAMP tok=7 dim=20 aaddr=916 ard=0 acc_pre=-4
+LN_S_SAMP tok=7 dim=21 aaddr=917 ard=-2 acc_pre=-4
+LN_S_SAMP tok=7 dim=22 aaddr=918 ard=-2 acc_pre=-6
+LN_S_SAMP tok=7 dim=23 aaddr=919 ard=2 acc_pre=-8
+LN_S_SAMP tok=7 dim=24 aaddr=920 ard=-3 acc_pre=-6
+LN_S_SAMP tok=7 dim=25 aaddr=921 ard=-2 acc_pre=-9
+LN_S_SAMP tok=7 dim=26 aaddr=922 ard=-4 acc_pre=-11
+LN_S_SAMP tok=7 dim=27 aaddr=923 ard=9 acc_pre=-15
+LN_S_SAMP tok=7 dim=28 aaddr=924 ard=-4 acc_pre=-6
+LN_S_SAMP tok=7 dim=29 aaddr=925 ard=7 acc_pre=-10
+LN_S_SAMP tok=7 dim=30 aaddr=926 ard=-4 acc_pre=-3
+LN_S_SAMP tok=7 dim=31 aaddr=927 ard=-1 acc_pre=-7
+LN_S_SAMP tok=7 dim=32 aaddr=928 ard=-5 acc_pre=-8
+LN_S_SAMP tok=7 dim=33 aaddr=929 ard=-2 acc_pre=-13
+LN_S_SAMP tok=7 dim=34 aaddr=930 ard=-2 acc_pre=-15
+LN_S_SAMP tok=7 dim=35 aaddr=931 ard=-1 acc_pre=-17
+LN_S_SAMP tok=7 dim=36 aaddr=932 ard=4 acc_pre=-18
+LN_S_SAMP tok=7 dim=37 aaddr=933 ard=8 acc_pre=-14
+LN_S_SAMP tok=7 dim=38 aaddr=934 ard=1 acc_pre=-6
+LN_S_SAMP tok=7 dim=39 aaddr=935 ard=-1 acc_pre=-5
+LN_S_SAMP tok=7 dim=40 aaddr=936 ard=-2 acc_pre=-6
+LN_S_SAMP tok=7 dim=41 aaddr=937 ard=0 acc_pre=-8
+LN_S_SAMP tok=7 dim=42 aaddr=938 ard=2 acc_pre=-8
+LN_S_SAMP tok=7 dim=43 aaddr=939 ard=-2 acc_pre=-6
+LN_S_SAMP tok=7 dim=44 aaddr=940 ard=3 acc_pre=-8
+LN_S_SAMP tok=7 dim=45 aaddr=941 ard=1 acc_pre=-5
+LN_S_SAMP tok=7 dim=46 aaddr=942 ard=4 acc_pre=-4
+LN_S_SAMP tok=7 dim=47 aaddr=943 ard=-6 acc_pre=0
+LN_S_SAMP tok=7 dim=48 aaddr=944 ard=-8 acc_pre=-6
+LN_S_SAMP tok=7 dim=49 aaddr=945 ard=1 acc_pre=-14
+LN_S_SAMP tok=7 dim=50 aaddr=946 ard=3 acc_pre=-13
+LN_S_SAMP tok=7 dim=51 aaddr=947 ard=8 acc_pre=-10
+LN_S_SAMP tok=7 dim=52 aaddr=948 ard=-2 acc_pre=-2
+LN_S_SAMP tok=7 dim=53 aaddr=949 ard=-2 acc_pre=-4
+LN_S_SAMP tok=7 dim=54 aaddr=950 ard=-5 acc_pre=-6
+LN_S_SAMP tok=7 dim=55 aaddr=951 ard=-1 acc_pre=-11
+LN_S_SAMP tok=7 dim=56 aaddr=952 ard=2 acc_pre=-12
+LN_S_SAMP tok=7 dim=57 aaddr=953 ard=-4 acc_pre=-10
+LN_S_SAMP tok=7 dim=58 aaddr=954 ard=4 acc_pre=-14
+LN_S_SAMP tok=7 dim=59 aaddr=955 ard=-4 acc_pre=-10
+LN_S_SAMP tok=7 dim=60 aaddr=956 ard=4 acc_pre=-14
+LN_S_SAMP tok=7 dim=61 aaddr=957 ard=-5 acc_pre=-10
+LN_S_SAMP tok=7 dim=62 aaddr=958 ard=5 acc_pre=-15
+LN_S_SAMP tok=7 dim=63 aaddr=959 ard=-1 acc_pre=-10
+LN_S_SAMP tok=7 dim=64 aaddr=960 ard=8 acc_pre=-11
+LN_S_SAMP tok=7 dim=65 aaddr=961 ard=2 acc_pre=-3
+LN_S_SAMP tok=7 dim=66 aaddr=962 ard=1 acc_pre=-1
+LN_S_SAMP tok=7 dim=67 aaddr=963 ard=0 acc_pre=0
+LN_S_SAMP tok=7 dim=68 aaddr=964 ard=-3 acc_pre=0
+LN_S_SAMP tok=7 dim=69 aaddr=965 ard=8 acc_pre=-3
+LN_S_SAMP tok=7 dim=70 aaddr=966 ard=7 acc_pre=5
+LN_S_SAMP tok=7 dim=71 aaddr=967 ard=-3 acc_pre=12
+LN_S_SAMP tok=7 dim=72 aaddr=968 ard=-2 acc_pre=9
+LN_S_SAMP tok=7 dim=73 aaddr=969 ard=0 acc_pre=7
+LN_S_SAMP tok=7 dim=74 aaddr=970 ard=0 acc_pre=7
+LN_S_SAMP tok=7 dim=75 aaddr=971 ard=-7 acc_pre=7
+LN_S_SAMP tok=7 dim=76 aaddr=972 ard=5 acc_pre=0
+LN_S_SAMP tok=7 dim=77 aaddr=973 ard=-4 acc_pre=5
+LN_S_SAMP tok=7 dim=78 aaddr=974 ard=-7 acc_pre=1
+LN_S_SAMP tok=7 dim=79 aaddr=975 ard=-6 acc_pre=-6
+LN_S_SAMP tok=7 dim=80 aaddr=976 ard=1 acc_pre=-12
+LN_S_SAMP tok=7 dim=81 aaddr=977 ard=6 acc_pre=-11
+LN_S_SAMP tok=7 dim=82 aaddr=978 ard=2 acc_pre=-5
+LN_S_SAMP tok=7 dim=83 aaddr=979 ard=-1 acc_pre=-3
+LN_S_SAMP tok=7 dim=84 aaddr=980 ard=3 acc_pre=-4
+LN_S_SAMP tok=7 dim=85 aaddr=981 ard=-4 acc_pre=-1
+LN_S_SAMP tok=7 dim=86 aaddr=982 ard=5 acc_pre=-5
+LN_S_SAMP tok=7 dim=87 aaddr=983 ard=3 acc_pre=0
+LN_S_SAMP tok=7 dim=88 aaddr=984 ard=5 acc_pre=3
+LN_S_SAMP tok=7 dim=89 aaddr=985 ard=-5 acc_pre=8
+LN_S_SAMP tok=7 dim=90 aaddr=986 ard=-4 acc_pre=3
+LN_S_SAMP tok=7 dim=91 aaddr=987 ard=-6 acc_pre=-1
+LN_S_SAMP tok=7 dim=92 aaddr=988 ard=-1 acc_pre=-7
+LN_S_SAMP tok=7 dim=93 aaddr=989 ard=5 acc_pre=-8
+LN_S_SAMP tok=7 dim=94 aaddr=990 ard=1 acc_pre=-3
+LN_S_SAMP tok=7 dim=95 aaddr=991 ard=0 acc_pre=-2
+LN_S_SAMP tok=7 dim=96 aaddr=992 ard=3 acc_pre=-2
+LN_S_SAMP tok=7 dim=97 aaddr=993 ard=-5 acc_pre=1
+LN_S_SAMP tok=7 dim=98 aaddr=994 ard=-1 acc_pre=-4
+LN_S_SAMP tok=7 dim=99 aaddr=995 ard=3 acc_pre=-5
+LN_S_SAMP tok=7 dim=100 aaddr=996 ard=7 acc_pre=-2
+LN_S_SAMP tok=7 dim=101 aaddr=997 ard=6 acc_pre=5
+LN_S_SAMP tok=7 dim=102 aaddr=998 ard=-7 acc_pre=11
+LN_S_SAMP tok=7 dim=103 aaddr=999 ard=4 acc_pre=4
+LN_S_SAMP tok=7 dim=104 aaddr=1000 ard=-2 acc_pre=8
+LN_S_SAMP tok=7 dim=105 aaddr=1001 ard=7 acc_pre=6
+LN_S_SAMP tok=7 dim=106 aaddr=1002 ard=-4 acc_pre=13
+LN_S_SAMP tok=7 dim=107 aaddr=1003 ard=7 acc_pre=9
+LN_S_SAMP tok=7 dim=108 aaddr=1004 ard=5 acc_pre=16
+LN_S_SAMP tok=7 dim=109 aaddr=1005 ard=6 acc_pre=21
+LN_S_SAMP tok=7 dim=110 aaddr=1006 ard=1 acc_pre=27
+LN_S_SAMP tok=7 dim=111 aaddr=1007 ard=-4 acc_pre=28
+LN_S_SAMP tok=7 dim=112 aaddr=1008 ard=0 acc_pre=24
+LN_S_SAMP tok=7 dim=113 aaddr=1009 ard=-1 acc_pre=24
+LN_S_SAMP tok=7 dim=114 aaddr=1010 ard=0 acc_pre=23
+LN_S_SAMP tok=7 dim=115 aaddr=1011 ard=-2 acc_pre=23
+LN_S_SAMP tok=7 dim=116 aaddr=1012 ard=4 acc_pre=21
+LN_S_SAMP tok=7 dim=117 aaddr=1013 ard=8 acc_pre=25
+LN_S_SAMP tok=7 dim=118 aaddr=1014 ard=-3 acc_pre=33
+LN_S_SAMP tok=7 dim=119 aaddr=1015 ard=3 acc_pre=30
+LN_S_SAMP tok=7 dim=120 aaddr=1016 ard=5 acc_pre=33
+LN_S_SAMP tok=7 dim=121 aaddr=1017 ard=2 acc_pre=38
+LN_S_SAMP tok=7 dim=122 aaddr=1018 ard=-3 acc_pre=40
+LN_S_SAMP tok=7 dim=123 aaddr=1019 ard=1 acc_pre=37
+LN_S_SAMP tok=7 dim=124 aaddr=1020 ard=7 acc_pre=38
+LN_S_SAMP tok=7 dim=125 aaddr=1021 ard=-7 acc_pre=45
+LN_S_SAMP tok=7 dim=126 aaddr=1022 ard=5 acc_pre=38
+LN_S_SAMP tok=7 dim=127 aaddr=1023 ard=-3 acc_pre=43
+LN_S_SUM tok=7 acc=40 fd_n=48 oracle_sum=40
+LN_S_DIV tok=7 fd_q=0 oracle_mu=0
+LNV t=35971655000 acc=2256 var=35 mu=0
+LNO t=35972925000 ly=0 ten=0 ard=-3 mu=0 sc=4 q=-12
+MV0 t=36042815000 ly=0 ten_o=2 acc=0 dest=32768
+PLANE N1_L0 mismatches=0 first=-1
+MV0 t=36699455000 ly=0 ten_o=2 acc=0 dest=32896
+MV0 t=37356095000 ly=0 ten_o=2 acc=0 dest=33024
+MV0 t=38012735000 ly=0 ten_o=2 acc=0 dest=33152
+MV0 t=38669375000 ly=0 ten_o=2 acc=0 dest=33280
+MV0 t=39326015000 ly=0 ten_o=2 acc=0 dest=33408
+MV0 t=39982655000 ly=0 ten_o=2 acc=0 dest=33536
+MV0 t=40639295000 ly=0 ten_o=2 acc=0 dest=33664
+MV0 t=41295935000 ly=0 ten_o=3 acc=0 dest=49152
+MV0 t=41952575000 ly=0 ten_o=3 acc=0 dest=49280
+MV0 t=42609215000 ly=0 ten_o=3 acc=0 dest=49408
+MV0 t=43265855000 ly=0 ten_o=3 acc=0 dest=49536
+MV0 t=43922495000 ly=0 ten_o=3 acc=0 dest=49664
+MV0 t=44579135000 ly=0 ten_o=3 acc=0 dest=49792
+MV0 t=45235775000 ly=0 ten_o=3 acc=0 dest=49920
+MV0 t=45892415000 ly=0 ten_o=3 acc=0 dest=50048
+MV0 t=46549055000 ly=0 ten_o=4 acc=0 dest=65536
+MV0 t=47205695000 ly=0 ten_o=4 acc=0 dest=65664
+MV0 t=47862335000 ly=0 ten_o=4 acc=0 dest=65792
+MV0 t=48518975000 ly=0 ten_o=4 acc=0 dest=65920
+MV0 t=49175615000 ly=0 ten_o=4 acc=0 dest=66048
+MV0 t=49832255000 ly=0 ten_o=4 acc=0 dest=66176
+MV0 t=50488895000 ly=0 ten_o=4 acc=0 dest=66304
+MV0 t=51145535000 ly=0 ten_o=4 acc=0 dest=66432
+ATTQK t=51802165000 ard=140 ardb=96 qa=32768 ka=49152
+ATTO t=51805295000 h=0 q=-1256 z=16 acc=-20096 dest=81920
+ATTQK t=51822995000 ard=764 ardb=-1408 qa=32800 ka=49184
+ATTO t=51826125000 h=1 q=-12 z=16 acc=-192 dest=81952
+ATTQK t=51843825000 ard=-244 ardb=4 qa=32832 ka=49216
+ATTO t=51846955000 h=2 q=168 z=16 acc=2688 dest=81984
+ATTQK t=51864655000 ard=108 ardb=396 qa=32864 ka=49248
+ATTO t=51867785000 h=3 q=684 z=16 acc=10944 dest=82016
+ATTQK t=51885485000 ard=-584 ardb=96 qa=32896 ka=49152
+ATTO t=51889965000 h=0 q=48 z=16 acc=768 dest=82048
+ATTQK t=51908905000 ard=204 ardb=-1408 qa=32928 ka=49184
+ATTO t=51913385000 h=1 q=504 z=16 acc=8064 dest=82080
+ATTQK t=51932325000 ard=-244 ardb=4 qa=32960 ka=49216
+ATTO t=51936805000 h=2 q=-184 z=16 acc=-2944 dest=82112
+ATTQK t=51955745000 ard=-172 ardb=396 qa=32992 ka=49248
+ATTO t=51960225000 h=3 q=684 z=16 acc=10944 dest=82144
+ATTQK t=51979165000 ard=1480 ardb=96 qa=33024 ka=49152
+ATTO t=51984995000 h=0 q=840 z=16 acc=13440 dest=82176
+ATTQK t=52005175000 ard=220 ardb=-1408 qa=33056 ka=49184
+ATTO t=52011005000 h=1 q=-1416 z=16 acc=-22656 dest=82208
+ATTQK t=52031185000 ard=-652 ardb=4 qa=33088 ka=49216
+ATTO t=52037015000 h=2 q=452 z=16 acc=7232 dest=82240
+ATTQK t=52057195000 ard=280 ardb=396 qa=33120 ka=49248
+ATTO t=52063025000 h=3 q=316 z=16 acc=5056 dest=82272
+ATTQK t=52083205000 ard=-448 ardb=96 qa=33152 ka=49152
+ATTO t=52090385000 h=0 q=-1256 z=16 acc=-20096 dest=82304
+ATTQK t=52111805000 ard=524 ardb=-1408 qa=33184 ka=49184
+ATTO t=52118985000 h=1 q=-1416 z=16 acc=-22656 dest=82336
+ATTQK t=52140405000 ard=-580 ardb=4 qa=33216 ka=49216
+ATTO t=52147585000 h=2 q=-184 z=16 acc=-2944 dest=82368
+ATTQK t=52169005000 ard=-396 ardb=396 qa=33248 ka=49248
+ATTO t=52176185000 h=3 q=604 z=16 acc=9664 dest=82400
+ATTQK t=52197605000 ard=-924 ardb=96 qa=33280 ka=49152
+ATTO t=52206135000 h=0 q=840 z=16 acc=13440 dest=82432
+ATTQK t=52228795000 ard=-516 ardb=-1408 qa=33312 ka=49184
+ATTO t=52237325000 h=1 q=116 z=16 acc=1856 dest=82464
+ATTQK t=52259985000 ard=-8 ardb=4 qa=33344 ka=49216
+ATTO t=52268515000 h=2 q=-120 z=16 acc=-1920 dest=82496
+ATTQK t=52291175000 ard=352 ardb=396 qa=33376 ka=49248
+ATTO t=52299705000 h=3 q=-120 z=16 acc=-1920 dest=82528
+ATTQK t=52322365000 ard=476 ardb=96 qa=33408 ka=49152
+ATTO t=52332245000 h=0 q=-184 z=16 acc=-2944 dest=82560
+ATTQK t=52356145000 ard=-124 ardb=-1408 qa=33440 ka=49184
+ATTO t=52366025000 h=1 q=-1416 z=16 acc=-22656 dest=82592
+ATTQK t=52389925000 ard=-144 ardb=4 qa=33472 ka=49216
+ATTO t=52399805000 h=2 q=168 z=16 acc=2688 dest=82624
+ATTQK t=52423705000 ard=-868 ardb=396 qa=33504 ka=49248
+ATTO t=52433585000 h=3 q=-120 z=16 acc=-1920 dest=82656
+ATTQK t=52457485000 ard=600 ardb=96 qa=33536 ka=49152
+ATTO t=52468715000 h=0 q=84 z=16 acc=1344 dest=82688
+ATTQK t=52493855000 ard=88 ardb=-1408 qa=33568 ka=49184
+ATTO t=52505085000 h=1 q=116 z=16 acc=1856 dest=82720
+ATTQK t=52530225000 ard=12 ardb=4 qa=33600 ka=49216
+ATTO t=52541455000 h=2 q=-120 z=16 acc=-1920 dest=82752
+ATTQK t=52566595000 ard=-668 ardb=396 qa=33632 ka=49248
+ATTO t=52577825000 h=3 q=-8 z=16 acc=-128 dest=82784
+ATTQK t=52602965000 ard=-540 ardb=96 qa=33664 ka=49152
+ATTO t=52615545000 h=0 q=-1256 z=16 acc=-20096 dest=82816
+ATTQK t=52641925000 ard=212 ardb=-1408 qa=33696 ka=49184
+ATTO t=52654505000 h=1 q=632 z=16 acc=10112 dest=82848
+ATTQK t=52680885000 ard=1264 ardb=4 qa=33728 ka=49216
+ATTO t=52693465000 h=2 q=696 z=16 acc=11136 dest=82880
+ATTQK t=52719845000 ard=992 ardb=396 qa=33760 ka=49248
+ATTO t=52732425000 h=3 q=172 z=16 acc=2752 dest=82912
+MV0 t=52758815000 ly=0 ten_o=5 acc=0 dest=81920
+MV0 t=53415455000 ly=0 ten_o=5 acc=0 dest=82048
+MV0 t=54072095000 ly=0 ten_o=5 acc=0 dest=82176
+MV0 t=54728735000 ly=0 ten_o=5 acc=0 dest=82304
+MV0 t=55385375000 ly=0 ten_o=5 acc=0 dest=82432
+MV0 t=56042015000 ly=0 ten_o=5 acc=0 dest=82560
+MV0 t=56698655000 ly=0 ten_o=5 acc=0 dest=82688
+MV0 t=57355295000 ly=0 ten_o=5 acc=0 dest=82816
+ADD t=58011925000 ly=0 ten=0 ard=3 ardb=20096
+ADD t=58015765000 ly=0 ten=0 ard=-5 ardb=18096
+ADD t=58019605000 ly=0 ten=0 ard=-8 ardb=-10724
+ADD t=58023445000 ly=0 ten=0 ard=-7 ardb=-2364
+ADD t=58027285000 ly=0 ten=0 ard=3 ardb=1480
+ADD t=58031125000 ly=0 ten=0 ard=5 ardb=20828
+ADD t=58034965000 ly=0 ten=0 ard=-2 ardb=17120
+ADD t=58038805000 ly=0 ten=0 ard=-3 ardb=-32768
+LNV t=58052115000 acc=73821434242 var=1153459910 mu=1723
+LNO t=58053385000 ly=0 ten=6 ard=20099 mu=1723 sc=24015 q=12
+LNV t=58132735000 acc=65642080718 var=1025657511 mu=414
+LNO t=58134005000 ly=0 ten=6 ard=18091 mu=414 sc=22645 q=12
+LNV t=58213355000 acc=73098331385 var=1142161427 mu=3046
+LNO t=58214625000 ly=0 ten=6 ard=-10732 mu=3046 sc=23897 q=-10
+LNV t=58293975000 acc=70208617281 var=1097009645 mu=-772
+LNO t=58295245000 ly=0 ten=6 ard=-2371 mu=-772 sc=23420 q=-2
+LNV t=58374595000 acc=58176861179 var=909013455 mu=456
+LNO t=58375865000 ly=0 ten=6 ard=1483 mu=456 sc=21319 q=0
+LNV t=58455215000 acc=69001615771 var=1078150246 mu=3770
+LNO t=58456485000 ly=0 ten=6 ard=20833 mu=3770 sc=23217 q=11
+LNV t=58535835000 acc=65767414177 var=1027615846 mu=-4158
+LNO t=58537105000 ly=0 ten=6 ard=17118 mu=-4158 sc=22667 q=15
+LNV t=58616455000 acc=65652014738 var=1025812730 mu=-581
+LNO t=58617725000 ly=0 ten=6 ard=-32768 mu=-581 sc=22647 q=-23
+MV0 t=58687615000 ly=0 ten_o=0 acc=0 dest=0
+MV0 t=60000895000 ly=0 ten_o=0 acc=0 dest=128
+MV0 t=61314175000 ly=0 ten_o=0 acc=0 dest=256
+MV0 t=62627455000 ly=0 ten_o=0 acc=0 dest=384
+MV0 t=63940735000 ly=0 ten_o=0 acc=0 dest=512
+MV0 t=65254015000 ly=0 ten_o=0 acc=0 dest=640
+MV0 t=66567295000 ly=0 ten_o=0 acc=0 dest=768
+MV0 t=67880575000 ly=0 ten_o=0 acc=0 dest=896
+MV0 t=69193855000 ly=0 ten_o=6 acc=0 dest=98304
+MV0 t=70505855000 ly=0 ten_o=6 acc=0 dest=98432
+MV0 t=71817855000 ly=0 ten_o=6 acc=0 dest=98560
+MV0 t=73129855000 ly=0 ten_o=6 acc=0 dest=98688
+MV0 t=74441855000 ly=0 ten_o=6 acc=0 dest=98816
+MV0 t=75753855000 ly=0 ten_o=6 acc=0 dest=98944
+MV0 t=77065855000 ly=0 ten_o=6 acc=0 dest=99072
+MV0 t=78377855000 ly=0 ten_o=6 acc=0 dest=99200
+ADD t=79689845000 ly=0 ten=1 ard=20099 ardb=-5145
+ADD t=79693685000 ly=0 ten=1 ard=18091 ardb=30356
+ADD t=79697525000 ly=0 ten=1 ard=-10732 ardb=5318
+ADD t=79701365000 ly=0 ten=1 ard=-2371 ardb=32767
+ADD t=79705205000 ly=0 ten=1 ard=1483 ardb=32767
+ADD t=79709045000 ly=0 ten=1 ard=20833 ardb=-7866
+ADD t=79712885000 ly=0 ten=1 ard=17118 ardb=24301
+ADD t=79716725000 ly=0 ten=1 ard=-32768 ardb=24065
+LNV t=79730035000 acc=75939756812 var=1186558700 mu=1355
+LNO t=79731305000 ly=1 ten=0 ard=14954 mu=1355 sc=24357 q=8
+LNV t=79810655000 acc=76666657731 var=1197916527 mu=-30
+LNO t=79811925000 ly=1 ten=0 ard=32767 mu=-30 sc=24473 q=21
+LNV t=79891275000 acc=75109785164 var=1173590393 mu=3499
+LNO t=79892545000 ly=1 ten=0 ard=-5414 mu=3499 sc=24223 q=-6
+LNV t=79971895000 acc=76683848155 var=1198185127 mu=-195
+LNO t=79973165000 ly=1 ten=0 ard=30396 mu=-195 sc=24476 q=19
+LNV t=80052515000 acc=67268450165 var=1051069533 mu=2091
+LNO t=80053785000 ly=1 ten=0 ard=32767 mu=2091 sc=22924 q=21
+LNV t=80133135000 acc=71914032192 var=1123656753 mu=3258
+LNO t=80134405000 ly=1 ten=0 ard=12967 mu=3258 sc=23702 q=6
+LNV t=80213755000 acc=69761337525 var=1090020898 mu=-1645
+LNO t=80215025000 ly=1 ten=0 ard=32767 mu=-1645 sc=23345 q=23
+LNV t=80294375000 acc=74087395276 var=1157615551 mu=187
+LNO t=80295645000 ly=1 ten=0 ard=-8703 mu=187 sc=24058 q=-6
+MV0 t=80365535000 ly=1 ten_o=2 acc=0 dest=32768
+MV0 t=81022175000 ly=1 ten_o=2 acc=0 dest=32896
+MV0 t=81678815000 ly=1 ten_o=2 acc=0 dest=33024
+MV0 t=82335455000 ly=1 ten_o=2 acc=0 dest=33152
+MV0 t=82992095000 ly=1 ten_o=2 acc=0 dest=33280
+MV0 t=83648735000 ly=1 ten_o=2 acc=0 dest=33408
+MV0 t=84305375000 ly=1 ten_o=2 acc=0 dest=33536
+MV0 t=84962015000 ly=1 ten_o=2 acc=0 dest=33664
+MV0 t=85618655000 ly=1 ten_o=3 acc=0 dest=49152
+MV0 t=86275295000 ly=1 ten_o=3 acc=0 dest=49280
+MV0 t=86931935000 ly=1 ten_o=3 acc=0 dest=49408
+MV0 t=87588575000 ly=1 ten_o=3 acc=0 dest=49536
+MV0 t=88245215000 ly=1 ten_o=3 acc=0 dest=49664
+MV0 t=88901855000 ly=1 ten_o=3 acc=0 dest=49792
+MV0 t=89558495000 ly=1 ten_o=3 acc=0 dest=49920
+MV0 t=90215135000 ly=1 ten_o=3 acc=0 dest=50048
+MV0 t=90871775000 ly=1 ten_o=4 acc=0 dest=65536
+MV0 t=91528415000 ly=1 ten_o=4 acc=0 dest=65664
+MV0 t=92185055000 ly=1 ten_o=4 acc=0 dest=65792
+MV0 t=92841695000 ly=1 ten_o=4 acc=0 dest=65920
+MV0 t=93498335000 ly=1 ten_o=4 acc=0 dest=66048
+MV0 t=94154975000 ly=1 ten_o=4 acc=0 dest=66176
+MV0 t=94811615000 ly=1 ten_o=4 acc=0 dest=66304
+MV0 t=95468255000 ly=1 ten_o=4 acc=0 dest=66432
+ATTQK t=96124885000 ard=-269 ardb=-212 qa=32768 ka=49152
+ATTO t=96128015000 h=0 q=718 z=16 acc=11488 dest=81920
+ATTQK t=96145715000 ard=-773 ardb=277 qa=32800 ka=49184
+ATTO t=96148845000 h=1 q=-369 z=16 acc=-5904 dest=81952
+ATTQK t=96166545000 ard=-371 ardb=228 qa=32832 ka=49216
+ATTO t=96169675000 h=2 q=-707 z=16 acc=-11312 dest=81984
+ATTQK t=96187375000 ard=591 ardb=-340 qa=32864 ka=49248
+ATTO t=96190505000 h=3 q=548 z=16 acc=8768 dest=82016
+ATTQK t=96208205000 ard=-801 ardb=-212 qa=32896 ka=49152
+ATTO t=96212685000 h=0 q=718 z=16 acc=11488 dest=82048
+ATTQK t=96231625000 ard=21 ardb=277 qa=32928 ka=49184
+ATTO t=96236105000 h=1 q=-369 z=16 acc=-5904 dest=82080
+ATTQK t=96255045000 ard=194 ardb=228 qa=32960 ka=49216
+ATTO t=96259525000 h=2 q=-1003 z=16 acc=-16048 dest=82112
+ATTQK t=96278465000 ard=602 ardb=-340 qa=32992 ka=49248
+ATTO t=96282945000 h=3 q=1024 z=16 acc=16384 dest=82144
+ATTQK t=96301885000 ard=-153 ardb=-212 qa=33024 ka=49152
+ATTO t=96307715000 h=0 q=400 z=16 acc=6400 dest=82176
+ATTQK t=96327895000 ard=239 ardb=277 qa=33056 ka=49184
+ATTO t=96333725000 h=1 q=-369 z=16 acc=-5904 dest=82208
+ATTQK t=96353905000 ard=527 ardb=228 qa=33088 ka=49216
+ATTO t=96359735000 h=2 q=-1003 z=16 acc=-16048 dest=82240
+ATTQK t=96379915000 ard=486 ardb=-340 qa=33120 ka=49248
+ATTO t=96385745000 h=3 q=1024 z=16 acc=16384 dest=82272
+ATTQK t=96405925000 ard=-313 ardb=-212 qa=33152 ka=49152
+ATTO t=96413105000 h=0 q=718 z=16 acc=11488 dest=82304
+ATTQK t=96434525000 ard=736 ardb=277 qa=33184 ka=49184
+ATTO t=96441705000 h=1 q=-382 z=16 acc=-6112 dest=82336
+ATTQK t=96463125000 ard=-591 ardb=228 qa=33216 ka=49216
+ATTO t=96470305000 h=2 q=-1003 z=16 acc=-16048 dest=82368
+ATTQK t=96491725000 ard=-474 ardb=-340 qa=33248 ka=49248
+ATTO t=96498905000 h=3 q=-106 z=16 acc=-1696 dest=82400
+ATTQK t=96520325000 ard=398 ardb=-212 qa=33280 ka=49152
+ATTO t=96528855000 h=0 q=400 z=16 acc=6400 dest=82432
+ATTQK t=96551515000 ard=97 ardb=277 qa=33312 ka=49184
+ATTO t=96560045000 h=1 q=72 z=16 acc=1152 dest=82464
+ATTQK t=96582705000 ard=229 ardb=228 qa=33344 ka=49216
+ATTO t=96591235000 h=2 q=-1003 z=16 acc=-16048 dest=82496
+ATTQK t=96613895000 ard=-164 ardb=-340 qa=33376 ka=49248
+ATTO t=96622425000 h=3 q=48 z=16 acc=768 dest=82528
+ATTQK t=96645085000 ard=-510 ardb=-212 qa=33408 ka=49152
+ATTO t=96654965000 h=0 q=-693 z=16 acc=-11088 dest=82560
+ATTQK t=96678865000 ard=-411 ardb=277 qa=33440 ka=49184
+ATTO t=96688745000 h=1 q=-382 z=16 acc=-6112 dest=82592
+ATTQK t=96712645000 ard=-612 ardb=228 qa=33472 ka=49216
+ATTO t=96722525000 h=2 q=-1003 z=16 acc=-16048 dest=82624
+ATTQK t=96746425000 ard=120 ardb=-340 qa=33504 ka=49248
+ATTO t=96756305000 h=3 q=48 z=16 acc=768 dest=82656
+ATTQK t=96780205000 ard=-537 ardb=-212 qa=33536 ka=49152
+ATTO t=96791435000 h=0 q=-52 z=16 acc=-832 dest=82688
+ATTQK t=96816575000 ard=-280 ardb=277 qa=33568 ka=49184
+ATTO t=96827805000 h=1 q=-647 z=16 acc=-10352 dest=82720
+ATTQK t=96852945000 ard=299 ardb=228 qa=33600 ka=49216
+ATTO t=96864175000 h=2 q=-1003 z=16 acc=-16048 dest=82752
+ATTQK t=96889315000 ard=-695 ardb=-340 qa=33632 ka=49248
+ATTO t=96900545000 h=3 q=-545 z=16 acc=-8720 dest=82784
+ATTQK t=96925685000 ard=-233 ardb=-212 qa=33664 ka=49152
+ATTO t=96938265000 h=0 q=818 z=16 acc=13088 dest=82816
+ATTQK t=96964645000 ard=-682 ardb=277 qa=33696 ka=49184
+ATTO t=96977225000 h=1 q=72 z=16 acc=1152 dest=82848
+ATTQK t=97003605000 ard=-849 ardb=228 qa=33728 ka=49216
+ATTO t=97016185000 h=2 q=-1064 z=16 acc=-17024 dest=82880
+ATTQK t=97042565000 ard=2391 ardb=-340 qa=33760 ka=49248
+ATTO t=97055145000 h=3 q=-106 z=16 acc=-1696 dest=82912
+MV0 t=97081535000 ly=1 ten_o=5 acc=0 dest=81920
+MV0 t=97738175000 ly=1 ten_o=5 acc=0 dest=82048
+MV0 t=98394815000 ly=1 ten_o=5 acc=0 dest=82176
+MV0 t=99051455000 ly=1 ten_o=5 acc=0 dest=82304
+MV0 t=99708095000 ly=1 ten_o=5 acc=0 dest=82432
+MV0 t=100364735000 ly=1 ten_o=5 acc=0 dest=82560
+MV0 t=101021375000 ly=1 ten_o=5 acc=0 dest=82688
+MV0 t=101678015000 ly=1 ten_o=5 acc=0 dest=82816
+ADD t=102334645000 ly=1 ten=0 ard=14954 ardb=21423
+ADD t=102338485000 ly=1 ten=0 ard=32767 ardb=14234
+ADD t=102342325000 ly=1 ten=0 ard=-5414 ardb=1614
+ADD t=102346165000 ly=1 ten=0 ard=30396 ardb=9586
+ADD t=102350005000 ly=1 ten=0 ard=32767 ardb=-19740
+ADD t=102353845000 ly=1 ten=0 ard=12967 ardb=19355
+ADD t=102357685000 ly=1 ten=0 ard=32767 ardb=-3454
+ADD t=102361525000 ly=1 ten=0 ard=-8703 ardb=-19981
+LNV t=102374835000 acc=70286214699 var=1098222104 mu=1242
+LNO t=102376105000 ly=1 ten=6 ard=32767 mu=1242 sc=23433 q=21
+LNV t=102455455000 acc=76666578362 var=1197915286 mu=67
+LNO t=102456725000 ly=1 ten=6 ard=32767 mu=67 sc=24473 q=21
+LNV t=102536075000 acc=74213467165 var=1159585424 mu=1748
+LNO t=102537345000 ly=1 ten=6 ard=-3800 mu=1748 sc=24078 q=-4
+LNV t=102616695000 acc=75798346398 var=1184349162 mu=1251
+LNO t=102617965000 ly=1 ten=6 ard=32767 mu=1251 sc=24334 q=20
+LNV t=102697315000 acc=77473227153 var=1210519174 mu=2194
+LNO t=102698585000 ly=1 ten=6 ard=13027 mu=2194 sc=24602 q=7
+LNV t=102777935000 acc=68973530021 var=1077711406 mu=1696
+LNO t=102779205000 ly=1 ten=6 ard=32322 mu=1696 sc=23213 q=21
+LNV t=102858555000 acc=77204085518 var=1206313836 mu=-1550
+LNO t=102859825000 ly=1 ten=6 ard=29313 mu=-1550 sc=24559 q=20
+LNV t=102939175000 acc=73759374565 var=1152490227 mu=-212
+LNO t=102940445000 ly=1 ten=6 ard=-28684 mu=-212 sc=24005 q=-19
+MV0 t=103010335000 ly=1 ten_o=0 acc=0 dest=0
+MV0 t=104323615000 ly=1 ten_o=0 acc=0 dest=128
+MV0 t=105636895000 ly=1 ten_o=0 acc=0 dest=256
+MV0 t=106950175000 ly=1 ten_o=0 acc=0 dest=384
+MV0 t=108263455000 ly=1 ten_o=0 acc=0 dest=512
+MV0 t=109576735000 ly=1 ten_o=0 acc=0 dest=640
+MV0 t=110890015000 ly=1 ten_o=0 acc=0 dest=768
+MV0 t=112203295000 ly=1 ten_o=0 acc=0 dest=896
+MV0 t=113516575000 ly=1 ten_o=6 acc=0 dest=98304
+MV0 t=114828575000 ly=1 ten_o=6 acc=0 dest=98432
+MV0 t=116140575000 ly=1 ten_o=6 acc=0 dest=98560
+MV0 t=117452575000 ly=1 ten_o=6 acc=0 dest=98688
+MV0 t=118764575000 ly=1 ten_o=6 acc=0 dest=98816
+MV0 t=120076575000 ly=1 ten_o=6 acc=0 dest=98944
+MV0 t=121388575000 ly=1 ten_o=6 acc=0 dest=99072
+MV0 t=122700575000 ly=1 ten_o=6 acc=0 dest=99200
+ADD t=124012565000 ly=1 ten=1 ard=32767 ardb=-797
+ADD t=124016405000 ly=1 ten=1 ard=32767 ardb=9412
+ADD t=124020245000 ly=1 ten=1 ard=-3800 ardb=-14844
+ADD t=124024085000 ly=1 ten=1 ard=32767 ardb=-9401
+ADD t=124027925000 ly=1 ten=1 ard=13027 ardb=-32768
+ADD t=124031765000 ly=1 ten=1 ard=32322 ardb=-23556
+ADD t=124035605000 ly=1 ten=1 ard=29313 ardb=-15102
+ADD t=124039445000 ly=1 ten=1 ard=-28684 ardb=-25066
+LNV t=124052755000 acc=71682023949 var=1120031624 mu=1876
+LNO t=124054025000 ly=2 ten=0 ard=31970 mu=1876 sc=23664 q=20
+LNV t=124133375000 acc=74073404430 var=1157396944 mu=728
+LNO t=124134645000 ly=2 ten=0 ard=32767 mu=728 sc=24056 q=21
+LNV t=124213995000 acc=72383509596 var=1130992337 mu=896
+LNO t=124215265000 ly=2 ten=0 ard=-18644 mu=896 sc=23780 q=-14
+LNV t=124294615000 acc=74550537972 var=1164852155 mu=13
+LNO t=124295885000 ly=2 ten=0 ard=23366 mu=13 sc=24133 q=15
+LNV t=124375235000 acc=69373783625 var=1083965369 mu=2909
+LNO t=124376505000 ly=2 ten=0 ard=-19741 mu=2909 sc=23280 q=-16
+LNV t=124455855000 acc=77800096194 var=1215626503 mu=414
+LNO t=124457125000 ly=2 ten=0 ard=8766 mu=414 sc=24653 q=5
+LNV t=124536475000 acc=70285848829 var=1098216387 mu=-1118
+LNO t=124537745000 ly=2 ten=0 ard=14211 mu=-1118 sc=23433 q=10
+LNV t=124617095000 acc=71249194607 var=1113268665 mu=859
+LNO t=124618365000 ly=2 ten=0 ard=-32768 mu=859 sc=23593 q=-23
+MV0 t=124688255000 ly=2 ten_o=2 acc=0 dest=32768
+MV0 t=125344895000 ly=2 ten_o=2 acc=0 dest=32896
+MV0 t=126001535000 ly=2 ten_o=2 acc=0 dest=33024
+MV0 t=126658175000 ly=2 ten_o=2 acc=0 dest=33152
+MV0 t=127314815000 ly=2 ten_o=2 acc=0 dest=33280
+MV0 t=127971455000 ly=2 ten_o=2 acc=0 dest=33408
+MV0 t=128628095000 ly=2 ten_o=2 acc=0 dest=33536
+MV0 t=129284735000 ly=2 ten_o=2 acc=0 dest=33664
+MV0 t=129941375000 ly=2 ten_o=3 acc=0 dest=49152
+MV0 t=130598015000 ly=2 ten_o=3 acc=0 dest=49280
+MV0 t=131254655000 ly=2 ten_o=3 acc=0 dest=49408
+MV0 t=131911295000 ly=2 ten_o=3 acc=0 dest=49536
+MV0 t=132567935000 ly=2 ten_o=3 acc=0 dest=49664
+MV0 t=133224575000 ly=2 ten_o=3 acc=0 dest=49792
+MV0 t=133881215000 ly=2 ten_o=3 acc=0 dest=49920
+MV0 t=134537855000 ly=2 ten_o=3 acc=0 dest=50048
+MV0 t=135194495000 ly=2 ten_o=4 acc=0 dest=65536
+MV0 t=135851135000 ly=2 ten_o=4 acc=0 dest=65664
+MV0 t=136507775000 ly=2 ten_o=4 acc=0 dest=65792
+MV0 t=137164415000 ly=2 ten_o=4 acc=0 dest=65920
+MV0 t=137821055000 ly=2 ten_o=4 acc=0 dest=66048
+MV0 t=138477695000 ly=2 ten_o=4 acc=0 dest=66176
+MV0 t=139134335000 ly=2 ten_o=4 acc=0 dest=66304
+MV0 t=139790975000 ly=2 ten_o=4 acc=0 dest=66432
+ATTQK t=140447605000 ard=-289 ardb=1385 qa=32768 ka=49152
+ATTO t=140450735000 h=0 q=-342 z=16 acc=-5472 dest=81920
+ATTQK t=140468435000 ard=282 ardb=-632 qa=32800 ka=49184
+ATTO t=140471565000 h=1 q=-617 z=16 acc=-9872 dest=81952
+ATTQK t=140489265000 ard=399 ardb=465 qa=32832 ka=49216
+ATTO t=140492395000 h=2 q=423 z=16 acc=6768 dest=81984
+ATTQK t=140510095000 ard=-56 ardb=511 qa=32864 ka=49248
+ATTO t=140513225000 h=3 q=-769 z=16 acc=-12304 dest=82016
+ATTQK t=140530925000 ard=-1314 ardb=1385 qa=32896 ka=49152
+ATTO t=140535405000 h=0 q=-420 z=16 acc=-6720 dest=82048
+ATTQK t=140554345000 ard=195 ardb=-632 qa=32928 ka=49184
+ATTO t=140558825000 h=1 q=-670 z=16 acc=-10720 dest=82080
+ATTQK t=140577765000 ard=0 ardb=465 qa=32960 ka=49216
+ATTO t=140582245000 h=2 q=423 z=16 acc=6768 dest=82112
+ATTQK t=140601185000 ard=134 ardb=511 qa=32992 ka=49248
+ATTO t=140605665000 h=3 q=-829 z=16 acc=-13264 dest=82144
+ATTQK t=140624605000 ard=-436 ardb=1385 qa=33024 ka=49152
+ATTO t=140630435000 h=0 q=202 z=16 acc=3232 dest=82176
+ATTQK t=140650615000 ard=171 ardb=-632 qa=33056 ka=49184
+ATTO t=140656445000 h=1 q=-670 z=16 acc=-10720 dest=82208
+ATTQK t=140676625000 ard=1294 ardb=465 qa=33088 ka=49216
+ATTO t=140682455000 h=2 q=423 z=16 acc=6768 dest=82240
+ATTQK t=140702635000 ard=298 ardb=511 qa=33120 ka=49248
+ATTO t=140708465000 h=3 q=-415 z=16 acc=-6640 dest=82272
+ATTQK t=140728645000 ard=-1139 ardb=1385 qa=33152 ka=49152
+ATTO t=140735825000 h=0 q=-420 z=16 acc=-6720 dest=82304
+ATTQK t=140757245000 ard=634 ardb=-632 qa=33184 ka=49184
+ATTO t=140764425000 h=1 q=-670 z=16 acc=-10720 dest=82336
+ATTQK t=140785845000 ard=-323 ardb=465 qa=33216 ka=49216
+ATTO t=140793025000 h=2 q=328 z=16 acc=5248 dest=82368
+ATTQK t=140814445000 ard=181 ardb=511 qa=33248 ka=49248
+ATTO t=140821625000 h=3 q=52 z=16 acc=832 dest=82400
+ATTQK t=140843045000 ard=-865 ardb=1385 qa=33280 ka=49152
+ATTO t=140851575000 h=0 q=202 z=16 acc=3232 dest=82432
+ATTQK t=140874235000 ard=-614 ardb=-632 qa=33312 ka=49184
+ATTO t=140882765000 h=1 q=-617 z=16 acc=-9872 dest=82464
+ATTQK t=140905425000 ard=1359 ardb=465 qa=33344 ka=49216
+ATTO t=140913955000 h=2 q=423 z=16 acc=6768 dest=82496
+ATTQK t=140936615000 ard=645 ardb=511 qa=33376 ka=49248
+ATTO t=140945145000 h=3 q=-463 z=16 acc=-7408 dest=82528
+ATTQK t=140967805000 ard=-671 ardb=1385 qa=33408 ka=49152
+ATTO t=140977685000 h=0 q=-968 z=16 acc=-15488 dest=82560
+ATTQK t=141001585000 ard=-517 ardb=-632 qa=33440 ka=49184
+ATTO t=141011465000 h=1 q=-124 z=16 acc=-1984 dest=82592
+ATTQK t=141035365000 ard=1071 ardb=465 qa=33472 ka=49216
+ATTO t=141045245000 h=2 q=-329 z=16 acc=-5264 dest=82624
+ATTQK t=141069145000 ard=770 ardb=511 qa=33504 ka=49248
+ATTO t=141079025000 h=3 q=103 z=16 acc=1648 dest=82656
+ATTQK t=141102925000 ard=-76 ardb=1385 qa=33536 ka=49152
+ATTO t=141114155000 h=0 q=-342 z=16 acc=-5472 dest=82688
+ATTQK t=141139295000 ard=-417 ardb=-632 qa=33568 ka=49184
+ATTO t=141150525000 h=1 q=-770 z=16 acc=-12320 dest=82720
+ATTQK t=141175665000 ard=996 ardb=465 qa=33600 ka=49216
+ATTO t=141186895000 h=2 q=423 z=16 acc=6768 dest=82752
+ATTQK t=141212035000 ard=509 ardb=511 qa=33632 ka=49248
+ATTO t=141223265000 h=3 q=-415 z=16 acc=-6640 dest=82784
+ATTQK t=141248405000 ard=-1670 ardb=1385 qa=33664 ka=49152
+ATTO t=141260985000 h=0 q=622 z=16 acc=9952 dest=82816
+ATTQK t=141287365000 ard=466 ardb=-632 qa=33696 ka=49184
+ATTO t=141299945000 h=1 q=-570 z=16 acc=-9120 dest=82848
+ATTQK t=141326325000 ard=757 ardb=465 qa=33728 ka=49216
+ATTO t=141338905000 h=2 q=-329 z=16 acc=-5264 dest=82880
+ATTQK t=141365285000 ard=-803 ardb=511 qa=33760 ka=49248
+ATTO t=141377865000 h=3 q=87 z=16 acc=1392 dest=82912
+MV0 t=141404255000 ly=2 ten_o=5 acc=0 dest=81920
+MV0 t=142060895000 ly=2 ten_o=5 acc=0 dest=82048
+MV0 t=142717535000 ly=2 ten_o=5 acc=0 dest=82176
+MV0 t=143374175000 ly=2 ten_o=5 acc=0 dest=82304
+MV0 t=144030815000 ly=2 ten_o=5 acc=0 dest=82432
+MV0 t=144687455000 ly=2 ten_o=5 acc=0 dest=82560
+MV0 t=145344095000 ly=2 ten_o=5 acc=0 dest=82688
+MV0 t=146000735000 ly=2 ten_o=5 acc=0 dest=82816
+ADD t=146657365000 ly=2 ten=0 ard=31970 ardb=32767
+ADD t=146661205000 ly=2 ten=0 ard=32767 ardb=632
+ADD t=146665045000 ly=2 ten=0 ard=-18644 ardb=32767
+ADD t=146668885000 ly=2 ten=0 ard=23366 ardb=28301
+ADD t=146672725000 ly=2 ten=0 ard=-19741 ardb=32767
+ADD t=146676565000 ly=2 ten=0 ard=8766 ardb=24301
+ADD t=146680405000 ly=2 ten=0 ard=14211 ardb=32767
+ADD t=146684245000 ly=2 ten=0 ard=-32768 ardb=27601
+LNV t=146697555000 acc=75753038852 var=1183641232 mu=2222
+LNO t=146698825000 ly=2 ten=6 ard=32767 mu=2222 sc=24327 q=20
+LNV t=146778175000 acc=74844441718 var=1169444401 mu=923
+LNO t=146779445000 ly=2 ten=6 ard=32767 mu=923 sc=24181 q=21
+LNV t=146858795000 acc=82338389668 var=1286537338 mu=634
+LNO t=146860065000 ly=2 ten=6 ard=14123 mu=634 sc=25362 q=8
+LNV t=146939415000 acc=80354355981 var=1255536812 mu=-274
+LNO t=146940685000 ly=2 ten=6 ard=32767 mu=-274 sc=25055 q=21
+LNV t=147020035000 acc=79622669960 var=1244104218 mu=1902
+LNO t=147021305000 ly=2 ten=6 ard=13026 mu=1902 sc=24940 q=7
+LNV t=147100655000 acc=80149457744 var=1252335277 mu=-252
+LNO t=147101925000 ly=2 ten=6 ard=32767 mu=-252 sc=25023 q=21
+LNV t=147181275000 acc=81645571831 var=1275712059 mu=-986
+LNO t=147182545000 ly=2 ten=6 ard=32767 mu=-986 sc=25255 q=21
+LNV t=147261895000 acc=73098048635 var=1142157009 mu=-627
+LNO t=147263165000 ly=2 ten=6 ard=-5167 mu=-627 sc=23897 q=-4
+MV0 t=147333055000 ly=2 ten_o=0 acc=0 dest=0
+MV0 t=148646335000 ly=2 ten_o=0 acc=0 dest=128
+MV0 t=149959615000 ly=2 ten_o=0 acc=0 dest=256
+MV0 t=151272895000 ly=2 ten_o=0 acc=0 dest=384
+MV0 t=152586175000 ly=2 ten_o=0 acc=0 dest=512
+MV0 t=153899455000 ly=2 ten_o=0 acc=0 dest=640
+MV0 t=155212735000 ly=2 ten_o=0 acc=0 dest=768
+MV0 t=156526015000 ly=2 ten_o=0 acc=0 dest=896
+MV0 t=157839295000 ly=2 ten_o=6 acc=0 dest=98304
+MV0 t=159151295000 ly=2 ten_o=6 acc=0 dest=98432
+MV0 t=160463295000 ly=2 ten_o=6 acc=0 dest=98560
+MV0 t=161775295000 ly=2 ten_o=6 acc=0 dest=98688
+MV0 t=163087295000 ly=2 ten_o=6 acc=0 dest=98816
+MV0 t=164399295000 ly=2 ten_o=6 acc=0 dest=98944
+MV0 t=165711295000 ly=2 ten_o=6 acc=0 dest=99072
+MV0 t=167023295000 ly=2 ten_o=6 acc=0 dest=99200
+ADD t=168335285000 ly=2 ten=1 ard=32767 ardb=-32768
+ADD t=168339125000 ly=2 ten=1 ard=32767 ardb=-32768
+ADD t=168342965000 ly=2 ten=1 ard=14123 ardb=-32768
+ADD t=168346805000 ly=2 ten=1 ard=32767 ardb=-16565
+ADD t=168350645000 ly=2 ten=1 ard=13026 ardb=-32768
+ADD t=168354485000 ly=2 ten=1 ard=32767 ardb=14443
+ADD t=168358325000 ly=2 ten=1 ard=32767 ardb=-15896
+ADD t=168362165000 ly=2 ten=1 ard=-5167 ardb=-20675
+LNV t=168375475000 acc=83668050031 var=1307313281 mu=222
+LNO t=168376745000 ly=3 ten=0 ard=-1 mu=222 sc=25566 q=-1
+LNV t=168456095000 acc=81172182600 var=1268315353 mu=2970
+LNO t=168457365000 ly=3 ten=0 ard=-1 mu=2970 sc=25182 q=-2
+LNV t=168536715000 acc=73683631144 var=1151306736 mu=-435
+LNO t=168537985000 ly=3 ten=0 ard=-18645 mu=-435 sc=23992 q=-13
+LNV t=168617335000 acc=77708207342 var=1214190739 mu=-1263
+LNO t=168618605000 ly=3 ten=0 ard=16202 mu=-1263 sc=24639 q=11
+LNV t=168697955000 acc=67887767925 var=1060746373 mu=1533
+LNO t=168699225000 ly=3 ten=0 ard=-19742 mu=1533 sc=23029 q=-15
+LNV t=168778575000 acc=78780254635 var=1230941478 mu=-423
+LNO t=168779845000 ly=3 ten=0 ard=32767 mu=-423 sc=24808 q=21
+LNV t=168859195000 acc=82779552915 var=1293430514 mu=-471
+LNO t=168860465000 ly=3 ten=0 ard=16871 mu=-471 sc=25430 q=10
+LNV t=168939815000 acc=72172563319 var=1127696301 mu=873
+LNO t=168941085000 ly=3 ten=0 ard=-25842 mu=873 sc=23745 q=-19
+MV0 t=169010975000 ly=3 ten_o=2 acc=0 dest=32768
+MV0 t=169667615000 ly=3 ten_o=2 acc=0 dest=32896
+MV0 t=170324255000 ly=3 ten_o=2 acc=0 dest=33024
+MV0 t=170980895000 ly=3 ten_o=2 acc=0 dest=33152
+MV0 t=171637535000 ly=3 ten_o=2 acc=0 dest=33280
+MV0 t=172294175000 ly=3 ten_o=2 acc=0 dest=33408
+MV0 t=172950815000 ly=3 ten_o=2 acc=0 dest=33536
+MV0 t=173607455000 ly=3 ten_o=2 acc=0 dest=33664
+MV0 t=174264095000 ly=3 ten_o=3 acc=0 dest=49152
+MV0 t=174920735000 ly=3 ten_o=3 acc=0 dest=49280
+MV0 t=175577375000 ly=3 ten_o=3 acc=0 dest=49408
+MV0 t=176234015000 ly=3 ten_o=3 acc=0 dest=49536
+MV0 t=176890655000 ly=3 ten_o=3 acc=0 dest=49664
+MV0 t=177547295000 ly=3 ten_o=3 acc=0 dest=49792
+MV0 t=178203935000 ly=3 ten_o=3 acc=0 dest=49920
+MV0 t=178860575000 ly=3 ten_o=3 acc=0 dest=50048
+MV0 t=179517215000 ly=3 ten_o=4 acc=0 dest=65536
+MV0 t=180173855000 ly=3 ten_o=4 acc=0 dest=65664
+MV0 t=180830495000 ly=3 ten_o=4 acc=0 dest=65792
+MV0 t=181487135000 ly=3 ten_o=4 acc=0 dest=65920
+MV0 t=182143775000 ly=3 ten_o=4 acc=0 dest=66048
+MV0 t=182800415000 ly=3 ten_o=4 acc=0 dest=66176
+MV0 t=183457055000 ly=3 ten_o=4 acc=0 dest=66304
+MV0 t=184113695000 ly=3 ten_o=4 acc=0 dest=66432
+ATTQK t=184770325000 ard=-371 ardb=-684 qa=32768 ka=49152
+ATTO t=184773455000 h=0 q=1087 z=16 acc=17392 dest=81920
+ATTQK t=184791155000 ard=338 ardb=-296 qa=32800 ka=49184
+ATTO t=184794285000 h=1 q=556 z=16 acc=8896 dest=81952
+ATTQK t=184811985000 ard=-116 ardb=-413 qa=32832 ka=49216
+ATTO t=184815115000 h=2 q=1038 z=16 acc=16608 dest=81984
+ATTQK t=184832815000 ard=-239 ardb=810 qa=32864 ka=49248
+ATTO t=184835945000 h=3 q=532 z=16 acc=8512 dest=82016
+ATTQK t=184853645000 ard=340 ardb=-684 qa=32896 ka=49152
+ATTO t=184858125000 h=0 q=1087 z=16 acc=17392 dest=82048
+ATTQK t=184877065000 ard=661 ardb=-296 qa=32928 ka=49184
+ATTO t=184881545000 h=1 q=556 z=16 acc=8896 dest=82080
+ATTQK t=184900485000 ard=-201 ardb=-413 qa=32960 ka=49216
+ATTO t=184904965000 h=2 q=-587 z=16 acc=-9392 dest=82112
+ATTQK t=184923905000 ard=36 ardb=810 qa=32992 ka=49248
+ATTO t=184928385000 h=3 q=-781 z=16 acc=-12496 dest=82144
+ATTQK t=184947325000 ard=-462 ardb=-684 qa=33024 ka=49152
+ATTO t=184953155000 h=0 q=547 z=16 acc=8752 dest=82176
+ATTQK t=184973335000 ard=-460 ardb=-296 qa=33056 ka=49184
+ATTO t=184979165000 h=1 q=1288 z=16 acc=20608 dest=82208
+ATTQK t=184999345000 ard=-122 ardb=-413 qa=33088 ka=49216
+ATTO t=185005175000 h=2 q=-587 z=16 acc=-9392 dest=82240
+ATTQK t=185025355000 ard=1024 ardb=810 qa=33120 ka=49248
+ATTO t=185031185000 h=3 q=-781 z=16 acc=-12496 dest=82272
+ATTQK t=185051365000 ard=-876 ardb=-684 qa=33152 ka=49152
+ATTO t=185058545000 h=0 q=627 z=16 acc=10032 dest=82304
+ATTQK t=185079965000 ard=449 ardb=-296 qa=33184 ka=49184
+ATTO t=185087145000 h=1 q=806 z=16 acc=12896 dest=82336
+ATTQK t=185108565000 ard=770 ardb=-413 qa=33216 ka=49216
+ATTO t=185115745000 h=2 q=-102 z=16 acc=-1632 dest=82368
+ATTQK t=185137165000 ard=915 ardb=810 qa=33248 ka=49248
+ATTO t=185144345000 h=3 q=-315 z=16 acc=-5040 dest=82400
+ATTQK t=185165765000 ard=-30 ardb=-684 qa=33280 ka=49152
+ATTO t=185174295000 h=0 q=907 z=16 acc=14512 dest=82432
+ATTQK t=185196955000 ard=172 ardb=-296 qa=33312 ka=49184
+ATTO t=185205485000 h=1 q=1288 z=16 acc=20608 dest=82464
+ATTQK t=185228145000 ard=-99 ardb=-413 qa=33344 ka=49216
+ATTO t=185236675000 h=2 q=-102 z=16 acc=-1632 dest=82496
+ATTQK t=185259335000 ard=491 ardb=810 qa=33376 ka=49248
+ATTO t=185267865000 h=3 q=-781 z=16 acc=-12496 dest=82528
+ATTQK t=185290525000 ard=534 ardb=-684 qa=33408 ka=49152
+ATTO t=185300405000 h=0 q=547 z=16 acc=8752 dest=82560
+ATTQK t=185324305000 ard=-515 ardb=-296 qa=33440 ka=49184
+ATTO t=185334185000 h=1 q=806 z=16 acc=12896 dest=82592
+ATTQK t=185358085000 ard=823 ardb=-413 qa=33472 ka=49216
+ATTO t=185367965000 h=2 q=-277 z=16 acc=-4432 dest=82624
+ATTQK t=185391865000 ard=836 ardb=810 qa=33504 ka=49248
+ATTO t=185401745000 h=3 q=-781 z=16 acc=-12496 dest=82656
+ATTQK t=185425645000 ard=289 ardb=-684 qa=33536 ka=49152
+ATTO t=185436875000 h=0 q=1038 z=16 acc=16608 dest=82688
+ATTQK t=185462015000 ard=-121 ardb=-296 qa=33568 ka=49184
+ATTO t=185473245000 h=1 q=971 z=16 acc=15536 dest=82720
+ATTQK t=185498385000 ard=772 ardb=-413 qa=33600 ka=49216
+ATTO t=185509615000 h=2 q=-864 z=16 acc=-13824 dest=82752
+ATTQK t=185534755000 ard=-67 ardb=810 qa=33632 ka=49248
+ATTO t=185545985000 h=3 q=-781 z=16 acc=-12496 dest=82784
+ATTQK t=185571125000 ard=-124 ardb=-684 qa=33664 ka=49152
+ATTO t=185583705000 h=0 q=286 z=16 acc=4576 dest=82816
+ATTQK t=185610085000 ard=1101 ardb=-296 qa=33696 ka=49184
+ATTO t=185622665000 h=1 q=806 z=16 acc=12896 dest=82848
+ATTQK t=185649045000 ard=593 ardb=-413 qa=33728 ka=49216
+ATTO t=185661625000 h=2 q=-102 z=16 acc=-1632 dest=82880
+ATTQK t=185688005000 ard=-265 ardb=810 qa=33760 ka=49248
+ATTO t=185700585000 h=3 q=290 z=16 acc=4640 dest=82912
+MV0 t=185726975000 ly=3 ten_o=5 acc=0 dest=81920
+MV0 t=186383615000 ly=3 ten_o=5 acc=0 dest=82048
+MV0 t=187040255000 ly=3 ten_o=5 acc=0 dest=82176
+MV0 t=187696895000 ly=3 ten_o=5 acc=0 dest=82304
+MV0 t=188353535000 ly=3 ten_o=5 acc=0 dest=82432
+MV0 t=189010175000 ly=3 ten_o=5 acc=0 dest=82560
+MV0 t=189666815000 ly=3 ten_o=5 acc=0 dest=82688
+MV0 t=190323455000 ly=3 ten_o=5 acc=0 dest=82816
+ADD t=190980085000 ly=3 ten=0 ard=-1 ardb=32767
+ADD t=190983925000 ly=3 ten=0 ard=-1 ardb=32767
+ADD t=190987765000 ly=3 ten=0 ard=-18645 ardb=19170
+ADD t=190991605000 ly=3 ten=0 ard=16202 ardb=27961
+ADD t=190995445000 ly=3 ten=0 ard=-19742 ardb=13449
+ADD t=190999285000 ly=3 ten=0 ard=32767 ardb=11055
+ADD t=191003125000 ly=3 ten=0 ard=16871 ardb=-9204
+ADD t=191006965000 ly=3 ten=0 ard=-25842 ardb=32767
+LNV t=191020275000 acc=81967265461 var=1280738522 mu=-3275
+LNO t=191021545000 ly=3 ten=6 ard=32766 mu=-3275 sc=25305 q=22
+LNV t=191100895000 acc=77990426995 var=1218600421 mu=2158
+LNO t=191102165000 ly=3 ten=6 ard=32766 mu=2158 sc=24684 q=19
+LNV t=191181515000 acc=70934326104 var=1108348845 mu=-837
+LNO t=191182785000 ly=3 ten=6 ard=525 mu=-837 sc=23540 q=0
+LNV t=191262135000 acc=69790510188 var=1090476721 mu=2105
+LNO t=191263405000 ly=3 ten=6 ard=32767 mu=2105 sc=23350 q=21
+LNV t=191342755000 acc=67863886342 var=1060373224 mu=3851
+LNO t=191344025000 ly=3 ten=6 ard=-6293 mu=3851 sc=23025 q=-8
+LNV t=191423375000 acc=76765372815 var=1199458950 mu=-830
+LNO t=191424645000 ly=3 ten=6 ard=32767 mu=-830 sc=24489 q=21
+LNV t=191503995000 acc=76210271730 var=1190785495 mu=-548
+LNO t=191505265000 ly=3 ten=6 ard=7667 mu=-548 sc=24400 q=5
+LNV t=191584615000 acc=76524337093 var=1195692767 mu=3064
+LNO t=191585885000 ly=3 ten=6 ard=6925 mu=3064 sc=24450 q=2
+MV0 t=191655775000 ly=3 ten_o=0 acc=0 dest=0
+MV0 t=192969055000 ly=3 ten_o=0 acc=0 dest=128
+MV0 t=194282335000 ly=3 ten_o=0 acc=0 dest=256
+MV0 t=195595615000 ly=3 ten_o=0 acc=0 dest=384
+MV0 t=196908895000 ly=3 ten_o=0 acc=0 dest=512
+MV0 t=198222175000 ly=3 ten_o=0 acc=0 dest=640
+MV0 t=199535455000 ly=3 ten_o=0 acc=0 dest=768
+MV0 t=200848735000 ly=3 ten_o=0 acc=0 dest=896
+MV0 t=202162015000 ly=3 ten_o=6 acc=0 dest=98304
+MV0 t=203474015000 ly=3 ten_o=6 acc=0 dest=98432
+MV0 t=204786015000 ly=3 ten_o=6 acc=0 dest=98560
+MV0 t=206098015000 ly=3 ten_o=6 acc=0 dest=98688
+MV0 t=207410015000 ly=3 ten_o=6 acc=0 dest=98816
+MV0 t=208722015000 ly=3 ten_o=6 acc=0 dest=98944
+MV0 t=210034015000 ly=3 ten_o=6 acc=0 dest=99072
+MV0 t=211346015000 ly=3 ten_o=6 acc=0 dest=99200
+ADD t=212658005000 ly=3 ten=1 ard=32766 ardb=-8128
+ADD t=212661845000 ly=3 ten=1 ard=32766 ardb=11043
+ADD t=212665685000 ly=3 ten=1 ard=525 ardb=17004
+ADD t=212669525000 ly=3 ten=1 ard=32767 ardb=20457
+ADD t=212673365000 ly=3 ten=1 ard=-6293 ardb=24659
+ADD t=212677205000 ly=3 ten=1 ard=32767 ardb=-5957
+ADD t=212681045000 ly=3 ten=1 ard=7667 ardb=2831
+ADD t=212684885000 ly=3 ten=1 ard=6925 ardb=17280
+HEAD t=212688725000 col=0 wrd=6 ard=24205 waddr=671744 aaddr=896 acc=0
+MV0 t=212688735000 ly=3 ten_o=7 acc=0 dest=115584
+HEAD t=212688765000 col=1 wrd=6 ard=15810 waddr=671745 aaddr=897 acc=145230
+SMX t=217941825000 logit0=1648634
+TOK_TRACE t=0 nsamp=128 dup=0 acc0=1 sum=-36 or_sum=-36 mu=-1 or_mu=-1
+TOK_TRACE t=1 nsamp=128 dup=0 acc0=1 sum=96 or_sum=96 mu=0 or_mu=0
+TOK_TRACE t=2 nsamp=128 dup=0 acc0=1 sum=-67 or_sum=-67 mu=-1 or_mu=-1
+TOK_TRACE t=3 nsamp=128 dup=0 acc0=1 sum=102 or_sum=102 mu=0 or_mu=0
+TOK_TRACE t=4 nsamp=128 dup=0 acc0=1 sum=71 or_sum=71 mu=0 or_mu=0
+TOK_TRACE t=5 nsamp=128 dup=0 acc0=1 sum=-43 or_sum=-43 mu=-1 or_mu=-1
+TOK_TRACE t=6 nsamp=128 dup=0 acc0=1 sum=-34 or_sum=-34 mu=-1 or_mu=-1
+TOK_TRACE t=7 nsamp=128 dup=0 acc0=1 sum=40 or_sum=40 mu=0 or_mu=0
+UNIT pred=549 oracle=549 logit0=1648634 ref=1648634
+LM06_LN_MU_TOKENBOUNDARY_PASS fails=0
+$finish called at time : 217972565 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7lm06_ln_mu_tokenboundary.sv" Line 237
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:43 . Memory (MB): peak = 227.895 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 21832 KB (Peak: 21832 KB), Simulation CPU Usage: 42140 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep  1 23:22:22 2026...

@@ -4,13 +4,13 @@
 
 (* keep_hierarchy = "yes" *)
 module arty_a7_ng_native_v1_ab_soc_top #(
-  parameter bit UART_SLIM = 1'b1  // 1: existence UART only (keep pred=664 CONTROL bit separate)
+  parameter bit UART_SLIM = 1'b1,
+  parameter int unsigned PHYS = 4
 ) (
   input  logic        CLK100MHZ,
   input  logic [3:0]  sw,
   input  logic [3:0]  btn,
   output logic [3:0]  led,
-  output logic [7:0]  ja,
   input  logic        uart_txd_in,
   output logic        uart_rxd_out,
   // Arty QSPI flash (T2-SPI wmem loader)
@@ -170,13 +170,36 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   logic        cdc_ar_hold;
   logic        cdc_ar_empty; // F1j: registered AR FIFO empty (s_clk)
 
-  assign arvalid = boot_active ? 1'b0 : (wdma_owner_ui ? d_arvalid : cdc_arvalid);
-  assign arid    = boot_active ? 4'd0 : (wdma_owner_ui ? d_arid : cdc_arid);
-  assign araddr  = boot_active ? 28'd0 : (wdma_owner_ui ? d_araddr : cdc_araddr);
-  assign arlen   = boot_active ? 8'd0 : (wdma_owner_ui ? d_arlen : cdc_arlen);
-  assign arsize  = boot_active ? 3'd4 : (wdma_owner_ui ? d_arsize : cdc_arsize);
-  assign arburst = boot_active ? 2'b01 : (wdma_owner_ui ? d_arburst : cdc_arburst);
-  assign rready  = boot_active ? 1'b1 : (wdma_owner_ui ? d_rready : cdc_rready);
+  logic persist_req_ui, persist_idle_ui, persist_grant_ui;
+  logic persist_owner_ui = 1'b0;
+  logic persist_freeze, persist_c7v, persist_c7rdy, persist_busy;
+  assign persist_c7rdy = 1'b1;
+  logic persist_ddr_req, persist_ddr_we, persist_ddr_ack;
+  logic [7:0] persist_ddr_addr;
+  logic [63:0] persist_ddr_wdata, persist_ddr_rdata;
+  logic [31:0] persist_c7a;
+  logic [3:0]  p_awid, p_arid;
+  logic [27:0] p_awaddr, p_araddr;
+  logic [7:0]  p_awlen, p_arlen;
+  logic [2:0]  p_awsize, p_arsize;
+  logic [1:0]  p_awburst, p_arburst;
+  logic        p_awvalid, p_awready, p_wvalid, p_wready, p_wlast, p_bready, p_bvalid;
+  logic        p_arvalid, p_arready, p_rvalid, p_rready, p_rlast;
+  logic [127:0] p_wdata, p_rdata;
+  logic [15:0] p_wstrb;
+  logic [3:0]  p_bid, p_rid;
+  logic [1:0]  p_bresp, p_rresp;
+  logic        persist_rpath_idle_ui, persist_soa_run_ui;
+
+  assign persist_grant_ui = persist_owner_ui;
+
+  assign arvalid = boot_active ? 1'b0 : (persist_owner_ui ? p_arvalid : (wdma_owner_ui ? d_arvalid : cdc_arvalid));
+  assign arid    = boot_active ? 4'd0 : (persist_owner_ui ? p_arid : (wdma_owner_ui ? d_arid : cdc_arid));
+  assign araddr  = boot_active ? 28'd0 : (persist_owner_ui ? p_araddr : (wdma_owner_ui ? d_araddr : cdc_araddr));
+  assign arlen   = boot_active ? 8'd0 : (persist_owner_ui ? p_arlen : (wdma_owner_ui ? d_arlen : cdc_arlen));
+  assign arsize  = boot_active ? 3'd4 : (persist_owner_ui ? p_arsize : (wdma_owner_ui ? d_arsize : cdc_arsize));
+  assign arburst = boot_active ? 2'b01 : (persist_owner_ui ? p_arburst : (wdma_owner_ui ? d_arburst : cdc_arburst));
+  assign rready  = boot_active ? 1'b1 : (persist_owner_ui ? p_rready : (wdma_owner_ui ? d_rready : cdc_rready));
 
   a7ng_axi_read_cdc u_axi_cdc (
     .m_clk(core_clk), .m_rst_n(core_rst_n),
@@ -196,24 +219,36 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .dbg_ar_hold_o(cdc_ar_hold),
     .dbg_ar_empty_o(cdc_ar_empty)
   );
-  assign cdc_arready = !boot_active && !wdma_owner_ui && arready;
+  assign cdc_arready = !boot_active && !wdma_owner_ui && !persist_owner_ui && arready;
   assign cdc_rid     = rid;
   assign cdc_rdata   = rdata;
   assign cdc_rresp   = rresp;
   assign cdc_rlast   = rlast;
-  assign cdc_rvalid  = rvalid;
+  assign cdc_rvalid  = rvalid && !boot_active && !wdma_owner_ui && !persist_owner_ui;
 
-  assign awid    = soa_phase ? b_awid : (wmem_phase ? w_awid : d_awid);
-  assign awaddr  = soa_phase ? b_awaddr : (wmem_phase ? w_awaddr : d_awaddr);
-  assign awlen   = soa_phase ? b_awlen : (wmem_phase ? w_awlen : d_awlen);
-  assign awsize  = soa_phase ? b_awsize : (wmem_phase ? w_awsize : d_awsize);
-  assign awburst = soa_phase ? b_awburst : (wmem_phase ? w_awburst : d_awburst);
-  assign awvalid = soa_phase ? b_awvalid : (wmem_phase ? w_awvalid : (wdma_owner_ui ? d_awvalid : 1'b0));
-  assign wdata   = soa_phase ? b_wdata : (wmem_phase ? w_wdata : d_wdata);
-  assign wstrb   = soa_phase ? b_wstrb : (wmem_phase ? w_wstrb : d_wstrb);
-  assign wlast   = soa_phase ? b_wlast : (wmem_phase ? w_wlast : d_wlast);
-  assign wvalid  = soa_phase ? b_wvalid : (wmem_phase ? w_wvalid : (wdma_owner_ui ? d_wvalid : 1'b0));
-  assign bready  = soa_phase ? b_bready : (wmem_phase ? w_bready : d_bready);
+  assign p_awready = persist_owner_ui && awready;
+  assign p_wready  = persist_owner_ui && wready;
+  assign p_bvalid  = persist_owner_ui && bvalid;
+  assign p_bid     = bid;
+  assign p_bresp   = bresp;
+  assign p_arready = persist_owner_ui && arready;
+  assign p_rvalid  = persist_owner_ui && rvalid;
+  assign p_rid     = rid;
+  assign p_rdata   = rdata;
+  assign p_rresp   = rresp;
+  assign p_rlast   = rlast;
+
+  assign awid    = soa_phase ? b_awid : (wmem_phase ? w_awid : (persist_owner_ui ? p_awid : d_awid));
+  assign awaddr  = soa_phase ? b_awaddr : (wmem_phase ? w_awaddr : (persist_owner_ui ? p_awaddr : d_awaddr));
+  assign awlen   = soa_phase ? b_awlen : (wmem_phase ? w_awlen : (persist_owner_ui ? p_awlen : d_awlen));
+  assign awsize  = soa_phase ? b_awsize : (wmem_phase ? w_awsize : (persist_owner_ui ? p_awsize : d_awsize));
+  assign awburst = soa_phase ? b_awburst : (wmem_phase ? w_awburst : (persist_owner_ui ? p_awburst : d_awburst));
+  assign awvalid = soa_phase ? b_awvalid : (wmem_phase ? w_awvalid : (persist_owner_ui ? p_awvalid : (wdma_owner_ui ? d_awvalid : 1'b0)));
+  assign wdata   = soa_phase ? b_wdata : (wmem_phase ? w_wdata : (persist_owner_ui ? p_wdata : d_wdata));
+  assign wstrb   = soa_phase ? b_wstrb : (wmem_phase ? w_wstrb : (persist_owner_ui ? p_wstrb : d_wstrb));
+  assign wlast   = soa_phase ? b_wlast : (wmem_phase ? w_wlast : (persist_owner_ui ? p_wlast : d_wlast));
+  assign wvalid  = soa_phase ? b_wvalid : (wmem_phase ? w_wvalid : (persist_owner_ui ? p_wvalid : (wdma_owner_ui ? d_wvalid : 1'b0)));
+  assign bready  = soa_phase ? b_bready : (wmem_phase ? w_bready : (persist_owner_ui ? p_bready : d_bready));
   assign boot_active = soa_phase | wmem_phase;
 
   mig_native_wrap u_mig (
@@ -321,6 +356,32 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   logic [31:0] axi_bytes, axi_beats, axi_bursts, st_beats;
   logic [9:0] pred;
   logic [7:0] phase;
+  (* keep = "true" *) logic [3:0]  c1_mode;
+  (* keep = "true" *) logic [63:0] c2_anch;
+  (* keep = "true" *) logic [63:0] c9_cframe;
+  (* keep = "true" *) logic        c10_lmst, c10_lmdn;
+  (* keep = "true" *) logic [9:0]  c10_out;
+  // Gate14 command/CFRAME nets MUST be declared before u_ab. Implicit 1-bit
+  // wires here would truncate C8/C9/C11 payloads. PROGRAM=NO.
+  logic unused_rx;
+  logic unused_tie;
+  logic [7:0] urx_data, ubyte, g14_typ, g14_tok, qtok;
+  logic urx_v, ubyte_v, g14_qv, g14_qr, g14_map_r, g14_cmd_v, g14_cmd_r, g14_snap;
+  logic g14_mis, g14_c5, g14_afor, g14_bvis;
+  logic [3:0] g14_cmd;
+  logic signed [3:0] g14_rew, qrew;
+  logic [15:0] g14_seq, g14_echo, g14_txn;
+  logic [7:0] rjv, rjl, rjc, rjt, rjd, rjb, ferr, oerr;
+  logic [31:0] g14_c8g, g14_r1s, g14_r1o, c5cnt, c5rej;
+  logic [63:0] g14_c8d, g14_adig, g14_bdig;
+  logic [127:0] g14_sc;
+  logic [7:0] g14_r1r;
+  logic [2:0] g14_ack;
+  logic [7:0] cf_byte, cf_pay [0:47], cf_cdc_d;
+  logic cf_v, cf_r, cf_busy, cf_start, cf_cdc_v, cdc_sr, uart_done_core, uart_done_d;
+  logic [7:0] cf_ckpt;
+  logic [15:0] cf_len, cf_seq;
+  logic dump_all;
   logic [31:0] fpga_nt_valid;
   logic lm06_active;
   // Sticky post-CORE stage bits (core domain) — DUT events only, no host poke.
@@ -559,7 +620,8 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   a7ng_native_v1_ab_core #(
     .SIM_FULL(1'b0),
     .WAVE(16),
-    .MAX_CANDS(TOTAL)
+    .MAX_CANDS(TOTAL),
+    .PHYS(PHYS)
   ) u_ab (
     .clk(core_clk), .rst_n(core_rst_n),
     .clk_dma(core_clk), .rst_dma_n(core_rst_n),
@@ -600,7 +662,95 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .m_axi_rlast(c_rlast), .m_axi_rvalid(c_rvalid), .m_axi_rready(c_rready),
     .owner_ready_o(owner_ready),
     .global_topk_busy_o(global_topk_busy),
-    .r_path_idle_o(r_path_idle)
+    .r_path_idle_o(r_path_idle),
+    .c1_mode_o(c1_mode),
+    .c2_anch_o(c2_anch),
+    .c9_cframe_o(c9_cframe),
+    .c10_lmst_o(c10_lmst),
+    .c10_lmdn_o(c10_lmdn),
+    .c10_out_o(c10_out),
+    .persist_ddr_req_o(persist_ddr_req),
+    .persist_ddr_we_o(persist_ddr_we),
+    .persist_ddr_addr_o(persist_ddr_addr),
+    .persist_ddr_wdata_o(persist_ddr_wdata),
+    .persist_ddr_rdata_i(persist_ddr_rdata),
+    .persist_ddr_ack_i(persist_ddr_ack),
+    .persist_freeze_o(persist_freeze),
+    .persist_c7_valid_o(persist_c7v),
+    .persist_c7_addr_o(persist_c7a),
+    .persist_c7_ready_i(persist_c7rdy),
+    .persist_busy_o(persist_busy),
+    .g14_en_i(1'b1),
+    .g14_cmd_v_i(g14_cmd_v),
+    .g14_cmd_r_o(g14_cmd_r),
+    .g14_cmd_i(g14_cmd),
+    .g14_tok_i(g14_tok),
+    .g14_rew_i(g14_rew),
+    .c8_gen_o(g14_c8g),
+    .c8_sdig_o(g14_c8d),
+    .c11_adig_o(g14_adig),
+    .c11_bdig_o(g14_bdig),
+    .c11_a_for_o(g14_afor),
+    .c11_b_vis_o(g14_bvis),
+    .p_txn_o(g14_txn),
+    .c5_cons_o(g14_c5),
+    .c9_score_o(g14_sc),
+    .c9_r1s_o(g14_r1s),
+    .c9_r1r_o(g14_r1r),
+    .c9_r1o_o(g14_r1o),
+    .last_ack_o(g14_ack)
+  );
+
+  // Register on core_clk first — combo soa_running (tr_cnt) must not feed the
+  // synchronizer D pin (CDC-10). PROGRAM=NO.
+  logic r_path_idle_q, soa_running_q;
+  always_ff @(posedge core_clk or negedge core_rst_n) begin
+    if (!core_rst_n) begin
+      r_path_idle_q <= 1'b0;
+      soa_running_q <= 1'b0;
+    end else begin
+      r_path_idle_q <= r_path_idle;
+      soa_running_q <= soa_running;
+    end
+  end
+  sync_bits #(.WIDTH(2)) u_persist_grant_sync (
+    .clk(ui_clk), .rst_n(ui_rst_n),
+    .async_in({r_path_idle_q, soa_running_q}),
+    .sync_out({persist_rpath_idle_ui, persist_soa_run_ui})
+  );
+
+  always_ff @(posedge ui_clk or posedge ui_rst) begin
+    if (ui_rst)
+      persist_owner_ui <= 1'b0;
+    else if (!boot_active && persist_req_ui && !wdma_owner_ui &&
+             persist_rpath_idle_ui && !persist_soa_run_ui && !cdc_arvalid)
+      persist_owner_ui <= 1'b1;
+    else if (persist_owner_ui && persist_idle_ui && !persist_req_ui)
+      persist_owner_ui <= 1'b0;
+  end
+
+  a7ng_persist_axi_bridge u_persist_axi (
+    .core_clk(core_clk), .core_rst_n(core_rst_n),
+    .ddr_req_i(persist_ddr_req), .ddr_we_i(persist_ddr_we),
+    .ddr_addr_i(persist_ddr_addr), .ddr_wdata_i(persist_ddr_wdata),
+    .ddr_rdata_o(persist_ddr_rdata), .ddr_ack_o(persist_ddr_ack),
+    .freeze_i(persist_freeze),
+    .c7_valid_i(1'b0), .c7_addr_i(32'd0), .c7_ready_o(),
+    .ui_clk(ui_clk), .ui_rst_n(ui_rst_n),
+    .grant_i(persist_grant_ui), .req_o(persist_req_ui), .idle_o(persist_idle_ui),
+    .m_axi_awid(p_awid), .m_axi_awaddr(p_awaddr), .m_axi_awlen(p_awlen),
+    .m_axi_awsize(p_awsize), .m_axi_awburst(p_awburst),
+    .m_axi_awvalid(p_awvalid), .m_axi_awready(p_awready),
+    .m_axi_wdata(p_wdata), .m_axi_wstrb(p_wstrb), .m_axi_wlast(p_wlast),
+    .m_axi_wvalid(p_wvalid), .m_axi_wready(p_wready),
+    .m_axi_bid(p_bid), .m_axi_bresp(p_bresp), .m_axi_bvalid(p_bvalid), .m_axi_bready(p_bready),
+    .m_axi_arid(p_arid), .m_axi_araddr(p_araddr), .m_axi_arlen(p_arlen),
+    .m_axi_arsize(p_arsize), .m_axi_arburst(p_arburst),
+    .m_axi_arvalid(p_arvalid), .m_axi_arready(p_arready),
+    .m_axi_rid(p_rid), .m_axi_rdata(p_rdata), .m_axi_rresp(p_rresp),
+    .m_axi_rlast(p_rlast), .m_axi_rvalid(p_rvalid), .m_axi_rready(p_rready),
+    .wr_ok_o(), .wr_err_o(), .rd_ok_o(), .rd_err_o(),
+    .bytes_wr_o(), .bytes_rd_o(), .region_err_o(), .freeze_drop_o()
   );
 
   // UART_SLIM + min-heap: print TOPK/PACK after G_(t) commit (4 waves) and bind,
@@ -613,9 +763,12 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   //      !wdma_owner && cmd_empty && DMA IDLE && AR/R outstanding==0 → grant=0
   //      else hold grant while drain.
   // Ready-gate ANDs on u_wdma go/ARREADY/RVALID stay.
+  // P2-WDMA-RELEASE-CDC-AUDIT-03: do not 2-FF the 3 combo flags independently
+  // (CDC-10 + dest-AND skew = premature release). Register+AND on ui, then
+  // ASYNC_REG 3-flop level + toggle/ack. PROGRAM=NO.
   logic [3:0] wdma_arr_outst;
   logic       wdma_dma_idle_ui, wdma_arr_quiet_ui, wdma_cmd_empty_ui;
-  logic       wdma_dma_idle_c, wdma_arr_quiet_c, wdma_cmd_empty_c;
+  logic       wdma_rel_ok_c;
 
   assign wdma_cmd_empty_ui = u_wdma_cdc.cmd_empty;
   assign wdma_dma_idle_ui  = (wdma_dbg_st == 3'd0);
@@ -635,10 +788,16 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   end
   assign wdma_arr_quiet_ui = (wdma_arr_outst == 4'd0);
 
-  sync_bits #(.WIDTH(3)) u_wdma_rel_sync (
-    .clk(core_clk), .rst_n(core_rst_n),
-    .async_in({wdma_cmd_empty_ui, wdma_dma_idle_ui, wdma_arr_quiet_ui}),
-    .sync_out({wdma_cmd_empty_c, wdma_dma_idle_c, wdma_arr_quiet_c})
+  a7ng_wdma_rel_sync u_wdma_rel_sync (
+    .ui_clk(ui_clk), .ui_rst_n(ui_rst_n),
+    .core_clk(core_clk), .core_rst_n(core_rst_n),
+    .cmd_empty_i(wdma_cmd_empty_ui),
+    .dma_st_i(wdma_dbg_st),
+    .arr_outst_i(wdma_arr_outst),
+    .rel_ok_o(wdma_rel_ok_c),
+    .rel_pulse_o(),
+    .req_tog_o(), .ack_tog_o(),
+    .and_q_o(), .payload_hold_o()
   );
 
   // Silicon GO-GRANT-MISS: GRANT=0 for 90s with dest in D_GO, sticky R_IDLE
@@ -650,8 +809,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       wdma_owner_grant <= 1'b0;
     else if ((wdma_owner || dbg_tile_miss) && !soa_running)
       wdma_owner_grant <= 1'b1;
-    else if (!wdma_owner && !dbg_tile_miss &&
-             wdma_cmd_empty_c && wdma_dma_idle_c && wdma_arr_quiet_c)
+    else if (!wdma_owner && !dbg_tile_miss && wdma_rel_ok_c)
       wdma_owner_grant <= 1'b0;
   end
 
@@ -1158,8 +1316,8 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   assign core_live_100 = calib_ui_100 && wmem_100 && boot_ui_100;
   assign axi_b_100[31:19] = '0;
 
-  logic [7:0] tx_data;
-  logic tx_start, tx_busy;
+  logic [7:0] tx_data, cf_hold;
+  logic tx_start, tx_busy, cf_take, cf_hold_v;
   logic [6:0] tx_i;
   logic [5:0] tx_len;
   // msg_sel: 0 BOOT … 37 LM … 38 BIND_BUSY … 39 WDMA_BUSY … 40 WDMA_DONE …
@@ -1176,8 +1334,9 @@ module arty_a7_ng_native_v1_ab_soc_top #(
   logic [3:0] led_sticky;
   logic saw_busy;
   // LOAD pulses start; WAIT_BUSY until uart_tx latches; WAIT_IDLE until byte done.
-  typedef enum logic [2:0] {
-    UT_IDLE, UT_LOAD, UT_WAIT_BUSY, UT_WAIT_IDLE, UT_NL_LOAD, UT_NL_BUSY, UT_NL_IDLE, UT_DONE
+  typedef enum logic [3:0] {
+    UT_IDLE, UT_LOAD, UT_WAIT_BUSY, UT_WAIT_IDLE, UT_NL_LOAD, UT_NL_BUSY, UT_NL_IDLE, UT_DONE,
+    UT_CF_LOAD, UT_CF_BUSY, UT_CF_IDLE
   } ut_t;
   ut_t ut;
 
@@ -1978,6 +2137,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     if (!clk_locked) begin
       ut <= UT_IDLE;
       tx_start <= 1'b0;
+      cf_take <= 1'b0;
       tx_data <= 8'd0;
       tx_i <= 7'd0;
       tx_len <= 6'd0;
@@ -1987,6 +2147,7 @@ module arty_a7_ng_native_v1_ab_soc_top #(
       saw_busy <= 1'b0;
     end else begin
       tx_start <= 1'b0;
+      cf_take <= 1'b0;
       // Sticky LEDs: bit0=MIG,1=WMEM,2=SOA/CORE,3=BIND
       if (calib_100) led_sticky[0] <= 1'b1;
       if (wmem_100)  led_sticky[1] <= 1'b1;
@@ -2046,35 +2207,116 @@ module arty_a7_ng_native_v1_ab_soc_top #(
             ut <= UT_IDLE;
           end
         end
-        UT_DONE: ut <= UT_DONE;
+        UT_DONE: begin
+          if (cf_hold_v && !tx_busy) ut <= UT_CF_LOAD;
+        end
+        UT_CF_LOAD: begin
+          tx_data <= cf_hold;
+          tx_start <= 1'b1;
+          cf_take <= 1'b1;
+          saw_busy <= 1'b0;
+          ut <= UT_CF_BUSY;
+        end
+        UT_CF_BUSY: begin
+          if (tx_busy) begin
+            saw_busy <= 1'b1;
+            ut <= UT_CF_IDLE;
+          end
+        end
+        UT_CF_IDLE: begin
+          if (!tx_busy) ut <= UT_DONE;
+        end
         default: ut <= UT_IDLE;
       endcase
     end
   end
 
-  logic unused_rx;
-  logic unused_tie;
-  assign unused_rx = uart_txd_in;
+  a7ng_uart_rx100 u_g14_rx (
+    .clk(CLK100MHZ), .rst_n(clk_locked), .rx(uart_txd_in),
+    .data(urx_data), .valid(urx_v), .ferr(ferr), .oerr(oerr)
+  );
+  a7ng_byte_cdc u_g14_bcdc (
+    .src_clk(CLK100MHZ), .src_rst_n(clk_locked),
+    .src_data(urx_data), .src_valid(urx_v),
+    .dst_clk(core_clk), .dst_rst_n(core_rst_n),
+    .dst_data(ubyte), .dst_valid(ubyte_v),
+    .src_ready(cdc_sr), .dst_ready(1'b1)
+  );
+  a7ng_gate14_uart_cmd_rx u_g14_dec (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .byte_i(ubyte), .byte_v_i(ubyte_v),
+    .cmd_valid_o(g14_qv), .cmd_ready_i(g14_qr),
+    .cmd_type_o(g14_typ), .cmd_seq_o(g14_seq),
+    .tok_o(qtok), .rew_o(qrew), .echo_o(g14_echo),
+    .rj_ver(rjv), .rj_len(rjl), .rj_crc(rjc), .rj_typ(rjt), .rj_dup(rjd), .rj_busy(rjb)
+  );
+  a7ng_gate14_cmd_map u_g14_map (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .in_v(g14_qv), .in_r(g14_qr),
+    .typ(g14_typ), .tok(qtok), .rew(qrew), .echo(g14_echo),
+    .fpga_txn(g14_txn),
+    .out_v(g14_cmd_v), .out_r(g14_cmd_r),
+    .cmd(g14_cmd), .tok_o(g14_tok), .rew_o(g14_rew),
+    .snap_v(g14_snap), .rew_mismatch(g14_mis)
+  );
+
+  always_ff @(posedge core_clk or negedge core_rst_n) begin
+    if (!core_rst_n) begin
+      c5cnt <= 32'd0; c5rej <= 32'd0; uart_done_d <= 1'b0;
+    end else begin
+      uart_done_d <= uart_done_core;
+      if (g14_c5 && c5cnt != 32'hFFFF_FFFF) c5cnt <= c5cnt + 32'd1;
+      c5rej <= {rjv, rjl, rjc, rjt};
+    end
+  end
+  sync_bits #(.WIDTH(1)) u_g14_udone (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .async_in(uart_complete),
+    .sync_out(uart_done_core)
+  );
+  assign dump_all = g14_snap | (uart_done_core & ~uart_done_d);
+
+  a7ng_gate14_cframe_sched u_g14_cfs (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .start_all(dump_all), .tx_busy(cf_busy),
+    .start_tx(cf_start), .ckpt(cf_ckpt), .seq(cf_seq), .len(cf_len), .pay(cf_pay),
+    .c0_id(64'hA714_01C0_4743_3134),
+    .c1_mode(c1_mode), .c2_anch(c2_anch),
+    .c3_ids(c9_cframe), .c3_sc(g14_sc),
+    .c4_ev({g14_r1s, g14_r1o}),
+    .c5_cons(c5cnt), .c5_rej(c5rej), .c5_ack({5'd0, g14_ack}),
+    .c6_rsv(g14_txn), .c6_sat(1'b0),
+    .c7_addr(persist_c7a), .c7_ack({7'd0, persist_c7v}), .c7_err({7'd0, persist_busy}),
+    .c8_gen(g14_c8g), .c8_sdig(g14_c8d),
+    .c9_ids(c9_cframe), .c9_sc(g14_sc), .c9_pack(c9_cframe),
+    .c9_poison(poison_lat), .c9_r1s(g14_r1s), .c9_r1r(g14_r1r), .c9_r1o(g14_r1o),
+    .c10_lmst(c10_lmst), .c10_lmdn(c10_lmdn), .c10_out(c10_out), .c10_x(16'd0),
+    .c11_adig(g14_adig), .c11_bdig(g14_bdig), .c11_afor(g14_afor), .c11_bvis(g14_bvis)
+  );
+  a7ng_gate14_cframe_tx u_g14_cftx (
+    .clk(core_clk), .rst_n(core_rst_n),
+    .start(cf_start), .ckpt(cf_ckpt), .seq(cf_seq), .pay(cf_pay), .len(cf_len),
+    .byte_o(cf_byte), .byte_v(cf_v), .byte_r(cf_r), .busy(cf_busy)
+  );
+  a7ng_byte_cdc u_g14_cfcdc (
+    .src_clk(core_clk), .src_rst_n(core_rst_n),
+    .src_data(cf_byte), .src_valid(cf_v), .src_ready(cf_r),
+    .dst_clk(CLK100MHZ), .dst_rst_n(clk_locked),
+    .dst_data(cf_cdc_d), .dst_valid(cf_cdc_v), .dst_ready(!cf_hold_v)
+  );
+  always_ff @(posedge CLK100MHZ or negedge clk_locked) begin
+    if (!clk_locked) begin
+      cf_hold <= 8'd0; cf_hold_v <= 1'b0;
+    end else begin
+      if (cf_cdc_v) begin cf_hold <= cf_cdc_d; cf_hold_v <= 1'b1; end
+      else if (cf_take) cf_hold_v <= 1'b0;
+    end
+  end
+
+  assign unused_rx = 1'b0;
   assign unused_tie = |{boot_100, soa_core_100, bind_core_100, axi_b_100, dual_err, lm06_active};
   assign led = led_sticky ^ sw;
-
-  // E2R-LA-PMOD-00: observe-only Pmod JA (3.3 V). Does not touch ready/valid/winner/TopK/bind/LM FSM.
-  // Sticky/synced CLK100MHZ levels so a 24 MHz LA can see DC after the event.
-  (* IOB = "TRUE" *) logic [7:0] ja_q;
-  always_ff @(posedge CLK100MHZ or negedge clk_locked) begin
-    if (!clk_locked)
-      ja_q <= 8'd0;
-    else
-      ja_q <= {
-        sgo_lat_100,     // ja[7] SGO
-        w_stall_100,     // ja[6] W_STALL
-        core_busy_100,   // ja[5] LM_ACTIVE
-        bind_100,        // ja[4] BIND_DONE
-        rbeat_100,       // ja[3] SOA_R_FIRST
-        ar_100,          // ja[2] SOA_AR_FIRE
-        qgo_100,         // ja[1] QUERY_ACCEPT
-        core_live_100    // ja[0] CORE_START / core live
-      };
-  end
-  assign ja = ja_q;
+  // P2-GATE14-C9-SOC-IO-SAFE-BIT-07: Pmod JA was E2R-LA debug only.
+  // Gate14 acceptance is UART CFRAME + TinyGPT. No ja[] port, no unconstrained
+  // debug replacement, no NSTD-1/UCIO-1 waiver. Heartbeat/LED still use *_100.
 endmodule

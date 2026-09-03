@@ -1,0 +1,24 @@
+GATE=P2-GATE14-C9-SOC-COFIT-BIT-06
+PROGRAM=NO
+COM12=NOT_TOUCHED
+
+# git status --porcelain (RTL only, this gate)
+ M rtl/board/arty_a7_ng_native_v1_ab_soc_top.sv
+ M rtl/native_graph/integrate/a7ng_g1g5_cofit.sv
+ M rtl/native_graph/integrate/a7ng_native_v1_ab_core.sv
+ M rtl/native_graph/learn/a7ng_persist_axi_bridge.sv
+?? rtl/native_graph/integrate/a7ng_gate14_c9_glue.sv
+?? rtl/native_graph/integrate/a7ng_learned_prior_graph.sv
+?? rtl/native_graph/learn/a7ng_learned_prior_store.sv
+
+# Unmodified frozen (SHA-locked in build TCL)
+G1 a7ng_feedback_resolver.sv = 2219DA29C265D2461ED30783EBEA0F0649050B9B6E5F6EAFDB8F1C4E05F3F5F7
+G2 a7ng_context_delta.sv     = 0614386298F31DC6A5EB456959290F9C6ADDC899FBF91F8CD49BB5A3D2BBA800
+G3 a7ng_causal_learn_fast.sv = 2177073D4103F7971116E5F3C48FE2A33F8E9BC7FDDCA317AD2A3AE156F70EF6
+G4 a7ng_persist_gen_fast.sv  = D1BF034018E1BBB28999EEDB6035278934F1AA898849EBA1E1F633B77DD4DAC9
+TINYGPT tiny_gpt803k_core.sv = 75706E2C804C4044CF7A76638978A617A83DE0D4E7D5A37EF703C974E8EFB5FB
+BIND a7ng_native_ctx_bind.sv = C5F57AD1F0A81BB998234BC885EACA5EC7A4F19279E1EDBFDC5DADE163FC94CC
+ORACLE.json                  = 062932B3853144526B1C9A42C2076966C45EF108C707546C68C9BC89754C912B
+
+# SoC fileset excludes persist_gen_fast and teacher_off_glue (FAST-ID preemption removed)
+# One learned_prior_store, one scorer, one minheap, one persist_axi_bridge, one bind, one TinyGPT

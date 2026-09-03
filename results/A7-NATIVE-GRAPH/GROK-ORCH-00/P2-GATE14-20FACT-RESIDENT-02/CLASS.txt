@@ -1,0 +1,7 @@
+CLASS=FAIL_DIVERGENCE
+STOP=HOLD_A OUT=733 want=549
+PROGRAM=NO
+GATE14_PASS=not_claimed
+TEACHER_OFF=not_claimed
+BOARD_PASS=not_claimed
+run_40=false

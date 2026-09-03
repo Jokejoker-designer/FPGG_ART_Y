@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/rtl/native_graph/learn/a7ng_feedback_resolver.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_feedback_resolver
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_feedback_resolver.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_a7ng_feedback_resolver

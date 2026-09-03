@@ -1,0 +1,33 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Sep  2 02:58:32 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/cofit_g4/xsim_script.tcl
+# xsim {cofit_g4} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+FR A vis rank=2 score=42 GEN=1 SDIG=0000000001000001
+DIG_CYC learn=32
+FR reload vis rank=2 score=42 GEN=1 SDIG=0000000001000001
+DIG_CYC reload=32
+CELL_FLUSH_RELOAD PASS
+CELL_FREEZE_BLOCKS_WRITE done ack=5
+TR GEN 1->2 Ascore=39
+CELL_TRAIN_RESET_FORGETS_A done
+ADIG=0000000001000001 BDIG=0000001008030208 Bscore=42 Ascore_after=39
+CELL_RUN_B_NE_A done
+GEN0 GEN=1 KAscore=39
+CELL_GEN0_NEVER_VISIBLE done
+WRAP GEN=6 wimm=1 Ascore=39
+CELL_ROOT_INVALIDATE_BEFORE_WRAP done
+PWR GEN=1 (pre 1) rank=2 score=42
+CELL_POWER_REPROGRAM_AUTHORITY done
+PERSIST_GEN_FAST_SERIAL_STATE_XSIM_PASS fails=0 CELLS=7
+$finish called at time : 211960 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00/tests/xsim/tb_a7ng_persist_gen_fast.sv" Line 286
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Sep  2 02:58:34 2026...
