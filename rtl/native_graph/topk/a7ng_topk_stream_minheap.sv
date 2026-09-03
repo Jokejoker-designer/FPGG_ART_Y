@@ -15,7 +15,10 @@ module a7ng_topk_stream_minheap #(
   parameter bit SORT_BEFORE_DRAIN = 1'b1,
   // HEAP-TAKE-SIFT-00: 1 = full K=8 sift-up/sift-down in the TAKE cycle.
   // 0 = multi-cycle ST_HEAPIFY (C9 default). beats() unchanged.
-  parameter bit SIFT_ON_TAKE = 1'b0
+  parameter bit SIFT_ON_TAKE = 1'b0,
+  // LOCAL-TOPK-PARALLEL-COMMIT-00: 1 = one-cycle ordered_* vector, skip ST_DRAIN.
+  // 0 = serial out_valid/out_s/out_id (C9 / generic default).
+  parameter bit VECTOR_COMMIT = 1'b0
 ) (
   input  logic                    clk,
   input  logic                    rst_n,
@@ -32,6 +35,10 @@ module a7ng_topk_stream_minheap #(
   output a7ng_pkg::score_t        out_s_o,
   output a7ng_pkg::node_id_t      out_id_o,
   output logic [2:0]              out_idx_o,
+  output logic                    ordered_valid_o,
+  input  logic                    ordered_ready_i = 1'b1,
+  output a7ng_pkg::score_t        ordered_score_o [K],
+  output a7ng_pkg::node_id_t      ordered_id_o    [K],
   output logic                    busy_o,
   output logic                    clear_ignored_o,
   output logic [31:0]             accepted_count_o,
@@ -68,7 +75,8 @@ module a7ng_topk_stream_minheap #(
     ST_TAKE    = 3'd0,
     ST_HEAPIFY = 3'd1,
     ST_SORT    = 3'd2,
-    ST_DRAIN   = 3'd3
+    ST_DRAIN   = 3'd3,
+    ST_VEC     = 3'd4
   } st_t;
   typedef enum logic [1:0] { HF_NONE = 2'd0, HF_UP = 2'd1, HF_DOWN = 2'd2 } hf_t;
 
@@ -92,6 +100,8 @@ module a7ng_topk_stream_minheap #(
       sort_j    <= 3'd0;
       if (SORT_BEFORE_DRAIN)
         st <= ST_SORT;
+      else if (VECTOR_COMMIT)
+        st <= ST_VEC;
       else
         st <= ST_DRAIN;
     end
@@ -161,6 +171,15 @@ module a7ng_topk_stream_minheap #(
   assign busy_o       = (st != ST_TAKE) || (fill_n != 4'd0) || out_valid_o;
   assign in_ready_o   = (st == ST_TAKE);
   assign drop_count_o = 32'd0;
+  assign ordered_valid_o = (st == ST_VEC);
+
+  integer voi;
+  always_comb begin
+    for (voi = 0; voi < K; voi = voi + 1) begin
+      ordered_score_o[voi] = h[ord[voi]].s;
+      ordered_id_o[voi]    = h[ord[voi]].id;
+    end
+  end
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
@@ -302,7 +321,10 @@ module a7ng_topk_stream_minheap #(
               if (sort_j == (3'(K-2) - sort_pass)) begin
                 if (sort_pass >= 3'(K-2)) begin
                   drain_i <= 3'd0;
-                  st      <= ST_DRAIN;
+                  if (VECTOR_COMMIT)
+                    st <= ST_VEC;
+                  else
+                    st <= ST_DRAIN;
                 end else begin
                   sort_pass <= sort_pass + 3'd1;
                   sort_j    <= 3'd0;
@@ -312,7 +334,20 @@ module a7ng_topk_stream_minheap #(
               end
             end else begin
               drain_i <= 3'd0;
-              st      <= ST_DRAIN;
+              if (VECTOR_COMMIT)
+                st <= ST_VEC;
+              else
+                st <= ST_DRAIN;
+            end
+          end
+
+          ST_VEC: begin
+            if (ordered_ready_i) begin
+              fill_n <= 4'd0;
+              last_q <= 1'b0;
+              for (gi = 0; gi < K; gi = gi + 1)
+                ord[gi] <= 3'(gi);
+              st <= ST_TAKE;
             end
           end
 

@@ -100,7 +100,11 @@ module a7ng_ng02_core #(
   assign heap_in_last  = (bidx == 3'(NBATCH - 1)) && (sidx == 3'(PHYS - 1));
   assign heap_in_lane  = 4'(int'(bidx) * int'(PHYS) + int'(sidx));
 
-  a7ng_topk_stream_minheap #(.K(8), .SORT_BEFORE_DRAIN(1'b0), .SIFT_ON_TAKE(1'b1)) u_topk (
+  logic                 heap_vec_valid;
+  score_t               heap_vec_s  [8];
+  node_id_t             heap_vec_id [8];
+
+  a7ng_topk_stream_minheap #(.K(8), .SORT_BEFORE_DRAIN(1'b0), .SIFT_ON_TAKE(1'b1), .VECTOR_COMMIT(1'b1)) u_topk (
     .clk(clk), .rst_n(rst_n),
     .clear_i(input_hs),
     .in_valid_i(heap_in_valid),
@@ -111,10 +115,14 @@ module a7ng_ng02_core #(
     .in_lane_i(heap_in_lane),
     .in_last_i(heap_in_last),
     .out_valid_o(heap_out_valid),
-    .out_ready_i(state == ST_COLLECT),
+    .out_ready_i(1'b0),
     .out_s_o(heap_out_s),
     .out_id_o(heap_out_id),
     .out_idx_o(heap_out_idx),
+    .ordered_valid_o(heap_vec_valid),
+    .ordered_ready_i(state == ST_COLLECT),
+    .ordered_score_o(heap_vec_s),
+    .ordered_id_o(heap_vec_id),
     .busy_o(heap_busy),
     .clear_ignored_o(heap_clr_ign),
     .accepted_count_o(heap_acc),
@@ -139,7 +147,7 @@ module a7ng_ng02_core #(
   end
 
   wire stream_hs  = (state == ST_STREAM) && heap_in_valid && heap_in_ready;
-  wire collect_hs = (state == ST_COLLECT) && heap_out_valid;
+  wire collect_hs = (state == ST_COLLECT) && heap_vec_valid;
 
   always_comb begin
     state_n = state;
@@ -149,7 +157,7 @@ module a7ng_ng02_core #(
       ST_WAIT:    if (&sc_valid_p) state_n = ST_STREAM;
       ST_STREAM:  if (stream_hs && (sidx == 3'(PHYS - 1)))
                     state_n = (bidx == 3'(NBATCH - 1)) ? ST_COLLECT : ST_FIRE;
-      ST_COLLECT: if (collect_hs && (heap_out_idx == 3'd7)) state_n = ST_COMMIT;
+      ST_COLLECT: if (collect_hs) state_n = ST_COMMIT;
       ST_COMMIT:  state_n = ST_PUSH;
       ST_PUSH:    if (push_fire && (push_idx == 3'd7)) state_n = ST_IDLE;
       default:    state_n = ST_IDLE;
@@ -181,8 +189,7 @@ module a7ng_ng02_core #(
       end
 
       if (collect_hs) begin
-        if (heap_out_idx == 3'd7)
-          push_idx <= 3'd0;
+        push_idx <= 3'd0;
       end else if ((state == ST_PUSH) && push_fire) begin
         if (push_idx != 3'd7)
           push_idx <= push_idx + 3'd1;
@@ -206,8 +213,10 @@ module a7ng_ng02_core #(
     end
 
     if (collect_hs) begin
-      hold_s[heap_out_idx]  <= heap_out_s;
-      hold_id[heap_out_idx] <= heap_out_id;
+      for (hi_f = 0; hi_f < 8; hi_f = hi_f + 1) begin
+        hold_s[hi_f]  <= heap_vec_s[hi_f];
+        hold_id[hi_f] <= heap_vec_id[hi_f];
+      end
     end
   end
 
