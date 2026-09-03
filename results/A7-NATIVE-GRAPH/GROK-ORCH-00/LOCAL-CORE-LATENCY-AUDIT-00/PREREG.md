@@ -1,0 +1,18 @@
+# PREREG — LOCAL-CORE-LATENCY-AUDIT-00
+
+```text
+GATE        = LOCAL-CORE-LATENCY-AUDIT-00
+RTL_EDIT    = NO
+BIT         = NO
+PROGRAM     = NO
+ORACLE      = HOLD
+GATE14_PASS = NO
+M10         = KEEP_OPEN
+
+UNKNOWN     = Which NG02 state occupies C_L=96?
+              FIRE / WAIT(scorer) / STREAM(heap take) / COLLECT /
+              COMMIT / PUSH(frontier)
+
+NEXT_IF_PUSH_EXPOSED_AND_UNUSED = FRONTIER-DEADPATH-00
+NEXT_IF_SCORER_OR_HEAP          = SCORER-HEAP-DECOUPLE-00
+```
