@@ -100,7 +100,7 @@ module a7ng_ng02_core #(
   assign heap_in_last  = (bidx == 3'(NBATCH - 1)) && (sidx == 3'(PHYS - 1));
   assign heap_in_lane  = 4'(int'(bidx) * int'(PHYS) + int'(sidx));
 
-  a7ng_topk_stream_minheap #(.K(8), .SORT_BEFORE_DRAIN(1'b0)) u_topk (
+  a7ng_topk_stream_minheap #(.K(8), .SORT_BEFORE_DRAIN(1'b0), .SIFT_ON_TAKE(1'b1)) u_topk (
     .clk(clk), .rst_n(rst_n),
     .clear_i(input_hs),
     .in_valid_i(heap_in_valid),

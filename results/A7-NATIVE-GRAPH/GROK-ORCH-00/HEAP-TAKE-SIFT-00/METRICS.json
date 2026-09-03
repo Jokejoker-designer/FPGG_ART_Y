@@ -1,0 +1,74 @@
+{
+  "gate": "HEAP-TAKE-SIFT-00",
+  "rtl_edit": true,
+  "rtl_scope": "SIFT_ON_TAKE parameter default 0; NG02 instance 1",
+  "allowed_files": [
+    "rtl/native_graph/topk/a7ng_topk_stream_minheap.sv",
+    "rtl/native_graph/topk/a7ng_ng02_core.sv"
+  ],
+  "bit": false,
+  "synth_impl": false,
+  "program": false,
+  "gate14_pass": false,
+  "m10": "KEEP_OPEN",
+  "phys": 4,
+  "wave": 16,
+  "n": 64,
+  "heap_take_sift": "PASS",
+  "set_pass": true,
+  "set_n": 64,
+  "frozen_c9_regression": "PASS",
+  "frozen_out_regression": "PASS",
+  "hold_a_c9": "8382238122802120",
+  "out": {"hold_a": 653, "unrel": 689, "contra": 237, "hold_b": 60},
+  "soa_topk_pulses": [
+    {"n": 1, "id": 60, "score": 232},
+    {"n": 2, "id": 60, "score": 232},
+    {"n": 3, "id": 60, "score": 232},
+    {"n": 4, "id": 60, "score": 232}
+  ],
+  "scorer_heap_decouple": {
+    "role": "optional_microopt_not_cl_fix",
+    "ceiling_cycles_per_wave": 9
+  },
+  "baseline_after_elide": {
+    "t_query": 500,
+    "cand_per_cycle": 0.128,
+    "c_l_max": 68,
+    "stream_per_wave": [42, 30, 30, 30],
+    "c_g_max": 52,
+    "g_sort": 112
+  },
+  "after": {
+    "t_query": 432,
+    "t_run": 262,
+    "cand_per_cycle": 0.148148,
+    "c_d_max": 45,
+    "c_t_max": 33,
+    "c_l_max": 39,
+    "c_g_max": 52,
+    "g_sort": 112,
+    "ii_pred": 52,
+    "ii_wave_obs": 88,
+    "overlap3": 71,
+    "blk_hold": 79,
+    "stream_total": 64,
+    "collect_total": 36,
+    "ng02_probe_dominant": "HEAP_STREAM",
+    "roofline_dominant": "C_G",
+    "per_wave": [
+      {"w": 0, "c_l": 39, "fire": 4, "wait": 8, "stream": 16, "collect": 9, "commit": 1, "push": 8, "c_d": 45, "c_t": 33, "c_g": 52},
+      {"w": 1, "c_l": 39, "fire": 4, "wait": 8, "stream": 16, "collect": 9, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 48},
+      {"w": 2, "c_l": 39, "fire": 4, "wait": 8, "stream": 16, "collect": 9, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 45},
+      {"w": 3, "c_l": 39, "fire": 4, "wait": 8, "stream": 16, "collect": 9, "commit": 1, "push": 8, "c_d": 45, "c_t": 33, "c_g": 48}
+    ]
+  },
+  "delta_t_query": -68,
+  "evidence_class": "MIG_XSIM",
+  "minheap_sha256": "A674F13D1C07383C4AA9D89DB05A9C38A42483D269214A51C659782EFD0D878B",
+  "ng02_sha256": "7888C5C49C92FD28DD96BDB7D65859AC88E0C633A103998F73608C659381CE88",
+  "audit_log_sha256": "7160F62A8891E93A6619999A57FAECD4213DE4912F060DE366E370E889B08D22",
+  "set_log_sha256": "9C52D1B3C5C6E329644FFA8B4FEEABFEEA8A85DE2C3C08AA0694CD6283873012",
+  "c9_log_sha256": "D748524DACF865D57E4DFAA71B9AB75C928A284A75D64B954F909D00F5F151E7",
+  "next": "GLOBAL-CORE-LATENCY-AUDIT-00"
+}
