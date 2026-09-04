@@ -1,0 +1,5 @@
+DDR-WAVE-PINGPONG-00: dual-bank same-RID prefetch.
+
+AR(N+1) before LAST_R(N). II 46->40. T_QUERY 310->281.
+ISSUE waits core only. C9 HOLD. NEXT=ROOFLINE-REMEASURE-05.
+GATE14_PASS=NO PROGRAM=NO

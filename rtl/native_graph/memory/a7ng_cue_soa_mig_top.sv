@@ -321,8 +321,12 @@ module a7ng_cue_soa_mig_top #(
           end
         end
         SCH_ISSUE: begin
-          // CORE_ISSUE_READY: do not fire into NG02 while it or Global is busy.
-          if (!issued && core_batch_ready && !global_topk_busy) begin
+          // CORE_ISSUE_READY: do not fire into NG02 while it is busy.
+          // Global accepts only in ST_IDLE. Intermediate C_G (16-23) is
+          // covered by NG02 C_L=31, so local topk arrives after Global
+          // returns to IDLE. Do not hold ISSUE (and the next WAVE_ACCEPT)
+          // on global_topk_busy — that re-exposes II after DDR ping-pong.
+          if (!issued && core_batch_ready) begin
             core_valid <= {NG_LANES{1'b1}};
             issued <= 1'b1;
           end else if (issued && !core_batch_ready) begin

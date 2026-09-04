@@ -1,7 +1,9 @@
-// a7ng_cue_soa_wavefront.sv — R3 AOS-STREAM-ONEOWNER-00
-// One 16-byte descriptor per candidate (id + cue64 + prior + pad).
-// No three-plane SOA bulk copy, no dual-bank ping-pong.
-// Product reducer remains min-heap (not Serial). PROGRAM=NO.
+// a7ng_cue_soa_wavefront.sv — DDR-WAVE-PINGPONG-00
+// Dual-bank AOS wave prefetch. MAX_INFLIGHT_WAVES=2. Same AXI RID for
+// overlapping bursts; sequential R maps to bank ownership. No cross-ID
+// order assumption. AR(N+1) may issue before LAST_R(N).
+// Field-split banks (not 128b distributed RAM) — XSim ID-lag guard.
+// Product reducer remains min-heap. PROGRAM=NO.
 `timescale 1ns / 1ps
 
 module a7ng_cue_soa_wavefront #(
@@ -69,6 +71,10 @@ module a7ng_cue_soa_wavefront #(
   import a7ng_pkg::*;
 
   localparam int unsigned BEAT_BYTES = 16;
+  localparam int unsigned IDX_W = $clog2(WAVE);
+  localparam int unsigned CNT_W = $clog2(WAVE + 1);
+  localparam int unsigned MAX_INFLIGHT_WAVES = 2;
+  localparam logic [3:0]  WAVE_RID = 4'd0;
 
   typedef enum logic [2:0] {
     ST_IDLE  = 3'd0,
@@ -78,28 +84,30 @@ module a7ng_cue_soa_wavefront #(
     ST_DONE  = 3'd4
   } st_t;
 
-  st_t          st;
-  logic         running;
-  logic [31:0]  target, base_q, delivered;
-  logic [31:0]  cyc, waves, mm, empty_st, cr_cyc;
-  logic [31:0]  aos_beats, acc_txns_q, ret_beats_q;
-  logic         pf_start, pf_arm, fetch_active;
-  logic [27:0]  pf_base;
-  logic [5:0]   pf_target;
-  logic         start_d;
-  wire          start_pulse = start_i & ~start_d;
+  st_t st;
 
-  logic         pf_ar_valid, pf_ar_ready;
-  logic [27:0]  pf_ar_addr;
-  logic [7:0]   pf_ar_len;
-  logic [3:0]   pf_ar_id;
-  logic [2:0]   pf_ar_size;
-  logic         pf_r_valid, pf_r_ready, pf_r_last;
-  logic [127:0] pf_r_data;
-  logic [127:0] pf_beats [WAVE];
-  logic         pf_running, pf_done, pf_idle_pf, pf_done_pulse;
-  logic [5:0]   pf_returned, pf_issued;
-  logic [31:0]  pf_ar_txns;
+  logic [31:0] r0_nid [WAVE];
+  logic [63:0] r0_cue [WAVE];
+  logic [7:0]  r0_prior [WAVE];
+  logic [31:0] r1_nid [WAVE];
+  logic [63:0] r1_cue [WAVE];
+  logic [7:0]  r1_prior [WAVE];
+
+  logic [CNT_W-1:0] cnt0, cnt1;
+  logic             fill_sel, drain_sel;
+  logic [31:0]      next_node, issued, returned, delivered, target, base_q, pending;
+  logic [3:0]       in_flight;
+  logic             running;
+  logic [31:0]      cyc, waves, mm, cerr, swaps, empty_st, full_st, cr_cyc;
+  logic [31:0]      aos_beats, acc_txns_q, ret_beats_q;
+  logic [31:0]      drop_q, dup_q, overwrite_q, ooo_q, ar_overlap_n, out_hw;
+  logic             start_d;
+  wire              start_pulse = start_i & ~start_d;
+
+  logic        ar_valid_q;
+  logic [27:0] ar_addr_q;
+  logic [7:0]  ar_len_q;
+  logic [4:0]  this_burst_q;
 
   function automatic logic [63:0] golden_cue64(input logic [31:0] nid);
     logic [31:0] c32;
@@ -122,33 +130,30 @@ module a7ng_cue_soa_wavefront #(
     return pack_desc(nid, golden_cue64(nid), 8'h03);
   endfunction
 
-  wire [31:0] remain = (delivered < target) ? (target - delivered) : 32'd0;
-  wire [5:0]  wave_n = (remain == 32'd0) ? 6'd0 :
-                       ((remain < 32'(WAVE)) ? 6'(remain[5:0]) : 6'(WAVE));
-  wire        fetch_done = pf_done_pulse && fetch_active && !pf_running &&
-                           (pf_returned == pf_target) && (pf_issued == pf_target);
-  wire        do_wave = running && (st == ST_HOLD) && cons_ready_i &&
-                        (pf_returned == pf_target) && (pf_target != 6'd0);
+  wire bank_full0 = (cnt0 == CNT_W'(WAVE));
+  wire bank_full1 = (cnt1 == CNT_W'(WAVE));
+  wire fill_full  = fill_sel  ? bank_full1 : bank_full0;
+  wire drain_full = drain_sel ? bank_full1 : bank_full0;
 
   assign running_o        = running;
   assign done_o           = !running && (delivered >= target) && (target != 32'd0);
   assign cycles_o         = cyc;
   assign waves_o          = waves;
-  assign cand_accepted_o  = target;
+  assign cand_accepted_o  = issued;
   assign cand_delivered_o = delivered;
-  assign cand_queued_o    = 32'd0;
-  assign cand_inflight_o  = pf_running ? 32'(pf_target) : 32'd0;
+  assign cand_queued_o    = 32'(cnt0) + 32'(cnt1);
+  assign cand_inflight_o  = pending;
   assign cand_pruned_o    = 32'd0;
-  assign conserve_err_o   = 32'd0;
+  assign conserve_err_o   = cerr;
   assign data_mismatch_o  = mm;
-  assign swap_count_o     = 32'd0;
+  assign swap_count_o     = swaps;
   assign buffer_empty_stall_o = empty_st;
-  assign buffer_full_stall_o  = 32'd0;
+  assign buffer_full_stall_o  = full_st;
   assign cons_ready_cycles_o  = cr_cyc;
   assign fill_cycles_o    = 32'd0;
   assign fill_episodes_o  = waves;
-  assign occ_fill_o       = 16'(pf_returned);
-  assign occ_drain_o      = do_wave ? 16'(WAVE) : 16'd0;
+  assign occ_fill_o       = fill_sel  ? 16'(cnt1) : 16'(cnt0);
+  assign occ_drain_o      = drain_sel ? 16'(cnt1) : 16'(cnt0);
   assign soa_id_beats_o   = aos_beats;
   assign soa_cue_beats_o  = 32'd0;
   assign soa_prior_beats_o = 32'd0;
@@ -160,50 +165,60 @@ module a7ng_cue_soa_wavefront #(
   assign accepted_beat_credit_o = aos_beats;
   assign returned_beats_o       = ret_beats_q;
   assign returned_transactions_o = acc_txns_q;
-  assign outstanding_txns_o     = pf_running ? 32'd1 : 32'd0;
+  assign outstanding_txns_o     = {28'd0, in_flight};
   assign unpack_beats_o         = aos_beats;
-  assign wave_valid_o           = do_wave;
   assign wave_base_id_o         = base_q + delivered;
-  assign plane_fetch_idle_o     = pf_idle_pf && !fetch_active && bridge_idle_i;
+  assign plane_fetch_idle_o     = !running && !ar_valid_q && (in_flight == 4'd0) &&
+                                  (pending == 32'd0) && bridge_idle_i;
 
   integer wi;
   always_comb begin
-    for (wi = 0; wi < int'(WAVE); wi++)
-      wave_rec_o[wi] = pf_beats[wi];
+    for (wi = 0; wi < int'(WAVE); wi++) begin
+      if (drain_sel)
+        wave_rec_o[wi] = pack_desc(r1_nid[wi], r1_cue[wi], r1_prior[wi]);
+      else
+        wave_rec_o[wi] = pack_desc(r0_nid[wi], r0_cue[wi], r0_prior[wi]);
+    end
   end
 
-  assign ar_valid_o  = pf_ar_valid && (st == ST_FETCH);
-  assign pf_ar_ready = ar_ready_i && (st == ST_FETCH);
-  assign ar_addr_o   = pf_ar_addr;
-  assign ar_len_o    = pf_ar_len;
-  assign ar_id_o     = pf_ar_id;
-  assign ar_size_o   = pf_ar_size;
-  assign pf_r_valid  = r_valid_i;
-  assign pf_r_last   = r_last_i;
-  assign pf_r_data   = r_data_i;
-  assign r_ready_o   = pf_r_ready;
+  wire do_wave = running && drain_full && cons_ready_i;
+  assign wave_valid_o = do_wave;
 
-  // One outstanding wave fetch. MAX_BEATS=WAVE so plane buffer is 16×128b, not 64-cand planes.
-  a7ng_soa_plane_engine #(
-    .MAX_BEATS(WAVE), .MAX_OUT(1), .MAX_BURST(MAX_BURST)
-  ) u_pf (
-    .clk(clk), .rst_n(rst_n),
-    .start_i(pf_start),
-    .burst_i(burst_i), .outstanding_i(4'd1),
-    .base_byte_i(pf_base), .beat_target_i(pf_target),
-    .ar_valid_o(pf_ar_valid), .ar_ready_i(pf_ar_ready),
-    .ar_addr_o(pf_ar_addr), .ar_len_o(pf_ar_len),
-    .ar_id_o(pf_ar_id), .ar_size_o(pf_ar_size),
-    .r_valid_i(pf_r_valid), .r_ready_o(pf_r_ready),
-    .r_data_i(pf_r_data), .r_last_i(pf_r_last),
-    .beat_data_o(pf_beats),
-    .running_o(pf_running), .done_o(pf_done),
-    .done_pulse_o(pf_done_pulse),
-    .beats_returned_o(pf_returned),
-    .beats_issued_o(pf_issued),
-    .idle_o(pf_idle_pf),
-    .ar_txns_o(pf_ar_txns)
-  );
+  assign ar_valid_o = ar_valid_q;
+  assign ar_addr_o  = ar_addr_q;
+  assign ar_len_o   = ar_len_q;
+  assign ar_id_o    = WAVE_RID;
+  assign ar_size_o  = 3'd4;
+
+  wire do_ar = ar_valid_q && ar_ready_i;
+  wire do_r  = r_valid_i && r_ready_o;
+  assign r_ready_o = running && !fill_full;
+
+  wire [4:0] burst_c = (burst_i == 5'd0) ? 5'd1 :
+                       ((burst_i > 5'(MAX_BURST)) ? 5'(MAX_BURST) : burst_i);
+  wire [3:0] out_c   = 4'(MAX_INFLIGHT_WAVES);
+
+  wire [15:0] remain16 = (issued[15:0] < target[15:0]) ? (target[15:0] - issued[15:0]) : 16'd0;
+  wire [4:0]  wave_cap = (remain16 < 16'(WAVE)) ? 5'(remain16[4:0]) : 5'(WAVE);
+  wire [4:0]  this_burst_c = (remain16 == 16'd0) ? 5'd0 :
+                             ((wave_cap < burst_c) ? wave_cap : burst_c);
+  wire [15:0] held16  = 16'(cnt0) + 16'(cnt1) + pending[15:0];
+  wire [15:0] room16  = (held16 < 16'(2 * WAVE)) ? (16'(2 * WAVE) - held16) : 16'd0;
+  wire issue_ok_c = running && (this_burst_c != 5'd0) && (in_flight < out_c) &&
+                    (room16 >= 16'(this_burst_c));
+
+  always_comb begin
+    if (!running && (delivered >= target) && (target != 32'd0))
+      st = ST_DONE;
+    else if (!running)
+      st = ST_IDLE;
+    else if ((in_flight != 4'd0) || ar_valid_q)
+      st = ST_FETCH;
+    else if (drain_full)
+      st = ST_HOLD;
+    else
+      st = ST_ARM;
+  end
 
   wire [27:0] aos_base = NG_DDR_NODE_BASE + {base_q[23:0], 4'b0000};
   wire        mig_ar_fire = ar_valid_o && ar_ready_i;
@@ -217,8 +232,10 @@ module a7ng_cue_soa_wavefront #(
       first_ar_seen <= 1'b0;
     else if (mig_ar_fire && !first_ar_seen) begin
       first_ar_seen <= 1'b1;
-      if (ar_addr_o != aos_base) begin
-        $error("first_ar_not_aos_base: got=0x%08h expect=0x%08h", ar_addr_o, aos_base);
+      if (ar_addr_o != (NG_DDR_NODE_BASE + {base_node_i[23:0], 4'b0000}) &&
+          ar_addr_o != aos_base) begin
+        $error("first_ar_not_aos_base: got=0x%08h expect=0x%08h",
+               ar_addr_o, NG_DDR_NODE_BASE + {base_node_i[23:0], 4'b0000});
         $fatal(1, "AOS first AR must be NODE_BASE + base*16");
       end
     end
@@ -227,88 +244,144 @@ module a7ng_cue_soa_wavefront #(
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
-      st <= ST_IDLE;
-      running <= 1'b0;
-      delivered <= '0; target <= '0; base_q <= '0;
-      cyc <= '0; waves <= '0; mm <= '0; empty_st <= '0; cr_cyc <= '0;
+      cnt0 <= '0; cnt1 <= '0;
+      fill_sel <= 1'b0; drain_sel <= 1'b0;
+      next_node <= '0; issued <= '0; returned <= '0; delivered <= '0;
+      target <= '0; base_q <= '0; pending <= '0;
+      in_flight <= '0; running <= 1'b0;
+      cyc <= '0; waves <= '0; mm <= '0; cerr <= '0; swaps <= '0;
+      empty_st <= '0; full_st <= '0; cr_cyc <= '0;
       aos_beats <= '0; acc_txns_q <= '0; ret_beats_q <= '0;
-      pf_start <= 1'b0; pf_arm <= 1'b0; fetch_active <= 1'b0;
-      pf_base <= '0; pf_target <= '0;
+      drop_q <= '0; dup_q <= '0; overwrite_q <= '0; ooo_q <= '0;
+      ar_overlap_n <= '0; out_hw <= '0;
+      ar_valid_q <= 1'b0; ar_addr_q <= '0; ar_len_q <= '0; this_burst_q <= '0;
       start_d <= 1'b0;
     end else begin
       start_d <= start_i;
-      pf_start <= 1'b0;
-
-      if (pf_arm && pf_idle_pf && bridge_idle_i) begin
-        pf_start <= 1'b1;
-        pf_arm <= 1'b0;
-        fetch_active <= 1'b1;
-      end
-
       if (start_pulse) begin
-        base_q <= base_node_i;
-        delivered <= '0;
-        target <= total_recs_i;
-        running <= 1'b1;
-        cyc <= '0; waves <= '0; mm <= '0; empty_st <= '0; cr_cyc <= '0;
+        cnt0 <= '0; cnt1 <= '0;
+        fill_sel <= 1'b0; drain_sel <= 1'b0;
+        next_node <= base_node_i; base_q <= base_node_i;
+        issued <= '0; returned <= '0; delivered <= '0;
+        target <= total_recs_i; pending <= '0;
+        in_flight <= '0; running <= 1'b1;
+        cyc <= '0; waves <= '0; mm <= '0; cerr <= '0; swaps <= '0;
+        empty_st <= '0; full_st <= '0; cr_cyc <= '0;
         aos_beats <= '0; acc_txns_q <= '0; ret_beats_q <= '0;
-        pf_base <= NG_DDR_NODE_BASE + {base_node_i[23:0], 4'b0000};
-        pf_target <= (total_recs_i == 32'd0) ? 6'd0 :
-                     ((total_recs_i < 32'(WAVE)) ? 6'(total_recs_i[5:0]) : 6'(WAVE));
-        pf_arm <= 1'b1;
-        fetch_active <= 1'b0;
-        st <= ST_ARM;
+        drop_q <= '0; dup_q <= '0; overwrite_q <= '0; ooo_q <= '0;
+        ar_overlap_n <= '0; out_hw <= '0;
+        ar_valid_q <= 1'b0; ar_addr_q <= '0; ar_len_q <= '0; this_burst_q <= '0;
       end else if (running) begin
+        automatic logic [CNT_W-1:0] c0, c1, pre;
+        automatic logic             f_sel, d_sel;
+        automatic logic [31:0]      iss, ret, del, pb, mmadd;
+        automatic logic [3:0]       nf;
+        automatic int unsigned      k0;
+        automatic logic [31:0]      nid_w;
+        automatic logic [IDX_W-1:0] idx;
+
+        c0 = cnt0; c1 = cnt1;
+        f_sel = fill_sel; d_sel = drain_sel;
+        iss = issued; ret = returned; del = delivered; pb = pending; nf = in_flight;
+        mmadd = 32'd0;
+
         cyc <= cyc + 32'd1;
         if (cons_ready_i)
           cr_cyc <= cr_cyc + 32'd1;
 
-        unique case (st)
-          ST_ARM: begin
-            if (pf_start)
-              st <= ST_FETCH;
+        if (issued != (delivered + 32'(cnt0) + 32'(cnt1) + pending))
+          cerr <= cerr + 32'd1;
+
+        if (do_ar) begin
+          next_node <= next_node + 32'(this_burst_q);
+          iss = iss + 32'(this_burst_q);
+          pb  = pb + 32'(this_burst_q);
+          if (nf != 4'd0)
+            ar_overlap_n <= ar_overlap_n + 32'd1;
+          nf  = nf + 4'd1;
+          acc_txns_q <= acc_txns_q + 32'd1;
+          ar_valid_q <= 1'b0;
+        end else if (!ar_valid_q) begin
+          ar_valid_q   <= issue_ok_c;
+          ar_addr_q    <= NG_DDR_NODE_BASE + {next_node[23:0], 4'b0000};
+          this_burst_q <= this_burst_c;
+          ar_len_q     <= (this_burst_c == 5'd0) ? 8'd0 : 8'(this_burst_c - 5'd1);
+        end
+
+        if (do_r) begin
+          pre = f_sel ? c1 : c0;
+          if (pre >= CNT_W'(WAVE))
+            overwrite_q <= overwrite_q + 32'd1;
+          idx = pre[IDX_W-1:0];
+          nid_w = r_data_i[31:0];
+          if (f_sel) begin
+            r1_nid[idx]   <= nid_w;
+            r1_cue[idx]   <= r_data_i[95:32];
+            r1_prior[idx] <= r_data_i[103:96];
+            c1 = pre + 1'b1;
+          end else begin
+            r0_nid[idx]   <= nid_w;
+            r0_cue[idx]   <= r_data_i[95:32];
+            r0_prior[idx] <= r_data_i[103:96];
+            c0 = pre + 1'b1;
           end
-          ST_FETCH: begin
-            if (fetch_done) begin
-              acc_txns_q  <= acc_txns_q + pf_ar_txns;
-              ret_beats_q <= ret_beats_q + 32'(pf_returned);
-              aos_beats   <= aos_beats + 32'(pf_returned);
-              fetch_active <= 1'b0;
-              st <= ST_HOLD;
-            end
+          ret = ret + 32'd1;
+          pb  = pb - 32'd1;
+          aos_beats   <= aos_beats + 32'd1;
+          ret_beats_q <= ret_beats_q + 32'd1;
+          if (r_last_i && (nf > 4'd0))
+            nf = nf - 4'd1;
+          if ((f_sel ? c1 : c0) == CNT_W'(WAVE)) begin
+            f_sel = ~f_sel;
+            swaps <= swaps + 32'd1;
           end
-          ST_HOLD: begin
-            if (do_wave) begin
-              automatic int unsigned k0, pi;
-              automatic logic [31:0] mmadd;
-              mmadd = 32'd0;
-              for (k0 = 0; k0 < int'(WAVE); k0++) begin
-                pi = int'(delivered) + k0;
-                if (pi < int'(target)) begin
-                  if (pf_beats[k0] != golden_desc(base_q + 32'(pi)))
-                    mmadd = mmadd + 32'd1;
-                end
-              end
-              if (mmadd != 32'd0)
-                mm <= mm + mmadd;
-              delivered <= delivered + 32'(WAVE);
-              waves <= waves + 32'd1;
-              if ((delivered + 32'(WAVE)) < target) begin
-                pf_base <= NG_DDR_NODE_BASE +
-                           {(base_q[23:0] + delivered[23:0] + 24'(WAVE)), 4'b0000};
-                pf_target <= 6'(WAVE);
-                pf_arm <= 1'b1;
-                st <= ST_ARM;
+        end else if (r_valid_i && !r_ready_o) begin
+          full_st <= full_st + 32'd1;
+        end
+
+        if (do_wave) begin
+          if (!drain_full)
+            dup_q <= dup_q + 32'd1;
+          for (k0 = 0; k0 < int'(WAVE); k0++) begin
+            if ((del + 32'(k0)) < target) begin
+              if (d_sel) begin
+                if (pack_desc(r1_nid[k0], r1_cue[k0], r1_prior[k0]) !=
+                    golden_desc(base_q + del + 32'(k0)))
+                  mmadd = mmadd + 32'd1;
               end else begin
-                running <= 1'b0;
-                st <= ST_DONE;
+                if (pack_desc(r0_nid[k0], r0_cue[k0], r0_prior[k0]) !=
+                    golden_desc(base_q + del + 32'(k0)))
+                  mmadd = mmadd + 32'd1;
               end
-            end else if (cons_ready_i) begin
-              empty_st <= empty_st + 32'd1;
             end
           end
-          default: ;
-        endcase
+          if (d_sel) c1 = '0;
+          else       c0 = '0;
+          d_sel = ~d_sel;
+          del   = del + 32'(WAVE);
+          waves <= waves + 32'd1;
+        end else if (cons_ready_i && (delivered < target)) begin
+          empty_st <= empty_st + 32'd1;
+        end
+
+        if (mmadd != 32'd0)
+          mm <= mm + mmadd;
+
+        cnt0 <= c0; cnt1 <= c1;
+        fill_sel <= f_sel; drain_sel <= d_sel;
+        issued <= iss; returned <= ret; delivered <= del; pending <= pb; in_flight <= nf;
+        if (32'(nf) > out_hw)
+          out_hw <= 32'(nf);
+
+        if ((del >= target) && (pb == 32'd0) && (nf == 4'd0) &&
+            (c0 == '0) && (c1 == '0)) begin
+          running <= 1'b0;
+          ar_valid_q <= 1'b0;
+          if (iss != del)
+            drop_q <= drop_q + (iss - del);
+        end
+      end else begin
+        ar_valid_q <= 1'b0;
       end
     end
   end
