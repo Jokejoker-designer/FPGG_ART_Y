@@ -1,0 +1,72 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Sep  4 12:56:49 2026
+| Host         : laptop-Quan running 64-bit major release  (build 9200)
+| Command      : report_high_fanout_nets -max_nets 50 -file D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U2-OPTIMIZED-FULLCHIP-COFIT-00/report_high_fanout.rpt
+| Design       : arty_a7_ng_native_v1_ab_soc_top
+| Device       : xc7a100t
+| Design State : Physopt postRoute
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+High Fan-out Nets Information
+
+1. Summary
+----------
+
++--------------------------------------------------------------------------------------------------+--------+-------------+
+| Net Name                                                                                         | Fanout | Driver Type |
++--------------------------------------------------------------------------------------------------+--------+-------------+
+| u_boot_core_sync/sync_out_reg[1]_1                                                               |  10482 | LUT4        |
+| u_ab/u_soa/u_soa/E[0]                                                                            |   1664 | LUT3        |
+| u_ab/u_soa/u_core/input_hs                                                                       |   1309 | LUT2        |
+| u_mig/init_calib_complete_reg                                                                    |   1031 | LUT2        |
+| u_boot_core_sync/p_0_in                                                                          |    959 | LUT4        |
+| u_ab/u_core/row_reg[1]__0_n_0                                                                    |    887 | FDRE        |
+| u_ab/u_core/row_reg[5]__0_rep_n_0                                                                |    887 | FDRE        |
+| u_ab/u_core/row_reg[2]__0_n_0                                                                    |    880 | FDRE        |
+| u_ab/u_core/row_reg[3]__0_n_0                                                                    |    880 | FDRE        |
+| u_ab/u_soa/u_global/p_0_in[2]                                                                    |    680 | FDCE        |
+| u_mig/u_mig/u_mig_7series_0_mig/u_memc_ui_top_axi/u_ui_top/ui_wr_data0/app_wdf_rdy_r_copy2_reg_0 |    598 | FDRE        |
+| u_ab/u_core/row_reg[4]__0_rep_n_0                                                                |    541 | FDRE        |
+| u_ab/u_core/row_reg[0]__0_rep__0_n_0                                                             |    522 | FDRE        |
+| u_ab/u_core/vix[6]                                                                               |    510 | FDRE        |
+| u_ab/u_soa/u_global/p_0_in[3]                                                                    |    499 | FDCE        |
+| u_ab/u_g1g5/u_graph/u_hp/st__0[0]                                                                |    489 | FDCE        |
+| u_clk/mmcm_i_0                                                                                   |    455 | LUT1        |
+| u_mig/u_mig/u_mig_7series_0_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_w_channel_0/wready_reg_0       |    443 | FDRE        |
+| u_ab/u_soa/u_global/h[0][v]_i_8_n_0                                                              |    433 | LUT2        |
+| u_ab/u_soa/u_core/u_topk/h[4][s][15]_i_7_n_0                                                     |    432 | LUT2        |
+| u_ab/u_soa/u_global/h[0][v]_i_10_n_0                                                             |    429 | LUT2        |
+| u_ab/u_soa/u_global/h[0][v]_i_20_n_0                                                             |    428 | LUT6        |
+| u_ab/u_g1g5/u_graph/u_hp/h[3][id][31]_i_8_n_0                                                    |    428 | LUT2        |
+| u_ab/u_core/row_reg[0]__0_rep__1_n_0                                                             |    420 | FDRE        |
+| u_ab/u_soa/u_core/u_topk/h[0][s][15]_i_10_n_0                                                    |    404 | LUT6        |
+| u_ab/u_core/row_reg[4]__0_n_0                                                                    |    393 | FDRE        |
+| u_ab/u_soa/u_core/E[0]                                                                           |    384 | LUT3        |
+| u_ab/u_soa/u_core/collect_hs                                                                     |    384 | LUT2        |
+| u_ab/u_soa/u_core/u_topk/h[1][s][15]_i_9_n_0                                                     |    378 | LUT2        |
+| u_ab/u_soa/u_core/u_topk/h[1][s][15]_i_1_n_0                                                     |    371 | LUT5        |
+| u_ab/u_soa/u_core/u_topk/fill_n[1]_i_2_n_0                                                       |    335 | LUT2        |
+| u_ab/u_soa/u_tg/FSM_sequential_sch_reg[0]_2[0]                                                   |    324 | LUT6        |
+| u_ab/u_soa/u_tg/E[0]                                                                             |    324 | LUT6        |
+| u_ab/u_soa/u_tg/FSM_sequential_sch_reg[0]_0[0]                                                   |    324 | LUT6        |
+| u_ab/u_soa/u_tg/FSM_sequential_sch_reg[0]_1[0]                                                   |    324 | LUT6        |
+| u_ab/u_core/snap_waddr_reg[1]_rep__1_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[0]_rep__3_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[1]_rep__2_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[1]_rep__3_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[5]_rep_n_0                                                            |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[5]_rep__0_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[1]_rep_n_0                                                            |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[1]_rep__0_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[3]_rep_n_0                                                            |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[3]_rep__0_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[3]_rep__1_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[5]_rep__1_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[5]_rep__3_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[3]_rep__2_n_0                                                         |    320 | FDRE        |
+| u_ab/u_core/snap_waddr_reg[3]_rep__3_n_0                                                         |    320 | FDRE        |
++--------------------------------------------------------------------------------------------------+--------+-------------+
+
+
