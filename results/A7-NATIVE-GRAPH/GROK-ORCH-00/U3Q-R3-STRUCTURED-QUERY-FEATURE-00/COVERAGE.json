@@ -1,0 +1,19 @@
+{
+  "law": "qse-v1-lexicon-hdc-00",
+  "n_frozen": 98,
+  "n_xsim_rows": 98,
+  "n_match": 98,
+  "n_mismatch": 0,
+  "first_divergence": null,
+  "sections_frozen": {
+    "entity_paraphrase": 42,
+    "intent_paraphrase": 18,
+    "same_entity_diff_intent": 3,
+    "unrelated": 8,
+    "perturbation": 5,
+    "adversarial": 20,
+    "sentinel": 2
+  },
+  "coverage": 1.0,
+  "xsim_marker": "U3Q_R3_RTL_GOLDEN_PASS"
+}

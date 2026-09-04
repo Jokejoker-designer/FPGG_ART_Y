@@ -1,4 +1,5 @@
-# U3Q-R3 OOC estimate. No bitstream. DSP must be 0.
+# U3Q-R3 OOC UTILIZATION-ONLY. No bitstream. No timing claim.
+# DSP must be 0. Missing DSP row means 0 DSP cells.
 set bag  [file normalize [file dirname [info script]]]
 set root [file normalize [file join $bag ../../../..]]
 set env(XILINXD_LICENSE_FILE) {D:\Xilinx\licenses\vivado_basic.lic}
@@ -15,11 +16,14 @@ set_property include_dirs [list \
 set_property top a7ng_query_struct_ooc_top [current_fileset]
 synth_design -mode out_of_context -top a7ng_query_struct_ooc_top -part xc7a100tcsg324-1
 report_utilization -file [file join $bag report_utilization_ooc.rpt]
-report_timing_summary -file [file join $bag report_timing_ooc.rpt]
+puts "U3Q_R3_OOC_UTILIZATION_ONLY_NO_TIMING_CLAIM"
+# No create_clock / no report_timing_summary as evidence.
 set utxt [read [open [file join $bag report_utilization_ooc.rpt] r]]
-set dsp  -1
-if {[regexp {\| DSP48E1s\s+\|\s+(\d+)} $utxt -> dsp]} {}
-if {[regexp {\|\s+DSP48E1\s+\|\s+(\d+)} $utxt -> dsp]} {}
+set dsp 0
+if {[regexp {\|\s+DSPs\s+\|\s+(\d+)} $utxt -> d]} { set dsp $d }
+if {[regexp {DSP48E1} $utxt] && $dsp == 0} {
+  if {[regexp {\| DSP48E1s\s+\|\s+(\d+)} $utxt -> d2]} { set dsp $d2 }
+}
 puts "OOC_DSP=$dsp"
 if {$dsp != 0} {
   puts "U3Q_R3_OOC_DSP_FAIL"

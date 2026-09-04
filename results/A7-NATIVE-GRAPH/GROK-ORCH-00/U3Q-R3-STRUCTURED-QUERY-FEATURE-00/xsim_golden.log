@@ -1,0 +1,129 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Sep  4 21:40:40 2026
+# Process ID         : 40172
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-R3-STRUCTURED-QUERY-FEATURE-00/xsim_golden
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-R3-STRUCTURED-QUERY-FEATURE-00/xsim_golden.log -mode tcl -source {xsim.dir/u3qr3g/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-R3-STRUCTURED-QUERY-FEATURE-00/xsim_golden.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-R3-STRUCTURED-QUERY-FEATURE-00/xsim_golden\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 27456 MB
+#-----------------------------------------------------------
+source xsim.dir/u3qr3g/xsim_script.tcl
+# xsim {u3qr3g} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+VEC 0 sec=1 MATCH eid=1 iid=0 k0=0100 crc=2b4c
+VEC 1 sec=1 MATCH eid=1 iid=0 k0=0100 crc=9c79
+VEC 2 sec=1 MATCH eid=1 iid=0 k0=0100 crc=3caa
+VEC 3 sec=1 MATCH eid=1 iid=0 k0=0100 crc=e8ea
+VEC 4 sec=1 MATCH eid=2 iid=0 k0=0200 crc=ab13
+VEC 5 sec=1 MATCH eid=2 iid=0 k0=0200 crc=d2b3
+VEC 6 sec=1 MATCH eid=2 iid=0 k0=0200 crc=20a7
+VEC 7 sec=1 MATCH eid=2 iid=0 k0=0200 crc=2798
+VEC 8 sec=1 MATCH eid=3 iid=0 k0=0300 crc=7a76
+VEC 9 sec=1 MATCH eid=3 iid=0 k0=0300 crc=88c3
+VEC 10 sec=1 MATCH eid=3 iid=0 k0=0300 crc=5fbc
+VEC 11 sec=1 MATCH eid=3 iid=0 k0=0300 crc=f434
+VEC 12 sec=1 MATCH eid=4 iid=0 k0=0400 crc=cd4a
+VEC 13 sec=1 MATCH eid=4 iid=0 k0=0400 crc=4d35
+VEC 14 sec=1 MATCH eid=4 iid=0 k0=0400 crc=edba
+VEC 15 sec=1 MATCH eid=5 iid=0 k0=0500 crc=fb3a
+VEC 16 sec=1 MATCH eid=5 iid=0 k0=0500 crc=2596
+VEC 17 sec=1 MATCH eid=5 iid=0 k0=0500 crc=e317
+VEC 18 sec=1 MATCH eid=5 iid=0 k0=0500 crc=9863
+VEC 19 sec=1 MATCH eid=6 iid=0 k0=0600 crc=cc76
+VEC 20 sec=1 MATCH eid=6 iid=0 k0=0600 crc=a17c
+VEC 21 sec=1 MATCH eid=6 iid=0 k0=0600 crc=2430
+VEC 22 sec=1 MATCH eid=6 iid=0 k0=0600 crc=f6f5
+VEC 23 sec=1 MATCH eid=7 iid=0 k0=0700 crc=4471
+VEC 24 sec=1 MATCH eid=7 iid=0 k0=0700 crc=354b
+VEC 25 sec=1 MATCH eid=7 iid=0 k0=0700 crc=7af3
+VEC 26 sec=1 MATCH eid=7 iid=0 k0=0700 crc=5ca1
+VEC 27 sec=1 MATCH eid=8 iid=0 k0=0800 crc=807e
+VEC 28 sec=1 MATCH eid=8 iid=0 k0=0800 crc=38ff
+VEC 29 sec=1 MATCH eid=8 iid=0 k0=0800 crc=05f3
+VEC 30 sec=1 MATCH eid=9 iid=0 k0=0900 crc=a1cf
+VEC 31 sec=1 MATCH eid=9 iid=0 k0=0900 crc=d9c5
+VEC 32 sec=1 MATCH eid=9 iid=0 k0=0900 crc=a09e
+VEC 33 sec=1 MATCH eid=10 iid=0 k0=0a00 crc=2858
+VEC 34 sec=1 MATCH eid=2 iid=0 k0=0200 crc=3c38
+VEC 35 sec=1 MATCH eid=10 iid=0 k0=0a00 crc=f09c
+VEC 36 sec=1 MATCH eid=11 iid=0 k0=0b00 crc=00f4
+VEC 37 sec=1 MATCH eid=11 iid=0 k0=0b00 crc=1e4f
+VEC 38 sec=1 MATCH eid=11 iid=0 k0=0b00 crc=2efd
+VEC 39 sec=1 MATCH eid=12 iid=0 k0=0c00 crc=41b7
+VEC 40 sec=1 MATCH eid=12 iid=0 k0=0c00 crc=117b
+VEC 41 sec=1 MATCH eid=12 iid=0 k0=0c00 crc=2ca4
+VEC 42 sec=2 MATCH eid=1 iid=1 k0=0101 crc=7786
+VEC 43 sec=2 MATCH eid=1 iid=1 k0=0101 crc=6282
+VEC 44 sec=2 MATCH eid=1 iid=1 k0=0101 crc=973f
+VEC 45 sec=2 MATCH eid=0 iid=2 k0=0002 crc=1ddf
+VEC 46 sec=2 MATCH eid=0 iid=2 k0=0002 crc=7306
+VEC 47 sec=2 MATCH eid=0 iid=2 k0=0002 crc=530c
+VEC 48 sec=2 MATCH eid=0 iid=3 k0=0003 crc=0ce4
+VEC 49 sec=2 MATCH eid=0 iid=3 k0=0003 crc=c3e1
+VEC 50 sec=2 MATCH eid=0 iid=3 k0=0003 crc=c962
+VEC 51 sec=2 MATCH eid=0 iid=4 k0=0004 crc=c9e3
+VEC 52 sec=2 MATCH eid=0 iid=4 k0=0004 crc=7b99
+VEC 53 sec=2 MATCH eid=0 iid=4 k0=0004 crc=082e
+VEC 54 sec=2 MATCH eid=6 iid=5 k0=0605 crc=2067
+VEC 55 sec=2 MATCH eid=6 iid=5 k0=0605 crc=3477
+VEC 56 sec=2 MATCH eid=6 iid=5 k0=0605 crc=d77b
+VEC 57 sec=2 MATCH eid=4 iid=6 k0=0406 crc=f2a3
+VEC 58 sec=2 MATCH eid=4 iid=6 k0=0406 crc=6492
+VEC 59 sec=2 MATCH eid=4 iid=6 k0=0406 crc=defc
+VEC 60 sec=3 MATCH eid=1 iid=1 k0=0101 crc=7786
+VEC 61 sec=3 MATCH eid=1 iid=2 k0=0102 crc=3fe2
+VEC 62 sec=3 MATCH eid=1 iid=6 k0=0106 crc=ec94
+VEC 63 sec=4 MATCH eid=0 iid=0 k0=0000 crc=c93b
+VEC 64 sec=4 MATCH eid=0 iid=0 k0=0000 crc=64c5
+VEC 65 sec=4 MATCH eid=0 iid=0 k0=0000 crc=994a
+VEC 66 sec=4 MATCH eid=0 iid=0 k0=0000 crc=73ed
+VEC 67 sec=4 MATCH eid=0 iid=0 k0=0000 crc=a150
+VEC 68 sec=4 MATCH eid=0 iid=0 k0=0000 crc=16dc
+VEC 69 sec=4 MATCH eid=0 iid=0 k0=0000 crc=e326
+VEC 70 sec=4 MATCH eid=0 iid=0 k0=0000 crc=b7ff
+VEC 71 sec=5 MATCH eid=0 iid=0 k0=0000 crc=3b6d
+VEC 72 sec=5 MATCH eid=0 iid=0 k0=0000 crc=bb32
+VEC 73 sec=5 MATCH eid=0 iid=0 k0=0000 crc=6a57
+VEC 74 sec=5 MATCH eid=0 iid=0 k0=0000 crc=dd6b
+VEC 75 sec=5 MATCH eid=0 iid=0 k0=0000 crc=fc15
+VEC 76 sec=6 MATCH eid=0 iid=0 k0=0000 crc=fc8f
+VEC 77 sec=6 MATCH eid=0 iid=0 k0=0000 crc=39a9
+VEC 78 sec=6 MATCH eid=0 iid=0 k0=0000 crc=8fba
+VEC 79 sec=6 MATCH eid=0 iid=0 k0=0000 crc=5b23
+VEC 80 sec=6 MATCH eid=0 iid=0 k0=0000 crc=7bfd
+VEC 81 sec=6 MATCH eid=0 iid=0 k0=0000 crc=dab8
+VEC 82 sec=6 MATCH eid=0 iid=0 k0=0000 crc=c25c
+VEC 83 sec=6 MATCH eid=0 iid=0 k0=0000 crc=f62c
+VEC 84 sec=6 MATCH eid=0 iid=0 k0=0000 crc=cdd4
+VEC 85 sec=6 MATCH eid=0 iid=0 k0=0000 crc=933b
+VEC 86 sec=6 MATCH eid=0 iid=0 k0=0000 crc=1c7a
+VEC 87 sec=6 MATCH eid=0 iid=0 k0=0000 crc=6589
+VEC 88 sec=6 MATCH eid=0 iid=0 k0=0000 crc=dcad
+VEC 89 sec=6 MATCH eid=0 iid=0 k0=0000 crc=cfdc
+VEC 90 sec=6 MATCH eid=0 iid=0 k0=0000 crc=cd9b
+VEC 91 sec=6 MATCH eid=0 iid=0 k0=0000 crc=2b5a
+VEC 92 sec=6 MATCH eid=0 iid=0 k0=0000 crc=34c1
+VEC 93 sec=6 MATCH eid=0 iid=0 k0=0000 crc=13d2
+VEC 94 sec=6 MATCH eid=0 iid=0 k0=0000 crc=cc37
+VEC 95 sec=6 MATCH eid=0 iid=0 k0=0000 crc=981c
+VEC 96 sec=7 MATCH eid=0 iid=0 k0=0000 crc=b039
+VEC 97 sec=7 MATCH eid=0 iid=0 k0=0000 crc=d192
+U3Q_R3_RTL_GOLDEN_PASS n=98 match=98
+$finish called at time : 28155 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-R3-STRUCTURED-QUERY-FEATURE-00/tb_u3qr3_rtl_golden.sv" Line 102
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 21:40:42 2026...

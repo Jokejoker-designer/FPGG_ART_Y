@@ -23,15 +23,20 @@ def bindb(c: int, b: int) -> int:
 
 
 def fold_word(word: str, eid, iid, rid, xid, ec, ic, rc, xc):
-    w = word.encode("ascii")
+    w = word.encode("latin1")
     hit = False
     hcls = hid = 0
-    for ww, cls, iid_ in LEX:
-        if ww == word:
-            if not hit:
-                hit, hcls, hid = True, cls, iid_
-            elif cls == hcls and iid_ < hid:
-                hid = iid_
+    try:
+        ascii_w = w.decode("ascii")
+    except UnicodeDecodeError:
+        ascii_w = None
+    if ascii_w is not None:
+        for ww, cls, iid_ in LEX:
+            if ww == ascii_w:
+                if not hit:
+                    hit, hcls, hid = True, cls, iid_
+                elif cls == hcls and iid_ < hid:
+                    hid = iid_
     bcue = 0
     for x in w:
         bcue = bindb(bcue, x)
@@ -56,26 +61,36 @@ def fold_word(word: str, eid, iid, rid, xid, ec, ic, rc, xc):
     return eid, iid, rid, xid, ec, ic, rc, xc
 
 
-def extract(text: str) -> dict:
-    raw = text.encode("ascii", "ignore")[:48]
+def extract_bytes(raw: list[int]) -> dict:
+    """RTL-faithful ingest: CRC every accepted byte; words split on 0x20; lc A-Z."""
+    raw = [int(b) & 0xFF for b in raw[:48]]
     crc = 0xFFFF
     for b in raw:
         crc = crc16_byte(crc, b)
-    s = bytes(lc if not (65 <= lc <= 90) else lc + 32 for lc in raw).decode("ascii")
     eid = iid = rid = xid = 0
     ec = ic = rc = xc = 0
     n_words = 0
-    for w in s.split(" "):
-        if not w:
-            continue
-        if n_words >= 8:
-            break
-        if len(w) > MAX_WORD:
-            w = w[:MAX_WORD]
+    cur: list[int] = []
+    def flush():
+        nonlocal eid, iid, rid, xid, ec, ic, rc, xc, n_words, cur
+        if not cur or n_words >= 8:
+            cur = []
+            return
+        w = bytes(cur).decode("latin1")
         eid, iid, rid, xid, ec, ic, rc, xc = fold_word(
             w, eid, iid, rid, xid, ec, ic, rc, xc
         )
         n_words += 1
+        cur = []
+
+    for b in raw:
+        if b == 0x20:
+            flush()
+        else:
+            lc = b + 32 if 65 <= b <= 90 else b
+            if len(cur) < MAX_WORD:
+                cur.append(lc)
+    flush()
     k0 = ((eid & 0xFF) << 8) | (iid & 0xFF)
     k1 = ((rid & 0xFF) << 8) | (xid & 0xFF)
     k2 = ec & 0xFFFF
@@ -86,3 +101,8 @@ def extract(text: str) -> dict:
         "crc16_dbg": crc, "k0": k0, "k1": k1, "k2": k2, "k3": k3,
         "n_host": 0,
     }
+
+
+def extract(text: str) -> dict:
+    raw = text.encode("latin1", "ignore")[:48]
+    return extract_bytes(list(raw))
