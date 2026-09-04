@@ -17,8 +17,7 @@ Paraphrases of the same HVAC label do not land in the same 12-bit bucket,
 so downstream label-gold retrieval is zero. That is a measurement, not a
 retarget invitation.
 
-Spot TB `tb_u3q_r2_spot.sv` generated from held-out corpus for XSim after
-U2R releases the synthesis license.
+Spot TB `tb_u3q_r2_spot.sv` XSim **U3Q_R2_XSIM_SPOT_PASS** (8/8 held-out).
 
 Marker: `U3Q_R2_MEASURE_PASS` + `U3Q_R2_SEMANTIC_AUTHORITY_OPEN` +
 `CRC_SELFCHECK_NOT_SEMANTIC_RECALL`

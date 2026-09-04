@@ -8,6 +8,9 @@ package a7ng_pkg;
   localparam int unsigned NG_SCORE_W = 16;
   localparam int unsigned NG_TERM_W  = 8;
   localparam int unsigned NG_ID_W    = 32;
+  // U4B: live ID observe width. 799999 = 20'hC34FF. Do not alias to id[7:0].
+  localparam int unsigned NG_ID_LIVE_W = 20;
+  localparam logic [19:0] NG_ID_SENTINEL_20 = 20'hC34FF;
   localparam int unsigned NG_FEAT_W  = 32;
   localparam int unsigned NG_CUE_W   = 64; // TermGen / 01R-aligned cue width
 

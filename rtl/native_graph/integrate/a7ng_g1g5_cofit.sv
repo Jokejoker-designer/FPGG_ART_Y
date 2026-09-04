@@ -15,7 +15,8 @@ module a7ng_g1g5_cofit (
   input  logic [9:0]   graph_pred_i,
   output logic [3:0]   c1_mode_o,
   output logic [63:0]  c2_anch_o,
-  output logic [63:0]  c9_topk_o,
+  output logic [63:0]  c9_topk_o,     // diagnostic 8-bit pack (oracle C9 UART)
+  output logic [159:0] c9_id20_o,     // live >=20-bit IDs
   output logic [127:0] c9_score_o,
   output logic [31:0]  c9_r1s_o,
   output logic [7:0]   c9_r1r_o,
@@ -176,7 +177,7 @@ module a7ng_g1g5_cofit (
     .lm_start_o(lm_start), .lm_busy_i(graph_lm_busy_i),
     .lm_done_i(graph_bind_done_i), .lm_pred_i(graph_pred_i),
     .c1_mode_o(mode_g), .c2_anch_o(c2_anch_o),
-    .c9_topk_o(c9_topk_o), .c9_score_o(c9_score_o),
+    .c9_topk_o(c9_topk_o), .c9_id20_o(c9_id20_o), .c9_score_o(c9_score_o),
     .c9_r1s_o(c9_r1s_o), .c9_r1r_o(c9_r1r_o), .c9_r1o_o(c9_r1o_o),
     .c10_lmst_o(g_lmst), .c10_lmdn_o(g_lmdn), .c10_out_o(g_out),
     .n_host_cue_o(n_host_cue_o), .n_host_win_o(n_host_win_o),

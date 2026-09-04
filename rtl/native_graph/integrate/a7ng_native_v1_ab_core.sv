@@ -50,7 +50,8 @@ module a7ng_native_v1_ab_core #(
   output logic         bind_busy_o,
   output logic         bind_done_o,
   output logic         ctx_we_o,
-  output logic [63:0]  ctx_pack_o,
+  output logic [63:0]  ctx_pack_o,     // diagnostic 8-bit pack into frozen LM
+  output logic [159:0] ctx_pack20_o,   // live >=20-bit LM-context IDs
   output logic         start_fwd_o,
   output logic         capture_valid_o,
   output logic [31:0]  ctx_we_beats_o,
@@ -98,7 +99,8 @@ module a7ng_native_v1_ab_core #(
   input  logic [127:0] wdma_r_data = 128'd0,
   output logic [3:0]   c1_mode_o,
   output logic [63:0]  c2_anch_o,
-  output logic [63:0]  c9_cframe_o,
+  output logic [63:0]  c9_cframe_o,    // diagnostic 8-bit C9 UART
+  output logic [159:0] c9_id20_o,      // live >=20-bit C9 observe
   output logic         c10_lmst_o,
   output logic         c10_lmdn_o,
   output logic [9:0]   c10_out_o,
@@ -268,6 +270,7 @@ module a7ng_native_v1_ab_core #(
     .ctx_idx_o(ctx_idx),
     .ctx_n_in_o(ctx_n),
     .ctx_pack_o(ctx_pack_o),
+    .ctx_pack20_o(ctx_pack20_o),
     .start_fwd_o(start_fwd_o),
     .pred_o(bind_pred),
     .ctx_we_beats_o(ctx_we_beats_o),
@@ -309,6 +312,7 @@ module a7ng_native_v1_ab_core #(
     .c1_mode_o(c1_mode_o),
     .c2_anch_o(c2_anch_o),
     .c9_topk_o(c9_cframe_o),
+    .c9_id20_o(c9_id20_o),
     .c10_lmst_o(c10_lmst_o),
     .c10_lmdn_o(c10_lmdn_o),
     .c10_out_o(c10_out_o),
