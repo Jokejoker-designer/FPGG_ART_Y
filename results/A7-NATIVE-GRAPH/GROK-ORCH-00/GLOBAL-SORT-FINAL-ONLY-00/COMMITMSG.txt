@@ -1,0 +1,5 @@
+GLOBAL-SORT-FINAL-ONLY-00: sort last wave only.
+
+G_SORT 112->28. T_QUERY 397->310. II=45=C_D. Case A.
+merge_done=4 ordered_valid=1. C9 HOLD. NEXT=DDR-EXPOSED-REMEASURE.
+GATE14_PASS=NO PROGRAM=NO

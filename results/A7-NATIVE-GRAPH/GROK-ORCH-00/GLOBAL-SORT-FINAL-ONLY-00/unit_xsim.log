@@ -1,0 +1,19 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Sep  4 10:47:51 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g14sfo/xsim_script.tcl
+# xsim {g14sfo} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+SORT_FINAL_ONLY_UNIT md=4 gv=1 sort=28 merges=4 mid_gv=0 drop=0
+FINAL_OUT id=32,s=240 id=33,s=239 id=34,s=238 id=35,s=237 id=36,s=236 id=37,s=235 id=38,s=234 id=39,s=233
+SORT_FINAL_ONLY_UNIT_PASS
+$finish called at time : 1296 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/GLOBAL-SORT-FINAL-ONLY-00/tb_g14_sort_final_only.sv" Line 106
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 10:47:53 2026...

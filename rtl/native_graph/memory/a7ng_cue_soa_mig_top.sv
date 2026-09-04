@@ -343,6 +343,8 @@ module a7ng_cue_soa_mig_top #(
   node_id_t global_topk_id    [8];
   logic [31:0] global_merge_count;
   logic [31:0] topk_batch_cnt;
+  logic [31:0] local_topk_n;
+  logic        wave_last;
 
   a7ng_ng02_core #(.PHYS(PHYS)) u_core (
     .clk(clk), .rst_n(rst_n),
@@ -360,12 +362,26 @@ module a7ng_cue_soa_mig_top #(
     .push_beat_valid_o(), .push_beat_score_o(), .push_beat_id_o(), .flow_state_o()
   );
 
+  assign wave_last = ((local_topk_n + 32'd1) * 32'(WAVE) >= total_recs_i);
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+      local_topk_n <= 32'd0;
+    else if (wf_start)
+      local_topk_n <= 32'd0;
+    else if (core_topk_valid)
+      local_topk_n <= local_topk_n + 32'd1;
+  end
+
   // Grok independent product copy: min-heap Global Top-8 (bitonic file frozen).
   // Local NG02 still computes an exact Top-8 per 16-candidate wave.
-  a7ng_topk_wavefront_minheap #(.K(8), .HEAP_CMP_LANES(1)) u_global (
+  // GLOBAL-SORT-FINAL-ONLY-00: sort only the last wave; intermediates
+  // emit merge_done_o only (retained SET in h[], no ordered publish).
+  a7ng_topk_wavefront_minheap #(.K(8), .HEAP_CMP_LANES(1), .SORT_EVERY_WAVE(1'b0)) u_global (
     .clk(clk), .rst_n(rst_n),
     .clear_i(wf_start),
     .wave_valid_i(core_topk_valid),
+    .wave_last_i(wave_last),
     .wave_scored_i(5'd16),
     .wave_score_i(core_topk_score),
     .wave_id_i(core_topk_id),

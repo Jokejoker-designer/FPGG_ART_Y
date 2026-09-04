@@ -7,12 +7,16 @@
 
 module a7ng_topk_wavefront_minheap #(
   parameter int unsigned K = 8,
-  parameter int unsigned HEAP_CMP_LANES = 1
+  parameter int unsigned HEAP_CMP_LANES = 1,
+  // GLOBAL-SORT-FINAL-ONLY-00: 0 = sort only when wave_last_i.
+  // Default 1 keeps SPLIT/C9/unit cycle-equivalent path.
+  parameter bit          SORT_EVERY_WAVE = 1'b1
 ) (
   input  logic                       clk,
   input  logic                       rst_n,
   input  logic                       clear_i,
   input  logic                       wave_valid_i,
+  input  logic                       wave_last_i = 1'b1,
   input  logic [4:0]                 wave_scored_i,
   input  a7ng_pkg::score_t           wave_score_i [K],
   input  a7ng_pkg::node_id_t         wave_id_i    [K],
@@ -75,6 +79,7 @@ module a7ng_topk_wavefront_minheap #(
   logic [2:0] sort_pass;
   logic [2:0] sort_j;
   logic [31:0] merges;
+  logic       need_sort;
   integer gi;
 
   function automatic logic [3:0] first_empty();
@@ -99,6 +104,7 @@ module a7ng_topk_wavefront_minheap #(
       sort_pass      <= 3'd0;
       sort_j         <= 3'd0;
       merges         <= 32'd0;
+      need_sort      <= 1'b1;
       global_valid_o <= 1'b0;
       merge_done_o   <= 1'b0;
       for (gi = 0; gi < K; gi = gi + 1) begin
@@ -116,6 +122,7 @@ module a7ng_topk_wavefront_minheap #(
         st             <= ST_IDLE;
         hf_dir         <= HF_NONE;
         merges         <= 32'd0;
+        need_sort      <= 1'b1;
         wave_i         <= 4'd0;
         wave_n         <= 5'd0;
         for (gi = 0; gi < K; gi = gi + 1) begin
@@ -126,8 +133,9 @@ module a7ng_topk_wavefront_minheap #(
       end else unique case (st)
         ST_IDLE: begin
           if (wave_valid_i) begin
-            wave_n <= (wave_scored_i > K) ? 5'(K) : wave_scored_i;
-            wave_i <= 4'd0;
+            wave_n    <= (wave_scored_i > K) ? 5'(K) : wave_scored_i;
+            wave_i    <= 4'd0;
+            need_sort <= SORT_EVERY_WAVE || wave_last_i;
             for (gi = 0; gi < K; gi = gi + 1) begin
               w_s[gi]  <= wave_score_i[gi];
               w_id[gi] <= wave_id_i[gi];
@@ -138,11 +146,17 @@ module a7ng_topk_wavefront_minheap #(
 
         ST_CAND: begin
           if (wave_n == 5'd0) begin
-            st <= ST_SORT;
-            sort_pass <= 3'd0;
-            sort_j    <= 3'd0;
-            for (gi = 0; gi < K; gi = gi + 1)
-              ord[gi] <= 3'(gi);
+            if (need_sort) begin
+              st        <= ST_SORT;
+              sort_pass <= 3'd0;
+              sort_j    <= 3'd0;
+              for (gi = 0; gi < K; gi = gi + 1)
+                ord[gi] <= 3'(gi);
+            end else begin
+              merge_done_o <= 1'b1;
+              merges       <= merges + 32'd1;
+              st           <= ST_IDLE;
+            end
           end else begin
             // Incoming wave slot i uses lane=8+i (frozen 16-slot map)
             cand_t c;
@@ -213,11 +227,20 @@ module a7ng_topk_wavefront_minheap #(
 
         ST_NEXT: begin
           if ({1'b0, wave_i} + 5'd1 >= wave_n) begin
-            for (gi = 0; gi < K; gi = gi + 1)
-              ord[gi] <= 3'(gi);
-            sort_pass <= 3'd0;
-            sort_j    <= 3'd0;
-            st        <= ST_SORT;
+            if (need_sort) begin
+              for (gi = 0; gi < K; gi = gi + 1)
+                ord[gi] <= 3'(gi);
+              sort_pass <= 3'd0;
+              sort_j    <= 3'd0;
+              st        <= ST_SORT;
+            end else begin
+              // Intermediate wave: completion only. Heap h[] is the
+              // retained SET. Do not pulse global_valid_o (would publish
+              // unordered h[]).
+              merge_done_o <= 1'b1;
+              merges       <= merges + 32'd1;
+              st           <= ST_IDLE;
+            end
           end else begin
             wave_i <= wave_i + 4'd1;
             st     <= ST_CAND;

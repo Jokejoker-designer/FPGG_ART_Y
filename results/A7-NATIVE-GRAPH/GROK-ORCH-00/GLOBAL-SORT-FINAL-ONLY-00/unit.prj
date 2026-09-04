@@ -1,0 +1,3 @@
+sv work "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/pkg/a7ng_pkg.sv"
+sv work "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/topk/a7ng_topk_wavefront_minheap.sv"
+sv work "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/GLOBAL-SORT-FINAL-ONLY-00/tb_g14_sort_final_only.sv"
