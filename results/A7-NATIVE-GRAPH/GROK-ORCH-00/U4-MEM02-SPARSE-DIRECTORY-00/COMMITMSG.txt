@@ -1,0 +1,4 @@
+U4-MEM02-SPARSE-DIRECTORY-00: 2-table dir, sentinel 255.
+
+Scale=256 XSim PASS full_scan=NO. NEXT=U5 800k.
+PROGRAM=NO GATE14_PASS=NO
