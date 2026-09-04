@@ -65,7 +65,8 @@ module a7ng_cue_soa_mig_top #(
   output logic         m_axi_rready,
   output logic         owner_ready_o,
   output logic         r_path_idle_o,
-  output logic         global_topk_busy_o
+  output logic         global_topk_busy_o,
+  output logic         merge_done_o
 );
   import a7ng_pkg::*;
 
@@ -372,7 +373,8 @@ module a7ng_cue_soa_mig_top #(
     .global_score_o(global_topk_score),
     .global_id_o(global_topk_id),
     .busy_o(global_topk_busy),
-    .merge_count_o(global_merge_count)
+    .merge_count_o(global_merge_count),
+    .merge_done_o(merge_done_o)
   );
 
   assign topk_valid_o = global_topk_valid;

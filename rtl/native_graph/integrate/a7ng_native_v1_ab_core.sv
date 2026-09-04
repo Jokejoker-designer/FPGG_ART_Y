@@ -142,7 +142,7 @@ module a7ng_native_v1_ab_core #(
 );
   import a7ng_pkg::*;
 
-  logic req_graph, req_lm;
+  logic req_graph, req_lm, merge_done;
   a7ng_lm_graph_arb u_arb (
     .clk(clk), .rst_n(rst_n),
     .req_graph_i(req_graph), .req_lm_i(req_lm),
@@ -175,6 +175,7 @@ module a7ng_native_v1_ab_core #(
     .rid_order_error_o(), .r_backpressure_cycles_o(),
     .topk_batches_o(topk_batches_o), .topk_valid_o(topk_valid_o),
     .topk_score_o(topk_score_o), .topk_id_o(topk_id_o),
+    .merge_done_o(merge_done),
     .m_axi_arid(m_axi_arid), .m_axi_araddr(m_axi_araddr), .m_axi_arlen(m_axi_arlen),
     .m_axi_arsize(m_axi_arsize), .m_axi_arburst(m_axi_arburst),
     .m_axi_arvalid(m_axi_arvalid), .m_axi_arready(m_axi_arready),
@@ -231,9 +232,9 @@ module a7ng_native_v1_ab_core #(
       start_pulse <= 1'b0;
       if (start_query_i)
         gv_cnt <= 32'd0;
-      else if (topk_valid_o)
+      else if (merge_done)
         gv_cnt <= gv_cnt + 32'd1;
-      if (topk_valid_o && ((gv_cnt + 32'd1) == 32'd4))
+      if (merge_done && ((gv_cnt + 32'd1) == 32'd4))
         pending <= 1'b1;
       if (pending && grant_lm_o && do_lm_i && !core_busy_o && !bind_busy_o) begin
         start_pulse <= 1'b1;

@@ -20,7 +20,11 @@ module a7ng_topk_wavefront_minheap #(
   output a7ng_pkg::score_t           global_score_o [K],
   output a7ng_pkg::node_id_t         global_id_o    [K],
   output logic                       busy_o,
-  output logic [31:0]                merge_count_o
+  output logic [31:0]                merge_count_o,
+  // GLOBAL-MERGE-DONE-SPLIT-00: completion token, independent of ordered
+  // Top-8. This gate still pulses it in ST_COMMIT with global_valid_o
+  // (cycle-equivalent). Do not assign merge_done_o = global_valid_o.
+  output logic                       merge_done_o
 );
   import a7ng_pkg::*;
 
@@ -96,6 +100,7 @@ module a7ng_topk_wavefront_minheap #(
       sort_j         <= 3'd0;
       merges         <= 32'd0;
       global_valid_o <= 1'b0;
+      merge_done_o   <= 1'b0;
       for (gi = 0; gi < K; gi = gi + 1) begin
         h[gi]              <= '0;
         ord[gi]            <= 3'(gi);
@@ -106,6 +111,7 @@ module a7ng_topk_wavefront_minheap #(
       end
     end else begin
       global_valid_o <= 1'b0;
+      merge_done_o   <= 1'b0;
       if (clear_i) begin
         st             <= ST_IDLE;
         hf_dir         <= HF_NONE;
@@ -251,6 +257,7 @@ module a7ng_topk_wavefront_minheap #(
             global_id_o[oi]    <= h[ord[oi]].id;
           end
           global_valid_o <= 1'b1;
+          merge_done_o   <= 1'b1;
           merges         <= merges + 32'd1;
           st             <= ST_IDLE;
         end
