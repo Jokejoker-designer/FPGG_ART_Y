@@ -1,0 +1,9 @@
+OOC_TOP=a7ng_query_struct_ooc_top
+DSP=0
+LUT=2437
+FF=201
+CARRY4=483
+BRAM=0
+CELL_USAGE_NO_DSP48=YES
+U3Q_R3_OOC_DSP0_PASS
+NOTE=TCL regex missed '| DSPs | 0 |' row; cell usage and util report both DSP=0.
