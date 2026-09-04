@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/query/a7ng_query_feature_extract.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_query_feature_extract
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-QUERY-REPRESENTATION-AUTHORITY-00/tb_a7ng_query_feature_extract.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_a7ng_query_feature_extract

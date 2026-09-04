@@ -1,0 +1,4 @@
+U3Q-QUERY-REPRESENTATION-AUTHORITY-00: freeze qfe-v1-crc16-mix-00.
+
+FPGA 4-key packet from raw tokens. XSim PASS. SoC unwired.
+NEXT=U4A-SPARSE-ROUTER-RIVAL-AUDIT-00 PROGRAM=NO

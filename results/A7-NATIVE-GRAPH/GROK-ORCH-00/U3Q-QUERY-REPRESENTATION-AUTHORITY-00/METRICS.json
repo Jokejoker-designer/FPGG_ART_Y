@@ -1,0 +1,20 @@
+{
+  "gate": "U3Q-QUERY-REPRESENTATION-AUTHORITY-00",
+  "law": "qfe-v1-crc16-mix-00",
+  "rtl_edit": true,
+  "soc_wiring": false,
+  "bit": false,
+  "program": false,
+  "oracle": "HOLD",
+  "result": "PASS",
+  "evidence_class": "XSIM",
+  "same_in_same_out": true,
+  "token_delta_changes_keys": true,
+  "host_hash_shard_bucket_winner_address": false,
+  "k0_q0": "B72B",
+  "k0_q1": "A70A",
+  "rtl_sha256": "3F9C3C9BF2FFA4A66D12761AD554620D938FEAECA3F00883DA15F64543118DA4",
+  "tb_sha256": "1CC8685F1A1156919282621EAD28120825ADC65C837DA5E2B4008B85E2135454",
+  "xsim_log_sha256": "9BEAB9C73D89B540410783E3EF13AA3E83C632915EA25D4F6658D9666919F4F1",
+  "next": "U4A-SPARSE-ROUTER-RIVAL-AUDIT-00"
+}
