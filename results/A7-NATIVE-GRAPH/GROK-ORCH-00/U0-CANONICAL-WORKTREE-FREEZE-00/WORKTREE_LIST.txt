@@ -1,0 +1,8 @@
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm                            4327375 [master]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board                      140345e [native-v1-board-lane-stage0]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-board-research-e2r-cfix-00 4dcc512 [research/e2r-owner-fence-cfix-00]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-close664                   140345e [cursor/close664-owner-fence]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-codex-ng05                 4327375 [codex-ng05-persist-integrity-00]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-codex-phase2               4327375 [codex-phase2-feedback-resolver-00]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00            492277f [grok-orch/v31-canonical-00]
+D:/Jetking_sem4/SEM_4/arty-a7-online-lm-grok-orch-00               7aa837a [codex-audit/gate14-p0-pboot-dirty-ddr-00]
