@@ -1,0 +1,130 @@
+{
+  "gate": "GLOBAL-CORE-LATENCY-AUDIT-00",
+  "base": "505e3605dc582e12d96616834fd03f3d261d6f1b",
+  "rtl_edit": false,
+  "synth_impl": false,
+  "bit": false,
+  "program": false,
+  "gate14_pass": false,
+  "m10": "KEEP_OPEN",
+  "oracle": "HOLD",
+  "phys": 4,
+  "wave": 16,
+  "n": 64,
+  "global_core_audit": "PASS",
+  "next": "NOT_DECLARED",
+  "frozen_c9_this_gate": "HOLD_NOT_RERUN",
+  "hold_a_c9_base": "8382238122802120",
+  "out_base": {"hold_a": 653, "unrel": 689, "contra": 237, "hold_b": 60},
+  "required": {
+    "waves": 4,
+    "global_merge_count": 4,
+    "candidates_to_global_per_wave": 8,
+    "st_sort_per_wave": 28,
+    "drop": 0,
+    "dup": 0,
+    "deadlock": 0,
+    "wave_scored_pin": 16,
+    "wave_n": 8
+  },
+  "classify": {
+    "C_G_CAND": "ST_CAND + ST_HEAPIFY + ST_NEXT",
+    "C_G_SORT": "ST_SORT",
+    "C_G_COMMIT": "ST_COMMIT",
+    "C_G_TOTAL": "C_G_CAND + C_G_SORT + C_G_COMMIT + measured_transition_overhead"
+  },
+  "occupancy_totals": {
+    "ST_CAND": 32,
+    "ST_HEAPIFY": 10,
+    "ST_NEXT": 32,
+    "ST_SORT": 112,
+    "ST_COMMIT": 4,
+    "GLOBAL_BUSY": 190,
+    "GLOBAL_BLOCKED_UPSTREAM": 59
+  },
+  "c_g_cand_max": 23,
+  "c_g_cand_avg": 18.5,
+  "c_g_sort_max": 28,
+  "c_g_sort_avg": 28,
+  "c_g_commit_occupancy_per_wave": 1,
+  "c_g_commit_probe_print_per_wave": 2,
+  "c_g_total_probe_max": 53,
+  "c_g_total_probe_avg": 48,
+  "p3p4_c_g_max": 52,
+  "p3p4_c_g_avg": 47.5,
+  "ii_pred": 52,
+  "limiter": "C_G",
+  "primary_unknown": {
+    "substate_that_makes_c_g_limiter": "W0 fill = CAND8 + HEAPIFY7 + NEXT8 + SORT28 + COMMIT1 = 52; C_L_MAX=31",
+    "serialization_terms_exposed": [
+      "ST_SORT triangular 28/wave always (53.8% of C_G_MAX, G_SORT=112)",
+      "ST_CAND+ST_NEXT serial floor 16/wave even on all-reject"
+    ],
+    "next_gate": "NOT_DECLARED"
+  },
+  "per_wave": [
+    {
+      "w": 0,
+      "st_cand": 8, "st_heapify": 7, "st_next": 8, "st_sort": 28, "st_commit_print": 2,
+      "c_g_cand": 23, "c_g_sort": 28, "c_g_commit_print": 2, "c_g_total_print": 53,
+      "p3p4_c_g": 52,
+      "cand_accepted": 8, "first_empty_inserts": 8, "root_replacements": 0, "rejected": 0,
+      "hf_up": 7, "hf_down": 0, "merge_count": 1, "wave_n": 8,
+      "input_top8_set": [
+        {"id": 32, "s": 203}, {"id": 40, "s": 214}, {"id": 36, "s": 205}, {"id": 44, "s": 216},
+        {"id": 60, "s": 232}, {"id": 52, "s": 221}, {"id": 48, "s": 219}, {"id": 56, "s": 230}
+      ],
+      "output_top8_order": [
+        {"id": 60, "s": 232}, {"id": 56, "s": 230}, {"id": 52, "s": 221}, {"id": 48, "s": 219},
+        {"id": 44, "s": 216}, {"id": 40, "s": 214}, {"id": 36, "s": 205}, {"id": 32, "s": 203}
+      ],
+      "w0_set_ok": true
+    },
+    {
+      "w": 1,
+      "st_cand": 8, "st_heapify": 3, "st_next": 8, "st_sort": 28, "st_commit_print": 2,
+      "c_g_cand": 19, "c_g_sort": 28, "c_g_commit_print": 2, "c_g_total_print": 49,
+      "p3p4_c_g": 48,
+      "cand_accepted": 2, "first_empty_inserts": 0, "root_replacements": 2, "rejected": 6,
+      "hf_up": 0, "hf_down": 3, "merge_count": 1, "wave_n": 8,
+      "input_top8_set_trust": "PROBE_DEFECT"
+    },
+    {
+      "w": 2,
+      "st_cand": 8, "st_heapify": 0, "st_next": 8, "st_sort": 28, "st_commit_print": 2,
+      "c_g_cand": 16, "c_g_sort": 28, "c_g_commit_print": 2, "c_g_total_print": 46,
+      "p3p4_c_g": 45,
+      "cand_accepted": 0, "first_empty_inserts": 0, "root_replacements": 0, "rejected": 8,
+      "hf_up": 0, "hf_down": 0, "merge_count": 1, "wave_n": 8,
+      "input_top8_set_trust": "PROBE_DEFECT"
+    },
+    {
+      "w": 3,
+      "st_cand": 8, "st_heapify": 0, "st_next": 8, "st_sort": 28, "st_commit_print": 2,
+      "c_g_cand": 16, "c_g_sort": 28, "c_g_commit_print": 2, "c_g_total_print": 46,
+      "p3p4_c_g": 45,
+      "cand_accepted": 0, "first_empty_inserts": 0, "root_replacements": 0, "rejected": 8,
+      "hf_up": 0, "hf_down": 0, "merge_count": 1, "wave_n": 8,
+      "input_top8_set_trust": "PROBE_DEFECT"
+    }
+  ],
+  "p3p4": {
+    "t_query": 397,
+    "t_run": 246,
+    "cand_per_cycle": 0.161209,
+    "c_l_max": 31,
+    "c_g_max": 52,
+    "g_sort": 112,
+    "ii_pred": 52,
+    "blk_core": 2,
+    "blk_global": 59,
+    "collect_per_wave": 1,
+    "stream_per_wave": 16
+  },
+  "evidence_class": "MIG_XSIM",
+  "wavefront_minheap_sha256": "C5BFFA8F55F0F917E8AAA4E8F4C3896242A36AAF86E295E9B84448AA4F2B2189",
+  "stream_minheap_sha256": "DF17B26911A7682EE7EE29040EC6F1E0C26926A11FEC5AF629A07AB48A226448",
+  "ng02_sha256": "74A3F626E5E21553F7CB86FCAB94A1F1218B6B84BFEF2E3E3938DDB1F5ED224B",
+  "audit_log_sha256": "BFA55906CE064D284DA69299C56AF1BB4D87F59C485410006138B3C867EC4852",
+  "global_probe_sha256": "5F67C01ADAD557FDE8F6854E4671012943DBF90D703A8233A0525C66BBEE3F37"
+}

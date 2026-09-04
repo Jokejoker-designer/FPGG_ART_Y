@@ -2,27 +2,36 @@
 
 ```text
 GATE        = GLOBAL-CORE-LATENCY-AUDIT-00
-BASE        = HEAP-TAKE-SIFT-00 PASS
-              T_QUERY=432 C_L_MAX=39 C_G_MAX=52 G_SORT=112 II_PRED=52
-RTL_EDIT    = NO  (probe / TB only)
+BASE        = 505e3605dc582e12d96616834fd03f3d261d6f1b
+RTL_EDIT    = NO  (bind probe / TB copies only)
+SYNTH_IMPL  = NO
 BIT         = NO
 PROGRAM     = NO
-ORACLE      = HOLD
 GATE14_PASS = NO
 M10         = KEEP_OPEN
+PHYS        = 4
+WAVE        = 16
+ORACLE      = HOLD
 
-UNKNOWN     = Which global-minheap state occupies C_G_MAX=52:
-              ST_CAND (8 inserts) vs ST_SORT (28) vs ST_DRAIN vs wait-on-core?
+PRIMARY_UNKNOWN =
+  What exact sub-state occupancy makes C_G the current II limiter,
+  and which serialization term is exposed end-to-end?
 
-WHY         = After local STREAM hit WAVE=16 floor, roofline II is C_G not C_L.
-              G_SORT=112 is 4×28 triangular sort occupancy.
-              Do not assume ST_SORT is the only C_G lever until measured
-              the same way LOCAL-CORE-LATENCY-AUDIT measured NG02.
+CLASSIFY =
+  C_G_CAND   = ST_CAND + ST_HEAPIFY + ST_NEXT
+  C_G_SORT   = ST_SORT
+  C_G_COMMIT = ST_COMMIT
+  C_G_TOTAL  = C_G_CAND + C_G_SORT + C_G_COMMIT + measured transition overhead
 
-NOT_THIS_GATE =
-  production RTL
-  PHYS
-  SCORER-HEAP-DECOUPLE
-  bitstream
-  retarget oracle
+NOT_THIS_GATE = production RTL, PHYS, score skid, bitstream, assumed NEXT
+```
+
+MEASURED (MIG_XSIM, no production RTL):
+
+```text
+GLOBAL_CORE_AUDIT = PASS
+waves=4 merges=4 ST_SORT=28 drop=dup=deadlock=0
+C_G_CAND max/avg=23/18.5  C_G_SORT=28  C_G_COMMIT_occ=1
+P3P4 C_G_MAX=52 = II  T_QUERY=397
+NEXT = NOT_DECLARED
 ```
