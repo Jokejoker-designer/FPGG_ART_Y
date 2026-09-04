@@ -1,0 +1,21 @@
+{
+  "gate": "U3-DDR-WAVE-PINGPONG-00",
+  "base_rtl": "492277f3b5dc4e134e42447ac11eb43410cc05f7",
+  "u2": "f477365",
+  "rtl_edit": false,
+  "bit": false,
+  "program": false,
+  "result": "PASS",
+  "evidence_class": "MIG_XSIM",
+  "dual_bank": true,
+  "max_inflight": 2,
+  "same_rid": true,
+  "ar_nplus1_before_last_r": true,
+  "outstanding_hw": 2,
+  "ii_steady": 40,
+  "t_query_u1": 275,
+  "t_query_legacy_bag": 281,
+  "drop_dup_ovw_ooo": [0, 0, 0, 0],
+  "hold_a_c9": "8382238122802120",
+  "next": "U3R-ROOFLINE-REMEASURE-05"
+}

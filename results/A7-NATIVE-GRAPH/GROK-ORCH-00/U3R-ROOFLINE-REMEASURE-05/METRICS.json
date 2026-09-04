@@ -1,0 +1,22 @@
+{
+  "gate": "U3R-ROOFLINE-REMEASURE-05",
+  "rtl_edit": false,
+  "bit": false,
+  "program": false,
+  "result": "PASS",
+  "evidence_class": "MIG_XSIM",
+  "source": "U1-HARNESS-AUTHORITY-FIX-00/audit_xsim.log",
+  "t_query": 275,
+  "t_run": 157,
+  "ii_steady": 40,
+  "cand_per_cycle": 0.232727,
+  "c_d": [119, 0, 0, 0],
+  "c_t_max": 33,
+  "c_l_max": 31,
+  "c_g": [23, 31, 21, 49],
+  "g_sort": 28,
+  "outstanding_hw": 2,
+  "limiter_steady": "C_T=33 TermGen fold6",
+  "open_termgen_opt": false,
+  "next": "U3Q-QUERY-REPRESENTATION-AUTHORITY-00"
+}
