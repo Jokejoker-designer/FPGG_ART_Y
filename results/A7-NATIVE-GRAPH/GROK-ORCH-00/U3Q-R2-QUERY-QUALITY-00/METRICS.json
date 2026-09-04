@@ -1,0 +1,226 @@
+{
+  "gate": "U3Q-R2-QUERY-QUALITY-00",
+  "law": "qfe-v1-crc16-mix-00",
+  "evidence_class": "HOST_MODEL",
+  "extractor_fpga_owned": true,
+  "host_hash_winner_address": false,
+  "crc_selfcheck_is_not_semantic_recall": true,
+  "law_selfcheck": {
+    "name": "LAW_SELFCHECK",
+    "not_semantic_recall": true,
+    "same_in_same_out": true,
+    "token_delta_changes_keys": true,
+    "q0_k0": "B72B",
+    "q1_k0": "A70A",
+    "expect_q0_k0": "B72B",
+    "q0_match_u3q": true
+  },
+  "n_corpus": 79,
+  "entity_k12_stability": {
+    "n_pairs": 30,
+    "same_k12": 0,
+    "rate": 0.0
+  },
+  "intent_k12_stability": {
+    "n_pairs": 13,
+    "same_k12": 0,
+    "rate": 0.0
+  },
+  "unrelated_k12_collision": {
+    "n_pairs": 28,
+    "same_k12": 0,
+    "rate": 0.0,
+    "chance_12bit": 0.000244140625,
+    "rate_over_chance": 0.0
+  },
+  "perturbation_key_delta": {
+    "n_pairs": 5,
+    "key_delta": 5,
+    "rate": 1.0
+  },
+  "downstream_retrieval": {
+    "n_docs": 61,
+    "gold": "independent_label_same_entity_or_intent",
+    "recall_at_16": 0.0,
+    "recall_at_64": 0.0,
+    "note": "not CRC self-consistency"
+  },
+  "spot": [
+    {
+      "text": "chiller",
+      "split": "entity",
+      "tokens": [
+        99,
+        104,
+        105,
+        108,
+        108,
+        101,
+        114
+      ],
+      "k0": "2B4C",
+      "k1": "5E2F",
+      "k2": "9116",
+      "k3": "2C39"
+    },
+    {
+      "text": "install chiller",
+      "split": "intent",
+      "tokens": [
+        105,
+        110,
+        115,
+        116,
+        97,
+        108,
+        108,
+        32,
+        99,
+        104,
+        105,
+        108,
+        108,
+        101,
+        114
+      ],
+      "k0": "7786",
+      "k1": "43EF",
+      "k2": "885D",
+      "k3": "78B2"
+    },
+    {
+      "text": "payroll tax form",
+      "split": "unrelated",
+      "tokens": [
+        112,
+        97,
+        121,
+        114,
+        111,
+        108,
+        108,
+        32,
+        116,
+        97,
+        120,
+        32,
+        102,
+        111,
+        114,
+        109
+      ],
+      "k0": "C93B",
+      "k1": "C74B",
+      "k2": "297E",
+      "k3": "D935"
+    },
+    {
+      "text": "chiller",
+      "split": "perturbation",
+      "tokens": [
+        99,
+        104,
+        105,
+        108,
+        108,
+        101,
+        114
+      ],
+      "k0": "2B4C",
+      "k1": "5E2F",
+      "k2": "9116",
+      "k3": "2C39"
+    },
+    {
+      "text": "water chiller",
+      "split": "entity",
+      "tokens": [
+        119,
+        97,
+        116,
+        101,
+        114,
+        32,
+        99,
+        104,
+        105,
+        108,
+        108,
+        101,
+        114
+      ],
+      "k0": "9C79",
+      "k1": "BC0E",
+      "k2": "5457",
+      "k3": "9159"
+    },
+    {
+      "text": "chiller unit",
+      "split": "entity",
+      "tokens": [
+        99,
+        104,
+        105,
+        108,
+        108,
+        101,
+        114,
+        32,
+        117,
+        110,
+        105,
+        116
+      ],
+      "k0": "3CAA",
+      "k1": "6FC9",
+      "k2": "B730",
+      "k3": "30F9"
+    },
+    {
+      "text": "chiller plant",
+      "split": "entity",
+      "tokens": [
+        99,
+        104,
+        105,
+        108,
+        108,
+        101,
+        114,
+        32,
+        112,
+        108,
+        97,
+        110,
+        116
+      ],
+      "k0": "E8EA",
+      "k1": "DA89",
+      "k2": "5651",
+      "k3": "E5D8"
+    },
+    {
+      "text": "condenser",
+      "split": "entity",
+      "tokens": [
+        99,
+        111,
+        110,
+        100,
+        101,
+        110,
+        115,
+        101,
+        114
+      ],
+      "k0": "AB13",
+      "k1": "C270",
+      "k2": "B30A",
+      "k3": "A27A"
+    }
+  ],
+  "measure_ok": true,
+  "semantic_authority": "OPEN",
+  "quality_open": true,
+  "note": "entity/intent k12 stability is a hash-bucket coincidence metric. Do not report law_selfcheck as semantic recall."
+}

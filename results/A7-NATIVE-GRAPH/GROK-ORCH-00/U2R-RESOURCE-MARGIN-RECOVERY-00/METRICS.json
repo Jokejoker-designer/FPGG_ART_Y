@@ -1,0 +1,23 @@
+{
+  "gate": "U2R-RESOURCE-MARGIN-RECOVERY-00",
+  "evidence_class": "POST_ROUTE",
+  "program": "NO",
+  "bit": "NO",
+  "phys": 4,
+  "snap": "BRAM",
+  "slice_used": 15537,
+  "slice_tot": 15850,
+  "free_slices": 313,
+  "u2_free_slices": 153,
+  "delta_free": 160,
+  "preferred_800": false,
+  "wns": 1.126,
+  "tns": 0.0,
+  "whs": 0.014,
+  "ths": 0.0,
+  "ramb36": 106,
+  "dsp": 19,
+  "route_err": 0,
+  "verdict": "POST_ROUTE_PASS_NARROW",
+  "u5": "CLOSED"
+}
