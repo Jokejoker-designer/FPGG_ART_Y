@@ -1,0 +1,5 @@
+GLOBAL-MERGE-DONE-SPLIT-00: merge_done_o contract; no perf.
+
+gv_cnt from merge_done; ordered still global_valid.
+T_QUERY=397 C_G=52 SORT=28x4 C9 HOLD. NEXT=FINAL-ONLY.
+GATE14_PASS=NO PROGRAM=NO

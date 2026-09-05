@@ -65,7 +65,8 @@ module a7ng_cue_soa_mig_top #(
   output logic         m_axi_rready,
   output logic         owner_ready_o,
   output logic         r_path_idle_o,
-  output logic         global_topk_busy_o
+  output logic         global_topk_busy_o,
+  output logic         merge_done_o
 );
   import a7ng_pkg::*;
 
@@ -149,8 +150,11 @@ module a7ng_cue_soa_mig_top #(
   end
 
   logic tg_ready;
-  assign wf_cons_ready = cons_ready_i && core_batch_ready &&
-                         sched_idle && tg_ready && !global_topk_busy;
+  // CUE-OVERLAP-READY-00: WAVE_ACCEPT_READY is not CORE_ISSUE_READY.
+  // TermGen(N+1) may run while NG02/Global still hold wave N.
+  // core_batch_ready and global_topk_busy stay at SCH_ISSUE only.
+  // sched_idle keeps a single rec_hold occupant (overwrite=0).
+  assign wf_cons_ready = cons_ready_i && sched_idle && tg_ready;
 
   logic         wave_valid;
   logic [127:0] wave_rec [WAVE];
@@ -317,7 +321,12 @@ module a7ng_cue_soa_mig_top #(
           end
         end
         SCH_ISSUE: begin
-          if (!issued && core_batch_ready && !global_topk_busy) begin
+          // CORE_ISSUE_READY: do not fire into NG02 while it is busy.
+          // Global accepts only in ST_IDLE. Intermediate C_G (16-23) is
+          // covered by NG02 C_L=31, so local topk arrives after Global
+          // returns to IDLE. Do not hold ISSUE (and the next WAVE_ACCEPT)
+          // on global_topk_busy — that re-exposes II after DDR ping-pong.
+          if (!issued && core_batch_ready) begin
             core_valid <= {NG_LANES{1'b1}};
             issued <= 1'b1;
           end else if (issued && !core_batch_ready) begin
@@ -338,6 +347,8 @@ module a7ng_cue_soa_mig_top #(
   node_id_t global_topk_id    [8];
   logic [31:0] global_merge_count;
   logic [31:0] topk_batch_cnt;
+  logic [31:0] local_topk_n;
+  logic        wave_last;
 
   a7ng_ng02_core #(.PHYS(PHYS)) u_core (
     .clk(clk), .rst_n(rst_n),
@@ -355,12 +366,26 @@ module a7ng_cue_soa_mig_top #(
     .push_beat_valid_o(), .push_beat_score_o(), .push_beat_id_o(), .flow_state_o()
   );
 
+  assign wave_last = ((local_topk_n + 32'd1) * 32'(WAVE) >= total_recs_i);
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+      local_topk_n <= 32'd0;
+    else if (wf_start)
+      local_topk_n <= 32'd0;
+    else if (core_topk_valid)
+      local_topk_n <= local_topk_n + 32'd1;
+  end
+
   // Grok independent product copy: min-heap Global Top-8 (bitonic file frozen).
   // Local NG02 still computes an exact Top-8 per 16-candidate wave.
-  a7ng_topk_wavefront_minheap #(.K(8), .HEAP_CMP_LANES(1)) u_global (
+  // GLOBAL-SORT-FINAL-ONLY-00: sort only the last wave; intermediates
+  // emit merge_done_o only (retained SET in h[], no ordered publish).
+  a7ng_topk_wavefront_minheap #(.K(8), .HEAP_CMP_LANES(1), .SORT_EVERY_WAVE(1'b0)) u_global (
     .clk(clk), .rst_n(rst_n),
     .clear_i(wf_start),
     .wave_valid_i(core_topk_valid),
+    .wave_last_i(wave_last),
     .wave_scored_i(5'd16),
     .wave_score_i(core_topk_score),
     .wave_id_i(core_topk_id),
@@ -368,7 +393,8 @@ module a7ng_cue_soa_mig_top #(
     .global_score_o(global_topk_score),
     .global_id_o(global_topk_id),
     .busy_o(global_topk_busy),
-    .merge_count_o(global_merge_count)
+    .merge_count_o(global_merge_count),
+    .merge_done_o(merge_done_o)
   );
 
   assign topk_valid_o = global_topk_valid;
@@ -385,7 +411,7 @@ module a7ng_cue_soa_mig_top #(
       topk_batch_cnt <= '0;
     else if (wf_start)
       topk_batch_cnt <= '0;
-    else if (wave_valid && core_batch_ready)
+    else if (wave_valid)
       topk_batch_cnt <= topk_batch_cnt + 32'd1;
   end
   assign topk_batches_o = topk_batch_cnt;

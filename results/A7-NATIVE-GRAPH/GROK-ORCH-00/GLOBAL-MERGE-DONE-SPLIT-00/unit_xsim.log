@@ -1,0 +1,22 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Sep  4 10:23:54 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g14mds/xsim_script.tcl
+# xsim {g14mds} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+MERGE_DONE_SPLIT_UNIT md=4 gv=4 xor=0 sort=112 merges=4 drop=0
+WAVE0_OUT id=32,s=240 id=33,s=239 id=34,s=238 id=35,s=237 id=36,s=236 id=37,s=235 id=38,s=234 id=39,s=233
+WAVE1_OUT id=32,s=240 id=33,s=239 id=34,s=238 id=35,s=237 id=36,s=236 id=37,s=235 id=38,s=234 id=39,s=233
+WAVE2_OUT id=32,s=240 id=33,s=239 id=34,s=238 id=35,s=237 id=36,s=236 id=37,s=235 id=38,s=234 id=39,s=233
+WAVE3_OUT id=32,s=240 id=33,s=239 id=34,s=238 id=35,s=237 id=36,s=236 id=37,s=235 id=38,s=234 id=39,s=233
+MERGE_DONE_SPLIT_UNIT_PASS
+$finish called at time : 2166 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/GLOBAL-MERGE-DONE-SPLIT-00/tb_g14_merge_done_split.sv" Line 105
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 10:23:56 2026...

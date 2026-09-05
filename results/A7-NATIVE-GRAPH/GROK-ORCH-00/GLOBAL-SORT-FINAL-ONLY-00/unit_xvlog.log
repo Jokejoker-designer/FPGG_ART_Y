@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/pkg/a7ng_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/topk/a7ng_topk_wavefront_minheap.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_topk_wavefront_minheap
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/GLOBAL-SORT-FINAL-ONLY-00/tb_g14_sort_final_only.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_g14_sort_final_only

@@ -8,7 +8,17 @@
 
 (* keep_hierarchy = "yes" *)
 module a7ng_topk_stream_minheap #(
-  parameter int unsigned K = 8
+  parameter int unsigned K = 8,
+  // LOCAL-SORT-ELIDE-00: 1 = ST_SORT then ordered drain (C9 default).
+  // 0 = drain heap-array order after last TAKE. K-set unchanged.
+  // Global re-sorts; order-contract PASS. Do not change beats()/heap.
+  parameter bit SORT_BEFORE_DRAIN = 1'b1,
+  // HEAP-TAKE-SIFT-00: 1 = full K=8 sift-up/sift-down in the TAKE cycle.
+  // 0 = multi-cycle ST_HEAPIFY (C9 default). beats() unchanged.
+  parameter bit SIFT_ON_TAKE = 1'b0,
+  // LOCAL-TOPK-PARALLEL-COMMIT-00: 1 = one-cycle ordered_* vector, skip ST_DRAIN.
+  // 0 = serial out_valid/out_s/out_id (C9 / generic default).
+  parameter bit VECTOR_COMMIT = 1'b0
 ) (
   input  logic                    clk,
   input  logic                    rst_n,
@@ -25,6 +35,10 @@ module a7ng_topk_stream_minheap #(
   output a7ng_pkg::score_t        out_s_o,
   output a7ng_pkg::node_id_t      out_id_o,
   output logic [2:0]              out_idx_o,
+  output logic                    ordered_valid_o,
+  input  logic                    ordered_ready_i = 1'b1,
+  output a7ng_pkg::score_t        ordered_score_o [K],
+  output a7ng_pkg::node_id_t      ordered_id_o    [K],
   output logic                    busy_o,
   output logic                    clear_ignored_o,
   output logic [31:0]             accepted_count_o,
@@ -61,7 +75,8 @@ module a7ng_topk_stream_minheap #(
     ST_TAKE    = 3'd0,
     ST_HEAPIFY = 3'd1,
     ST_SORT    = 3'd2,
-    ST_DRAIN   = 3'd3
+    ST_DRAIN   = 3'd3,
+    ST_VEC     = 3'd4
   } st_t;
   typedef enum logic [1:0] { HF_NONE = 2'd0, HF_UP = 2'd1, HF_DOWN = 2'd2 } hf_t;
 
@@ -75,11 +90,96 @@ module a7ng_topk_stream_minheap #(
   logic         last_q;
   integer       gi;
 
+  task automatic enter_emit;
+    integer ei;
+    begin
+      for (ei = 0; ei < K; ei = ei + 1)
+        ord[ei] <= 3'(ei);
+      drain_i   <= 3'd0;
+      sort_pass <= 3'd0;
+      sort_j    <= 3'd0;
+      if (SORT_BEFORE_DRAIN)
+        st <= ST_SORT;
+      else if (VECTOR_COMMIT)
+        st <= ST_VEC;
+      else
+        st <= ST_DRAIN;
+    end
+  endtask
+
+  // Combinational 3-level sift (K=8, depth<=3). Uses pre-NBA h[] / fill_n.
+  // do_fill=1: insert at fill_n and sift-up. do_fill=0: replace root and sift-down.
+  task automatic write_sifted;
+    input cand_t c;
+    input logic  do_fill;
+    integer      i, step;
+    cand_t       nh [K];
+    cand_t       tmp;
+    logic [3:0]  idx, p;
+    logic [4:0]  l, r, w;
+    logic        cont;
+    begin
+      for (i = 0; i < K; i = i + 1)
+        nh[i] = h[i];
+      if (do_fill) begin
+        idx = fill_n;
+        nh[idx] = c;
+        cont = (idx != 4'd0);
+        for (step = 0; step < 3; step = step + 1) begin
+          if (cont) begin
+            p = 4'((idx - 4'd1) >> 1);
+            if (beats(nh[p], nh[idx])) begin
+              tmp     = nh[p];
+              nh[p]   = nh[idx];
+              nh[idx] = tmp;
+              idx     = p;
+              cont    = (idx != 4'd0);
+            end else
+              cont = 1'b0;
+          end
+        end
+      end else begin
+        nh[0] = c;
+        idx   = 4'd0;
+        cont  = 1'b1;
+        for (step = 0; step < 3; step = step + 1) begin
+          if (cont) begin
+            l = 5'({idx, 1'b0}) + 5'd1;
+            r = l + 5'd1;
+            w = {1'b0, idx};
+            if (l < K && beats(nh[w[3:0]], nh[l[3:0]]))
+              w = l;
+            if (r < K && beats(nh[w[3:0]], nh[r[3:0]]))
+              w = r;
+            if (w[3:0] != idx) begin
+              tmp        = nh[idx];
+              nh[idx]    = nh[w[3:0]];
+              nh[w[3:0]] = tmp;
+              idx        = w[3:0];
+            end else
+              cont = 1'b0;
+          end
+        end
+      end
+      for (i = 0; i < K; i = i + 1)
+        h[i] <= nh[i];
+    end
+  endtask
+
   wire idle_clear_ok = (st == ST_TAKE) && (fill_n == 4'd0) && !out_valid_o && !in_valid_i;
 
   assign busy_o       = (st != ST_TAKE) || (fill_n != 4'd0) || out_valid_o;
   assign in_ready_o   = (st == ST_TAKE);
   assign drop_count_o = 32'd0;
+  assign ordered_valid_o = (st == ST_VEC);
+
+  integer voi;
+  always_comb begin
+    for (voi = 0; voi < K; voi = voi + 1) begin
+      ordered_score_o[voi] = h[ord[voi]].s;
+      ordered_id_o[voi]    = h[ord[voi]].id;
+    end
+  end
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
@@ -124,32 +224,32 @@ module a7ng_topk_stream_minheap #(
               if (fill_n < 4'(K)) begin
                 hf_idx <= fill_n;
                 fill_n <= fill_n + 4'd1;
-                if (fill_n == 4'd0) begin
+                if ((fill_n == 4'd0) || SIFT_ON_TAKE) begin
                   hf_dir          <= HF_NONE;
                   retired_count_o <= retired_count_o + 32'd1;
                   if (in_last_i) begin
-                    sort_pass <= 3'd0;
-                    sort_j    <= 3'd0;
-                    for (gi = 0; gi < K; gi = gi + 1)
-                      ord[gi] <= 3'(gi);
-                    st <= ST_SORT;
+                    enter_emit;
                   end
                 end else begin
                   hf_dir <= HF_UP;
                   st     <= ST_HEAPIFY;
                 end
               end else if (beats({in_v_i, in_s_i, in_id_i, in_lane_i}, h[0])) begin
-                hf_idx <= 4'd0;
-                hf_dir <= HF_DOWN;
-                st     <= ST_HEAPIFY;
+                if (SIFT_ON_TAKE) begin
+                  hf_dir          <= HF_NONE;
+                  retired_count_o <= retired_count_o + 32'd1;
+                  if (in_last_i) begin
+                    enter_emit;
+                  end
+                end else begin
+                  hf_idx <= 4'd0;
+                  hf_dir <= HF_DOWN;
+                  st     <= ST_HEAPIFY;
+                end
               end else begin
                 retired_count_o <= retired_count_o + 32'd1;
                 if (in_last_i) begin
-                  sort_pass <= 3'd0;
-                  sort_j    <= 3'd0;
-                  for (gi = 0; gi < K; gi = gi + 1)
-                    ord[gi] <= 3'(gi);
-                  st <= ST_SORT;
+                  enter_emit;
                 end
               end
             end
@@ -166,11 +266,7 @@ module a7ng_topk_stream_minheap #(
                   hf_dir          <= HF_NONE;
                   retired_count_o <= retired_count_o + 32'd1;
                   if (last_q) begin
-                    sort_pass <= 3'd0;
-                    sort_j    <= 3'd0;
-                    for (gi = 0; gi < K; gi = gi + 1)
-                      ord[gi] <= 3'(gi);
-                    st <= ST_SORT;
+                    enter_emit;
                   end else
                     st <= ST_TAKE;
                 end
@@ -178,11 +274,7 @@ module a7ng_topk_stream_minheap #(
                 hf_dir          <= HF_NONE;
                 retired_count_o <= retired_count_o + 32'd1;
                 if (last_q) begin
-                  sort_pass <= 3'd0;
-                  sort_j    <= 3'd0;
-                  for (gi = 0; gi < K; gi = gi + 1)
-                    ord[gi] <= 3'(gi);
-                  st <= ST_SORT;
+                  enter_emit;
                 end else
                   st <= ST_TAKE;
               end
@@ -201,43 +293,61 @@ module a7ng_topk_stream_minheap #(
                 hf_dir          <= HF_NONE;
                 retired_count_o <= retired_count_o + 32'd1;
                 if (last_q) begin
-                  sort_pass <= 3'd0;
-                  sort_j    <= 3'd0;
-                  for (gi = 0; gi < K; gi = gi + 1)
-                    ord[gi] <= 3'(gi);
-                  st <= ST_SORT;
+                  enter_emit;
                 end else
                   st <= ST_TAKE;
               end
             end else begin
               retired_count_o <= retired_count_o + 32'd1;
               if (last_q) begin
-                sort_pass <= 3'd0;
-                sort_j    <= 3'd0;
-                for (gi = 0; gi < K; gi = gi + 1)
-                  ord[gi] <= 3'(gi);
-                st <= ST_SORT;
+                enter_emit;
               end else
                 st <= ST_TAKE;
             end
           end
 
           ST_SORT: begin
-            // Permute ord[] only. Heap h[] stays a min-heap. Best bubbles to ord[0].
-            if (sort_j < 3'(K-1)) begin
+            // TOPK-SORT-BOUND-00: triangular bubble on ord[] only.
+            // beats(right,left) swap ⇒ worse moves right; sorted suffix grows
+            // at the right. Pass p compares j=0 .. K-2-p.
+            // Heap h[] is not permuted. beats() unchanged.
+            if (sort_j <= (3'(K-2) - sort_pass)) begin
               if (beats(h[ord[sort_j+1]], h[ord[sort_j]])) begin
                 logic [2:0] tmpi;
                 tmpi          = ord[sort_j];
                 ord[sort_j]   <= ord[sort_j+1];
                 ord[sort_j+1] <= tmpi;
               end
-              sort_j <= sort_j + 3'd1;
-            end else if (sort_pass < 3'(K-1)) begin
-              sort_pass <= sort_pass + 3'd1;
-              sort_j    <= 3'd0;
+              if (sort_j == (3'(K-2) - sort_pass)) begin
+                if (sort_pass >= 3'(K-2)) begin
+                  drain_i <= 3'd0;
+                  if (VECTOR_COMMIT)
+                    st <= ST_VEC;
+                  else
+                    st <= ST_DRAIN;
+                end else begin
+                  sort_pass <= sort_pass + 3'd1;
+                  sort_j    <= 3'd0;
+                end
+              end else begin
+                sort_j <= sort_j + 3'd1;
+              end
             end else begin
               drain_i <= 3'd0;
-              st      <= ST_DRAIN;
+              if (VECTOR_COMMIT)
+                st <= ST_VEC;
+              else
+                st <= ST_DRAIN;
+            end
+          end
+
+          ST_VEC: begin
+            if (ordered_ready_i) begin
+              fill_n <= 4'd0;
+              last_q <= 1'b0;
+              for (gi = 0; gi < K; gi = gi + 1)
+                ord[gi] <= 3'(gi);
+              st <= ST_TAKE;
             end
           end
 
@@ -276,10 +386,17 @@ module a7ng_topk_stream_minheap #(
             c.s    = in_s_i;
             c.id   = in_id_i;
             c.lane = in_lane_i;
-            if (fill_n < 4'(K))
-              h[fill_n] <= c;
-            else if (beats(c, h[0]))
-              h[0] <= c;
+            if (fill_n < 4'(K)) begin
+              if (SIFT_ON_TAKE)
+                write_sifted(c, 1'b1);
+              else
+                h[fill_n] <= c;
+            end else if (beats(c, h[0])) begin
+              if (SIFT_ON_TAKE)
+                write_sifted(c, 1'b0);
+              else
+                h[0] <= c;
+            end
           end
         end
 

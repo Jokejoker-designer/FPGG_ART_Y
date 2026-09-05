@@ -1,0 +1,18 @@
+# CLOSEOUT — LOCAL-CORE-LATENCY-AUDIT-00
+
+```text
+RTL_EDIT    = NO
+BIT         = NO
+PROGRAM     = NO
+GATE14_PASS = NO
+M10         = KEEP_OPEN
+
+C_L_MAX           = 96
+ISSUE_TO_IDLE_MAX = 104
+DOMINANT          = HEAP_COLLECT (STREAM+COLLECT)
+SCORER_WAIT       = 8 /wave
+PUSH_TAIL         = 8 /wave (after TopK)
+
+LOCAL_CORE_LATENCY_AUDIT = PASS
+NEXT                     = SCORER-HEAP-DECOUPLE-00
+```

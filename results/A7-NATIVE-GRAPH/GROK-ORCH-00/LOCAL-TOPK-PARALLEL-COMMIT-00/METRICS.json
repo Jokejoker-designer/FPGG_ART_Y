@@ -1,0 +1,63 @@
+{
+  "gate": "LOCAL-TOPK-PARALLEL-COMMIT-00",
+  "rtl_edit": true,
+  "rtl_scope": "VECTOR_COMMIT default 0; NG02 instance 1; ordered_* vector ports",
+  "allowed_files": [
+    "rtl/native_graph/topk/a7ng_topk_stream_minheap.sv",
+    "rtl/native_graph/topk/a7ng_ng02_core.sv"
+  ],
+  "bit": false,
+  "program": false,
+  "gate14_pass": false,
+  "m10": "KEEP_OPEN",
+  "phys": 4,
+  "wave": 16,
+  "n": 64,
+  "parallel_commit": "PASS",
+  "set_pass": true,
+  "set_n": 64,
+  "frozen_c9_regression": "PASS",
+  "frozen_out_regression": "PASS",
+  "hold_a_c9": "8382238122802120",
+  "out": {"hold_a": 653, "unrel": 689, "contra": 237, "hold_b": 60},
+  "skip_local_sort_already_landed": true,
+  "scorer_heap_decouple": "optional_not_this_gate",
+  "baseline_after_sift": {
+    "t_query": 432,
+    "cand_per_cycle": 0.148148,
+    "c_l_max": 39,
+    "collect_per_wave": 9,
+    "stream_per_wave": 16,
+    "c_g_max": 52
+  },
+  "after": {
+    "t_query": 397,
+    "t_run": 246,
+    "cand_per_cycle": 0.161209,
+    "c_d_max": 45,
+    "c_t_max": 33,
+    "c_l_max": 31,
+    "c_g_max": 52,
+    "g_sort": 112,
+    "ii_pred": 52,
+    "overlap3": 68,
+    "blk_hold": 65,
+    "collect_total": 4,
+    "stream_total": 64,
+    "roofline_dominant": "C_G",
+    "per_wave": [
+      {"w": 0, "c_l": 31, "fire": 4, "wait": 8, "stream": 16, "collect": 1, "commit": 1, "push": 8, "c_d": 45, "c_t": 33, "c_g": 52},
+      {"w": 1, "c_l": 31, "fire": 4, "wait": 8, "stream": 16, "collect": 1, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 48},
+      {"w": 2, "c_l": 31, "fire": 4, "wait": 8, "stream": 16, "collect": 1, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 45},
+      {"w": 3, "c_l": 31, "fire": 4, "wait": 8, "stream": 16, "collect": 1, "commit": 1, "push": 8, "c_d": 43, "c_t": 33, "c_g": 45}
+    ]
+  },
+  "delta_t_query": -35,
+  "evidence_class": "MIG_XSIM",
+  "minheap_sha256": "DF17B26911A7682EE7EE29040EC6F1E0C26926A11FEC5AF629A07AB48A226448",
+  "ng02_sha256": "74A3F626E5E21553F7CB86FCAB94A1F1218B6B84BFEF2E3E3938DDB1F5ED224B",
+  "audit_log_sha256": "C5F00B4881C4ABE607F40187D9651720C3FA23E91E69A1644BEE2B568C5FD4E1",
+  "set_log_sha256": "365544C572B5AA6056D9E041126F117A15EE26AADC45FDC5571D948C1C12FCBD",
+  "c9_log_sha256": "C67443AF7774006FC35B737DAFCD6D1DBD18FF0AA50F9BAC537D815AB6580E0B",
+  "next": "GLOBAL-CORE-LATENCY-AUDIT-00"
+}

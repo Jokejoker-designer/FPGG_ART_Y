@@ -1,0 +1,38 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Sep  4 02:53:11 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/g14sb_gwaves/xsim_script.tcl
+# xsim {g14sb_gwaves} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+SORT_RUN code=4 cycles=28 expect=28   OK
+WAVES_1 merge_b=1 merge_h=1 mismatches_so_far=0
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+WAVES_2 merge_b=2 merge_h=2 mismatches_so_far=0
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+WAVES_3 merge_b=3 merge_h=3 mismatches_so_far=0
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+WAVES_4 merge_b=4 merge_h=4 mismatches_so_far=0
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+SORT_RUN code=4 cycles=28 expect=28   OK
+RND4 merge_b=4 merge_h=4
+GLOBAL_WAVES mismatches=0 fails=0
+GLOBAL_WAVES_XSIM_PASS DIFF_COUNT=0
+SORT_OCC_SUM code=4 n_run=14 sum=392 min=28 max=28 bad=0
+$finish called at time : 7836 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/TOPK-SORT-BOUND-00/tb_g14_global_waves.sv" Line 167
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 02:53:13 2026...
