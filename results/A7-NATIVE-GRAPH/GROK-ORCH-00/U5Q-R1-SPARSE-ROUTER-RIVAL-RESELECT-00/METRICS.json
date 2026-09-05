@@ -1,0 +1,17 @@
+{
+  "gate": "U5Q-R1-SPARSE-ROUTER-RIVAL-RESELECT-00",
+  "result": "FAIL",
+  "first_divergence": "NO_RIVAL_MEETS_U5Q_BAR",
+  "chosen": null,
+  "n_passers": 0,
+  "base": "e9c4fbc403c6bcbe662b25503df84a03ed9658ad",
+  "control_n_fail": 76,
+  "xor_tables": false,
+  "nid_keys": false,
+  "thresholds_retargeted": false,
+  "u6_result": "RETAINED",
+  "u6_promotion_status": "CONDITIONAL_ON_U5Q",
+  "u7a": "CLOSED",
+  "bit": "NO",
+  "program": "NO"
+}
