@@ -1,0 +1,14 @@
+{
+  "TYPECLASS_TABLE_SHA256": "B5958D4ADBE96F1D4432915E767BA2C4806594DBB291BBFFBEC95FE588E436C2",
+  "CLASS_ID_MAPPING_SHA256": "CEA2B9710D4D5F229BC341DF790E557B20F023F98161464C6C79BEADAE6BD68B",
+  "tc_n": 443,
+  "class_id_first": 1,
+  "class_id_last": 443,
+  "nid_derived": false,
+  "cand_cap": 64,
+  "K": 8,
+  "learn": 0,
+  "match_const": 8,
+  "pad_base": 16777200,
+  "tie": "valid>score>id<lane<"
+}

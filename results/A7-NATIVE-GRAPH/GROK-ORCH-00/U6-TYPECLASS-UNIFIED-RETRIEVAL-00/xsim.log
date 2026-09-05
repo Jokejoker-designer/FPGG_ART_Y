@@ -1,0 +1,56 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 21:04:48 2026
+# Process ID         : 35784
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-TYPECLASS-UNIFIED-RETRIEVAL-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-TYPECLASS-UNIFIED-RETRIEVAL-00/xsim.log -mode tcl -source {xsim.dir/u6tc/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-TYPECLASS-UNIFIED-RETRIEVAL-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-TYPECLASS-UNIFIED-RETRIEVAL-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 24700 MB
+#-----------------------------------------------------------
+source xsim.dir/u6tc/xsim_script.tcl
+# xsim {u6tc} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Q0 n=29 top0=57 sc0=8 ovf=0
+Q1 n=10 top0=58 sc0=16 ovf=0
+Q2 n=4 top0=68 sc0=16 ovf=0
+Q3 n=0 top0=65520 sc0=0 ovf=0
+Q4 n=0 top0=65520 sc0=0 ovf=0
+Q5 n=0 top0=65520 sc0=0 ovf=0
+Q6 n=3 top0=65 sc0=16 ovf=0
+Q7 n=10 top0=87 sc0=16 ovf=0
+Q8 n=47 top0=17 sc0=8 ovf=0
+Q9 n=0 top0=65520 sc0=0 ovf=0
+Q10 n=10 top0=254 sc0=16 ovf=0
+Q11 n=29 top0=57 sc0=8 ovf=0
+Q10 n=10 top0=254 sc0=16 ovf=0
+Q0 n=29 top0=57 sc0=8 ovf=0
+Q0 n=29 top0=57 sc0=8 ovf=0
+EMPTY n=0 pads ok
+EXACT8 n=8 high_id ok
+Q0 n=29 top0=57 sc0=8 ovf=0
+Q0 n=29 top0=57 sc0=8 ovf=0
+Q0 n=29 top0=57 sc0=8 ovf=0
+POISON_A decoy unused ok
+POISON_B class57 dropped ok
+CAP8 emit=8 trunc=39 ovf=1
+U6_TYPECLASS_UNIFIED_RETRIEVAL_PASS
+CLAIM=The FPGA-owned TYPE_CLASS masked-conjunctive retrieval path is the single authoritative candidate source feeding the production scorer and exact Top-K path, with bit-exact class/materialization/score identity in XSim
+NOT_CLAIMED=NLU,learning,Q-head,LM,board,GATE14,U6_silicon
+$finish called at time : 134665 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-TYPECLASS-UNIFIED-RETRIEVAL-00/tb_u6_typeclass_retrieval.sv" Line 341
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 21:04:50 2026...
