@@ -1,0 +1,59 @@
+{
+  "gate": "U7-CONTEXTUAL-LEARNING-EFFECTIVENESS-00",
+  "result": "PASS",
+  "evidence": "XSIM",
+  "marker": "U7_CONTEXTUAL_LEARNING_EFFECTIVENESS_PASS",
+  "sim_time_ns": 276335,
+  "owner_lock": "LEARN_KEY_CLASS_CONTEXT_V1",
+  "qhead": false,
+  "bit": false,
+  "program": false,
+  "c7_addr": "OBSERVE_ONLY",
+  "c7_last": "03000400",
+  "experiments": {
+    "E1_baseline": {"topk": [65, 66, 67], "scores": [16, 16, 16]},
+    "E2_freeze": {"c7seq_unchanged": true, "n_learned": 0},
+    "E3_sched_A": {
+      "priors": {"65": -1, "66": 2, "67": 0},
+      "scores": {"65": 15, "66": 18, "67": 16},
+      "topk": [66, 67, 65]
+    },
+    "E3_duplicate": {"ack": 6, "seq_before": 3, "seq_after": 3},
+    "E3c_accumulate": {
+      "priors": {"65": -1, "66": 1, "67": 2},
+      "topk": [67, 66, 65],
+      "c7seq": 6
+    },
+    "E8_persist": {"kill_hides": true, "reload_match": 1, "topk": [67, 66, 65]},
+    "E4_zero": {"priors": [0, 0, 0], "topk": [65, 66, 67]},
+    "E5_sched_B": {
+      "priors": {"65": 2, "66": 0, "67": -1},
+      "topk": [65, 66, 67]
+    },
+    "E6_isolation": {
+      "chiller58": {"hit": 1, "prior": 2, "score": 10, "top1": 58},
+      "water58": {"hit": 0, "prior": 0, "score": 16}
+    },
+    "E7_heldout": {"topk": [68, 69, 70, 71], "priors": 0}
+  },
+  "aggregate": {
+    "TOP1_CHANGED_COUNT": 1,
+    "PAIRWISE_ORDER_CHANGES": 2,
+    "CONTEXT_LEAK_COUNT": 0,
+    "FREEZE_MUTATION_COUNT": 0,
+    "DUPLICATE_UPDATE_COUNT": 0,
+    "HOST_SEMANTIC_COUNTERS": 0,
+    "STORE_OCCUPANCY_MAX": 32,
+    "FIRST_NAK_AT_WRITE": 33,
+    "PERSIST_RELOAD_MATCH": 1,
+    "NAK_COUNT": 1,
+    "QUERIES_TO_FIRST_NAK": 6,
+    "STORE_DEPTH": 32,
+    "N_UNIQUE_LEARN_KEYS": 32
+  },
+  "hazards": {
+    "LEARN_STORE_CAPACITY_32": "OPEN",
+    "U6_TYPECLASS_MINHEAP_TIMING": "OPEN",
+    "WNS_OOC_ns": -4.103
+  }
+}
