@@ -1,0 +1,19 @@
+{
+  "gate": "U4-MEM02-AXI-DIRECTORY-00",
+  "result": "PASS",
+  "base": "d166ca8edc8c01630efbcc648df8001f40dca572",
+  "law": "qse-v1-lexicon-hdc-00",
+  "n_tables": 4,
+  "n_buckets": 4096,
+  "cand_cap": 64,
+  "corpus_size": 42,
+  "cuts": ["A_extractor", "B_dir_addr", "C_post_addr", "D_predup", "E_dedup", "F_cap"],
+  "unknown_zero": true,
+  "no_full_scan": true,
+  "no_host_semantic": true,
+  "u5": "CLOSED",
+  "bit": "NO",
+  "program": "NO",
+  "gate14_pass": "NO",
+  "not_claimed": ["800k", "P4_quality", "U5", "board"]
+}
