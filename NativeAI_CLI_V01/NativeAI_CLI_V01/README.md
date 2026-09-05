@@ -1,8 +1,8 @@
-# Native AI CLI V0.2.1
+# Native AI CLI V0.2.2
 
 PowerShell-first development console for the V3.1 Native AI project.
 
-Tracks **U6-TYPECLASS XSim PASS** and **U7A REAUDIT_COMPLETE**.
+Tracks **U6-TYPECLASS XSim PASS** and **U7A FAIL** (store-full persist_done).
 Does **not** claim silicon TYPE_CLASS retrieval, board PASS, Gate14, LM, Q-head, or U7.
 
 ## Install

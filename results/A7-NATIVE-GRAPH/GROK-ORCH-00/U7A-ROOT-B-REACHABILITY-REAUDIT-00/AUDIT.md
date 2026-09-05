@@ -3,10 +3,16 @@
 ```text
 GATE                 = U7A-ROOT-B-REACHABILITY-REAUDIT-00
 RTL_EDIT             = NO
-XSIM_NEW             = NO (reuse U6-TYPECLASS 134665 ns PASS)
+XSIM_NEW             = YES  tb_u7a_rootb.sv  28655 ns
+RESULT               = FAIL CONFIRMED_DEFECT
 BIT                  = NO
 PROGRAM              = NO
 ```
+
+XSim store-full: 32 vis rows then 33rd distinct `{subj,rel,obj}` →
+`persist_done=1`, `ack_count=33`, `commit_seq=32`, lookup miss.
+
+See RESULTS.md / CLOSEOUT.md. Paper-only verdict in the previous bag is superseded.
 
 ## 1. Objects (must not merge)
 

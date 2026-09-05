@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 APP = "Native AI V3.1 Development Console"
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 
 RESET = "\033[0m"
 BOLD = "\033[1m"
@@ -129,8 +129,10 @@ def status(state):
         ("U6 typeclass", "PASS XSim; OOC recorded; NOT silicon"),
         ("U6 candidate owner", "a7ng_typeclass_scan"),
         ("legacy NID", "DISCONNECTED from U6 typeclass top"),
-        ("U7A", "REAUDIT_COMPLETE: XSim done⇔CLASS_ID Top-K; SoC Root-B still partial"),
+        ("U7A", "FAIL CONFIRMED_DEFECT: persist_done on store-full with no BRAM write"),
+        ("TYPE_CLASS→learn", "NOT_REACHABLE"),
         ("U7/U8", "CLOSED"),
+        ("minheap timing", "OPEN OOC WNS=-4.103ns"),
         ("board", "U6B substrate PASS; U6 TYPE_CLASS silicon NOT PROVEN"),
         ("bit / program", "NO / NO"),
         ("teacher", "0 in final target; this console does not inject semantics"),
