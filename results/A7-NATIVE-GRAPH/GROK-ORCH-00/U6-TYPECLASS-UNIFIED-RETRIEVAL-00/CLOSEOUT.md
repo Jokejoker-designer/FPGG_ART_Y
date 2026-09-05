@@ -3,7 +3,7 @@
 ```text
 GATE                     = U6-TYPECLASS-UNIFIED-RETRIEVAL-00
 BASE                     = 6728637056c8c5e646f5d0e8ed191b32718ea7a7
-SOURCE_COMMIT            = (set at publish)
+SOURCE_COMMIT            = 9c39a4a3caa1de5723c7bd0699b386a45863604f
 RTL_EDIT                 = YES
 FILES_CHANGED            = rtl/native_graph/integrate/a7ng_u6_typeclass_retrieval.sv
                            rtl/native_graph/integrate/a7ng_u6_typeclass_ooc_top.sv
