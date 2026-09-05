@@ -3,7 +3,7 @@
 ```text
 GATE                 = U4A-R6-ROUTE-VALIDITY-00
 BASE                 = 4d8694a21ae425d17bf881e45d35741da4023399
-SOURCE_COMMIT        = (filled after local commit of this bag)
+SOURCE_COMMIT        = 884aa8c40daf8b78c0b60c7395937e3e76b77fa6
 RTL_EDIT             = YES
 FILES_CHANGED        = rtl/native_graph/query/a7ng_query_struct_extract.sv
                        rtl/native_graph/query/a7ng_route_valid_gate.sv
