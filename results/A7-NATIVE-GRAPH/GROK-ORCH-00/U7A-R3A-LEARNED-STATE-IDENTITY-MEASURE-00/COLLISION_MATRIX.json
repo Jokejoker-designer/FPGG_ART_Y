@@ -1,0 +1,276 @@
+{
+  "class_only_aliased_class_ids": {
+    "58": [
+      "chiller",
+      "water_chiller"
+    ],
+    "60": [
+      "chiller",
+      "water_chiller"
+    ],
+    "62": [
+      "chiller",
+      "water_chiller"
+    ],
+    "64": [
+      "chiller",
+      "water_chiller"
+    ],
+    "65": [
+      "chiller",
+      "hard_neg_install_chiller"
+    ],
+    "66": [
+      "chiller",
+      "hard_neg_install_chiller",
+      "water_chiller"
+    ],
+    "67": [
+      "chiller",
+      "hard_neg_install_chiller"
+    ],
+    "68": [
+      "chiller",
+      "leak_chiller",
+      "wrong_intent_leak_check"
+    ],
+    "69": [
+      "chiller",
+      "leak_chiller",
+      "water_chiller",
+      "wrong_intent_leak_check"
+    ],
+    "70": [
+      "chiller",
+      "leak_chiller",
+      "wrong_intent_leak_check"
+    ],
+    "71": [
+      "chiller",
+      "leak_chiller",
+      "wrong_intent_leak_check"
+    ],
+    "73": [
+      "chiller",
+      "water_chiller"
+    ],
+    "77": [
+      "chiller",
+      "water_chiller"
+    ],
+    "81": [
+      "chiller",
+      "water_chiller"
+    ],
+    "84": [
+      "chiller",
+      "water_chiller"
+    ],
+    "100": [
+      "same_ent_wrong_ctx",
+      "wrong_intent_leak_check"
+    ],
+    "267": [
+      "relation_mismatch_duct",
+      "wrong_intent_leak_check"
+    ]
+  },
+  "class_context_v1_event_collisions": {},
+  "class_context_v1_pair_collisions_443x_contexts": {},
+  "class_id_58": {
+    "chiller": {
+      "class_only": 58,
+      "class_context_v1": [
+        1413677114,
+        1,
+        16777216
+      ]
+    },
+    "water_chiller": {
+      "class_only": 58,
+      "class_context_v1": [
+        1413677114,
+        9,
+        16777217
+      ]
+    }
+  },
+  "query_class_set_overlaps": [
+    {
+      "a": "chiller",
+      "b": "water_chiller",
+      "n": 10,
+      "ids_head": [
+        58,
+        60,
+        62,
+        64,
+        66,
+        69,
+        73,
+        77
+      ]
+    },
+    {
+      "a": "chiller",
+      "b": "leak_chiller",
+      "n": 4,
+      "ids_head": [
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "a": "chiller",
+      "b": "hard_neg_install_chiller",
+      "n": 3,
+      "ids_head": [
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "a": "chiller",
+      "b": "wrong_intent_leak_check",
+      "n": 4,
+      "ids_head": [
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "a": "chiller",
+      "b": "overflow_relevant_chiller",
+      "n": 29,
+      "ids_head": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ]
+    },
+    {
+      "a": "water_chiller",
+      "b": "leak_chiller",
+      "n": 1,
+      "ids_head": [
+        69
+      ]
+    },
+    {
+      "a": "water_chiller",
+      "b": "hard_neg_install_chiller",
+      "n": 1,
+      "ids_head": [
+        66
+      ]
+    },
+    {
+      "a": "water_chiller",
+      "b": "wrong_intent_leak_check",
+      "n": 1,
+      "ids_head": [
+        69
+      ]
+    },
+    {
+      "a": "water_chiller",
+      "b": "overflow_relevant_chiller",
+      "n": 10,
+      "ids_head": [
+        58,
+        60,
+        62,
+        64,
+        66,
+        69,
+        73,
+        77
+      ]
+    },
+    {
+      "a": "leak_chiller",
+      "b": "wrong_intent_leak_check",
+      "n": 4,
+      "ids_head": [
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "a": "leak_chiller",
+      "b": "overflow_relevant_chiller",
+      "n": 4,
+      "ids_head": [
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "a": "hard_neg_install_chiller",
+      "b": "overflow_relevant_chiller",
+      "n": 3,
+      "ids_head": [
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "a": "same_ent_wrong_ctx",
+      "b": "wrong_intent_leak_check",
+      "n": 1,
+      "ids_head": [
+        100
+      ]
+    },
+    {
+      "a": "wrong_intent_leak_check",
+      "b": "relation_mismatch_duct",
+      "n": 1,
+      "ids_head": [
+        267
+      ]
+    },
+    {
+      "a": "wrong_intent_leak_check",
+      "b": "overflow_relevant_chiller",
+      "n": 4,
+      "ids_head": [
+        68,
+        69,
+        70,
+        71
+      ]
+    }
+  ],
+  "legacy_subj_namespace_hits_vs_0x5443": [],
+  "synth_mask_vs_chiller_numeric": {
+    "chiller_v1_cid58": [
+      1413677114,
+      1,
+      16777216
+    ],
+    "synth_unbound_eid1_v1_cid58": [
+      1413677114,
+      0,
+      16777216
+    ],
+    "distinguishable": true
+  },
+  "unbound_all_zero_per_class_unique": true,
+  "all_443_class_ids_unique": true
+}
