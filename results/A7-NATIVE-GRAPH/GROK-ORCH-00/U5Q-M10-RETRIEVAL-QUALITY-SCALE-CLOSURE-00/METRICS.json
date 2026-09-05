@@ -1,0 +1,32 @@
+{
+  "gate": "U5Q-M10-RETRIEVAL-QUALITY-SCALE-CLOSURE-00",
+  "result": "FAIL",
+  "first_divergence": "PRECISION_FAIL",
+  "base": "9244912965b50d513c0b324247d33ff49bb9a607",
+  "profile": "P4_4k_h64",
+  "cand_cap": 64,
+  "head_cap": 64,
+  "dag_order_deviation": true,
+  "u6_result": "RETAINED",
+  "u6_promotion_status": "CONDITIONAL_ON_U5Q",
+  "n_fail": 76,
+  "fail_ids": {
+    "PRECISION_FAIL": 4,
+    "RECALL_FAIL": 36,
+    "OVERFLOW_RELEVANT_LOSS": 36
+  },
+  "unrelated_zero_cands": true,
+  "chiller_n256_recall": 0.8533333333333334,
+  "chiller_n256_precision": 1.0,
+  "water_chiller_n256_precision": 0.28125,
+  "leak_chiller_n256_precision": 0.05,
+  "chiller_n800k_recall": 0.0018823529411764706,
+  "water_chiller_n800k_recall": 0.001403180542563143,
+  "bytes_independent_of_n": true,
+  "full_scan": false,
+  "nid_derived_keys": false,
+  "cap_sweep_restores_recall": false,
+  "bit": "NO",
+  "program": "NO",
+  "u7a": "CLOSED"
+}

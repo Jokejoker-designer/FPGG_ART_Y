@@ -1,0 +1,22 @@
+{
+  "corpus_sha": "1dc5a15c52dfaf781330c8fc14c038bab5bf50acb0576277b9ad066513f12672",
+  "index_sha": "ab7ea2cfc15b5ace0aa4ce7e58587f8af5959a0990d4b46d2ef13e592fac9559",
+  "total_records": 800000,
+  "valid_records": 799144,
+  "max_record_id": 799999,
+  "routing_law": "qse-v1-lexicon-hdc-00",
+  "validity_law": "U4A-R6",
+  "overflow_policy": "HEAD_CAP keep-first; CAND_CAP trunc after dedup",
+  "head_cap": 64,
+  "candidate_cap": 64,
+  "n_tables": 4,
+  "n_buckets": 4096,
+  "occupied_buckets": 676,
+  "overflow_buckets": 676,
+  "head_insert_drops": 2162084,
+  "max_posting": 64,
+  "mean_posting": 64.0,
+  "profile": "P4_4k_h64",
+  "nid_derived_keys": false,
+  "gold_law": "bound-class descriptor equality; empty-bound => not relevant"
+}
