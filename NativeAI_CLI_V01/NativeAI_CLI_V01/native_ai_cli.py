@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 APP = "Native AI V3.1 Development Console"
-VERSION = "0.2.6"
+VERSION = "0.2.7"
 
 RESET = "\033[0m"
 BOLD = "\033[1m"
@@ -136,8 +136,11 @@ def status(state):
         ("U7A-R3B", "PASS XSim: TYPE_CLASS Top-K → V1 key → G1/G2/store/lookup/scorer"),
         ("LEARNED_STATE_IDENTITY", "TYPE_CLASS × QUERY_CONTEXT"),
         ("TYPE_CLASS→learn", "REACHABLE in R3B XSim wrapper; not silicon"),
-        ("U7/U8", "CLOSED"),
+        ("U7", "PASS XSim: V1 prior causally changes TYPE_CLASS ranking; DEPTH=32"),
+        ("QHEAD", "NO — baseline contextual prior only; rival not opened"),
+        ("U8", "CLOSED"),
         ("minheap timing", "OPEN OOC WNS=-4.103ns"),
+        ("learn store depth", "32 OPEN HIGH_RISK — no product-scale claim"),
         ("board", "U6B substrate PASS; U6 TYPE_CLASS silicon NOT PROVEN"),
         ("bit / program", "NO / NO"),
         ("teacher", "0 in final target; this console does not inject semantics"),

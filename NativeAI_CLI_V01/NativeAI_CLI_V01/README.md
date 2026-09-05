@@ -2,8 +2,10 @@
 
 PowerShell-first development console for the V3.1 Native AI project.
 
-Tracks **U6-TYPECLASS XSim PASS** and **U7A FAIL** (store-full persist_done).
-Does **not** claim silicon TYPE_CLASS retrieval, board PASS, Gate14, LM, Q-head, or U7.
+Tracks **U6-TYPECLASS XSim PASS** and **U7 XSim PASS** (contextual prior
+ranking under LEARN_KEY_CLASS_CONTEXT_V1, store DEPTH=32).
+Does **not** claim silicon TYPE_CLASS retrieval, board PASS, Gate14, LM,
+Q-head, generalization, or production-scale learned memory.
 
 ## Install
 
@@ -43,7 +45,8 @@ Default backend is `demo`: it replays **frozen U6 gold** (CLASS_ID streams, scor
 - U5Q raw FAIL immutable
 - T2 PASS, U6 TYPECLASS XSim PASS
 - U7A reaudit complete: XSim done⇔CLASS_ID Top-K; SoC Root-B still partial
-- U7/U8 CLOSED
+- U7 XSim PASS (lookup-before-heap; no Q-head; DEPTH=32 OPEN)
+- U8 CLOSED
 - BIT=NO PROGRAM=NO
 
 ## Current safety boundary
