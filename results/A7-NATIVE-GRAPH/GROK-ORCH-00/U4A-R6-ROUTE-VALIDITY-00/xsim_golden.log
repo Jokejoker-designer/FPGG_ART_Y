@@ -1,0 +1,129 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 15:52:57 2026
+# Process ID         : 16720
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4A-R6-ROUTE-VALIDITY-00/xsim_golden
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4A-R6-ROUTE-VALIDITY-00/xsim_golden.log -mode tcl -source {xsim.dir/u4ar6g/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4A-R6-ROUTE-VALIDITY-00/xsim_golden.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4A-R6-ROUTE-VALIDITY-00/xsim_golden\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 22410 MB
+#-----------------------------------------------------------
+source xsim.dir/u4ar6g/xsim_script.tcl
+# xsim {u4ar6g} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+VEC 0 sec=1 MATCH k0=0100 v0=1 v1=0 v2=1 v3=0
+VEC 1 sec=1 MATCH k0=0100 v0=1 v1=1 v2=1 v3=0
+VEC 2 sec=1 MATCH k0=0100 v0=1 v1=1 v2=1 v3=0
+VEC 3 sec=1 MATCH k0=0100 v0=1 v1=1 v2=1 v3=0
+VEC 4 sec=1 MATCH k0=0200 v0=1 v1=0 v2=1 v3=0
+VEC 5 sec=1 MATCH k0=0200 v0=1 v1=1 v2=1 v3=0
+VEC 6 sec=1 MATCH k0=0200 v0=1 v1=1 v2=1 v3=0
+VEC 7 sec=1 MATCH k0=0200 v0=1 v1=1 v2=1 v3=0
+VEC 8 sec=1 MATCH k0=0300 v0=1 v1=0 v2=1 v3=0
+VEC 9 sec=1 MATCH k0=0300 v0=1 v1=1 v2=1 v3=0
+VEC 10 sec=1 MATCH k0=0300 v0=1 v1=1 v2=1 v3=0
+VEC 11 sec=1 MATCH k0=0300 v0=1 v1=1 v2=1 v3=0
+VEC 12 sec=1 MATCH k0=0400 v0=1 v1=0 v2=1 v3=0
+VEC 13 sec=1 MATCH k0=0400 v0=1 v1=1 v2=1 v3=0
+VEC 14 sec=1 MATCH k0=0400 v0=1 v1=1 v2=1 v3=0
+VEC 15 sec=1 MATCH k0=0500 v0=1 v1=0 v2=1 v3=0
+VEC 16 sec=1 MATCH k0=0500 v0=1 v1=0 v2=1 v3=0
+VEC 17 sec=1 MATCH k0=0500 v0=1 v1=1 v2=1 v3=0
+VEC 18 sec=1 MATCH k0=0500 v0=1 v1=1 v2=1 v3=0
+VEC 19 sec=1 MATCH k0=0600 v0=1 v1=0 v2=1 v3=0
+VEC 20 sec=1 MATCH k0=0600 v0=1 v1=1 v2=1 v3=0
+VEC 21 sec=1 MATCH k0=0600 v0=1 v1=1 v2=1 v3=0
+VEC 22 sec=1 MATCH k0=0600 v0=1 v1=1 v2=1 v3=0
+VEC 23 sec=1 MATCH k0=0700 v0=1 v1=0 v2=1 v3=0
+VEC 24 sec=1 MATCH k0=0700 v0=1 v1=1 v2=1 v3=0
+VEC 25 sec=1 MATCH k0=0700 v0=1 v1=1 v2=1 v3=0
+VEC 26 sec=1 MATCH k0=0700 v0=1 v1=0 v2=1 v3=0
+VEC 27 sec=1 MATCH k0=0800 v0=1 v1=0 v2=1 v3=0
+VEC 28 sec=1 MATCH k0=0800 v0=1 v1=1 v2=1 v3=0
+VEC 29 sec=1 MATCH k0=0800 v0=1 v1=1 v2=1 v3=0
+VEC 30 sec=1 MATCH k0=0900 v0=1 v1=1 v2=1 v3=0
+VEC 31 sec=1 MATCH k0=0900 v0=1 v1=1 v2=1 v3=0
+VEC 32 sec=1 MATCH k0=0900 v0=1 v1=1 v2=1 v3=0
+VEC 33 sec=1 MATCH k0=0a00 v0=1 v1=1 v2=1 v3=0
+VEC 34 sec=1 MATCH k0=0200 v0=1 v1=0 v2=1 v3=0
+VEC 35 sec=1 MATCH k0=0a00 v0=1 v1=1 v2=1 v3=0
+VEC 36 sec=1 MATCH k0=0b00 v0=1 v1=1 v2=1 v3=0
+VEC 37 sec=1 MATCH k0=0b00 v0=1 v1=0 v2=1 v3=0
+VEC 38 sec=1 MATCH k0=0b00 v0=1 v1=1 v2=1 v3=0
+VEC 39 sec=1 MATCH k0=0c00 v0=1 v1=1 v2=1 v3=0
+VEC 40 sec=1 MATCH k0=0c00 v0=1 v1=1 v2=1 v3=0
+VEC 41 sec=1 MATCH k0=0c00 v0=1 v1=1 v2=1 v3=0
+VEC 42 sec=2 MATCH k0=0101 v0=1 v1=0 v2=1 v3=1
+VEC 43 sec=2 MATCH k0=0101 v0=1 v1=0 v2=1 v3=1
+VEC 44 sec=2 MATCH k0=0101 v0=1 v1=0 v2=1 v3=1
+VEC 45 sec=2 MATCH k0=0002 v0=1 v1=0 v2=0 v3=1
+VEC 46 sec=2 MATCH k0=0002 v0=1 v1=0 v2=0 v3=1
+VEC 47 sec=2 MATCH k0=0002 v0=1 v1=1 v2=0 v3=1
+VEC 48 sec=2 MATCH k0=0003 v0=1 v1=1 v2=0 v3=1
+VEC 49 sec=2 MATCH k0=0003 v0=1 v1=1 v2=0 v3=1
+VEC 50 sec=2 MATCH k0=0003 v0=1 v1=0 v2=0 v3=1
+VEC 51 sec=2 MATCH k0=0004 v0=1 v1=1 v2=0 v3=1
+VEC 52 sec=2 MATCH k0=0004 v0=1 v1=1 v2=0 v3=1
+VEC 53 sec=2 MATCH k0=0004 v0=1 v1=1 v2=0 v3=1
+VEC 54 sec=2 MATCH k0=0605 v0=1 v1=0 v2=1 v3=1
+VEC 55 sec=2 MATCH k0=0605 v0=1 v1=0 v2=1 v3=1
+VEC 56 sec=2 MATCH k0=0605 v0=1 v1=0 v2=1 v3=1
+VEC 57 sec=2 MATCH k0=0406 v0=1 v1=0 v2=1 v3=1
+VEC 58 sec=2 MATCH k0=0406 v0=1 v1=0 v2=1 v3=1
+VEC 59 sec=2 MATCH k0=0406 v0=1 v1=0 v2=1 v3=1
+VEC 60 sec=3 MATCH k0=0101 v0=1 v1=0 v2=1 v3=1
+VEC 61 sec=3 MATCH k0=0102 v0=1 v1=0 v2=1 v3=1
+VEC 62 sec=3 MATCH k0=0106 v0=1 v1=0 v2=1 v3=1
+VEC 63 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 64 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 65 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 66 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 67 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 68 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 69 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 70 sec=4 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 71 sec=5 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 72 sec=5 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 73 sec=5 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 74 sec=5 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 75 sec=5 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 76 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 77 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 78 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 79 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 80 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 81 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 82 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 83 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 84 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 85 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 86 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 87 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 88 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 89 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 90 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 91 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 92 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 93 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 94 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 95 sec=6 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 96 sec=7 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+VEC 97 sec=7 MATCH k0=0000 v0=0 v1=0 v2=0 v3=0
+U4A_R6_RTL_GOLDEN_PASS n=98 match=98
+$finish called at time : 28155 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4A-R6-ROUTE-VALIDITY-00/tb_u4ar6_rtl_golden.sv" Line 108
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 15:52:58 2026...

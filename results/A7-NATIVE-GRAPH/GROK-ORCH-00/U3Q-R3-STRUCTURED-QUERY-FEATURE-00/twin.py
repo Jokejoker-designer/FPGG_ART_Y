@@ -22,7 +22,7 @@ def bindb(c: int, b: int) -> int:
     return rotl1(c) ^ b
 
 
-def fold_word(word: str, eid, iid, rid, xid, ec, ic, rc, xc):
+def fold_word(word: str, eid, iid, rid, xid, ec, ic, rc, xc, eh, ih, rh, xh):
     w = word.encode("latin1")
     hit = False
     hcls = hid = 0
@@ -44,21 +44,26 @@ def fold_word(word: str, eid, iid, rid, xid, ec, ic, rc, xc):
         if eid == 0 or hid < eid:
             eid = hid
         ec ^= bcue
+        eh = 1
     elif hit and hcls == 2:
         if iid == 0 or hid < iid:
             iid = hid
         ic ^= bcue
+        ih = 1
     elif hit and hcls == 3:
         if rid == 0 or hid < rid:
             rid = hid
         rc ^= bcue
+        rh = 1
     elif hit and hcls == 4:
         if xid == 0 or hid < xid:
             xid = hid
         xc ^= bcue
+        xh = 1
     else:
         xc ^= bcue
-    return eid, iid, rid, xid, ec, ic, rc, xc
+        # unmatched: cue binds into context, but context-class bind flag stays 0
+    return eid, iid, rid, xid, ec, ic, rc, xc, eh, ih, rh, xh
 
 
 def extract_bytes(raw: list[int]) -> dict:
@@ -69,16 +74,17 @@ def extract_bytes(raw: list[int]) -> dict:
         crc = crc16_byte(crc, b)
     eid = iid = rid = xid = 0
     ec = ic = rc = xc = 0
+    eh = ih = rh = xh = 0
     n_words = 0
     cur: list[int] = []
     def flush():
-        nonlocal eid, iid, rid, xid, ec, ic, rc, xc, n_words, cur
+        nonlocal eid, iid, rid, xid, ec, ic, rc, xc, eh, ih, rh, xh, n_words, cur
         if not cur or n_words >= 8:
             cur = []
             return
         w = bytes(cur).decode("latin1")
-        eid, iid, rid, xid, ec, ic, rc, xc = fold_word(
-            w, eid, iid, rid, xid, ec, ic, rc, xc
+        eid, iid, rid, xid, ec, ic, rc, xc, eh, ih, rh, xh = fold_word(
+            w, eid, iid, rid, xid, ec, ic, rc, xc, eh, ih, rh, xh
         )
         n_words += 1
         cur = []
@@ -95,10 +101,17 @@ def extract_bytes(raw: list[int]) -> dict:
     k1 = ((rid & 0xFF) << 8) | (xid & 0xFF)
     k2 = ec & 0xFFFF
     k3 = ic & 0xFFFF
+    # Validity from bind/hit state, NOT from key != 0.
+    v0 = 1 if (eh or ih) else 0
+    v1 = 1 if (rh or xh) else 0
+    v2 = 1 if eh else 0
+    v3 = 1 if ih else 0
     return {
         "entity_id": eid, "intent_id": iid, "relation_id": rid, "context_id": xid,
         "entity_cue": ec, "intent_cue": ic, "relation_cue": rc, "context_cue": xc,
         "crc16_dbg": crc, "k0": k0, "k1": k1, "k2": k2, "k3": k3,
+        "k0_valid": v0, "k1_valid": v1, "k2_valid": v2, "k3_valid": v3,
+        "entity_bind": eh, "intent_bind": ih, "relation_bind": rh, "context_bind": xh,
         "n_host": 0,
     }
 

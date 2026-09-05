@@ -30,6 +30,11 @@ module a7ng_query_struct_extract (
   output logic [15:0] k1_o,
   output logic [15:0] k2_o,
   output logic [15:0] k3_o,
+  // U4A-R6: semantic route validity from bind/hit, NOT from key!=0
+  output logic        k0_valid_o,
+  output logic        k1_valid_o,
+  output logic        k2_valid_o,
+  output logic        k3_valid_o,
   output logic [15:0] n_host_entity_o,
   output logic [15:0] n_host_intent_o,
   output logic [15:0] n_host_hash_o,
@@ -52,6 +57,7 @@ module a7ng_query_struct_extract (
   logic [15:0] crc_acc;
   logic [7:0]  eid, iid, rid, xid;
   cue_t        ecue, icue, rcue, xcue;
+  logic        eh, ih, rh, xh;
 
   assign n_host_entity_o  = 16'd0;
   assign n_host_intent_o  = 16'd0;
@@ -88,6 +94,7 @@ module a7ng_query_struct_extract (
   cue_t        bcue;
   logic [7:0]  eid_n, iid_n, rid_n, xid_n;
   cue_t        ecue_n, icue_n, rcue_n, xcue_n;
+  logic        eh_n, ih_n, rh_n, xh_n;
   integer      li, bi;
 
   assign do_space = tok_valid_i && tok_ready_o && (tok_i == 8'h20) && (wlen != 8'd0);
@@ -114,19 +121,24 @@ module a7ng_query_struct_extract (
         bcue = bindb(bcue, wbuf[8*bi +: 8]);
     eid_n = eid; iid_n = iid; rid_n = rid; xid_n = xid;
     ecue_n = ecue; icue_n = icue; rcue_n = rcue; xcue_n = xcue;
+    eh_n = eh; ih_n = ih; rh_n = rh; xh_n = xh;
     if (do_flush) begin
       if (hit && (hcls == 8'd1)) begin
         if ((eid == 8'd0) || (hid < eid)) eid_n = hid;
         ecue_n = ecue ^ bcue;
+        eh_n = 1'b1;
       end else if (hit && (hcls == 8'd2)) begin
         if ((iid == 8'd0) || (hid < iid)) iid_n = hid;
         icue_n = icue ^ bcue;
+        ih_n = 1'b1;
       end else if (hit && (hcls == 8'd3)) begin
         if ((rid == 8'd0) || (hid < rid)) rid_n = hid;
         rcue_n = rcue ^ bcue;
+        rh_n = 1'b1;
       end else if (hit && (hcls == 8'd4)) begin
         if ((xid == 8'd0) || (hid < xid)) xid_n = hid;
         xcue_n = xcue ^ bcue;
+        xh_n = 1'b1;
       end else
         xcue_n = xcue ^ bcue;
     end
@@ -138,11 +150,13 @@ module a7ng_query_struct_extract (
       crc_acc <= 16'hFFFF;
       eid <= 8'd0; iid <= 8'd0; rid <= 8'd0; xid <= 8'd0;
       ecue <= 64'd0; icue <= 64'd0; rcue <= 64'd0; xcue <= 64'd0;
+      eh <= 1'b0; ih <= 1'b0; rh <= 1'b0; xh <= 1'b0;
       accepted_o <= 1'b0;
       valid_o <= 1'b0;
       entity_id_o <= 8'd0; intent_id_o <= 8'd0; relation_id_o <= 8'd0; context_id_o <= 8'd0;
       entity_cue_o <= 64'd0; intent_cue_o <= 64'd0; relation_cue_o <= 64'd0; context_cue_o <= 64'd0;
       crc16_dbg_o <= 16'd0;
+      k0_valid_o <= 1'b0; k1_valid_o <= 1'b0; k2_valid_o <= 1'b0; k3_valid_o <= 1'b0;
     end else begin
       accepted_o <= 1'b0;
       if (valid_o) begin
@@ -152,6 +166,8 @@ module a7ng_query_struct_extract (
           crc_acc <= 16'hFFFF;
           eid <= 8'd0; iid <= 8'd0; rid <= 8'd0; xid <= 8'd0;
           ecue <= 64'd0; icue <= 64'd0; rcue <= 64'd0; xcue <= 64'd0;
+          eh <= 1'b0; ih <= 1'b0; rh <= 1'b0; xh <= 1'b0;
+          k0_valid_o <= 1'b0; k1_valid_o <= 1'b0; k2_valid_o <= 1'b0; k3_valid_o <= 1'b0;
         end
       end else if (tok_valid_i && tok_ready_o) begin
         crc_acc <= crc16_byte(crc_acc, tok_i);
@@ -160,6 +176,7 @@ module a7ng_query_struct_extract (
           if (wlen != 8'd0) begin
             eid <= eid_n; iid <= iid_n; rid <= rid_n; xid <= xid_n;
             ecue <= ecue_n; icue <= icue_n; rcue <= rcue_n; xcue <= xcue_n;
+            eh <= eh_n; ih <= ih_n; rh <= rh_n; xh <= xh_n;
             n_words <= n_words + 8'd1;
             wlen <= 8'd0;
             wbuf <= 96'd0;
@@ -180,6 +197,11 @@ module a7ng_query_struct_extract (
         crc16_dbg_o    <= crc_acc;
         eid <= eid_n; iid <= iid_n; rid <= rid_n; xid <= xid_n;
         ecue <= ecue_n; icue <= icue_n; rcue <= rcue_n; xcue <= xcue_n;
+        eh <= eh_n; ih <= ih_n; rh <= rh_n; xh <= xh_n;
+        k0_valid_o <= eh_n | ih_n;
+        k1_valid_o <= rh_n | xh_n;
+        k2_valid_o <= eh_n;
+        k3_valid_o <= ih_n;
         valid_o    <= 1'b1;
         accepted_o <= 1'b1;
         wlen <= 8'd0;

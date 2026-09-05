@@ -22,6 +22,7 @@ module a7ng_query_struct_ooc_top (
     .entity_id_o(), .intent_id_o(), .relation_id_o(), .context_id_o(),
     .entity_cue_o(), .intent_cue_o(), .relation_cue_o(), .context_cue_o(),
     .crc16_dbg_o(), .k0_o(k0_o), .k1_o(k1_o), .k2_o(k2_o), .k3_o(k3_o),
+    .k0_valid_o(), .k1_valid_o(), .k2_valid_o(), .k3_valid_o(),
     .n_host_entity_o(), .n_host_intent_o(), .n_host_hash_o(),
     .n_host_shard_o(), .n_host_bucket_o(), .n_host_cand_o(),
     .n_host_winner_o(), .n_host_addr_o(), .n_host_relpath_o(),
