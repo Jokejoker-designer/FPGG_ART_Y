@@ -1,0 +1,37 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 16:50:52 2026
+# Process ID         : 34540
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-R2-DDR-SPARSE-DIRECTORY-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/xsim_u4r2.log -mode tcl -source {xsim.dir/u4r2_dir/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/xsim_u4r2.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-R2-DDR-SPARSE-DIRECTORY-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 23667 MB
+#-----------------------------------------------------------
+source xsim.dir/u4r2_dir/xsim_script.tcl
+# xsim {u4r2_dir} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+CASE_A emit=4 dup=1 ovf=1 stall=6 id0=c34ff
+CASE_B emit=8 trunc=4
+CASE_C emit=1 id=00058
+CASE_D emit=0
+U4_R2_DDR_SPARSE_DIRECTORY_PASS
+NO_HARDCODED_2_16_8_32_GEOMETRY
+SENTINEL_20BIT c34ff
+$finish called at time : 1325 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-R2-DDR-SPARSE-DIRECTORY-00/tb_a7ng_sparse_dir_axi.sv" Line 202
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 16:50:54 2026...

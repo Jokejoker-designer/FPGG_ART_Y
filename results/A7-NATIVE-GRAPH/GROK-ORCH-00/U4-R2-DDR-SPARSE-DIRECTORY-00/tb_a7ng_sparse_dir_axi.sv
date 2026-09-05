@@ -52,10 +52,14 @@ module tb_a7ng_sparse_dir_axi;
     .ID_W(ID_W), .INDEX_BASE(NG_DDR_INDEX_BASE)
   ) dut (
     .clk(clk), .rst_n(rst_n), .live_epoch_i(live_epoch),
-    .q_v(q_v), .q_ready(q_ready), .k0_i(k0), .k1_i(k1),
+    .q_v(q_v), .q_ready(q_ready),
+    .k0_i(k0), .k1_i(k1), .k2_i(16'd0), .k3_i(16'd0),
+    .k0_valid_i(1'b1), .k1_valid_i(1'b1),
+    .k2_valid_i(1'b0), .k3_valid_i(1'b0),
     .cand_v(cand_v), .cand_ready(cand_ready), .cand_id(cand_id),
     .q_done(q_done), .q_overflow_o(q_ovf),
     .n_emit_o(n_emit), .n_dup_o(n_dup), .n_trunc_o(n_trunc),
+    .n_dir_ar_o(), .n_post_ar_o(), .probed_mask_o(),
     .m_axi_arid(arid), .m_axi_araddr(araddr), .m_axi_arlen(arlen),
     .m_axi_arsize(arsize), .m_axi_arburst(arburst),
     .m_axi_arvalid(arvalid), .m_axi_arready(arready),

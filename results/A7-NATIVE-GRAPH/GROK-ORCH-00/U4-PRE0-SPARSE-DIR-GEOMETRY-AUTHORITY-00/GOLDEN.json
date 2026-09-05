@@ -1,0 +1,97 @@
+{
+  "gate": "U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00",
+  "index_base": 83886080,
+  "n_tables": 4,
+  "n_buckets": 4096,
+  "bucket_w": 12,
+  "entry_bytes": 16,
+  "table_bytes": 65536,
+  "cand_cap": 64,
+  "bases": [
+    "0x05000000",
+    "0x05010000",
+    "0x05020000",
+    "0x05030000"
+  ],
+  "last": [
+    "0x0500FFF0",
+    "0x0501FFF0",
+    "0x0502FFF0",
+    "0x0503FFF0"
+  ],
+  "n_unique_dir_addr": 16384,
+  "expect_unique": 16384,
+  "disjoint_table_ranges": true,
+  "overlap_count": 0,
+  "alias": [
+    {
+      "key": 1,
+      "key_hex": "0x001",
+      "addr_12": 83886096,
+      "addr_12_hex": "0x05000010",
+      "addr_old16": 83886096,
+      "addr_old16_hex": "0x05000010",
+      "bucket_12": 1,
+      "bucket_old16": 1
+    },
+    {
+      "key": 17,
+      "key_hex": "0x011",
+      "addr_12": 83886352,
+      "addr_12_hex": "0x05000110",
+      "addr_old16": 83886096,
+      "addr_old16_hex": "0x05000010",
+      "bucket_12": 17,
+      "bucket_old16": 1
+    },
+    {
+      "key": 257,
+      "key_hex": "0x101",
+      "addr_12": 83890192,
+      "addr_12_hex": "0x05001010",
+      "addr_old16": 83886096,
+      "addr_old16_hex": "0x05000010",
+      "bucket_12": 257,
+      "bucket_old16": 1
+    },
+    {
+      "key": 513,
+      "key_hex": "0x201",
+      "addr_12": 83894288,
+      "addr_12_hex": "0x05002010",
+      "addr_old16": 83886096,
+      "addr_old16_hex": "0x05000010",
+      "bucket_12": 513,
+      "bucket_old16": 1
+    },
+    {
+      "key": 4095,
+      "key_hex": "0xFFF",
+      "addr_12": 83951600,
+      "addr_12_hex": "0x0500FFF0",
+      "addr_old16": 83886320,
+      "addr_old16_hex": "0x050000F0",
+      "bucket_12": 4095,
+      "bucket_old16": 15
+    }
+  ],
+  "alias_unique_under_12bit": true,
+  "old16_aliases_0x001_0x011": true,
+  "new12_distinct_0x001_0x011": true,
+  "map_keys": [
+    "0x00AA",
+    "0x00BB",
+    "0x00CC",
+    "0x00DD"
+  ],
+  "exact_dir": [
+    "0x05000AA0",
+    "0x05010BB0",
+    "0x05020CC0",
+    "0x05030DD0"
+  ],
+  "xor_synth_t2_bucket": 19,
+  "xor_synth_t2_addr": "0x05020130",
+  "result": "PASS",
+  "fail_reasons": []
+}
