@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 22:44:24 2026
+# Process ID         : 5924
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-R1-STORE-FULL-PERSIST-DONE-LAW-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-R1-STORE-FULL-PERSIST-DONE-LAW-00/xsim.log -mode tcl -source {xsim.dir/u7ar1/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-R1-STORE-FULL-PERSIST-DONE-LAW-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-R1-STORE-FULL-PERSIST-DONE-LAW-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 25948 MB
+#-----------------------------------------------------------
+source xsim.dir/u7ar1/xsim_script.tcl
+# xsim {u7ar1} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+G1_DUP n_cons=1 n_dup=1 ack2=6
+FULL32 seq=32 ack=32
+UPD33 done=0 nak=1 seq=32 ack=32
+UPD_EXIST done=1 nak=0 seq=33 ack=33
+C7_OBSERVE addr=03034ff0 (NOT commit proof)
+RESET_BEAT2 lk_hit=0
+U7A_R1_STORE_FULL_COMMIT_LAW_PASS n_done=33 n_nak=1 n_cons=0
+U7A_FAIL_IMMUTABLE TYPECLASS_TO_LEARN=NOT_REACHABLE BIT=NO PROGRAM=NO
+U6_TYPECLASS_MINHEAP_TIMING OPEN
+$finish called at time : 51675 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-R1-STORE-FULL-PERSIST-DONE-LAW-00/tb_u7a_r1.sv" Line 251
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 22:44:26 2026...

@@ -17,6 +17,7 @@ module a7ng_learned_prior_store #(
   input  logic         train_reset_i,
   output logic         persist_busy_o,
   output logic         persist_done_o,
+  output logic         persist_nak_o,
   output logic         boot_done_o,
   output logic [31:0]  live_gen_o,
   output logic [63:0]  sdig_o,
@@ -200,11 +201,12 @@ module a7ng_learned_prior_store #(
       us <= '0; uo <= '0; ur <= '0; urew <= '0; uk <= 0;
       ls <= '0; lo <= '0; lr <= '0;
       commit_seq <= '0; ack_count <= '0;
-      persist_done_o <= 0; c7_ack_valid_o <= 0; c7_addr_o <= '0;
+      persist_done_o <= 0; persist_nak_o <= 0; c7_ack_valid_o <= 0; c7_addr_o <= '0;
       ddr_req_o <= 0; ddr_we_o <= 0; ddr_wdata_o <= '0;
       lk_busy <= 0; lk_done <= 0; lk_hit <= 0; lk_pri <= '0; lk_pen <= '0;
     end else begin
       persist_done_o <= 1'b0;
+      persist_nak_o  <= 1'b0;
       lk_done <= 1'b0;
       if (c7_ack_valid_o && c7_ack_ready_i) c7_ack_valid_o <= 1'b0;
 
@@ -302,14 +304,19 @@ module a7ng_learned_prior_store #(
               slot_i <= slot_i + 7'd1;
             end
           end else begin
+            // U7A-R1: SUCCESS ⇔ BRAM commit this update.
+            // wrote = match during scan; ram_we = alloc on this tail cycle.
             if (ram_we) begin
               wrote <= 1'b1;
               commit_seq <= commit_seq + 16'd1;
             end
             sdig <= sdig_acc;
-            ack_count <= ack_count + 16'd1;
-            c7_ack_valid_o <= 1'b1;
-            persist_done_o <= 1'b1;
+            if (wrote || ram_we) begin
+              ack_count <= ack_count + 16'd1;
+              c7_ack_valid_o <= 1'b1;
+              persist_done_o <= 1'b1;
+            end else
+              persist_nak_o <= 1'b1;
             pst <= P_IDLE;
           end
         end
