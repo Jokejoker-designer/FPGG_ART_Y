@@ -1,0 +1,28 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_u6_unified_retrieval -s u6ret -timescale 1ns/1ps 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'ordered_valid_o' remains unconnected for this instance [D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/integrate/a7ng_unified_retrieval.sv:146]
+WARNING: [VRFC 10-3645] port 'ordered_valid_o' remains unconnected for this instance [D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/integrate/a7ng_learned_prior_graph.sv:240]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7ng_pkg
+Compiling package work.$unit_a7ng_pkg_sv_2522030405
+Compiling module work.a7ng_axi_mem_model(DEPTH_WORDS=3...
+Compiling module work.a7ng_query_struct_extract
+Compiling module work.a7ng_sparse_dir_axi_default
+Compiling module work.a7ng_u6_record_lut(N=32'b0100000...
+Compiling module work.a7ng_scorer_lane
+Compiling module work.a7ng_topk_stream_minheap
+Compiling module work.a7ng_unified_retrieval
+Compiling module work.a7ng_feedback_resolver_default
+Compiling module work.a7ng_context_delta
+Compiling module work.a7ng_learned_prior_store
+Compiling module work.a7ng_learned_prior_graph
+Compiling module work.tb_u6_unified_retrieval
+Built simulation snapshot u6ret

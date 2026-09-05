@@ -1,0 +1,2911 @@
+[
+  {
+    "name": "chiller",
+    "rows": [
+      {
+        "id": 0,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 1,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 2,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      },
+      {
+        "id": 3,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "water_chiller",
+    "rows": [
+      {
+        "id": 0,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 1,
+        "score": 16,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 2,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      },
+      {
+        "id": 3,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      },
+      {
+        "id": 6,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 2,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 11,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 3,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 13,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 4,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 20,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 6,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 22,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 6,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 24,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 7,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 25,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 7,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 29,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 8,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 30,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 9,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 31,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 9,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 32,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 9,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 33,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 10,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 35,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 10,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 36,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 11,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 38,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 11,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 39,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 12,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 40,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 12,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 41,
+        "score": 8,
+        "terms": {
+          "em": 0,
+          "im": 0,
+          "rm": 0,
+          "cm": 8,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 12,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      }
+    ]
+  },
+  {
+    "name": "leak_chiller",
+    "rows": [
+      {
+        "id": 0,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 1,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 2,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      },
+      {
+        "id": 3,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "payroll",
+    "rows": []
+  },
+  {
+    "name": "soccer",
+    "rows": []
+  },
+  {
+    "name": "adversarial",
+    "rows": []
+  },
+  {
+    "name": "dup_chiller",
+    "rows": [
+      {
+        "id": 0,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 1,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 1
+      },
+      {
+        "id": 2,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      },
+      {
+        "id": 3,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 2,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "cap64",
+    "rows": [
+      {
+        "id": 5000,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5001,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5002,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5003,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5004,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5005,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5006,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5007,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5008,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5009,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5010,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5011,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5012,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5013,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5014,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5015,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5016,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5017,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5018,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5019,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5020,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5021,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5022,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5023,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5024,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5025,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5026,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5027,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5028,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5029,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5030,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5031,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5032,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5033,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5034,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5035,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5036,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5037,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5038,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5039,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5040,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5041,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5042,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5043,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5044,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5045,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5046,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5047,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5048,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5049,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5050,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5051,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5052,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5053,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5054,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5055,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5056,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5057,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5058,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5059,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5060,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5061,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5062,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5063,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "cap80",
+    "rows": [
+      {
+        "id": 5100,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5101,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5102,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5103,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5104,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5105,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5106,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5107,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5108,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5109,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5110,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5111,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5112,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5113,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5114,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5115,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5116,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5117,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5118,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5119,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5120,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5121,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5122,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5123,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5124,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5125,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5126,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5127,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5128,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5129,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5130,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5131,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5132,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5133,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5134,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5135,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5136,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5137,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5138,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5139,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5140,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5141,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5142,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5143,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5144,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5145,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5146,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5147,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5148,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5149,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5150,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5151,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5152,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5153,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5154,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5155,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5156,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5157,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5158,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5159,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5160,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5161,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5162,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 5163,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 1,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "sentinel",
+    "rows": [
+      {
+        "id": 799999,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 9,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "empty",
+    "rows": []
+  },
+  {
+    "name": "unknown",
+    "rows": []
+  },
+  {
+    "name": "tie",
+    "rows": [
+      {
+        "id": 6001,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 7,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      },
+      {
+        "id": 6000,
+        "score": 8,
+        "terms": {
+          "em": 8,
+          "im": 0,
+          "rm": 0,
+          "cm": 0,
+          "path": 0,
+          "prior": 0,
+          "pen": 0
+        },
+        "ent": 7,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "sat_pos",
+    "rows": [
+      {
+        "id": 7000,
+        "score": 635,
+        "terms": {
+          "em": 127,
+          "im": 127,
+          "rm": 127,
+          "cm": 127,
+          "path": 127,
+          "prior": 127,
+          "pen": 127
+        },
+        "ent": 0,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      }
+    ]
+  },
+  {
+    "name": "sat_neg",
+    "rows": [
+      {
+        "id": 7001,
+        "score": -768,
+        "terms": {
+          "em": -128,
+          "im": -128,
+          "rm": -128,
+          "cm": -128,
+          "path": -128,
+          "prior": -128,
+          "pen": 0
+        },
+        "ent": 0,
+        "int": 0,
+        "rel": 0,
+        "ctx": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 19:14:15 2026
+# Process ID         : 25068
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-UNIFIED-RETRIEVAL-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-UNIFIED-RETRIEVAL-00/xsim.log -mode tcl -source {xsim.dir/u6ret/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-UNIFIED-RETRIEVAL-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-UNIFIED-RETRIEVAL-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 29062 MB
+#-----------------------------------------------------------
+source xsim.dir/u6ret/xsim_script.tcl
+# xsim {u6ret} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Q0 QSE ncand=4 trunc=0 ovf=0 top0=00000000 sc0=8
+Q1 QSE ncand=22 trunc=0 ovf=0 top0=00000001 sc0=16
+Q2 QSE ncand=4 trunc=0 ovf=0 top0=00000000 sc0=8
+Q3 QSE ncand=0 trunc=0 ovf=0 top0=00fffff0 sc0=0
+Q4 QSE ncand=0 trunc=0 ovf=0 top0=00fffff0 sc0=0
+Q5 QSE ncand=0 trunc=0 ovf=0 top0=00fffff0 sc0=0
+Q6 QSE ncand=4 trunc=0 ovf=0 top0=00000000 sc0=8
+Q7 POKE ncand=64 trunc=0 ovf=0 top0=00001388 sc0=8
+Q8 POKE ncand=64 trunc=16 ovf=1 top0=000013ec sc0=8
+Q9 POKE ncand=1 trunc=0 ovf=0 top0=000c34ff sc0=8
+Q10 POKE ncand=0 trunc=0 ovf=0 top0=00fffff0 sc0=0
+Q11 POKE ncand=0 trunc=0 ovf=0 top0=00fffff0 sc0=0
+Q12 POKE ncand=2 trunc=0 ovf=0 top0=00001770 sc0=8
+Q13 POKE ncand=1 trunc=0 ovf=0 top0=00001b58 sc0=635
+Q14 POKE ncand=1 trunc=0 ovf=0 top0=00001b59 sc0=-768
+POISON_LEGACY_HOLD top0=00000000
+POISON_AXI n=2 top0=000abcde (was 00000000)
+U6_UNIFIED_RETRIEVAL_PASS
+CLAIM=FPGA sparse retrieval is the single authoritative source feeding production scorer and exact Top-K
+NOT_CLAIMED=NLU,800k_quality,U7,LM,board,GATE14
+$finish called at time : 26385 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-UNIFIED-RETRIEVAL-00/tb_u6_unified_retrieval.sv" Line 247
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 19:14:17 2026...
