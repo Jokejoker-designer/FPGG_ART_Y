@@ -1,0 +1,74 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 16:11:08 2026
+# Process ID         : 45176
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/xsim.log -mode tcl -source {xsim.dir/persistv2/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 22802 MB
+#-----------------------------------------------------------
+source xsim.dir/persistv2/xsim_script.tcl
+# xsim {persistv2} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+BOOT gen=1 boot=1
+C7_ACK seq=1 cnt=1 addr=03000110 subj=00000011
+LO BEFORE hit=1 pri=3 pen=0
+DDR_DUMP LO hdr=0000000000000003
+DDR_REC LO s=0 id=0000001100000022 subj=00000011 obj=00000022 st=0103000100000000 rel=01 pri=03 pen=00 stp=01
+DDR_REC LO s=1 id=0000000000000000 subj=00000000 obj=00000000 st=0000000000000000 rel=00 pri=00 pen=00 stp=00
+DDR_REC LO s=2 id=0000000000000000 subj=00000000 obj=00000000 st=0000000000000000 rel=00 pri=00 pen=00 stp=00
+DDR_REC LO s=3 id=0000000000000000 subj=00000000 obj=00000000 st=0000000000000000 rel=00 pri=00 pen=00 stp=00
+LO DDR_ID=0000001100000022
+LO AFTER_KILL hit=0 (expect 0, ws_live=0)
+LO AFTER_RELOAD orig hit=1 pri=3 pen=0
+C7_ACK seq=2 cnt=2 addr=03012340 subj=00011234
+S1 BEFORE hit=1 pri=4
+DDR_DUMP S1 hdr=0000000000000003
+DDR_REC S1 s=0 id=0000001100000022 subj=00000011 obj=00000022 st=0103000100000000 rel=01 pri=03 pen=00 stp=01
+DDR_REC S1 s=1 id=0001123400035678 subj=00011234 obj=00035678 st=0104000100000000 rel=01 pri=04 pen=00 stp=01
+DDR_REC S1 s=2 id=0000000000000000 subj=00000000 obj=00000000 st=0000000000000000 rel=00 pri=00 pen=00 stp=00
+DDR_REC S1 s=3 id=0000000000000000 subj=00000000 obj=00000000 st=0000000000000000 rel=00 pri=00 pen=00 stp=00
+S1 DDR_ID=0001123400035678 subj=00011234 obj=00035678
+S1 AFTER orig hit=1 pri=4
+S1 AFTER alias(0x1234/0x5678) hit=0 pri=0
+C7_ACK seq=3 cnt=3 addr=03012340 subj=00021234
+PAIR BEFORE S1 hit=1 pri=4
+PAIR BEFORE S2 hit=1 pri=5
+DDR_DUMP PAIR hdr=0000000000000003
+DDR_REC PAIR s=0 id=0000001100000022 subj=00000011 obj=00000022 st=0103000100000000 rel=01 pri=03 pen=00 stp=01
+DDR_REC PAIR s=1 id=0001123400035678 subj=00011234 obj=00035678 st=0104000100000000 rel=01 pri=04 pen=00 stp=01
+DDR_REC PAIR s=2 id=0002123400045678 subj=00021234 obj=00045678 st=0105000100000000 rel=01 pri=05 pen=00 stp=01
+DDR_REC PAIR s=3 id=0000000000000000 subj=00000000 obj=00000000 st=0000000000000000 rel=00 pri=00 pen=00 stp=00
+PAIR DDR_S1=0001123400035678 DDR_S2=0002123400045678 same=0
+PAIR AFTER S1 hit=1 pri=4
+PAIR AFTER S2 hit=1 pri=5
+PAIR AFTER alias hit=0 pri=0
+C7_ACK seq=4 cnt=4 addr=03034ff0 subj=000c34ff
+S3 BEFORE hit=1 pri=2
+DDR_DUMP S3 hdr=0000000000000003
+DDR_REC S3 s=0 id=0000001100000022 subj=00000011 obj=00000022 st=0103000100000000 rel=01 pri=03 pen=00 stp=01
+DDR_REC S3 s=1 id=0001123400035678 subj=00011234 obj=00035678 st=0104000100000000 rel=01 pri=04 pen=00 stp=01
+DDR_REC S3 s=2 id=0002123400045678 subj=00021234 obj=00045678 st=0105000100000000 rel=01 pri=05 pen=00 stp=01
+DDR_REC S3 s=3 id=000c34ff000beeff subj=000c34ff obj=000beeff st=0102000100000000 rel=01 pri=02 pen=00 stp=01
+S3 AFTER orig hit=1 pri=2
+S3 AFTER alias hit=0 pri=0
+N_DIVERGENCE=0 FAILS=0
+PERSIST_IDENTITY_SCHEMA_V2_PASS
+$finish called at time : 18575 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/tb_persist_identity_schema_v2.sv" Line 303
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 16:11:09 2026...

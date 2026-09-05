@@ -66,7 +66,9 @@ module a7ng_learned_prior_store #(
   end
 
   logic [2:0] pst;
-  logic [5:0] slot_i;
+  logic [6:0] slot_i;
+  logic       beat;
+  logic [31:0] r_subj, r_obj;
   logic       rd_pend, ws_live, wrote, boot_done;
   logic [31:0] live_gen;
   logic [63:0] sdig, sdig_acc;
@@ -133,7 +135,13 @@ module a7ng_learned_prior_store #(
   assign lk_pen_o         = lk_pen;
   assign c7_commit_seq_o  = commit_seq;
   assign c7_ack_count_o   = ack_count;
-  assign ddr_addr_o       = {2'b0, slot_i};
+  // SCHEMA-V2: header @0; each slot is two 64-bit beats (identity, then state).
+  always_comb begin
+    if ((pst == P_FLUSH || pst == P_RELOAD) && (slot_i != 7'd0))
+      ddr_addr_o = 8'd1 + {slot_i[5:0] - 6'd1, beat};
+    else
+      ddr_addr_o = {1'b0, slot_i};
+  end
 
   always_comb begin
     ram_addr  = 5'd0;
@@ -156,21 +164,20 @@ module a7ng_learned_prior_store #(
             ur, uo, us);
         end
       end
-      P_FLUSH: if (slot_i != 6'd0)
+      P_FLUSH: if (slot_i != 7'd0)
         ram_addr = slot_i[4:0] - 5'd1;
-      P_RELOAD: if (slot_i != 6'd0) begin
+      P_RELOAD: if (slot_i != 7'd0) begin
         ram_addr = slot_i[4:0] - 5'd1;
-        if (ddr_req_o && ddr_ack_i) begin
+        if (ddr_req_o && ddr_ack_i && beat) begin
           ram_we    = 1'b1;
-          ram_wdata = pack_e(ddr_rdata_i[7:0] != 8'd0,
-                             ddr_rdata_i[7:0], ddr_rdata_i[15:8], ddr_rdata_i[23:16],
-                             ddr_rdata_i[31:24],
-                             {16'd0, ddr_rdata_i[47:32]}, {16'd0, ddr_rdata_i[63:48]});
+          ram_wdata = pack_e(ddr_rdata_i[39:32] != 8'd0,
+                             ddr_rdata_i[39:32], ddr_rdata_i[47:40], ddr_rdata_i[55:48],
+                             ddr_rdata_i[63:56], r_obj, r_subj);
         end
       end
       default: ram_addr = 5'd0;
     endcase
-    if ((pst == P_UPD) && (slot_i == 6'd32) && !wrote && have_free) begin
+    if ((pst == P_UPD) && (slot_i == 7'd32) && !wrote && have_free) begin
       ram_addr  = first_free;
       ram_we    = 1'b1;
       ram_wdata = pack_e(1'b1, live_gen[7:0], 8'd0,
@@ -186,7 +193,8 @@ module a7ng_learned_prior_store #(
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
-      pst <= P_BOOT; slot_i <= '0; rd_pend <= 0; ws_live <= 0;
+      pst <= P_BOOT; slot_i <= '0; beat <= 0; r_subj <= '0; r_obj <= '0;
+      rd_pend <= 0; ws_live <= 0;
       wrote <= 0; boot_done <= 0; live_gen <= 32'd1; sdig <= '0; sdig_acc <= '0;
       first_free <= '0; have_free <= 0;
       us <= '0; uo <= '0; ur <= '0; urew <= '0; uk <= 0;
@@ -203,26 +211,26 @@ module a7ng_learned_prior_store #(
       unique case (pst)
         P_BOOT: begin
           ddr_we_o <= 1'b0;
-          slot_i <= 6'd0; rd_pend <= 0;
+          slot_i <= 7'd0; beat <= 1'b0; rd_pend <= 0;
           if (!ddr_req_o && !ddr_ack_i)
             ddr_req_o <= 1'b1;
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
             if (header_ok(ddr_rdata_i)) begin
               live_gen <= ng_epoch_gen(ddr_rdata_i);
-              slot_i <= 6'd1; pst <= P_RELOAD;
+              slot_i <= 7'd1; beat <= 1'b0; pst <= P_RELOAD;
             end else begin
               live_gen <= 32'd1;
-              slot_i <= 6'd0; pst <= P_CLR;
+              slot_i <= 7'd0; pst <= P_CLR;
             end
           end
         end
         P_CLR: begin
-          if (slot_i == 6'd31) begin
+          if (slot_i == 7'd31) begin
             ws_live <= 1'b1; sdig <= 64'd0; boot_done <= 1'b1;
             persist_done_o <= 1'b1; pst <= P_IDLE;
           end else
-            slot_i <= slot_i + 6'd1;
+            slot_i <= slot_i + 7'd1;
         end
         P_IDLE: begin
           ddr_req_o <= 1'b0;
@@ -232,24 +240,24 @@ module a7ng_learned_prior_store #(
             ws_live <= 1'b0; sdig <= 64'd0; persist_done_o <= 1'b1;
           end else if (train_reset_i) begin
             if (live_gen >= WRAP_LIMIT) begin
-              slot_i <= 6'd0; pst <= P_INVAL;
+              slot_i <= 7'd0; beat <= 1'b0; pst <= P_INVAL;
             end else begin
               live_gen <= live_gen + 32'd1; sdig <= 64'd0;
               persist_done_o <= 1'b1;
             end
           end else if (flush_i) begin
-            slot_i <= 6'd0; rd_pend <= 0; pst <= P_FLUSH;
+            slot_i <= 7'd0; beat <= 1'b0; rd_pend <= 0; pst <= P_FLUSH;
           end else if (reload_i) begin
-            slot_i <= 6'd0; boot_done <= 1'b0; ws_live <= 1'b0; pst <= P_BOOT;
+            slot_i <= 7'd0; beat <= 1'b0; boot_done <= 1'b0; ws_live <= 1'b0; pst <= P_BOOT;
           end else if (upd_valid_i && upd_ready_o) begin
             us <= upd_subj_i; ur <= upd_rel_i; uo <= upd_obj_i;
             urew <= upd_rew_i; uk <= upd_contra_i;
             c7_addr_o <= 32'(NG_DDR_PRIOR_BASE) + {12'h0, upd_subj_i[15:0], 4'h0};
-            slot_i <= 6'd0; rd_pend <= 0; wrote <= 0; have_free <= 0;
+            slot_i <= 7'd0; rd_pend <= 0; wrote <= 0; have_free <= 0;
             sdig_acc <= 64'd0; pst <= P_UPD;
           end else if (lk_go_i) begin
             ls <= lk_subj_i; lr <= lk_rel_i; lo <= lk_obj_i;
-            slot_i <= 6'd0; rd_pend <= 0; lk_busy <= 1; lk_hit <= 0;
+            slot_i <= 7'd0; rd_pend <= 0; lk_busy <= 1; lk_hit <= 0;
             lk_pri <= 8'sd0; lk_pen <= 8'sd0; pst <= P_LK;
           end
         end
@@ -259,15 +267,15 @@ module a7ng_learned_prior_store #(
             if (vis_w(q_occ, q_stp) && (q_subj == ls) && (q_rel == lr) && (q_obj == lo)) begin
               lk_hit <= 1'b1; lk_pri <= q_pri; lk_pen <= q_pen;
               lk_done <= 1'b1; lk_busy <= 1'b0; rd_pend <= 0; pst <= P_IDLE;
-            end else if (slot_i == 6'd31) begin
+            end else if (slot_i == 7'd31) begin
               lk_done <= 1'b1; lk_busy <= 1'b0; rd_pend <= 0; pst <= P_IDLE;
             end else begin
-              slot_i <= slot_i + 6'd1; rd_pend <= 1'b0;
+              slot_i <= slot_i + 7'd1; rd_pend <= 1'b0;
             end
           end
         end
         P_UPD: begin
-          if (slot_i < 6'd32) begin
+          if (slot_i < 7'd32) begin
             if (!rd_pend) rd_pend <= 1'b1;
             else begin
               // Forgotten GEN-stamp rows (!vis_w) are allocatable. 20 A + TRESET
@@ -288,10 +296,10 @@ module a7ng_learned_prior_store #(
                   nstp = live_gen[7:0]; occ_n = 1'b1;
                 end
                 if (vis_w(occ_n, nstp))
-                  sdig_acc <= sdig_acc ^ {24'd0, npri, nstp, 2'b00, slot_i};
+                  sdig_acc <= sdig_acc ^ {24'd0, npri, nstp, 2'b00, slot_i[5:0]};
               end
               rd_pend <= 1'b0;
-              slot_i <= slot_i + 6'd1;
+              slot_i <= slot_i + 7'd1;
             end
           end else begin
             if (ram_we) begin
@@ -307,26 +315,32 @@ module a7ng_learned_prior_store #(
         end
         P_FLUSH: begin
           ddr_we_o <= 1'b1;
-          if (slot_i == 6'd0) begin
+          if (slot_i == 7'd0) begin
             ddr_wdata_o <= ng_epoch_pack(live_gen);
             if (!ddr_req_o && !ddr_ack_i)
               ddr_req_o <= 1'b1;
             else if (ddr_req_o && ddr_ack_i) begin
-              ddr_req_o <= 1'b0; slot_i <= 6'd1; rd_pend <= 0;
+              ddr_req_o <= 1'b0; slot_i <= 7'd1; beat <= 1'b0; rd_pend <= 0;
             end
           end else if (!rd_pend) begin
             rd_pend <= 1'b1;
           end else begin
-            // 16+16+8+8+8+8=64. occ recovered as stamp!=0.
-            ddr_wdata_o <= {q_subj[15:0], q_obj[15:0], q_rel, q_pri, q_pen, q_stp};
+            // SCHEMA-V2 two beats: identity then state. occ = stp!=0.
+            ddr_wdata_o <= beat ? {q_rel, q_pri, q_pen, q_stp, 32'd0}
+                                : {q_subj, q_obj};
             if (!ddr_req_o && !ddr_ack_i)
               ddr_req_o <= 1'b1;
             else if (ddr_req_o && ddr_ack_i) begin
-              ddr_req_o <= 1'b0; rd_pend <= 0;
-              if (slot_i == 6'd32) begin
-                persist_done_o <= 1'b1; pst <= P_IDLE;
-              end else
-                slot_i <= slot_i + 6'd1;
+              ddr_req_o <= 1'b0;
+              if (!beat)
+                beat <= 1'b1;
+              else begin
+                beat <= 1'b0; rd_pend <= 1'b0;
+                if (slot_i == 7'd32) begin
+                  persist_done_o <= 1'b1; pst <= P_IDLE;
+                end else
+                  slot_i <= slot_i + 7'd1;
+              end
             end
           end
         end
@@ -336,29 +350,36 @@ module a7ng_learned_prior_store #(
             ddr_req_o <= 1'b1;
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
-            if (slot_i == 6'd32) begin
-              ws_live <= 1'b1; boot_done <= 1'b1; persist_done_o <= 1'b1; pst <= P_IDLE;
-            end else
-              slot_i <= slot_i + 6'd1;
+            if (!beat) begin
+              r_subj <= ddr_rdata_i[63:32];
+              r_obj  <= ddr_rdata_i[31:0];
+              beat   <= 1'b1;
+            end else begin
+              beat <= 1'b0;
+              if (slot_i == 7'd32) begin
+                ws_live <= 1'b1; boot_done <= 1'b1; persist_done_o <= 1'b1; pst <= P_IDLE;
+              end else
+                slot_i <= slot_i + 7'd1;
+            end
           end
         end
         P_INVAL: begin
-          // REBIRTH, not "zero DDR and keep the epoch". After wrap, the
-          // epoch object is destroyed: DDR cookie+slots, live_gen, BRAM.
+          // REBIRTH: zero header + 32 two-beat records (addr 0..64).
           ddr_we_o <= 1'b1; ddr_wdata_o <= 64'd0;
           if (!ddr_req_o && !ddr_ack_i)
             ddr_req_o <= 1'b1;
           else if (ddr_req_o && ddr_ack_i) begin
             ddr_req_o <= 1'b0;
-            if (slot_i == 6'd32) begin
+            if (slot_i == 7'd64) begin
               live_gen  <= 32'd1;
               sdig      <= 64'd0;
               ws_live   <= 1'b0;
               boot_done <= 1'b0;
-              slot_i    <= 6'd0;
+              slot_i    <= 7'd0;
+              beat      <= 1'b0;
               pst       <= P_CLR;
             end else
-              slot_i <= slot_i + 6'd1;
+              slot_i <= slot_i + 7'd1;
           end
         end
         default: pst <= P_IDLE;

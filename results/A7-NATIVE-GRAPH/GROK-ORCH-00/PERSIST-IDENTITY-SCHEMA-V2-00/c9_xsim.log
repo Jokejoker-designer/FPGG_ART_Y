@@ -1,0 +1,89 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 16:11:53 2026
+# Process ID         : 20744
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/xsim_regress
+# Command line       : xsim.exe -log D:\Jetking_sem4\SEM_4\arty-a7-online-lm-g14-preboard-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\PERSIST-IDENTITY-SCHEMA-V2-00\c9_xsim.log -mode tcl -source {xsim.dir/c9lp03v2/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/c9_xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/xsim_regress\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 21986 MB
+#-----------------------------------------------------------
+source xsim.dir/c9lp03v2/xsim_script.tcl
+# xsim {c9lp03v2} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+GRAPH_Q qid=10 train=1
+GRAPH_Q qid=11 train=1
+GRAPH_Q qid=12 train=1
+GRAPH_Q qid=13 train=1
+GRAPH_Q qid=14 train=1
+GRAPH_Q qid=15 train=1
+GRAPH_Q qid=16 train=1
+GRAPH_Q qid=17 train=1
+GRAPH_Q qid=18 train=1
+GRAPH_Q qid=19 train=1
+GRAPH_Q qid=1a train=1
+GRAPH_Q qid=1b train=1
+GRAPH_Q qid=1c train=1
+GRAPH_Q qid=1d train=1
+GRAPH_Q qid=1e train=1
+GRAPH_Q qid=1f train=1
+GRAPH_Q qid=20 train=1
+GRAPH_Q qid=21 train=1
+GRAPH_Q qid=22 train=1
+GRAPH_Q qid=23 train=1
+A_TRAIN_OK ack=20 seq=20 GEN=1
+GRAPH_Q qid=02 train=0
+AFTER_KILL HOLD_A C9=2322832182208180 r1=80 (expect unrel 80 if kill hides)
+GRAPH_Q qid=02 train=0
+HOLD_A C3=2322832182208180 C9=8382238122802120 r1=20 GEN=1
+GRAPH_Q qid=03 train=0
+UNREL C3=8786858483828180 C9=8786858483828180
+GRAPH_Q qid=04 train=0
+CONTRA C9=2322832182208180 r1=80
+TRESET GEN=2
+GRAPH_Q qid=02 train=0
+FORGET HOLD_A C9=2322832182208180 r1=80
+GRAPH_Q qid=30 train=1
+GRAPH_Q qid=31 train=1
+GRAPH_Q qid=32 train=1
+GRAPH_Q qid=33 train=1
+GRAPH_Q qid=34 train=1
+GRAPH_Q qid=35 train=1
+GRAPH_Q qid=36 train=1
+GRAPH_Q qid=37 train=1
+GRAPH_Q qid=38 train=1
+GRAPH_Q qid=39 train=1
+GRAPH_Q qid=3a train=1
+GRAPH_Q qid=3b train=1
+GRAPH_Q qid=3c train=1
+GRAPH_Q qid=3d train=1
+GRAPH_Q qid=3e train=1
+GRAPH_Q qid=3f train=1
+GRAPH_Q qid=40 train=1
+GRAPH_Q qid=41 train=1
+GRAPH_Q qid=42 train=1
+GRAPH_Q qid=43 train=1
+GRAPH_Q qid=06 train=0
+HOLD_B C9=8382438142804140 r1=40
+C9PACK HOLD_A 8382238122802120
+C9PACK UNREL 8786858483828180
+C9PACK CONTRA 2322832182208180
+C9PACK HOLD_B 8382438142804140
+C9_LEARNED_PRIOR_GRAPH_XSIM_PASS fails=0 facts=20
+$finish called at time : 573800 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/P2-GATE14-C9-LEARNED-PRIOR-GRAPH-03/tb_a7ng_learned_prior_graph.sv" Line 201
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 16:11:55 2026...

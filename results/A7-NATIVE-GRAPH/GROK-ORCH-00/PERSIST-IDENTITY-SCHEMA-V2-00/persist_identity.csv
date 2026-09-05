@@ -1,0 +1,15 @@
+case,phase,subj,obj,hit,pri,pen,note
+LO,before,00000011,00000022,1,3,0,learn
+LO,after,00000011,00000022,1,3,0,reload
+S1,before,00011234,00035678,1,4,0,learn
+S1,ddr,0,0001123400035678,0,0,0,payload
+S1,after_orig,00011234,00035678,1,4,0,reload
+S1,after_alias,00001234,00005678,0,0,0,reload
+PAIR,before_s1,00011234,00035678,1,4,0,learn
+PAIR,before_s2,00021234,00045678,1,5,0,learn
+PAIR,after_s1,00011234,00035678,1,4,0,reload
+PAIR,after_s2,00021234,00045678,1,5,0,reload
+PAIR,after_alias,00001234,00005678,0,0,0,reload
+S3,before,000c34ff,000beeff,1,2,0,learn
+S3,after_orig,000c34ff,000beeff,1,2,0,reload
+S3,after_alias,000034ff,0000eeff,0,0,0,reload

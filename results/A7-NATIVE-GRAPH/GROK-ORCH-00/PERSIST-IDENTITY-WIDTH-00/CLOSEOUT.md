@@ -4,7 +4,7 @@
 GATE                 = PERSIST-IDENTITY-WIDTH-00
 BASE                 = a0a923d02153fb7a396e03edc6f055955ad45e41
 REMOTE_HEAD          = a0a923d02153fb7a396e03edc6f055955ad45e41
-SOURCE_COMMIT        = (this bag; RTL unchanged)
+SOURCE_COMMIT        = bf59f05778305e88586e0723ecc2625b2a38569b
 RTL_EDIT             = NO
 FILES_CHANGED        = results/.../PERSIST-IDENTITY-WIDTH-00/*
 QUERY_LAW            = n/a (persist identity, not qse)
