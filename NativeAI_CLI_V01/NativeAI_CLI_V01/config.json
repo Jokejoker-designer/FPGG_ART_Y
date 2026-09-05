@@ -1,0 +1,15 @@
+{
+  "branch": "grok-orch/v31-canonical-00",
+  "default_backend": "demo",
+  "default_trace": "full",
+  "cli_version": "0.2.0",
+  "head": "efca26fef78c3d1643c0d34e2bd63e6d45728109",
+  "model_state": "PRE-GATE14 / U6-TYPECLASS XSim PASS / U7A NEXT",
+  "notes": [
+    "demo backend replays frozen U6 host/XSim gold traces; it is not silicon and never claims a Native-AI final answer",
+    "xsim adapter still does not launch Vivado; it reports the frozen U6 bag path",
+    "uart adapter locked until authorized board/LM chain",
+    "BIT=NO PROGRAM=NO REPROGRAM_AGAIN=NO",
+    "U7A/U7/U8 not opened by this CLI"
+  ]
+}
