@@ -24,4 +24,14 @@ Repair axes (owner):
 - query/record **features** / probe law (UNION vs which tables),
 - not another head/bucket/cap sweep on the same vis.
 
-No U7A until that decision is explicit.
+Owner decision recorded in `OWNER_DECISION-TYPE-CLASS-00.md`:
+
+```text
+MASTER_RETRIEVAL_OBJECT = TYPE_CLASS
+RAW_EPISODE_ID          = provenance only
+TYPE_TEXT               = NOT_SELECTED
+NEXT_RETRIEVAL_LAW      = masked conjunctive
+```
+
+U5Q-T1 host-model TYPE_TABLE = PASS. Legacy nid-collapse class recall still
+fails (chiller 0.17 @800k). No U7A. No NID cap sweep. No QSE redesign yet.

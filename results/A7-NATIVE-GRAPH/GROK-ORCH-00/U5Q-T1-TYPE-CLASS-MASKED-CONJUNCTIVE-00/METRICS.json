@@ -1,0 +1,15 @@
+{
+  "gate": "U5Q-T1-TYPE-CLASS-MASKED-CONJUNCTIVE-00",
+  "result": "PASS",
+  "n_type_table_256": 57,
+  "n_type_table_800k": 443,
+  "chiller_gold_types_800k": 29,
+  "chiller_table_recall": 1.0,
+  "chiller_table_precision": 1.0,
+  "legacy_chiller_type_recall_800k": 0.1724137931034483,
+  "u5q_raw": "FAIL_IMMUTABLE",
+  "u6_old_profile": "HISTORICAL_XSIM_ONLY",
+  "u7a": "CLOSED",
+  "qse_redesign": false,
+  "nid_cap_sweep": false
+}
