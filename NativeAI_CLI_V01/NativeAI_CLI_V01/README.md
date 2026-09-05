@@ -1,9 +1,9 @@
-# Native AI CLI V0.2
+# Native AI CLI V0.2.1
 
 PowerShell-first development console for the V3.1 Native AI project.
 
-Tracks **U6-TYPECLASS-UNIFIED-RETRIEVAL-00 XSim PASS**.
-Does **not** claim silicon TYPE_CLASS retrieval, board PASS, Gate14, LM, or Q-head.
+Tracks **U6-TYPECLASS XSim PASS** and **U7A REAUDIT_COMPLETE**.
+Does **not** claim silicon TYPE_CLASS retrieval, board PASS, Gate14, LM, Q-head, or U7.
 
 ## Install
 
@@ -42,7 +42,8 @@ Default backend is `demo`: it replays **frozen U6 gold** (CLASS_ID streams, scor
 - Top-K identity = **CLASS_ID**, not raw NID
 - U5Q raw FAIL immutable
 - T2 PASS, U6 TYPECLASS XSim PASS
-- U7A named NEXT, not opened by this package
+- U7A reaudit complete: XSim done⇔CLASS_ID Top-K; SoC Root-B still partial
+- U7/U8 CLOSED
 - BIT=NO PROGRAM=NO
 
 ## Current safety boundary

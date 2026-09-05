@@ -1,0 +1,5 @@
+# MANIFEST — U7A
+
+```text
+PREREG.md LOCK.txt AUDIT.md RESULTS.md METRICS.json CLOSEOUT.md SHA256.txt
+```

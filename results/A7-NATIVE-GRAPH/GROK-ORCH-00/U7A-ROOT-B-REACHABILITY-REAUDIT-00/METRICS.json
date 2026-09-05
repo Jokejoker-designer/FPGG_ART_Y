@@ -1,0 +1,15 @@
+{
+  "gate": "U7A-ROOT-B-REACHABILITY-REAUDIT-00",
+  "result": "REAUDIT_COMPLETE",
+  "typeclass_xsim_completion": "CONFIRMED",
+  "soc_root_b": "PARTIALLY_CONFIRMED",
+  "c7_addr": "OPEN_OBSERVE_ONLY",
+  "rtl_edit": false,
+  "new_xsim": false,
+  "u6_xsim_ns": 134665,
+  "u7": "CLOSED",
+  "u8": "CLOSED",
+  "bit": "NO",
+  "program": "NO",
+  "gate14_pass": "NO"
+}

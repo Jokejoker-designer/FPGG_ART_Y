@@ -2,9 +2,9 @@
   "branch": "grok-orch/v31-canonical-00",
   "default_backend": "demo",
   "default_trace": "full",
-  "cli_version": "0.2.0",
-  "head": "efca26fef78c3d1643c0d34e2bd63e6d45728109",
-  "model_state": "PRE-GATE14 / U6-TYPECLASS XSim PASS / U7A NEXT",
+  "cli_version": "0.2.1",
+  "head": "6438184c64aa063c10e46865c94049eb48d37406",
+  "model_state": "PRE-GATE14 / U6 XSim PASS / U7A REAUDIT_COMPLETE / U7 CLOSED",
   "notes": [
     "demo backend replays frozen U6 host/XSim gold traces; it is not silicon and never claims a Native-AI final answer",
     "xsim adapter still does not launch Vivado; it reports the frozen U6 bag path",
