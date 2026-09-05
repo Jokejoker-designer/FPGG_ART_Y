@@ -1,0 +1,37 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 17:19:20 2026
+# Process ID         : 49796
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U5-MEM02-SPARSE-800K-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U5-MEM02-SPARSE-800K-00/xsim.log -mode tcl -source {xsim.dir/u5mem02/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U5-MEM02-SPARSE-800K-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U5-MEM02-SPARSE-800K-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 27301 MB
+#-----------------------------------------------------------
+source xsim.dir/u5mem02/xsim_script.tcl
+# xsim {u5mem02} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+CHILLER dir=2 post=2 emit=4 beats=4 bytes=64 (dummies ignored)
+SENTINEL id=c34ff post=5060000
+COLLIDE200 emit=64 trunc=136 dir=1 beats=51 bytes=816
+UNKNOWN dir=0 emit=0
+U5_MEM02_SPARSE_800K_PASS
+CLAIM=bounded AXI dir/posting vs N; sentinel 799999 fetched; no full scan
+NOT_CLAIMED=800k_DRAM_fill,U6,scorer_quality,board
+$finish called at time : 4185 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U5-MEM02-SPARSE-800K-00/tb_u5_mem02_sparse_800k.sv" Line 198
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 17:19:22 2026...

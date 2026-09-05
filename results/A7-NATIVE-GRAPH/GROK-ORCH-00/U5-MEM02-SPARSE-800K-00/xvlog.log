@@ -1,0 +1,9 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/pkg/a7ng_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/query/a7ng_query_struct_extract.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_query_struct_extract
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/memory/a7ng_axi_mem_model.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_axi_mem_model
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/memory/a7ng_sparse_dir_axi.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_sparse_dir_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U5-MEM02-SPARSE-800K-00/tb_u5_mem02_sparse_800k.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_u5_mem02_sparse_800k
