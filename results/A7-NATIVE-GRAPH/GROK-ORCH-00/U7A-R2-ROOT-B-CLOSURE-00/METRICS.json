@@ -1,0 +1,21 @@
+{
+  "gate": "U7A-R2-ROOT-B-CLOSURE-00",
+  "result": "PASS",
+  "u7a": "FAIL_IMMUTABLE",
+  "u7a_r1": "PASS",
+  "persist_gen_fast": "DISCONNECTED_FROM_GRAPH_BASELINE",
+  "persist_gen_fast_rival_top": "a7ng_teacher_off_soc_xsim",
+  "full33_done": 0,
+  "full33_nak": 1,
+  "full33_seq": 32,
+  "full33_ack": 32,
+  "typeclass_to_learn": "NOT_REACHABLE",
+  "ddr_error": "NOT_MODELED",
+  "xsim_ns": 58910,
+  "rtl_edit": false,
+  "qhead": false,
+  "u7": "CLOSED",
+  "bit": "NO",
+  "program": "NO",
+  "u6_minheap_timing": "OPEN WNS=-4.103ns"
+}
