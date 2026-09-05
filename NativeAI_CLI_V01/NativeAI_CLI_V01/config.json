@@ -3,7 +3,7 @@
   "default_backend": "demo",
   "default_trace": "full",
   "cli_version": "0.2.6",
-  "head": "96dccfd9b0d18ed946fdcd22a6dbe05adc1ed5cc",
+  "head": "2f7155240134fa0a49cf628b86cadc69c51593cb",
   "model_state": "PRE-GATE14 / U6 PASS / U7A FAIL / R1+R2 PASS / R3A LOCK V1 / R3B PASS XSim / U7 CLOSED",
   "notes": [
     "demo backend replays frozen U6 host/XSim gold traces; it is not silicon and never claims a Native-AI final answer",
