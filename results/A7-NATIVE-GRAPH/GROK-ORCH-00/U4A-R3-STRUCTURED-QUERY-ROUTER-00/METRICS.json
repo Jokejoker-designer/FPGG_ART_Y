@@ -1,0 +1,424 @@
+{
+  "gate": "U4A-R3-STRUCTURED-QUERY-ROUTER-00",
+  "law": "qse-v1-lexicon-hdc-00",
+  "gold": "independent ENTITY_CANON label, overflow remains in gold",
+  "forbidden_relevant_eq_union": false,
+  "crc_is_not_route_key": true,
+  "n_label_docs": 42,
+  "thresholds": {
+    "recall@16": 0.8,
+    "recall@64": 0.85,
+    "min_coverage": 0.2
+  },
+  "ref_profile_r16": 0.9523809523809523,
+  "ref_profile_r64": 0.9523809523809523,
+  "unrelated_mean_cands": 12.0,
+  "profiles": [
+    {
+      "name": "P2_4k_h64",
+      "n_tables": 2,
+      "n_buckets": 4096,
+      "head_cap": 64,
+      "rejected": true,
+      "reject_reason": "scale_coverage",
+      "label_index": {
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "occ_max": 19,
+        "empty_frac": 0.9979248046875,
+        "dir_bytes": 131072
+      },
+      "label_recall_at_16": 0.9523809523809523,
+      "label_recall_at_64": 0.9523809523809523,
+      "by_cap": {
+        "64": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "128": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "192": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "256": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "384": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "512": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "1024": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "2048": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        }
+      },
+      "scale": {
+        "n": 800000,
+        "coverage": 0.00096,
+        "overflow_posts": 1599168,
+        "occ_max": 64,
+        "empty_frac": 0.9984130859375,
+        "note": "occupancy only; not semantic recall"
+      }
+    },
+    {
+      "name": "P2_4k_h256",
+      "n_tables": 2,
+      "n_buckets": 4096,
+      "head_cap": 256,
+      "rejected": true,
+      "reject_reason": "scale_coverage",
+      "label_index": {
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "occ_max": 19,
+        "empty_frac": 0.9979248046875,
+        "dir_bytes": 131072
+      },
+      "label_recall_at_16": 0.9523809523809523,
+      "label_recall_at_64": 0.9523809523809523,
+      "by_cap": {
+        "64": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "128": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "192": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "256": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "384": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "512": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "1024": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "2048": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        }
+      },
+      "scale": {
+        "n": 800000,
+        "coverage": 0.00384,
+        "overflow_posts": 1596672,
+        "occ_max": 256,
+        "empty_frac": 0.9984130859375,
+        "note": "occupancy only; not semantic recall"
+      }
+    },
+    {
+      "name": "P2_8k_h128",
+      "n_tables": 2,
+      "n_buckets": 8192,
+      "head_cap": 128,
+      "rejected": true,
+      "reject_reason": "scale_coverage",
+      "label_index": {
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "occ_max": 19,
+        "empty_frac": 0.99896240234375,
+        "dir_bytes": 262144
+      },
+      "label_recall_at_16": 0.9523809523809523,
+      "label_recall_at_64": 0.9523809523809523,
+      "by_cap": {
+        "64": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "128": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "192": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "256": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "384": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "512": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "1024": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        },
+        "2048": {
+          "mean_recall": 0.9523809523809523,
+          "mean_head_hit": 0.9523809523809523,
+          "mean_bytes": 259.8095238095238
+        }
+      },
+      "scale": {
+        "n": 800000,
+        "coverage": 0.00192,
+        "overflow_posts": 1598336,
+        "occ_max": 128,
+        "empty_frac": 0.99920654296875,
+        "note": "occupancy only; not semantic recall"
+      }
+    },
+    {
+      "name": "P4_4k_h64",
+      "n_tables": 4,
+      "n_buckets": 4096,
+      "head_cap": 64,
+      "rejected": false,
+      "reject_reason": null,
+      "label_index": {
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "occ_max": 42,
+        "empty_frac": 0.99749755859375,
+        "dir_bytes": 262144
+      },
+      "label_recall_at_16": 0.9523809523809523,
+      "label_recall_at_64": 1.0,
+      "by_cap": {
+        "64": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "128": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "192": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "256": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "384": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "512": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "1024": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        },
+        "2048": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 720.0
+        }
+      },
+      "scale": {
+        "n": 800000,
+        "coverage": 0.32768,
+        "overflow_posts": 2674880,
+        "occ_max": 64,
+        "empty_frac": 0.49920654296875,
+        "note": "occupancy only; not semantic recall"
+      }
+    },
+    {
+      "name": "P8_2k_h16",
+      "n_tables": 8,
+      "n_buckets": 2048,
+      "head_cap": 16,
+      "rejected": true,
+      "reject_reason": "scale_coverage",
+      "label_index": {
+        "overflow_posts": 32,
+        "coverage": 1.0,
+        "occ_max": 16,
+        "empty_frac": 0.99371337890625,
+        "dir_bytes": 262144
+      },
+      "label_recall_at_16": 1.0,
+      "label_recall_at_64": 1.0,
+      "by_cap": {
+        "64": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "128": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "192": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "256": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "384": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "512": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "1024": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        },
+        "2048": {
+          "mean_recall": 1.0,
+          "mean_head_hit": 1.0,
+          "mean_bytes": 532.952380952381
+        }
+      },
+      "scale": {
+        "n": 800000,
+        "coverage": 0.04096,
+        "overflow_posts": 6252144,
+        "occ_max": 16,
+        "empty_frac": 0.43597412109375,
+        "note": "occupancy only; not semantic recall"
+      }
+    }
+  ],
+  "pareto": {
+    "chosen": {
+      "profile": "P4_4k_h64",
+      "cand_cap": 64,
+      "recall": 1.0,
+      "bytes": 720.0,
+      "coverage_scale": 0.32768
+    },
+    "ranked_top8": [
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 64,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 128,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 192,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 256,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 384,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 512,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 1024,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      },
+      {
+        "profile": "P4_4k_h64",
+        "cand_cap": 2048,
+        "recall": 1.0,
+        "bytes": 720.0,
+        "coverage_scale": 0.32768
+      }
+    ]
+  },
+  "fails": [],
+  "verdict": "PASS",
+  "first_divergence": null,
+  "u5": "CLOSED"
+}

@@ -4,7 +4,11 @@
 // existence SoA pack. One TinyGPT stays in native_v1_ab_core. PROGRAM=NO.
 `timescale 1ns / 1ps
 
-module a7ng_g1g5_cofit (
+module a7ng_g1g5_cofit #(
+  // 1 = Gate14 cand_* synthetic retrieval (sim fixture / HOLD_A oracle).
+  // 0 = production: C9 IDs from parent graph_id_i (SOA / TYPE_CLASS). cand walk off.
+  parameter bit SYNTHETIC_CAND_GEN = 1'b1
+) (
   input  logic         clk,
   input  logic         rst_n,
   input  logic         graph_topk_valid_i,
@@ -15,7 +19,8 @@ module a7ng_g1g5_cofit (
   input  logic [9:0]   graph_pred_i,
   output logic [3:0]   c1_mode_o,
   output logic [63:0]  c2_anch_o,
-  output logic [63:0]  c9_topk_o,
+  output logic [63:0]  c9_topk_o,     // diagnostic 8-bit pack (oracle C9 UART)
+  output logic [159:0] c9_id20_o,     // live >=20-bit IDs
   output logic [127:0] c9_score_o,
   output logic [31:0]  c9_r1s_o,
   output logic [7:0]   c9_r1r_o,
@@ -97,6 +102,9 @@ module a7ng_g1g5_cofit (
   logic froze;
   logic [7:0] boot_wait;
   integer gpi;
+  logic graph_qr, qv_to_graph;
+  node_id_t c9_id [8];
+  score_t   c9_sc [8];
 
   assign persist_ddr_req_o   = ddr_req;
   assign persist_ddr_we_o    = ddr_we;
@@ -126,14 +134,28 @@ module a7ng_g1g5_cofit (
   assign c10_lmdn_o          = g_lmdn;
   assign c10_out_o           = g_out;
 
+  logic ext_complete;
+  assign qv_to_graph  = SYNTHETIC_CAND_GEN ? p_qv : 1'b0;
+  assign ext_complete = (!SYNTHETIC_CAND_GEN) && p_qv && graph_topk_valid_i;
+  assign p_qr         = graph_qr;
+
   always_comb begin
-    for (gpi = 0; gpi < 8; gpi = gpi + 1)
-      g14_persist_id_o[gpi] = p_id[gpi];
+    for (gpi = 0; gpi < 8; gpi = gpi + 1) begin
+      if (SYNTHETIC_CAND_GEN) begin
+        c9_id[gpi] = p_id[gpi];
+        c9_sc[gpi] = p_sc[gpi];
+      end else begin
+        c9_id[gpi] = graph_id_i[gpi];
+        c9_sc[gpi] = graph_sc_i[gpi];
+      end
+      g14_persist_id_o[gpi] = c9_id[gpi];
+    end
   end
 
   a7ng_learned_prior_graph #(.WRAP_LIMIT(32'd6)) u_graph (
     .clk(clk), .rst_n(rst_n), .learn_i(p_learn), .freeze_i(p_freeze),
-    .query_valid_i(p_qv), .query_ready_o(p_qr), .query_id_i(p_qid),
+    .query_valid_i(qv_to_graph), .query_ready_o(graph_qr), .query_id_i(p_qid),
+    .ext_complete_i(ext_complete), .ext_id_i(graph_id_i), .ext_sc_i(graph_sc_i),
     .snap_valid_o(p_sv), .snap_ready_i(p_sr),
     .topk_id_o(p_id), .topk_score_o(p_sc),
     .c3_pack_o(c3p), .c9_pack_o(c9p),
@@ -165,7 +187,7 @@ module a7ng_g1g5_cofit (
     .p_learn_o(p_learn), .p_freeze_o(p_freeze),
     .p_qvalid_o(p_qv), .p_qready_i(p_qr), .p_qid_o(p_qid),
     .p_snap_v_i(p_sv), .p_snap_r_o(p_sr),
-    .p_topk_id_i(p_id), .p_topk_sc_i(p_sc),
+    .p_topk_id_i(c9_id), .p_topk_sc_i(c9_sc),
     .p_evs_i(32'd0), .p_evr_i(8'd0), .p_evo_i(32'd0),
     .p_pending_i(p_pend), .p_txn_i(p_txn),
     .p_rew_v_o(p_rewv), .p_rew_o(p_rew),
@@ -176,7 +198,7 @@ module a7ng_g1g5_cofit (
     .lm_start_o(lm_start), .lm_busy_i(graph_lm_busy_i),
     .lm_done_i(graph_bind_done_i), .lm_pred_i(graph_pred_i),
     .c1_mode_o(mode_g), .c2_anch_o(c2_anch_o),
-    .c9_topk_o(c9_topk_o), .c9_score_o(c9_score_o),
+    .c9_topk_o(c9_topk_o), .c9_id20_o(c9_id20_o), .c9_score_o(c9_score_o),
     .c9_r1s_o(c9_r1s_o), .c9_r1r_o(c9_r1r_o), .c9_r1o_o(c9_r1o_o),
     .c10_lmst_o(g_lmst), .c10_lmdn_o(g_lmdn), .c10_out_o(g_out),
     .n_host_cue_o(n_host_cue_o), .n_host_win_o(n_host_win_o),

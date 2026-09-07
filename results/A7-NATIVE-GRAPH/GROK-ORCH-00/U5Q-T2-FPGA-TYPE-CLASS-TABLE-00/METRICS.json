@@ -1,0 +1,22 @@
+{
+  "gate": "U5Q-T2-FPGA-TYPE-CLASS-TABLE-00",
+  "result": "PASS",
+  "tc_n": 443,
+  "class_id_w": 16,
+  "class_id_first": 1,
+  "class_id_last": 443,
+  "TYPECLASS_TABLE_SHA256": "B5958D4ADBE96F1D4432915E767BA2C4806594DBB291BBFFBEC95FE588E436C2",
+  "CLASS_ID_MAPPING_SHA256": "CEA2B9710D4D5F229BC341DF790E557B20F023F98161464C6C79BEADAE6BD68B",
+  "ooc_lut": 137,
+  "ooc_ff": 126,
+  "ooc_bram": 0,
+  "ooc_dsp": 0,
+  "ooc_wns_ns": 3.089,
+  "ooc_tns_ns": 0.0,
+  "cycles_per_query_est": 450,
+  "nid_path": false,
+  "qse_changed": false,
+  "u7a": "CLOSED",
+  "bit": "NO",
+  "program": "NO"
+}

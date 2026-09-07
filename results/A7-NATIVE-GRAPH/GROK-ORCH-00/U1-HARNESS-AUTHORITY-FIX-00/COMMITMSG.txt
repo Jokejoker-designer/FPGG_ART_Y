@@ -1,0 +1,5 @@
+U1-HARNESS-AUTHORITY-FIX-00: fail-closed AOS harness.
+
+SOA_PATTERN_FAIL implies FAIL. 1024/64. ordered_valid after running=0.
+DUT unchanged. NEXT=U2-OPTIMIZED-FULLCHIP-COFIT-00.
+GATE14_PASS=NO PROGRAM=NO

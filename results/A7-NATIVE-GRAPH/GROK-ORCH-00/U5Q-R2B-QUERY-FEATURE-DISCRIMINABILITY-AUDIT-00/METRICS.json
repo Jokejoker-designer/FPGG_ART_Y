@@ -1,0 +1,12 @@
+{
+  "gate": "U5Q-R2B-QUERY-FEATURE-DISCRIMINABILITY-AUDIT-00",
+  "result": "MEASURE_PASS",
+  "overall_diagnosis": "PARTIAL_FIELD_COLLISION",
+  "exact_vis_twins_chiller": 0,
+  "exact_vis_twins_water": 0,
+  "water_all_four_keys_collide": true,
+  "chiller_k0_separates": true,
+  "no_router_geometry_can_separate_them": false,
+  "u5q": "STILL_FAIL",
+  "u7a": "CLOSED"
+}

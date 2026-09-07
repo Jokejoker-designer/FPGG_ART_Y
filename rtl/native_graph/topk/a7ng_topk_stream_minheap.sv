@@ -83,6 +83,13 @@ module a7ng_topk_stream_minheap #(
   st_t          st;
   hf_t          hf_dir;
   logic [3:0]   hf_idx;
+  logic [3:0]   hf_nxt;
+  logic         hf_eval;
+  logic         hf_loaded;
+  logic         hf_do_swap;
+  logic         hf_l_ok, hf_r_ok;
+  logic [3:0]   hf_l_idx, hf_r_idx;
+  cand_t        hf_a, hf_b, hf_c;
   logic [3:0]   fill_n;
   cand_t        h [K];
   logic [2:0]   ord [K];
@@ -186,6 +193,10 @@ module a7ng_topk_stream_minheap #(
       st               <= ST_TAKE;
       hf_dir           <= HF_NONE;
       hf_idx           <= 4'd0;
+      hf_nxt           <= 4'd0;
+      hf_eval          <= 1'b0;
+      hf_loaded        <= 1'b0;
+      hf_do_swap       <= 1'b0;
       fill_n           <= 4'd0;
       sort_pass        <= 3'd0;
       sort_j           <= 3'd0;
@@ -205,6 +216,9 @@ module a7ng_topk_stream_minheap #(
         st               <= ST_TAKE;
         hf_dir           <= HF_NONE;
         hf_idx           <= 4'd0;
+        hf_nxt           <= 4'd0;
+        hf_eval          <= 1'b0;
+        hf_do_swap       <= 1'b0;
         fill_n           <= 4'd0;
         last_q           <= 1'b0;
         out_valid_o      <= 1'b0;
@@ -231,8 +245,10 @@ module a7ng_topk_stream_minheap #(
                     enter_emit;
                   end
                 end else begin
-                  hf_dir <= HF_UP;
-                  st     <= ST_HEAPIFY;
+                  hf_dir    <= HF_UP;
+                  hf_eval   <= 1'b0;
+                  hf_loaded <= 1'b0;
+                  st        <= ST_HEAPIFY;
                 end
               end else if (beats({in_v_i, in_s_i, in_id_i, in_lane_i}, h[0])) begin
                 if (SIFT_ON_TAKE) begin
@@ -242,9 +258,11 @@ module a7ng_topk_stream_minheap #(
                     enter_emit;
                   end
                 end else begin
-                  hf_idx <= 4'd0;
-                  hf_dir <= HF_DOWN;
-                  st     <= ST_HEAPIFY;
+                  hf_idx    <= 4'd0;
+                  hf_dir    <= HF_DOWN;
+                  hf_eval   <= 1'b0;
+                  hf_loaded <= 1'b0;
+                  st        <= ST_HEAPIFY;
                 end
               end else begin
                 retired_count_o <= retired_count_o + 32'd1;
@@ -256,48 +274,56 @@ module a7ng_topk_stream_minheap #(
           end
 
           ST_HEAPIFY: begin
-            if (hf_dir == HF_UP) begin
-              if (hf_idx != 4'd0) begin
-                logic [3:0] p;
-                p = 4'((hf_idx - 4'd1) >> 1);
-                if (beats(h[p], h[hf_idx])) begin
-                  hf_idx <= p;
-                end else begin
-                  hf_dir          <= HF_NONE;
-                  retired_count_o <= retired_count_o + 32'd1;
-                  if (last_q) begin
-                    enter_emit;
-                  end else
-                    st <= ST_TAKE;
+            if (!hf_loaded) begin
+              hf_a <= h[hf_idx];
+              if (hf_dir == HF_UP) begin
+                if (hf_idx != 4'd0) begin
+                  logic [3:0] p;
+                  p = 4'((hf_idx - 4'd1) >> 1);
+                  hf_b   <= h[p];
+                  hf_nxt <= p;
+                end else
+                  hf_nxt <= hf_idx;
+              end else if (hf_dir == HF_DOWN) begin
+                logic [4:0] l, r;
+                l = 5'({hf_idx, 1'b0}) + 5'd1;
+                r = l + 5'd1;
+                hf_l_ok  <= (l < K);
+                hf_r_ok  <= (r < K);
+                hf_l_idx <= l[3:0];
+                hf_r_idx <= r[3:0];
+                if (l < K) hf_b <= h[l[3:0]];
+                if (r < K) hf_c <= h[r[3:0]];
+              end else
+                hf_nxt <= hf_idx;
+              hf_loaded <= 1'b1;
+            end else if (!hf_eval) begin
+              if (hf_dir == HF_UP) begin
+                hf_do_swap <= (hf_idx != 4'd0) && beats(hf_b, hf_a);
+              end else if (hf_dir == HF_DOWN) begin
+                logic [3:0] w;
+                cand_t cw;
+                w  = hf_idx;
+                cw = hf_a;
+                if (hf_l_ok && beats(cw, hf_b)) begin
+                  w  = hf_l_idx;
+                  cw = hf_b;
                 end
-              end else begin
-                hf_dir          <= HF_NONE;
-                retired_count_o <= retired_count_o + 32'd1;
-                if (last_q) begin
-                  enter_emit;
-                end else
-                  st <= ST_TAKE;
-              end
-            end else if (hf_dir == HF_DOWN) begin
-              logic [4:0] l, r, w;
-              l = 5'({hf_idx, 1'b0}) + 5'd1;
-              r = l + 5'd1;
-              w = {1'b0, hf_idx};
-              if (l < K && beats(h[w[3:0]], h[l[3:0]]))
-                w = l;
-              if (r < K && beats(h[w[3:0]], h[r[3:0]]))
-                w = r;
-              if (w[3:0] != hf_idx) begin
-                hf_idx <= w[3:0];
-              end else begin
-                hf_dir          <= HF_NONE;
-                retired_count_o <= retired_count_o + 32'd1;
-                if (last_q) begin
-                  enter_emit;
-                end else
-                  st <= ST_TAKE;
-              end
+                if (hf_r_ok && beats(cw, hf_c))
+                  w = hf_r_idx;
+                hf_nxt     <= w;
+                hf_do_swap <= (w != hf_idx);
+              end else
+                hf_do_swap <= 1'b0;
+              hf_eval <= 1'b1;
+            end else if (hf_do_swap) begin
+              hf_idx    <= hf_nxt;
+              hf_eval   <= 1'b0;
+              hf_loaded <= 1'b0;
             end else begin
+              hf_eval         <= 1'b0;
+              hf_loaded       <= 1'b0;
+              hf_dir          <= HF_NONE;
               retired_count_o <= retired_count_o + 32'd1;
               if (last_q) begin
                 enter_emit;
@@ -401,32 +427,11 @@ module a7ng_topk_stream_minheap #(
         end
 
         ST_HEAPIFY: begin
-          if (hf_dir == HF_UP) begin
-            if (hf_idx != 4'd0) begin
-              logic [3:0] p;
-              p = 4'((hf_idx - 4'd1) >> 1);
-              if (beats(h[p], h[hf_idx])) begin
-                cand_t tmp;
-                tmp       = h[p];
-                h[p]      <= h[hf_idx];
-                h[hf_idx] <= tmp;
-              end
-            end
-          end else if (hf_dir == HF_DOWN) begin
-            logic [4:0] l, r, w;
-            l = 5'({hf_idx, 1'b0}) + 5'd1;
-            r = l + 5'd1;
-            w = {1'b0, hf_idx};
-            if (l < K && beats(h[w[3:0]], h[l[3:0]]))
-              w = l;
-            if (r < K && beats(h[w[3:0]], h[r[3:0]]))
-              w = r;
-            if (w[3:0] != hf_idx) begin
-              cand_t tmp;
-              tmp       = h[hf_idx];
-              h[hf_idx] <= h[w[3:0]];
-              h[w[3:0]] <= tmp;
-            end
+          if (hf_eval && hf_do_swap) begin
+            cand_t tmp;
+            tmp           = h[hf_idx];
+            h[hf_idx]     <= h[hf_nxt];
+            h[hf_nxt]     <= tmp;
           end
         end
 

@@ -1,0 +1,11 @@
+{
+  "gate": "U7P-PERSISTENCE-IDENTITY-00",
+  "result": "PASS",
+  "rtl_edit": false,
+  "flush_reload_match": 1,
+  "schema_v2": "PASS",
+  "persist_gen_fast": "DISCONNECTED",
+  "u7_sim_time_ns": 281015,
+  "bit": false,
+  "program": false
+}

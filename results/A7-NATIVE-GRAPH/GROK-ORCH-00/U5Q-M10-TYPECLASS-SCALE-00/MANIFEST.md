@@ -1,0 +1,5 @@
+# MANIFEST — U5Q-M10-TYPECLASS-SCALE-00
+
+- PREREG.md LOCK.txt RESULTS.md CLOSEOUT.md METRICS.json SHA256.txt
+- host_m10_tc.py (HOST_MODEL; no RTL)
+- ACCEPTANCE.md (qa-only)

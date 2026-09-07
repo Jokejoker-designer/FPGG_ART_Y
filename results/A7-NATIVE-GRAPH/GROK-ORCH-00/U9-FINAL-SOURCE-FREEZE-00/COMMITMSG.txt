@@ -1,0 +1,5 @@
+U9: final source freeze docs. PRODUCTION_RTL=bdddbd68. BIT=NO.
+
+Manifest + SHA256 of production rtl/constraints/tcl/XCI. Confirm XSim
+reproduced U8R SYNTHETIC_CAND_GEN=0 (ids 65/66/67). No bitstream.
+Do not git-add MIG or a7lm06_wmem.hex. Next is U9R, not U9S.

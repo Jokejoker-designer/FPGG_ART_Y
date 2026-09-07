@@ -1,0 +1,7 @@
+# MANIFEST — U8-R1
+
+- PREREG.md LOCK.txt VOCAB_AUDIT.md
+- LM_CTX_TYPECLASS_SERIAL_V1.json / .md
+- RESULTS.md METRICS.json CLOSEOUT.md SHA256.txt
+
+RTL: none.

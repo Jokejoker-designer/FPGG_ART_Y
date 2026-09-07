@@ -1,0 +1,53 @@
+{
+  "sha": "8fc526411be225a45dfc9a9fcc9d6c037d5c08548a8c0ca0a6b17d96c8758c11",
+  "queries": [
+    [
+      "condenser",
+      "condenser"
+    ],
+    [
+      "evaporator",
+      "evaporator"
+    ],
+    [
+      "install_chiller",
+      "install chiller"
+    ],
+    [
+      "replace_compressor",
+      "replace compressor"
+    ],
+    [
+      "air_handler",
+      "air handler"
+    ],
+    [
+      "leak_check",
+      "leak check"
+    ],
+    [
+      "air_condenser",
+      "air condenser"
+    ],
+    [
+      "cookie_recipe",
+      "cookie recipe"
+    ],
+    [
+      "weather_forecast",
+      "weather forecast"
+    ],
+    [
+      "garden_soil",
+      "garden soil"
+    ],
+    [
+      "insulate_pipe",
+      "insulate pipe"
+    ],
+    [
+      "scroll_compressor",
+      "scroll compressor"
+    ]
+  ]
+}

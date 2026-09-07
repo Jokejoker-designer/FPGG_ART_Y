@@ -1,0 +1,43 @@
+{
+  "gate": "U8-R0-LM06-ACTIVE-CHAIN-ON-FROZEN-C9-00",
+  "result": "PASS",
+  "evidence": "XSIM",
+  "sim_time_ns": 190671945,
+  "rtl_edit": false,
+  "typeclass_glue": false,
+  "qhead": false,
+  "bit": false,
+  "program": false,
+  "chain": {
+    "ctx_we": 1,
+    "ctx_beats": 1,
+    "start_fwd_pulses": 1,
+    "start_fwd_beats": 1,
+    "busy_rise": 1,
+    "core_done": 1,
+    "lmst_rise": 1,
+    "lmdn_rise": 1
+  },
+  "pred": {
+    "c10": 237,
+    "bind": 237,
+    "core": 237,
+    "owner": "FPGA"
+  },
+  "host": {
+    "n_host_cue": 0,
+    "n_host_win": 0,
+    "n_host_addr": 0,
+    "n_host_tok": 0,
+    "n_host_w": 0
+  },
+  "hold_a": {
+    "historical_c9": "8382238122802120",
+    "historical_out": [653, 689, 237, 60],
+    "observed_c9": "2322832182208180",
+    "observed_out": 237,
+    "match_historical_hold_a": false,
+    "retarget": false,
+    "note": "untrained legacy graph; CONTRA pack/OUT observed; not graded"
+  }
+}

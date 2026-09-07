@@ -1,0 +1,37 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Sep  4 13:03:43 2026
+# Process ID         : 31004
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-QUERY-REPRESENTATION-AUTHORITY-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-QUERY-REPRESENTATION-AUTHORITY-00/xsim.log -mode tcl -source {xsim.dir/u3q_qfe/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-QUERY-REPRESENTATION-AUTHORITY-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-QUERY-REPRESENTATION-AUTHORITY-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 26297 MB
+#-----------------------------------------------------------
+source xsim.dir/u3q_qfe/xsim_script.tcl
+# xsim {u3q_qfe} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Q0 KEYS k0=b72b k1=b229 k2=0d07 k3=b42e
+Q1 KEYS k0=a70a k1=a308 k2=0f06 k3=a40e
+Q2_SAME_Q0 KEYS k0=b72b k1=b229 k2=0d07 k3=b42e
+Q3 KEYS k0=ace9 k1=aee1 k2=160a k3=a8eb
+Q4 KEYS k0=bcc8 k1=bfc0 k2=160b k3=b8cb
+QUERY_REPRESENTATION_AUTHORITY_PASS law=qfe-v1-crc16-mix-00
+NO_HOST_HASH_SHARD_BUCKET_WINNER_ADDRESS
+$finish called at time : 565 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U3Q-QUERY-REPRESENTATION-AUTHORITY-00/tb_a7ng_query_feature_extract.sv" Line 90
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 13:03:45 2026...

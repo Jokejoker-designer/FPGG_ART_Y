@@ -1,0 +1,13 @@
+{
+  "gate": "C02-PRODUCTION-PATH-INTEGRATION-00",
+  "result": "PASS",
+  "full_soc_result": "INTEGRATION_GAP",
+  "uart_to_tc": false,
+  "soc_top_instantiated": false,
+  "p7_regression": "PASS",
+  "pred_obs": 861,
+  "ab_core_has_u_tc": true,
+  "ready_for_final_synth": false,
+  "bit": false,
+  "program": false
+}

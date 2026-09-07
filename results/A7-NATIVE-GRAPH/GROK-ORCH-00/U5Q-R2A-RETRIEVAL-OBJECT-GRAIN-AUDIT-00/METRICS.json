@@ -1,0 +1,15 @@
+{
+  "gate": "U5Q-R2A-RETRIEVAL-OBJECT-GRAIN-AUDIT-00",
+  "result": "MEASURE_PASS",
+  "overall_diagnosis": "RAW_INSTANCE_RECALL_INCOMPATIBLE_WITH_BOUNDED_CAP",
+  "n800k_chiller_raw": 34000,
+  "n800k_chiller_type_class": 29,
+  "n800k_chiller_type_text": 323,
+  "n800k_chiller_dup_class": 1172.4137931034484,
+  "min_cands_raw_0.80_chiller": 27200,
+  "min_cands_class_0.80_chiller": 24,
+  "cand_cap_ref": 64,
+  "master_object_chosen": false,
+  "u5q": "STILL_FAIL",
+  "u7a": "CLOSED"
+}

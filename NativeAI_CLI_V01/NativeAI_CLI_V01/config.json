@@ -1,0 +1,20 @@
+{
+  "branch": "grok-orch/v31-canonical-00",
+  "default_backend": "demo",
+  "default_trace": "full",
+  "cli_version": "0.2.11",
+  "head": "2a3bca3991b29657a5a74c69a6ef0872b8c3e5c0",
+  "model_state": "PRE-GATE14 / U7 PASS / U8-R0 PASS / U8-R1 MISMATCH / U8-R2 encoder PASS / U8-R3 XSim structural PASS / QHEAD CLOSED / GATE14_PASS=NO",
+  "notes": [
+    "demo backend replays frozen U6 host/XSim gold traces; it is not silicon and never claims a Native-AI final answer",
+    "xsim adapter still does not launch Vivado; it reports the frozen U6 bag path",
+    "uart adapter locked until authorized board/LM chain",
+    "BIT=NO PROGRAM=NO REPROGRAM_AGAIN=NO",
+    "U7 XSim PASS is contextual prior ranking on the DEPTH=32 working set; not silicon; not Q-head",
+    "U8-R0 PASS is legacy C9 to LM-06 reachability only; not TYPE_CLASS to LM; HOLD_A not retargeted",
+    "U8-R1 MEASURE_PASS: protocol SHA f88f6db7; mapping table empty; LM_CHECKPOINT_CONTEXT_MISMATCH",
+    "U8-R2 PASS structural encoder; CLASS_ID never serialized as a token",
+    "U8-R3 XSim PASS: TYPE_CLASS Top-K -> encoder V1 -> one start_fwd -> LM-06; pred obs 861; SEMANTIC_LM=MISMATCH; not silicon",
+    "Close DAG: M10 TYPE_CLASS scale is next; PROGRAM only at U10 on a NEW unique bit; never reseat 1F0F2ABB as close"
+  ]
+}

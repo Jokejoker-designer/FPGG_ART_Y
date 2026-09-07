@@ -1,0 +1,18 @@
+{
+  "gate": "U7C-LEARN-STORE-LIMIT-00",
+  "result": "PASS",
+  "decision": "LIMIT",
+  "rtl_edit": false,
+  "depth": 32,
+  "first_nak_at_write": 33,
+  "store_occupancy_max": 32,
+  "n_unique_learn_keys": 32,
+  "persist_reload_match": 1,
+  "host_semantic_counters": 0,
+  "u7_marker": "U7_CONTEXTUAL_LEARNING_EFFECTIVENESS_PASS",
+  "u7_sim_time_ns": 281015,
+  "scale_800k_onchip": false,
+  "bit": false,
+  "program": false,
+  "qhead": false
+}

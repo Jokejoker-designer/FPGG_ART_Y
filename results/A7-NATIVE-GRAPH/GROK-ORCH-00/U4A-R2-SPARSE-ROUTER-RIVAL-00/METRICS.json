@@ -1,0 +1,628 @@
+{
+  "gate": "U4A-R2-SPARSE-ROUTER-RIVAL-00",
+  "evidence_class": "HOST_MODEL",
+  "n": 800000,
+  "n_query": 200,
+  "law": "qfe-v1-crc16-mix-00",
+  "gold": "independent rec_keys bucket membership INCLUDING overflow",
+  "forbidden_relevant_eq_union": false,
+  "min_coverage": 0.2,
+  "min_head_hit": 0.15,
+  "caps_swept": [
+    64,
+    128,
+    192,
+    256,
+    384,
+    512,
+    1024,
+    2048
+  ],
+  "profiles": [
+    {
+      "name": "P2_4k_h64",
+      "n_tables": 2,
+      "n_buckets": 4096,
+      "head_cap": 64,
+      "rejected": false,
+      "reject_reason": null,
+      "index": {
+        "overflow_posts": 1075712,
+        "coverage": 0.3510275,
+        "occ_p50": 64,
+        "occ_p99": 64,
+        "occ_max": 64,
+        "empty_frac": 0.0,
+        "dir_bytes": 131072,
+        "slot_bytes": 2097152
+      },
+      "by_cap": {
+        "64": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 64.0,
+          "mean_bytes": 1056.0,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.16369803403248911
+        },
+        "128": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        },
+        "192": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        },
+        "256": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        },
+        "384": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        },
+        "512": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        },
+        "1024": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        },
+        "2048": {
+          "mean_gold": 391.505,
+          "mean_stored": 127.995,
+          "mean_cands": 127.995,
+          "mean_bytes": 2079.92,
+          "mean_dups": 0.005,
+          "mean_overflow_in_gold": 263.56,
+          "mean_head_hit": 0.32738328034119313,
+          "mean_recall": 0.32738328034119313
+        }
+      }
+    },
+    {
+      "name": "P2_4k_h256",
+      "n_tables": 2,
+      "n_buckets": 4096,
+      "head_cap": 256,
+      "rejected": false,
+      "reject_reason": null,
+      "index": {
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "occ_p50": 195,
+        "occ_p99": 223,
+        "occ_max": 241,
+        "empty_frac": 0.0,
+        "dir_bytes": 131072,
+        "slot_bytes": 8388608
+      },
+      "by_cap": {
+        "64": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 64.0,
+          "mean_bytes": 1056.0,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.16369803403248911
+        },
+        "128": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 128.0,
+          "mean_bytes": 2080.0,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.32739606806497823
+        },
+        "192": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 192.0,
+          "mean_bytes": 3104.0,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.4910941020974666
+        },
+        "256": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 256.0,
+          "mean_bytes": 4128.0,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.6547921361299565
+        },
+        "384": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 381.155,
+          "mean_bytes": 6130.48,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.9744602340860851
+        },
+        "512": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 391.505,
+          "mean_bytes": 6296.08,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        },
+        "1024": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 391.505,
+          "mean_bytes": 6296.08,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        },
+        "2048": {
+          "mean_gold": 391.505,
+          "mean_stored": 391.505,
+          "mean_cands": 391.505,
+          "mean_bytes": 6296.08,
+          "mean_dups": 0.055,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        }
+      }
+    },
+    {
+      "name": "P4_4k_h64",
+      "n_tables": 4,
+      "n_buckets": 4096,
+      "head_cap": 64,
+      "rejected": false,
+      "reject_reason": null,
+      "index": {
+        "overflow_posts": 2151424,
+        "coverage": 0.3692675,
+        "occ_p50": 64,
+        "occ_p99": 64,
+        "occ_max": 64,
+        "empty_frac": 0.0,
+        "dir_bytes": 262144,
+        "slot_bytes": 4194304
+      },
+      "by_cap": {
+        "64": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 64.0,
+          "mean_bytes": 1088.0,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.08109285464601189
+        },
+        "128": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 128.0,
+          "mean_bytes": 2112.0,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.16218570929202378
+        },
+        "192": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 192.0,
+          "mean_bytes": 3136.0,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.24327856393803543
+        },
+        "256": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 255.93,
+          "mean_bytes": 4158.88,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.3242826510151054
+        },
+        "384": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 255.93,
+          "mean_bytes": 4158.88,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.3242826510151054
+        },
+        "512": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 255.93,
+          "mean_bytes": 4158.88,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.3242826510151054
+        },
+        "1024": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 255.93,
+          "mean_bytes": 4158.88,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.3242826510151054
+        },
+        "2048": {
+          "mean_gold": 789.72,
+          "mean_stored": 255.93,
+          "mean_cands": 255.93,
+          "mean_bytes": 4158.88,
+          "mean_dups": 0.07,
+          "mean_overflow_in_gold": 533.985,
+          "mean_head_hit": 0.3242826510151054,
+          "mean_recall": 0.3242826510151054
+        }
+      }
+    },
+    {
+      "name": "P2_8k_h128",
+      "n_tables": 2,
+      "n_buckets": 8192,
+      "head_cap": 128,
+      "rejected": false,
+      "reject_reason": null,
+      "index": {
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "occ_p50": 98,
+        "occ_p99": 119,
+        "occ_max": 128,
+        "empty_frac": 0.0,
+        "dir_bytes": 262144,
+        "slot_bytes": 8388608
+      },
+      "by_cap": {
+        "64": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 64.0,
+          "mean_bytes": 1056.0,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.32789006044163477
+        },
+        "128": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 128.0,
+          "mean_bytes": 2080.0,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.6557801208832695
+        },
+        "192": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 189.265,
+          "mean_bytes": 3060.24,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 0.9683041054451371
+        },
+        "256": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 195.865,
+          "mean_bytes": 3165.84,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        },
+        "384": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 195.865,
+          "mean_bytes": 3165.84,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        },
+        "512": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 195.865,
+          "mean_bytes": 3165.84,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        },
+        "1024": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 195.865,
+          "mean_bytes": 3165.84,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        },
+        "2048": {
+          "mean_gold": 195.865,
+          "mean_stored": 195.865,
+          "mean_cands": 195.865,
+          "mean_bytes": 3165.84,
+          "mean_dups": 0.0,
+          "mean_overflow_in_gold": 0.0,
+          "mean_head_hit": 1.0,
+          "mean_recall": 1.0
+        }
+      }
+    },
+    {
+      "name": "P8_2k_h16",
+      "n_tables": 8,
+      "n_buckets": 2048,
+      "head_cap": 16,
+      "rejected": true,
+      "reject_reason": "coverage",
+      "index": {
+        "overflow_posts": 6137856,
+        "coverage": 0.05679,
+        "occ_p50": 16,
+        "occ_p99": 16,
+        "occ_max": 16,
+        "empty_frac": 0.0,
+        "dir_bytes": 262144,
+        "slot_bytes": 1048576
+      },
+      "by_cap": {
+        "64": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 64.0,
+          "mean_bytes": 1152.0,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.020476466601759426
+        },
+        "128": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        },
+        "192": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        },
+        "256": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        },
+        "384": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        },
+        "512": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        },
+        "1024": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        },
+        "2048": {
+          "mean_gold": 3126.02,
+          "mean_stored": 127.885,
+          "mean_cands": 127.885,
+          "mean_bytes": 2174.16,
+          "mean_dups": 0.115,
+          "mean_overflow_in_gold": 3003.315,
+          "mean_head_hit": 0.04091595343467178,
+          "mean_recall": 0.04091595343467178
+        }
+      }
+    }
+  ],
+  "pareto": {
+    "chosen": {
+      "profile": "P2_8k_h128",
+      "cand_cap": 192,
+      "recall": 0.9683041054451371,
+      "bytes": 3060.24,
+      "overflow_posts": 31,
+      "coverage": 1.0,
+      "head_hit": 1.0
+    },
+    "ranked_top10": [
+      {
+        "profile": "P2_8k_h128",
+        "cand_cap": 256,
+        "recall": 1.0,
+        "bytes": 3165.84,
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_8k_h128",
+        "cand_cap": 384,
+        "recall": 1.0,
+        "bytes": 3165.84,
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_8k_h128",
+        "cand_cap": 512,
+        "recall": 1.0,
+        "bytes": 3165.84,
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_8k_h128",
+        "cand_cap": 1024,
+        "recall": 1.0,
+        "bytes": 3165.84,
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_8k_h128",
+        "cand_cap": 2048,
+        "recall": 1.0,
+        "bytes": 3165.84,
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_4k_h256",
+        "cand_cap": 512,
+        "recall": 1.0,
+        "bytes": 6296.08,
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_4k_h256",
+        "cand_cap": 1024,
+        "recall": 1.0,
+        "bytes": 6296.08,
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_4k_h256",
+        "cand_cap": 2048,
+        "recall": 1.0,
+        "bytes": 6296.08,
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_4k_h256",
+        "cand_cap": 384,
+        "recall": 0.9744602340860851,
+        "bytes": 6130.48,
+        "overflow_posts": 0,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      },
+      {
+        "profile": "P2_8k_h128",
+        "cand_cap": 192,
+        "recall": 0.9683041054451371,
+        "bytes": 3060.24,
+        "overflow_posts": 31,
+        "coverage": 1.0,
+        "head_hit": 1.0
+      }
+    ],
+    "n_feasible": 32
+  },
+  "note": "HOST_MODEL. Not a silicon freeze. CAND_CAP is Pareto-chosen, not 256 hardcoded."
+}

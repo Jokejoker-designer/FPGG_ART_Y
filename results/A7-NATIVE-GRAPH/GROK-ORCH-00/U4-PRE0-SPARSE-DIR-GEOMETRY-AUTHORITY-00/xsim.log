@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 16:50:58 2026
+# Process ID         : 47260
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/xsim.log -mode tcl -source {xsim.dir/u4pre0g/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 23648 MB
+#-----------------------------------------------------------
+source xsim.dir/u4pre0g/xsim_script.tcl
+# xsim {u4pre0g} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+CASE_RANGE disjoint T0..T3 last=503fff0
+CASE_MAP exact T2=5020cc0 xor_fake=5020130
+CASE_ALIAS k=0001 ar=5000010 old16_001=5000010
+CASE_ALIAS k=0011 ar=5000110 old16_001=5000010
+CASE_ALIAS k=0101 ar=5001010 old16_001=5000010
+CASE_ALIAS k=0201 ar=5002010 old16_001=5000010
+CASE_ALIAS k=0fff ar=500fff0 old16_001=5000010
+CASE_ALIAS_PAIR 001=5000010 011=5000110
+CASE_V0_K0 dir=0 emit=0
+CASE_V0_KNZ dir=0
+CASE_V1_K0 ar=5020000
+CASE_V1_KNZ ar=5021230
+CASE_UNKNOWN dir=0 emit=0 done=1
+CASE_CAP emit=64 trunc=16 dir=1
+U4_PRE0_SPARSE_DIR_GEOMETRY_PASS
+ROUTER_TO_AXI_GEOMETRY_COMPATIBILITY=PASS
+U4_SEMANTIC=NO
+$finish called at time : 3325 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-PRE0-SPARSE-DIR-GEOMETRY-AUTHORITY-00/tb_u4pre0_sparse_dir_geometry.sv" Line 273
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 16:51:00 2026...

@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/pkg/a7ng_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/learn/a7ng_learned_prior_store.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_learned_prior_store
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-SCHEMA-V2-00/tb_persist_identity_schema_v2.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_persist_identity_schema_v2

@@ -1,0 +1,20 @@
+{
+  "gate": "U7A-R3B-TYPECLASS-TO-LEARN-REACHABILITY-00",
+  "result": "PASS",
+  "evidence_class": "XSIM",
+  "law": "LEARN_KEY_CLASS_CONTEXT_V1",
+  "class_id_58_chiller": {"subj": "0x5443003A", "rel": "0x01", "obj": "0x01000000", "pri": 2, "score": 10},
+  "class_id_58_chiller_repeat": {"pri": 4, "score": 12},
+  "class_id_58_water": {"subj": "0x5443003A", "rel": "0x09", "obj": "0x01000001", "pri": 2, "score": 18},
+  "unbound_mask_miss": true,
+  "high_class_id": 275,
+  "high_subj": "0x54430113",
+  "piano_learned": 0,
+  "c7_addr_observe": "0x03001130",
+  "commit_seq": 32,
+  "ack_count": 32,
+  "sim_ns": 61545,
+  "u7": "CLOSED",
+  "bit": "NO",
+  "program": "NO"
+}

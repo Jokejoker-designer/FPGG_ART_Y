@@ -1,0 +1,14 @@
+{
+  "gate": "U9R-FINAL-REGRESSION-00",
+  "group": "R6",
+  "same_class": true,
+  "type_hit_both": true,
+  "objects_differ": true,
+  "class_collapses_distinct_facts": true,
+  "member_ptr_used_in_lm": false,
+  "m10_scope": "CLASS_PREDICATE_CAP_ONLY",
+  "result": "FAIL",
+  "first_divergence": "M10_MEMBER_EVIDENCE_ABSENT",
+  "bit": false,
+  "program": false
+}

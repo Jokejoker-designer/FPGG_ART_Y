@@ -1,0 +1,58 @@
+{
+  "gate": "PERSIST-IDENTITY-WIDTH-00",
+  "base": "a0a923d02153fb7a396e03edc6f055955ad45e41",
+  "rtl_edit": false,
+  "result": "FAIL",
+  "blocker": "PERSIST_IDENTITY_ALIAS",
+  "first_divergence": "DDR persistence serialization",
+  "violated_invariant": "canonical learned identity must survive persistence bit-exact",
+  "evidence_class": "RTL_FACT + XSIM",
+  "n_divergence": 8,
+  "low_id_control": {
+    "subj": "0x00000011",
+    "obj": "0x00000022",
+    "before_hit": 1,
+    "after_hit": 1,
+    "pri_before": 3,
+    "pri_after": 3,
+    "pass": true
+  },
+  "s1": {
+    "subj": "0x00011234",
+    "obj": "0x00035678",
+    "before_hit": 1,
+    "pri_before": 4,
+    "ddr_payload": "0x1234567801040001",
+    "ddr_subj16": "0x1234",
+    "ddr_obj16": "0x5678",
+    "after_canonical_hit": 0,
+    "after_alias_hit": 1,
+    "alias_subj": "0x00001234",
+    "alias_obj": "0x00005678",
+    "alias_pri": 4
+  },
+  "pair": {
+    "s1_s2_same_16bit_slice": true,
+    "ddr_s1": "0x1234567801040001",
+    "ddr_s2": "0x1234567801050001",
+    "after_s1_hit": 0,
+    "after_s2_hit": 0,
+    "after_alias_hit": 1,
+    "after_alias_pri": 4,
+    "note": "pri 4 vs 5 survive as two truncated slots; lookup of canonical IDs misses; first alias match returns S1 pri"
+  },
+  "s3": {
+    "subj": "0x000C34FF",
+    "obj": "0x000BEEFF",
+    "before_hit": 1,
+    "after_canonical_hit": 0,
+    "after_alias_hit": 1,
+    "alias_subj": "0x000034FF",
+    "alias_obj": "0x0000EEFF"
+  },
+  "rtl_flush": "{q_subj[15:0], q_obj[15:0], q_rel, q_pri, q_pen, q_stp}",
+  "rtl_reload": "pack_e(..., {16'd0, rdata[47:32]}, {16'd0, rdata[63:48]})",
+  "c7_addr_also_uses_subj15": true,
+  "c9_oracle_untouched": true,
+  "full_scan_fallback": false
+}

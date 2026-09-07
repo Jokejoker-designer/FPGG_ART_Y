@@ -1,0 +1,15 @@
+{
+  "gate": "PERSIST-IDENTITY-SCHEMA-V2-00",
+  "option": "A_two_beat_full32",
+  "result": "PASS",
+  "n_divergence": 0,
+  "low_id": {"after_hit": 1, "pri": 3},
+  "s1": {"ddr_id": "0x0001123400035678", "after_hit": 1, "alias_hit": 0, "pri": 4},
+  "s2": {"ddr_id": "0x0002123400045678", "after_hit": 1, "alias_hit": 0, "pri": 5},
+  "s3": {"ddr_id": "0x000c34ff000beeff", "after_hit": 1, "alias_hit": 0, "pri": 2},
+  "s1_s2_same_ddr": false,
+  "c9_unit": "C9_LEARNED_PRIOR_GRAPH_XSIM_PASS",
+  "c9_hold_a": "8382238122802120",
+  "out_silicon_rerun": false,
+  "c7_addr_still_subj15": true
+}

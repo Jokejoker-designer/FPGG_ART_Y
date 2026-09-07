@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 21:25:26 2026
+# Process ID         : 22512
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-ROOT-B-REACHABILITY-REAUDIT-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-ROOT-B-REACHABILITY-REAUDIT-00/xsim.log -mode tcl -source {xsim.dir/u7a/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-ROOT-B-REACHABILITY-REAUDIT-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-ROOT-B-REACHABILITY-REAUDIT-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 24525 MB
+#-----------------------------------------------------------
+source xsim.dir/u7a/xsim_script.tcl
+# xsim {u7a} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+BOOT pdone_n=0 boot=1
+REACHABILITY NOT_REACHABLE decoy_CLASS_ID=57 not wired to upd_subj
+C7_OBSERVE addr=03012340 seq=1 cnt=1 (NOT commit proof; low16 shifted)
+G1_ACK1 code=1 n_cons=1 n_dup=0 pending=0
+G1_ACK2 code=6 n_cons=1 n_dup=1
+ALIAS_NS subj=57 (not CLASS_ID) hit=1 pri=1
+FULL32 seq=32 ack=32 n_upd=32
+UPD33 persist_done seen seq=32 ack=33
+LK33 hit=0 pri=0 seq=32 ack=33
+FIRST_DIVERGENCE CONFIRMED_DEFECT persist_done/ack_count without BRAM commit (store full, wrote=0)
+FLUSH identity beat addr=1 data=000c34ff000beeff
+RESET_BEAT2 lk_hit=0 (expect 0 if incomplete flush not committed)
+U7A_COUNTERS n_upd=34 n_pdone=1 n_c7ack=0 n_cons=0 n_dup=0
+C7_ADDR_NOT_PROOF observe_only
+HOST_SEMANTIC=0
+QHEAD=NO BIT=NO PROGRAM=NO
+U6_TYPECLASS_MINHEAP_TIMING residual OPEN WNS=-4.103ns
+U7A_ROOTB_FAIL tag=CONFIRMED_DEFECT persist_done/ack_count without BRAM commit (store full, wrote=0)
+$finish called at time : 28655 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U7A-ROOT-B-REACHABILITY-REAUDIT-00/tb_u7a_rootb.sv" Line 284
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 21:25:27 2026...

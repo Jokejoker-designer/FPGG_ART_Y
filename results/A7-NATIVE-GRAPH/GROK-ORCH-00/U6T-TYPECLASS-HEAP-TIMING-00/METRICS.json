@@ -1,0 +1,13 @@
+{
+  "gate": "U6T-TYPECLASS-HEAP-TIMING-00",
+  "result": "FAIL",
+  "first_divergence": "QSE_LEXICON_COMBO",
+  "pre_patch_route_wns_ns": -5.783,
+  "post_patch_route_wns_ns": -3.349,
+  "post_patch_route_tns_ns": -89.415,
+  "post_patch_whs_ns": 0.155,
+  "clk_ns": 10.0,
+  "u6_xsim": "PASS",
+  "bit": false,
+  "program": false
+}

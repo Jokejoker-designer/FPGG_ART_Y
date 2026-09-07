@@ -1,0 +1,21 @@
+{
+  "gate": "U8-UNIFIED-SOC-XSIM-00",
+  "result": "PASS",
+  "dut": "a7ng_typeclass_soc_chain",
+  "soc_top_instantiated": false,
+  "query": "install chiller",
+  "qse": [1, 1, 0, 0],
+  "heap_class_id": [65, 66, 67],
+  "enc_ctx_stream": "1 1 0 0 1 1 0 1 1 1 1 0",
+  "ctx_we_beats": 2,
+  "start_fwd_pulses": 1,
+  "lm_busy_rise": 1,
+  "lm_done": 1,
+  "pred_obs": 861,
+  "host_semantic": 0,
+  "semantic_lm_claim": false,
+  "class": "LM_CHECKPOINT_CONTEXT_MISMATCH",
+  "bit": false,
+  "program": false,
+  "u8r": false
+}

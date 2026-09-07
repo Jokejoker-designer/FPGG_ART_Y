@@ -7,6 +7,7 @@ module a7ng_wdma_cdc (
   input  logic         m_rst_n,
   input  logic         m_owner,
   input  logic         m_go,
+  output logic         m_go_ready,
   input  logic         m_wr,
   input  logic [27:0]  m_addr,
   input  logic [31:0]  m_bytes,
@@ -92,10 +93,12 @@ module a7ng_wdma_cdc (
   cmd_st_t cmd_st;
 
   // GO-REQUEST-PENDING-00: hold one cmd on m_clk until owned accept.
+  // Ready-law: m_go_ready low while hold occupied; producer must wait.
   // Live-write (ISSUE_GATED) was: cmd_wr_en = m_rst_n && m_go && m_owner && !cmd_full.
   logic              cmd_hold_valid, cmd_hold_overflow;
   logic [CMD_W-1:0]  cmd_hold_data;
   wire               cmd_accept = cmd_hold_valid && m_owner && !cmd_full;
+  assign m_go_ready = m_rst_n && !cmd_hold_valid;
   assign cmd_wdata = cmd_hold_data;
   assign cmd_wr_en = m_rst_n && cmd_accept;
 
@@ -107,7 +110,7 @@ module a7ng_wdma_cdc (
     end else if (cmd_accept) begin
       // Drop hold on accept. Do not relatch same-cycle m_go (371 3× GO).
       cmd_hold_valid    <= 1'b0;
-    end else if (m_go && !cmd_hold_valid) begin
+    end else if (m_go && m_go_ready) begin
       cmd_hold_data     <= {m_wr, m_addr, m_bytes};
       cmd_hold_valid    <= 1'b1;
     end else if (m_go && cmd_hold_valid) begin

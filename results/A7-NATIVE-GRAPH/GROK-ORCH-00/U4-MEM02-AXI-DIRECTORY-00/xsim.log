@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 17:10:22 2026
+# Process ID         : 25496
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-AXI-DIRECTORY-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-AXI-DIRECTORY-00/xsim.log -mode tcl -source {xsim.dir/u4mem02/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-AXI-DIRECTORY-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-AXI-DIRECTORY-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 22987 MB
+#-----------------------------------------------------------
+source xsim.dir/u4mem02/xsim_script.tcl
+# xsim {u4mem02} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Q0 QSE n_dir=2 n_post=2 pred=8 emit=4 dup=4 trunc=0 beats=4 bytes=64
+Q1 QSE n_dir=3 n_post=3 pred=27 emit=22 dup=5 trunc=0 beats=10 bytes=160
+Q2 QSE n_dir=3 n_post=1 pred=4 emit=4 dup=0 trunc=0 beats=4 bytes=64
+Q3 QSE n_dir=0 n_post=0 pred=0 emit=0 dup=0 trunc=0 beats=0 bytes=0
+Q4 QSE n_dir=0 n_post=0 pred=0 emit=0 dup=0 trunc=0 beats=0 bytes=0
+Q5 QSE n_dir=0 n_post=0 pred=0 emit=0 dup=0 trunc=0 beats=0 bytes=0
+Q6 POKE n_dir=1 n_post=1 pred=4 emit=4 dup=0 trunc=0 beats=2 bytes=32
+Q7 POKE n_dir=1 n_post=1 pred=1 emit=1 dup=0 trunc=0 beats=2 bytes=32
+Q8 POKE n_dir=1 n_post=0 pred=0 emit=0 dup=0 trunc=0 beats=1 bytes=16
+Q9 POKE n_dir=1 n_post=1 pred=80 emit=64 dup=0 trunc=16 beats=21 bytes=336
+Q10 POKE n_dir=0 n_post=0 pred=0 emit=0 dup=0 trunc=0 beats=0 bytes=0
+Q11 POKE n_dir=0 n_post=0 pred=0 emit=0 dup=0 trunc=0 beats=0 bytes=0
+Q12 QSE n_dir=2 n_post=2 pred=8 emit=4 dup=4 trunc=0 beats=4 bytes=64
+U4_MEM02_AXI_DIRECTORY_PASS
+CLAIM=FPGA-owned query features drive 4x4096 AXI sparse dir/posting and match host-golden candidate identities
+NOT_CLAIMED=800k,P4_quality,U5,board
+$finish called at time : 6605 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-AXI-DIRECTORY-00/tb_u4_mem02_axi_directory.sv" Line 346
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 17:10:24 2026...

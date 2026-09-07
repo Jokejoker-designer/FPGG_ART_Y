@@ -1,0 +1,15 @@
+{
+  "gate": "U5-MEM02-SPARSE-800K-00",
+  "result": "PASS",
+  "base": "4677ad26762d3ccc81e3fe204a236c43d7c90b55",
+  "sentinel": 799999,
+  "spread_bytes_constant": 64,
+  "chiller_emit": 4,
+  "collide200_emit": 64,
+  "collide200_trunc": 136,
+  "unknown_dir": 0,
+  "dram_fill_800k": false,
+  "u6": "CLOSED",
+  "bit": "NO",
+  "program": "NO"
+}

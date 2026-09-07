@@ -1,0 +1,53 @@
+{
+  "sha": "99d2455d3e0197b081aa05d5154cb31897a7a9e1d48f499b6597749b9080837a",
+  "queries": [
+    [
+      "chiller",
+      "chiller"
+    ],
+    [
+      "water_chiller",
+      "water chiller"
+    ],
+    [
+      "leak_chiller",
+      "leak chiller"
+    ],
+    [
+      "payroll",
+      "payroll tax form"
+    ],
+    [
+      "soccer",
+      "soccer match score"
+    ],
+    [
+      "adversarial",
+      "ypypo tcpgx"
+    ],
+    [
+      "hard_neg_install_chiller",
+      "install chiller"
+    ],
+    [
+      "same_ent_wrong_ctx",
+      "air condenser"
+    ],
+    [
+      "wrong_intent_leak_check",
+      "leak check"
+    ],
+    [
+      "no_answer_piano",
+      "piano lesson"
+    ],
+    [
+      "relation_mismatch_duct",
+      "supply duct"
+    ],
+    [
+      "overflow_relevant_chiller",
+      "chiller"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+GATE=U2R-RESOURCE-MARGIN-RECOVERY-00
+STEP=parser-only rescore of U2-OPTIMIZED-FULLCHIP-COFIT-00 reports
+SLICE_PARSER used=15697 tot=15850 free=153
+TIMING WNS=0.808 TNS=0.000 WHS=0.020 THS=0.000 route_err=0
+U2R_PARSER_TERMINAL_PASS
+U2_BASELINE_PREF800_MISS free=153
+NOTE=Available-column parse; Fixed is 0 and must not be used as tot
+SNAP_LUTRAM_U2=u_snap/u_candidate 1408 LUT + 16 LUTRAM (hier)
+LOGITS_LUTRAM_U2=u_logits 704 LUT
+IMPL=SNAP remap to frozen snap_ram4k16 BRAM; LUTRAM_BIND=NO
+PROGRAM=NO
+BIT=NO

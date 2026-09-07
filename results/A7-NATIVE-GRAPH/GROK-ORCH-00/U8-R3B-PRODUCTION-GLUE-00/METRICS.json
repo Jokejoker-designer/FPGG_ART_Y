@@ -1,0 +1,18 @@
+{
+  "gate": "U8-R3B-PRODUCTION-GLUE-00",
+  "result": "PASS",
+  "glue_sha256": "63E32A9BE0A9AA5BCC0679F6D2A78218CA5B11900872636A1DC2716AC52ABF4C",
+  "bag_sha_match": true,
+  "u8_r3_marker": "U8_R3_TYPECLASS_TOPK_TO_LM_PASS",
+  "enc_ctx_stream": "1 1 0 0 1 1 0 1 1 1 1 0",
+  "ctx_we_beats": 2,
+  "start_fwd_pulses": 1,
+  "glue_pred": 861,
+  "core_pred": 861,
+  "host_semantic": 0,
+  "semantic_lm_claim": false,
+  "class": "LM_CHECKPOINT_CONTEXT_MISMATCH",
+  "bit": false,
+  "program": false,
+  "qhead": false
+}

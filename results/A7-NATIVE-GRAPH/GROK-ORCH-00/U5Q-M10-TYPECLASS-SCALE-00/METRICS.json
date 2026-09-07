@@ -1,0 +1,1103 @@
+{
+  "gate": "U5Q-M10-TYPECLASS-SCALE-00",
+  "result": "PASS",
+  "first_divergence": null,
+  "fails": [],
+  "control_legacy_nid_below_recall_min": [
+    {
+      "tag": "chiller@N=256",
+      "leg_rec": 0.7272727272727273
+    },
+    {
+      "tag": "overflow_relevant_chiller@N=256",
+      "leg_rec": 0.7272727272727273
+    },
+    {
+      "tag": "chiller@N=4096",
+      "leg_rec": 0.3333333333333333
+    },
+    {
+      "tag": "water_chiller@N=4096",
+      "leg_rec": 0.3333333333333333
+    },
+    {
+      "tag": "same_ent_wrong_ctx@N=4096",
+      "leg_rec": 0.14285714285714285
+    },
+    {
+      "tag": "wrong_intent_leak_check@N=4096",
+      "leg_rec": 0.24
+    },
+    {
+      "tag": "relation_mismatch_duct@N=4096",
+      "leg_rec": 0.14285714285714285
+    },
+    {
+      "tag": "overflow_relevant_chiller@N=4096",
+      "leg_rec": 0.3333333333333333
+    },
+    {
+      "tag": "chiller@N=16384",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "water_chiller@N=16384",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "same_ent_wrong_ctx@N=16384",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "wrong_intent_leak_check@N=16384",
+      "leg_rec": 0.1276595744680851
+    },
+    {
+      "tag": "relation_mismatch_duct@N=16384",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "overflow_relevant_chiller@N=16384",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "chiller@N=65536",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "water_chiller@N=65536",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "same_ent_wrong_ctx@N=65536",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "wrong_intent_leak_check@N=65536",
+      "leg_rec": 0.1276595744680851
+    },
+    {
+      "tag": "relation_mismatch_duct@N=65536",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "overflow_relevant_chiller@N=65536",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "chiller@N=262144",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "water_chiller@N=262144",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "same_ent_wrong_ctx@N=262144",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "wrong_intent_leak_check@N=262144",
+      "leg_rec": 0.1276595744680851
+    },
+    {
+      "tag": "relation_mismatch_duct@N=262144",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "overflow_relevant_chiller@N=262144",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "chiller@N=800000",
+      "leg_rec": 0.1724137931034483
+    },
+    {
+      "tag": "water_chiller@N=800000",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "same_ent_wrong_ctx@N=800000",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "wrong_intent_leak_check@N=800000",
+      "leg_rec": 0.1276595744680851
+    },
+    {
+      "tag": "relation_mismatch_duct@N=800000",
+      "leg_rec": 0.1
+    },
+    {
+      "tag": "overflow_relevant_chiller@N=800000",
+      "leg_rec": 0.1724137931034483
+    }
+  ],
+  "control_u5q_m10_nid": "FAIL_IMMUTABLE",
+  "n_type_table_256": 57,
+  "n_type_table_800k": 443,
+  "thresholds": {
+    "recall_min": 0.8,
+    "precision_min_bound": 0.1,
+    "no_answer_max_cands": 0,
+    "cand_cap": 64
+  },
+  "scales": {
+    "256": {
+      "n_type_table": 57,
+      "n_valid_records": 240,
+      "queries": [
+        {
+          "query": "chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 57,
+          "gold_types": 11,
+          "cands": 11,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.7272727272727273,
+          "legacy_nids": 64
+        },
+        {
+          "query": "water_chiller",
+          "bound": {
+            "eid": 1,
+            "xid": 1
+          },
+          "n_type_table": 57,
+          "gold_types": 1,
+          "cands": 1,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "leak_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 2
+          },
+          "n_type_table": 57,
+          "gold_types": 1,
+          "cands": 1,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 60
+        },
+        {
+          "query": "payroll",
+          "bound": {},
+          "n_type_table": 57,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "soccer",
+          "bound": {},
+          "n_type_table": 57,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "adversarial",
+          "bound": {},
+          "n_type_table": 57,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "hard_neg_install_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 1
+          },
+          "n_type_table": 57,
+          "gold_types": 1,
+          "cands": 1,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 54
+        },
+        {
+          "query": "same_ent_wrong_ctx",
+          "bound": {
+            "eid": 2,
+            "xid": 1
+          },
+          "n_type_table": 57,
+          "gold_types": 1,
+          "cands": 1,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "wrong_intent_leak_check",
+          "bound": {
+            "iid": 2
+          },
+          "n_type_table": 57,
+          "gold_types": 3,
+          "cands": 3,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 10
+        },
+        {
+          "query": "no_answer_piano",
+          "bound": {},
+          "n_type_table": 57,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "relation_mismatch_duct",
+          "bound": {
+            "eid": 7,
+            "xid": 1
+          },
+          "n_type_table": 57,
+          "gold_types": 1,
+          "cands": 1,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "overflow_relevant_chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 57,
+          "gold_types": 11,
+          "cands": 11,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.7272727272727273,
+          "legacy_nids": 64
+        }
+      ]
+    },
+    "4096": {
+      "n_type_table": 268,
+      "n_valid_records": 4080,
+      "queries": [
+        {
+          "query": "chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 268,
+          "gold_types": 15,
+          "cands": 15,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.3333333333333333,
+          "legacy_nids": 64
+        },
+        {
+          "query": "water_chiller",
+          "bound": {
+            "eid": 1,
+            "xid": 1
+          },
+          "n_type_table": 268,
+          "gold_types": 3,
+          "cands": 3,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.3333333333333333,
+          "legacy_nids": 64
+        },
+        {
+          "query": "leak_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 2
+          },
+          "n_type_table": 268,
+          "gold_types": 1,
+          "cands": 1,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "payroll",
+          "bound": {},
+          "n_type_table": 268,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "soccer",
+          "bound": {},
+          "n_type_table": 268,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "adversarial",
+          "bound": {},
+          "n_type_table": 268,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "hard_neg_install_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 1
+          },
+          "n_type_table": 268,
+          "gold_types": 2,
+          "cands": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "same_ent_wrong_ctx",
+          "bound": {
+            "eid": 2,
+            "xid": 1
+          },
+          "n_type_table": 268,
+          "gold_types": 7,
+          "cands": 7,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.14285714285714285,
+          "legacy_nids": 64
+        },
+        {
+          "query": "wrong_intent_leak_check",
+          "bound": {
+            "iid": 2
+          },
+          "n_type_table": 268,
+          "gold_types": 25,
+          "cands": 25,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.24,
+          "legacy_nids": 64
+        },
+        {
+          "query": "no_answer_piano",
+          "bound": {},
+          "n_type_table": 268,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "relation_mismatch_duct",
+          "bound": {
+            "eid": 7,
+            "xid": 1
+          },
+          "n_type_table": 268,
+          "gold_types": 7,
+          "cands": 7,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.14285714285714285,
+          "legacy_nids": 64
+        },
+        {
+          "query": "overflow_relevant_chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 268,
+          "gold_types": 15,
+          "cands": 15,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.3333333333333333,
+          "legacy_nids": 64
+        }
+      ]
+    },
+    "16384": {
+      "n_type_table": 443,
+      "n_valid_records": 16352,
+      "queries": [
+        {
+          "query": "chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        },
+        {
+          "query": "water_chiller",
+          "bound": {
+            "eid": 1,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "leak_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 4,
+          "cands": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "payroll",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "soccer",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "adversarial",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "hard_neg_install_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 3,
+          "cands": 3,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "same_ent_wrong_ctx",
+          "bound": {
+            "eid": 2,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "wrong_intent_leak_check",
+          "bound": {
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 47,
+          "cands": 47,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1276595744680851,
+          "legacy_nids": 64
+        },
+        {
+          "query": "no_answer_piano",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "relation_mismatch_duct",
+          "bound": {
+            "eid": 7,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "overflow_relevant_chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        }
+      ]
+    },
+    "65536": {
+      "n_type_table": 443,
+      "n_valid_records": 65456,
+      "queries": [
+        {
+          "query": "chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        },
+        {
+          "query": "water_chiller",
+          "bound": {
+            "eid": 1,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "leak_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 4,
+          "cands": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "payroll",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "soccer",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "adversarial",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "hard_neg_install_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 3,
+          "cands": 3,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "same_ent_wrong_ctx",
+          "bound": {
+            "eid": 2,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "wrong_intent_leak_check",
+          "bound": {
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 47,
+          "cands": 47,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1276595744680851,
+          "legacy_nids": 64
+        },
+        {
+          "query": "no_answer_piano",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "relation_mismatch_duct",
+          "bound": {
+            "eid": 7,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "overflow_relevant_chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        }
+      ]
+    },
+    "262144": {
+      "n_type_table": 443,
+      "n_valid_records": 261856,
+      "queries": [
+        {
+          "query": "chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        },
+        {
+          "query": "water_chiller",
+          "bound": {
+            "eid": 1,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "leak_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 4,
+          "cands": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "payroll",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "soccer",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "adversarial",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "hard_neg_install_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 3,
+          "cands": 3,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "same_ent_wrong_ctx",
+          "bound": {
+            "eid": 2,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "wrong_intent_leak_check",
+          "bound": {
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 47,
+          "cands": 47,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1276595744680851,
+          "legacy_nids": 64
+        },
+        {
+          "query": "no_answer_piano",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "relation_mismatch_duct",
+          "bound": {
+            "eid": 7,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "overflow_relevant_chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        }
+      ]
+    },
+    "800000": {
+      "n_type_table": 443,
+      "n_valid_records": 799144,
+      "queries": [
+        {
+          "query": "chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        },
+        {
+          "query": "water_chiller",
+          "bound": {
+            "eid": 1,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "leak_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 4,
+          "cands": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "payroll",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "soccer",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "adversarial",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "hard_neg_install_chiller",
+          "bound": {
+            "eid": 1,
+            "iid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 3,
+          "cands": 3,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 1.0,
+          "legacy_nids": 64
+        },
+        {
+          "query": "same_ent_wrong_ctx",
+          "bound": {
+            "eid": 2,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "wrong_intent_leak_check",
+          "bound": {
+            "iid": 2
+          },
+          "n_type_table": 443,
+          "gold_types": 47,
+          "cands": 47,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1276595744680851,
+          "legacy_nids": 64
+        },
+        {
+          "query": "no_answer_piano",
+          "bound": {},
+          "n_type_table": 443,
+          "gold_types": 0,
+          "cands": 0,
+          "recall": null,
+          "precision": 1.0,
+          "legacy_type_recall": null,
+          "legacy_nids": 0
+        },
+        {
+          "query": "relation_mismatch_duct",
+          "bound": {
+            "eid": 7,
+            "xid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 10,
+          "cands": 10,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1,
+          "legacy_nids": 64
+        },
+        {
+          "query": "overflow_relevant_chiller",
+          "bound": {
+            "eid": 1
+          },
+          "n_type_table": 443,
+          "gold_types": 29,
+          "cands": 29,
+          "recall": 1.0,
+          "precision": 1.0,
+          "legacy_type_recall": 0.1724137931034483,
+          "legacy_nids": 64
+        }
+      ]
+    }
+  },
+  "bit": false,
+  "program": false
+}

@@ -1,0 +1,3 @@
+P2-G1G5-FULLCHIP-COFIT-00 CDC classify (each Unsafe>0 row)
+CDC_UNSAFE sev=Critical src=c166_raw dst=clk_pll_i uns=1 class=CLOCK_GEN_FALSEPATH
+SUMMARY rows_unsafe=1 clkgen_falsepath_endpoints=1 candidate_logic_endpoints=0

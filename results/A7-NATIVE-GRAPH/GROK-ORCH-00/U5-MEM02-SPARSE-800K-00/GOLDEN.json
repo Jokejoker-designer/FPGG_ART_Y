@@ -1,0 +1,188 @@
+{
+  "gate": "U5-MEM02-SPARSE-800K-00",
+  "sentinel": 799999,
+  "sentinel_hex": "0xc34ff",
+  "base_chiller_emit": 4,
+  "spread": [
+    {
+      "N": 42,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    },
+    {
+      "N": 256,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    },
+    {
+      "N": 4096,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    },
+    {
+      "N": 16384,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    },
+    {
+      "N": 65536,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    },
+    {
+      "N": 262144,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    },
+    {
+      "N": 800000,
+      "mode": "SPREAD",
+      "probed_occ": 4,
+      "emit": 4,
+      "dir_ar": 2,
+      "bytes_dir": 32,
+      "post_ids": 4,
+      "full_scan": false
+    }
+  ],
+  "collide": [
+    {
+      "N": 42,
+      "mode": "COLLIDE",
+      "probed_occ": 42,
+      "overflow": 0,
+      "emit": 42,
+      "n_dup": 42,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 22,
+      "bytes": 384,
+      "full_scan": false,
+      "linear_in_N": false
+    },
+    {
+      "N": 256,
+      "mode": "COLLIDE",
+      "probed_occ": 64,
+      "overflow": 1,
+      "emit": 64,
+      "n_dup": 64,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 32,
+      "bytes": 544,
+      "full_scan": false,
+      "linear_in_N": false
+    },
+    {
+      "N": 4096,
+      "mode": "COLLIDE",
+      "probed_occ": 64,
+      "overflow": 1,
+      "emit": 64,
+      "n_dup": 64,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 32,
+      "bytes": 544,
+      "full_scan": false,
+      "linear_in_N": false
+    },
+    {
+      "N": 16384,
+      "mode": "COLLIDE",
+      "probed_occ": 64,
+      "overflow": 1,
+      "emit": 64,
+      "n_dup": 64,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 32,
+      "bytes": 544,
+      "full_scan": false,
+      "linear_in_N": false
+    },
+    {
+      "N": 65536,
+      "mode": "COLLIDE",
+      "probed_occ": 64,
+      "overflow": 1,
+      "emit": 64,
+      "n_dup": 64,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 32,
+      "bytes": 544,
+      "full_scan": false,
+      "linear_in_N": false
+    },
+    {
+      "N": 262144,
+      "mode": "COLLIDE",
+      "probed_occ": 64,
+      "overflow": 1,
+      "emit": 64,
+      "n_dup": 64,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 32,
+      "bytes": 544,
+      "full_scan": false,
+      "linear_in_N": false
+    },
+    {
+      "N": 800000,
+      "mode": "COLLIDE",
+      "probed_occ": 64,
+      "overflow": 1,
+      "emit": 64,
+      "n_dup": 64,
+      "n_trunc": 0,
+      "dir_ar": 2,
+      "post_beats": 32,
+      "bytes": 544,
+      "full_scan": false,
+      "linear_in_N": false
+    }
+  ],
+  "spread_bytes_constant": true,
+  "spread_bytes": 64,
+  "chiller_dir": [
+    "0x5001000",
+    "0x5021380"
+  ],
+  "n_dummy_t3": 256,
+  "n_writes": 649,
+  "result": "PASS",
+  "fail_reasons": []
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "cap": 64,
+    "N": 16384,
+    "mean_recall_bound": 0.3046220023762162,
+    "min_recall_bound": 0.033582089552238806,
+    "mean_precision_bound": 0.673828125,
+    "max_lost_frac": 0.9664179104477612,
+    "max_bytes": 816
+  },
+  {
+    "cap": 128,
+    "N": 16384,
+    "mean_recall_bound": 0.3249875298397572,
+    "min_recall_bound": 0.033582089552238806,
+    "mean_precision_bound": 0.5244140625,
+    "max_lost_frac": 0.9664179104477612,
+    "max_bytes": 816
+  },
+  {
+    "cap": 256,
+    "N": 16384,
+    "mean_recall_bound": 0.3249875298397572,
+    "min_recall_bound": 0.033582089552238806,
+    "mean_precision_bound": 0.491893355470868,
+    "max_lost_frac": 0.9664179104477612,
+    "max_bytes": 816
+  },
+  {
+    "cap": 512,
+    "N": 16384,
+    "mean_recall_bound": 0.3249875298397572,
+    "min_recall_bound": 0.033582089552238806,
+    "mean_precision_bound": 0.491893355470868,
+    "max_lost_frac": 0.9664179104477612,
+    "max_bytes": 816
+  },
+  {
+    "cap": 1024,
+    "N": 16384,
+    "mean_recall_bound": 0.3249875298397572,
+    "min_recall_bound": 0.033582089552238806,
+    "mean_precision_bound": 0.491893355470868,
+    "max_lost_frac": 0.9664179104477612,
+    "max_bytes": 816
+  }
+]

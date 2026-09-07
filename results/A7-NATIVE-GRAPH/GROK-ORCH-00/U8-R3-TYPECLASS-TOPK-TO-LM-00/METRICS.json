@@ -1,0 +1,39 @@
+{
+  "gate": "U8-R3-TYPECLASS-TOPK-TO-LM-00",
+  "result": "PASS",
+  "head": "4ca071e7927aa4ceb6b9868eb17630ffa985eaf0",
+  "semantic_lm_claim": false,
+  "classification": "LM_CHECKPOINT_CONTEXT_MISMATCH",
+  "encoder_sha256": "bbd95f7f148e722002e1982292662c8cb54e26ce16ff7ead75400313182892aa",
+  "encoder_unaltered": true,
+  "sim_time_ns": 280342605,
+  "xsim_elapsed_s": 110,
+  "xsim_exit": "Mon Sep 7 08:46:50 2026",
+  "heap": [65, 66, 67, 65520, 65521, 65522, 65523, 65524],
+  "enc_ntok": 12,
+  "enc_rec": 3,
+  "enc_skip": 5,
+  "stream": [1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0],
+  "chain": {
+    "ctx_we": 2,
+    "ctx_beats": 2,
+    "start_fwd_pulses": 1,
+    "start_fwd_beats": 2,
+    "busy_rise": 1,
+    "core_done": 1
+  },
+  "pred_obs": 861,
+  "pred_oracle_claim": false,
+  "host": {
+    "n_host_tok": 0,
+    "n_host_w": 0,
+    "n_host_win": 0,
+    "n_host_addr": 0,
+    "n_host_or": 0,
+    "mem_we_exam": 0
+  },
+  "qhead": false,
+  "bit": false,
+  "program": false,
+  "hold_a_oracle_retarget": false
+}

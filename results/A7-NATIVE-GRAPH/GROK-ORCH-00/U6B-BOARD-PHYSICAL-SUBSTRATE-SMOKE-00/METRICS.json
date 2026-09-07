@@ -1,0 +1,19 @@
+{
+  "gate": "U6B-BOARD-PHYSICAL-SUBSTRATE-SMOKE-00",
+  "result": "PASS",
+  "physical_substrate": "PROVEN_FOR_TESTED_PATH",
+  "bit_sha256": "1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9",
+  "jtag": "210319BE776EA",
+  "uart": "COM12",
+  "c0": "34314347C00114A7",
+  "gen": 1,
+  "n_frames": 36,
+  "c9_observed": true,
+  "c9_pack_hex": "2322832182208180",
+  "c10_out": 0,
+  "u5q": "STILL_FAIL",
+  "u7a": "CLOSED",
+  "gate14_pass": "NO",
+  "u6_20bit_id": "NOT_IN_ARTIFACT",
+  "cdc": "BIT_REPORT_ONLY"
+}

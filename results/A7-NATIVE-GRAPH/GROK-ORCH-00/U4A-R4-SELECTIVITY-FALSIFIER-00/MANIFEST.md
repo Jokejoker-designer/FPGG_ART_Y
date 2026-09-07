@@ -1,0 +1,10 @@
+# SHA256 / commands — U4A-R4
+
+```text
+python selectivity.py   exit=2
+U4A_R4_FAIL
+FIRST_DIVERGENCE=UNRELATED_FULL_CORPUS
+RTL_EDIT=NO
+BIT=NO
+PROGRAM=NO
+```

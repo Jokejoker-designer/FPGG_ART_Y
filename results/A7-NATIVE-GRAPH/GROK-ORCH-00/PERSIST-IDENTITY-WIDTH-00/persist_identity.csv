@@ -1,0 +1,23 @@
+case,phase,subj,obj,hit,pri,pen,note
+LO,before,00000011,00000022,1,3,0,learn
+LO,after,00000011,00000022,1,3,0,reload
+S1,before,00011234,00035678,1,4,0,learn
+S1,ddr,0,1234567801040001,0,0,0,payload
+S1,after_orig,00011234,00035678,0,0,0,reload
+DIVERGENCE,S1,false miss of canonical S1/O1 after reload
+S1,after_alias,00001234,00005678,1,4,0,reload
+DIVERGENCE,S1,false hit on 16-bit alias after reload
+PAIR,before_s1,00011234,00035678,0,0,0,learn
+PAIR,before_s2,00021234,00045678,1,5,0,learn
+DIVERGENCE,PAIR,S1 and S2 serialize to identical 16-bit subj/obj
+PAIR,after_s1,00011234,00035678,0,0,0,reload
+DIVERGENCE,PAIR,S1 false miss after reload
+PAIR,after_s2,00021234,00045678,0,0,0,reload
+DIVERGENCE,PAIR,S2 false miss after reload
+PAIR,after_alias,00001234,00005678,1,4,0,reload
+DIVERGENCE,PAIR,alias false hit after reload
+S3,before,000c34ff,000beeff,1,2,0,learn
+S3,after_orig,000c34ff,000beeff,0,0,0,reload
+DIVERGENCE,S3,canonical S3/O3 false miss after reload
+S3,after_alias,000034ff,0000eeff,1,2,0,reload
+DIVERGENCE,S3,S3 16-bit alias false hit

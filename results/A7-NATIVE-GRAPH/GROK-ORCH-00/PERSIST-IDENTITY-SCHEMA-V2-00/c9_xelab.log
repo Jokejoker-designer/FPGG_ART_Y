@@ -1,0 +1,21 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_a7ng_learned_prior_graph -s c9lp03v2 -timescale 1ns/1ps 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'ordered_valid_o' remains unconnected for this instance [D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/integrate/a7ng_learned_prior_graph.sv:240]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.a7ng_pkg
+Compiling module work.a7ng_feedback_resolver_default
+Compiling module work.a7ng_context_delta
+Compiling module work.a7ng_learned_prior_store
+Compiling module work.a7ng_scorer_lane
+Compiling module work.a7ng_topk_stream_minheap
+Compiling module work.a7ng_learned_prior_graph
+Compiling module work.tb_a7ng_learned_prior_graph
+Built simulation snapshot c9lp03v2

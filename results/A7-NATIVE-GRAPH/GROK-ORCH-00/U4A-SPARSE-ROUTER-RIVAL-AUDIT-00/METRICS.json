@@ -1,0 +1,199 @@
+{
+  "gate": "U4A-SPARSE-ROUTER-RIVAL-AUDIT-00",
+  "evidence_class": "HOST_MODEL",
+  "n": 800000,
+  "n_query": 200,
+  "law": "qfe-v1-crc16-mix-00",
+  "profiles": [
+    {
+      "name": "P2_deep",
+      "n_tables": 2,
+      "n_buckets": 4096,
+      "head_cap": 64,
+      "index": {
+        "overflow_posts": 1075712,
+        "coverage": 0.3510275,
+        "occ_p50": 64,
+        "occ_p99": 64,
+        "occ_max": 64,
+        "empty_frac": 0.0,
+        "dir_bytes": 65536
+      },
+      "by_cap": {
+        "64": {
+          "mean_cands": 64.0,
+          "mean_admitted": 127.995,
+          "mean_bytes": 1040.0,
+          "mean_dups": 0.005,
+          "mean_overflow_q": 63.995,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "128": {
+          "mean_cands": 127.995,
+          "mean_admitted": 127.995,
+          "mean_bytes": 2063.92,
+          "mean_dups": 0.005,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "256": {
+          "mean_cands": 127.995,
+          "mean_admitted": 127.995,
+          "mean_bytes": 2063.92,
+          "mean_dups": 0.005,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "512": {
+          "mean_cands": 127.995,
+          "mean_admitted": 127.995,
+          "mean_bytes": 2063.92,
+          "mean_dups": 0.005,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "1024": {
+          "mean_cands": 127.995,
+          "mean_admitted": 127.995,
+          "mean_bytes": 2063.92,
+          "mean_dups": 0.005,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        }
+      }
+    },
+    {
+      "name": "P4_mod",
+      "n_tables": 4,
+      "n_buckets": 4096,
+      "head_cap": 32,
+      "index": {
+        "overflow_posts": 2675712,
+        "coverage": 0.19539,
+        "occ_p50": 32,
+        "occ_p99": 32,
+        "occ_max": 32,
+        "empty_frac": 0.0,
+        "dir_bytes": 131072
+      },
+      "by_cap": {
+        "64": {
+          "mean_cands": 64.0,
+          "mean_admitted": 127.96,
+          "mean_bytes": 1056.0,
+          "mean_dups": 0.04,
+          "mean_overflow_q": 63.96,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "128": {
+          "mean_cands": 127.96,
+          "mean_admitted": 127.96,
+          "mean_bytes": 2079.36,
+          "mean_dups": 0.04,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "256": {
+          "mean_cands": 127.96,
+          "mean_admitted": 127.96,
+          "mean_bytes": 2079.36,
+          "mean_dups": 0.04,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "512": {
+          "mean_cands": 127.96,
+          "mean_admitted": 127.96,
+          "mean_bytes": 2079.36,
+          "mean_dups": 0.04,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "1024": {
+          "mean_cands": 127.96,
+          "mean_admitted": 127.96,
+          "mean_bytes": 2079.36,
+          "mean_dups": 0.04,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        }
+      }
+    },
+    {
+      "name": "P8_shallow",
+      "n_tables": 8,
+      "n_buckets": 2048,
+      "head_cap": 16,
+      "index": {
+        "overflow_posts": 6137856,
+        "coverage": 0.05679,
+        "occ_p50": 16,
+        "occ_p99": 16,
+        "occ_max": 16,
+        "empty_frac": 0.0,
+        "dir_bytes": 131072
+      },
+      "by_cap": {
+        "64": {
+          "mean_cands": 64.0,
+          "mean_admitted": 127.825,
+          "mean_bytes": 1088.0,
+          "mean_dups": 0.175,
+          "mean_overflow_q": 63.825,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "128": {
+          "mean_cands": 127.825,
+          "mean_admitted": 127.825,
+          "mean_bytes": 2109.2,
+          "mean_dups": 0.175,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "256": {
+          "mean_cands": 127.825,
+          "mean_admitted": 127.825,
+          "mean_bytes": 2109.2,
+          "mean_dups": 0.175,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "512": {
+          "mean_cands": 127.825,
+          "mean_admitted": 127.825,
+          "mean_bytes": 2109.2,
+          "mean_dups": 0.175,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        },
+        "1024": {
+          "mean_cands": 127.825,
+          "mean_admitted": 127.825,
+          "mean_bytes": 2109.2,
+          "mean_dups": 0.175,
+          "mean_overflow_q": 0.0,
+          "mean_recall_k0": 1.0,
+          "max_admitted": 128
+        }
+      }
+    }
+  ],
+  "router_profile_final": "P2_deep",
+  "cand_cap_final": 256,
+  "ddr_query_bound_final": 4127,
+  "note": "HOST_MODEL only. Does not freeze Gate14 semantic recall. Full-scan remains NO."
+}

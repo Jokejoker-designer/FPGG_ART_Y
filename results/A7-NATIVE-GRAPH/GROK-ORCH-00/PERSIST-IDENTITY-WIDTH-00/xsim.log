@@ -1,0 +1,83 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sat Sep  5 16:04:18 2026
+# Process ID         : 30672
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-WIDTH-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-WIDTH-00/xsim.log -mode tcl -source {xsim.dir/persistid/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-WIDTH-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-WIDTH-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 22529 MB
+#-----------------------------------------------------------
+source xsim.dir/persistid/xsim_script.tcl
+# xsim {persistid} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+BOOT gen=1 boot=1
+C7_ACK seq=1 cnt=1 addr=03000110 subj=00000011
+LO BEFORE hit=1 pri=3 pen=0
+DDR_DUMP LO hdr=0000000000000003
+DDR_SLOT LO i=1 w=0011002201030001 subj16=0011 obj16=0022 rel=01 pri=03 pen=00 stp=01
+DDR_SLOT LO i=2 w=0000000000000000 subj16=0000 obj16=0000 rel=00 pri=00 pen=00 stp=00
+DDR_SLOT LO i=3 w=0000000000000000 subj16=0000 obj16=0000 rel=00 pri=00 pen=00 stp=00
+DDR_SLOT LO i=4 w=0000000000000000 subj16=0000 obj16=0000 rel=00 pri=00 pen=00 stp=00
+LO DDR_PAYLOAD=0011002201030001
+LO AFTER_KILL hit=0 (expect 0, ws_live=0)
+LO AFTER_RELOAD orig hit=1 pri=3 pen=0
+C7_ACK seq=2 cnt=2 addr=03012340 subj=00011234
+S1 BEFORE hit=1 pri=4
+DDR_DUMP S1 hdr=0000000000000003
+DDR_SLOT S1 i=1 w=0011002201030001 subj16=0011 obj16=0022 rel=01 pri=03 pen=00 stp=01
+DDR_SLOT S1 i=2 w=1234567801040001 subj16=1234 obj16=5678 rel=01 pri=04 pen=00 stp=01
+DDR_SLOT S1 i=3 w=0000000000000000 subj16=0000 obj16=0000 rel=00 pri=00 pen=00 stp=00
+DDR_SLOT S1 i=4 w=0000000000000000 subj16=0000 obj16=0000 rel=00 pri=00 pen=00 stp=00
+S1 DDR_PAYLOAD=1234567801040001 packed_subj16=1234 packed_obj16=5678
+S1_OBSERVED DDR stores only subj[15:0] (lost 0001)
+S1 AFTER orig hit=0 pri=0
+FIRST_DIVERGENCE tag=S1 false miss of canonical S1/O1 after reload
+S1 AFTER alias(0x1234/0x5678) hit=1 pri=4
+FIRST_DIVERGENCE tag=S1 false hit on 16-bit alias after reload
+C7_ACK seq=3 cnt=3 addr=03012340 subj=00021234
+PAIR BEFORE S1 hit=0 pri=0
+PAIR BEFORE S2 hit=1 pri=5
+DDR_DUMP PAIR hdr=0000000000000003
+DDR_SLOT PAIR i=1 w=0011002201030001 subj16=0011 obj16=0022 rel=01 pri=03 pen=00 stp=01
+DDR_SLOT PAIR i=2 w=1234567801040001 subj16=1234 obj16=5678 rel=01 pri=04 pen=00 stp=01
+DDR_SLOT PAIR i=3 w=1234567801050001 subj16=1234 obj16=5678 rel=01 pri=05 pen=00 stp=01
+DDR_SLOT PAIR i=4 w=0000000000000000 subj16=0000 obj16=0000 rel=00 pri=00 pen=00 stp=00
+PAIR DDR_S1_SLICE=1234567801040001 DDR_S2_SLICE=1234567801050001 same16=1
+FIRST_DIVERGENCE tag=PAIR S1 and S2 serialize to identical 16-bit subj/obj
+PAIR AFTER S1 hit=0 pri=0
+FIRST_DIVERGENCE tag=PAIR S1 false miss after reload
+PAIR AFTER S2 hit=0 pri=0
+FIRST_DIVERGENCE tag=PAIR S2 false miss after reload
+PAIR AFTER alias hit=1 pri=4
+FIRST_DIVERGENCE tag=PAIR alias false hit after reload
+C7_ACK seq=4 cnt=4 addr=03034ff0 subj=000c34ff
+S3 BEFORE hit=1 pri=2
+DDR_DUMP S3 hdr=0000000000000003
+DDR_SLOT S3 i=1 w=0011002201030001 subj16=0011 obj16=0022 rel=01 pri=03 pen=00 stp=01
+DDR_SLOT S3 i=2 w=1234567801040001 subj16=1234 obj16=5678 rel=01 pri=04 pen=00 stp=01
+DDR_SLOT S3 i=3 w=1234567801050001 subj16=1234 obj16=5678 rel=01 pri=05 pen=00 stp=01
+DDR_SLOT S3 i=4 w=34ffeeff01020001 subj16=34ff obj16=eeff rel=01 pri=02 pen=00 stp=01
+S3 AFTER orig hit=0 pri=0
+FIRST_DIVERGENCE tag=S3 canonical S3/O3 false miss after reload
+S3 AFTER alias hit=1 pri=2
+FIRST_DIVERGENCE tag=S3 S3 16-bit alias false hit
+N_DIVERGENCE=8 FAILS=0
+PERSIST_IDENTITY_WIDTH_FAIL n_div=8
+$finish called at time : 14635 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/PERSIST-IDENTITY-WIDTH-00/tb_persist_identity_width.sv" Line 306
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep  5 16:04:19 2026...

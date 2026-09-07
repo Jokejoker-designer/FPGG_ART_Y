@@ -26,6 +26,7 @@ module weight_tile803k #(
     input  logic               dma_busy,
     input  logic               dma_done,
     input  logic               dma_grant = 1'b1,
+    input  logic               dma_go_ready = 1'b1,
     output logic               dma_w_valid,
     input  logic               dma_w_ready,
     output logic [127:0]       dma_w_data,
@@ -303,14 +304,18 @@ module weight_tile803k #(
                             // level-hold go — that is 3× GO). Do not DRAIN
                             // until busy: a pulse while GRANT=0 must sit
                             // here until REQUEST_HELD + grant start DMA.
+                            // Wait dma_go_ready (CDC m_go_ready) so a second
+                            // request is not dropped into cmd_hold_overflow.
                             if (!go_sent) begin
-                                dma_go <= 1'b1;
-                                dma_wr <= is_flush;
-                                dma_addr <= 28'(DDR_WBASE) + 28'(rg_base(is_flush ? cur_rg : hold_rg))
-                                    + {10'd0, ch, 7'd0};
-                                dma_bytes <= 32'(CHUNK);
-                                beat <= 7'd0;
-                                go_sent <= 1'b1;
+                                if (dma_go_ready) begin
+                                    dma_go <= 1'b1;
+                                    dma_wr <= is_flush;
+                                    dma_addr <= 28'(DDR_WBASE) + 28'(rg_base(is_flush ? cur_rg : hold_rg))
+                                        + {10'd0, ch, 7'd0};
+                                    dma_bytes <= 32'(CHUNK);
+                                    beat <= 7'd0;
+                                    go_sent <= 1'b1;
+                                end
                             end
                             if (dma_busy)
                                 dst <= is_flush ? D_FEED : D_DRAIN;

@@ -1,0 +1,514 @@
+{
+  "gate": "U4A-R6-ROUTE-VALIDITY-00",
+  "law": "qse-v1-lexicon-hdc-00",
+  "validity_law": "bind-state bits; NOT (key!=0)",
+  "th_recall": 0.8,
+  "corpus_size": 42,
+  "index": {
+    "records_admitted_per_table": {
+      "T0": 42,
+      "T1": 30,
+      "T2": 42,
+      "T3": 0
+    },
+    "invalid_records_excluded_per_table": {
+      "T0": 0,
+      "T1": 12,
+      "T2": 0,
+      "T3": 42
+    },
+    "bucket0_occupancy_per_table": {
+      "T0": 0,
+      "T1": 0,
+      "T2": 0,
+      "T3": 0
+    },
+    "overflow_per_table": {
+      "T0": 0,
+      "T1": 0,
+      "T2": 0,
+      "T3": 0
+    }
+  },
+  "queries": [
+    {
+      "query": "known_domain",
+      "text": "chiller",
+      "label": "chiller",
+      "k0": 256,
+      "k1": 0,
+      "k2": 4408,
+      "k3": 0,
+      "v0": 1,
+      "v1": 0,
+      "v2": 1,
+      "v3": 0,
+      "ids": {
+        "entity_id": 1,
+        "intent_id": 0,
+        "relation_id": 0,
+        "context_id": 0
+      },
+      "n_host": 0,
+      "tables_probed": [
+        0,
+        2
+      ],
+      "tables_skipped": [
+        1,
+        3
+      ],
+      "bucket_selected": [
+        {
+          "table": 0,
+          "bucket": 256,
+          "occupancy": 4,
+          "key": 256,
+          "valid": 1
+        },
+        {
+          "table": 2,
+          "bucket": 312,
+          "occupancy": 4,
+          "key": 4408,
+          "valid": 1
+        }
+      ],
+      "bucket_occupancy": [
+        4,
+        4
+      ],
+      "candidate_count": 4,
+      "candidate_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "reduction_ratio": 0.9047619047619048,
+      "false_positives": 0,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    },
+    {
+      "query": "paraphrase",
+      "text": "water chiller",
+      "label": "chiller",
+      "k0": 256,
+      "k1": 1,
+      "k2": 4408,
+      "k3": 0,
+      "v0": 1,
+      "v1": 1,
+      "v2": 1,
+      "v3": 0,
+      "ids": {
+        "entity_id": 1,
+        "intent_id": 0,
+        "relation_id": 0,
+        "context_id": 1
+      },
+      "n_host": 0,
+      "tables_probed": [
+        0,
+        1,
+        2
+      ],
+      "tables_skipped": [
+        3
+      ],
+      "bucket_selected": [
+        {
+          "table": 0,
+          "bucket": 256,
+          "occupancy": 4,
+          "key": 256,
+          "valid": 1
+        },
+        {
+          "table": 1,
+          "bucket": 1,
+          "occupancy": 19,
+          "key": 1,
+          "valid": 1
+        },
+        {
+          "table": 2,
+          "bucket": 312,
+          "occupancy": 4,
+          "key": 4408,
+          "valid": 1
+        }
+      ],
+      "bucket_occupancy": [
+        4,
+        19,
+        4
+      ],
+      "candidate_count": 22,
+      "candidate_ids": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        11,
+        13,
+        20,
+        22,
+        24,
+        25,
+        29,
+        30,
+        31,
+        32,
+        33,
+        35,
+        36,
+        38,
+        39,
+        40,
+        41
+      ],
+      "precision": 0.18181818181818182,
+      "recall": 1.0,
+      "reduction_ratio": 0.47619047619047616,
+      "false_positives": 18,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    },
+    {
+      "query": "same_entity_diff_intent",
+      "text": "leak chiller",
+      "label": "chiller",
+      "k0": 258,
+      "k1": 0,
+      "k2": 4408,
+      "k3": 605,
+      "v0": 1,
+      "v1": 0,
+      "v2": 1,
+      "v3": 1,
+      "ids": {
+        "entity_id": 1,
+        "intent_id": 2,
+        "relation_id": 0,
+        "context_id": 0
+      },
+      "n_host": 0,
+      "tables_probed": [
+        0,
+        2,
+        3
+      ],
+      "tables_skipped": [
+        1
+      ],
+      "bucket_selected": [
+        {
+          "table": 0,
+          "bucket": 258,
+          "occupancy": 0,
+          "key": 258,
+          "valid": 1
+        },
+        {
+          "table": 2,
+          "bucket": 312,
+          "occupancy": 4,
+          "key": 4408,
+          "valid": 1
+        },
+        {
+          "table": 3,
+          "bucket": 605,
+          "occupancy": 0,
+          "key": 605,
+          "valid": 1
+        }
+      ],
+      "bucket_occupancy": [
+        0,
+        4,
+        0
+      ],
+      "candidate_count": 4,
+      "candidate_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "reduction_ratio": 0.9047619047619048,
+      "false_positives": 0,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    },
+    {
+      "query": "unrelated_payroll",
+      "text": "payroll tax form",
+      "label": null,
+      "k0": 0,
+      "k1": 0,
+      "k2": 0,
+      "k3": 0,
+      "v0": 0,
+      "v1": 0,
+      "v2": 0,
+      "v3": 0,
+      "ids": {
+        "entity_id": 0,
+        "intent_id": 0,
+        "relation_id": 0,
+        "context_id": 0
+      },
+      "n_host": 0,
+      "tables_probed": [],
+      "tables_skipped": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bucket_selected": [],
+      "bucket_occupancy": [],
+      "candidate_count": 0,
+      "candidate_ids": [],
+      "precision": 1.0,
+      "recall": null,
+      "reduction_ratio": 1.0,
+      "false_positives": 0,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    },
+    {
+      "query": "unrelated_soccer",
+      "text": "soccer match score",
+      "label": null,
+      "k0": 0,
+      "k1": 0,
+      "k2": 0,
+      "k3": 0,
+      "v0": 0,
+      "v1": 0,
+      "v2": 0,
+      "v3": 0,
+      "ids": {
+        "entity_id": 0,
+        "intent_id": 0,
+        "relation_id": 0,
+        "context_id": 0
+      },
+      "n_host": 0,
+      "tables_probed": [],
+      "tables_skipped": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bucket_selected": [],
+      "bucket_occupancy": [],
+      "candidate_count": 0,
+      "candidate_ids": [],
+      "precision": 1.0,
+      "recall": null,
+      "reduction_ratio": 1.0,
+      "false_positives": 0,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    },
+    {
+      "query": "adversarial",
+      "text": "ypypo tcpgx",
+      "label": null,
+      "k0": 0,
+      "k1": 0,
+      "k2": 0,
+      "k3": 0,
+      "v0": 0,
+      "v1": 0,
+      "v2": 0,
+      "v3": 0,
+      "ids": {
+        "entity_id": 0,
+        "intent_id": 0,
+        "relation_id": 0,
+        "context_id": 0
+      },
+      "n_host": 0,
+      "tables_probed": [],
+      "tables_skipped": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bucket_selected": [],
+      "bucket_occupancy": [],
+      "candidate_count": 0,
+      "candidate_ids": [],
+      "precision": 1.0,
+      "recall": null,
+      "reduction_ratio": 1.0,
+      "false_positives": 0,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    },
+    {
+      "query": "fully_unknown",
+      "text": "",
+      "label": null,
+      "k0": 0,
+      "k1": 0,
+      "k2": 0,
+      "k3": 0,
+      "v0": 0,
+      "v1": 0,
+      "v2": 0,
+      "v3": 0,
+      "ids": {
+        "entity_id": 0,
+        "intent_id": 0,
+        "relation_id": 0,
+        "context_id": 0
+      },
+      "n_host": 0,
+      "tables_probed": [],
+      "tables_skipped": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bucket_selected": [],
+      "bucket_occupancy": [],
+      "candidate_count": 0,
+      "candidate_ids": [],
+      "precision": 1.0,
+      "recall": null,
+      "reduction_ratio": 1.0,
+      "false_positives": 0,
+      "returns_entire_corpus": false,
+      "crc_as_route": false,
+      "used_key_neq_zero_as_valid": false,
+      "full_scan_fallback": false
+    }
+  ],
+  "unrelated_pairwise_jaccard": {
+    "unrelated_payroll__unrelated_soccer": {
+      "jaccard": 0.0,
+      "a_count": 0,
+      "b_count": 0
+    },
+    "unrelated_payroll__adversarial": {
+      "jaccard": 0.0,
+      "a_count": 0,
+      "b_count": 0
+    },
+    "unrelated_soccer__adversarial": {
+      "jaccard": 0.0,
+      "a_count": 0,
+      "b_count": 0
+    }
+  },
+  "protocol_valid1_key0": {
+    "description": "synthetic valid=1,key=0 vs valid=0,key=0 on T2",
+    "valid1_key0": {
+      "k": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "tables_probed": [
+        2
+      ],
+      "candidate_count": 1,
+      "candidate_ids": [
+        0
+      ],
+      "buckets": [
+        {
+          "table": 2,
+          "bucket": 0,
+          "occupancy": 1,
+          "key": 0,
+          "valid": 1
+        }
+      ],
+      "expected_probe": true,
+      "observed_probe": true,
+      "pass": true
+    },
+    "valid0_key0": {
+      "k": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "tables_probed": [],
+      "candidate_count": 0,
+      "expected_probe": false,
+      "observed_probe": false,
+      "pass": true
+    },
+    "valid0_key_nonzero": {
+      "k": [
+        0,
+        0,
+        167,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "tables_probed": [],
+      "candidate_count": 0,
+      "expected_probe": false,
+      "pass": true,
+      "note": "if probe==(key!=0) this would probe; law forbids it"
+    }
+  },
+  "leak_chiller_discrimination": true,
+  "leak_chiller_candidate_set_equal_via_t2": true,
+  "result": "PASS",
+  "fail_reasons": [],
+  "crc_as_route": false,
+  "drop_t3": false,
+  "threshold_retarget": false,
+  "relevant_eq_union": false,
+  "full_scan_fallback": false
+}

@@ -1,0 +1,10 @@
+GATE=U8-UNIFIED-SOC-XSIM-00
+DUT=a7ng_typeclass_soc_chain
+SOC_TOP_EDIT=NO
+U8R=NO
+BIT=NO
+PROGRAM=NO
+QHEAD=NO
+SEMANTIC_LM=MISMATCH
+HOLD_A=NO_RETARGET
+GLUE=rtl/native_graph/lm/a7ng_lm_ctx_fwd_v1.sv

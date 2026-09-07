@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Sep  4 13:12:14 2026
+# Process ID         : 17636
+# Current directory  : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-SPARSE-DIRECTORY-00/xsim_work
+# Command line       : xsim.exe -log D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-SPARSE-DIRECTORY-00/xsim.log -mode tcl -source {xsim.dir/u4dir/xsim_script.tcl}
+# Log file           : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-SPARSE-DIRECTORY-00/xsim.log
+# Journal file       : D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-SPARSE-DIRECTORY-00/xsim_work\xsim.jou
+# Running On         : laptop-Quan
+# Platform           : Windows 11
+# Operating System   : 22621
+# Processor Detail   : AMD Ryzen 7 5800HS with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16541 MB
+# Swap memory        : 33756 MB
+# Total Virtual      : 50298 MB
+# Available Virtual  : 27101 MB
+#-----------------------------------------------------------
+source xsim.dir/u4dir/xsim_script.tcl
+# xsim {u4dir} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Q_DONE emit=4 dup=1 trunc=0 cands=4 sent=1
+MEM02_SPARSE_DIRECTORY_PASS scale=256 sentinel=255 full_scan=NO
+$finish called at time : 345 ns : File "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U4-MEM02-SPARSE-DIRECTORY-00/tb_a7ng_sparse_dir.sv" Line 82
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep  4 13:12:15 2026...

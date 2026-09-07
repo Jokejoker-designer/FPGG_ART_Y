@@ -1,0 +1,4 @@
+U3R-ROOFLINE-REMEASURE-05: limiter is C_T=33 after ping-pong.
+
+Do not open TermGen microopt. NEXT=U3Q query representation.
+PROGRAM=NO GATE14_PASS=NO

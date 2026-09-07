@@ -1,0 +1,32 @@
+{
+  "gate": "U9R-FINAL-REGRESSION-00",
+  "result": "FAIL",
+  "production_rtl": "bdddbd68b048054dc0c52e87685829a590f25270",
+  "head": "40e246db922ce3d6fe35815988168c5bce9aa193",
+  "first_divergence": "QUERY_NO_SNAPSHOT",
+  "r_matrix": {
+    "R0": "PASS",
+    "R1": "PASS",
+    "R2": "FAIL",
+    "R3": "INTEGRATION_GAP",
+    "R4": "FAIL",
+    "R5": "FAIL",
+    "R6": "FAIL",
+    "R7": "STRUCTURAL_PASS_ORACLE_GAP",
+    "R8": "PASS"
+  },
+  "REGRESSION_RESULT": "FAIL",
+  "FULL_SOC_RESULT": "INTEGRATION_GAP",
+  "M10_SCOPE": "CLASS_PREDICATE_CAP_ONLY",
+  "ROOT_B_SCOPE": "PRODUCTION_DEST_UNWIRED",
+  "LM_ORACLE_COMPATIBILITY": "ORACLE_COMPATIBILITY_GAP",
+  "READY_FOR_FINAL_SYNTH": "NO",
+  "NEXT": "C03_QUERY_PENDING_SNAPSHOT_SOURCE",
+  "pred_obs_archived": 861,
+  "hold_a": 653,
+  "semantic_lm": "LM_CHECKPOINT_CONTEXT_MISMATCH",
+  "bit": false,
+  "program": false,
+  "qhead": false,
+  "vivado": "2026.1 SW Build 6511674"
+}

@@ -1,0 +1,28 @@
+{
+  "law_id": "lm-ctx-typeclass-serial-v1",
+  "policy": "F_STAGED_FPGA_CONTEXT_ENCODER_V1",
+  "token_width_bits": 8,
+  "lm_vocab_size": 1024,
+  "transport_indexable": "0-255",
+  "unreachable_via_ctx_pack": "256-1023",
+  "max_core_ctx": 128,
+  "v1_bind_ntok_today": 8,
+  "v1_proposed_max_ntok": 64,
+  "rank_order": "heap slot 0 first, valid CLASS_ID only, skip pads",
+  "record_fields": ["CLASS_ID", "eid", "iid", "rid", "xid"],
+  "optional_fields_v1": [],
+  "class_id_numeric_encoding": "NOT_DEFINED",
+  "mapping_table": [],
+  "special_tokens": [],
+  "fpga_owned": true,
+  "host_selected_tokens": false,
+  "semantic_compatibility": "LM_CHECKPOINT_CONTEXT_MISMATCH",
+  "checkpoint_sha256": "c204e55909d99370387c479c74e28c15f285fddee20239459d7c0ec3373001e0",
+  "hold_a_retarget": false,
+  "notes": [
+    "Grammar frozen. Numeric CLASS_ID→token table is empty on purpose.",
+    "No safe 8-bit opcode bank: 0-255 all legal as legacy NID low8.",
+    "Do not invent token IDs. Do not split CLASS_ID into low8/high8.",
+    "A versioned checkpoint/training artifact is required before semantic LM claims."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "gate": "U8R-REMOVE-SYNTHETIC-PRODUCTION-00",
+  "result": "PASS",
+  "prod_ids": [65, 66, 67],
+  "fixture_idle_ids": [0, 0, 0],
+  "synthetic_cand_gen_soc_top": 0,
+  "synthetic_cand_gen_fixture_default": 1,
+  "regression_p7b": "PASS",
+  "regression_typeclass_chain": "PASS",
+  "pred_obs_typeclass": 861,
+  "native_ctx_bind_still_in_ab_core": true,
+  "bit": false,
+  "program": false
+}

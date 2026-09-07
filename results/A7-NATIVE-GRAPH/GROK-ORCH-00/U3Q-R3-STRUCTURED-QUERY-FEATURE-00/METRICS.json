@@ -1,0 +1,589 @@
+{
+  "gate": "U3Q-R3-STRUCTURED-QUERY-FEATURE-00",
+  "law": "qse-v1-lexicon-hdc-00",
+  "thresholds": {
+    "entity_paraphrase_id_stability": 0.85,
+    "intent_paraphrase_id_stability": 0.85,
+    "same_ent_entity_same": 0.85,
+    "same_ent_intent_diff": 0.85,
+    "unrelated_entity_collision": 0.1,
+    "lexicon_perturbation_changes_entity": 0.8,
+    "adversarial_entity_hit_rate": 0.2,
+    "retrieval_recall_at_16": 0.8,
+    "retrieval_recall_at_64": 0.85
+  },
+  "packing": {
+    "k0_ok": true,
+    "k1_ok": true,
+    "crc_unused_in_k0k1": true,
+    "same_in_same_out": true,
+    "sample": {
+      "entity_id": 1,
+      "intent_id": 1,
+      "relation_id": 0,
+      "context_id": 0,
+      "entity_cue": 4408,
+      "intent_cue": 4640,
+      "relation_cue": 0,
+      "context_cue": 0,
+      "crc16_dbg": 30598,
+      "k0": 257,
+      "k1": 0,
+      "k2": 4408,
+      "k3": 4640,
+      "n_host": 0
+    }
+  },
+  "entity_paraphrase": {
+    "n": 30,
+    "hit": 29,
+    "rate": 0.9666666666666667
+  },
+  "entity_rows": [
+    {
+      "label": "chiller",
+      "canon": "chiller",
+      "var": "water chiller",
+      "canon_id": 1,
+      "var_id": 1,
+      "ok": true
+    },
+    {
+      "label": "chiller",
+      "canon": "chiller",
+      "var": "chiller unit",
+      "canon_id": 1,
+      "var_id": 1,
+      "ok": true
+    },
+    {
+      "label": "chiller",
+      "canon": "chiller",
+      "var": "chiller plant",
+      "canon_id": 1,
+      "var_id": 1,
+      "ok": true
+    },
+    {
+      "label": "condenser",
+      "canon": "condenser",
+      "var": "condensing unit",
+      "canon_id": 2,
+      "var_id": 2,
+      "ok": true
+    },
+    {
+      "label": "condenser",
+      "canon": "condenser",
+      "var": "air condenser",
+      "canon_id": 2,
+      "var_id": 2,
+      "ok": true
+    },
+    {
+      "label": "condenser",
+      "canon": "condenser",
+      "var": "condenser coil",
+      "canon_id": 2,
+      "var_id": 2,
+      "ok": true
+    },
+    {
+      "label": "evaporator",
+      "canon": "evaporator",
+      "var": "evap coil",
+      "canon_id": 3,
+      "var_id": 3,
+      "ok": true
+    },
+    {
+      "label": "evaporator",
+      "canon": "evaporator",
+      "var": "evaporator coil",
+      "canon_id": 3,
+      "var_id": 3,
+      "ok": true
+    },
+    {
+      "label": "evaporator",
+      "canon": "evaporator",
+      "var": "dx evaporator",
+      "canon_id": 3,
+      "var_id": 3,
+      "ok": true
+    },
+    {
+      "label": "compressor",
+      "canon": "compressor",
+      "var": "scroll compressor",
+      "canon_id": 4,
+      "var_id": 4,
+      "ok": true
+    },
+    {
+      "label": "compressor",
+      "canon": "compressor",
+      "var": "compressor unit",
+      "canon_id": 4,
+      "var_id": 4,
+      "ok": true
+    },
+    {
+      "label": "refrigerant",
+      "canon": "refrigerant",
+      "var": "r410a",
+      "canon_id": 5,
+      "var_id": 5,
+      "ok": true
+    },
+    {
+      "label": "refrigerant",
+      "canon": "refrigerant",
+      "var": "r32 gas",
+      "canon_id": 5,
+      "var_id": 5,
+      "ok": true
+    },
+    {
+      "label": "refrigerant",
+      "canon": "refrigerant",
+      "var": "refrigerant line",
+      "canon_id": 5,
+      "var_id": 5,
+      "ok": true
+    },
+    {
+      "label": "ahu",
+      "canon": "ahu",
+      "var": "air handler",
+      "canon_id": 6,
+      "var_id": 6,
+      "ok": true
+    },
+    {
+      "label": "ahu",
+      "canon": "ahu",
+      "var": "ahu unit",
+      "canon_id": 6,
+      "var_id": 6,
+      "ok": true
+    },
+    {
+      "label": "ahu",
+      "canon": "ahu",
+      "var": "air handling",
+      "canon_id": 6,
+      "var_id": 6,
+      "ok": true
+    },
+    {
+      "label": "duct",
+      "canon": "duct",
+      "var": "supply duct",
+      "canon_id": 7,
+      "var_id": 7,
+      "ok": true
+    },
+    {
+      "label": "duct",
+      "canon": "duct",
+      "var": "return duct",
+      "canon_id": 7,
+      "var_id": 7,
+      "ok": true
+    },
+    {
+      "label": "duct",
+      "canon": "duct",
+      "var": "ductwork",
+      "canon_id": 7,
+      "var_id": 7,
+      "ok": true
+    },
+    {
+      "label": "vav",
+      "canon": "vav",
+      "var": "vav box",
+      "canon_id": 8,
+      "var_id": 8,
+      "ok": true
+    },
+    {
+      "label": "vav",
+      "canon": "vav",
+      "var": "variable air",
+      "canon_id": 8,
+      "var_id": 8,
+      "ok": true
+    },
+    {
+      "label": "cooling_tower",
+      "canon": "cooling tower",
+      "var": "tower cell",
+      "canon_id": 9,
+      "var_id": 9,
+      "ok": true
+    },
+    {
+      "label": "cooling_tower",
+      "canon": "cooling tower",
+      "var": "ct fan",
+      "canon_id": 9,
+      "var_id": 9,
+      "ok": true
+    },
+    {
+      "label": "pump",
+      "canon": "chilled pump",
+      "var": "condenser pump",
+      "canon_id": 10,
+      "var_id": 2,
+      "ok": false
+    },
+    {
+      "label": "pump",
+      "canon": "chilled pump",
+      "var": "water pump",
+      "canon_id": 10,
+      "var_id": 10,
+      "ok": true
+    },
+    {
+      "label": "valve",
+      "canon": "expansion valve",
+      "var": "txv valve",
+      "canon_id": 11,
+      "var_id": 11,
+      "ok": true
+    },
+    {
+      "label": "valve",
+      "canon": "expansion valve",
+      "var": "solenoid valve",
+      "canon_id": 11,
+      "var_id": 11,
+      "ok": true
+    },
+    {
+      "label": "sensor",
+      "canon": "temp sensor",
+      "var": "pressure sensor",
+      "canon_id": 12,
+      "var_id": 12,
+      "ok": true
+    },
+    {
+      "label": "sensor",
+      "canon": "temp sensor",
+      "var": "dp sensor",
+      "canon_id": 12,
+      "var_id": 12,
+      "ok": true
+    }
+  ],
+  "intent_paraphrase": {
+    "n": 12,
+    "hit": 12,
+    "rate": 1.0
+  },
+  "intent_rows": [
+    {
+      "label": "install",
+      "canon": "install chiller",
+      "var": "mount chiller",
+      "canon_id": 1,
+      "var_id": 1,
+      "ok": true
+    },
+    {
+      "label": "install",
+      "canon": "install chiller",
+      "var": "chiller installation",
+      "canon_id": 1,
+      "var_id": 1,
+      "ok": true
+    },
+    {
+      "label": "leak",
+      "canon": "leak check",
+      "var": "check leak",
+      "canon_id": 2,
+      "var_id": 2,
+      "ok": true
+    },
+    {
+      "label": "leak",
+      "canon": "leak check",
+      "var": "gas leak test",
+      "canon_id": 2,
+      "var_id": 2,
+      "ok": true
+    },
+    {
+      "label": "balance",
+      "canon": "air balance",
+      "var": "balance airflow",
+      "canon_id": 3,
+      "var_id": 3,
+      "ok": true
+    },
+    {
+      "label": "balance",
+      "canon": "air balance",
+      "var": "tab balance",
+      "canon_id": 3,
+      "var_id": 3,
+      "ok": true
+    },
+    {
+      "label": "insulate",
+      "canon": "insulate pipe",
+      "var": "pipe insulation",
+      "canon_id": 4,
+      "var_id": 4,
+      "ok": true
+    },
+    {
+      "label": "insulate",
+      "canon": "insulate pipe",
+      "var": "wrap pipe",
+      "canon_id": 4,
+      "var_id": 4,
+      "ok": true
+    },
+    {
+      "label": "startup",
+      "canon": "startup ahu",
+      "var": "commission ahu",
+      "canon_id": 5,
+      "var_id": 5,
+      "ok": true
+    },
+    {
+      "label": "startup",
+      "canon": "startup ahu",
+      "var": "ahu start",
+      "canon_id": 5,
+      "var_id": 5,
+      "ok": true
+    },
+    {
+      "label": "replace",
+      "canon": "replace compressor",
+      "var": "swap compressor",
+      "canon_id": 6,
+      "var_id": 6,
+      "ok": true
+    },
+    {
+      "label": "replace",
+      "canon": "replace compressor",
+      "var": "compressor swap",
+      "canon_id": 6,
+      "var_id": 6,
+      "ok": true
+    }
+  ],
+  "same_entity_diff_intent": {
+    "entity_same_rate": 1.0,
+    "intent_diff_rate": 1.0,
+    "entity_ids": [
+      1,
+      1,
+      1
+    ],
+    "intent_ids": [
+      1,
+      2,
+      6
+    ],
+    "texts": [
+      "install chiller",
+      "leak chiller",
+      "replace chiller"
+    ]
+  },
+  "unrelated": {
+    "n": 28,
+    "hit": 0,
+    "rate": 0.0,
+    "ids": [
+      [
+        "payroll tax form",
+        0
+      ],
+      [
+        "weather forecast",
+        0
+      ],
+      [
+        "soccer match score",
+        0
+      ],
+      [
+        "cookie recipe",
+        0
+      ],
+      [
+        "piano lesson",
+        0
+      ],
+      [
+        "airport delay",
+        0
+      ],
+      [
+        "stock ticker",
+        0
+      ],
+      [
+        "garden soil",
+        0
+      ]
+    ]
+  },
+  "perturbation": {
+    "n": 5,
+    "changed": 5,
+    "rate": 1.0,
+    "rows": [
+      {
+        "base": "chiller",
+        "pert": "chilles",
+        "base_id": 1,
+        "pert_id": 0,
+        "changed": true
+      },
+      {
+        "base": "condenser",
+        "pert": "condenses",
+        "base_id": 2,
+        "pert_id": 0,
+        "changed": true
+      },
+      {
+        "base": "evaporator",
+        "pert": "evaporatos",
+        "base_id": 3,
+        "pert_id": 0,
+        "changed": true
+      },
+      {
+        "base": "compressor",
+        "pert": "compressos",
+        "base_id": 4,
+        "pert_id": 0,
+        "changed": true
+      },
+      {
+        "base": "ahu",
+        "pert": "ahv",
+        "base_id": 6,
+        "pert_id": 0,
+        "changed": true
+      }
+    ]
+  },
+  "adversarial": {
+    "n": 20,
+    "hits": 0,
+    "rate": 0.0,
+    "rows": [
+      {
+        "text": "ypypo tcpgx",
+        "entity_id": 0
+      },
+      {
+        "text": "atslq fipil",
+        "entity_id": 0
+      },
+      {
+        "text": "onivi lofwb",
+        "entity_id": 0
+      },
+      {
+        "text": "mlgdu nkhap",
+        "entity_id": 0
+      },
+      {
+        "text": "wbwbo xgdgp",
+        "entity_id": 0
+      },
+      {
+        "text": "mnwbi divih",
+        "entity_id": 0
+      },
+      {
+        "text": "uzgzo dipuv",
+        "entity_id": 0
+      },
+      {
+        "text": "wjurm vwhsb",
+        "entity_id": 0
+      },
+      {
+        "text": "ybodk xshql",
+        "entity_id": 0
+      },
+      {
+        "text": "olins zotwn",
+        "entity_id": 0
+      },
+      {
+        "text": "yjejs xwxsf",
+        "entity_id": 0
+      },
+      {
+        "text": "cxunw dqhsv",
+        "entity_id": 0
+      },
+      {
+        "text": "apwjk deber",
+        "entity_id": 0
+      },
+      {
+        "text": "uhsjw dodcv",
+        "entity_id": 0
+      },
+      {
+        "text": "svuvi fyzyx",
+        "entity_id": 0
+      },
+      {
+        "text": "yfifs hotet",
+        "entity_id": 0
+      },
+      {
+        "text": "otkxw pgdgj",
+        "entity_id": 0
+      },
+      {
+        "text": "anitu bgjax",
+        "entity_id": 0
+      },
+      {
+        "text": "ipqdw lobcn",
+        "entity_id": 0
+      },
+      {
+        "text": "axcna nsfmb",
+        "entity_id": 0
+      }
+    ]
+  },
+  "sentinel": {
+    "c34ff_entity": 0,
+    "ascii799999_entity": 0,
+    "ok": true
+  },
+  "retrieval": {
+    "n_docs": 42,
+    "recall_at_16": 0.9523809523809523,
+    "recall_at_64": 0.9523809523809523
+  },
+  "fails": [],
+  "verdict": "PASS",
+  "first_divergence": null,
+  "crc_is_not_route_authority": true,
+  "host_semantic": false
+}

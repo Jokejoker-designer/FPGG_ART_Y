@@ -1,0 +1,60 @@
+{
+  "tc_n": 443,
+  "store_depth": 32,
+  "gold_queries_raw": 12,
+  "gold_unique_qse_tuples": 8,
+  "duplicate_qse_rows": {
+    "(1, 0, 0, 0, 1, 0, 0, 0)": [
+      "chiller",
+      "overflow_relevant_chiller"
+    ],
+    "(0, 0, 0, 0, 0, 0, 0, 0)": [
+      "payroll",
+      "soccer",
+      "adversarial",
+      "no_answer_piano"
+    ]
+  },
+  "gold_queries": 8,
+  "gold_retrieval_events": 113,
+  "unique_CLASS_ONLY_keys_on_gold": 90,
+  "unique_CLASS_CONTEXT_V1_keys_on_gold": 113,
+  "unique_class_ids_appearing_in_gold": 90,
+  "max_cands_one_query": 47,
+  "member_count_min": 1,
+  "member_count_max": 333,
+  "member_count_sum": 7611,
+  "ws_32_cannot_hold_all_443": true,
+  "ws_32_vs_gold_context_keys": {
+    "keys": 113,
+    "depth": 32,
+    "fits": false
+  },
+  "high_class_ids_in_gold": [
+    256,
+    258,
+    260,
+    262,
+    266,
+    267,
+    268,
+    270,
+    275,
+    279,
+    283,
+    298,
+    299,
+    329,
+    330,
+    331,
+    332,
+    364,
+    365,
+    393,
+    394,
+    395,
+    396,
+    397,
+    428
+  ]
+}

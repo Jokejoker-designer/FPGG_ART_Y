@@ -623,7 +623,8 @@ module arty_a7_ng_native_v1_ab_soc_top #(
     .SIM_FULL(1'b0),
     .WAVE(16),
     .MAX_CANDS(TOTAL),
-    .PHYS(PHYS)
+    .PHYS(PHYS),
+    .SYNTHETIC_CAND_GEN(1'b0)
   ) u_ab (
     .clk(core_clk), .rst_n(core_rst_n),
     .clk_dma(core_clk), .rst_dma_n(core_rst_n),

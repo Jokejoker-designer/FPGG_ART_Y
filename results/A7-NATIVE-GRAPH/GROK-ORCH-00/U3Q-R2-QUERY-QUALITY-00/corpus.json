@@ -1,0 +1,2074 @@
+[
+  {
+    "split": "entity",
+    "label": "chiller",
+    "role": "canonical",
+    "text": "chiller",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114
+    ],
+    "k12": 2892,
+    "keys": [
+      "2B4C",
+      "5E2F",
+      "9116",
+      "2C39"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "chiller",
+    "role": "variant",
+    "text": "water chiller",
+    "tokens": [
+      119,
+      97,
+      116,
+      101,
+      114,
+      32,
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114
+    ],
+    "k12": 3193,
+    "keys": [
+      "9C79",
+      "BC0E",
+      "5457",
+      "9159"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "chiller",
+    "role": "variant",
+    "text": "chiller unit",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114,
+      32,
+      117,
+      110,
+      105,
+      116
+    ],
+    "k12": 3242,
+    "keys": [
+      "3CAA",
+      "6FC9",
+      "B730",
+      "30F9"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "chiller",
+    "role": "variant",
+    "text": "chiller plant",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114,
+      32,
+      112,
+      108,
+      97,
+      110,
+      116
+    ],
+    "k12": 2282,
+    "keys": [
+      "E8EA",
+      "DA89",
+      "5651",
+      "E5D8"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "condenser",
+    "role": "canonical",
+    "text": "condenser",
+    "tokens": [
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      101,
+      114
+    ],
+    "k12": 2835,
+    "keys": [
+      "AB13",
+      "C270",
+      "B30A",
+      "A27A"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "condenser",
+    "role": "variant",
+    "text": "condensing unit",
+    "tokens": [
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      105,
+      110,
+      103,
+      32,
+      117,
+      110,
+      105,
+      116
+    ],
+    "k12": 691,
+    "keys": [
+      "D2B3",
+      "EAD0",
+      "7C5B",
+      "DD8B"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "condenser",
+    "role": "variant",
+    "text": "air condenser",
+    "tokens": [
+      97,
+      105,
+      114,
+      32,
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      101,
+      114
+    ],
+    "k12": 167,
+    "keys": [
+      "20A7",
+      "13C6",
+      "6F52",
+      "2D94"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "condenser",
+    "role": "variant",
+    "text": "condenser coil",
+    "tokens": [
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      101,
+      114,
+      32,
+      99,
+      111,
+      105,
+      108
+    ],
+    "k12": 1944,
+    "keys": [
+      "2798",
+      "67FB",
+      "E423",
+      "29D8"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "evaporator",
+    "role": "canonical",
+    "text": "evaporator",
+    "tokens": [
+      101,
+      118,
+      97,
+      112,
+      111,
+      114,
+      97,
+      116,
+      111,
+      114
+    ],
+    "k12": 2678,
+    "keys": [
+      "7A76",
+      "6D13",
+      "3172",
+      "7061"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "evaporator",
+    "role": "variant",
+    "text": "evap coil",
+    "tokens": [
+      101,
+      118,
+      97,
+      112,
+      32,
+      99,
+      111,
+      105,
+      108
+    ],
+    "k12": 2243,
+    "keys": [
+      "88C3",
+      "A3A6",
+      "1F4E",
+      "81E8"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "evaporator",
+    "role": "variant",
+    "text": "evaporator coil",
+    "tokens": [
+      101,
+      118,
+      97,
+      112,
+      111,
+      114,
+      97,
+      116,
+      111,
+      114,
+      32,
+      99,
+      111,
+      105,
+      108
+    ],
+    "k12": 4028,
+    "keys": [
+      "5FBC",
+      "61D9",
+      "665B",
+      "5082"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "evaporator",
+    "role": "variant",
+    "text": "dx evaporator",
+    "tokens": [
+      100,
+      120,
+      32,
+      101,
+      118,
+      97,
+      112,
+      111,
+      114,
+      97,
+      116,
+      111,
+      114
+    ],
+    "k12": 1076,
+    "keys": [
+      "F434",
+      "DF50",
+      "4D4F",
+      "F91F"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "compressor",
+    "role": "canonical",
+    "text": "compressor",
+    "tokens": [
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111,
+      114
+    ],
+    "k12": 3402,
+    "keys": [
+      "CD4A",
+      "D629",
+      "3F78",
+      "C751"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "compressor",
+    "role": "variant",
+    "text": "scroll compressor",
+    "tokens": [
+      115,
+      99,
+      114,
+      111,
+      108,
+      108,
+      32,
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111
+    ],
+    "k12": 3599,
+    "keys": [
+      "EE0F",
+      "AA7C",
+      "E537",
+      "FE4B"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "compressor",
+    "role": "variant",
+    "text": "compressor unit",
+    "tokens": [
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111,
+      114,
+      32,
+      117,
+      110,
+      105,
+      116
+    ],
+    "k12": 3514,
+    "keys": [
+      "EDBA",
+      "D0D9",
+      "595E",
+      "E287"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "refrigerant",
+    "role": "canonical",
+    "text": "refrigerant",
+    "tokens": [
+      114,
+      101,
+      102,
+      114,
+      105,
+      103,
+      101,
+      114,
+      97,
+      110,
+      116
+    ],
+    "k12": 2874,
+    "keys": [
+      "FB3A",
+      "9A48",
+      "ED13",
+      "F05B"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "refrigerant",
+    "role": "variant",
+    "text": "r410a",
+    "tokens": [
+      114,
+      52,
+      49,
+      48,
+      97
+    ],
+    "k12": 1430,
+    "keys": [
+      "2596",
+      "03E4",
+      "0954",
+      "20B0"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "refrigerant",
+    "role": "variant",
+    "text": "r32 gas",
+    "tokens": [
+      114,
+      51,
+      50,
+      32,
+      103,
+      97,
+      115
+    ],
+    "k12": 791,
+    "keys": [
+      "E317",
+      "C565",
+      "4154",
+      "E431"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "refrigerant",
+    "role": "variant",
+    "text": "refrigerant line",
+    "tokens": [
+      114,
+      101,
+      102,
+      114,
+      105,
+      103,
+      101,
+      114,
+      97,
+      110,
+      116,
+      32,
+      108,
+      105,
+      110,
+      101
+    ],
+    "k12": 2147,
+    "keys": [
+      "9863",
+      "D711",
+      "043D",
+      "882C"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "ahu",
+    "role": "canonical",
+    "text": "ahu",
+    "tokens": [
+      97,
+      104,
+      117
+    ],
+    "k12": 3190,
+    "keys": [
+      "CC76",
+      "B017",
+      "4B1D",
+      "CF0A"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "ahu",
+    "role": "variant",
+    "text": "air handler",
+    "tokens": [
+      97,
+      105,
+      114,
+      32,
+      104,
+      97,
+      110,
+      100,
+      108,
+      101,
+      114
+    ],
+    "k12": 380,
+    "keys": [
+      "A17C",
+      "831D",
+      "4843",
+      "AA5E"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "ahu",
+    "role": "variant",
+    "text": "ahu unit",
+    "tokens": [
+      97,
+      104,
+      117,
+      32,
+      117,
+      110,
+      105,
+      116
+    ],
+    "k12": 1072,
+    "keys": [
+      "2430",
+      "7E51",
+      "6A3B",
+      "2C6A"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "ahu",
+    "role": "variant",
+    "text": "air handling",
+    "tokens": [
+      97,
+      105,
+      114,
+      32,
+      104,
+      97,
+      110,
+      100,
+      108,
+      105,
+      110,
+      103
+    ],
+    "k12": 1781,
+    "keys": [
+      "F6F5",
+      "A394",
+      "C634",
+      "FAA0"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "duct",
+    "role": "canonical",
+    "text": "duct",
+    "tokens": [
+      100,
+      117,
+      99,
+      116
+    ],
+    "k12": 1137,
+    "keys": [
+      "4471",
+      "4215",
+      "C462",
+      "4077"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "duct",
+    "role": "variant",
+    "text": "supply duct",
+    "tokens": [
+      115,
+      117,
+      112,
+      112,
+      108,
+      121,
+      32,
+      100,
+      117,
+      99,
+      116
+    ],
+    "k12": 1355,
+    "keys": [
+      "354B",
+      "0038",
+      "0946",
+      "3E7E"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "duct",
+    "role": "variant",
+    "text": "return duct",
+    "tokens": [
+      114,
+      101,
+      116,
+      117,
+      114,
+      110,
+      32,
+      100,
+      117,
+      99,
+      116
+    ],
+    "k12": 2803,
+    "keys": [
+      "7AF3",
+      "5681",
+      "045E",
+      "71DF"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "duct",
+    "role": "variant",
+    "text": "ductwork",
+    "tokens": [
+      100,
+      117,
+      99,
+      116,
+      119,
+      111,
+      114,
+      107
+    ],
+    "k12": 3233,
+    "keys": [
+      "5CA1",
+      "5BC5",
+      "1863",
+      "54A6"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "vav",
+    "role": "canonical",
+    "text": "vav",
+    "tokens": [
+      118,
+      97,
+      118
+    ],
+    "k12": 126,
+    "keys": [
+      "807E",
+      "E108",
+      "3B17",
+      "831F"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "vav",
+    "role": "variant",
+    "text": "vav box",
+    "tokens": [
+      118,
+      97,
+      118,
+      32,
+      98,
+      111,
+      120
+    ],
+    "k12": 2303,
+    "keys": [
+      "38FF",
+      "0C89",
+      "CE42",
+      "3FCB"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "vav",
+    "role": "variant",
+    "text": "variable air",
+    "tokens": [
+      118,
+      97,
+      114,
+      105,
+      97,
+      98,
+      108,
+      101,
+      32,
+      97,
+      105,
+      114
+    ],
+    "k12": 1523,
+    "keys": [
+      "05F3",
+      "5985",
+      "D02A",
+      "09AF"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "cooling_tower",
+    "role": "canonical",
+    "text": "cooling tower",
+    "tokens": [
+      99,
+      111,
+      111,
+      108,
+      105,
+      110,
+      103,
+      32,
+      116,
+      111,
+      119,
+      101,
+      114
+    ],
+    "k12": 463,
+    "keys": [
+      "A1CF",
+      "95AC",
+      "4E57",
+      "ACFB"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "cooling_tower",
+    "role": "variant",
+    "text": "tower cell",
+    "tokens": [
+      116,
+      111,
+      119,
+      101,
+      114,
+      32,
+      99,
+      101,
+      108,
+      108
+    ],
+    "k12": 2501,
+    "keys": [
+      "D9C5",
+      "84B1",
+      "9D29",
+      "D398"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "cooling_tower",
+    "role": "variant",
+    "text": "ct fan",
+    "tokens": [
+      99,
+      116,
+      32,
+      102,
+      97,
+      110
+    ],
+    "k12": 158,
+    "keys": [
+      "A09E",
+      "FEFD",
+      "423D",
+      "A6C0"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "pump",
+    "role": "canonical",
+    "text": "chilled pump",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      100,
+      32,
+      112,
+      117,
+      109,
+      112
+    ],
+    "k12": 2136,
+    "keys": [
+      "2858",
+      "733B",
+      "C738",
+      "2403"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "pump",
+    "role": "variant",
+    "text": "condenser pump",
+    "tokens": [
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      101,
+      114,
+      32,
+      112,
+      117,
+      109,
+      112
+    ],
+    "k12": 3128,
+    "keys": [
+      "3C38",
+      "6D5B",
+      "D332",
+      "3269"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "pump",
+    "role": "variant",
+    "text": "water pump",
+    "tokens": [
+      119,
+      97,
+      116,
+      101,
+      114,
+      32,
+      112,
+      117,
+      109,
+      112
+    ],
+    "k12": 156,
+    "keys": [
+      "F09C",
+      "BDEB",
+      "753A",
+      "FAD1"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "valve",
+    "role": "canonical",
+    "text": "expansion valve",
+    "tokens": [
+      101,
+      120,
+      112,
+      97,
+      110,
+      115,
+      105,
+      111,
+      110,
+      32,
+      118,
+      97,
+      108,
+      118,
+      101
+    ],
+    "k12": 244,
+    "keys": [
+      "00F4",
+      "3191",
+      "7654",
+      "0FC5"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "valve",
+    "role": "variant",
+    "text": "txv valve",
+    "tokens": [
+      116,
+      120,
+      118,
+      32,
+      118,
+      97,
+      108,
+      118,
+      101
+    ],
+    "k12": 3663,
+    "keys": [
+      "1E4F",
+      "2C3B",
+      "C546",
+      "177D"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "valve",
+    "role": "variant",
+    "text": "solenoid valve",
+    "tokens": [
+      115,
+      111,
+      108,
+      101,
+      110,
+      111,
+      105,
+      100,
+      32,
+      118,
+      97,
+      108,
+      118,
+      101
+    ],
+    "k12": 3837,
+    "keys": [
+      "2EFD",
+      "7F8E",
+      "FE22",
+      "20AC"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "sensor",
+    "role": "canonical",
+    "text": "temp sensor",
+    "tokens": [
+      116,
+      101,
+      109,
+      112,
+      32,
+      115,
+      101,
+      110,
+      115,
+      111,
+      114
+    ],
+    "k12": 439,
+    "keys": [
+      "41B7",
+      "7BC3",
+      "024E",
+      "4A8D"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "sensor",
+    "role": "variant",
+    "text": "pressure sensor",
+    "tokens": [
+      112,
+      114,
+      101,
+      115,
+      115,
+      117,
+      114,
+      101,
+      32,
+      115,
+      101,
+      110,
+      115,
+      111,
+      114
+    ],
+    "k12": 379,
+    "keys": [
+      "117B",
+      "220B",
+      "4143",
+      "1E48"
+    ]
+  },
+  {
+    "split": "entity",
+    "label": "sensor",
+    "role": "variant",
+    "text": "dp sensor",
+    "tokens": [
+      100,
+      112,
+      32,
+      115,
+      101,
+      110,
+      115,
+      111,
+      114
+    ],
+    "k12": 3236,
+    "keys": [
+      "2CA4",
+      "0EC0",
+      "FC46",
+      "2586"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "install",
+    "role": "canonical",
+    "text": "install chiller",
+    "tokens": [
+      105,
+      110,
+      115,
+      116,
+      97,
+      108,
+      108,
+      32,
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114
+    ],
+    "k12": 1926,
+    "keys": [
+      "7786",
+      "43EF",
+      "885D",
+      "78B2"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "install",
+    "role": "variant",
+    "text": "mount chiller",
+    "tokens": [
+      109,
+      111,
+      117,
+      110,
+      116,
+      32,
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114
+    ],
+    "k12": 642,
+    "keys": [
+      "6282",
+      "5AEF",
+      "4455",
+      "6FBA"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "install",
+    "role": "variant",
+    "text": "chiller installation",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114,
+      32,
+      105,
+      110,
+      115,
+      116,
+      97,
+      108,
+      108,
+      97
+    ],
+    "k12": 2735,
+    "keys": [
+      "5AAF",
+      "0FCC",
+      "3A36",
+      "4AFA"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "leak",
+    "role": "canonical",
+    "text": "leak check",
+    "tokens": [
+      108,
+      101,
+      97,
+      107,
+      32,
+      99,
+      104,
+      101,
+      99,
+      107
+    ],
+    "k12": 3551,
+    "keys": [
+      "1DDF",
+      "58B3",
+      "D029",
+      "179A"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "leak",
+    "role": "variant",
+    "text": "check leak",
+    "tokens": [
+      99,
+      104,
+      101,
+      99,
+      107,
+      32,
+      108,
+      101,
+      97,
+      107
+    ],
+    "k12": 774,
+    "keys": [
+      "7306",
+      "3665",
+      "D026",
+      "7943"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "leak",
+    "role": "variant",
+    "text": "find leak",
+    "tokens": [
+      102,
+      105,
+      110,
+      100,
+      32,
+      108,
+      101,
+      97,
+      107
+    ],
+    "k12": 3420,
+    "keys": [
+      "3D5C",
+      "1B3A",
+      "3540",
+      "347A"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "leak",
+    "role": "variant",
+    "text": "gas leak test",
+    "tokens": [
+      103,
+      97,
+      115,
+      32,
+      108,
+      101,
+      97,
+      107,
+      32,
+      116,
+      101,
+      115,
+      116
+    ],
+    "k12": 780,
+    "keys": [
+      "530C",
+      "336B",
+      "AC07",
+      "5E6C"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "balance",
+    "role": "canonical",
+    "text": "air balance",
+    "tokens": [
+      97,
+      105,
+      114,
+      32,
+      98,
+      97,
+      108,
+      97,
+      110,
+      99,
+      101
+    ],
+    "k12": 3300,
+    "keys": [
+      "0CE4",
+      "3085",
+      "475D",
+      "07D8"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "balance",
+    "role": "variant",
+    "text": "balance airflow",
+    "tokens": [
+      98,
+      97,
+      108,
+      97,
+      110,
+      99,
+      101,
+      32,
+      97,
+      105,
+      114,
+      102,
+      108,
+      111,
+      119
+    ],
+    "k12": 993,
+    "keys": [
+      "C3E1",
+      "ED83",
+      "AD4C",
+      "CCCF"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "balance",
+    "role": "variant",
+    "text": "tab balance",
+    "tokens": [
+      116,
+      97,
+      98,
+      32,
+      98,
+      97,
+      108,
+      97,
+      110,
+      99,
+      101
+    ],
+    "k12": 2402,
+    "keys": [
+      "C962",
+      "F816",
+      "7845",
+      "C253"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "insulate",
+    "role": "canonical",
+    "text": "insulate pipe",
+    "tokens": [
+      105,
+      110,
+      115,
+      117,
+      108,
+      97,
+      116,
+      101,
+      32,
+      112,
+      105,
+      112,
+      101
+    ],
+    "k12": 2531,
+    "keys": [
+      "C9E3",
+      "F88A",
+      "5658",
+      "C4D2"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "insulate",
+    "role": "variant",
+    "text": "pipe insulation",
+    "tokens": [
+      112,
+      105,
+      112,
+      101,
+      32,
+      105,
+      110,
+      115,
+      117,
+      108,
+      97,
+      116,
+      105,
+      111,
+      110
+    ],
+    "k12": 2969,
+    "keys": [
+      "7B99",
+      "47E9",
+      "7A4C",
+      "74A5"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "insulate",
+    "role": "variant",
+    "text": "wrap pipe",
+    "tokens": [
+      119,
+      114,
+      97,
+      112,
+      32,
+      112,
+      105,
+      112,
+      101
+    ],
+    "k12": 2094,
+    "keys": [
+      "082E",
+      "3059",
+      "ED4F",
+      "0116"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "startup",
+    "role": "canonical",
+    "text": "startup ahu",
+    "tokens": [
+      115,
+      116,
+      97,
+      114,
+      116,
+      117,
+      112,
+      32,
+      97,
+      104,
+      117
+    ],
+    "k12": 103,
+    "keys": [
+      "2067",
+      "1914",
+      "044A",
+      "2B5E"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "startup",
+    "role": "variant",
+    "text": "commission ahu",
+    "tokens": [
+      99,
+      111,
+      109,
+      109,
+      105,
+      115,
+      115,
+      105,
+      111,
+      110,
+      32,
+      97,
+      104,
+      117
+    ],
+    "k12": 1143,
+    "keys": [
+      "3477",
+      "6514",
+      "EA32",
+      "3A26"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "startup",
+    "role": "variant",
+    "text": "ahu start",
+    "tokens": [
+      97,
+      104,
+      117,
+      32,
+      115,
+      116,
+      97,
+      114,
+      116
+    ],
+    "k12": 1915,
+    "keys": [
+      "D77B",
+      "EB1A",
+      "F85D",
+      "DE47"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "replace",
+    "role": "canonical",
+    "text": "replace compressor",
+    "tokens": [
+      114,
+      101,
+      112,
+      108,
+      97,
+      99,
+      101,
+      32,
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115
+    ],
+    "k12": 3086,
+    "keys": [
+      "FC0E",
+      "B67C",
+      "1B38",
+      "EC44"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "replace",
+    "role": "variant",
+    "text": "swap compressor",
+    "tokens": [
+      115,
+      119,
+      97,
+      112,
+      32,
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111,
+      114
+    ],
+    "k12": 1170,
+    "keys": [
+      "6492",
+      "4AE1",
+      "5A5D",
+      "6BBC"
+    ]
+  },
+  {
+    "split": "intent",
+    "label": "replace",
+    "role": "variant",
+    "text": "new compressor",
+    "tokens": [
+      110,
+      101,
+      119,
+      32,
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111,
+      114
+    ],
+    "k12": 658,
+    "keys": [
+      "C292",
+      "85FC",
+      "C529",
+      "CCD5"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "payroll tax form",
+    "tokens": [
+      112,
+      97,
+      121,
+      114,
+      111,
+      108,
+      108,
+      32,
+      116,
+      97,
+      120,
+      32,
+      102,
+      111,
+      114,
+      109
+    ],
+    "k12": 2363,
+    "keys": [
+      "C93B",
+      "C74B",
+      "297E",
+      "D935"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "weather forecast",
+    "tokens": [
+      119,
+      101,
+      97,
+      116,
+      104,
+      101,
+      114,
+      32,
+      102,
+      111,
+      114,
+      101,
+      99,
+      97,
+      115,
+      116
+    ],
+    "k12": 1221,
+    "keys": [
+      "64C5",
+      "27B2",
+      "1334",
+      "7486"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "soccer match score",
+    "tokens": [
+      115,
+      111,
+      99,
+      99,
+      101,
+      114,
+      32,
+      109,
+      97,
+      116,
+      99,
+      104,
+      32,
+      115,
+      99,
+      111
+    ],
+    "k12": 2536,
+    "keys": [
+      "49E8",
+      "4E9B",
+      "7E74",
+      "59EF"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "cookie recipe",
+    "tokens": [
+      99,
+      111,
+      111,
+      107,
+      105,
+      101,
+      32,
+      114,
+      101,
+      99,
+      105,
+      112,
+      101
+    ],
+    "k12": 1005,
+    "keys": [
+      "73ED",
+      "5F8E",
+      "774F",
+      "7EC1"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "piano lesson",
+    "tokens": [
+      112,
+      105,
+      97,
+      110,
+      111,
+      32,
+      108,
+      101,
+      115,
+      115,
+      111,
+      110
+    ],
+    "k12": 336,
+    "keys": [
+      "A150",
+      "F020",
+      "A521",
+      "AD01"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "airport delay",
+    "tokens": [
+      97,
+      105,
+      114,
+      112,
+      111,
+      114,
+      116,
+      32,
+      100,
+      101,
+      108,
+      97,
+      121
+    ],
+    "k12": 1756,
+    "keys": [
+      "16DC",
+      "20BD",
+      "4957",
+      "1BEA"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "stock ticker",
+    "tokens": [
+      115,
+      116,
+      111,
+      99,
+      107,
+      32,
+      116,
+      105,
+      99,
+      107,
+      101,
+      114
+    ],
+    "k12": 806,
+    "keys": [
+      "E326",
+      "A155",
+      "B431",
+      "EF64"
+    ]
+  },
+  {
+    "split": "unrelated",
+    "label": "unrelated",
+    "role": "unrelated",
+    "text": "garden soil",
+    "tokens": [
+      103,
+      97,
+      114,
+      100,
+      101,
+      110,
+      32,
+      115,
+      111,
+      105,
+      108
+    ],
+    "k12": 2047,
+    "keys": [
+      "B7FF",
+      "9598",
+      "2445",
+      "BCDD"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "chiller",
+    "role": "base",
+    "text": "chiller",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      114
+    ],
+    "k12": 2892,
+    "keys": [
+      "2B4C",
+      "5E2F",
+      "9116",
+      "2C39"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "chiller",
+    "role": "edit",
+    "text": "chiller#p",
+    "tokens": [
+      99,
+      104,
+      105,
+      108,
+      108,
+      101,
+      115
+    ],
+    "k12": 2925,
+    "keys": [
+      "3B6D",
+      "4F0E",
+      "9717",
+      "3C19"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "condenser",
+    "role": "base",
+    "text": "condenser",
+    "tokens": [
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      101,
+      114
+    ],
+    "k12": 2835,
+    "keys": [
+      "AB13",
+      "C270",
+      "B30A",
+      "A27A"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "condenser",
+    "role": "edit",
+    "text": "condenser#p",
+    "tokens": [
+      99,
+      111,
+      110,
+      100,
+      101,
+      110,
+      115,
+      101,
+      115
+    ],
+    "k12": 2866,
+    "keys": [
+      "BB32",
+      "D351",
+      "B10B",
+      "B25A"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "evaporator",
+    "role": "base",
+    "text": "evaporator",
+    "tokens": [
+      101,
+      118,
+      97,
+      112,
+      111,
+      114,
+      97,
+      116,
+      111,
+      114
+    ],
+    "k12": 2678,
+    "keys": [
+      "7A76",
+      "6D13",
+      "3172",
+      "7061"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "evaporator",
+    "role": "edit",
+    "text": "evaporator#p",
+    "tokens": [
+      101,
+      118,
+      97,
+      112,
+      111,
+      114,
+      97,
+      116,
+      111,
+      115
+    ],
+    "k12": 2647,
+    "keys": [
+      "6A57",
+      "7C32",
+      "3773",
+      "6041"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "compressor",
+    "role": "base",
+    "text": "compressor",
+    "tokens": [
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111,
+      114
+    ],
+    "k12": 3402,
+    "keys": [
+      "CD4A",
+      "D629",
+      "3F78",
+      "C751"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "compressor",
+    "role": "edit",
+    "text": "compressor#p",
+    "tokens": [
+      99,
+      111,
+      109,
+      112,
+      114,
+      101,
+      115,
+      115,
+      111,
+      115
+    ],
+    "k12": 3435,
+    "keys": [
+      "DD6B",
+      "C708",
+      "3D79",
+      "D771"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "ahu unit",
+    "role": "base",
+    "text": "ahu unit",
+    "tokens": [
+      97,
+      104,
+      117,
+      32,
+      117,
+      110,
+      105,
+      116
+    ],
+    "k12": 1072,
+    "keys": [
+      "2430",
+      "7E51",
+      "6A3B",
+      "2C6A"
+    ]
+  },
+  {
+    "split": "perturbation",
+    "label": "ahu unit",
+    "role": "edit",
+    "text": "ahu unit#p",
+    "tokens": [
+      97,
+      104,
+      117,
+      32,
+      117,
+      110,
+      105,
+      117
+    ],
+    "k12": 1041,
+    "keys": [
+      "3411",
+      "6F70",
+      "6A3A",
+      "3C4A"
+    ]
+  }
+]

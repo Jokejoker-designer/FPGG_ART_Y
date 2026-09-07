@@ -49,7 +49,11 @@ module a7ng_learned_prior_graph #(
   output logic [7:0]   ddr_addr_o,
   output logic [63:0]  ddr_wdata_o,
   input  logic [63:0]  ddr_rdata_i,
-  input  logic         ddr_ack_i
+  input  logic         ddr_ack_i,
+  // C03: parent-path completion when cand walk is off (default unused).
+  input  logic         ext_complete_i = 1'b0,
+  input  a7ng_pkg::node_id_t ext_id_i [8],
+  input  a7ng_pkg::score_t   ext_sc_i [8]
 );
   import a7ng_pkg::*;
 
@@ -80,6 +84,7 @@ module a7ng_learned_prior_graph #(
   logic signed [15:0] g2_delta;
   logic [31:0] ls, lo;
   logic [7:0]  lr;
+  logic        ext_q;
 
   logic sc_v_i, sc_v_o;
   node_id_t sc_id_i, sc_id_o, cap_id;
@@ -278,9 +283,15 @@ module a7ng_learned_prior_graph #(
     lk_o = cand_o(qid, int'(cand_i));
     if (st == S_LATCH) begin
       latch_v = 1'b1;
-      ls = subj_a(int'(fi_of(qid)));
-      if (is_pre_b(qid)) begin lr = 8'd2; lo = obj_b(int'(fi_of(qid))); end
-      else begin lr = 8'd1; lo = obj_a(int'(fi_of(qid))); end
+      if (ext_q) begin
+        ls = ext_id_i[0];
+        lr = 8'd1;
+        lo = ext_id_i[1];
+      end else begin
+        ls = subj_a(int'(fi_of(qid)));
+        if (is_pre_b(qid)) begin lr = 8'd2; lo = obj_b(int'(fi_of(qid))); end
+        else begin lr = 8'd1; lo = obj_a(int'(fi_of(qid))); end
+      end
     end
     if (st == S_CLR)
       hp_clr = !hp_busy;
@@ -303,7 +314,7 @@ module a7ng_learned_prior_graph #(
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
       st <= S_IDLE; qid <= '0; cand_i <= '0;
-      pass_c9 <= 0; snap_valid_o <= 0;
+      pass_c9 <= 0; snap_valid_o <= 0; ext_q <= 1'b0;
       c3_pack <= '0; c9_pack <= '0; cap_id <= '0; cap_s <= '0;
       for (ki = 0; ki < 8; ki = ki + 1) begin
         topk_id_o[ki] <= '0; topk_score_o[ki] <= '0;
@@ -314,7 +325,19 @@ module a7ng_learned_prior_graph #(
         cap_s  <= sc_s_o;
       end
       unique case (st)
-        S_IDLE: if (query_valid_i && query_ready_o) begin
+        S_IDLE: if (ext_complete_i && query_ready_o) begin
+          ext_q <= 1'b1;
+          cand_i <= 0; pass_c9 <= 0; snap_valid_o <= 0;
+          for (ki = 0; ki < 8; ki = ki + 1) begin
+            topk_id_o[ki] <= ext_id_i[ki];
+            topk_score_o[ki] <= ext_sc_i[ki];
+          end
+          $display("GRAPH_EXT_COMPLETE learn=%0d freeze=%0d id0=%0d id1=%0d",
+                   learn_i, freeze_i, ext_id_i[0], ext_id_i[1]);
+          if (learn_i && !freeze_i) st <= S_LATCH;
+          else st <= S_SNAP;
+        end else if (query_valid_i && query_ready_o) begin
+          ext_q <= 1'b0;
           qid <= query_id_i;
           cand_i <= 0; pass_c9 <= 0; snap_valid_o <= 0;
           $display("GRAPH_Q qid=%h train=%0d", query_id_i, is_train(query_id_i));

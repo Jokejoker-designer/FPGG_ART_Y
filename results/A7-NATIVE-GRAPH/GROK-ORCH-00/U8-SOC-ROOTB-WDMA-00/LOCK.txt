@@ -1,0 +1,14 @@
+GATE=U8-SOC-ROOTB-WDMA-00
+BIT=NO
+PROGRAM=NO
+U8R=NO
+SOC_TOP_EDIT=NO
+MIG=NO
+QHEAD=NO
+HOLD_A_ORACLE_RETARGET=NO
+DUT=a7ng_learned_prior_store+a7ng_persist_axi_bridge | a7ng_wdma_cdc+ddr_tile_dma
+NOT_DUT=arty_a7_ng_native_v1_ab_soc_top persist_gen_fast
+C7_ADDR=OBSERVE_ONLY
+PERSIST_GEN_FAST=DISCONNECTED
+RTL_EDIT=m_go_ready
+WIRE=a7ng_wdma_cdc.m_go_ready

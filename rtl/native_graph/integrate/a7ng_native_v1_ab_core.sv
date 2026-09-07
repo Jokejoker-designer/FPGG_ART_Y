@@ -7,7 +7,8 @@ module a7ng_native_v1_ab_core #(
   parameter bit SIM_FULL = 1'b1,
   parameter int unsigned WAVE = 16,
   parameter int unsigned MAX_CANDS = 64,
-  parameter int unsigned PHYS = 4
+  parameter int unsigned PHYS = 4,
+  parameter bit SYNTHETIC_CAND_GEN = 1'b1
 ) (
   input  logic         clk,
   input  logic         rst_n,
@@ -50,7 +51,8 @@ module a7ng_native_v1_ab_core #(
   output logic         bind_busy_o,
   output logic         bind_done_o,
   output logic         ctx_we_o,
-  output logic [63:0]  ctx_pack_o,
+  output logic [63:0]  ctx_pack_o,     // diagnostic 8-bit pack into frozen LM
+  output logic [159:0] ctx_pack20_o,   // live >=20-bit LM-context IDs
   output logic         start_fwd_o,
   output logic         capture_valid_o,
   output logic [31:0]  ctx_we_beats_o,
@@ -98,7 +100,8 @@ module a7ng_native_v1_ab_core #(
   input  logic [127:0] wdma_r_data = 128'd0,
   output logic [3:0]   c1_mode_o,
   output logic [63:0]  c2_anch_o,
-  output logic [63:0]  c9_cframe_o,
+  output logic [63:0]  c9_cframe_o,    // diagnostic 8-bit C9 UART
+  output logic [159:0] c9_id20_o,      // live >=20-bit C9 observe
   output logic         c10_lmst_o,
   output logic         c10_lmdn_o,
   output logic [9:0]   c10_out_o,
@@ -119,6 +122,12 @@ module a7ng_native_v1_ab_core #(
   input  logic [3:0]   g14_cmd_i = 4'd0,
   input  logic [7:0]   g14_tok_i = 8'd0,
   input  logic signed [3:0] g14_rew_i = 4'sd0,
+  // C02: TYPE_CLASS raw-query ports (default unused; UART soc_top not wired yet)
+  input  logic         tc_tok_valid_i = 1'b0,
+  output logic         tc_tok_ready_o,
+  input  logic [7:0]   tc_tok_i = 8'd0,
+  input  logic         tc_fire_i = 1'b0,
+  input  logic         tc_retire_i = 1'b0,
   output logic [31:0]  c8_gen_o,
   output logic [63:0]  c8_sdig_o,
   output logic [63:0]  c11_adig_o,
@@ -249,31 +258,65 @@ module a7ng_native_v1_ab_core #(
     end
   end
 
-  logic [6:0] ctx_idx, ctx_n;
+  logic [6:0] bind_ctx_idx, bind_ctx_n, tc_ctx_idx, tc_ctx_n, ctx_idx, ctx_n;
   logic [9:0] bind_pred;
   logic core_done;
+  logic bind_ctx_we, tc_ctx_we, bind_start_fwd, tc_start_fwd;
+  logic [63:0] bind_ctx_pack, tc_ctx_pack;
+  logic [31:0] bind_ctx_beats, tc_ctx_beats, bind_sf_beats, tc_sf_beats;
+  logic tc_path_busy, tc_sel;
+  logic [15:0] tc_cid [8];
+  node_id_t tc_nid [8];
+  logic [7:0] tc_enc_tok [0:63];
+
+  a7ng_prod_tc_lm u_tc (
+    .clk(clk), .rst_n(rst_n),
+    .tok_valid_i(tc_tok_valid_i), .tok_ready_o(tc_tok_ready_o), .tok_i(tc_tok_i),
+    .fire_i(tc_fire_i), .retire_i(tc_retire_i),
+    .core_busy_i(core_busy_o), .core_done_i(core_done), .core_pred_i(pred_o),
+    .qse_valid_o(), .q_ent_o(), .q_int_o(), .q_rel_o(), .q_ctx_o(),
+    .retrieval_done_o(), .topk_class_id_o(tc_cid), .topk_id_o(tc_nid),
+    .n_host_or_o(), .enc_ntok_o(), .enc_tok_o(tc_enc_tok),
+    .enc_n_rec_o(), .enc_n_skip_o(),
+    .ctx_we_o(tc_ctx_we), .ctx_idx_o(tc_ctx_idx), .ctx_n_in_o(tc_ctx_n),
+    .ctx_pack_o(tc_ctx_pack), .start_fwd_o(tc_start_fwd),
+    .path_busy_o(tc_path_busy), .path_done_o(), .pred_o(),
+    .ctx_we_beats_o(tc_ctx_beats), .start_fwd_beats_o(tc_sf_beats),
+    .dbg_st_o()
+  );
+
+  assign tc_sel = (!SYNTHETIC_CAND_GEN) && (tc_path_busy || tc_start_fwd || tc_ctx_we);
 
   a7ng_native_ctx_bind u_bind (
     .clk(clk), .rst_n(rst_n),
-    .grant_lm_i(grant_lm_o),
-    .start_i(start_pulse || (g14_en_i && (g14_lm_start || (g14_lm_hold && grant_lm_o)))),
-    .do_start_i(do_lm_i),
+    .grant_lm_i(grant_lm_o && !tc_sel),
+    .start_i((start_pulse || (g14_en_i && (g14_lm_start || (g14_lm_hold && grant_lm_o)))) && !tc_sel),
+    .do_start_i(do_lm_i && !tc_sel),
     .global_id_i(bind_gid),
     .core_busy_i(core_busy_o),
     .core_done_i(core_done),
     .core_pred_i(pred_o),
     .busy_o(bind_busy_o),
     .done_o(bind_done_o),
-    .ctx_we_o(ctx_we_o),
-    .ctx_idx_o(ctx_idx),
-    .ctx_n_in_o(ctx_n),
-    .ctx_pack_o(ctx_pack_o),
-    .start_fwd_o(start_fwd_o),
+    .ctx_we_o(bind_ctx_we),
+    .ctx_idx_o(bind_ctx_idx),
+    .ctx_n_in_o(bind_ctx_n),
+    .ctx_pack_o(bind_ctx_pack),
+    .ctx_pack20_o(ctx_pack20_o),
+    .start_fwd_o(bind_start_fwd),
     .pred_o(bind_pred),
-    .ctx_we_beats_o(ctx_we_beats_o),
-    .start_fwd_beats_o(start_fwd_beats_o),
+    .ctx_we_beats_o(bind_ctx_beats),
+    .start_fwd_beats_o(bind_sf_beats),
     .capture_valid_o(capture_valid_o)
   );
+
+  assign ctx_we_o = tc_sel ? tc_ctx_we : bind_ctx_we;
+  assign ctx_idx = tc_sel ? tc_ctx_idx : bind_ctx_idx;
+  assign ctx_n = tc_sel ? tc_ctx_n : bind_ctx_n;
+  assign ctx_pack_o = tc_sel ? tc_ctx_pack : bind_ctx_pack;
+  assign start_fwd_o = tc_sel ? tc_start_fwd : bind_start_fwd;
+  assign ctx_we_beats_o = tc_sel ? tc_ctx_beats : bind_ctx_beats;
+  assign start_fwd_beats_o = tc_sel ? tc_sf_beats : bind_sf_beats;
 
   tiny_gpt803k_core #(.SIM_FULL(SIM_FULL)) u_core (
     .clk(clk), .rst_n(rst_n),
@@ -298,7 +341,7 @@ module a7ng_native_v1_ab_core #(
   );
   assign core_done_o = core_done;
 
-  a7ng_g1g5_cofit u_g1g5 (
+  a7ng_g1g5_cofit #(.SYNTHETIC_CAND_GEN(SYNTHETIC_CAND_GEN)) u_g1g5 (
     .clk(clk), .rst_n(rst_n),
     .graph_topk_valid_i(topk_valid_o),
     .graph_id_i(topk_id_o),
@@ -309,6 +352,7 @@ module a7ng_native_v1_ab_core #(
     .c1_mode_o(c1_mode_o),
     .c2_anch_o(c2_anch_o),
     .c9_topk_o(c9_cframe_o),
+    .c9_id20_o(c9_id20_o),
     .c10_lmst_o(c10_lmst_o),
     .c10_lmdn_o(c10_lmdn_o),
     .c10_out_o(c10_out_o),

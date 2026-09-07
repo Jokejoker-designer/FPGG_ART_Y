@@ -1,0 +1,4 @@
+U0-CANONICAL-WORKTREE-FREEZE-00: freeze V3.1 lineage.
+
+RTL_EDIT=NO. MIG dirt quarantined. Integration branch v31-canonical-00.
+NEXT=U1-HARNESS-AUTHORITY-FIX-00. GATE14_PASS=NO PROGRAM=NO

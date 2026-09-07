@@ -1,0 +1,15 @@
+HUMAN_PROGRAM_TOKEN
+gate=U6B-BOARD-PHYSICAL-SUBSTRATE-SMOKE-00
+authorize_program=yes
+program_once=yes
+authorized_by=human 2026-09-05 Luong A U6B board physical substrate smoke now current V3.1 artifact
+bit_path=D:\Jetking_sem4\SEM_4\arty-a7-online-lm-g14-preboard-00\results\A7-NATIVE-GRAPH\GROK-ORCH-00\G14-EPOCH-REBIRTH-BIT-00\arty_a7_ng_native_v1_g14_epoch_rebirth_00.bit
+bit_sha256=1F0F2ABBA1D2A4DEFBC27547E2FCEEA2186458BE89E569AD7CC08BCE9A2FF4B9
+jtag=210319BE776EA
+device=xc7a100t_0
+uart=COM12
+refuse=3A7EF204 7ECCA0E2 A0B338E0 B0F64E6C
+GATE14_PASS=NO
+U5Q=STILL_FAIL
+U7A=CLOSED
+note=reload frozen SRAM bit for U6B smoke; not a new implementation

@@ -1,0 +1,7 @@
+vivado/ip/mig_7series_0/mig_7series_0/example_design/par/example_top.xdc
+vivado/ip/mig_7series_0/mig_7series_0/user_design/constraints/mig_7series_0.xdc
+vivado/ip/mig_7series_0/mig_7series_0/user_design/constraints/mig_7series_0_ooc.xdc
+CLASS=CRLF_LINE_ENDINGS_ONLY_NOT_XCI_CONTENT
+XCI_HEAD_BLOB_SHA1=305d86144b2a11c74cd51c27a2f0852500dbd5e0
+XCI_BLOB_SHA256=6F17988A3274A5DBC6628AA9204F7C44E4704ACF034D3710DC5E02697ACBB127
+DO_NOT_GIT_ADD_MIG=YES

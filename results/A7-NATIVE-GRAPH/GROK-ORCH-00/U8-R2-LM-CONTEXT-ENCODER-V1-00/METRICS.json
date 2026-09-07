@@ -1,0 +1,14 @@
+{
+  "gate": "U8-R2-LM-CONTEXT-ENCODER-V1-00",
+  "result": "PASS",
+  "semantic_lm_claim": false,
+  "classification": "LM_CHECKPOINT_CONTEXT_MISMATCH",
+  "unique_eirx": 443,
+  "n_class": 443,
+  "install_ntok": 12,
+  "chiller_ntok": 32,
+  "class_257_stream": [7, 0, 2, 0],
+  "qhead": false,
+  "bit": false,
+  "program": false
+}

@@ -1,0 +1,12 @@
+{
+  "gate": "U7A-ROOT-B-FINAL-00",
+  "result": "PASS",
+  "scope": "close_path_learned_prior_store",
+  "u7a_immutable": "FAIL",
+  "soc_wdma_root_b": "OPEN_AUDIT",
+  "persist_gen_fast": "DISCONNECTED",
+  "c7_addr": "OBSERVE_ONLY",
+  "flush_reload_match": 1,
+  "bit": false,
+  "program": false
+}

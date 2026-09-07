@@ -1,0 +1,15 @@
+{
+  "gate": "C03-QUERY-PENDING-SNAPSHOT-SOURCE-00",
+  "result": "PASS",
+  "qv_to_graph": 0,
+  "snap": 1,
+  "pending": 1,
+  "ack_consume": 1,
+  "parent_id0": 65,
+  "parent_id1": 66,
+  "u8r_regression": "PASS",
+  "u9r_fail_bag": "IMMUTABLE",
+  "ready_for_final_synth": false,
+  "bit": false,
+  "program": false
+}

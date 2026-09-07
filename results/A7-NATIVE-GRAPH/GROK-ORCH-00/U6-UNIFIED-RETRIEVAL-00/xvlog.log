@@ -1,0 +1,25 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/pkg/a7ng_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/query/a7ng_query_struct_extract.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_query_struct_extract
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/memory/a7ng_axi_mem_model.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_axi_mem_model
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/memory/a7ng_sparse_dir_axi.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_sparse_dir_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/memory/a7ng_u6_record_lut.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_u6_record_lut
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/scorer/a7ng_scorer_lane.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_scorer_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/topk/a7ng_topk_stream_minheap.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_topk_stream_minheap
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/learn/a7ng_feedback_resolver.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_feedback_resolver
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/learn/a7ng_context_delta.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_context_delta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/learn/a7ng_learned_prior_store.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_learned_prior_store
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/integrate/a7ng_learned_prior_graph.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_learned_prior_graph
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/rtl/native_graph/integrate/a7ng_unified_retrieval.sv" into library work
+INFO: [VRFC 10-311] analyzing module a7ng_unified_retrieval
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Jetking_sem4/SEM_4/arty-a7-online-lm-g14-preboard-00/results/A7-NATIVE-GRAPH/GROK-ORCH-00/U6-UNIFIED-RETRIEVAL-00/tb_u6_unified_retrieval.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_u6_unified_retrieval
